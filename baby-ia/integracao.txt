@@ -1,0 +1,10 @@
+INTEGRAÇÃO NÃO DESTRUTIVA — WEB3.1
+
+Destino sugerido: BABY-AGENT/BABY-AGENT-CONSOLE.html
+
+Link a inserir no menu mãe (após revisão do HTML):
+<a href="BABY-AGENT/BABY-AGENT-CONSOLE.html">BABY I.A. — AGENTE OPERACIONAL</a>
+
+Não substituir a página BABY atual. Primeiro adicionar o link como módulo independente, testar navegação de ida e volta e só então considerar integração direta à interface existente.
+
+O script BABY-AGENT-CORE.js não deve ser incluído em páginas de terceiros nem em arquivos-matriz sem revisão.
