@@ -1,0 +1,12 @@
+{
+  "status": "PRONTO_PARA_SINCRONIZACAO_REAL",
+  "destino_dropbox": "/MEMORY-BOOST/BACKUP-2026-11-16/memorias.json",
+  "metodo": "Backend autenticado OAuth 2.0 - sem token no HTML",
+  "arquivos_para_enviar": [
+    "BACKUP-2026-11-16/memorias.json",
+    "BACKUP-2026-11-16/manifest.json"
+  ],
+  "total": 2,
+  "pendentes": 0,
+  "observacao": "Backup local concluído. Sincronização real depende do backend fazer OAuth e upload. Nenhum dado foi alterado."
+}
