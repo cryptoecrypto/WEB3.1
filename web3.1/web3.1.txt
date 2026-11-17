@@ -1,0 +1,128 @@
+
+WEB3.1.txt
+MAPA TÉCNICO — CRYPY / WEB3.1
+Versão 1.0 — 15/11/2026
+
+OBJETIVO
+Orientar BABY I.A. sobre a estrutura e o funcionamento documentado do WEB3.1.
+
+1. REGRA DE LEITURA
+
+Este arquivo é documentação, não código executável.
+
+BABY deve diferenciar:
+- IMPLEMENTADO
+- DEMONSTRAÇÃO
+- PLANEJADO
+- NÃO VERIFICADO
+
+Não declarar funcionalidades como ativas sem localizar sua implementação e evidência de teste.
+
+Não presumir acesso ao HD inteiro, a outros repositórios ou a plugins.
+
+Nunca solicitar ou armazenar senhas, tokens, chaves privadas, seed phrases ou segredos OAuth.
+
+2. REPOSITÓRIO
+
+Projeto: cryptoecrypto/WEB3.1
+Branch consultada: main
+
+Arquivo inspecionado:
+- App.tsx: encontrado e lido.
+- index.html: encontrado, mas retornou conteúdo vazio na consulta.
+
+Não localizados nos caminhos exatos consultados:
+- README.md
+- package.json
+- vite.config.ts
+- HD-MEMORY-BOOST/BABY-AUTO-CONFIG.txt
+- HD-MEMORY-BOOST/BABY-AUTO-CONFIG.md
+
+A árvore completa do repositório ainda precisa ser inspecionada.
+
+3. ESTRUTURA FUNCIONAL IDENTIFICADA
+
+O App.tsx contém uma aplicação React com TypeScript.
+
+Telas identificadas:
+- MENU
+- TOKEN
+- CARTEIRA
+- COMUNIDADE
+
+MENU:
+- Identificação WEB3.1.
+- Indicador visual PROTÓTIPO ATIVO.
+- Botões para abrir TOKEN, CARTEIRA e COMUNIDADE.
+
+TOKEN:
+- Página demonstrativa.
+- Conteúdo de exemplo.
+- Link demonstrativo sem destino externo funcional.
+
+CARTEIRA:
+- Página demonstrativa.
+- Informações de exemplo sobre acesso e segurança.
+- Não comprova conexão com carteira blockchain.
+
+COMUNIDADE:
+- Página demonstrativa.
+- Informações de exemplo sobre canais e convivência.
+- Não comprova integração com comunidade externa.
+
+NAVEGAÇÃO:
+- Estado local React com useState.
+- Botões VOLTAR retornam ao menu.
+- Os links demonstrativos têm preventDefault e não abrem serviços externos.
+
+4. TECNOLOGIAS IDENTIFICADAS
+
+- React.
+- TypeScript / JSX.
+- useState.
+- lucide-react.
+- Classes utilitárias semelhantes a Tailwind CSS.
+- Variáveis CSS e classes próprias de apresentação.
+
+Não confirmados:
+- Backend.
+- Banco de dados.
+- Login.
+- Integração blockchain.
+- Carteira conectada.
+- Dropbox.
+- Plugins em execução.
+- Sincronização automática.
+
+5. ESTADO REAL
+
+O código consultado comprova um protótipo de navegação com três páginas demonstrativas.
+
+Não comprova:
+- Site 100% funcional.
+- Token emitido.
+- Carteira conectada.
+- Comunidade operacional.
+- Leitura automática do HD.
+- Carregamento automático dos plugins.
+- Autoconfiguração do BABY.
+
+6. PRÓXIMAS ETAPAS
+
+1. Inspecionar toda a árvore do repositório.
+2. Localizar o BABY-AUTO-CONFIG real.
+3. Identificar os arquivos de build.
+4. Verificar a configuração do GitHub Pages.
+5. Testar a navegação em computador e celular.
+6. Documentar integrações somente após implementação e teste.
+7. Registrar evidências e datas.
+
+7. INSTRUÇÃO AO BABY
+
+Use este documento como mapa técnico parcial.
+
+Não invente funcionalidades.
+Não confunda demonstração com implementação.
+Não declare integração concluída sem evidência.
+
+Atualize o documento preservando o histórico anterior.
