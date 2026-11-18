@@ -1,0 +1,15 @@
+{
+  "sistema": "MEMORY BOOST v0.2",
+  "hd": "/HD-MEMORY-BOOST-BACKUP",
+  "pasta": "BACKUP-2026-11-16",
+  "total_registros": 2,
+  "pendentes_sync": 0,
+  "sincronizados": 2,
+  "regras": [
+    "HD-MATRIZ preservada separadamente",
+    "Nenhum token do Dropbox dentro do HTML",
+    "Autenticação via backend OAuth 2.0",
+    "Offline: IndexedDB aguarda sincronização"
+  ],
+  "proximo_passo": "Backend deve fazer OAuth 2.0 e enviar memorias.json para Dropbox /MEMORY-BOOST/BACKUP-2026-11-16/"
+}
