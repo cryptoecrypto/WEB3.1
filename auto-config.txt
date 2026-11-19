@@ -1137,7 +1137,7 @@
         }
 
         function updateStatus() {
-            document.getElementById('systemStatus').textContent = '🟢 ONLINE';
+            document.getElementById('systemStatus').textContent = '🟡 LOCAL · BACKEND NÃO VERIFICADO';
         }
 
         // Atualizar timer de sincronia
@@ -1149,14 +1149,10 @@
         // Inicialização
         log('configLog', '🟢 BABY AUTO-CONFIG SYSTEM v1.0 inicializado', 'success');
         log('configLog', 'MODO REAL ativo — Decisão final: Sensei', 'success');
-        log('configLog', 'HD Matriz detectado: 614 KiB', 'success');
+        log('configLog', 'HD MATRIZ: presença e integridade não verificadas por este módulo.', 'warning');
 
-        // Auto-sync a cada 5 minutos (se configurado)
-        setInterval(() => {
-            if (systemState.config.sync === 'auto') {
-                syncHD();
-            }
-        }, 300000);
+        // Auto-sync desativado: não existe backend autenticado neste módulo.
+        // Nenhuma tentativa automática de sincronização será simulada.
     </script>
 </body>
 </html>
