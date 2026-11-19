@@ -25,6 +25,7 @@ function approval() {
 switch (cmd) {
   case 'status': out(await baby.status()); break;
   case 'index': out(await baby.run('memory.index', { root: flags.root, label: flags.label || 'cli' })); break;
+  case 'matrix-index': out(await baby.run('memory.index-matriz', { root: flags.root, label: flags.label || 'hd-matriz' })); break;
   case 'search': out(await baby.memory.search(positional.join(' '), { limit: Number(flags.limit || 10) })); break;
   case 'relations': out(await baby.run('memory.relations', {})); break;
   case 'snapshot': out(await baby.run('vault.snapshot', { root: flags.root, label: flags.label || 'cli' })); break;
@@ -56,7 +57,8 @@ switch (cmd) {
 Uso: node bin/baby.js <comando> [opções]
 
   status                          estado das 5 capacidades + saúde ao vivo
-  index [--root DIR]              inventário + SHA-256 + diff
+  index [--root DIR]              inventário + SHA-256 + diff do corpus padrão
+  matrix-index [--root DIR]       indexa a HD MATRIZ (somente leitura)
   search <termos> [--limit N]     busca em nomes e conteúdo
   relations                       grafo de dependências
   snapshot [--label X]            backup com dedupe + manifesto
