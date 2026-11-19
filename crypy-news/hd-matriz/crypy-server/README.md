@@ -48,3 +48,19 @@ O painel do servidor não significa que o serviço esteja hospedado publicamente
 - A configuração de exemplo não contém credenciais.
 - Auditorias e testes não equivalem a implantação em produção.
 - A publicação e a aprovação final continuam dependendo do Sensei.
+
+ 
+## Implantação pública segura (Render)
+
+O manifesto `render.yaml` na raiz do repositório prepara o serviço Node.js usando este diretório como raiz. No Render, crie um Blueprint a partir do repositório `cryptoecrypto/WEB3.1` e confirme o serviço `crypy-server`.
+
+Configure no painel do serviço, em Environment:
+- `CRYPY_API_TOKEN`: token aleatório forte para autorizar a ponte do navegador.
+- `CRYPY_SENSEI_TOKEN`: segredo separado para aprovações de operações destrutivas.
+- `CRYPY_ALLOWED_ORIGINS`: `https://cryptoecrypto.github.io`.
+
+Não use o mesmo segredo nos dois campos. Não publique tokens no GitHub nem em URLs. Sem `CRYPY_API_TOKEN`, todas as rotas `/api/*` ficam bloqueadas; somente `/health` permanece pública. As rotas da API exigem `Authorization: Bearer <token>`.
+
+Depois que o Render informar a URL HTTPS, abra `baby-ia-conectado.html`, use o botão **CRYPY SERVER**, informe URL e token e execute **Testar conexão**. A conexão só será confirmada se /health e /api/status responderem.
+
+O deploy ainda exige que o proprietário autorize a conexão do GitHub ao Render e configure os dois segredos no painel. O repositório não recebe nem armazena esses segredos.

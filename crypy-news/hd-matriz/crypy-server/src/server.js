@@ -1,6 +1,7 @@
 // CAPACIDADE 2 — o servidor é o núcleo operacional. BABY trabalha sobre ele.
 // HTTP puro (node:http), sem dependências, sem allowlist de host: funciona atrás do proxy de preview.
 import http from 'node:http';
+import { timingSafeEqual } from 'node:crypto';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { createBaby } from './baby.js';
@@ -56,6 +57,15 @@ export async function createServer({ baby = null, ...overrides } = {}) {
     }
     const url = new URL(req.url, 'http://nucleo.local');
     const p = url.pathname;
+    // /health permanece público para health-check do host. Toda a API exige token.
+    if (p.startsWith('/api/')) {
+      const expected = process.env.CRYPY_API_TOKEN || '';
+      if (!expected) return json(res, 503, { ok: false, code: 'API_TOKEN_NOT_CONFIGURED', reason: 'API bloqueada: configure CRYPY_API_TOKEN no ambiente do servidor.' });
+      const supplied = (req.headers.authorization || '').replace(/^Bearer\\s+/i, '');
+      const a = Buffer.from(supplied);
+      const e = Buffer.from(expected);
+      if (a.length !== e.length || !timingSafeEqual(a, e)) return json(res, 401, { ok: false, code: 'UNAUTHORIZED', reason: 'Token de acesso ausente ou inválido.' });
+    }
     try {
       if (req.method === 'GET' && (p === '/' || p === '/index.html')) {
         const html = await fsp.readFile(indexFile, 'utf8');

@@ -7,7 +7,10 @@ import { fixture, write } from './helpers.js';
 describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
   let f, server, base;
 
+  let previousApiToken;
   before(async () => {
+    previousApiToken = process.env.CRYPY_API_TOKEN;
+    process.env.CRYPY_API_TOKEN = 'test-api-token';
     f = await fixture();
     const created = await createServer({ baby: f.baby });
     server = created.server;
@@ -18,15 +21,17 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
   after(async () => {
     await new Promise((resolve) => server.close(resolve));
     await f.cleanup();
+    if (previousApiToken === undefined) delete process.env.CRYPY_API_TOKEN;
+    else process.env.CRYPY_API_TOKEN = previousApiToken;
   });
 
   const get = async (p) => {
-    const res = await fetch(base + p);
+    const res = await fetch(base + p, { headers: p.startsWith('/api/') ? { authorization: 'Bearer test-api-token' } : {} });
     const type = res.headers.get('content-type') || '';
     return { status: res.status, body: type.includes('json') ? await res.json() : await res.text() };
   };
   const post = async (p, obj) => {
-    const res = await fetch(base + p, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(obj) });
+    const res = await fetch(base + p, { method: 'POST', headers: { 'content-type': 'application/json', authorization: 'Bearer test-api-token' }, body: JSON.stringify(obj) });
     return { status: res.status, body: await res.json() };
   };
 
@@ -40,6 +45,12 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
     const r = await get('/');
     assert.equal(r.status, 200);
     assert.match(r.body, /<html|<!doctype/i);
+  });
+
+  it('API recusa requisição sem token', async () => {
+    const res = await fetch(base + '/api/status');
+    assert.equal(res.status, 401);
+    assert.equal((await res.json()).code, 'UNAUTHORIZED');
   });
 
   it('GET /api/status traz as cinco capacidades e a saúde ao vivo', async () => {

@@ -13,7 +13,7 @@ export function loadConfig(overrides = {}) {
   const evidenceDir = path.resolve(overrides.evidenceDir || path.join(projectRoot, 'evidence'));
   const sandboxDir = path.resolve(overrides.sandboxDir || path.join(projectRoot, 'sandbox'));
   const backupDir = path.resolve(overrides.backupDir || env.CRYPY_BACKUP_DIR || path.resolve(projectRoot, '..', 'CRYPY-BACKUPS'));
-  const approvalToken = overrides.approvalToken || env.CRYPY_SENSEI_TOKEN || 'sensei-dev-token';
+  const approvalToken = overrides.approvalToken || env.CRYPY_SENSEI_TOKEN || null;
 
   const roots = overrides.roots || [
     { path: targetRoot, mode: 'read', label: 'corpus' },
