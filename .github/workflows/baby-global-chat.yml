@@ -25,5 +25,8 @@ jobs:
           node-version: 20
       - name: Verificar sintaxe JavaScript
         run: node --check assets/js/baby-global-chat.js && node --check scripts/validar-baby-global-chat.mjs
+      - name: Garantir widget BABY nas páginas HTML da raiz
+        run: node scripts/integrar-menu-global.mjs
+
       - name: Validar integração nas páginas HTML da raiz
         run: node scripts/validar-baby-global-chat.mjs
