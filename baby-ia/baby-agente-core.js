@@ -13,7 +13,8 @@ const CONFIG={
 const MIRROR_PATHS=[
  '../baby-ia.html','../baby-ia-agente.html','../baby-ia-conectado.html','../chatboot-baby-ia.html',
  '../index.html','../memory-boost/Manifest.json','../memory-boost/Memorias.json','../padrao/Fila-Sync.json',
- './baby-agente-console.html','./baby-agente-core.js','./baby-compute-engine.js'
+ './baby-agente-console.html','./baby-agente-core.js','./baby-compute-engine.js',
+ '../crypy-news/hd-matriz/baby-core.js','../crypy-news/hd-matriz/baby-bridge.js'
 ];
 const STORE='crypy-baby-agent-log-v1';
 const S={phase:'idle',inventory:[],instructions:[],memory:[],mirrors:[],plan:[],logs:[]};
@@ -67,7 +68,7 @@ function renderMirrors(results,ranked){
  });
 }
 async function scanMirrors(query=''){
- S.phase='mirror-scan';S.mirrors=[];log('Iniciando inventário somente leitura dos caminhos conhecidos. HD-MATRIZ permanece excluído e protegido.');
+ S.phase='mirror-scan';S.mirrors=[];log('Iniciando inventário somente leitura dos caminhos conhecidos. HD-MATRIZ está incluído apenas em leitura; nenhuma escrita é permitida.');
  const results=await Promise.all(MIRROR_PATHS.map(async path=>{
   try{
    const response=await fetch(path,{cache:'no-store',credentials:'same-origin'});
