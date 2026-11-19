@@ -6,6 +6,7 @@
   "use strict";
   if (window.__CRYPY_BABY_GLOBAL_CHAT__) return;
   window.__CRYPY_BABY_GLOBAL_CHAT__ = true;
+  var widgetScriptUrl = document.currentScript && document.currentScript.src;
 
   function mount() {
     if (document.getElementById("crypy-baby-global-root")) return;
@@ -35,7 +36,7 @@
     frame.id = "crypy-baby-global-frame";
     frame.title = "BABY I.A — ChatBoot CRYPY";
     frame.loading = "lazy";
-    frame.src = new URL("../../chatboot-baby-ia.html?embed=1", document.currentScript.src).href;
+    frame.src = new URL("../../chatboot-baby-ia.html?embed=1", widgetScriptUrl || document.baseURI).href;
     frame.referrerPolicy = "same-origin";
     panel.appendChild(frame);
 
