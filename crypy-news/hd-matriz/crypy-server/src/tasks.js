@@ -26,6 +26,15 @@ export const TASKS = {
     },
   },
 
+  'memory.index-matriz': {
+    capability: 'C1', destructive: false,
+    description: 'Indexa a HD MATRIZ inteira em modo somente leitura, com hashes e diff.',
+    async run(ctx, opts) {
+      const r = await ctx.memory.index({ root: opts.root || ctx.config.matrixRoot, label: opts.label || 'hd-matriz' });
+      return { ok: true, summary: `HD MATRIZ: ${r.fileCount} arquivos, fingerprint ${r.rootHash.slice(0, 12)} (+${r.diff.added.length} ~${r.diff.changed.length} -${r.diff.removed.length})`, data: r };
+    },
+  },
+
   'memory.relations': {
     capability: 'C1', destructive: false,
     description: 'Extrai o grafo de dependências entre módulos (import/require/script src).',
