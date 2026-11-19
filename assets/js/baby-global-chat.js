@@ -35,7 +35,7 @@
     frame.id = "crypy-baby-global-frame";
     frame.title = "BABY I.A — ChatBoot CRYPY";
     frame.loading = "lazy";
-    frame.src = "/chatboot-baby-ia.html?embed=1";
+    frame.src = new URL("../../chatboot-baby-ia.html?embed=1", document.currentScript.src).href;
     frame.referrerPolicy = "same-origin";
     panel.appendChild(frame);
 
