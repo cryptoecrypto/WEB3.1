@@ -4,9 +4,9 @@
 const VERSION='1.0.1';
 const CONFIG={
  agent:'BABY I.A.',project:'CRYPY WEB3.1',
- instructions:['WEB.3.1/Autoconfig.baby','WEB.3.1/INSTRUÇÃO','LEIAME','BABY-AUTO-CONFIG.txt'],
- memory:['HD-MEMORY-BOOST/Manifest.json','HD-MEMORY-BOOST/Memorias.json','HD-MEMORY-BOOST/PADRÃO/Fila-Sync.json'],
- pages:['index.html','BABY-IA-CHATBOT-MATRIX.html','HD BABY I.A.html','HD-MEMÓRIA.html','CRYPY-5-PAGINAS-INTERLIGADAS-touch-corrigido.html'],
+ instructions:['../auto-config.txt','../leiame.txt','./baby-autoconfig.txt','./aprendizado.txt'],
+ memory:['./Manifest.json','./Memorias.json','./Fila-Sync.json'],
+ pages:['../index.html','../baby-ia.html','../baby-ia-agente.html','../baby-ia-conectado.html','../chatboot-baby-ia.html'],
  external:['https://www.google.com/','https://www.wikipedia.org/','https://www.binance.com/en/square','mailto:'],
  protected:['HD-MATRIZ/**','HD-MEMORY-BOOST/PADRÃO/HD BABY I.A.html'],bridge:'/api/crypy-agent'
 };
