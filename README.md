@@ -1,36 +1,50 @@
-# CRYPY Server Bridge — scaffold inicial
+# crypy-server-bridge — núcleo operacional CRYPY / BABY (v2.0)
 
-**Estado:** estrutura preparada; integração real pendente do contrato do servidor.
+Implementação de referência do **CRYPY SERVER**: registro central de inteligências,
+barramento assinado, memória com integridade, autonomia com permissões, autoproteção
+verificável e evolução contínua. **Zero dependências externas** (Node ≥ 20).
 
-Esta pasta reserva um ponto de integração entre o frontend WEB3.1/BABY e o futuro servidor CRYPY. Ela foi adicionada sem substituir ou editar páginas, HDs, arquivos de memória, configurações existentes ou o arquivo `CNAME`.
+```bash
+node --test test/                 # 72 testes reais (incluem ataques simulados)
+node src/server.js                # núcleo + painel em http://0.0.0.0:8787
+node bin/baby.js status           # estado das 5 capacidades + saúde ao vivo
+node scripts/registrar-evidencia.mjs      # roda testes, registra provas, PARA na aprovação
+node scripts/backup-sobrevivencia.mjs     # pacote real de backup + SHA-256 + tar.gz
+```
 
-## Arquivos
+## O que já é real (verificável)
 
-- `server-config.example.json`: modelo de configuração, sem credenciais.
-- `connection.js`: adaptador cliente seguro em modo inativo até que a API real seja definida.
+| peça | prova |
+|------|-------|
+| Inventário + SHA-256 + diff + busca + grafo de módulos | `test/memory.test.js` |
+| Cofre com dedupe, re-hash, detecção de corrupção e restauração | `test/vault.test.js` |
+| Trilha append-only encadeada + âncora anti-truncamento | `test/audit.test.js` |
+| Política: jail de raízes, somente leitura, symlink, dry-run, token | `test/policy.test.js` |
+| MODO REAL: 6 estados, evidência obrigatória, sem autoaprovação | `test/ledger.test.js` |
+| Orquestrador: nega, protege antes, verifica depois, registra | `test/baby.test.js` |
+| Registro Central + Regra de Ouro + sondagem de integração | `test/registry.test.js` |
+| Barramento assinado, anti-impostor, fila para pendentes | `test/bus.test.js` |
+| Núcleo HTTP respondendo de verdade | `test/server.test.js` |
 
-## O que ainda NÃO está implementado
+## O que NÃO existe aqui (e não é fingido)
 
-- Não existe servidor Node.js nesta pasta.
-- Não foram definidos endpoints, autenticação, formato de sessão ou contrato de sincronização.
-- Não há conexão ativa com Dropbox, banco de dados ou servidor remoto.
-- Nenhuma memória é enviada para fora do navegador por este scaffold.
+`baby-core.js`, `baby-bridge.js`, `Memory Boost`, WEB3.1, HDs, Dropbox e as IAs externas
+(NEXUS, ALICE, MINI, DOLA, CHAT, BTC/ETH/USDT) **não foram recebidos nem integrados**.
+Estão registrados como `planejado` / `pendente`, com o contrato de entrada documentado
+em `docs/ARQUITETURA.md §5`. Nenhuma linha deste código afirma o contrário.
 
-## Próxima etapa obrigatória
+## Mapa
 
-Integrar o `server.js` produzido pela ALICE e documentar, com base nele:
+```
+src/      núcleo (config, policy, audit, memory, vault, ledger, registry, bus, tasks, baby, server)
+bin/      CLI do BABY
+public/   painel do núcleo (HTML inline, sem CDN)
+test/     72 testes (node:test)
+docs/     MODO-REAL, ARQUITETURA v2.0, REGRA-DE-OURO
+scripts/  registrar-evidencia, backup-sobrevivencia
+evidence/ logs de teste, relatórios, autoanálises
+.baby/    estado persistido (ledger, registro, trilha, memória, cofre, barramento)
+```
 
-1. URL/base de execução (localhost ou hospedagem).
-2. Rotas reais e métodos HTTP.
-3. Modelo de autenticação e expiração de sessão.
-4. Formato de leitura/gravação de memórias.
-5. Política de backup, conflitos e integridade.
-
-Somente depois disso o adaptador deverá ser habilitado e testado contra o servidor real.
-
-## Segurança
-
-- Nunca colocar senhas, tokens, chaves privadas ou arquivos `.env` no repositório.
-- Não habilitar envio externo de dados por padrão.
-- Não alterar o HD-MATRIZ nem sobrescrever backups existentes.
-- GitHub Pages hospeda arquivos estáticos; não executa o processo Node.js do servidor.
+> Não estamos construindo uma IA para conversar sobre o CRYPY.
+> Estamos construindo uma IA para trabalhar dentro do CRYPY.
