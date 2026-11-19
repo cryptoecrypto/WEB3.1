@@ -74,6 +74,22 @@ for (const relativePath of files) {
   updated++;
 }
 
+// Mantém o BABY global disponível em todas as páginas HTML da raiz.
+// O próprio ChatBoot é excluído para evitar carregar a interface dentro dela mesma.
+const rootPages = files.filter(file => !file.includes("/") && file.toLowerCase() !== "chatboot-baby-ia.html");
+let chatWidgetAdded = 0;
+for (const relativePath of rootPages) {
+  const absolutePath = path.join(root, relativePath);
+  let html = fs.readFileSync(absolutePath, "utf8");
+  if (!/<(?:!doctype\s+html|html\b|body\b)/i.test(html) || html.includes("baby-global-chat.js")) continue;
+  const tag = '<script src="./assets/js/baby-global-chat.js" defer></script>';
+  if (/<\/body\s*>/i.test(html)) html = html.replace(/<\/body\s*>/i, tag + "\n</body>");
+  else if (/<\/html\s*>/i.test(html)) html = html.replace(/<\/html\s*>/i, tag + "\n</html>");
+  else html += "\n" + tag + "\n";
+  fs.writeFileSync(absolutePath, html, "utf8");
+  chatWidgetAdded++;
+}
+
 pages.sort((a,b) => a.group.localeCompare(b.group, "pt-BR") || a.label.localeCompare(b.label, "pt-BR") || a.path.localeCompare(b.path, "pt-BR"));
 fs.mkdirSync(path.dirname(indexPath), { recursive: true });
 fs.writeFileSync(indexPath, JSON.stringify({
@@ -85,6 +101,6 @@ fs.writeFileSync(indexPath, JSON.stringify({
 
 console.log("CRYPY GLOBAL NAV — MIGRAÇÃO CONCLUÍDA");
 console.log("Páginas catalogadas:", pages.length);
-console.log("Páginas atualizadas:", updated);
+console.log("Páginas atualizadas:", updated);\nconsole.log("Chatbot BABY adicionado na raiz:", chatWidgetAdded);
 console.log("Já tinham menu:", alreadyPresent);
 console.log("Ignoradas por não serem HTML utilizável:", skipped);
