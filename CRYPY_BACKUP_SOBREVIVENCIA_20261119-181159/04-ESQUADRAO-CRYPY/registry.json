@@ -1,0 +1,361 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-11-19T18:03:21.118Z",
+  "goldenRule": "Uma inteligência pode colaborar com outra, mas nenhuma assume a identidade ou as permissões da outra.",
+  "agents": {
+    "sensei": {
+      "id": "sensei",
+      "name": "SENSEI",
+      "origin": "humana",
+      "engine": "autoridade humana",
+      "role": "Autoridade máxima · direção estratégica · aprovação final",
+      "capabilities": [
+        "aprovar",
+        "definir-direcao",
+        "autorizar-operacao"
+      ],
+      "permissions": {
+        "tasks": [
+          "*"
+        ],
+        "roots": [
+          "*"
+        ],
+        "approve": true
+      },
+      "state": "conectada",
+      "integration": {
+        "kind": "canal-de-aprovacao",
+        "detail": "token de aprovação validado pela política (src/policy.js)"
+      },
+      "declaredOnly": false,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "conectada",
+            "origin": "humana"
+          }
+        }
+      ]
+    },
+    "baby": {
+      "id": "baby",
+      "name": "BABY",
+      "origin": "interna",
+      "engine": "node 20 · determinístico · sem LLM",
+      "role": "Inteligência operacional — administração, execução e manutenção do ecossistema",
+      "capabilities": [
+        "memory.index",
+        "memory.relations",
+        "vault.snapshot",
+        "vault.verify",
+        "vault.restore",
+        "audit.verify",
+        "integrity.check",
+        "files.organize",
+        "self.review",
+        "coordenar-local"
+      ],
+      "permissions": {
+        "tasks": [
+          "memory.index",
+          "memory.relations",
+          "vault.snapshot",
+          "vault.verify",
+          "vault.restore",
+          "audit.verify",
+          "integrity.check",
+          "files.organize",
+          "self.review"
+        ],
+        "roots": [
+          "corpus:read",
+          "estado-do-baby:rw",
+          "evidencias:rw",
+          "sandbox:rw"
+        ],
+        "approve": false
+      },
+      "state": "conectada",
+      "integration": {
+        "kind": "local",
+        "module": "src/baby.js",
+        "detail": "núcleo executando neste processo"
+      },
+      "declaredOnly": false,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "conectada",
+            "origin": "interna"
+          }
+        }
+      ]
+    },
+    "nexus": {
+      "id": "nexus",
+      "name": "NEXUS",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Coordenação e integração entre inteligências",
+      "capabilities": [
+        "coordenar",
+        "rotear-tarefas"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "alice": {
+      "id": "alice",
+      "name": "ALICE",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Pesquisa, aquisição de dados e conhecimento externo",
+      "capabilities": [
+        "pesquisar",
+        "adquirir-dados"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "mini": {
+      "id": "mini",
+      "name": "MINI",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Análise, avaliação, comparação e validação",
+      "capabilities": [
+        "analisar",
+        "comparar",
+        "validar"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "dola": {
+      "id": "dola",
+      "name": "DOLA",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Arte, criação visual, design e comunicação",
+      "capabilities": [
+        "criar-visual",
+        "design",
+        "comunicar"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "chat": {
+      "id": "chat",
+      "name": "CHAT",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Histórico de interações, revisão de conteúdo e memória conversacional",
+      "capabilities": [
+        "registrar-historico",
+        "revisar-conteudo"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "btc": {
+      "id": "btc",
+      "name": "BTC",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Memória de mercado — referência Bitcoin",
+      "capabilities": [
+        "memoria-mercado:btc"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "eth": {
+      "id": "eth",
+      "name": "ETH",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Arquitetura de dados — referência Ethereum",
+      "capabilities": [
+        "arquitetura-dados:eth"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    },
+    "usdt": {
+      "id": "usdt",
+      "name": "USDT",
+      "origin": "externa",
+      "engine": "a definir na integração",
+      "role": "Equilíbrio do sistema — referência de estabilidade",
+      "capabilities": [
+        "equilibrio-sistema:usdt"
+      ],
+      "permissions": {
+        "tasks": [],
+        "roots": [],
+        "approve": false
+      },
+      "state": "pendente",
+      "integration": null,
+      "declaredOnly": true,
+      "createdAt": "2026-11-19T18:03:21.118Z",
+      "updatedAt": "2026-11-19T18:03:21.118Z",
+      "history": [
+        {
+          "ts": "2026-11-19T18:03:21.118Z",
+          "event": "registrada",
+          "by": "system",
+          "detail": {
+            "state": "pendente",
+            "origin": "externa"
+          }
+        }
+      ]
+    }
+  }
+}

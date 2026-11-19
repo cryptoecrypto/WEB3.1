@@ -1,0 +1,437 @@
+# comando: node --test test/
+# quando: 2026-11-19T18:10:17.472Z
+# exitCode: 0
+
+TAP version 13
+# Subtest: C4 / trilha de auditoria encadeada
+    # Subtest: encadeia registros e verifica a cadeia íntegra
+    ok 1 - encadeia registros e verifica a cadeia íntegra
+      ---
+      duration_ms: 17.754251
+      ...
+    # Subtest: detecta adulteração de conteúdo de um registro
+    ok 2 - detecta adulteração de conteúdo de um registro
+      ---
+      duration_ms: 33.870918
+      ...
+    # Subtest: detecta truncamento (registros apagados) pela âncora externa
+    ok 3 - detecta truncamento (registros apagados) pela âncora externa
+      ---
+      duration_ms: 19.371037
+      ...
+    # Subtest: detecta quebra de sequência e JSON inválido
+    ok 4 - detecta quebra de sequência e JSON inválido
+      ---
+      duration_ms: 11.814904
+      ...
+    1..4
+ok 1 - C4 / trilha de auditoria encadeada
+  ---
+  duration_ms: 84.028612
+  type: 'suite'
+  ...
+# Subtest: C3+C5 / orquestrador BABY: autorização, execução, proteção e registro
+    # Subtest: tarefa desconhecida é recusada e registrada
+    ok 1 - tarefa desconhecida é recusada e registrada
+      ---
+      duration_ms: 15.079701
+      ...
+    # Subtest: cada tarefa deixa rastro task.start / task.end com hash do resultado
+    ok 2 - cada tarefa deixa rastro task.start / task.end com hash do resultado
+      ---
+      duration_ms: 52.287399
+      ...
+    # Subtest: files.organize em dry-run NÃO toca o disco
+    ok 3 - files.organize em dry-run NÃO toca o disco
+      ---
+      duration_ms: 18.723866
+      ...
+    # Subtest: files.organize efetivo sem aprovação é NEGADO e auditado
+    ok 4 - files.organize efetivo sem aprovação é NEGADO e auditado
+      ---
+      duration_ms: 11.635049
+      ...
+    # Subtest: files.organize aprovado move, verifica hash e cria snapshot de proteção antes
+    ok 5 - files.organize aprovado move, verifica hash e cria snapshot de proteção antes
+      ---
+      duration_ms: 15.324801
+      ...
+    # Subtest: organizar fora da raiz gravável é bloqueado pela política
+    ok 6 - organizar fora da raiz gravável é bloqueado pela política
+      ---
+      duration_ms: 8.113946
+      ...
+    # Subtest: integrity.check detecta deriva do corpus em relação ao último backup
+    ok 7 - integrity.check detecta deriva do corpus em relação ao último backup
+      ---
+      duration_ms: 58.637237
+      ...
+    # Subtest: self.review analisa o próprio ambiente e gera relatório sem aplicar mudanças
+    ok 8 - self.review analisa o próprio ambiente e gera relatório sem aplicar mudanças
+      ---
+      duration_ms: 14.59999
+      ...
+    # Subtest: status agrega saúde ao vivo das cinco capacidades
+    ok 9 - status agrega saúde ao vivo das cinco capacidades
+      ---
+      duration_ms: 16.335838
+      ...
+    1..9
+ok 2 - C3+C5 / orquestrador BABY: autorização, execução, proteção e registro
+  ---
+  duration_ms: 212.422837
+  type: 'suite'
+  ...
+# Subtest: v2.0 / barramento: colaboração sem transferência de identidade
+    # Subtest: mensagem assinada pela própria identidade é entregue e verificável
+    ok 1 - mensagem assinada pela própria identidade é entregue e verificável
+      ---
+      duration_ms: 21.041355
+      ...
+    # Subtest: Regra de Ouro: ninguém fala em nome de outra inteligência (impostor bloqueado)
+    ok 2 - Regra de Ouro: ninguém fala em nome de outra inteligência (impostor bloqueado)
+      ---
+      duration_ms: 40.591331
+      ...
+    # Subtest: identidade pendente não opera, mesmo com a própria chave
+    ok 3 - identidade pendente não opera, mesmo com a própria chave
+      ---
+      duration_ms: 16.308118
+      ...
+    # Subtest: escalação de capacidade é negada (BABY não pesquisa como ALICE)
+    ok 4 - escalação de capacidade é negada (BABY não pesquisa como ALICE)
+      ---
+      duration_ms: 14.750839
+      ...
+    # Subtest: mensagem para inteligência pendente fica em espera — não é executada
+    ok 5 - mensagem para inteligência pendente fica em espera — não é executada
+      ---
+      duration_ms: 8.000636
+      ...
+    # Subtest: canal do Sensei usa token de aprovação, não chave de outra identidade
+    ok 6 - canal do Sensei usa token de aprovação, não chave de outra identidade
+      ---
+      duration_ms: 7.723307
+      ...
+    # Subtest: adulteração de mensagem é detectada pela assinatura
+    ok 7 - adulteração de mensagem é detectada pela assinatura
+      ---
+      duration_ms: 49.686485
+      ...
+    # Subtest: despacho escolhe por capacidade + permissão + estado, sem antecipar integração
+    ok 8 - despacho escolhe por capacidade + permissão + estado, sem antecipar integração
+      ---
+      duration_ms: 9.558066
+      ...
+    # Subtest: coordenação continua local mesmo com permissão concedida ao NEXUS pendente
+    ok 9 - coordenação continua local mesmo com permissão concedida ao NEXUS pendente
+      ---
+      duration_ms: 8.644597
+      ...
+    # Subtest: barramento e trilha permanecem íntegros após uma sessão de colaboração
+    ok 10 - barramento e trilha permanecem íntegros após uma sessão de colaboração
+      ---
+      duration_ms: 18.796826
+      ...
+    1..10
+ok 3 - v2.0 / barramento: colaboração sem transferência de identidade
+  ---
+  duration_ms: 196.777805
+  type: 'suite'
+  ...
+# Subtest: /tmp/arena/tenants/7da88662-7579-4735-bbc7-fd1b68efed5d/sessions/ff11e448-f260-523f-801d-3ae6b78357ce/workspace/crypy-server-bridge/test/helpers.js
+ok 4 - /tmp/arena/tenants/7da88662-7579-4735-bbc7-fd1b68efed5d/sessions/ff11e448-f260-523f-801d-3ae6b78357ce/workspace/crypy-server-bridge/test/helpers.js
+  ---
+  duration_ms: 87.102744
+  ...
+# Subtest: MODO REAL / máquina de estados com evidência obrigatória
+    # Subtest: os seis estados existem na ordem definida
+    ok 1 - os seis estados existem na ordem definida
+      ---
+      duration_ms: 1.143604
+      ...
+    # Subtest: nasce em planejada e não permite pular estados
+    ok 2 - nasce em planejada e não permite pular estados
+      ---
+      duration_ms: 15.890025
+      ...
+    # Subtest: exige documento existente para documentada
+    ok 3 - exige documento existente para documentada
+      ---
+      duration_ms: 13.072203
+      ...
+    # Subtest: exige código existente para implementada
+    ok 4 - exige código existente para implementada
+      ---
+      duration_ms: 19.310057
+      ...
+    # Subtest: recusa "testada" sem teste verde de verdade
+    ok 5 - recusa "testada" sem teste verde de verdade
+      ---
+      duration_ms: 53.314848
+      ...
+    # Subtest: aprovação exige a autoridade do Sensei (token)
+    ok 6 - aprovação exige a autoridade do Sensei (token)
+      ---
+      duration_ms: 16.718817
+      ...
+    # Subtest: protegida exige cofre íntegro + trilha íntegra, verificados ao vivo
+    ok 7 - protegida exige cofre íntegro + trilha íntegra, verificados ao vivo
+      ---
+      duration_ms: 21.712331
+      ...
+    # Subtest: estado e evidências sobrevivem a reinício do núcleo (persistência)
+    ok 8 - estado e evidências sobrevivem a reinício do núcleo (persistência)
+      ---
+      duration_ms: 50.503849
+      ...
+    1..8
+ok 5 - MODO REAL / máquina de estados com evidência obrigatória
+  ---
+  duration_ms: 193.201151
+  type: 'suite'
+  ...
+# Subtest: C1 / memória, indexação e relações
+    # Subtest: indexa com SHA-256 real e fingerprint estável do corpus
+    ok 1 - indexa com SHA-256 real e fingerprint estável do corpus
+      ---
+      duration_ms: 51.328839
+      ...
+    # Subtest: detecta adição, alteração e remoção no diff
+    ok 2 - detecta adição, alteração e remoção no diff
+      ---
+      duration_ms: 25.90842
+      ...
+    # Subtest: busca por nome e por conteúdo com pontuação e trecho
+    ok 3 - busca por nome e por conteúdo com pontuação e trecho
+      ---
+      duration_ms: 14.936564
+      ...
+    # Subtest: extrai relações reais entre módulos (import relativo)
+    ok 4 - extrai relações reais entre módulos (import relativo)
+      ---
+      duration_ms: 45.539456
+      ...
+    # Subtest: guarda histórico de indexações (recuperação de linha do tempo)
+    ok 5 - guarda histórico de indexações (recuperação de linha do tempo)
+      ---
+      duration_ms: 12.178043
+      ...
+    # Subtest: recusa indexar raiz não autorizada
+    ok 6 - recusa indexar raiz não autorizada
+      ---
+      duration_ms: 5.90324
+      ...
+    1..6
+ok 6 - C1 / memória, indexação e relações
+  ---
+  duration_ms: 157.193661
+  type: 'suite'
+  ...
+# Subtest: C3 / política de permissões
+    # Subtest: nega caminho fora das raízes autorizadas
+    ok 1 - nega caminho fora das raízes autorizadas
+      ---
+      duration_ms: 22.233983
+      ...
+    # Subtest: nega escrita em raiz somente leitura (o código do site é intocável por padrão)
+    ok 2 - nega escrita em raiz somente leitura (o código do site é intocável por padrão)
+      ---
+      duration_ms: 11.734555
+      ...
+    # Subtest: nega escape por symlink que aponta para fora da raiz
+    ok 3 - nega escape por symlink que aponta para fora da raiz
+      ---
+      duration_ms: 11.498159
+      ...
+    # Subtest: nega escape por ../ antes de resolver
+    ok 4 - nega escape por ../ antes de resolver
+      ---
+      duration_ms: 48.552441
+      ...
+    # Subtest: raiz mais específica vence: subdir gravável dentro de raiz somente leitura
+    ok 5 - raiz mais específica vence: subdir gravável dentro de raiz somente leitura
+      ---
+      duration_ms: 4.996351
+      ...
+    # Subtest: operação destrutiva: dry-run liberado, execução exige token correto e autor
+    ok 6 - operação destrutiva: dry-run liberado, execução exige token correto e autor
+      ---
+      duration_ms: 11.472813
+      ...
+    # Subtest: respeita allowlist de tarefas quando definida
+    ok 7 - respeita allowlist de tarefas quando definida
+      ---
+      duration_ms: 0.283783
+      ...
+    1..7
+ok 7 - C3 / política de permissões
+  ---
+  duration_ms: 112.100735
+  type: 'suite'
+  ...
+# Subtest: v2.0 / Registro Central de Inteligências
+    # Subtest: registra o esquadrão com identidade, função, origem, motor, capacidades e permissões
+    ok 1 - registra o esquadrão com identidade, função, origem, motor, capacidades e permissões
+      ---
+      duration_ms: 19.249717
+      ...
+    # Subtest: presença documentada NÃO é integração operacional: só BABY e Sensei conectados
+    ok 2 - presença documentada NÃO é integração operacional: só BABY e Sensei conectados
+      ---
+      duration_ms: 11.909288
+      ...
+    # Subtest: identidade é imutável e exige aprovação para registrar nova
+    ok 3 - identidade é imutável e exige aprovação para registrar nova
+      ---
+      duration_ms: 52.835353
+      ...
+    # Subtest: não conecta sem sondagem real: endpoint morto mantém o estado não-operacional
+    ok 4 - não conecta sem sondagem real: endpoint morto mantém o estado não-operacional
+      ---
+      duration_ms: 29.325686
+      ...
+    # Subtest: conecta IA externa quando o endpoint responde de verdade (sondagem HTTP real)
+    ok 5 - conecta IA externa quando o endpoint responde de verdade (sondagem HTTP real)
+      ---
+      duration_ms: 89.411142
+      ...
+    # Subtest: conexão local exige módulo existente no disco
+    ok 6 - conexão local exige módulo existente no disco
+      ---
+      duration_ms: 14.561763
+      ...
+    # Subtest: Regra de Ouro: autoridade de aprovação jamais é transferida
+    ok 7 - Regra de Ouro: autoridade de aprovação jamais é transferida
+      ---
+      duration_ms: 9.995516
+      ...
+    # Subtest: portão de operação: identidade + estado + capacidade + permissão
+    ok 8 - portão de operação: identidade + estado + capacidade + permissão
+      ---
+      duration_ms: 52.726294
+      ...
+    # Subtest: histórico e trilha registram cada alteração do registro
+    ok 9 - histórico e trilha registram cada alteração do registro
+      ---
+      duration_ms: 12.276365
+      ...
+    # Subtest: registro sobrevive a reinício do núcleo
+    ok 10 - registro sobrevive a reinício do núcleo
+      ---
+      duration_ms: 10.494459
+      ...
+    1..10
+ok 8 - v2.0 / Registro Central de Inteligências
+  ---
+  duration_ms: 304.766585
+  type: 'suite'
+  ...
+# Subtest: C2 / núcleo HTTP: o servidor responde de verdade
+    # Subtest: GET /health responde ok
+    ok 1 - GET /health responde ok
+      ---
+      duration_ms: 50.1535
+      ...
+    # Subtest: GET / entrega o painel
+    ok 2 - GET / entrega o painel
+      ---
+      duration_ms: 6.203029
+      ...
+    # Subtest: GET /api/status traz as cinco capacidades e a saúde ao vivo
+    ok 3 - GET /api/status traz as cinco capacidades e a saúde ao vivo
+      ---
+      duration_ms: 4.788347
+      ...
+    # Subtest: POST /api/tasks/memory.index executa e indexa
+    ok 4 - POST /api/tasks/memory.index executa e indexa
+      ---
+      duration_ms: 16.819409
+      ...
+    # Subtest: GET /api/memory/search encontra conteúdo indexado
+    ok 5 - GET /api/memory/search encontra conteúdo indexado
+      ---
+      duration_ms: 4.550651
+      ...
+    # Subtest: POST destrutivo sem token responde 403 e não altera nada
+    ok 6 - POST destrutivo sem token responde 403 e não altera nada
+      ---
+      duration_ms: 4.447979
+      ...
+    # Subtest: POST /api/ledger/C1/advance pulando estados responde 409
+    ok 7 - POST /api/ledger/C1/advance pulando estados responde 409
+      ---
+      duration_ms: 55.857604
+      ...
+    # Subtest: GET /api/audit devolve cadeia verificada
+    ok 8 - GET /api/audit devolve cadeia verificada
+      ---
+      duration_ms: 2.877145
+      ...
+    # Subtest: bloqueia travessia de caminho no leitor de evidências
+    ok 9 - bloqueia travessia de caminho no leitor de evidências
+      ---
+      duration_ms: 2.109419
+      ...
+    # Subtest: rota inexistente responde 404 em JSON
+    ok 10 - rota inexistente responde 404 em JSON
+      ---
+      duration_ms: 2.53917
+      ...
+    1..10
+ok 9 - C2 / núcleo HTTP: o servidor responde de verdade
+  ---
+  duration_ms: 172.824211
+  type: 'suite'
+  ...
+# Subtest: C4 / cofre: backup, integridade e restauração
+    # Subtest: snapshot com dedupe por conteúdo e verificação íntegra
+    ok 1 - snapshot com dedupe por conteúdo e verificação íntegra
+      ---
+      duration_ms: 51.530984
+      ...
+    # Subtest: detecta blob corrompido (bit rot) pelo re-hash
+    ok 2 - detecta blob corrompido (bit rot) pelo re-hash
+      ---
+      duration_ms: 23.951303
+      ...
+    # Subtest: detecta blob ausente
+    ok 3 - detecta blob ausente
+      ---
+      duration_ms: 14.534187
+      ...
+    # Subtest: detecta manifesto adulterado (rootHash não confere)
+    ok 4 - detecta manifesto adulterado (rootHash não confere)
+      ---
+      duration_ms: 57.749197
+      ...
+    # Subtest: restauração: dry-run não escreve; execução sem aprovação é negada
+    ok 5 - restauração: dry-run não escreve; execução sem aprovação é negada
+      ---
+      duration_ms: 9.695599
+      ...
+    # Subtest: restauração aprovada recupera bytes idênticos (hash conferido arquivo a arquivo)
+    ok 6 - restauração aprovada recupera bytes idênticos (hash conferido arquivo a arquivo)
+      ---
+      duration_ms: 13.952225
+      ...
+    # Subtest: recusa restaurar a partir de cofre corrompido
+    ok 7 - recusa restaurar a partir de cofre corrompido
+      ---
+      duration_ms: 17.155855
+      ...
+    1..7
+ok 10 - C4 / cofre: backup, integridade e restauração
+  ---
+  duration_ms: 191.242832
+  type: 'suite'
+  ...
+1..10
+# tests 72
+# suites 9
+# pass 72
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2546.457487
