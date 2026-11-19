@@ -8,11 +8,12 @@ export async function fixture({ corpus = true } = {}) {
   const root = await fsp.mkdtemp(path.join(os.tmpdir(), 'baby-test-'));
   const projectRoot = path.join(root, 'proj');
   const targetRoot = path.join(root, 'corpus');
+  const matrixRoot = path.join(root, 'matrix-corpus');
   const dataDir = path.join(root, 'state');
   const evidenceDir = path.join(projectRoot, 'evidence');
   const sandboxDir = path.join(projectRoot, 'sandbox');
 
-  for (const d of [projectRoot, evidenceDir, sandboxDir, path.join(projectRoot, 'src'), path.join(projectRoot, 'test'), path.join(projectRoot, 'docs'), path.join(projectRoot, 'public')]) {
+  for (const d of [projectRoot, matrixRoot, evidenceDir, sandboxDir, path.join(projectRoot, 'src'), path.join(projectRoot, 'test'), path.join(projectRoot, 'docs'), path.join(projectRoot, 'public')]) {
     await fsp.mkdir(d, { recursive: true });
   }
   await fsp.writeFile(path.join(projectRoot, 'public', 'index.html'), '<!doctype html><title>fixture</title>', 'utf8');
@@ -27,9 +28,9 @@ export async function fixture({ corpus = true } = {}) {
     await fsp.writeFile(path.join(targetRoot, 'nota.md'), '# CRYPY\nMemoria viva do ecossistema.\n', 'utf8');
   }
 
-  const baby = await createBaby({ projectRoot, targetRoot, dataDir, evidenceDir, sandboxDir, approvalToken: 'token-de-teste' });
+  const baby = await createBaby({ projectRoot, targetRoot, matrixRoot, dataDir, evidenceDir, sandboxDir, approvalToken: 'token-de-teste' });
   const cleanup = () => fsp.rm(root, { recursive: true, force: true });
-  return { root, projectRoot, targetRoot, dataDir, evidenceDir, sandboxDir, baby, cleanup };
+  return { root, projectRoot, targetRoot, matrixRoot, dataDir, evidenceDir, sandboxDir, baby, cleanup };
 }
 
 export const write = (file, txt) => fsp.writeFile(file, txt, 'utf8');
