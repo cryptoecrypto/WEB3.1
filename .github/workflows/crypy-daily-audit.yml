@@ -1,0 +1,60 @@
+name: CRYPY — Auditoria diária somente leitura
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crypy-daily-readonly-audit
+  cancel-in-progress: false
+
+jobs:
+  daily-readonly-audit:
+    name: Testes do núcleo e inventário estrutural
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout WEB3.1
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Registrar ambiente
+        run: |
+          mkdir -p audit-report
+          {
+            echo "CRYPY / WEB3.1 — AUDITORIA DIÁRIA SOMENTE LEITURA"
+            echo "UTC: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            echo "Commit: $GITHUB_SHA"
+            echo "Branch: $GITHUB_REF_NAME"
+            node --version
+            npm --version
+          } | tee audit-report/ambiente.txt
+
+      - name: Executar testes do núcleo
+        shell: bash
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee audit-report/testes-nucleo.log
+
+      - name: Auditar estrutura do repositório
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run check:structure 2>&1 | tee audit-report/estrutura.log
+
+      - name: Guardar evidências da execução
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypy-auditoria-diaria-${{ github.run_id }}-${{ github.run_attempt }}
+          path: audit-report/
+          if-no-files-found: warn
+          retention-days: 30
