@@ -1,0 +1,40 @@
+name: CRYPY Terminal - Validacao
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 12 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configuracao Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Testes automatizados existentes
+        run: npm test
+
+      - name: Auditoria estrutural
+        run: npm run audit
+
+      - name: Inventario da raiz
+        run: npm run inventory
+
+      - name: Conclusao do workflow
+        if: success()
+        run: echo "Validacoes tecnicas concluidas. Aguardando aprovacao humana do Sensei."
