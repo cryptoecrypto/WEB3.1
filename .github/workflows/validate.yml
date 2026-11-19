@@ -1,0 +1,25 @@
+name: Validate WEB3.1 and CRYPY Server
+
+on:
+  push:
+    branches: [main, "maintenance/**"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run core tests
+        run: npm test
+      - name: Check repository structure
+        run: npm run check:structure

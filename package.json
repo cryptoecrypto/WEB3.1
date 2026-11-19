@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test test/",
+    "check:structure": "node scripts/auditar-estrutura.mjs",
     "status": "node bin/baby.js status",
     "index": "node bin/baby.js index",
     "snapshot": "node bin/baby.js snapshot",
