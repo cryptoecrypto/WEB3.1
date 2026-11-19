@@ -6,6 +6,8 @@ import path from 'node:path';
 import { createBaby } from './baby.js';
 import { LedgerError } from './ledger.js';
 import { PolicyError } from './policy.js';
+import { RegistryError } from './registry.js';
+import { BusError } from './bus.js';
 
 const MAX_BODY = 1024 * 1024;
 
@@ -55,6 +57,46 @@ export async function createServer({ baby = null, ...overrides } = {}) {
       }
       if (req.method === 'GET' && p === '/api/memory/relations') return json(res, 200, await b.memory.relations());
       if (req.method === 'GET' && p === '/api/memory/history') return json(res, 200, { history: await b.memory.history({ limit: 20 }) });
+      if (req.method === 'GET' && p === '/api/registry') {
+        const db = await b.registry.read();
+        return json(res, 200, { goldenRule: db.goldenRule, version: db.version, agents: await b.registry.list() });
+      }
+      if (req.method === 'GET' && p === '/api/bus') {
+        const limit = Math.min(Number(url.searchParams.get('limit') || 20), 200);
+        const all = await b.bus.messages();
+        return json(res, 200, { verify: await b.bus.verify(), total: all.length, messages: all.slice(-limit).reverse() });
+      }
+      if (req.method === 'GET' && p.startsWith('/api/bus/inbox/')) {
+        const id = decodeURIComponent(p.slice('/api/bus/inbox/'.length));
+        return json(res, 200, { id, messages: await b.bus.inbox(id) });
+      }
+      if (req.method === 'GET' && p === '/api/dispatch') {
+        return json(res, 200, await b.bus.dispatch(url.searchParams.get('intent') || ''));
+      }
+      if (req.method === 'POST' && p === '/api/bus/send') {
+        const body = await readBody(req);
+        try {
+          return json(res, 200, { ok: true, message: await b.bus.send(body) });
+        } catch (err) {
+          if (err instanceof BusError) return json(res, 403, { ok: false, code: err.code, reason: err.message });
+          throw err;
+        }
+      }
+      if (req.method === 'POST' && p.startsWith('/api/registry/')) {
+        const rest = p.slice('/api/registry/'.length);
+        const [id, action] = rest.split('/');
+        const body = await readBody(req);
+        try {
+          if (action === 'connect') return json(res, 200, await b.registry.connect(decodeURIComponent(id), body));
+          if (action === 'disconnect') return json(res, 200, await b.registry.disconnect(decodeURIComponent(id), body));
+          if (action === 'grant') return json(res, 200, await b.registry.grant(decodeURIComponent(id), body));
+          if (action === 'register') return json(res, 200, { ok: true, agent: await b.registry.register({ id: decodeURIComponent(id), ...body }, { approval: body.approval }) });
+          return json(res, 404, { ok: false, reason: `ação de registro inexistente: ${action}` });
+        } catch (err) {
+          if (err instanceof RegistryError) return json(res, 403, { ok: false, code: err.code, reason: err.message });
+          throw err;
+        }
+      }
       if (req.method === 'GET' && p === '/api/vault/manifests') return json(res, 200, { manifests: await b.vault.manifests() });
       if (req.method === 'GET' && p === '/api/audit') {
         const limit = Math.min(Number(url.searchParams.get('limit') || 40), 200);

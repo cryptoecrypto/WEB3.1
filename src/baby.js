@@ -2,11 +2,13 @@
 // planejar -> autorizar (política) -> proteger (se destrutivo) -> executar -> verificar -> registrar.
 import path from 'node:path';
 import { AuditLog } from './audit.js';
+import { Bus } from './bus.js';
 import { CAPABILITIES, PRINCIPLE } from './capabilities.js';
 import { loadConfig } from './config.js';
 import { Ledger } from './ledger.js';
 import { Memory } from './memory.js';
 import { Policy } from './policy.js';
+import { Registry } from './registry.js';
 import { TASKS, taskList } from './tasks.js';
 import { ensureDir, hashObject, nowIso } from './util.js';
 import { Vault } from './vault.js';
@@ -24,8 +26,10 @@ export async function createBaby(overrides = {}) {
   const memory = await new Memory({ dir: path.join(config.dataDir, 'memory'), policy, audit }).init();
   const vault = await new Vault({ dir: path.join(config.dataDir, 'vault'), policy, audit }).init();
   const ledger = await new Ledger({ dir: config.dataDir, projectRoot: config.projectRoot, policy, audit, vault }).init();
+  const registry = await new Registry({ dir: config.dataDir, projectRoot: config.projectRoot, policy, audit }).init();
+  const bus = await new Bus({ dir: path.join(config.dataDir, 'bus'), registry, policy, audit }).init();
 
-  const ctx = { config, policy, audit, memory, vault, ledger };
+  const ctx = { config, policy, audit, memory, vault, ledger, registry, bus };
   const startedAt = nowIso();
 
   async function run(taskId, opts = {}) {
@@ -62,8 +66,8 @@ export async function createBaby(overrides = {}) {
   }
 
   async function status() {
-    const [ledgerStatus, auditV, idx, roots] = await Promise.all([
-      ledger.status(), audit.verify(), memory.latest(), policy.describe(),
+    const [ledgerStatus, auditV, idx, roots, squadron, busV] = await Promise.all([
+      ledger.status(), audit.verify(), memory.latest(), policy.describe(), registry.list(), bus.verify(),
     ]);
     const latestManifest = await vault.latest();
     const vaultV = latestManifest ? await vault.verify(latestManifest.id, { quiet: true }) : { ok: false, reason: 'cofre vazio' };
@@ -76,6 +80,7 @@ export async function createBaby(overrides = {}) {
         vault: vaultV,
         memory: idx ? { indexId: idx.indexId, ts: idx.ts, root: idx.root, fileCount: idx.fileCount, rootHash: idx.rootHash, totalBytes: idx.totalBytes } : null,
       },
+      squadron, bus: busV, goldenRule: 'Uma inteligência pode colaborar com outra, mas nenhuma assume a identidade ou as permissões da outra.',
       roots, adapters: config.adapters, tasks: taskList(),
       paths: { projectRoot: config.projectRoot, dataDir: config.dataDir, targetRoot: config.targetRoot, sandboxDir: config.sandboxDir, evidenceDir: config.evidenceDir },
     };

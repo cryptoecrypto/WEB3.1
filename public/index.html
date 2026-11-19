@@ -129,6 +129,40 @@
   </section>
 
   <section class="wide">
+    <h2>Esquadrão CRYPY — Registro Central de Inteligências</h2>
+    <div class="muted" id="goldenRule" style="margin-bottom:10px"></div>
+    <table><thead><tr><th>identidade</th><th>função</th><th>origem</th><th>motor</th><th>estado</th><th>integração</th><th>pode aprovar</th></tr></thead>
+    <tbody id="squadRows"></tbody></table>
+    <div class="muted" style="margin-top:8px">Presença documentada ≠ integração operacional. “pendente” só vira “conectada” com sondagem real aprovada pelo Sensei.</div>
+    <div class="row" style="margin-top:10px">
+      <button data-task="registry.status">Ler registro</button>
+      <button data-task="squadron.check">Sondar integrações</button>
+      <button data-task="bus.verify">Verificar assinaturas</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Barramento — colaboração assinada</h2>
+    <div id="busState" class="muted">verificando…</div>
+    <label>Despacho: quem pode executar esta intenção?</label>
+    <div class="row">
+      <input id="intent" placeholder="ex.: memory.index, pesquisar, coordenar" />
+      <button id="btnDispatch" style="flex:0 0 auto">Despachar</button>
+    </div>
+    <label>Mensagem do Sensei (canal por token)</label>
+    <div class="row">
+      <select id="msgTo"></select>
+      <input id="msgIntent" placeholder="intenção (ex.: definir-direcao)" />
+    </div>
+    <div class="row" style="margin-top:8px">
+      <input id="msgToken" type="password" placeholder="token do Sensei" />
+      <button id="btnSend" style="flex:0 0 auto">Enviar</button>
+    </div>
+    <table style="margin-top:10px"><thead><tr><th>id</th><th>de → para</th><th>intenção</th><th>estado</th></tr></thead>
+    <tbody id="busRows"></tbody></table>
+  </section>
+
+  <section class="wide">
     <h2>Trilha de auditoria — encadeada por hash</h2>
     <div id="auditState" class="muted">verificando…</div>
     <table style="margin-top:8px"><thead><tr><th>seq</th><th>quando</th><th>ação</th><th>alvo</th><th>detalhe</th><th>hash</th></tr></thead>
@@ -235,6 +269,23 @@ function renderAudit(a){
     <td class="${e.ok?'':'bad'}">${e.action}</td><td class="mono">${(e.target||'').split('/').slice(-2).join('/')}</td>
     <td class="mono">${JSON.stringify(e.detail||{}).slice(0,110)}</td><td class="mono">${(e.hash||'').slice(0,10)}</td></tr>`).join('');
 }
+function renderSquadron(agents, rule){
+  $('#goldenRule').innerHTML = '⚖ <b>Regra de Ouro:</b> ' + rule;
+  $('#squadRows').innerHTML = agents.map(a=>`<tr>
+    <td><b>${a.name}</b><div class="mono">${a.id}</div></td>
+    <td>${a.role}</td><td>${a.origin}</td><td class="mono">${a.engine}</td>
+    <td class="${a.state==='conectada'?'ok':(a.state==='pendente'?'warn':'bad')}">${a.state}${a.declaredOnly?' · só documentada':''}</td>
+    <td class="mono">${a.integration? a.integration.kind : '—'}</td>
+    <td>${a.permissions.approve?'<b class="ok">SIM</b>':'não'}</td></tr>`).join('');
+  const sel = $('#msgTo'); const cur = sel.value;
+  sel.innerHTML = agents.map(a=>`<option value="${a.id}">${a.name} (${a.state})</option>`).join('');
+  sel.value = cur || 'baby';
+}
+function renderBus(b){
+  $('#busState').innerHTML = `<span class="${b.verify.ok?'ok':'bad'}">${b.verify.ok?'assinaturas conferem':'ASSINATURA INVÁLIDA'}</span> — ${b.verify.reason} · ${b.total} mensagens`;
+  $('#busRows').innerHTML = (b.messages||[]).map(m=>`<tr><td class="mono">${m.id}</td><td>${m.from} → ${m.to}</td><td>${m.intent}</td>
+    <td class="${m.status==='entregue'?'ok':'warn'}">${m.status}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">nenhuma mensagem ainda</td></tr>';
+}
 async function loadEvidence(){
   const r = await api('/api/evidence');
   $('#evidence').innerHTML = (r.files||[]).length? (r.files||[]).slice(0,10).map(f=>
@@ -252,6 +303,9 @@ async function refresh(){
     renderPills(STATUS); renderCaps(STATUS.capabilities);
     renderManifests((await api('/api/vault/manifests')).manifests||[]);
     renderAudit(await api('/api/audit?limit=12'));
+    const reg = await api('/api/registry');
+    renderSquadron(reg.agents||[], reg.goldenRule||'');
+    renderBus(await api('/api/bus?limit=8'));
     await loadEvidence();
   }catch(e){ flash('núcleo indisponível: '+e.message, true); }
 }
@@ -273,6 +327,11 @@ $('#btnSearch').onclick = async ()=>{
   show(r);
 };
 $('#q').addEventListener('keydown', e=>{ if(e.key==='Enter') $('#btnSearch').click(); });
+$('#btnDispatch').onclick = async ()=>{ const r = await api('/api/dispatch?intent='+encodeURIComponent($('#intent').value)); show(r); flash(r.reason, !r.executor); };
+$('#btnSend').onclick = async ()=>{
+  const r = await post('/api/bus/send', { from:'sensei', approval:{by:'sensei', token:$('#msgToken').value}, to:$('#msgTo').value, intent:$('#msgIntent').value, payload:{} });
+  show(r); flash(r.ok? 'mensagem registrada: '+r.message.status : (r.reason||'negado'), !r.ok); await refresh();
+};
 $('#advCap').onchange = syncAdvance;
 $('#btnAdvance').onclick = async ()=>{
   const id = $('#advCap').value, to = $('#advTo').value;

@@ -138,6 +138,45 @@ export const TASKS = {
     },
   },
 
+  'registry.status': {
+    capability: 'C2', destructive: false,
+    description: 'Registro Central de Inteligências: identidade, função, permissões e estado real.',
+    async run(ctx) {
+      const agents = await ctx.registry.list();
+      const por = (s) => agents.filter((a) => a.state === s).length;
+      return { ok: true, summary: `${agents.length} identidades — ${por('conectada')} conectadas, ${por('pendente')} pendentes, ${por('desconectada')} desconectadas`, data: { agents, goldenRule: (await ctx.registry.read()).goldenRule } };
+    },
+  },
+
+  'bus.verify': {
+    capability: 'C2', destructive: false,
+    description: 'Verifica a assinatura de cada mensagem do barramento (anti-impostor).',
+    async run(ctx) {
+      const v = await ctx.bus.verify();
+      return { ok: v.ok, summary: `${v.count} mensagens — ${v.reason}`, data: v };
+    },
+  },
+
+  'squadron.check': {
+    capability: 'C2', destructive: false,
+    description: 'Sonda ao vivo cada integração declarada. Não promove ninguém sem resposta real.',
+    async run(ctx) {
+      const agents = await ctx.registry.list();
+      const results = [];
+      for (const a of agents) {
+        if (!a.integration) { results.push({ id: a.id, state: a.state, probe: null, note: 'sem integração declarada — presença documentada apenas' }); continue; }
+        const probe = await ctx.registry.probe(a.integration);
+        results.push({ id: a.id, name: a.name, state: a.state, ok: probe.ok, probe });
+      }
+      const degradados = results.filter((r) => r.state === 'conectada' && r.probe && !r.probe.ok).map((r) => r.id);
+      return {
+        ok: degradados.length === 0,
+        summary: degradados.length ? `integrações degradadas: ${degradados.join(', ')}` : `${results.filter((r) => r.probe?.ok).length} integrações respondendo; ${results.filter((r) => !r.probe).length} identidades só documentadas`,
+        data: { results, degradados },
+      };
+    },
+  },
+
   'self.review': {
     capability: 'C5', destructive: false,
     description: 'Autoanálise do ambiente: cobertura de testes, dívidas, próximos passos por capacidade.',

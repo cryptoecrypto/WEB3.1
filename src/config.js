@@ -12,6 +12,7 @@ export function loadConfig(overrides = {}) {
   const targetRoot = path.resolve(overrides.targetRoot || env.CRYPY_TARGET_ROOT || projectRoot);
   const evidenceDir = path.resolve(overrides.evidenceDir || path.join(projectRoot, 'evidence'));
   const sandboxDir = path.resolve(overrides.sandboxDir || path.join(projectRoot, 'sandbox'));
+  const backupDir = path.resolve(overrides.backupDir || env.CRYPY_BACKUP_DIR || path.resolve(projectRoot, '..', 'CRYPY-BACKUPS'));
   const approvalToken = overrides.approvalToken || env.CRYPY_SENSEI_TOKEN || 'sensei-dev-token';
 
   const roots = overrides.roots || [
@@ -19,10 +20,11 @@ export function loadConfig(overrides = {}) {
     { path: dataDir, mode: 'readwrite', label: 'estado-do-baby' },
     { path: evidenceDir, mode: 'readwrite', label: 'evidencias' },
     { path: sandboxDir, mode: 'readwrite', label: 'sandbox' },
+    { path: backupDir, mode: 'readwrite', label: 'backups' },
   ];
 
   return {
-    projectRoot, dataDir, targetRoot, evidenceDir, sandboxDir, approvalToken, roots,
+    projectRoot, dataDir, targetRoot, evidenceDir, sandboxDir, backupDir, approvalToken, roots,
     host: overrides.host || env.CRYPY_HOST || '0.0.0.0',
     port: Number(overrides.port || env.CRYPY_PORT || env.PORT || 8787),
     // Adaptadores declarados como PLANEJADOS — não existem implementações fingindo existir.
