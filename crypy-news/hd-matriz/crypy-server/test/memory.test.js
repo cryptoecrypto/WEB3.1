@@ -3,6 +3,7 @@ import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { describe, it } from 'node:test';
 import { fixture } from './helpers.js';
+import { createBaby } from '../src/baby.js';
 
 describe('C1 / memória, indexação e relações', () => {
   it('indexa com SHA-256 real e fingerprint estável do corpus', async (t) => {
@@ -32,6 +33,24 @@ describe('C1 / memória, indexação e relações', () => {
     assert.deepEqual(r.diff.changed, ['nota.md']);
     assert.deepEqual(r.diff.removed, ['sub/b.js']);
     assert.equal(r.fileCount, 3);
+  });
+
+  it('indexa a raiz HD MATRIZ autorizada e encontra o abecedário BABY-ASCII-001', async (t) => {
+    const f = await fixture();
+    t.after(f.cleanup);
+    const matrixRoot = path.join(f.root, 'hd-matriz');
+    await fsp.mkdir(matrixRoot, { recursive: true });
+    await fsp.writeFile(path.join(matrixRoot, 'ABECEDARIO-BINARIO-BABY-IA.txt'),
+      'BABY-ASCII-001 ASCII 01000010 01000001', 'utf8');
+    const baby = await createBaby({
+      projectRoot: f.projectRoot, targetRoot: f.targetRoot, matrixRoot,
+      dataDir: f.dataDir, evidenceDir: f.evidenceDir, sandboxDir: f.sandboxDir,
+    });
+    const indexed = await baby.run('memory.index-matriz', {});
+    assert.equal(indexed.ok, true);
+    assert.equal(indexed.data.diff.added.includes('ABECEDARIO-BINARIO-BABY-IA.txt'), true);
+    const found = await baby.memory.search('BABY-ASCII-001 ASCII 01000010');
+    assert.ok(found.hits.some((h) => h.path === 'ABECEDARIO-BINARIO-BABY-IA.txt'));
   });
 
   it('busca por nome e por conteúdo com pontuação e trecho', async (t) => {
