@@ -10,12 +10,15 @@ export function loadConfig(overrides = {}) {
   const projectRoot = path.resolve(overrides.projectRoot || env.CRYPY_PROJECT_ROOT || PROJECT_ROOT);
   const dataDir = path.resolve(overrides.dataDir || env.CRYPY_DATA_DIR || path.join(projectRoot, '.baby'));
   const targetRoot = path.resolve(overrides.targetRoot || env.CRYPY_TARGET_ROOT || projectRoot);
+  // A HD MATRIZ inteira é uma fonte explícita e somente leitura para o indexador.
+  const matrixRoot = path.resolve(overrides.matrixRoot || env.CRYPY_MATRIX_ROOT || path.resolve(projectRoot, '..'));
   const evidenceDir = path.resolve(overrides.evidenceDir || path.join(projectRoot, 'evidence'));
   const sandboxDir = path.resolve(overrides.sandboxDir || path.join(projectRoot, 'sandbox'));
   const backupDir = path.resolve(overrides.backupDir || env.CRYPY_BACKUP_DIR || path.resolve(projectRoot, '..', 'CRYPY-BACKUPS'));
   const approvalToken = overrides.approvalToken || env.CRYPY_SENSEI_TOKEN || null;
 
   const roots = overrides.roots || [
+    { path: matrixRoot, mode: 'read', label: 'hd-matriz' },
     { path: targetRoot, mode: 'read', label: 'corpus' },
     { path: dataDir, mode: 'readwrite', label: 'estado-do-baby' },
     { path: evidenceDir, mode: 'readwrite', label: 'evidencias' },
@@ -24,7 +27,7 @@ export function loadConfig(overrides = {}) {
   ];
 
   return {
-    projectRoot, dataDir, targetRoot, evidenceDir, sandboxDir, backupDir, approvalToken, roots,
+    projectRoot, dataDir, targetRoot, matrixRoot, evidenceDir, sandboxDir, backupDir, approvalToken, roots,
     host: overrides.host || env.CRYPY_HOST || '0.0.0.0',
     port: Number(overrides.port || env.CRYPY_PORT || env.PORT || 8787),
     // Adaptadores declarados como PLANEJADOS — não existem implementações fingindo existir.
