@@ -1,29 +1,31 @@
 #!/usr/bin/env node
 /**
  * CRYPY Terminal Central v1.1 — auditoria estrutural somente leitura.
- * Não altera arquivos, não publica e não acessa credenciais.
+ * O codigo do servidor fica em crypy-news/hd-matriz/crypy-server.
+ * O workflow permanece na raiz por exigencia do GitHub Actions.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const workflowPath = path.resolve(root, '../../../.github/workflows/validate.yml');
 const required = [
-  'package.json',
-  'README.md',
-  'src/server.js',
-  'src/terminal.js',
-  'test',
-  '.github/workflows/validate.yml',
+  ['package.json', path.join(root, 'package.json')],
+  ['README.md', path.join(root, 'README.md')],
+  ['src/server.js', path.join(root, 'src/server.js')],
+  ['src/terminal.js', path.join(root, 'src/terminal.js')],
+  ['test', path.join(root, 'test')],
+  ['.github/workflows/validate.yml (raiz do repositorio)', workflowPath],
 ];
 const forbiddenNames = new Set(['.env', '.env.local', '.env.production', 'id_rsa', 'id_ed25519']);
 const findings = [];
-for (const rel of required) {
+for (const [label, target] of required) {
   try {
-    await fs.access(path.join(root, rel));
-    findings.push({ check: 'required-path', path: rel, ok: true });
+    await fs.access(target);
+    findings.push({ check: 'required-path', path: label, ok: true });
   } catch {
-    findings.push({ check: 'required-path', path: rel, ok: false });
+    findings.push({ check: 'required-path', path: label, ok: false });
   }
 }
 const pkg = JSON.parse(await fs.readFile(path.join(root, 'package.json'), 'utf8'));

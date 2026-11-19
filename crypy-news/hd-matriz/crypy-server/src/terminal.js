@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Entrada do Terminal Central CRYPY v1.1.
- * --audit executa auditoria somente leitura; --inventory lista a raiz.
+ * --audit executa auditoria somente leitura; --inventory lista esta pasta do servidor.
  * Sem argumento inicia o servidor operacional existente.
  */
 import fs from 'node:fs/promises';
@@ -21,7 +21,7 @@ if (arg === '--audit') {
     .filter(entry => !ignored.has(entry.name))
     .map(entry => ({ name: entry.name, type: entry.isDirectory() ? 'directory' : 'file' }))
     .sort((a, b) => a.name.localeCompare(b.name));
-  console.log(JSON.stringify({ source: 'WEB3.1', root: '.', readOnly: true, entries }, null, 2));
+  console.log(JSON.stringify({ source: 'CRYPY SERVER / HD MATRIZ', root, readOnly: true, entries }, null, 2));
 } else {
   const { createServer } = await import('./server.js');
   const { server, baby } = await createServer();

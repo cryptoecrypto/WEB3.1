@@ -14,6 +14,9 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: crypy-news/hd-matriz/crypy-server
     steps:
       - name: Checkout do repositorio
         uses: actions/checkout@v4
@@ -32,7 +35,7 @@ jobs:
       - name: Auditoria estrutural
         run: npm run audit
 
-      - name: Inventario da raiz
+      - name: Inventario do HD MATRIZ do servidor
         run: npm run inventory
 
       - name: Conclusao do workflow
