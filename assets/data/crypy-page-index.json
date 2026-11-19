@@ -1,0 +1,1357 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-11-19T19:58:33.553Z",
+  "total": 270,
+  "pages": [
+    {
+      "path": "art-figure-marketplace/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/health.html",
+      "label": "Health",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "baby-ia/auto-config.html",
+      "label": "Auto Config",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/baby-agente-cons.html",
+      "label": "Baby Agente Cons",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/padrao/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/padrao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/padrao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/health.html",
+      "label": "Health",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/health.html",
+      "label": "Health",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/pluguin-tuto.html",
+      "label": "Pluguin Tuto",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "baby-ia"
+    },
+    {
+      "path": "biografia/baby.ia.chatboot.html",
+      "label": "Baby.Ia.Chatboot",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/biografia.html",
+      "label": "Biografia",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/health.html",
+      "label": "Health",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "biografia"
+    },
+    {
+      "path": "contato/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "contato"
+    },
+    {
+      "path": "contato/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "contato"
+    },
+    {
+      "path": "contato/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "contato"
+    },
+    {
+      "path": "contato/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/health.html",
+      "label": "Health",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "contato"
+    },
+    {
+      "path": "crypy-academy/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/health.html",
+      "label": "Health",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-coin/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/health.html",
+      "label": "Health",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-games-desafios/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/crypy-games-desafios.html",
+      "label": "Crypy Games Desafios",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/crypy-pac-crypyman.html",
+      "label": "Crypy Pac Crypyman",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/health.html",
+      "label": "Health",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-news/hd-matriz/baby-ia.html",
+      "label": "Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-babyia.html",
+      "label": "Hd Babyia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/health.html",
+      "label": "Health",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/health.html",
+      "label": "Health",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "crypy-news"
+    },
+    {
+      "path": "esquadrao-das-cores/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hd-babyia.html",
+      "label": "Hd Babyia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "marketing/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/health.html",
+      "label": "Health",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/marketing.html",
+      "label": "Marketing",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "marketing"
+    },
+    {
+      "path": "memory-boost/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/health.html",
+      "label": "Health",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "memory-boost"
+    },
+    {
+      "path": "nft-collection/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/collection-crypy-nft.html",
+      "label": "Collection Crypy Nft",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/crypy-nft-edition.html",
+      "label": "Crypy Nft Edition",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/health.html",
+      "label": "Health",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/nft-colection-edition.html",
+      "label": "Nft Colection Edition",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/nft-darkness.html",
+      "label": "Nft Darkness",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/nft-genesis.html",
+      "label": "Nft Genesis",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "nft-collection"
+    },
+    {
+      "path": "padrao/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/health.html",
+      "label": "Health",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/momory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "padrao"
+    },
+    {
+      "path": "pluguin/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/health.html",
+      "label": "Health",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/pluguin.html",
+      "label": "Pluguin",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "pluguin"
+    },
+    {
+      "path": "public/index.html",
+      "label": "Página inicial",
+      "group": "public"
+    },
+    {
+      "path": "baby-ia.html",
+      "label": "Baby Ia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "RAIZ"
+    },
+    {
+      "path": "baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "RAIZ"
+    },
+    {
+      "path": "chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "hd-memory.html",
+      "label": "Hd Memory",
+      "group": "RAIZ"
+    },
+    {
+      "path": "health.html",
+      "label": "Health",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index.htm",
+      "label": "HOME",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index.html",
+      "label": "HOME",
+      "group": "RAIZ"
+    },
+    {
+      "path": "relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "RAIZ"
+    },
+    {
+      "path": "sincronizacao/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/sinc/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/sinc/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/health.html",
+      "label": "Health",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "social-crypykut/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/health.html",
+      "label": "Health",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "web3.1/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/health.html",
+      "label": "Health",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/momory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
+      "group": "web3.1"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name: BABY — validação do chatbot global
+
+on:
+  push:
+    branches:
+      - feature/baby-chatbot-global-2026-11-19
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-global-chat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verificar sintaxe JavaScript
+        run: node --check assets/js/baby-global-chat.js && node --check scripts/validar-baby-global-chat.mjs
+      - name: Garantir widget BABY nas páginas HTML da raiz
+        run: node scripts/integrar-menu-global.mjs
+
+      - name: Validar integração nas páginas HTML da raiz
+        run: node scripts/validar-baby-global-chat.mjs
