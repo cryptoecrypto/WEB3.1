@@ -37,7 +37,23 @@ export async function createServer({ baby = null, ...overrides } = {}) {
   const b = baby || (await createBaby(overrides));
   const indexFile = path.join(b.config.projectRoot, 'public', 'index.html');
 
+  const allowedOrigins = new Set((process.env.CRYPY_ALLOWED_ORIGINS || 'https://cryptoecrypto.github.io')
+    .split(',').map((origin) => origin.trim()).filter(Boolean));
+
   const server = http.createServer(async (req, res) => {
+    const origin = req.headers.origin;
+    if (origin && allowedOrigins.has(origin)) {
+      res.setHeader('access-control-allow-origin', origin);
+      res.setHeader('vary', 'Origin');
+      res.setHeader('access-control-allow-methods', 'GET, POST, OPTIONS');
+      res.setHeader('access-control-allow-headers', 'Content-Type');
+      res.setHeader('access-control-max-age', '600');
+    }
+    if (req.method === 'OPTIONS') {
+      if (origin && !allowedOrigins.has(origin)) return json(res, 403, { ok: false, reason: 'origem não autorizada para a ponte CRYPY' });
+      res.writeHead(204);
+      return res.end();
+    }
     const url = new URL(req.url, 'http://nucleo.local');
     const p = url.pathname;
     try {
