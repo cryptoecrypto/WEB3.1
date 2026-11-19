@@ -4,8 +4,12 @@
   "private": true,
   "description": "CRYPY / BABY — núcleo operacional: memória, centralização, autonomia controlada, autoproteção e evolução contínua. MODO REAL.",
   "type": "module",
-  "engines": { "node": ">=20" },
-  "bin": { "baby": "bin/baby.js" },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "baby": "bin/baby.js"
+  },
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test test/",
@@ -14,7 +18,10 @@
     "snapshot": "node bin/baby.js snapshot",
     "verify": "node bin/baby.js verify",
     "review": "node bin/baby.js review",
-    "evidence": "node bin/baby.js evidence"
+    "evidence": "node bin/baby.js evidence",
+    "terminal": "node src/terminal.js",
+    "audit": "node scripts/audit.js",
+    "inventory": "node src/terminal.js --inventory"
   },
   "dependencies": {}
 }
