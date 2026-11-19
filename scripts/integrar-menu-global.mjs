@@ -101,6 +101,7 @@ fs.writeFileSync(indexPath, JSON.stringify({
 
 console.log("CRYPY GLOBAL NAV — MIGRAÇÃO CONCLUÍDA");
 console.log("Páginas catalogadas:", pages.length);
-console.log("Páginas atualizadas:", updated);\nconsole.log("Chatbot BABY adicionado na raiz:", chatWidgetAdded);
+console.log("Páginas atualizadas:", updated);
+console.log("Chatbot BABY adicionado na raiz:", chatWidgetAdded);
 console.log("Já tinham menu:", alreadyPresent);
 console.log("Ignoradas por não serem HTML utilizável:", skipped);
