@@ -1,0 +1,20 @@
+{
+  "name": "crypy-server-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CRYPY / BABY — núcleo operacional: memória, centralização, autonomia controlada, autoproteção e evolução contínua. MODO REAL.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "bin": { "baby": "bin/baby.js" },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/",
+    "status": "node bin/baby.js status",
+    "index": "node bin/baby.js index",
+    "snapshot": "node bin/baby.js snapshot",
+    "verify": "node bin/baby.js verify",
+    "review": "node bin/baby.js review",
+    "evidence": "node bin/baby.js evidence"
+  },
+  "dependencies": {}
+}

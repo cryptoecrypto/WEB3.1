@@ -1,0 +1,26 @@
+{
+  "name": "CRYPY Server",
+  "status": "INACTIVE_PENDING_SERVER_CONTRACT",
+  "baseUrl": "",
+  "healthPath": "",
+  "api": {
+    "memoryRead": "",
+    "memoryWrite": "",
+    "backupCreate": ""
+  },
+  "auth": {
+    "type": "UNDEFINED",
+    "loginPath": "",
+    "tokenStorage": "MEMORY_ONLY"
+  },
+  "sync": {
+    "enabled": false,
+    "uploadExternalData": false,
+    "overwriteExisting": false
+  },
+  "notes": [
+    "Example only. Do not place secrets in this file.",
+    "Fill paths only after inspecting the real server.js and its API contract.",
+    "No connection is attempted while status is INACTIVE_PENDING_SERVER_CONTRACT."
+  ]
+}
