@@ -61,7 +61,7 @@ export async function createServer({ baby = null, ...overrides } = {}) {
     if (p.startsWith('/api/')) {
       const expected = process.env.CRYPY_API_TOKEN || '';
       if (!expected) return json(res, 503, { ok: false, code: 'API_TOKEN_NOT_CONFIGURED', reason: 'API bloqueada: configure CRYPY_API_TOKEN no ambiente do servidor.' });
-      const supplied = (req.headers.authorization || '').replace(/^Bearer\\s+/i, '');
+      const supplied = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
       const a = Buffer.from(supplied);
       const e = Buffer.from(expected);
       if (a.length !== e.length || !timingSafeEqual(a, e)) return json(res, 401, { ok: false, code: 'UNAUTHORIZED', reason: 'Token de acesso ausente ou inválido.' });
