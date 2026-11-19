@@ -48,3 +48,18 @@ evidence/ logs de teste, relatórios, autoanálises
 
 > Não estamos construindo uma IA para conversar sobre o CRYPY.
 > Estamos construindo uma IA para trabalhar dentro do CRYPY.
+ 
+---
+
+## CRYPY TERMINAL CENTRAL v1.1 — integração
+
+O Terminal Central adiciona inventário e auditoria estrutural em modo somente leitura, preservando o núcleo CRYPY SERVER existente.
+
+```bash
+npm run terminal   # inicia o servidor existente através da entrada do Terminal
+npm run inventory  # inventário somente leitura da raiz WEB3.1
+npm run audit      # auditoria estrutural
+npm test           # suíte original de testes
+```
+
+Consulte [TERMINAL-README.md](TERMINAL-README.md) para os limites operacionais, comandos e regras de segurança. O workflow [validate.yml](.github/workflows/validate.yml) executa testes e auditorias em push, pull request e rotina diária. A conclusão do workflow não substitui a aprovação humana do Sensei nem comprova implantação em produção.
