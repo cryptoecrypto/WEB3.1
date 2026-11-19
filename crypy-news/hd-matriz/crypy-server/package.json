@@ -16,6 +16,8 @@
     "inventory": "node src/terminal.js --inventory",
     "status": "node bin/baby.js status",
     "index": "node bin/baby.js index",
+    "index:matrix": "node bin/baby.js matrix-index",
+    "learn:matrix": "node scripts/verify-matrix-learning.js",
     "snapshot": "node bin/baby.js snapshot",
     "verify": "node bin/baby.js verify",
     "review": "node bin/baby.js review",
