@@ -219,7 +219,7 @@ $('#serverBase').value = SERVER_BASE;
 const STATES = ['planejada','documentada','implementada','testada','aprovada','protegida'];
 let STATUS = null;
 
-function normalizeServerBase(value){ return value.trim().replace(/\\/+$/, ''); }
+function normalizeServerBase(value){ let base = value.trim(); while(base.endsWith('/')) base = base.slice(0, -1); return base; }
 $('#btnBridgeSave').onclick = () => {
   SERVER_BASE = normalizeServerBase($('#serverBase').value);
   localStorage.setItem('crypy.serverBase', SERVER_BASE);
