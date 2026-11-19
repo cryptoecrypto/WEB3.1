@@ -12,7 +12,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const arg = process.argv[2];
 
 if (arg === '--audit') {
-  const { default: unused } = await import('node:module').catch(() => ({ default: null }));
   const { spawnSync } = await import('node:child_process');
   const result = spawnSync(process.execPath, [path.join(root, 'scripts/audit.js')], { cwd: root, stdio: 'inherit' });
   process.exitCode = result.status ?? 1;
