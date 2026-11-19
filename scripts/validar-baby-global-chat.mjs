@@ -17,7 +17,7 @@ for (const file of [widgetPath, chatSource, homePath]) {
 
 if (fs.existsSync(widgetPath)) {
   const widget = fs.readFileSync(widgetPath, "utf8");
-  if (!widget.includes('id = "crypy-baby-global-root"')) fail("Widget sem raiz identificável.");
+  if (!widget.includes('root.id = "crypy-baby-global-root"')) fail("Widget sem raiz identificável.");
   if (!widget.includes("chatboot-baby-ia.html?embed=1")) fail("Widget não aponta para o ChatBoot oficial.");
   if (!widget.includes("aria-expanded")) fail("Widget sem estado acessível do botão.");
 }
