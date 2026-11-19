@@ -38,6 +38,9 @@ jobs:
       - name: Inventario do HD MATRIZ do servidor
         run: npm run inventory
 
+      - name: Indexar HD MATRIZ e comprovar aprendizado ASCII
+        run: npm run learn:matrix
+
       - name: Conclusao do workflow
         if: success()
         run: echo "Validacoes tecnicas concluidas. Aguardando aprovacao humana do Sensei."
