@@ -101,13 +101,13 @@
       var matches = pages.filter(function(page) {
         return !query || (page.label + " " + page.path + " " + page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = "Exibindo " + Math.min(matches.length,120) + " de " + matches.length + " páginas encontradas";
+      count.textContent = "Exibindo " + matches.length + " de " + pages.length + " páginas";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div", { className:"crypy-nav-empty" }, "Nenhuma página encontrada. Tente outro termo."));
         return;
       }
-      matches.slice(0,120).forEach(function(page) {
+      matches.forEach(function(page) {
         var link = node("a", { className:"crypy-nav-link", href:new URL(page.path,siteRoot).href, role:"listitem" });
         link.appendChild(node("strong", {}, page.label));
         link.appendChild(node("small", {}, page.group + " · " + page.path));
