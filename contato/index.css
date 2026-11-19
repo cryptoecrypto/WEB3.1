@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#05010e;
+  --surface:#120a28;
+  --surface-2:#1b1040;
+  --text:#fff8e8;
+  --muted:#cdbff5;
+  --gold:#ffd35a;
+  --green:#42ffa8;
+  --purple:#a855f7;
+  --blue:#38bdf8;
+  --line:rgba(255,211,90,.38);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#05010e; --surface:#120a28; --text:#fff8e8; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:clip}
+.font-display{font-family:'Unbounded',system-ui,sans-serif}
+.neon-card{
+  background:linear-gradient(145deg,rgba(27,16,64,.96),rgba(8,3,22,.96));
+  border:1px solid transparent;
+  background-clip:padding-box;
+  position:relative;
+}
+.neon-card::before{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;
+  background:linear-gradient(120deg,#ffd35a,#42ffa8,#a855f7,#38bdf8,#ffd35a);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+.galaxy{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(168,85,247,.42),transparent 30%),
+    radial-gradient(circle at 88% 22%,rgba(56,189,248,.30),transparent 28%),
+    radial-gradient(circle at 72% 72%,rgba(66,255,168,.14),transparent 32%),
+    radial-gradient(circle at 28% 78%,rgba(255,211,90,.16),transparent 28%),
+    radial-gradient(ellipse at center,#180b3d 0%,#070117 58%,#030008 100%);
+}
+.stars{background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#ffd35a 1px,transparent 1px),radial-gradient(#8bffcf 1px,transparent 1px);background-size:90px 90px,140px 140px,180px 180px;background-position:0 0,30px 50px,80px 20px}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes pulseGlow{0%,100%{filter:drop-shadow(0 0 12px rgba(255,211,90,.55))}50%{filter:drop-shadow(0 0 28px rgba(168,85,247,.8))}}
+.floaty{animation:floaty 5s ease-in-out infinite}
+.pulse-glow{animation:pulseGlow 3.2s ease-in-out infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee{animation:marquee 22s linear infinite}
+input,select,textarea{font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:2px}
+a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
