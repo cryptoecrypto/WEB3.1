@@ -59,7 +59,7 @@ for (const file of files) {
     group:file.includes("/") ? file.split("/")[0] : "RAIZ"
   });
 
-  if (html.includes("crypy-global-nav.js")) {
+  if (/<script\b[^>]*\bsrc=["'][^"']*crypy-global-nav\.js["'][^>]*>/i.test(html)) {
     already++;
     continue;
   }
