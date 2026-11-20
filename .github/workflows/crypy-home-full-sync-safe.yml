@@ -1,0 +1,20 @@
+name: CRYPY — validação da sincronização global
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verificar sintaxe
+        run: node --check scripts/sincronizar-crypy-global.mjs && node --check scripts/validar-crypy-global.mjs && node --check assets/js/crypy-global-nav.js && node --check assets/js/baby-global-chat.js
+      - name: Validar índice e integração
+        run: node scripts/validar-crypy-global.mjs
