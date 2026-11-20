@@ -1,7 +1,7 @@
 {
-  "version": "1.4",
+  "version": "1.5",
   "generated_at": "2026-11-20",
-  "total": 287,
+  "total": 288,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -16,6 +16,11 @@
     {
       "path": "art-figure-marketplace/hd-memory.html",
       "label": "Hd Memory",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/marketplace.html",
+      "label": "Art-Figure — Marketplace",
       "group": "art-figure-marketplace"
     },
     {
@@ -91,6 +96,11 @@
     {
       "path": "baby-ia/baby-agente-cons.html",
       "label": "Baby Agente Cons",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/centro.html",
+      "label": "BABY I.A. — Centro de Conhecimento",
       "group": "baby-ia"
     },
     {
@@ -264,6 +274,11 @@
       "group": "biografia"
     },
     {
+      "path": "biografia/historia.html",
+      "label": "Biografia CRYPY — História",
+      "group": "biografia"
+    },
+    {
       "path": "biografia/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "biografia"
@@ -311,6 +326,11 @@
     {
       "path": "contato/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
+      "group": "contato"
+    },
+    {
+      "path": "contato/contato-oficial.html",
+      "label": "Contato CRYPY — Oficial",
       "group": "contato"
     },
     {
@@ -369,8 +389,18 @@
       "group": "contato"
     },
     {
+      "path": "crypy-academy/academia.html",
+      "label": "CRYPY Academy — Trilhas avançadas",
+      "group": "crypy-academy"
+    },
+    {
       "path": "crypy-academy/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/cursos.html",
+      "label": "Catálogo de Cursos — Fortaleza do Ensino",
       "group": "crypy-academy"
     },
     {
@@ -499,6 +529,16 @@
       "group": "crypy-coin"
     },
     {
+      "path": "crypy-coin/white-paper.html",
+      "label": "CRYPY — White Paper",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-games-desafios/arena.html",
+      "label": "CRYPY Games — Arena",
+      "group": "crypy-games-desafios"
+    },
+    {
       "path": "crypy-games-desafios/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "crypy-games-desafios"
@@ -611,6 +651,11 @@
     {
       "path": "crypy-infinyt/memory-boost/relogio-mundial.html",
       "label": "Relogio Mundial",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/portal.html",
+      "label": "CRYPY INFINYT — Portal",
       "group": "crypy-infinyt"
     },
     {
@@ -744,6 +789,11 @@
       "group": "crypy-news"
     },
     {
+      "path": "crypy-news/museu.html",
+      "label": "Museu Digital — Acervo",
+      "group": "crypy-news"
+    },
+    {
       "path": "crypy-news/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "crypy-news"
@@ -751,6 +801,11 @@
     {
       "path": "esquadrao-das-cores/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/esquadrao.html",
+      "label": "Esquadrão das Cores — Funções",
       "group": "esquadrao-das-cores"
     },
     {
@@ -971,6 +1026,11 @@
     {
       "path": "nft-collection/crypy-nft-edition.html",
       "label": "Crypy Nft Edition",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/galeria.html",
+      "label": "NFT Collection — Galeria",
       "group": "nft-collection"
     },
     {
@@ -1254,6 +1314,11 @@
       "group": "social-crypykut"
     },
     {
+      "path": "social-crypykut/comunidade.html",
+      "label": "Social CRYPYKUT — Comunidade",
+      "group": "social-crypykut"
+    },
+    {
       "path": "social-crypykut/hd-baby-ia.html",
       "label": "Hd Baby Ia",
       "group": "social-crypykut"
@@ -1377,66 +1442,6 @@
       "path": "web3.1/momory-boost/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "web3.1"
-    },
-    {
-      "path": "crypy-infinyt/portal.html",
-      "label": "CRYPY INFINYT — Portal",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "nft-collection/galeria.html",
-      "label": "NFT Collection — Galeria",
-      "group": "nft-collection"
-    },
-    {
-      "path": "esquadrao-das-cores/esquadrao.html",
-      "label": "Esquadrão das Cores — Funções",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "crypy-academy/academia.html",
-      "label": "CRYPY Academy — Trilhas avançadas",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "biografia/historia.html",
-      "label": "Biografia CRYPY — História",
-      "group": "biografia"
-    },
-    {
-      "path": "crypy-news/museu.html",
-      "label": "Museu Digital — Acervo",
-      "group": "crypy-news"
-    },
-    {
-      "path": "art-figure-marketplace/marketplace.html",
-      "label": "Art-Figure — Marketplace",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "crypy-games-desafios/arena.html",
-      "label": "CRYPY Games — Arena",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "social-crypykut/comunidade.html",
-      "label": "Social CRYPYKUT — Comunidade",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "baby-ia/centro.html",
-      "label": "BABY I.A. — Centro de Conhecimento",
-      "group": "baby-ia"
-    },
-    {
-      "path": "crypy-coin/white-paper.html",
-      "label": "CRYPY — White Paper",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "contato/contato-oficial.html",
-      "label": "Contato CRYPY — Oficial",
-      "group": "contato"
     }
   ]
 }
