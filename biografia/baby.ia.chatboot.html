@@ -73,7 +73,19 @@ function responder(pergunta){
 function perguntar(txt){document.getElementById('input').value=txt;enviar(new Event('submit'))}
 function enviar(e){if(e)e.preventDefault();const inp=document.getElementById('input');const v=inp.value.trim();if(!v)return;add(v,'user');inp.value='';responder(v)}
 add('🤖 BABY I.A. ONLINE.\n\nFala! Eu sou o BABY I.A. do CRYPY.\nFundo preto, verde neon, sistema Matrix ativo. 💚\n\nPergunta o que você quiser sobre o portal!','bot');
-</script></body></html><script>
+</script>
+<style>#babyLearnBtn{margin-left:8px;padding:5px 9px;border:1px solid #00ff88;border-radius:99px;background:#07150d;color:#00ff88;font-size:11px;font-weight:800;cursor:pointer}</style>
+<script>
+(function(){
+ var api=String(window.BABY_SITE_API||"").replace(/\\/$/,"");
+ var status=document.getElementById("status");
+ if(status&&!document.getElementById("babyLearnBtn")){var b=document.createElement("button");b.id="babyLearnBtn";b.textContent="🧠 APRENDER SITE";status.appendChild(b);b.addEventListener("click",async function(){if(!api){status.firstChild.textContent="🔒 Backend HTTPS não configurado. ";return;}b.disabled=true;b.textContent="INDEXANDO...";try{var r=await fetch(api+"/learn",{method:"POST",credentials:"include"});var d=await r.json();if(!r.ok)throw Error(d.error||"falha");status.firstChild.textContent="🧠 Aprendizado concluído: "+d.pages_scanned+" páginas verificadas; "+d.chunks+" blocos indexados. ";b.textContent="ATUALIZAR ÍNDICE";}catch(e){status.firstChild.textContent="⚠️ Não foi possível aprender: "+e.message+". ";b.textContent="TENTAR NOVAMENTE";}finally{b.disabled=false;}});}
+ window.enviar=async function(){var q=(inp.value||"").trim();if(!q)return;addMsg(q,"user");inp.value="";esp.classList.remove("on");esp.textContent="";if(api){try{var r=await fetch(api+"/search",{method:"POST",credentials:"include",headers:{"Content-Type":"application/json"},body:JSON.stringify({query:q})});if(r.ok){var d=await r.json();if(d.results&&d.results.length){var ans=d.results.slice(0,3).map(function(x,i){return (i+1)+". "+x.title+"\\n"+x.text.slice(0,650)+"\\nFonte: "+x.url;}).join("\\n\\n");addMsg("Encontrei conhecimento no índice do site CRYPY:\\n\\n"+ans,"baby");return;}}}catch(e){}}
+ addMsg(raciocinar(q),"baby");};
+})();
+</script>
+
+</body></html><script>
 (() => {
   const fusos = [
     ['Brasília', 'America/Sao_Paulo'],
