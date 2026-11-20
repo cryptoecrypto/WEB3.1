@@ -32,6 +32,10 @@ Cadastre exatamente estes redirect URIs nos provedores:
 
 Configure `APP_ORIGIN=https://cryptoecrypto.github.io` e `FRONTEND_URL=https://cryptoecrypto.github.io/WEB3.1/crypy-academy/cursos.html`.
 
+## Privacidade
+
+A página apresenta uma minuta de política em `cursos/POLITICA-PRIVACIDADE-ALUNO-001.md`. Ela precisa de revisão e complementação pelo responsável antes da abertura pública, conforme LGPD. Não ativar a coleta real de alunos sem identificar o controlador, o canal de privacidade, prazos de retenção e operadores contratados.
+
 ## Banco de questões
 
 Importe um JSON aprovado pelo responsável do curso:
