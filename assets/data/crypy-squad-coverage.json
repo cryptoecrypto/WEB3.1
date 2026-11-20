@@ -1,0 +1,1103 @@
+{
+  "generated_at": "2026-11-20T02:29:59.148Z",
+  "total_html": 273,
+  "covered_count": 171,
+  "excluded_count": 102,
+  "coverage": "Todas as páginas HTML rastreadas pelo Git, exceto arquivos HD/servidor explicitamente protegidos; index.html/index.htm cobertos pela HOME global.",
+  "covered": [
+    {
+      "file": "art-figure-marketplace/chatboot-baby-ia.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/baby-ia-agente.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/baby-ia-conectado.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/chatboot-baby-ia.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/health.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/pluguin.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/pluguins-tuto.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/relogio-mundial.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "art-figure-marketplace/relogio-mundial.html",
+      "method": "já integrado"
+    },
+    {
+      "file": "baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/auto-config.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/baby-agente-cons.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/pluguin-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/momory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/padrao/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/baby.ia.chatboot.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/biografia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "biografia/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "contato/momory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-academy/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-coin/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/crypy-games-desafios.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/crypy-pac-crypyman.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/pluguin/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/pluguin/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/pluguin/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-games-desafios/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-infinyt/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-news/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "crypy-news/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "esquadrao-das-cores/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "esquadrao-das-cores/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "index.htm",
+      "method": "assistente global da HOME acompanha o iframe"
+    },
+    {
+      "file": "index.html",
+      "method": "HOME carrega o assistente global"
+    },
+    {
+      "file": "mapa-colmeia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/marketing.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "marketing/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/collection-crypy-nft.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/crypy-collection-crypypasta.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/crypy-genesis.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/crypy-nft-edition.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/nft-colection-edition.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/nft-darkness.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/nft-genesis.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "nft-collection/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "padrao/momory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "pluguin/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "sincronizacao/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/memory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "social-crypykut/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/baby-ia-agente.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/baby-ia-conectado.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/chatboot-baby-ia.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/health.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/pluguin.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/pluguins-tuto.html",
+      "method": "script compartilhado injetado"
+    },
+    {
+      "file": "web3.1/momory-boost/relogio-mundial.html",
+      "method": "script compartilhado injetado"
+    }
+  ],
+  "excluded": [
+    {
+      "file": "art-figure-marketplace/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "art-figure-marketplace/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "art-figure-marketplace/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/momory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/momory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/padrao/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/padrao/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/sincronizacao/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/sincronizacao/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "baby-ia/sincronizacao/momory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "biografia/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "biografia/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "biografia/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "biografia/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "contato/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "contato/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "contato/momory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "contato/momory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-academy/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-academy/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-academy/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-academy/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-coin/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-coin/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-coin/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-coin/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-games-desafios/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-games-desafios/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-games-desafios/pluguin/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-games-desafios/pluguin/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-infinyt/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-infinyt/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-infinyt/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-babyia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/baby-ia-agente.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/baby-ia-conectado.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/crypy-server/public/index.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/health.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/baby-ia-agente.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/baby-ia-conectado.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/chatboot-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/health.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/pluguin.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/pluguins-tuto.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/memory-boost/relogio-mundial.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/pluguin/chatboot-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/pluguin/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/pluguin/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/pluguin/pluguin.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/pluguin/pluguins-tuto.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-matriz/relogio-mundial.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "crypy-news/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "esquadrao-das-cores/hd-babyia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "esquadrao-das-cores/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "esquadrao-das-cores/hq-collection/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "esquadrao-das-cores/hq-collection/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "marketing/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "marketing/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "marketing/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "marketing/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "memory-boost/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "memory-boost/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "nft-collection/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "nft-collection/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "nft-collection/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "nft-collection/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "padrao/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "padrao/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "padrao/momory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "padrao/momory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "pluguin/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "pluguin/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "pluguin/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "pluguin/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "sincronizacao/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "sincronizacao/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "sincronizacao/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "sincronizacao/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "sincronizacao/sinc/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "sincronizacao/sinc/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "social-crypykut/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "social-crypykut/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "social-crypykut/memory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "social-crypykut/memory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "web3.1/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "web3.1/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "web3.1/momory-boost/hd-baby-ia.html",
+      "reason": "HD/servidor protegido"
+    },
+    {
+      "file": "web3.1/momory-boost/hd-memory.html",
+      "reason": "HD/servidor protegido"
+    }
+  ]
+}

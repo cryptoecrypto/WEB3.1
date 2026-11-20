@@ -111,5 +111,6 @@ function runAuto(){if(!needActive('automation'))return;const name=document.getEl
 const canvas=document.getElementById('matrixCanvas');const ctx=canvas.getContext('2d');function size(){canvas.width=innerWidth;canvas.height=innerHeight;}size();addEventListener('resize',size);const chars='01アイウエオカキクケコサシスセソタチツテトナニヌネノ';const drops=Array(Math.floor(innerWidth/14)).fill(1);setInterval(()=>{ctx.fillStyle='rgba(0,0,0,0.05)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00ff00';ctx.font='14px monospace';for(let i=0;i<drops.length;i++){ctx.fillText(chars[Math.floor(Math.random()*chars.length)],i*14,drops[i]*14);if(drops[i]*14>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]++;}},35);
 render();
 </script>
+<script src="../../assets/js/crypy-page-assistant.js" defer></script>
 </body>
 </html>
