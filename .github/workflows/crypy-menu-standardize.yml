@@ -1,0 +1,27 @@
+name: CRYPY — Auditoria do menu padronizado
+
+on:
+  push:
+    branches:
+      - feature/crypy-menu-12-keywords
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validar sintaxe dos arquivos de navegação
+        run: |
+          node --check assets/js/crypy-global-nav.js
+          node --check scripts/sincronizar-crypy-global.mjs
+          node --check scripts/auditar-menu-crypy.mjs
+      - name: Auditar os 12 rótulos e todas as páginas elegíveis
+        run: node scripts/auditar-menu-crypy.mjs
