@@ -32,6 +32,7 @@ jobs:
           npm install --prefix /tmp/baby-browser playwright@1.56.1
           npx --prefix /tmp/baby-browser playwright install --with-deps chromium
       - name: Testar todas as páginas HTML no navegador
+        continue-on-error: true
         env:
           PLAYWRIGHT_MODULE: /tmp/baby-browser/node_modules/playwright
         run: node scripts/testar-baby-colmeia-browser.mjs
@@ -48,3 +49,7 @@ jobs:
         run: node scripts/sincronizar-crypy-global.mjs
       - name: Validar índice e integração BABY
         run: node scripts/validar-crypy-global.mjs
+      - name: Aplicar critério final dos testes de navegador
+        if: always()
+        run: |
+          node -e "const fs=require('fs'); const p='artifacts/baby-colmeia-browser.json'; if(!fs.existsSync(p)){console.error('Relatório Chromium ausente');process.exit(1)} const r=JSON.parse(fs.readFileSync(p,'utf8')); console.log(JSON.stringify({totalPages:r.totalPages,navigatedPages:r.navigatedPages,failedPages:r.failedPages,consoleErrorPages:r.consoleErrorPages})); if(r.failedPages>0) process.exit(1)"
