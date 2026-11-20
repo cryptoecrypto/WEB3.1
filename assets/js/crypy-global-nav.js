@@ -44,6 +44,10 @@
       ".crypy-nav-link{display:flex;flex-direction:column;gap:2px;padding:9px 10px;border-radius:9px;color:#eafff3;text-decoration:none;border:1px solid transparent}",
       ".crypy-nav-link:hover{background:#0b2114;border-color:#17613a}",
       ".crypy-nav-link strong{font-size:13px;font-weight:650}",
+      ".crypy-nav-group{margin:5px 0 12px;border:1px solid #17462b;border-radius:12px;overflow:hidden;background:#041009}",
+      ".crypy-nav-group-title{position:sticky;top:0;display:flex;justify-content:space-between;gap:10px;padding:10px 12px;background:#092014;border-bottom:1px solid #17613a;color:#00ff88;font-size:11px;letter-spacing:.1em;font-weight:900}",
+      ".crypy-nav-group-title span{color:#a5cbb4;font-size:10px;letter-spacing:0;font-weight:600}",
+      ".crypy-nav-group .crypy-nav-link{margin:2px 5px;padding:8px 9px}",
       ".crypy-nav-link small{font-size:10px;color:#9bbda8;overflow-wrap:anywhere}",
       ".crypy-nav-empty{padding:18px 12px;color:#a5cbb4;font-size:13px}",
       "@media(max-width:600px){#crypy-global-navigation{top:10px;right:10px}#crypy-global-nav-panel{top:62px;left:10px;right:10px;width:auto;max-height:calc(100dvh - 74px)}#crypy-global-nav-toggle{padding:10px 13px}}",
@@ -101,17 +105,37 @@
       var matches = pages.filter(function(page) {
         return !query || (page.label + " " + page.path + " " + page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = "Exibindo " + matches.length + " de " + pages.length + " páginas";
+      count.textContent = "Exibindo " + matches.length + " de " + pages.length + " páginas · organizadas por área";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div", { className:"crypy-nav-empty" }, "Nenhuma página encontrada. Tente outro termo."));
         return;
       }
+      var groups = {};
       matches.forEach(function(page) {
-        var link = node("a", { className:"crypy-nav-link", href:new URL(page.path,siteRoot).href, target:"crypy-content", role:"listitem" });
-        link.appendChild(node("strong", {}, page.label));
-        link.appendChild(node("small", {}, page.group + " · " + page.path));
-        list.appendChild(link);
+        var key = page.group || "OUTRAS PÁGINAS";
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(page);
+      });
+      Object.keys(groups).sort(function(a,b) {
+        if (a === "RAIZ") return -1;
+        if (b === "RAIZ") return 1;
+        return a.localeCompare(b, "pt-BR");
+      }).forEach(function(groupName) {
+        var section = node("section", { className:"crypy-nav-group", "aria-label":groupName });
+        var heading = node("div", { className:"crypy-nav-group-title" });
+        heading.appendChild(node("strong", {}, groupName.replace(/[-_]/g," ").toLocaleUpperCase("pt-BR")));
+        heading.appendChild(node("span", {}, String(groups[groupName].length) + " páginas"));
+        section.appendChild(heading);
+        groups[groupName].sort(function(a,b) {
+          return a.label.localeCompare(b.label,"pt-BR") || a.path.localeCompare(b.path,"pt-BR");
+        }).forEach(function(page) {
+          var link = node("a", { className:"crypy-nav-link", href:new URL(page.path,siteRoot).href, target:"crypy-content", role:"listitem" });
+          link.appendChild(node("strong", {}, page.label));
+          link.appendChild(node("small", {}, page.path));
+          section.appendChild(link);
+        });
+        list.appendChild(section);
       });
     }
     search.addEventListener("input", render);
