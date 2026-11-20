@@ -25,7 +25,7 @@ jobs:
         run: node --check assets/js/crypy-page-assistant.js && node --check scripts/aplicar-assistentes-crypy.mjs
       - name: Validar cobertura e proteção
         run: |
-          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('assets/data/crypy-squad-coverage.json','utf8')); if(m.covered_count < 1) throw new Error('Nenhuma página coberta'); if(m.excluded.some(x => /hd-matriz|hd-oculto/i.test(x.file) === false && /hd-/i.test(x.file))) throw new Error('Revisar exclusões protegidas'); console.log('Cobertura registrada:',m.covered_count,'páginas; excluídas:',m.excluded_count);"
+          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('assets/data/crypy-squad-coverage.json','utf8')); if(m.covered_count < 1) throw new Error('Nenhuma página coberta'); const bad=m.excluded.filter(x => !/(^|\\/)(hd-matriz|hd-oculto)(\\/|$)|(^|\\/)(hd-baby-ia|hd-babyia|hd-memory|hd-baby-ia-completo-tudo)\\.html$|(^|\\/)crypy-server\\//i.test(x.file)); if(bad.length) throw new Error('Exclusão não autorizada: '+bad[0].file); console.log('Cobertura registrada:',m.covered_count,'páginas; excluídas:',m.excluded_count);"
       - name: Registrar sincronização no branch
         run: |
           git config user.name "github-actions[bot]"
