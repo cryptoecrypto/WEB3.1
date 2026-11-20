@@ -129,3 +129,44 @@ A sincronização só poderá ser declarada concluída quando:
 - A sincronização local dos 273 caminhos ainda depende de execução no navegador. Nenhuma contagem de indexação foi inventada.
 
 **Estado após aditivo:** caminho de build corrigido na configuração Railway; deploy novo bloqueado por requisito de autenticação; sincronização real do IndexedDB e verificação HTTP dos 273 caminhos permanecem pendentes.
+
+
+## ADENDO — MENU DINÂMICO DOS 12 TEMAS (20/11/2026)
+
+### Inventário verificado na árvore GitHub
+- 275 documentos HTML/HTM na árvore do repositório.
+- 273 entradas no índice oficial `assets/data/crypy-page-index.json`.
+- 2 documentos HTML adicionais fora do índice: páginas públicas internas dos serviços em `public/index.html`; não devem ser expostas como conteúdo de navegação do visitante.
+- Todas as 273 entradas do índice apontam para arquivos existentes na árvore consultada; a única extensão não .html é `index.htm`, já registrada no índice.
+- O índice informa 19 grupos de origem.
+
+### Distribuição dos 273 registros nos 12 temas da Home
+| Tema | Grupos reunidos | Páginas |
+|---|---|---:|
+| CRYPY INFINYT | crypy-infinyt + marketing | 27 |
+| NFT-COLLECTION | nft-collection | 20 |
+| ESQUADRÃO DAS CORES | esquadrao-das-cores | 7 |
+| CRYPY ACADEMY-WEB3.1 | crypy-academy + web3.1 | 25 |
+| BIOGRAFIA | biografia | 13 |
+| MUSEU DIGITAL | crypy-news | 26 |
+| ART-FIGURE / MARKETPLACE | art-figure-marketplace | 13 |
+| CRYPY GAMES-DESAFIO | crypy-games-desafios | 11 |
+| SOCIAL-CRYPYKUT | social-crypykut | 13 |
+| BABY I.A. | RAIZ + baby-ia + memory-boost + padrao + pluguin + sincronizacao | 93 |
+| WHITE PAPER | crypy-coin | 13 |
+| CONTATO | contato | 12 |
+| **TOTAL** | **19 grupos de origem** | **273** |
+
+### Implementação
+- Home `index.html` substituída por menu com 12 temas e contagem dinâmica por tema.
+- A Home consulta o índice JSON publicado; não mantém listas manuais duplicadas.
+- Selecionar um tema abre a lista de todas as páginas daquele tema.
+- Selecionar uma página abre seu conteúdo no visualizador interno da Home (iframe), sem navegação para fora da Home.
+- Distribuição conferida: 273 atribuídas, 0 sem categoria, 0 caminhos indexados ausentes na árvore.
+- Commit: `444de3a551fc13937c4561a9ec62ad7d867e130e`.
+
+### Ressalvas / MODO REAL
+- A associação de `crypy-news` a MUSEU DIGITAL e `crypy-coin` a WHITE PAPER é uma classificação organizacional provisória baseada nos grupos existentes; não comprova que existam diretórios dedicados com esses nomes.
+- A contagem representa arquivos HTML/HTM indexados, não uma confirmação de que cada página renderiza corretamente.
+- A interação foi confirmada por leitura de volta do código e validação dos 12 botões, contagens e caminhos; teste visual ponta a ponta no navegador ainda pendente.
+- Nenhum HTML de conteúdo foi removido ou movido neste ajuste.
