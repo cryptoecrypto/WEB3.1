@@ -20,6 +20,7 @@ const API_BASE_URL = required("API_BASE_URL");
 const APP_ORIGIN = required("APP_ORIGIN");
 const FRONTEND_URL = required("FRONTEND_URL");
 const SESSION_SECRET = required("SESSION_SECRET");
+if (Buffer.byteLength(SESSION_SECRET) < 32) throw new Error("SESSION_SECRET deve ter pelo menos 32 bytes.");
 const pool = new pg.Pool({
   connectionString: required("DATABASE_URL"),
   ssl: process.env.DATABASE_SSL === "true" ? { rejectUnauthorized: true } : undefined,
@@ -193,17 +194,21 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
     const claims = tokens.claims();
     const email = String(claims.email || claims.preferred_username || "").trim().toLowerCase();
     const verified = claims.email_verified === true;
-    if (!claims.sub || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) return res.status(403).send("O provedor não forneceu um e-mail utilizável.");
+    if (!claims.sub || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(403).send("O provedor não forneceu um e-mail utilizável.");
     await client.query("BEGIN");
     let identity = await client.query(
       "SELECT user_id FROM academy_identities WHERE provider=$1 AND subject=$2",
       [provider, claims.sub]
     );
     let userId;
+    let userEmail = email;
     if (identity.rowCount) {
       userId = identity.rows[0].user_id;
-      await client.query("UPDATE academy_users SET email=$2,display_name=$3,email_verified=(email_verified OR $4) WHERE id=$1",
-        [userId, email, String(claims.name || email).slice(0, 160), verified]);
+      const updatedUser = await client.query(
+        "UPDATE academy_users SET email=CASE WHEN $4 THEN $2 ELSE email END,display_name=$3,email_verified=(email_verified OR $4) WHERE id=$1 RETURNING email",
+        [userId, email, String(claims.name || email).slice(0, 160), verified]
+      );
+      userEmail = updatedUser.rows[0].email;
     } else {
       const existing = await client.query("SELECT id,email_verified FROM academy_users WHERE email=$1", [email]);
       if (existing.rowCount && !verified) throw new Error("EMAIL_JA_CADASTRADO_COM_OUTRO_PROVEDOR");
@@ -228,7 +233,7 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
     setCookie(res, "__Host-crypy_academy_session", session, 7 * 24 * 60 * 60, true);
     setCookie(res, "crypy_academy_csrf", csrf, 7 * 24 * 60 * 60, false);
     if (!verified) {
-      try { await sendEmailVerification(userId, email); }
+      try { await sendEmailVerification(userId, userEmail); }
       catch (mailError) { console.error("Falha ao enviar verificação:", mailError.message); }
     }
     res.redirect(FRONTEND_URL + (verified ? "?login=success" : "?login=success&verify_email=1"));
