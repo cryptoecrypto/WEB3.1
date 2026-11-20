@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#030a07">
-<meta name="description" content="CRYPY Academy WEB3.1: sete áreas de formação, login seguro, avaliações e certificados internos.">\n<meta name="crypy-academy-api" content="">
+<meta name="description" content="CRYPY Academy WEB3.1: sete áreas de formação, login seguro, avaliações e certificados internos.">
+<meta name="crypy-academy-api" content="">
 <title>CRYPY ACADEMY · Cursos WEB3.1</title>
 <link rel="stylesheet" href="../assets/css/crypy-world.css">
 <style>
@@ -133,6 +134,7 @@ body{background:radial-gradient(ellipse at 15% 0%,#00ff8816,transparent 38%),rad
 <p class="footer-note">CRYPY ACADEMY · O nível WEB3.1 CryptoëCrypto PHD permite pesquisa independente de fontes, com prioridade para documentação oficial, padrões, artigos científicos, white papers, auditorias e experimentos reproduzíveis. Todo estudo deve registrar fontes, datas, método, limites e evidências.</p>
 </main>
 </div>
+<script src="./academy-auth.js"></script>
 <script>
 (function(){
 "use strict";
@@ -144,7 +146,6 @@ var data=null;
 var selectedTrack=null;
 var selectedLevel="iniciante";
 var progress={};
-try{progress=JSON.parse(localStorage.getItem(progressKey)||"{}")||{};}catch(e){progress={};}
 function node(tag,cls,txt){var n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
 function saveProgress(){}
 function loadRemoteProgress(track,level){
@@ -241,8 +242,11 @@ function renderCourse(){
   var wrap=node("div","lesson");
   var check=node("input");check.type="checkbox";check.id="lesson-"+track.id+"-"+level.id+"-"+i;check.checked=!!progress[keyFor(track.id,level.id,i)];check.disabled=!(window.CrypyAcademyAuth&&window.CrypyAcademyAuth.user&&window.CrypyAcademyAuth.enabled);
   var label=node("label");label.htmlFor=check.id;label.append(document.createTextNode((i+1)+". "+lesson));
-  label.append(node("small","", "Marcação pessoal local"));
-  check.addEventListener("change",function(){progress[keyFor(track.id,level.id,i)]=check.checked;saveProgress();renderCourse();});
+  label.append(node("small","",check.disabled?"Entre para registrar no servidor":"Registro vinculado à conta"));
+  check.addEventListener("change",function(){
+   var desired=check.checked;check.disabled=true;
+   saveRemoteProgress(track.id,level.id,i,desired).then(function(){progress[keyFor(track.id,level.id,i)]=desired;renderCourse();}).catch(function(err){check.checked=!desired;check.disabled=false;alert("Não foi possível salvar: "+err.message);});
+  });
   wrap.append(check,label);lessonGrid.append(wrap);
  });
  detail.append(lessonGrid);
@@ -257,6 +261,12 @@ function renderCourse(){
   var list=node("ul");data.phdMethod.forEach(function(x){list.append(node("li","",x));});research.append(list);detail.append(research);
  }
  panel.append(detail);
+ var examCard=node("article","track-card");examCard.style.marginTop="14px";
+ examCard.append(node("h4","","PROVA FINAL · NOTA MÍNIMA 10/10"));
+ examCard.append(node("p","","O gabarito permanece no servidor. A aprovação não libera diploma se houver unidade pendente."));
+ var examButton=node("button","exam-action","ABRIR PROVA FINAL");examButton.type="button";examButton.disabled=!(window.CrypyAcademyAuth&&window.CrypyAcademyAuth.user&&window.CrypyAcademyAuth.enabled);
+ var examHost=node("div","");examButton.addEventListener("click",function(){openFinalExam(track.id,level.id,examHost);});
+ examCard.append(examButton,examHost);panel.append(examCard);
  var resources=node("div","resource-list");
  var links=[
   ["Grade curricular completa","./cursos/GRADE-CURRICULAR-CRYPY-ACADEMY-001.md"],
