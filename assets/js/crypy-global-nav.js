@@ -1,6 +1,6 @@
-/* CRYPY WEB3.1 — Navegação global, menu único para todas as páginas.
- * A raiz do site é resolvida pela URL deste próprio arquivo, compatível
- * com domínio próprio e GitHub Pages em subcaminho.
+/* CRYPY WEB3.1 — MENU GLOBAL ÚNICO
+ * Os 12 rótulos são a única navegação principal permitida em todas as páginas.
+ * Destinos são rotas reais do repositório; navegação ocorre na mesma janela.
  */
 (function () {
   "use strict";
@@ -9,146 +9,100 @@
   var scriptUrl = document.currentScript && document.currentScript.src;
   if (!scriptUrl) return;
   var siteRoot = new URL("../../", scriptUrl);
-  var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
+
+  var AREAS = [
+    ["NFT", "nft-collection/galeria.html"],
+    ["ACADEMY", "crypy-academy/academia.html"],
+    ["BIOGRAFIA", "biografia/historia.html"],
+    ["MUSEU", "crypy-news/museu.html"],
+    ["MARKETPLACE", "art-figure-marketplace/marketplace.html"],
+    ["GAMES", "crypy-games-desafios/crypy-games-desafios.html"],
+    ["SOCIAL", "social-crypykut/comunidade.html"],
+    ["BABY I.A.", "baby-ia.html"],
+    ["WHITE PAPER", "crypy-coin/white-paper.html"],
+    ["CONTATO", "contato/contato-oficial.html"],
+    ["ESQUADRÃO", "esquadrao-das-cores/esquadrao.html"],
+    ["INFINYT", "crypy-infinyt/portal.html"]
+  ];
 
   function node(tag, attrs, value) {
-    var item = document.createElement(tag);
+    var el = document.createElement(tag);
     Object.keys(attrs || {}).forEach(function (key) {
-      if (key === "className") item.className = attrs[key];
-      else item.setAttribute(key, attrs[key]);
+      if (key === "className") el.className = attrs[key];
+      else el.setAttribute(key, attrs[key]);
     });
-    if (value != null) item.textContent = value;
-    return item;
+    if (value != null) el.textContent = value;
+    return el;
+  }
+
+  function removeLegacyMenus(root) {
+    var selectors = [
+      "nav", '[role="navigation"]', ".main-nav", ".navbar", ".site-nav",
+      ".site-navigation", ".menu-nav", ".crypy-portal-nav", ".ok-main-nav",
+      "#main-menu"
+    ].join(",");
+    document.querySelectorAll(selectors).forEach(function (el) {
+      if (root.contains(el)) return;
+      if (el.closest("iframe")) return;
+      el.setAttribute("data-crypy-legacy-menu", "true");
+      el.setAttribute("aria-hidden", "true");
+    });
   }
 
   function mount() {
     if (!document.body || document.getElementById("crypy-global-navigation")) return;
-    var root = node("div", { id: "crypy-global-navigation" });
+    var root = node("div", { id:"crypy-global-navigation", "aria-label":"Menu principal CRYPY" });
     var style = node("style");
     style.textContent = [
       "#crypy-global-navigation{position:fixed;top:14px;right:14px;z-index:2147483002;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#eafff3}",
       "#crypy-global-navigation *{box-sizing:border-box}",
-      "#crypy-global-nav-toggle{display:flex;align-items:center;gap:9px;border:1px solid #00ff88;border-radius:999px;padding:11px 16px;background:#03130a;color:#00ff88;font-weight:800;font-size:13px;letter-spacing:.06em;box-shadow:0 0 18px #00ff8833;cursor:pointer}",
-      "#crypy-global-nav-toggle:focus-visible,#crypy-global-navigation a:focus-visible,#crypy-global-navigation input:focus-visible{outline:2px solid #fff;outline-offset:3px}",
-      "#crypy-global-nav-panel{display:none;position:fixed;top:68px;right:14px;width:min(440px,calc(100vw - 28px));max-height:calc(100dvh - 84px);overflow:hidden;border:1px solid #00ff88;border-radius:16px;background:#030a05;box-shadow:0 18px 60px #000b,0 0 24px #00ff8822}",
-      "#crypy-global-nav-panel[data-open=true]{display:flex;flex-direction:column}",
-      ".crypy-nav-head{padding:16px 16px 12px;border-bottom:1px solid #17462b;background:linear-gradient(135deg,#092014,#030a05)}",
-      ".crypy-nav-title{font-size:14px;font-weight:900;letter-spacing:.12em;color:#00ff88}",
-      ".crypy-nav-subtitle{font-size:11px;color:#a5cbb4;margin-top:4px}",
-      ".crypy-nav-shortcuts{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}",
-      ".crypy-nav-shortcuts a{border:1px solid #17613a;border-radius:999px;padding:6px 10px;color:#baffd8;text-decoration:none;font-size:12px}",
-      ".crypy-nav-search{padding:12px 14px;border-bottom:1px solid #17462b}",
-      ".crypy-nav-search input{width:100%;padding:11px 12px;border:1px solid #276542;border-radius:10px;background:#07170e;color:#eafff3;font-size:14px}",
-      ".crypy-nav-count{font-size:11px;color:#a5cbb4;margin-top:7px}",
-      ".crypy-nav-list{overflow:auto;padding:8px;overscroll-behavior:contain}",
-      ".crypy-nav-link{display:flex;flex-direction:column;gap:2px;padding:9px 10px;border-radius:9px;color:#eafff3;text-decoration:none;border:1px solid transparent}",
-      ".crypy-nav-link:hover{background:#0b2114;border-color:#17613a}",
-      ".crypy-nav-link strong{font-size:13px;font-weight:650}",
-      ".crypy-nav-group{margin:5px 0 12px;border:1px solid #17462b;border-radius:12px;overflow:hidden;background:#041009}",
-      ".crypy-nav-group-title{position:sticky;top:0;display:flex;justify-content:space-between;gap:10px;padding:10px 12px;background:#092014;border-bottom:1px solid #17613a;color:#00ff88;font-size:11px;letter-spacing:.1em;font-weight:900}",
-      ".crypy-nav-group-title span{color:#a5cbb4;font-size:10px;letter-spacing:0;font-weight:600}",
-      ".crypy-nav-group .crypy-nav-link{margin:2px 5px;padding:8px 9px}",
-      ".crypy-nav-link small{font-size:10px;color:#9bbda8;overflow-wrap:anywhere}",
-      ".crypy-nav-empty{padding:18px 12px;color:#a5cbb4;font-size:13px}",
-      "@media(max-width:600px){#crypy-global-navigation{top:10px;right:10px}#crypy-global-nav-panel{top:62px;left:10px;right:10px;width:auto;max-height:calc(100dvh - 74px)}#crypy-global-nav-toggle{padding:10px 13px}}",
+      "[data-crypy-legacy-menu=true]{display:none!important}",
+      "#crypy-global-nav-toggle{display:grid;place-items:center;width:48px;height:48px;border:1px solid #00ff88;border-radius:50%;background:#03130a;color:#00ff88;font-size:22px;box-shadow:0 0 18px #00ff8833;cursor:pointer}",
+      "#crypy-global-nav-toggle:focus-visible,#crypy-global-navigation a:focus-visible{outline:2px solid #fff;outline-offset:3px}",
+      "#crypy-global-nav-panel{display:none;position:fixed;top:70px;right:14px;width:min(420px,calc(100vw - 28px));max-height:calc(100dvh - 86px);overflow:auto;border:1px solid #00ff88;border-radius:16px;background:#030a05;box-shadow:0 18px 60px #000b,0 0 24px #00ff8822;padding:12px}",
+      "#crypy-global-nav-panel[data-open=true]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}",
+      ".crypy-nav-link{display:flex;align-items:center;justify-content:center;min-height:46px;padding:10px 8px;border:1px solid #17613a;border-radius:10px;background:#07170e;color:#dfffea;text-decoration:none;text-align:center;font-size:12px;font-weight:850;letter-spacing:.035em}",
+      ".crypy-nav-link:hover,.crypy-nav-link[aria-current=page]{background:#00ff88;border-color:#00ff88;color:#001b0b;box-shadow:0 0 15px #00ff8840}",
+      "@media(max-width:600px){#crypy-global-navigation{top:9px;right:9px}#crypy-global-nav-toggle{width:44px;height:44px}#crypy-global-nav-panel{top:62px;left:9px;right:9px;width:auto;max-height:calc(100dvh - 72px);padding:9px;gap:7px}.crypy-nav-link{min-height:43px;font-size:11px}}",
+      "@media(max-width:340px){#crypy-global-nav-panel[data-open=true]{grid-template-columns:1fr}}",
       "@media(prefers-reduced-motion:reduce){#crypy-global-navigation *{scroll-behavior:auto!important;transition:none!important}}"
     ].join("\n");
 
-    var toggle = node("button", { id:"crypy-global-nav-toggle", type:"button", "aria-expanded":"false", "aria-controls":"crypy-global-nav-panel" });
-    toggle.appendChild(node("span", {}, "☰"));
-    toggle.appendChild(node("span", {}, "MENU CRYPY"));
-    var panel = node("section", { id:"crypy-global-nav-panel", "data-open":"false", "aria-label":"Menu global CRYPY" });
-    var head = node("div", { className:"crypy-nav-head" });
-    head.appendChild(node("div", { className:"crypy-nav-title" }, "NAVEGAÇÃO WEB3.1"));
-    head.appendChild(node("div", { className:"crypy-nav-subtitle" }, "Uma navegação comum para todas as páginas do CRYPY"));
-    var shortcuts = node("div", { className:"crypy-nav-shortcuts" });
-    [
-      ["HOME","index.html"],
-      ["BABY I.A","baby-ia.html"],
-      ["CHATBOOT","chatboot-baby-ia.html"],
-      ["NFT","nft-collection/collection-crypy-nft.html"],
-      ["BIOGRAFIA","biografia/biografia.html"],
-      ["GAMES","crypy-games-desafios/crypy-games-desafios.html"]
-    ].forEach(function(item) {
-      shortcuts.appendChild(node("a", { href:new URL(item[1],siteRoot).href, target:"crypy-content" }, item[0]));
+    var toggle = node("button", {
+      id:"crypy-global-nav-toggle", type:"button",
+      "aria-expanded":"false", "aria-controls":"crypy-global-nav-panel",
+      "aria-label":"Abrir menu principal"
+    }, "☰");
+    var panel = node("nav", {
+      id:"crypy-global-nav-panel", "data-open":"false",
+      "aria-label":"12 áreas principais"
     });
-    head.appendChild(shortcuts);
-    var searchWrap = node("div", { className:"crypy-nav-search" });
-    var search = node("input", { type:"search", placeholder:"Buscar qualquer página pelo nome ou pasta…", "aria-label":"Buscar páginas" });
-    var count = node("div", { className:"crypy-nav-count" }, "Carregando índice de páginas…");
-    searchWrap.appendChild(search);
-    searchWrap.appendChild(count);
-    var list = node("div", { className:"crypy-nav-list", role:"list" });
-    panel.appendChild(head);
-    panel.appendChild(searchWrap);
-    panel.appendChild(list);
+
+    AREAS.forEach(function (area) {
+      var link = node("a", {
+        className:"crypy-nav-link",
+        href:new URL(area[1], siteRoot).href
+      }, area[0]);
+      panel.appendChild(link);
+    });
 
     function open(value) {
       panel.setAttribute("data-open", value ? "true" : "false");
       toggle.setAttribute("aria-expanded", value ? "true" : "false");
-      toggle.setAttribute("aria-label", value ? "Fechar menu CRYPY" : "Abrir menu CRYPY");
+      toggle.setAttribute("aria-label", value ? "Fechar menu principal" : "Abrir menu principal");
     }
-    toggle.addEventListener("click", function() {
+    toggle.addEventListener("click", function () {
       open(panel.getAttribute("data-open") !== "true");
     });
-    document.addEventListener("keydown", function(event) {
+    document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") open(false);
     });
+
     root.appendChild(style);
     root.appendChild(panel);
     root.appendChild(toggle);
     document.body.appendChild(root);
-
-    var pages = [];
-    function render() {
-      var query = search.value.trim().toLocaleLowerCase("pt-BR");
-      var matches = pages.filter(function(page) {
-        return !query || (page.label + " " + page.path + " " + page.group).toLocaleLowerCase("pt-BR").includes(query);
-      });
-      count.textContent = "Exibindo " + matches.length + " de " + pages.length + " páginas · organizadas por área";
-      list.replaceChildren();
-      if (!matches.length) {
-        list.appendChild(node("div", { className:"crypy-nav-empty" }, "Nenhuma página encontrada. Tente outro termo."));
-        return;
-      }
-      var groups = {};
-      matches.forEach(function(page) {
-        var key = page.group || "OUTRAS PÁGINAS";
-        if (!groups[key]) groups[key] = [];
-        groups[key].push(page);
-      });
-      Object.keys(groups).sort(function(a,b) {
-        if (a === "RAIZ") return -1;
-        if (b === "RAIZ") return 1;
-        return a.localeCompare(b, "pt-BR");
-      }).forEach(function(groupName) {
-        var section = node("section", { className:"crypy-nav-group", "aria-label":groupName });
-        var heading = node("div", { className:"crypy-nav-group-title" });
-        heading.appendChild(node("strong", {}, groupName.replace(/[-_]/g," ").toLocaleUpperCase("pt-BR")));
-        heading.appendChild(node("span", {}, String(groups[groupName].length) + " páginas"));
-        section.appendChild(heading);
-        groups[groupName].sort(function(a,b) {
-          return a.label.localeCompare(b.label,"pt-BR") || a.path.localeCompare(b.path,"pt-BR");
-        }).forEach(function(page) {
-          var link = node("a", { className:"crypy-nav-link", href:new URL(page.path,siteRoot).href, target:"crypy-content", role:"listitem" });
-          link.appendChild(node("strong", {}, page.label));
-          link.appendChild(node("small", {}, page.path));
-          section.appendChild(link);
-        });
-        list.appendChild(section);
-      });
-    }
-    search.addEventListener("input", render);
-    fetch(manifestUrl.href, { cache:"no-cache" }).then(function(response) {
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      return response.json();
-    }).then(function(data) {
-      pages = Array.isArray(data.pages) ? data.pages : [];
-      render();
-    }).catch(function() {
-      count.textContent = "Não foi possível carregar o índice de páginas.";
-      list.appendChild(node("div", { className:"crypy-nav-empty" }, "Os atalhos principais continuam disponíveis. Verifique a publicação do índice."));
-    });
+    removeLegacyMenus(root);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount, { once:true });
