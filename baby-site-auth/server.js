@@ -47,7 +47,7 @@ function splitChunks(text,url,title){
 }
 async function learnSite(){
  const base=new URL(SITE_URL.endsWith("/")?SITE_URL:SITE_URL+"/");
- const paths=new Set(["index.html","mapa-colmeia.html"]);
+ const paths=new Set(["index.html","index.htm","mapa-colmeia.html"]);
  const areaSlugs=["art-figure-marketplace","baby-ia","biografia","contato","crypy-academy","crypy-coin","crypy-games-desafios","crypy-infinyt","crypy-news","esquadrao-das-cores","marketing","memory-boost","nft-collection","padrao","pluguin","sincronizacao","social-crypykut","web3.1"];
  for(const slug of areaSlugs)paths.add(slug+"/index.html");
  try{
