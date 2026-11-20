@@ -20,6 +20,8 @@ if (patch.trim() && paths.length === 0) {
 function allowed(file) {
   if (!file || file.startsWith("/") || file.split("/").includes("..")) return false;
   if (file === "index.html") return false;
+  if (/(^|\\/)(hd-[^/]*|[^/]*hd-matriz[^/]*)($|\\/)/i.test(file)) return false;
+  if (/(^|\\/)(backup|backups|memoria|memorias|manifest)(\\/|$)/i.test(file)) return false;
   if (/^(nft-collection|crypy-news\/hd-matriz|crypy-server-bridge|\.github|scripts)\//i.test(file)) return false;
   if (/^baby-ia\//i.test(file) && file !== "baby-ia/centro.html") return false;
   if (/^(Memorias\.json|Manifest\.json)$/i.test(file) || /(^|\/)(Memorias|Manifest)\.json$/i.test(file)) return false;
