@@ -1,0 +1,3071 @@
+{
+  "title": "BABY — Matriz preliminar de conectividade da Colmeia",
+  "version": "0.1-preliminar",
+  "status": "AUDITORIA ESTÁTICA; NÃO HOMOLOGADA",
+  "summary": {
+    "generatedAt": "2026-11-20",
+    "repository": "cryptoecrypto/WEB3.1",
+    "branch": "main",
+    "treeSha": "cabd04ee70681ccb434daf83bb18ede2f0c9dd65",
+    "htmlCount": 304,
+    "indexedCount": 297,
+    "coverageListed": 171,
+    "excludedListed": 102,
+    "indexNotCoveredOrExcluded": 25,
+    "htmlOutsideIndex": 7,
+    "contextualAssistantReported": 169,
+    "protectedOrExcluded": 181,
+    "chatbotGlobalDirectlyVerified": 0,
+    "knowledgeIndexerDirectlyLocated": 3,
+    "browserTests": 0
+  },
+  "definitions": {
+    "chatbotGlobal": "O widget baby-global-chat.js, distinto do HTML de chat e do assistente contextual.",
+    "knowledgeIndexer": "A presença do script baby-knowledge-sync.js na página; não prova que a sincronização foi executada.",
+    "contextualAssistant": "crypy-page-assistant.js; a cobertura é proveniente do manifesto existente e não foi revalidada por leitura de cada HTML.",
+    "protected": "Caminho classificado como protegido por manifesto ou regra de caminho; não editar sem aprovação específica.",
+    "verification": "Metadados de GitHub, índice e manifesto; sem execução de navegador e sem comprovação de runtime."
+  },
+  "rows": [
+    {
+      "path": "art-figure-marketplace/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/marketplace.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "art-figure-marketplace/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "já integrado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/auto-config.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/baby-agente-cons.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/centro.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/esquadrao-auto-config.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/pluguin-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/momory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/padrao/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/padrao/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/padrao/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/baby.ia.chatboot.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/biografia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/historia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "biografia/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "directly_found_by_code_search",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/contato-oficial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/crypykut.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "contato/momory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/academia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/cursos.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-academy/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-coin/white-paper.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/arena.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/batalha-esquadrao.html",
+      "inKnowledgeIndex": false,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/crypy-games-desafios.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/crypy-pac-crypyman.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-games-desafios/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/portal.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-infinyt/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-babyia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/crypy-server-bridge/public/index.html",
+      "inKnowledgeIndex": false,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/crypy-server/public/index.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-matriz/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/museu.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-news/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "crypy-server-bridge/public/index.html",
+      "inKnowledgeIndex": false,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/esquadrao.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/hd-babyia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "esquadrao-das-cores/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "index-home-anterior-a-home-aprovada-2026-11-20.html",
+      "inKnowledgeIndex": false,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "index-home-portal-preservado-2026-11-20.html",
+      "inKnowledgeIndex": false,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "directly_found_by_code_search",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "index.htm",
+      "inKnowledgeIndex": false,
+      "coverageRecord": "assistente global da HOME acompanha o iframe",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "index.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "HOME carrega o assistente global",
+      "protected": false,
+      "chatbotGlobal": "reported_on_home_in_audit",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "mapa-colmeia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/marketing.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "marketing/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/collection-crypy-nft.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/crypy-collection-crypypasta.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/crypy-genesis.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/crypy-nft-edition.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/galeria.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/nft-colection-edition.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/nft-darkness.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/nft-genesis.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "nft-collection/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "padrao/momory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "pluguin/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/sinc/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "sincronizacao/sinc/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/amigos.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/comunidade-editorial-preservada-2026-11-20.html",
+      "inKnowledgeIndex": false,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/comunidade.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/comunidades.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/depoimentos.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/fotos.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/jogos.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/memory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/mensagens.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/perfil.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/reals.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "directly_found_by_code_search",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/recados.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "social-crypykut/shots.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/baby-ia-agente.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/baby-ia-conectado.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/chatboot-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/hd-baby-ia.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/hd-memory.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": null,
+      "protected": true,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "not_confirmed_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/health.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/pluguin.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/pluguins-tuto.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    },
+    {
+      "path": "web3.1/momory-boost/relogio-mundial.html",
+      "inKnowledgeIndex": true,
+      "coverageRecord": "script compartilhado injetado",
+      "protected": false,
+      "chatbotGlobal": "not_verified_individually",
+      "knowledgeIndexer": "not_verified_individually",
+      "contextualAssistant": "reported_by_coverage_manifest",
+      "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
+    }
+  ]
+}
