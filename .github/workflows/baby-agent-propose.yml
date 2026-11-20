@@ -21,7 +21,7 @@ jobs:
       has_changes: ${{ steps.guard.outputs.has_changes }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
@@ -31,7 +31,7 @@ jobs:
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .github/codex/BABY-SITE-AUTONOMY.md
-          sandbox: workspace-write
+          permission-profile: ":workspace"
           safety-strategy: drop-sudo
           codex-args: '["--ephemeral"]'
           output-file: /tmp/baby-agent-report.md
@@ -68,7 +68,7 @@ jobs:
       validated: ${{ steps.result.outputs.validated }}
     steps:
       - name: Checkout da revisão analisada
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
@@ -134,6 +134,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+          persist-credentials: false
 
       - name: Baixar patch validado
         uses: actions/download-artifact@v4
