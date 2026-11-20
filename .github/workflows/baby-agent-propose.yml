@@ -1,0 +1,170 @@
+name: BABY — agente avançado de engenharia (propostas)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: baby-agent-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    name: Diagnóstico e patch isolado
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    outputs:
+      has_changes: ${{ steps.guard.outputs.has_changes }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Executar Codex em sandbox restrito
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/codex/BABY-SITE-AUTONOMY.md
+          sandbox: workspace-write
+          safety-strategy: drop-sudo
+          codex-args: '["--ephemeral"]'
+          output-file: /tmp/baby-agent-report.md
+
+      - name: Gerar patch e validar caminhos permitidos
+        id: guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -N -- . 2>/dev/null || true
+          git diff --binary > /tmp/baby-agent.patch
+          node scripts/validar-baby-agent-patch.mjs /tmp/baby-agent.patch
+
+      - name: Guardar relatório e patch
+        if: steps.guard.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: baby-agent-raw-proposal
+          path: |
+            /tmp/baby-agent.patch
+            /tmp/baby-agent-report.md
+          if-no-files-found: warn
+          retention-days: 7
+
+  validate-proposal:
+    name: Testes independentes sem chave da OpenAI
+    needs: propose
+    if: needs.propose.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      validated: ${{ steps.result.outputs.validated }}
+    steps:
+      - name: Checkout da revisão analisada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Baixar patch
+        uses: actions/download-artifact@v4
+        with:
+          name: baby-agent-raw-proposal
+          path: /tmp/baby-agent-proposal
+
+      - name: Revalidar escopo e aplicar patch
+        run: |
+          set -euo pipefail
+          node scripts/validar-baby-agent-patch.mjs /tmp/baby-agent-proposal/baby-agent.patch
+          git apply --binary /tmp/baby-agent-proposal/baby-agent.patch
+          git diff --check
+
+      - name: Verificar sintaxe JavaScript
+        run: |
+          set -euo pipefail
+          node --check scripts/sincronizar-crypy-global.mjs
+          node --check scripts/validar-crypy-global.mjs
+          node --check scripts/validar-baby-agent-patch.mjs
+          node --check assets/js/crypy-global-nav.js
+          node --check assets/js/crypy-world.js
+          node --check assets/js/baby-knowledge-sync.js
+          node --check baby-ia/esquadrao-auto-config.js
+
+      - name: Testar núcleo BABY e políticas
+        run: node --test crypy-server-bridge/test/
+
+      - name: Validar índice e integração BABY
+        run: node scripts/validar-crypy-global.mjs
+
+      - name: Simular sincronização global sem gravar
+        run: node scripts/sincronizar-crypy-global.mjs
+
+      - name: Marcar patch como validado
+        id: result
+        run: echo "validated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Publicar artefato validado
+        uses: actions/upload-artifact@v4
+        with:
+          name: baby-agent-validated-proposal
+          path: |
+            /tmp/baby-agent-proposal/baby-agent.patch
+            /tmp/baby-agent-proposal/baby-agent-report.md
+          if-no-files-found: warn
+          retention-days: 7
+
+  open-proposal:
+    name: Abrir PR sem credencial da OpenAI
+    needs: validate-proposal
+    if: needs.validate-proposal.outputs.validated == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout da revisão analisada
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Baixar patch validado
+        uses: actions/download-artifact@v4
+        with:
+          name: baby-agent-validated-proposal
+          path: /tmp/baby-agent-proposal
+
+      - name: Revalidar e aplicar patch
+        run: |
+          set -euo pipefail
+          node scripts/validar-baby-agent-patch.mjs /tmp/baby-agent-proposal/baby-agent.patch
+          git apply --binary /tmp/baby-agent-proposal/baby-agent.patch
+
+      - name: Criar Pull Request para revisão humana
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: baby/proposta-${{ github.run_id }}
+          delete-branch: true
+          title: "BABY: proposta automática de melhoria do WEB3.1"
+          body: |
+            ## Origem
+            Proposta gerada pelo Codex sob a política .github/codex/BABY-SITE-AUTONOMY.md.
+
+            ## Segurança
+            - Patch passou pelo validador de caminhos permitidos.
+            - Testes estruturais passaram em job separado, sem chave da OpenAI.
+            - O agente não recebeu permissão de escrita no GitHub.
+            - Esta PR não faz merge nem deploy automaticamente.
+            - Áreas protegidas permanecem fora do escopo.
+
+            ## Revisão obrigatória
+            Verificar diff e relatório antes de aprovar/mesclar.
+          draft: true
