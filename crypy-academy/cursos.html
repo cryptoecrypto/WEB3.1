@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#030a07">
-<meta name="description" content="CRYPY Academy WEB3.1: sete áreas de formação, três módulos de progressão e nível especial CryptoëCrypto PHD.">
+<meta name="description" content="CRYPY Academy WEB3.1: sete áreas de formação, login seguro, avaliações e certificados internos.">\n<meta name="crypy-academy-api" content="">
 <title>CRYPY ACADEMY · Cursos WEB3.1</title>
 <link rel="stylesheet" href="../assets/css/crypy-world.css">
 <style>
@@ -56,6 +56,19 @@ body{background:radial-gradient(ellipse at 15% 0%,#00ff8816,transparent 38%),rad
 .certificate h2{color:#ffe49b}
 .certificate p,.certificate li{color:#f1e6c2;line-height:1.6}
 .footer-note{margin-top:24px;color:#89ad98;font-size:12px;line-height:1.6}
+.auth-panel{margin:18px 0;border:1px solid #28734a;background:linear-gradient(145deg,#081b12,#07121a);border-radius:14px;padding:16px}
+.auth-panel h2{color:var(--academy-green);margin:0 0 8px}
+.auth-actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.auth-actions button,.exam-action{border:1px solid var(--academy-green);border-radius:999px;padding:10px 15px;background:#062313;color:#dffff0;font-weight:800;cursor:pointer}
+.auth-actions button:disabled,.exam-action:disabled{opacity:.45;cursor:not-allowed}
+.auth-status{font-size:13px;color:#b9e5c9;line-height:1.5}
+.auth-identity{font-size:12px;color:#9cc7ad;margin-top:6px}
+.auth-diplomas{font-size:12px;color:#ffe49b;margin-top:10px;overflow-wrap:anywhere}
+.exam-form{margin-top:12px}
+.exam-question{border:1px solid #205c3b;border-radius:10px;padding:12px;margin:10px 0}
+.exam-question legend{color:#eafff2;font-weight:700;padding:0 5px}
+.exam-option{display:block;margin:8px 0;color:#c4e7d1;font-size:13px}
+.exam-result{margin-top:12px;padding:12px;border:1px solid #8b7130;border-radius:10px;color:#ffe9a9;line-height:1.6}
 @media(max-width:850px){.catalog-layout{grid-template-columns:1fr}.track-list{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.track-list{grid-template-columns:1fr}.levels{grid-template-columns:repeat(2,minmax(0,1fr))}.lesson-grid,.detail-grid{grid-template-columns:1fr}.academy-shell{width:min(calc(100% - 20px),1180px)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
@@ -77,7 +90,18 @@ body{background:radial-gradient(ellipse at 15% 0%,#00ff8816,transparent 38%),rad
 <h1>FORTALEZA DO ENSINO</h1>
 <p>Sete áreas de formação, trilhas progressivas e laboratórios práticos. Aprender, aplicar, provar e registrar. O conhecimento é construído com estudo, exercício, evidência e revisão — não apenas com leitura.</p>
 </section>
-<div class="status-note"><strong>ESTADO REAL:</strong> currículo e interface didática preparados. Aulas gravadas/ao vivo, matrícula autenticada, presença, avaliações persistentes e emissão de certificados dependem de implantação própria. As marcações de progresso desta página ficam somente neste navegador.</div>
+<div class="status-note"><strong>ESTADO REAL:</strong> currículo didático preparado. O módulo de login, provas e diplomas depende da implantação do backend e de suas credenciais; até lá, os botões permanecem desativados.</div>
+<section class="auth-panel" id="academy-auth" aria-labelledby="academy-auth-title">
+  <h2 id="academy-auth-title">ÁREA DO ALUNO · CRYPY ACADEMY</h2>
+  <p class="auth-status" id="academy-auth-status">Verificando autenticação…</p>
+  <div class="auth-actions">
+    <button type="button" data-academy-login="google" disabled>ENTRAR COM GOOGLE</button>
+    <button type="button" data-academy-login="microsoft" disabled>ENTRAR COM MICROSOFT</button>
+    <button type="button" id="academy-logout" hidden>SAIR</button>
+  </div>
+  <p class="auth-identity" id="academy-auth-identity">Nenhum aluno conectado</p>
+  <div class="auth-diplomas" id="academy-diplomas">Diplomas: disponíveis após autenticação e cumprimento dos requisitos.</div>
+</section>
 <section class="stats" aria-label="Estrutura da Academy">
 <div class="stat"><b>07</b><span>Áreas de formação</span></div>
 <div class="stat"><b>03</b><span>Módulos fixos</span></div>
@@ -122,7 +146,52 @@ var selectedLevel="iniciante";
 var progress={};
 try{progress=JSON.parse(localStorage.getItem(progressKey)||"{}")||{};}catch(e){progress={};}
 function node(tag,cls,txt){var n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
-function saveProgress(){try{localStorage.setItem(progressKey,JSON.stringify(progress));}catch(e){}}
+function saveProgress(){}
+function loadRemoteProgress(track,level){
+ var auth=window.CrypyAcademyAuth;
+ if(!auth||!auth.user||!auth.enabled)return Promise.resolve();
+ return auth.request("/api/progress?track="+encodeURIComponent(track)+"&level="+encodeURIComponent(level)).then(function(data){
+  Object.keys(progress).forEach(function(k){if(k.indexOf(track+"|"+level+"|")===0)delete progress[k];});
+  data.progress.forEach(function(item){progress[keyFor(track,level,item.lesson_index)]=!!item.completed;});
+ }).catch(function(err){console.warn("Falha ao carregar progresso:",err.message);});
+}
+function saveRemoteProgress(track,level,index,completed){
+ var auth=window.CrypyAcademyAuth;
+ if(!auth||!auth.user||!auth.enabled)return Promise.reject(new Error("LOGIN_NECESSARIO"));
+ return auth.request("/api/progress",{method:"PUT",body:JSON.stringify({track:track,level:level,lessonIndex:index,completed:completed})});
+}
+function openFinalExam(track,level,host){
+ var auth=window.CrypyAcademyAuth;
+ host.replaceChildren();
+ var info=node("p","outcome","Carregando prova segura do servidor…");host.append(info);
+ if(!auth||!auth.user||!auth.enabled){info.textContent="Entre na sua conta para realizar a prova.";return;}
+ auth.request("/api/exams/"+encodeURIComponent(track)+"/"+encodeURIComponent(level)).then(function(data){
+  host.replaceChildren();
+  var form=node("form","exam-form");
+  data.questions.forEach(function(q,i){
+   var field=node("fieldset","exam-question");var legend=node("legend","",(i+1)+". "+q.prompt);field.append(legend);
+   q.options.forEach(function(option){
+    var label=node("label","exam-option");var radio=node("input");radio.type="radio";radio.name="answer-"+q.id;radio.value=option.id;radio.required=true;
+    label.append(radio,document.createTextNode(" "+option.text));field.append(label);
+   });
+   form.append(field);
+  });
+  var submit=node("button","exam-action","ENVIAR PROVA FINAL");submit.type="submit";form.append(submit);
+  form.addEventListener("submit",function(event){
+   event.preventDefault();submit.disabled=true;
+   var answers={};data.questions.forEach(function(q){var chosen=form.querySelector('input[name="answer-'+q.id+'"]:checked');if(chosen)answers[q.id]=chosen.value;});
+   auth.request("/api/exams/"+encodeURIComponent(track)+"/"+encodeURIComponent(level)+"/submit",{method:"POST",body:JSON.stringify({answers:answers})}).then(function(result){
+    host.replaceChildren();
+    var output=node("div","exam-result");
+    output.append(node("strong","", "RESULTADO: "+result.result.correct+"/"+result.result.total+" · NOTA "+result.result.score+"/10"));
+    output.append(node("p","",result.diplomaUnlocked?"REQUISITOS CUMPRIDOS — DIPLOMA LIBERADO.":"DIPLOMA BLOQUEADO — "+(result.message==="CONCLUA_TODAS_AS_UNIDADES"?"conclua todas as unidades do curso.":"é necessário obter 10/10.")));
+    if(result.diploma){output.append(node("p","", "Registro: "+result.diploma.verificationCode+" · E-mail: "+result.diploma.emailStatus));}
+    host.append(output);auth.loadDiplomas();
+   }).catch(function(err){submit.disabled=false;host.append(node("p","exam-result","Não foi possível registrar a prova: "+err.message));});
+  });
+  host.append(form);
+ }).catch(function(err){host.replaceChildren(node("p","exam-result","Prova indisponível: "+err.message));});
+}
 function keyFor(track,level,index){return track+"|"+level+"|"+index;}
 function renderTrackList(){
  trackList.replaceChildren();
@@ -132,7 +201,7 @@ function renderTrackList(){
   b.append(document.createTextNode(track.icon+" "+track.title));
   var small=node("small","",track.levels.length+" níveis · "+track.summary);
   b.append(small);
-  b.addEventListener("click",function(){selectedTrack=track.id;renderTrackList();renderCourse();});
+  b.addEventListener("click",function(){selectedTrack=track.id;renderTrackList();loadRemoteProgress(selectedTrack,selectedLevel).then(renderCourse);});
   trackList.append(b);
  });
 }
@@ -155,7 +224,7 @@ function renderCourse(){
   b.type="button";b.setAttribute("aria-pressed",String(item.id===selectedLevel));
   b.append(document.createTextNode(item.name));
   b.append(node("small","",item.hours+" h estimadas"+(item.id==="phd"?"+":"")));
-  b.addEventListener("click",function(){selectedLevel=item.id;renderCourse();});
+  b.addEventListener("click",function(){selectedLevel=item.id;loadRemoteProgress(selectedTrack,selectedLevel).then(renderCourse);});
   levels.append(b);
  });
  panel.append(levels);
@@ -166,11 +235,11 @@ function renderCourse(){
  var count=level.lessons.filter(function(_,i){return !!progress[keyFor(track.id,level.id,i)];}).length;
  var line=node("div","progress-line");var fill=node("span");fill.style.width=(count/level.lessons.length*100)+"%";line.append(fill);
  detail.append(line);
- detail.append(node("p","progress-text",count+" de "+level.lessons.length+" unidades marcadas neste navegador · isso não comprova presença ou conclusão."));
+ detail.append(node("p","progress-text",count+" de "+level.lessons.length+" unidades "+(window.CrypyAcademyAuth&&window.CrypyAcademyAuth.user?"registradas na sua conta.":"· entre para salvar seu progresso no servidor.")));
  var lessonGrid=node("div","lesson-grid");
  level.lessons.forEach(function(lesson,i){
   var wrap=node("div","lesson");
-  var check=node("input");check.type="checkbox";check.id="lesson-"+track.id+"-"+level.id+"-"+i;check.checked=!!progress[keyFor(track.id,level.id,i)];
+  var check=node("input");check.type="checkbox";check.id="lesson-"+track.id+"-"+level.id+"-"+i;check.checked=!!progress[keyFor(track.id,level.id,i)];check.disabled=!(window.CrypyAcademyAuth&&window.CrypyAcademyAuth.user&&window.CrypyAcademyAuth.enabled);
   var label=node("label");label.htmlFor=check.id;label.append(document.createTextNode((i+1)+". "+lesson));
   label.append(node("small","", "Marcação pessoal local"));
   check.addEventListener("change",function(){progress[keyFor(track.id,level.id,i)]=check.checked;saveProgress();renderCourse();});
@@ -203,8 +272,9 @@ function renderCourse(){
  panel.append(resources);
 }
 fetch(catalogUrl,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("Catálogo HTTP "+r.status);return r.json();}).then(function(json){
- data=json;selectedTrack=data.tracks[0].id;renderTrackList();renderCourse();
+ data=json;selectedTrack=data.tracks[0].id;renderTrackList();var auth=window.CrypyAcademyAuth;if(auth&&auth.ready){auth.ready.then(function(){loadRemoteProgress(selectedTrack,selectedLevel).then(renderCourse);});}else{loadRemoteProgress(selectedTrack,selectedLevel).then(renderCourse);}
 }).catch(function(err){trackList.textContent="Não foi possível carregar o catálogo: "+err.message;panel.textContent="Catálogo indisponível. Nenhuma trilha foi inventada.";});
+document.addEventListener("crypyacademy:auth",function(){if(data){loadRemoteProgress(selectedTrack,selectedLevel).then(renderCourse);}});
 })();
 </script>
 </body>
