@@ -41,4 +41,5 @@ input{width:min(100%,460px);background:#07110a;color:white;border:1px solid #286
 <script>
 const q=document.getElementById('filter'),items=[...document.querySelectorAll('.group')];
 q.addEventListener('input',()=>{let visible=0;items.forEach(g=>{const s=q.value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();const ok=g.innerText.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(s);g.style.display=ok?'':'none';if(ok)visible++});document.getElementById('empty').style.display=visible?'none':'block'});
-</script></body></html>
+</script><script src="assets/js/crypy-page-assistant.js" defer></script>
+</body></html>
