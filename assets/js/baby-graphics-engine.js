@@ -92,7 +92,7 @@
       const mat = new B.StandardMaterial("crypy-orb-mat-" + i, scene);
       mat.emissiveColor = color; mat.diffuseColor = color; orb.material = mat; return orb;
     });
-    const glow = new B.GlowLayer("baby-glow", scene, { blurKernelSize: 32 }); glow.intensity = 0.7;
+    try { const glow = new B.GlowLayer("baby-glow", scene, { blurKernelSize: 32 }); glow.intensity = 0.7; } catch (e) { /* Glow is optional; keep the core renderer alive. */ }
     const floor = B.MeshBuilder.CreateGround("baby-grid", { width: 12, height: 12, subdivisions: 24 }, scene);
     floor.position.y = -1.75;
     const floorMat = new B.StandardMaterial("baby-grid-material", scene);
