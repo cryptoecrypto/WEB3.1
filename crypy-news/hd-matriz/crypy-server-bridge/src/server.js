@@ -42,8 +42,10 @@ export async function createServer({ baby = null, auth: authOptions = null, ...o
   const auth = createAuth(authOptions || {
     username: process.env.CRYPY_ADMIN_USER || 'sensei',
     password: process.env.CRYPY_ADMIN_PASSWORD,
+    totpSecret: process.env.CRYPY_TOTP_SECRET,
     secure: process.env.NODE_ENV === 'production',
-    ttlSeconds: Number(process.env.CRYPY_SESSION_TTL_SECONDS || 28800),
+    ttlSeconds: Number(process.env.CRYPY_SESSION_TTL_SECONDS || 300),
+    counterFile: process.env.CRYPY_TOTP_COUNTER_FILE,
   });
   const indexFile = path.join(b.config.projectRoot, 'public', 'index.html');
 
