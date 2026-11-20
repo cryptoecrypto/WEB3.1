@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, it } from 'node:test';
 import { Policy, PolicyError } from '../src/policy.js';
 import { fixture } from './helpers.js';
+import { loadConfig } from '../src/config.js';
 
 describe('C3 / política de permissões', () => {
   it('nega caminho fora das raízes autorizadas', async (t) => {
@@ -74,5 +75,19 @@ describe('C3 / política de permissões', () => {
     const p = new Policy({ roots: [], approvalToken: 't', allowedTasks: ['memory.index'] });
     assert.equal(p.authorize({ task: 'memory.index' }).allowed, true);
     assert.equal(p.authorize({ task: 'files.organize' }).allowed, false);
+  });
+});
+
+
+describe('configuração segura do token de aprovação', () => {
+  it('não usa token de desenvolvimento conhecido quando nenhum segredo foi configurado', () => {
+    const previous = process.env.CRYPY_SENSEI_TOKEN;
+    delete process.env.CRYPY_SENSEI_TOKEN;
+    try {
+      assert.equal(loadConfig().approvalToken, null);
+    } finally {
+      if (previous === undefined) delete process.env.CRYPY_SENSEI_TOKEN;
+      else process.env.CRYPY_SENSEI_TOKEN = previous;
+    }
   });
 });
