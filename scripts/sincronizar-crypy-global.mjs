@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const applyChanges = process.argv.includes('--apply');
 const skip = new Set([".git","node_modules",".baby",".tmp",".cache",".venv","__pycache__","dist","build","coverage","out","target",".next",".vite"]);
 const protectedNames = new Set(["index.htm","hd-baby-ia.html","hd-babyia.html","hd-memory.html","hd-baby-ia-completo-tudo.html"]);
 const protectedPaths = [
@@ -34,7 +35,7 @@ function label(file) {
 
 const files = walk(root).sort();
 const pages = [];
-let updated = 0, already = 0, preserved = 0, invalid = 0, excluded = 0;
+let updated = 0, planned = 0, already = 0, preserved = 0, invalid = 0, excluded = 0;
 
 for (const file of files) {
   if (serviceEntrypoints.has(file)) { excluded++; continue; }
@@ -62,21 +63,25 @@ for (const file of files) {
     : /<\/html\s*>/i.test(html)
       ? html.replace(/<\/html\s*>/i,tag + "\n</html>")
       : html + "\n" + tag + "\n";
-  fs.writeFileSync(absolute,next,"utf8");
-  updated++;
+  if (applyChanges) { fs.writeFileSync(absolute,next,"utf8"); updated++; }
+  else { planned++; }
 }
 
 pages.sort((a,b)=>a.group.localeCompare(b.group,"pt-BR")||a.label.localeCompare(b.label,"pt-BR")||a.path.localeCompare(b.path,"pt-BR"));
-fs.mkdirSync(path.dirname(indexPath),{recursive:true});
-fs.writeFileSync(indexPath,JSON.stringify({
-  version:"1.5",
-  generated_at:new Date().toISOString(),
-  total:pages.length,
-  pages
-},null,2)+"\n");
+if (applyChanges) {
+  fs.mkdirSync(path.dirname(indexPath),{recursive:true});
+  fs.writeFileSync(indexPath,JSON.stringify({
+    version:"1.5",
+    generated_at:new Date().toISOString(),
+    total:pages.length,
+    pages
+  },null,2)+"\\n");
+}
 
-console.log("Páginas catalogadas:",pages.length,
+console.log("Modo:",applyChanges ? "APLICAÇÃO" : "SIMULAÇÃO (padrão)",
+  "| páginas catalogadas:",pages.length,
   "| atualizadas:",updated,
+  "| alterações planejadas:",planned,
   "| já sincronizadas:",already,
   "| preservadas:",preserved,
   "| entradas de servidor excluídas:",excluded,
