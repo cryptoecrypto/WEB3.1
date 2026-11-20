@@ -14,10 +14,12 @@
     "indexNotCoveredOrExcluded": 25,
     "htmlOutsideIndex": 7,
     "contextualAssistantReported": 169,
-    "protectedOrExcluded": 181,
     "chatbotGlobalDirectlyVerified": 0,
     "knowledgeIndexerDirectlyLocated": 3,
-    "browserTests": 0
+    "browserTests": 0,
+    "manifestExcluded": 102,
+    "protectedOrExcludedOrSensitivePath": 181,
+    "note": "O número protegidoOrExcludedOrSensitivePath usa uma regra conservadora de caminhos e inclui pastas memory-boost; não equivale ao total oficial de 102 exclusões do manifesto."
   },
   "definitions": {
     "chatbotGlobal": "O widget baby-global-chat.js, distinto do HTML de chat e do assistente contextual.",
@@ -1792,7 +1794,7 @@
       "inKnowledgeIndex": false,
       "coverageRecord": "assistente global da HOME acompanha o iframe",
       "protected": false,
-      "chatbotGlobal": "not_verified_individually",
+      "chatbotGlobal": "reported_in_prior_audit_not_reverified_from_file_content",
       "knowledgeIndexer": "not_verified_individually",
       "contextualAssistant": "not_confirmed_by_coverage_manifest",
       "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
@@ -1802,7 +1804,7 @@
       "inKnowledgeIndex": true,
       "coverageRecord": "HOME carrega o assistente global",
       "protected": false,
-      "chatbotGlobal": "reported_on_home_in_audit",
+      "chatbotGlobal": "reported_in_prior_audit_not_reverified_from_file_content",
       "knowledgeIndexer": "not_verified_individually",
       "contextualAssistant": "not_confirmed_by_coverage_manifest",
       "verification": "repository_metadata_and_existing_audit; not_browser_runtime_test"
