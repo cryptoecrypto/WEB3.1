@@ -93,7 +93,7 @@
   }
 
   function hideLegacyMenus() {
-    document.querySelectorAll(".crypy-portal-nav, .crypy-menu-caixa").forEach(function (nav) {
+    document.querySelectorAll(".crypy-portal-nav, .crypy-menu-caixa, nav.nav").forEach(function (nav) {
       nav.setAttribute("aria-hidden", "true");
       nav.dataset.crypyLegacyMenu = "hidden";
     });
@@ -108,7 +108,7 @@
     style.textContent =
       "#crypy-nft-hive-nav{position:fixed;z-index:2147483000;top:12px;right:12px;font:13px/1.4 system-ui,sans-serif;color:#eafff3}" +
       "#crypy-nft-hive-nav *{box-sizing:border-box}" +
-      ".crypy-portal-nav,.crypy-menu-caixa{display:none!important}" +
+      ".crypy-portal-nav,.crypy-menu-caixa,nav.nav{display:none!important}" +
       "#crypy-nft-hive-toggle{border:1px solid #00ff88;border-radius:999px;background:#03130a;color:#00ff88;padding:11px 15px;font-weight:900;letter-spacing:.04em;cursor:pointer;box-shadow:0 0 18px #00ff8833}" +
       "#crypy-nft-hive-panel{display:none;position:fixed;top:62px;right:12px;width:min(390px,calc(100vw - 24px));max-height:calc(100dvh - 76px);overflow:auto;background:#030a05;border:1px solid #00ff88;border-radius:15px;box-shadow:0 18px 55px #000c;padding:12px}" +
       "#crypy-nft-hive-panel[data-open=true]{display:block}" +
