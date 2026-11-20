@@ -1,0 +1,20 @@
+{
+  "sistema": "BABY CRYPY",
+  "versao": "0.1.0",
+  "estado": "CONFIGURACAO_PREPARADA_NAO_ATIVADA_EM_PRODUCAO",
+  "nucleos": {
+    "identidade": {"ativo":true,"politica":"Constituicao CRYPY; independente de provedor"},
+    "memoria": {"ativo":true,"modo":"RAG_LOCAL","exigirFonte":true,"exigirData":true,"exigirHash":true},
+    "inteligencia": {"ativo":true,"modo":"ORQUESTRACAO","provedores":["gemini","claude","gpt","local"]},
+    "aprendizado": {"ativo":true,"modo":"INDEXACAO_SUPERVISIONADA","treinamentoDePesos":false},
+    "autonomia_controlada": {"ativo":true,"modo":"SOMENTE_LEITURA","escritaExigeAprovacao":true}
+  },
+  "referencias_de_estudo": {
+    "gemini": {"foco":"pesquisa, contexto e multimodalidade","adapter":"BABY_GEMINI_ENABLED"},
+    "claude": {"foco":"planejamento, tarefas longas e revisão de código","adapter":"BABY_CLAUDE_ENABLED"},
+    "gpt": {"foco":"raciocínio, ferramentas e orquestração","adapter":"BABY_GPT_ENABLED"}
+  },
+  "memoria": {"siteIndexEndpoint":"/learning-status","siteLearnEndpoint":"/learn","siteSearchEndpoint":"/search","hdMatriz":"READ_ONLY; requer montagem e autorização próprias"},
+  "seguranca": {"segredosSomenteNoServidor":true,"clienteSemChaves":true,"httpsObrigatorio":true,"failClosed":true,"acoesDeEscritaExigemAprovacao":true},
+  "ativacao": {"backendNecessario":true,"siteApiNecessaria":true,"chavesDeProvedorNecessarias":true,"deployPendente":true,"homologacaoPendente":true}
+}
