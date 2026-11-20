@@ -70,6 +70,7 @@ export async function createServer({ baby = null, auth: authOptions = null, ...o
       }
 
       if (req.method === 'POST' && p === '/auth/login') {
+        if (!auth.sameOrigin(req)) return json(res, 403, { ok: false, code: 'ORIGIN_DENIED', reason: 'origem da requisição não autorizada' });
         const result = await auth.login(req, res, await readBody(req));
         return json(res, result.status, result.body);
       }
@@ -78,6 +79,7 @@ export async function createServer({ baby = null, auth: authOptions = null, ...o
         return json(res, 200, { authenticated: !!session, username: session?.username || null, expiresAt: session?.expiresAt || null });
       }
       if (req.method === 'POST' && p === '/auth/logout') {
+        if (!auth.sameOrigin(req)) return json(res, 403, { ok: false, code: 'ORIGIN_DENIED', reason: 'origem da requisição não autorizada' });
         return json(res, 200, auth.logout(req, res));
       }
 
