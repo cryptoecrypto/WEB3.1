@@ -57,7 +57,7 @@
 
   function publish() {
     window.__BABY_WALLET_READONLY__ = connectedAddress ? {
-      provider: "MetaMask-compatible EIP-1193",
+      provider: "MetaMask EIP-1193",
       address: connectedAddress,
       chainId: chainId,
       permission: "read-only",
@@ -80,25 +80,25 @@
     }
     var accounts = await provider.request({ method: "eth_accounts" });
     connectedAddress = Array.isArray(accounts) && accounts[0] ? accounts[0] : null;
-    chainId = await window.ethereum.request({ method: "eth_chainId" }).catch(function () { return null; });
+    chainId = await provider.request({ method: "eth_chainId" }).catch(function () { return null; });
     render();
     publish();
   }
 
   button.addEventListener("click", async function () {
-    if (!window.ethereum || typeof window.ethereum.request !== "function") {
+    if (!provider || typeof provider.request !== "function") {
       state.textContent = "Instale/ative a MetaMask neste navegador";
       return;
     }
     button.disabled = true;
     button.textContent = "Aguardando autorização…";
     try {
-      var accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+      var accounts = await provider.request({ method: "eth_requestAccounts" });
       if (!Array.isArray(accounts) || !accounts[0] || !/^0x[a-fA-F0-9]{40}$/.test(accounts[0])) {
         throw new Error("A carteira não retornou um endereço EVM válido.");
       }
       connectedAddress = accounts[0];
-      chainId = await window.ethereum.request({ method: "eth_chainId" });
+      chainId = await provider.request({ method: "eth_chainId" });
       render();
       publish();
     } catch (error) {
