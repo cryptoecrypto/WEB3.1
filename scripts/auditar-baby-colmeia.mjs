@@ -77,9 +77,10 @@ for (const file of htmlFiles) {
       for (const src of srcs) {
         if (/^(https?:)?\/\//i.test(src) || /^(data:|blob:|javascript:)/i.test(src)) continue;
         const clean = decodeURIComponent(src.split(/[?#]/, 1)[0]).replace(/^\/+/, "");
-        const candidates = clean.startsWith("assets/") || clean.startsWith("scripts/")
+        const pageRelative = norm(path.posix.join(path.posix.dirname(file), clean));
+        const candidates = src.startsWith("/")
           ? [clean]
-          : [norm(path.posix.join(path.posix.dirname(file), clean)), clean];
+          : [...new Set([pageRelative, clean])];
         if (!candidates.some((candidate) => trackedSet.has(candidate))) {
           const issue = { path: file, src, checkedCandidates: candidates };
           row.brokenLocalScripts.push(issue);
