@@ -69,6 +69,8 @@
   function mount() {
     if (!document.body || document.getElementById("crypy-squad-hive-chat")) return;
     var context = currentContext();
+    var contextFrame = document.querySelector('iframe[name="crypy-content"], #viewer');
+    if (contextFrame) contextFrame.addEventListener("load", function () { context = currentContext(); });
     var active = "BABY";
     var histories = {};
     TEAM.forEach(function (member) { histories[member.id] = []; });
