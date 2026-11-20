@@ -82,5 +82,5 @@
     refresh,
     loadDiplomas
   };
-  refresh();
+  window.CrypyAcademyAuth.ready = refresh();
 })();
