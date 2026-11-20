@@ -1,39 +1,23 @@
-name: CRYPY — cobertura dos assistentes por página
+name: CRYPY — validação da fusão do Esquadrão
 on:
   push:
-    branches: [feature/crypy-squad-fusion-coverage]
+    branches: [feature/crypy-squad-fusion-coverage-pr]
   pull_request:
     branches: [feature/crypy-page-assistants-sync]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  coverage:
+  validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-          persist-credentials: true
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Aplicar assistente compartilhado às páginas elegíveis
-        run: node scripts/aplicar-assistentes-crypy.mjs
-      - name: Validar sintaxe dos motores
+      - name: Validar sintaxe
         run: node --check assets/js/crypy-page-assistant.js && node --check scripts/aplicar-assistentes-crypy.mjs
-      - name: Validar cobertura e proteção
+      - name: Validar cobertura declarada e arquivos
         run: |
-          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('assets/data/crypy-squad-coverage.json','utf8')); if(m.covered_count < 1) throw new Error('Nenhuma página coberta'); const bad=m.excluded.filter(x => !/(^|\\/)(hd-matriz|hd-oculto)(\\/|$)|(^|\\/)(hd-baby-ia|hd-babyia|hd-memory|hd-baby-ia-completo-tudo)\\.html$|(^|\\/)crypy-server\\//i.test(x.file)); if(bad.length) throw new Error('Exclusão não autorizada: '+bad[0].file); console.log('Cobertura registrada:',m.covered_count,'páginas; excluídas:',m.excluded_count);"
-      - name: Registrar sincronização no branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add '*.html' assets/data/crypy-squad-coverage.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Apply shared CRYPY assistant across eligible pages"
-            git push
-          else
-            echo "Nenhuma alteração de cobertura pendente."
-          fi
+          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('assets/data/crypy-squad-coverage.json','utf8')); if(m.covered_count+m.excluded_count!==m.total_html) throw new Error('Contagem não fecha'); for(const x of m.covered){if(!fs.existsSync(x.file)) throw new Error('Página ausente: '+x.file); if(x.method==='script compartilhado injetado'&&!fs.readFileSync(x.file,'utf8').includes('crypy-page-assistant.js')) throw new Error('Assistente ausente: '+x.file);} const bad=m.excluded.filter(x=>!/(^|\\/)(hd-matriz|hd-oculto)(\\/|$)|(^|\\/)(hd-baby-ia|hd-babyia|hd-memory|hd-baby-ia-completo-tudo)\\.html$|(^|\\/)crypy-server\\//i.test(x.file)); if(bad.length) throw new Error('Exclusão não autorizada: '+bad[0].file); console.log('Cobertura:',m.covered_count,'de',m.total_html,'HTML; preservados:',m.excluded_count);"
