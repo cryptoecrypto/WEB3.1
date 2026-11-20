@@ -7,7 +7,7 @@ if (!patchPath || !fs.existsSync(patchPath)) {
 }
 const patch = fs.readFileSync(patchPath, "utf8");
 const pairs = [...patch.matchAll(/^diff --git a\/(.+?) b\/(.+)$/gm)].map(m => [m[1], m[2]]);
-const paths = pairs.flat();
+const paths = [...new Set(pairs.flat())];
 if (/^(new file mode|deleted file mode|similarity index|rename from|rename to)/m.test(patch)) {
   console.error("Criação, exclusão e renomeação de arquivos não são permitidas.");
   process.exit(5);
