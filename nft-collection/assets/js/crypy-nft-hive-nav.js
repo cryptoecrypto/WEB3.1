@@ -36,9 +36,25 @@
   ];
 
   var legacy = {
+    "index.html": "../index.html",
+    "index.htm": "../index.html",
+    "galeria.html": "galeria.html",
+    "collection-crypy-nft.html": "collection-crypy-nft.html",
+    "crypy-nft-edition.html": "crypy-nft-edition.html",
+    "nft-colection-edition.html": "nft-colection-edition.html",
+    "nft-genesis.html": "nft-genesis.html",
+    "nft-darkness.html": "nft-darkness.html",
+    "chatboot-baby-ia.html": "chatboot-baby-ia.html",
+    "hd-baby-ia.html": "hd-baby-ia.html",
+    "hd-memory.html": "hd-memory.html",
+    "relogio-mundial.html": "relogio-mundial.html",
+    "health.html": "memory-boost/health.html",
+    "pluguin.html": "memory-boost/pluguin.html",
+    "pluguins-tuto.html": "memory-boost/pluguins-tuto.html",
+    "baby-ia-agente.html": "memory-boost/baby-ia-agente.html",
+    "baby-ia-conectado.html": "memory-boost/baby-ia-conectado.html",
     "CRYPY-INDEX-FINAL.html": "../index.html",
     "nft-5-paginas.html": "collection-crypy-nft.html",
-    "nft-exhibition.html": "crypy-nft-edition.html",
     "nft-esquadrao.html": "../esquadrao-das-cores/esquadrao.html",
     "nft-exhibition.html": "crypy-nft-edition.html",
     "crypy-infinit-completo.html": "../crypy-infinyt/portal.html",
@@ -62,12 +78,9 @@
     "explorar.html": "galeria.html",
     "qualidade.html": "../crypy-academy/cursos.html",
     "seguranca.html": "../crypy-academy/cursos.html",
-    "topo.html": "../index.html#topo",
-    "crypy-infinit.html": "../crypy-infinyt/portal.html",
-    "BABY-IA-Fortaleza-Digital.html": "../baby-ia/centro.html",
-    "index.html": "../index.html",
-    "nft-genesis.html": "nft-genesis.html"
-  };
+    "topo.html": "../index.html#crypy-home-hero",
+    "crypy-infinit.html": "../crypy-infinyt/portal.html"
+  };;
 
   function normalizeLegacyLinks() {
     document.querySelectorAll("a[href],iframe[src]").forEach(function (a) {
