@@ -80,7 +80,7 @@
     "seguranca.html": "../crypy-academy/cursos.html",
     "topo.html": "../index.html#crypy-home-hero",
     "crypy-infinit.html": "../crypy-infinyt/portal.html"
-  };;
+  };
 
   function normalizeLegacyLinks() {
     document.querySelectorAll("a[href],iframe[src]").forEach(function (a) {
