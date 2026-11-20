@@ -5,7 +5,7 @@ Backend isolado da área `crypy-academy`. Não altera o servidor BABY, a raiz do
 ## O que este serviço implementa
 
 - Login Google e Microsoft via OpenID Connect Authorization Code + PKCE.
-- Sessão opaca em cookie Secure/HttpOnly/SameSite=None, com validade de 7 dias.
+- Sessão opaca em cookie Secure/HttpOnly/SameSite=None, com validade de 7 dias; transação OAuth vinculada ao navegador por cookie de curta duração.
 - CSRF por token duplo e CORS restrito à origem do GitHub Pages.
 - Persistência PostgreSQL de alunos, identidade, sessão, progresso, provas, tentativas e diplomas.
 - Questões e gabaritos mantidos somente no banco; o endpoint público da prova nunca envia a resposta correta.
