@@ -75,7 +75,7 @@ if (applyChanges) {
     generated_at:new Date().toISOString(),
     total:pages.length,
     pages
-  },null,2)+"\\n");
+  },null,2)+"\n");
 }
 
 console.log("Modo:",applyChanges ? "APLICAÇÃO" : "SIMULAÇÃO (padrão)",
