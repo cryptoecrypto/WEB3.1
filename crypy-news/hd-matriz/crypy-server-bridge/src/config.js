@@ -10,9 +10,13 @@ export function loadConfig(overrides = {}) {
   const projectRoot = path.resolve(overrides.projectRoot || env.CRYPY_PROJECT_ROOT || PROJECT_ROOT);
   const dataDir = path.resolve(overrides.dataDir || env.CRYPY_DATA_DIR || path.join(projectRoot, '.baby'));
   const targetRoot = path.resolve(overrides.targetRoot || env.CRYPY_TARGET_ROOT || projectRoot);
-  const evidenceDir = path.resolve(overrides.evidenceDir || path.join(projectRoot, 'evidence'));
-  const sandboxDir = path.resolve(overrides.sandboxDir || path.join(projectRoot, 'sandbox'));
-  const approvalToken = overrides.approvalToken || env.CRYPY_SENSEI_TOKEN || 'sensei-dev-token';
+  const evidenceDir = path.resolve(overrides.evidenceDir || env.CRYPY_EVIDENCE_DIR || path.join(projectRoot, 'evidence'));
+  const sandboxDir = path.resolve(overrides.sandboxDir || env.CRYPY_SANDBOX_DIR || path.join(projectRoot, 'sandbox'));
+  const isProduction = env.NODE_ENV === 'production';
+  const approvalToken = overrides.approvalToken ?? env.CRYPY_SENSEI_TOKEN ?? (isProduction ? null : 'sensei-dev-token');
+  if (isProduction && (!approvalToken || Buffer.byteLength(approvalToken, 'utf8') < 32)) {
+    throw new Error('CRYPY_SENSEI_TOKEN precisa estar configurado com pelo menos 32 bytes no ambiente de produção.');
+  }
 
   const roots = overrides.roots || [
     { path: targetRoot, mode: 'read', label: 'corpus' },
