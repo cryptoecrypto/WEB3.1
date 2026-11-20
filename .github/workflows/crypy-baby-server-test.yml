@@ -1,0 +1,36 @@
+name: CRYPY BABY Server Tests
+
+on:
+  push:
+    paths:
+      - "crypy-news/hd-matriz/crypy-server-bridge/**"
+      - ".github/workflows/crypy-baby-server-test.yml"
+  pull_request:
+    paths:
+      - "crypy-news/hd-matriz/crypy-server-bridge/**"
+      - ".github/workflows/crypy-baby-server-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: crypy-news/hd-matriz/crypy-server-bridge
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify source syntax
+        run: |
+          node --check src/server.js
+          node --check src/auth.js
+          node --check src/baby.js
+      - name: Run test suite
+        run: npm test
