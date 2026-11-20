@@ -98,6 +98,7 @@ body{background:radial-gradient(ellipse at 15% 0%,#00ff8816,transparent 38%),rad
   <div class="auth-actions">
     <button type="button" data-academy-login="google" disabled>ENTRAR COM GOOGLE</button>
     <button type="button" data-academy-login="microsoft" disabled>ENTRAR COM MICROSOFT</button>
+    <button type="button" id="academy-verify-email" hidden>REENVIAR CONFIRMAÇÃO DE E-MAIL</button>
     <button type="button" id="academy-logout" hidden>SAIR</button>
   </div>
   <p class="auth-identity" id="academy-auth-identity">Nenhum aluno conectado</p>
@@ -240,7 +241,7 @@ function renderCourse(){
  var lessonGrid=node("div","lesson-grid");
  level.lessons.forEach(function(lesson,i){
   var wrap=node("div","lesson");
-  var check=node("input");check.type="checkbox";check.id="lesson-"+track.id+"-"+level.id+"-"+i;check.checked=!!progress[keyFor(track.id,level.id,i)];check.disabled=!(window.CrypyAcademyAuth&&window.CrypyAcademyAuth.user&&window.CrypyAcademyAuth.enabled);
+  var check=node("input");check.type="checkbox";check.id="lesson-"+track.id+"-"+level.id+"-"+i;check.checked=!!progress[keyFor(track.id,level.id,i)];check.disabled=!(window.CrypyAcademyAuth&&window.CrypyAcademyAuth.user&&window.CrypyAcademyAuth.user.emailVerified&&window.CrypyAcademyAuth.enabled);
   var label=node("label");label.htmlFor=check.id;label.append(document.createTextNode((i+1)+". "+lesson));
   label.append(node("small","",check.disabled?"Entre para registrar no servidor":"Registro vinculado à conta"));
   check.addEventListener("change",function(){
