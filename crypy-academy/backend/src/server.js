@@ -132,12 +132,14 @@ app.get("/api/auth/:provider/start", authLimiter, async (req, res, next) => {
     const provider = req.params.provider;
     const config = await oidcConfig(provider);
     const state = oidc.randomState();
+    const browserToken = randomBytes(24).toString("base64url");
+    setCookie(res, "__Host-crypy_academy_oauth", browserToken, 10 * 60, true);
     const nonce = oidc.randomNonce();
     const verifier = oidc.randomPKCECodeVerifier();
     const challenge = await oidc.calculatePKCECodeChallenge(verifier);
     await pool.query(
-      "INSERT INTO academy_oauth_transactions(state,provider,nonce,code_verifier,expires_at) VALUES($1,$2,$3,$4,NOW()+INTERVAL '10 minutes')",
-      [state, provider, nonce, verifier]
+      "INSERT INTO academy_oauth_transactions(state,provider,nonce,code_verifier,browser_hash,expires_at) VALUES($1,$2,$3,$4,$5,NOW()+INTERVAL '10 minutes')",
+      [state, provider, nonce, verifier, hash(browserToken)]
     );
     const redirectUri = API_BASE_URL + "/api/auth/" + provider + "/callback";
     const url = oidc.buildAuthorizationUrl(config, {
@@ -153,10 +155,12 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
   try {
     const provider = req.params.provider;
     const state = String(req.query.state || "");
+    const browserToken = cookieValue(req, "__Host-crypy_academy_oauth");
     const tx = await client.query(
-      "DELETE FROM academy_oauth_transactions WHERE state=$1 AND provider=$2 AND expires_at>NOW() RETURNING *",
-      [state, provider]
+      "DELETE FROM academy_oauth_transactions WHERE state=$1 AND provider=$2 AND browser_hash=$3 AND expires_at>NOW() RETURNING *",
+      [state, provider, browserToken ? hash(browserToken) : ""]
     );
+    clearCookie(res, "__Host-crypy_academy_oauth");
     if (!tx.rowCount) return res.status(400).send("Autenticação expirada ou inválida. Volte à CRYPY Academy.");
     const config = await oidcConfig(provider);
     const redirectUri = API_BASE_URL + "/api/auth/" + provider + "/callback";
@@ -165,7 +169,7 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
       expectedState: tx.rows[0].state,
       expectedNonce: tx.rows[0].nonce
     });
-    const claims = oidc.getValidatedIdTokenClaims(tokens);
+    const claims = tokens.claims();
     const email = String(claims.email || claims.preferred_username || "").trim().toLowerCase();
     const verified = provider === "google" ? claims.email_verified === true : claims.email_verified !== false;
     if (!claims.sub || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) || !verified) return res.status(403).send("O provedor não confirmou um e-mail utilizável.");
