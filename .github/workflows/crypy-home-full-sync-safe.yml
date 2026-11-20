@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 20
       - name: Verificar sintaxe
-        run: node --check scripts/sincronizar-crypy-global.mjs && node --check scripts/validar-crypy-global.mjs && node --check scripts/auditar-baby-colmeia.mjs && node --check assets/js/crypy-global-nav.js && node --check assets/js/baby-global-chat.js
+        run: node --check scripts/sincronizar-crypy-global.mjs && node --check scripts/validar-crypy-global.mjs && node --check scripts/auditar-baby-colmeia.mjs && node --check scripts/testar-baby-colmeia-browser.mjs && node --check assets/js/baby-colmeia-observer.js && node --check assets/js/crypy-global-nav.js && node --check assets/js/baby-global-chat.js
       - name: Auditar Colmeia BABY sem alterar páginas
         run: node scripts/auditar-baby-colmeia.mjs --out=artifacts/baby-colmeia-audit.json
       - name: Publicar relatório de auditoria
@@ -25,6 +25,21 @@ jobs:
         with:
           name: baby-colmeia-audit
           path: artifacts/baby-colmeia-audit.json
+          if-no-files-found: error
+      - name: Preparar Chromium para testes de navegador
+        run: |
+          mkdir -p /tmp/baby-browser
+          npm install --prefix /tmp/baby-browser playwright@1.56.1
+          npx --prefix /tmp/baby-browser playwright install --with-deps chromium
+      - name: Testar todas as páginas HTML no navegador
+        env:
+          PLAYWRIGHT_MODULE: /tmp/baby-browser/node_modules/playwright
+        run: node scripts/testar-baby-colmeia-browser.mjs
+      - name: Publicar relatório de navegador
+        uses: actions/upload-artifact@v4
+        with:
+          name: baby-colmeia-browser
+          path: artifacts/baby-colmeia-browser.json
           if-no-files-found: error
       - name: Testar núcleo BABY e política de permissões
         run: node --test crypy-server-bridge/test/
