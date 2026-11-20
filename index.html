@@ -4,38 +4,108 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>CRYPY — Menu</title>
+<title>CRYPY — Colmeia</title>
 <style>
-:root{color-scheme:dark;--neon:#00ff88;--bg:#020502;--line:#16472b}
+:root{color-scheme:dark;--neon:#00ff88;--bg:#020502;--panel:#07130b;--line:#16472b}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:#eafff2;font:14px/1.4 Arial,sans-serif}
-body{display:flex;flex-direction:column}
+html,body{margin:0;width:100%;height:100%;background:var(--bg);color:#eafff2;font:14px/1.45 Arial,sans-serif}
+body{display:flex;flex-direction:column;min-height:100vh}
 nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;padding:14px;background:#020702;border-bottom:1px solid var(--line)}
-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:9px 12px;border:1px solid #1b5835;border-radius:9px;background:#06140b;color:#dfffea;text-align:center;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.035em}
-nav a:hover,nav a:focus-visible{background:var(--neon);color:#001b0c;border-color:var(--neon);outline:none}
-main{flex:1;min-height:0;position:relative;background:#000}
-iframe{display:block;width:100%;height:100%;border:0;background:#000}
-@media(max-width:760px){nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:9px}nav a{font-size:10px;min-height:42px;padding:8px 5px}}
+nav button{min-height:48px;padding:8px 6px;border:1px solid #1b5835;border-radius:9px;background:#06140b;color:#dfffea;text-align:center;font-size:11px;font-weight:800;letter-spacing:.025em;cursor:pointer}
+nav button:hover,nav button:focus-visible,nav button[aria-pressed="true"]{background:var(--neon);color:#001b0c;border-color:var(--neon);outline:none}
+nav small{display:block;font-size:10px;font-weight:600;opacity:.8;margin-top:2px}
+#workspace{flex:1;min-height:0;position:relative;background:#000}
+#catalog{padding:18px;max-width:1400px;margin:auto}
+#catalog h1{color:var(--neon);font-size:clamp(18px,3vw,26px);margin:0 0 5px}
+#catalog .meta{color:#9ac9aa;margin:0 0 16px;font-size:12px}
+#pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:9px}
+.page-link{display:block;padding:11px 12px;border:1px solid #17452b;border-radius:8px;background:var(--panel);color:#eafff2;text-decoration:none;overflow-wrap:anywhere}
+.page-link:hover,.page-link:focus-visible{border-color:var(--neon);color:var(--neon);outline:none}
+.page-link small{display:block;color:#85a994;font-size:10px;margin-top:4px}
+iframe{display:none;width:100%;height:100%;min-height:70vh;border:0;background:#000}
+#status{padding:7px 14px;color:#91b49d;background:#030904;border-top:1px solid #10351f;font-size:11px}
+@media(max-width:760px){nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:9px}nav button{font-size:10px;min-height:44px}#catalog{padding:13px}}
 @media(max-width:360px){nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-<nav aria-label="Menu principal CRYPY">
-<a href="./mapa-colmeia.html#crypy-infinyt" target="crypy-content">CRYPY INFINYT</a>
-<a href="./mapa-colmeia.html#nft-collection" target="crypy-content">NFT-COLLECTION</a>
-<a href="./mapa-colmeia.html#esquadrao-das-cores" target="crypy-content">ESQUADRÃO DAS CORES</a>
-<a href="./mapa-colmeia.html#crypy-academy" target="crypy-content">CRYPY ACADEMY-WEB3.1</a>
-<a href="./mapa-colmeia.html#biografia" target="crypy-content">BIOGRAFIA</a>
-<a href="./mapa-colmeia.html#nft-collection" target="crypy-content">MUSEU DIGITAL</a>
-<a href="./mapa-colmeia.html#art-figure-marketplace" target="crypy-content">ART-FIGURE / MARKETPLACE</a>
-<a href="./mapa-colmeia.html#crypy-games-desafios" target="crypy-content">CRYPY GAMES-DESAFIO</a>
-<a href="./mapa-colmeia.html#social-crypykut" target="crypy-content">SOCIAL-CRYPYKUT</a>
-<a href="./baby-ia.html" target="crypy-content">BABY I.A.</a>
-<a href="./mapa-colmeia.html#crypy-news" target="crypy-content">WHITE PAPER</a>
-<a href="./mapa-colmeia.html#contato" target="crypy-content">CONTATO</a>
+<nav id="main-menu" aria-label="Menu principal CRYPY">
+<button type="button" data-theme="infinyt">CRYPY INFINYT</button>
+<button type="button" data-theme="nft">NFT-COLLECTION</button>
+<button type="button" data-theme="squad">ESQUADRÃO DAS CORES</button>
+<button type="button" data-theme="academy">CRYPY ACADEMY-WEB3.1</button>
+<button type="button" data-theme="bio">BIOGRAFIA</button>
+<button type="button" data-theme="museum">MUSEU DIGITAL</button>
+<button type="button" data-theme="art">ART-FIGURE / MARKETPLACE</button>
+<button type="button" data-theme="games">CRYPY GAMES-DESAFIO</button>
+<button type="button" data-theme="social">SOCIAL-CRYPYKUT</button>
+<button type="button" data-theme="baby">BABY I.A.</button>
+<button type="button" data-theme="whitepaper">WHITE PAPER</button>
+<button type="button" data-theme="contact">CONTATO</button>
 </nav>
-<main>
-<iframe name="crypy-content" src="about:blank" title="Conteúdo do tema selecionado" loading="lazy"></iframe>
+<main id="workspace">
+<section id="catalog" aria-live="polite">
+<h1>CRYPY — COLMEIA DIGITAL</h1>
+<p class="meta">Selecione um dos 12 temas para visualizar todas as páginas correspondentes.</p>
+<div id="pages"></div>
+</section>
+<iframe id="viewer" title="Página selecionada da colmeia" loading="lazy"></iframe>
 </main>
+<div id="status" role="status">Carregando índice oficial de páginas…</div>
+<script>
+(function(){
+'use strict';
+const INDEX_URL='./assets/data/crypy-page-index.json';
+const themes={
+infinyt:{label:'CRYPY INFINYT',groups:['crypy-infinyt','marketing']},
+nft:{label:'NFT-COLLECTION',groups:['nft-collection']},
+squad:{label:'ESQUADRÃO DAS CORES',groups:['esquadrao-das-cores']},
+academy:{label:'CRYPY ACADEMY-WEB3.1',groups:['crypy-academy','web3.1']},
+bio:{label:'BIOGRAFIA',groups:['biografia']},
+museum:{label:'MUSEU DIGITAL',groups:['crypy-news']},
+art:{label:'ART-FIGURE / MARKETPLACE',groups:['art-figure-marketplace']},
+games:{label:'CRYPY GAMES-DESAFIO',groups:['crypy-games-desafios']},
+social:{label:'SOCIAL-CRYPYKUT',groups:['social-crypykut']},
+baby:{label:'BABY I.A.',groups:['RAIZ','baby-ia','memory-boost','padrao','pluguin','sincronizacao']},
+whitepaper:{label:'WHITE PAPER',groups:['crypy-coin']},
+contact:{label:'CONTATO',groups:['contato']}
+};
+let pages=[];
+const status=document.getElementById('status');
+const catalog=document.getElementById('catalog');
+const viewer=document.getElementById('viewer');
+const list=document.getElementById('pages');
+function safePath(path){return typeof path==='string'&&!path.startsWith('/')&&!path.split('/').includes('..')&&/\.html?$/i.test(path)}
+function openTheme(key){
+const theme=themes[key];if(!theme)return;
+const selected=pages.filter(p=>theme.groups.includes(p.group)&&safePath(p.path)).sort((a,b)=>(a.label||a.path).localeCompare(b.label||b.path,'pt-BR'));
+document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.theme===key)));
+viewer.style.display='none';viewer.removeAttribute('src');catalog.style.display='block';
+document.querySelector('#catalog h1').textContent=theme.label;
+document.querySelector('#catalog .meta').textContent=selected.length+' páginas registradas neste tema. Selecione uma página para abri-la aqui, sem sair da Home.';
+list.replaceChildren();
+if(!selected.length){const p=document.createElement('p');p.textContent='Nenhuma página foi encontrada para este tema no índice atual.';list.append(p);return;}
+selected.forEach(page=>{
+const a=document.createElement('a');a.className='page-link';a.href='./'+page.path;a.textContent=page.label||page.path;a.title=page.path;
+const small=document.createElement('small');small.textContent=page.path;a.append(small);
+a.addEventListener('click',function(e){e.preventDefault();viewer.src='./'+page.path;catalog.style.display='none';viewer.style.display='block';});
+list.append(a);
+});
+}
+document.querySelectorAll('[data-theme]').forEach(b=>b.addEventListener('click',()=>openTheme(b.dataset.theme)));
+fetch(INDEX_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
+if(!Array.isArray(data.pages))throw new Error('Formato de índice inválido');
+pages=data.pages.filter(p=>p&&safePath(p.path)&&p.group);
+Object.entries(themes).forEach(([key,theme])=>{
+const count=pages.filter(p=>theme.groups.includes(p.group)).length;
+const button=document.querySelector('[data-theme="'+key+'"]');
+const small=document.createElement('small');small.textContent=count+' páginas';button.append(small);
+});
+const assigned=Object.values(themes).reduce((n,t)=>n+pages.filter(p=>t.groups.includes(p.group)).length,0);
+const unassigned=pages.filter(p=>!Object.values(themes).some(t=>t.groups.includes(p.group))).length;
+status.textContent=pages.length+' páginas indexadas · '+assigned+' distribuídas nos 12 temas · '+unassigned+' sem categoria · índice v'+(data.version||'?');
+}).catch(err=>{status.textContent='Não foi possível carregar o índice oficial: '+err.message+'. Nenhuma lista foi inventada.';});
+})();
+</script>
 </body>
 </html>
