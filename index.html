@@ -78,6 +78,7 @@ nav#main-menu button:hover,nav#main-menu button:focus-visible{background:linear-
 <button type="button" data-theme="baby">BABY I.A.</button>
 <button type="button" data-theme="whitepaper">WHITE PAPER</button>
 <button type="button" data-theme="contact">CONTATO</button>
+<button type="button" data-map>MAPA DA COLMEIA</button>
 </nav>
 <main id="workspace">
 <section id="catalog" aria-live="polite">
@@ -136,6 +137,7 @@ list.append(a);
 });
 }
 document.querySelectorAll('[data-theme]').forEach(b=>b.addEventListener('click',()=>openTheme(b.dataset.theme)));
+document.querySelector('[data-map]').addEventListener('click',()=>{window.location.href='./mapa-colmeia.html';});
 fetch(INDEX_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
 if(!Array.isArray(data.pages))throw new Error('Formato de índice inválido');
 pages=data.pages.filter(p=>p&&safePath(p.path)&&p.group);
