@@ -51,7 +51,7 @@ const files=walk(root).sort();
 const missing=[];
 for(const file of files) {
   const html=fs.readFileSync(path.join(root,file),"utf8");
-  if(!html.includes("crypy-global-nav.js")) missing.push(file);
+  if(!/<script\b[^>]*\bsrc=["'][^"']*crypy-global-nav\.js["'][^>]*>/i.test(html)) missing.push(file);
 }
 console.log("CRYPY — AUDITORIA DE MENUS");
 console.log("Palavras-chave oficiais:",actual.length);
