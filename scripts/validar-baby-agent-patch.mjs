@@ -18,7 +18,8 @@ if (patch.trim() && paths.length === 0) {
 }
 
 if (new Set(paths).size > 8) {
-  console.error("Limite de 8 arquivos por execução excedido.");\n  process.exit(6);
+  console.error("Limite de 8 arquivos por execução excedido.");
+  process.exit(6);
 }
 
 function allowed(file) {
