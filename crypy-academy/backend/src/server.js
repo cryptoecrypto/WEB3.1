@@ -106,7 +106,7 @@ const server = http.createServer(async (req, res) => {
     if (typeof body.content !== "string" || Buffer.byteLength(body.content) > 1024 * 1024) return send(res, 400, { ok: false, error: "INVALID_CONTENT" }, headers);
     const token = await getFreshToken();
     if (!token) return send(res, 409, { ok: false, error: "DROPBOX_NOT_AUTHORIZED" }, headers);
-    const upload = await fetch("https://content.dropboxapi.com/2/files/upload", { method: "POST", headers: { authorization: "Bearer " + token.access_token, "content-type": "application/octet-stream", "dropbox-api-arg": JSON.stringify({ path: target, mode: "overwrite", autorename: false, mute: true }) }, body: Buffer.from(body.content, "utf8") });
+    const upload = await fetch("https://content.dropboxapi.com/2/files/upload", { method: "POST", headers: { authorization: "Bearer " + token.access_token, "content-type": "application/octet-stream", "dropbox-api-arg": JSON.stringify({ path: target, mode: "add", autorename: false, mute: true }) }, body: Buffer.from(body.content, "utf8") });
     const result = await upload.json();
     if (!upload.ok) return send(res, 502, { ok: false, error: "DROPBOX_UPLOAD_FAILED", status: upload.status }, headers);
     return send(res, 200, { ok: true, path: result.path_display, id: result.id, size: result.size }, headers);
