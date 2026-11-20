@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>BABY — Observatório da Colmeia</title>
+  <style>
+    :root{color-scheme:dark;--bg:#050907;--panel:#0b1510;--line:#1d4931;--green:#00ff88;--muted:#9bb5a6;--white:#e8fff1}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#10291c 0,#050907 45%);color:var(--white);font:15px/1.5 system-ui,sans-serif}
+    main{max-width:1200px;margin:auto;padding:24px 16px 60px}header{border:1px solid var(--line);border-radius:18px;padding:22px;background:#08120ddd}
+    h1{margin:0;color:var(--green);font-size:clamp(1.6rem,4vw,2.4rem)}.sub{color:var(--muted);margin:.4rem 0 0}
+    .notice{margin:16px 0;padding:12px 14px;border-left:3px solid var(--green);background:#0b1c13;color:#c9e8d5}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:16px 0}
+    .stat,.panel{border:1px solid var(--line);border-radius:14px;background:#08120f;padding:14px}.stat strong{display:block;color:var(--green);font-size:1.65rem}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.controls input,.controls select{background:#08120f;color:var(--white);border:1px solid var(--line);border-radius:10px;padding:11px;min-width:190px}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:760px;background:#07100c}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #173524}th{color:var(--green);position:sticky;top:0;background:#0b1a12}td.path{font-family:ui-monospace,monospace;font-size:.86rem;overflow-wrap:anywhere}
+    .tag{display:inline-block;border:1px solid #28583d;border-radius:99px;padding:2px 8px;font-size:.78rem;color:#b8e8c9}.tag.warn{border-color:#80652b;color:#ffe2a3}.tag.off{border-color:#754040;color:#ffc0c0}
+    .foot{color:var(--muted);font-size:.85rem;margin-top:14px}.error{color:#ffb4b4}
+    a{color:var(--green)}button{background:#0b2818;color:var(--green);border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>🐝 BABY — Observatório da Colmeia</h1>
+    <p class="sub">Camada 1 · Visibilidade, inventário e consulta somente leitura</p>
+  </header>
+  <div class="notice"><strong>Modo seguro:</strong> este painel apenas consulta a matriz e os manifestos. Não altera páginas, memórias, HDs, configurações, permissões ou backups. Presença em arquivo não significa conexão funcional.</div>
+  <section class="stats" aria-live="polite">
+    <div class="stat"><strong id="total">—</strong><span>HTMLs no retrato-base</span></div>
+    <div class="stat"><strong id="indexed">—</strong><span>Registrados no índice</span></div>
+    <div class="stat"><strong id="covered">—</strong><span>Listados como cobertos</span></div>
+    <div class="stat"><strong id="excluded">—</strong><span>Excluídos / protegidos</span></div>
+    <div class="stat"><strong id="unclassified">—</strong><span>Sem classificação no manifesto</span></div>
+    <div class="stat"><strong id="protected">—</strong><span>Marcados como protegidos</span></div>
+  </section>
+  <section class="panel">
+    <strong id="state">Carregando matriz…</strong>
+    <p id="detail" class="sub">Lendo os arquivos de referência desta versão.</p>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Buscar página ou caminho…" aria-label="Buscar páginas">
+      <select id="filter"><option value="all">Todas as páginas</option><option value="indexed">No índice</option><option value="outside">Fora do índice</option><option value="covered">Cobertura declarada</option><option value="unclassified">Sem classificação</option><option value="protected">Protegidas</option></select>
+      <button id="reset" type="button">Limpar filtros</button>
+    </div>
+    <div class="table-wrap">
+      <table><thead><tr><th>Página / caminho</th><th>Índice</th><th>Manifesto</th><th>Proteção</th><th>Assistente contextual</th></tr></thead><tbody id="rows"><tr><td colspan="5">Aguardando dados…</td></tr></tbody></table>
+    </div>
+    <p id="count" class="foot"></p>
+  </section>
+  <p class="foot">Fonte: auditoria preliminar versionada em <code>auditorias/BABY-COLMEIA-MATRIZ-001.json</code>. A matriz não comprova execução no navegador, conexão de chatbot, sincronização Dropbox ou acesso ao backend. A auditoria automática e os testes de runtime são etapas separadas.</p>
+</main>
+<script src="../assets/js/baby-colmeia-observer.js" defer></script>
+</body></html>
