@@ -1,0 +1,23 @@
+{
+  "name": "crypy-academy-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/server.js",
+    "migrate": "node scripts/migrate.js",
+    "import:exams": "node scripts/import-exam-bank.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jose": "^6.1.0",
+    "nodemailer": "^7.0.5",
+    "openid-client": "^6.8.1",
+    "pdfkit": "^0.17.2",
+    "pg": "^8.16.3"
+  }
+}
