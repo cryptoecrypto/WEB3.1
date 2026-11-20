@@ -12,6 +12,7 @@ Backend isolado da CRYPY Academy. Não reutiliza nem acessa o backend BABY/HD MA
 ## Variáveis Railway
 - `APP_ORIGIN=https://cryptoecrypto.github.io/WEB3.1`
 - `DROPBOX_APP_KEY` — App Key do app Dropbox da Academy.
+- No Dropbox Developers, habilitar o escopo `files.content.write` e cadastrar o Redirect URI exatamente como acima. O fluxo PKCE usa acesso offline e não precisa de App Secret.
 - `DROPBOX_REDIRECT_URI=https://crypy-academy-api-production.up.railway.app/auth/dropbox/callback` — registrar exatamente no Dropbox Developers.
 - `DROPBOX_TOKEN_FILE=/data/dropbox-token.json`
 - `ACADEMY_SYNC_KEY` — segredo aleatório forte, diferente da App Key; necessário para autorizar chamadas de upload.
@@ -24,7 +25,7 @@ Nunca inserir App Secret, refresh token ou ACADEMY_SYNC_KEY em HTML, GitHub ou m
 - CORS restrito à origem configurada.
 - Upload limitado a `/MEMORY-BOOST/`, sem permitir caminhos ascendentes.
 - Não há endpoint público para ler token nem para explorar o volume.
-- Antes do primeiro upload real, validar o conteúdo e o destino. Não usar `overwrite` para dados de produção sem backup.
+- Antes do primeiro upload real, validar o conteúdo e o destino. A rota usa modo `add` para não sobrescrever arquivos existentes.
 
 ## Verificação
 `npm run check` e `GET /health`.
