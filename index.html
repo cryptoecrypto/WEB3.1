@@ -69,6 +69,7 @@ iframe{display:none;width:100%;height:100%;min-height:70vh;border:0;background:#
 </main>
 <div id="status" role="status">Carregando índice oficial de páginas…</div>
 <script src="./assets/js/baby-knowledge-sync.js"></script>
+<script src="./baby-ia/esquadrao-auto-config.js"></script>
 <script>
 (function(){
 'use strict';
@@ -93,15 +94,20 @@ const catalog=document.getElementById('catalog');
 const viewer=document.getElementById('viewer');
 const list=document.getElementById('pages');
 function safePath(path){return typeof path==='string'&&!path.startsWith('/')&&!path.split('/').includes('..')&&/\.html?$/i.test(path)}
+function isPublicPage(path){
+ const file=String(path||'').split('/').pop().toLowerCase();
+ const internal=/^(chatboot-baby-ia|hd-baby-ia|hd-babyia|hd-memory|health|pluguin|pluguins-tuto|relogio-mundial|baby-ia-agente|baby-ia-conectado|baby-agente-cons|auto-config|esquadrao-auto-config)\.html?$/.test(file);
+ return !internal&&!/^index\.html?$/.test(file);
+}
 function openTheme(key){
 const theme=themes[key];if(!theme)return;
-const selected=pages.filter(p=>theme.groups.includes(p.group)&&safePath(p.path)).sort((a,b)=>(a.label||a.path).localeCompare(b.label||b.path,'pt-BR'));
+const selected=pages.filter(p=>theme.groups.includes(p.group)&&isPublicPage(p.path)&&safePath(p.path)).sort((a,b)=>(a.label||a.path).localeCompare(b.label||b.path,'pt-BR'));
 document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.theme===key)));
 viewer.style.display='none';viewer.removeAttribute('src');catalog.style.display='block';
 document.querySelector('#catalog h1').textContent=theme.label;
 document.querySelector('#catalog .meta').textContent=selected.length+' páginas registradas neste tema. Selecione uma página para abri-la aqui, sem sair da Home.';
 list.replaceChildren();
-if(!selected.length){const p=document.createElement('p');p.textContent='Nenhuma página foi encontrada para este tema no índice atual.';list.append(p);return;}
+if(!selected.length){const p=document.createElement('p');p.textContent='Esta área está reservada na navegação principal. Os módulos internos permanecem preservados e não são listados aqui.';list.append(p);return;}
 selected.forEach(page=>{
 const a=document.createElement('a');a.className='page-link';a.href='./'+page.path;a.textContent=page.label||page.path;a.title=page.path;
 const small=document.createElement('small');small.textContent=page.path;a.append(small);
@@ -114,13 +120,13 @@ fetch(INDEX_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.
 if(!Array.isArray(data.pages))throw new Error('Formato de índice inválido');
 pages=data.pages.filter(p=>p&&safePath(p.path)&&p.group);
 Object.entries(themes).forEach(([key,theme])=>{
-const count=pages.filter(p=>theme.groups.includes(p.group)).length;
+const count=pages.filter(p=>theme.groups.includes(p.group)&&isPublicPage(p.path)).length;
 const button=document.querySelector('[data-theme="'+key+'"]');
 const small=document.createElement('small');small.textContent=count+' páginas';button.append(small);
 });
 const assigned=Object.values(themes).reduce((n,t)=>n+pages.filter(p=>t.groups.includes(p.group)).length,0);
 const unassigned=pages.filter(p=>!Object.values(themes).some(t=>t.groups.includes(p.group))).length;
-status.textContent=pages.length+' páginas indexadas · '+assigned+' distribuídas nos 12 temas · '+unassigned+' sem categoria · índice v'+(data.version||'?');
+status.textContent='PORTAL CRYPY ATIVO · 12 ÁREAS · conteúdo técnico e arquivos internos preservados fora da navegação pública · índice v'+(data.version||'?');
 }).catch(err=>{status.textContent='Não foi possível carregar o índice oficial: '+err.message+'. Nenhuma lista foi inventada.';});
 })();
 </script>
