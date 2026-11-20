@@ -1,4 +1,4 @@
-/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.1
+/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.2
  * Percorre todos os caminhos HTML/HTM do índice oficial e documentos técnicos selecionados.
  * Extrai texto visível e metadados, mantém o conteúdo integral (sem corte de caracteres)
  * e grava no IndexedDB deste navegador. Recuperação textual; não treina rede neural.
@@ -6,7 +6,7 @@
  */
 (function () {
   "use strict";
-  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.1") return;
+  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.2") return;
 
   var script = document.currentScript;
   var root = new URL("../../", script && script.src ? script.src : document.baseURI);
@@ -14,6 +14,7 @@
   var dbName = "crypy_baby_knowledge_v1";
   var storeName = "documents";
   var fixedFiles = [
+    "baby-ia/knowledge/CURSO-EDICAO-IMAGENS-VIDEOS-PHD-001.md",
     "crypy-news/hd-matriz/ABECEDARIO-BINARIO-BABY-IA.txt",
     "crypy-news/hd-matriz/CRYPY-RENDA-PASSIVA-001.md",
     "crypy-news/hd-matriz/Memorias.json",
@@ -186,7 +187,7 @@
 
   function snapshot() {
     return {
-      version: "1.1", state: progress.state, indexedThisRun: progress.indexed,
+      version: "1.2", state: progress.state, indexedThisRun: progress.indexed,
       done: progress.done, total: progress.total, sourceTotal: progress.sourceTotal,
       fixedTotal: progress.fixedTotal, errors: progress.errors, chars: progress.chars,
       updatedAt: progress.updatedAt, failures: failures.slice(), error: progress.error || null
@@ -225,7 +226,7 @@
     });
   }
 
-  window.BabyKnowledge = { version: "1.1", sync: sync, search: search, status: status };
+  window.BabyKnowledge = { version: "1.2", sync: sync, search: search, status: status };
   function mount() {
     if (!document.body || document.getElementById("baby-knowledge-sync")) return;
     var b = document.createElement("button");
