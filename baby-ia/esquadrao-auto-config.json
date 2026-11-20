@@ -145,5 +145,40 @@
     "noPublicUploadsUntilServerModeration": true,
     "preserveHdMatrix": true,
     "noSecretsInRepository": true
+  },
+  "engineeringAgent": {
+    "id": "BABY-WEB3-ENGINEERING",
+    "orchestrator": "BABY",
+    "executionEngine": "OpenAI Codex GitHub Action",
+    "workflow": ".github/workflows/baby-agent-propose.yml",
+    "policy": ".github/codex/BABY-SITE-AUTONOMY.md",
+    "mode": "PROPOSAL_ONLY",
+    "trigger": "MANUAL_GITHUB_ACTIONS_WORKFLOW_DISPATCH",
+    "agentGitHubPermission": "CONTENTS_READ_ONLY",
+    "agentSandbox": "WORKSPACE_WRITE",
+    "proposalJob": "SEPARATE_JOB_WITH_PR_WRITE_AND_NO_OPENAI_KEY",
+    "automaticMerge": false,
+    "automaticDeploy": false,
+    "apiKeySecret": "OPENAI_API_KEY",
+    "runtimeStatus": "REPOSITORY_POLICY_CONFIGURED; BABY_UI_DISPATCH_AND_FIRST_EXECUTION_PENDING",
+    "protectedPaths": [
+      "nft-collection/**",
+      "**/hd-*/**",
+      "crypy-news/hd-matriz/**",
+      "**/backup*/**",
+      "**/Memorias.json",
+      "**/Manifest.json",
+      "crypy-server-bridge/**",
+      ".github/**",
+      "scripts/**",
+      "/index.html"
+    ],
+    "allowedPaths": [
+      "existing editorial HTML outside protected paths",
+      "assets/css/crypy-world.css",
+      "assets/js/crypy-global-nav.js",
+      "assets/js/crypy-world.js"
+    ],
+    "maxFilesPerRun": 8
   }
 }
