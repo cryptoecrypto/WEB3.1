@@ -37,8 +37,9 @@ if(buf)out.push(buf);return out.slice(0,300);
 }
 function mount(){
 if(document.getElementById("crypy-squad-assistant"))return;
-var page={title:document.title||"Página CRYPY",url:location.href,chunks:extract(document)};
-var squad=roles(location.pathname,page.title);
+var frame=document.querySelector('iframe[name="crypy-content"]');
+var page={title:"Página CRYPY",url:location.href,chunks:[]};
+var squad=["BABY","NEXUS","ALICE"];
 var root=el("aside",{id:"crypy-squad-assistant","aria-label":"Esquadrão CRYPY — assistente contextual"});
 var css=el("style");css.textContent=
 "#crypy-squad-assistant{position:fixed;left:16px;bottom:16px;z-index:2147483000;font:14px system-ui,sans-serif;color:#eafff2}"+
@@ -49,9 +50,9 @@ var css=el("style");css.textContent=
 "#csa-form{display:flex;gap:7px;padding:10px;border-top:1px solid #17462b}#csa-query{min-width:0;flex:1;border:1px solid #276542;border-radius:9px;padding:10px;background:#07170e;color:white}#csa-send{border:0;border-radius:9px;padding:0 13px;background:#00ff88;color:#001b0c;font-weight:900}"+
 "@media(max-width:600px){#crypy-squad-assistant{left:9px;bottom:9px}#csa-panel{left:8px;bottom:66px;width:calc(100vw - 16px);height:min(68dvh,560px)}}";
 var panel=el("div",{id:"csa-panel","data-open":"false"}),head=el("div",{id:"csa-head"});
-var name=el("div",{id:"csa-name"},squad[0]+" · "+page.title);
-var sub=el("div",{id:"csa-sub"},page.chunks.length+" trechos locais · busca contextual");
-var team=el("div",{id:"csa-team"},"Esquadrão: "+squad.map(function(x){return x+" — "+TEAM[x];}).join(" | ")+" | BABY coordena · NEXUS audita");
+var name=el("div",{id:"csa-name"},"BABY · Página CRYPY");
+var sub=el("div",{id:"csa-sub"},"Preparando contexto local…");
+var team=el("div",{id:"csa-team"},"BABY coordena · NEXUS audita");
 head.append(name,sub,team);
 var log=el("div",{id:"csa-log","aria-live":"polite"}),form=el("form",{id:"csa-form"});
 var input=el("input",{id:"csa-query",type:"text",placeholder:"Pergunte sobre esta página…",autocomplete:"off"});
@@ -59,7 +60,20 @@ var send=el("button",{id:"csa-send",type:"submit"},"BUSCAR");form.append(input,s
 var toggle=el("button",{id:"csa-open",type:"button","aria-expanded":"false"},"✦ ESQUADRÃO CRYPY");
 root.append(css,panel,toggle);document.body.appendChild(root);
 function add(text,kind,sources){var b=el("div",{class:"csa-msg "+(kind==="user"?"csa-user":"csa-agent")},text);(sources||[]).forEach(function(s){b.appendChild(el("span",{class:"csa-source"},"Fonte: "+s));});log.appendChild(b);log.scrollTop=log.scrollHeight;}
+function refreshContext(){
+var doc=document, url=location.href;
+try{if(frame){doc=frame.contentDocument;url=frame.contentWindow.location.href;if(!doc||!doc.body)throw new Error("frame indisponível");}}
+catch(_){page={title:"Conteúdo indisponível",url:url,chunks:[]};squad=["BABY","NEXUS"];name.textContent="BABY · CONTEXTO INDISPONÍVEL";sub.textContent="Não foi possível ler esta página.";team.textContent="Nenhum dado foi enviado.";return;}
+page={title:doc.title||"Página CRYPY",url:url,chunks:extract(doc)};
+squad=roles(new URL(url).pathname,page.title);
+name.textContent=squad[0]+" · "+page.title;
+sub.textContent=page.chunks.length+" trechos locais · busca contextual";
+team.textContent="Esquadrão: "+squad.map(function(x){return x+" — "+TEAM[x];}).join(" | ")+" | BABY coordena · NEXUS audita";
+log.replaceChildren();
 add("Assistente contextual da página. Pesquiso o texto visível e mostro evidências. As personalidades são perfis de contexto, não modelos de IA conectados. Não salvo memória permanente nem envio dados.", "agent");
+}
+refreshContext();
+if(frame)frame.addEventListener("load",refreshContext);
 toggle.addEventListener("click",function(){var v=panel.getAttribute("data-open")!=="true";panel.setAttribute("data-open",v?"true":"false");toggle.setAttribute("aria-expanded",v?"true":"false");if(v)input.focus();});
 form.addEventListener("submit",function(e){e.preventDefault();var q=input.value.trim();if(!q)return;add(q,"user");input.value="";
 var terms=norm(q).match(/[a-z0-9]{2,}/g)||[];
