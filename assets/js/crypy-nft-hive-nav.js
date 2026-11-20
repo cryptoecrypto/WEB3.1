@@ -61,7 +61,8 @@
     "qualidade.html": "../crypy-academy/cursos.html",
     "seguranca.html": "../crypy-academy/cursos.html",
     "topo.html": "../index.html#topo",
-    "crypy-infinit.html": "../crypy-infinyt/portal.html"
+    "crypy-infinit.html": "../crypy-infinyt/portal.html",
+    "BABY-IA-Fortaleza-Digital.html": "../baby-ia/centro.html"
   };
 
   function normalizeLegacyLinks() {
