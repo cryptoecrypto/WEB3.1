@@ -167,7 +167,7 @@
   } else {
     mount();
   }
-  var observer = new MutationObserver(function () { normalizeLegacyLinks(); });
+  var observer = new MutationObserver(function () { normalizeLegacyLinks(); hideLegacyMenus(); });
   observer.observe(document.documentElement, { childList: true, subtree: true });
   document.addEventListener("DOMContentLoaded", hideLegacyMenus, { once: true });
 })();
