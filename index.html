@@ -26,6 +26,22 @@ iframe{display:none;width:100%;height:100%;min-height:70vh;border:0;background:#
 #status{padding:7px 14px;color:#91b49d;background:#030904;border-top:1px solid #10351f;font-size:11px}
 @media(max-width:760px){nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:9px}nav button{font-size:10px;min-height:44px}#catalog{padding:13px}}
 @media(max-width:360px){nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* CRYPY SOUNDTRACK — player compacto, recolhível */
+#crypy-music{position:fixed;right:14px;bottom:14px;z-index:2147483000;width:278px;max-width:calc(100vw - 20px);padding:10px;border:1px solid #00ff88;border-radius:13px;background:#020b06;color:#eafff2;box-shadow:0 0 18px #00ff8840;font:12px Arial,sans-serif}
+#crypy-music .music-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:#00ff88;font-weight:800;letter-spacing:.04em}
+#crypy-music .music-head span{flex:1}
+#crypy-music button{border:1px solid #1b8b50;border-radius:8px;background:#06180e;color:#dfffea;padding:7px 9px;font-size:10px;font-weight:800;cursor:pointer}
+#crypy-music button:hover,#crypy-music button:focus-visible{background:#00ff88;color:#001b0c;outline:none}
+#crypy-music .music-frame{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;background:#000}
+#crypy-music .music-note{margin-top:6px;color:#9bc9ad;font-size:10px;line-height:1.35}
+#crypy-music.is-minimized{width:46px;height:46px;padding:3px;border-radius:50%;overflow:hidden}
+#crypy-music.is-minimized .music-head{margin:0;height:40px;justify-content:center}
+#crypy-music.is-minimized .music-head span,#crypy-music.is-minimized .music-actions,#crypy-music.is-minimized .music-frame,#crypy-music.is-minimized .music-note{display:none}
+#crypy-music.is-minimized #music-expand{display:block;width:40px;height:40px;padding:0;border:0;border-radius:50%;font-size:21px;color:#00ff88;background:#03130a}
+#music-expand{display:none}
+@media(max-width:600px){#crypy-music{right:9px;bottom:9px;width:260px}#crypy-music.is-minimized{width:44px;height:44px}#crypy-music.is-minimized .music-head{height:38px}#crypy-music.is-minimized #music-expand{width:38px;height:38px}}
+
 </style>
 </head>
 <body>
@@ -108,5 +124,51 @@ status.textContent=pages.length+' páginas indexadas · '+assigned+' distribuíd
 }).catch(err=>{status.textContent='Não foi possível carregar o índice oficial: '+err.message+'. Nenhuma lista foi inventada.';});
 })();
 </script>
+
+<section id="crypy-music" class="is-minimized" aria-label="Música do portal CRYPY">
+  <div class="music-head">
+    <span>♫ BAD TIMES · IMAEL ANGEL</span>
+    <div class="music-actions">
+      <button type="button" id="music-sound">ATIVAR SOM</button>
+      <button type="button" id="music-minimize" aria-label="Minimizar player">—</button>
+    </div>
+    <button type="button" id="music-expand" aria-label="Abrir música" title="Abrir música">♫</button>
+  </div>
+  <iframe class="music-frame" id="music-frame" title="Bad Times — Imael Angel"
+    allow="autoplay; encrypted-media; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    src="about:blank"></iframe>
+  <div class="music-note" id="music-note">Trilha oficial do portal. Ative o som após abrir o player; use os controles do vídeo para pausar e ajustar o volume.</div>
+</section>
+<script>
+(function(){
+  var dock=document.getElementById('crypy-music');
+  var frame=document.getElementById('music-frame');
+  var sound=document.getElementById('music-sound');
+  var minimize=document.getElementById('music-minimize');
+  var expand=document.getElementById('music-expand');
+  var note=document.getElementById('music-note');
+  var video='8PeU6AVPQVg';
+  var loaded=false;
+  function playerUrl(muted){
+    return 'https://www.youtube-nocookie.com/embed/'+video+
+      '?autoplay=1&mute='+(muted?'1':'0')+'&loop=1&playlist='+video+
+      '&controls=1&playsinline=1&rel=0';
+  }
+  function openPlayer(){
+    dock.classList.remove('is-minimized');
+    if(!loaded){frame.src=playerUrl(true);loaded=true;}
+  }
+  expand.addEventListener('click',openPlayer);
+  minimize.addEventListener('click',function(){dock.classList.add('is-minimized');});
+  sound.addEventListener('click',function(){
+    frame.src=playerUrl(false);
+    loaded=true;
+    sound.textContent='SOM ATIVADO';
+    note.textContent='Bad Times — Imael Angel · reprodução em loop. O som pode depender da permissão do navegador.';
+  });
+})();
+</script>
+
 </body>
 </html>
