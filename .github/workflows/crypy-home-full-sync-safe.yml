@@ -36,6 +36,7 @@ jobs:
           PLAYWRIGHT_MODULE: /tmp/baby-browser/node_modules/playwright
         run: node scripts/testar-baby-colmeia-browser.mjs
       - name: Publicar relatório de navegador
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: baby-colmeia-browser
