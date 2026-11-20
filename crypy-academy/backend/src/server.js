@@ -248,7 +248,7 @@ app.get("/api/me", requireUser, (req, res) => res.json({
   csrf: cookieValue(req, "crypy_academy_csrf")
 }));
 
-app.get("/api/email/verify/:token", async (req, res, next) => {
+app.get("/api/email/verify/:token", authLimiter, async (req, res, next) => {
   try {
     const result = await pool.query(
       "DELETE FROM academy_email_verifications WHERE token_hash=$1 AND expires_at>NOW() RETURNING user_id",
@@ -260,7 +260,7 @@ app.get("/api/email/verify/:token", async (req, res, next) => {
   } catch (error) { next(error); }
 });
 
-app.post("/api/email/resend", requireUser, async (req, res, next) => {
+app.post("/api/email/resend", authLimiter, requireUser, async (req, res, next) => {
   try {
     if (req.user.email_verified) return res.json({ ok: true, alreadyVerified: true });
     const sent = await sendEmailVerification(req.user.id, req.user.email);
@@ -305,7 +305,7 @@ app.put("/api/progress", requireUser, requireVerifiedUser, async (req, res, next
   } catch (error) { next(error); }
 });
 
-app.get("/api/exams/:track/:level", requireUser, requireVerifiedUser, async (req, res, next) => {
+app.get("/api/exams/:track/:level", requireUser, requireVerifiedUser, examLimiter, async (req, res, next) => {
   try {
     if (!courseLevel(req.params.track, req.params.level)) return res.status(404).json({ error: "CURSO_INVALIDO" });
     const rows = await pool.query(
