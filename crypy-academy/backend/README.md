@@ -31,7 +31,7 @@ Cadastre exatamente estes redirect URIs nos provedores:
 - Google: `https://SEU-SERVICO.up.railway.app/api/auth/google/callback`
 - Microsoft: `https://SEU-SERVICO.up.railway.app/api/auth/microsoft/callback`
 
-Configure `APP_ORIGIN=https://cryptoecrypto.github.io` e `FRONTEND_URL=https://cryptoecrypto.github.io/WEB3.1/crypy-academy/cursos.html`.
+Configure `APP_ORIGIN=https://cryptoecrypto.github.io` e `FRONTEND_URL=https://cryptoecrypto.github.io/WEB3.1/crypy-academy/cursos.html`. Após o deploy, preencha o atributo `content` da meta `crypy-academy-api` em `cursos.html` com a URL HTTPS pública do backend; até então os botões permanecem desativados.
 
 ## Privacidade
 
