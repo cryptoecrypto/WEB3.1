@@ -6,6 +6,7 @@ Backend isolado da área `crypy-academy`. Não altera o servidor BABY, a raiz do
 
 - Login Google e Microsoft via OpenID Connect Authorization Code + PKCE.
 - Sessão opaca em cookie Secure/HttpOnly/SameSite=None, com validade de 7 dias; transação OAuth vinculada ao navegador por cookie de curta duração.
+- E-mail verificado antes de salvar progresso ou abrir provas. Google usa a claim verificada do provedor; quando Microsoft não fornece essa confirmação, o backend envia link de verificação por SMTP.
 - CSRF por token duplo e CORS restrito à origem do GitHub Pages.
 - Persistência PostgreSQL de alunos, identidade, sessão, progresso, provas, tentativas e diplomas.
 - Questões e gabaritos mantidos somente no banco; o endpoint público da prova nunca envia a resposta correta.
