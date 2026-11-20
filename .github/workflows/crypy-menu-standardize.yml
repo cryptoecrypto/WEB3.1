@@ -1,4 +1,4 @@
-name: CRYPY — Padronizar e auditar menus
+name: CRYPY — Auditoria do menu padronizado
 
 on:
   push:
@@ -6,39 +6,22 @@ on:
       - feature/crypy-menu-12-keywords
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  standardize-and-audit:
-    if: github.actor != 'github-actions[bot]'
+  audit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Padronizar menus em todas as páginas elegíveis
-        run: node scripts/sincronizar-crypy-global.mjs --apply
-
+      - name: Validar sintaxe dos arquivos de navegação
+        run: |
+          node --check assets/js/crypy-global-nav.js
+          node --check scripts/sincronizar-crypy-global.mjs
+          node --check scripts/auditar-menu-crypy.mjs
       - name: Auditar os 12 rótulos e todas as páginas elegíveis
         run: node scripts/auditar-menu-crypy.mjs
-
-      - name: Registrar alterações padronizadas na branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/crypy-page-index.json
-          git add -- '*.html'
-          if git diff --cached --quiet; then
-            echo "Nenhuma alteração pendente."
-          else
-            git commit -m "chore: aplicar menu CRYPY padronizado em todas as páginas"
-            git push origin HEAD
-          fi
