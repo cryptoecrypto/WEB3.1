@@ -81,11 +81,13 @@
   <form class="auth-card" id="authForm" autocomplete="on">
     <span class="pill"><b>HD MATRIZ · ACESSO RESTRITO</b></span>
     <h1>CRYPY · BABY<br><span class="ok">Núcleo operacional</span></h1>
-    <p>Entre com a conta administrativa do Sensei. A sessão é protegida por cookie HttpOnly e expira automaticamente.</p>
+    <p>Entre com sua senha administrativa atual e o código de seis dígitos do Google Authenticator. A sessão administrativa expira em cinco minutos.</p>
     <label for="authUser">Usuário</label>
     <input id="authUser" name="username" autocomplete="username" value="sensei" required maxlength="80">
-    <label for="authPass">Senha</label>
+    <label for="authPass">Senha atual do Sensei</label>
     <input id="authPass" name="password" type="password" autocomplete="current-password" required minlength="24">
+    <label for="authOtp">Google Authenticator · código de 6 dígitos</label>
+    <input id="authOtp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required>
     <button type="submit" id="authSubmit">ENTRAR NO SERVIDOR</button>
     <p id="authError" class="auth-error" role="alert"></p>
   </form>
@@ -318,6 +320,7 @@ function showAuth(message=''){
   $('#authScreen').hidden=false;
   $('#authError').textContent=message;
   $('#authPass').value='';
+  $('#authOtp').value='';
 }
 function hideAuth(){
   document.body.classList.add('authenticated');
@@ -328,10 +331,10 @@ $('#authForm').addEventListener('submit',async(e)=>{
   e.preventDefault();
   const btn=$('#authSubmit');btn.disabled=true;btn.textContent='AUTENTICANDO…';
   try{
-    const res=await fetch('/auth/login',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({username:$('#authUser').value,password:$('#authPass').value})});
+    const res=await fetch('/auth/login',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({username:$('#authUser').value,password:$('#authPass').value,otp:$('#authOtp').value})});
     const body=await res.json().catch(()=>({ok:false,reason:'resposta inválida'}));
     if(!res.ok||!body.ok) throw new Error(body.reason||'Não foi possível entrar.');
-    $('#authPass').value='';hideAuth();await refresh();
+    $('#authPass').value='';$('#authOtp').value='';hideAuth();await refresh();
     if(!refreshTimer) refreshTimer=setInterval(refresh,20000);
   }catch(err){showAuth(err.message||'Falha ao autenticar.');}
   finally{btn.disabled=false;btn.textContent='ENTRAR NO SERVIDOR';}
