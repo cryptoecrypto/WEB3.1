@@ -101,7 +101,8 @@ function enviar(){
   setTimeout(async function(){
     var r="";
     try{
-      var hits=window.BabyKnowledge?await window.BabyKnowledge.search(v,3):[];
+      var knowledge=window.BabyKnowledge||(window.parent!==window?window.parent.BabyKnowledge:null);
+      var hits=knowledge?await knowledge.search(v,5):[];
       if(hits&&hits.length){
         r="Encontrei conhecimento documentado na base local da Colmeia. Estes são trechos recuperados, não uma resposta de modelo treinado:\n\n"+
           hits.map(function(h,i){return (i+1)+". "+h.path+"\n"+h.snippet;}).join("\n\n");
