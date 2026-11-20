@@ -28,19 +28,60 @@ function getCookie(req){const x=(req.headers.cookie||"").split(";").map(v=>v.tri
 function valid(req){const parts=getCookie(req).split(".");const id=parts[0],sig=parts[1],row=sessions.get(id);return !!(row&&sig&&row.expires>Date.now()&&equal(sig,hmac(id+"."+row.expires)));}
 function cors(req,res){if(req.headers.origin!==ORIGIN)return false;res.setHeader("Access-Control-Allow-Origin",ORIGIN);res.setHeader("Access-Control-Allow-Credentials","true");res.setHeader("Vary","Origin");res.setHeader("Access-Control-Allow-Methods","GET,POST,OPTIONS");res.setHeader("Access-Control-Allow-Headers","Content-Type");return true;}
 async function readBody(req){let s="";for await(const b of req){s+=b;if(s.length>8192)throw Error("too_large");}return JSON.parse(s||"{}");}
-function textFromHtml(html){return html.replace(/<script[\\s\\S]*?<\\/script>/gi," ").replace(/<style[\\s\\S]*?<\\/style>/gi," ").replace(/<noscript[\\s\\S]*?<\\/noscript>/gi," ").replace(/<(nav|header|footer|form)[^>]*>[\\s\\S]*?<\\/\\1>/gi," ").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/\\s+/g," ").trim();}
-function splitChunks(text,url,title){const out=[];const size=1100,overlap=140;for(let i=0;i<text.length;i+=size-overlap){const body=text.slice(i,i+size).trim();if(body.length>80)out.push({url,title,text:body});}return out;}
+function textFromHtml(html){
+ return html
+  .replace(/<script[^>]*>[\s\S]*?<\/script>/gi," ")
+  .replace(/<style[^>]*>[\s\S]*?<\/style>/gi," ")
+  .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi," ")
+  .replace(/<(nav|header|footer|form)[^>]*>[\s\S]*?<\/\1>/gi," ")
+  .replace(/<[^>]*>/g," ")
+  .replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<")
+  .replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+  .replaceAll("\n"," ").replaceAll("\r"," ").replaceAll("\t"," ")
+  .split(" ").filter(Boolean).join(" ").trim();
+}
+function splitChunks(text,url,title){
+ const out=[],size=1100,overlap=140;
+ for(let i=0;i<text.length;i+=size-overlap){const body=text.slice(i,i+size).trim();if(body.length>80)out.push({url,title,text:body});}
+ return out;
+}
 async function learnSite(){
- const base=new URL(SITE_URL);
- const paths=new Set(["/","/mapa-colmeia.html"]);
- for(const p of ["/","/mapa-colmeia.html"]){try{const r=await fetch(new URL(p,base));if(!r.ok)continue;const h=await r.text();for(const m of h.matchAll(/href=["']([^"'#]+(?:\\.html?|\\.htm)?(?:\\?[^"']*)?)["']/gi)){try{const u=new URL(m[1],base);if(u.origin===base.origin&&/\\.html?$|\\.htm$/i.test(u.pathname))paths.add(u.pathname);}catch{}}}catch{}}
- const list=[...paths].slice(0,500), fresh=[];let cursor=0;
- async function worker(){while(cursor<list.length){const p=list[cursor++];try{const r=await fetch(new URL(p,base),{headers:{"User-Agent":"BABY-Site-Learning/1.0"}});if(!r.ok||!String(r.headers.get("content-type")||"").includes("text/html"))continue;const html=await r.text();if(html.length>2_000_000)continue;const title=(html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)||[])[1]||p;const clean=title.replace(/<[^>]+>/g,"").trim();const text=textFromHtml(html);fresh.push(...splitChunks(text,new URL(p,base).href,clean));}catch{}}}
+ const base=new URL(SITE_URL),paths=new Set(["/","/mapa-colmeia.html"]);
+ for(const p of ["/","/mapa-colmeia.html"]){
+  try{
+   const r=await fetch(new URL(p,base));if(!r.ok)continue;
+   const h=await r.text();
+   for(const m of h.matchAll(/href=["']([^"'#]+)["']/gi)){
+    try{const u=new URL(m[1],base);if(u.origin===base.origin&&(u.pathname.endsWith(".html")||u.pathname.endsWith(".htm")))paths.add(u.pathname);}catch{}
+   }
+  }catch{}
+ }
+ const list=[...paths].slice(0,500),fresh=[];let cursor=0;
+ async function worker(){
+  while(cursor<list.length){
+   const p=list[cursor++];
+   try{
+    const r=await fetch(new URL(p,base),{headers:{"User-Agent":"BABY-Site-Learning/1.0"}});
+    if(!r.ok||!String(r.headers.get("content-type")||"").includes("text/html"))continue;
+    const html=await r.text();if(html.length>2000000)continue;
+    const title=(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)||[])[1]||p;
+    fresh.push(...splitChunks(textFromHtml(html),new URL(p,base).href,title.replace(/<[^>]*>/g,"").trim()));
+   }catch{}
+  }
+ }
  await Promise.all(Array.from({length:8},worker));
  chunks=fresh;fs.writeFileSync(INDEX_FILE,JSON.stringify(chunks),"utf8");
  return {pages_scanned:list.length,chunks:chunks.length,indexed_at:new Date().toISOString()};
 }
-function search(q){const terms=String(q||"").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").split(/[^a-z0-9]+/).filter(x=>x.length>2);if(!terms.length)return[];return chunks.map(c=>{const t=(c.title+" "+c.text).toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"");let score=0;for(const w of terms){const re=new RegExp("\\b"+w.replace(/[.*+?^$\\{\\}()|[\\]\\\\]/g,"\\\\$&")+"\\b","g");score+=(t.match(re)||[]).length;}return {...c,score};}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,5).map(({title,url,text,score})=>({title,url,text,score}));}
+function search(q){
+ const terms=String(q||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").split(/[^a-z0-9]+/).filter(x=>x.length>2);
+ if(!terms.length)return[];
+ return chunks.map(c=>{
+  const t=(c.title+" "+c.text).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  let score=0;for(const w of terms){let at=0;while((at=t.indexOf(w,at))!==-1){score++;at+=w.length;}}
+  return {...c,score};
+ }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,5).map(({title,url,text,score})=>({title,url,text,score}));
+}
 const server=http.createServer(async(req,res)=>{
  if(!cors(req,res))return send(res,403,{error:"origin_not_allowed"});
  if(req.method==="OPTIONS"){res.writeHead(204);return res.end();}
