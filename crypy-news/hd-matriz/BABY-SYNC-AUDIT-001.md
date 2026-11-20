@@ -117,3 +117,15 @@ A sincronização só poderá ser declarada concluída quando:
 **Conclusão:** a camada de índice e recuperação local foi implementada no repositório. Não se declara sincronização integral, aprendizagem neural, indexação já executada no navegador ou backend homologado. A etapa seguinte é testar a publicação e corrigir as inconsistências encontradas.
 
 **Fim — BABY-SYNC-AUDIT-001 v1.0**
+
+
+## 8. Aditivo de correção — 2026-11-20
+
+- A causa da implantação Railway FAILED foi confirmada nos logs: o Railpack não encontrou `/baby-site-auth` no snapshot do repositório.
+- A configuração do serviço `baby-site-auth` foi corrigida para apontar `rootDirectory: /crypy-server-bridge`, diretório que contém `package.json` e o comando `npm start` apontando para `src/server.js`. A leitura posterior da configuração confirmou o novo caminho.
+- A correção de configuração ainda **não foi implantada**: a réplica online continua sendo a implantação anterior `3cc9f0f5-9c68-4b16-8e40-9a8624cd89e4`; a falha histórica `241a7475-bca0-42dc-a0e7-80a94c2d213c` permanece no histórico. Não foi disparado novo deploy.
+- Bloqueio de segurança encontrado antes de implantar: o frontend `baby-server-bridge.js` exige Bearer token e espera `/api/status` autenticado; o candidato `crypy-server-bridge/src/server.js` não contém validação de Authorization nem leitura de `CRYPY_API_TOKEN`. Não é seguro colocar esse backend em produção até implementar e testar autenticação de todas as rotas `/api/*`, mantendo `/health` público, e configurar o segredo no Railway. Não foram expostos nem alterados valores de variáveis.
+- O estado da réplica no momento da verificação é **Online (1/1)**, mas o ambiente ainda reporta uma falha recente e `hasIssues: true`.
+- A sincronização local dos 273 caminhos ainda depende de execução no navegador. Nenhuma contagem de indexação foi inventada.
+
+**Estado após aditivo:** caminho de build corrigido na configuração Railway; deploy novo bloqueado por requisito de autenticação; sincronização real do IndexedDB e verificação HTTP dos 273 caminhos permanecem pendentes.
