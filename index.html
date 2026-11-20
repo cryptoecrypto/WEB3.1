@@ -12,8 +12,14 @@ nav{display:flex;align-items:center;gap:7px;overflow-x:auto;flex:1;scrollbar-wid
 nav a,.home{white-space:nowrap;text-decoration:none;color:#dfffea;border:1px solid #1b5835;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800}
 nav a:hover,.home:hover{background:var(--n);color:#001b0c;border-color:var(--n)}
 .home{color:var(--n);border-color:var(--n)}
-iframe{display:block;width:100%;height:calc(100% - 58px);border:0;background:#000}
-@media(max-width:700px){header{height:auto;min-height:58px;align-items:flex-start;flex-direction:column;gap:6px;padding:8px 10px}nav{width:100%;max-width:100%;padding-bottom:4px}iframe{height:calc(100% - 86px)}}
+#conteudo{display:block;width:100%;height:calc(100% - 58px);border:0;background:#000}
+#baby-launch{position:fixed;right:22px;bottom:22px;z-index:50;width:66px;height:66px;border:2px solid var(--n);border-radius:50%;background:#03130a;color:var(--n);font-weight:900;font-size:24px;cursor:pointer;box-shadow:0 0 22px #00ff8860}
+#baby-launch:focus-visible,#baby-close:focus-visible{outline:3px solid white;outline-offset:3px}
+#baby-panel{display:none;position:fixed;right:18px;bottom:100px;z-index:49;width:min(390px,calc(100vw - 24px));height:min(650px,calc(100vh - 125px));border:1px solid var(--n);border-radius:18px;overflow:hidden;background:#020603;box-shadow:0 12px 45px #000c}
+#baby-panel.open{display:block}
+#baby-panel iframe{width:100%;height:100%;border:0;background:#000}
+#baby-close{position:absolute;right:8px;top:8px;z-index:2;border:1px solid var(--n);border-radius:50%;width:34px;height:34px;background:#03130a;color:var(--n);font-size:18px;cursor:pointer}
+@media(max-width:700px){header{height:auto;min-height:58px;align-items:flex-start;flex-direction:column;gap:6px;padding:8px 10px}nav{width:100%;max-width:100%;padding-bottom:4px}#conteudo{height:calc(100% - 86px)}#baby-launch{right:15px;bottom:15px}#baby-panel{right:12px;bottom:91px;width:calc(100vw - 24px);height:min(70vh,620px)}}
 </style>
 </head>
 <body>
@@ -40,7 +46,28 @@ iframe{display:block;width:100%;height:calc(100% - 58px);border:0;background:#00
 <a href="./social-crypykut/" target="crypy-content">SOCIAL</a>
 <a href="./web3.1/" target="crypy-content">WEB3.1</a>
 </nav>
-<a class="home" href="./mapa-colmeia.html" target="crypy-content">MAPA · 168 PÁGINAS</a>
+<a class="home" href="./mapa-colmeia.html" target="crypy-content">MAPA · COLMEIA</a>
 </header>
-<iframe name="crypy-content" src="./index.htm" title="Página original da Home CRYPY" loading="eager"></iframe>
+<iframe id="conteudo" name="crypy-content" src="./index.htm" title="Conteúdo principal CRYPY" loading="eager"></iframe>
+<button id="baby-launch" type="button" aria-label="Abrir chatbot BABY I.A." aria-expanded="false" title="Conversar com BABY I.A.">B</button>
+<section id="baby-panel" aria-label="Chatbot BABY I.A." aria-hidden="true">
+<button id="baby-close" type="button" aria-label="Fechar chatbot">×</button>
+<iframe src="./chatboot-baby-ia.html" title="Chatbot BABY I.A." loading="lazy"></iframe>
+</section>
+<script>
+(function(){
+ const launch=document.getElementById('baby-launch');
+ const panel=document.getElementById('baby-panel');
+ const close=document.getElementById('baby-close');
+ function setOpen(open){
+   panel.classList.toggle('open',open);
+   panel.setAttribute('aria-hidden',String(!open));
+   launch.setAttribute('aria-expanded',String(open));
+   if(open) close.focus(); else launch.focus();
+ }
+ launch.addEventListener('click',()=>setOpen(!panel.classList.contains('open')));
+ close.addEventListener('click',()=>setOpen(false));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))setOpen(false)});
+})();
+</script>
 </body></html>
