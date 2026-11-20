@@ -23,6 +23,11 @@
 
   function mount() {
     if (!document.body || document.getElementById("crypy-global-navigation")) return;
+    /* A HOME e páginas que usam apenas a navegação global também recebem a Colmeia de Conversação. */
+    if (!document.querySelector('script[data-crypy-squad-chat-loader="true"]')) {
+      var assistantScript = node("script", { src:new URL("assets/js/crypy-page-assistant.js", siteRoot).href, defer:"", "data-crypy-squad-chat-loader":"true" });
+      document.head.appendChild(assistantScript);
+    }
     var root = node("div", { id: "crypy-global-navigation" });
     var style = node("style");
     style.textContent = [
