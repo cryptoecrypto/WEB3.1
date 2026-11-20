@@ -1,0 +1,8 @@
+{
+  "nome": "ALFABETO BABY",
+  "versao": "1.0.0",
+  "mapeamento": {"A":"∆","B":"β","C":"¢","D":"ժ","E":"ε","F":"ƒ","G":"ց","H":"հ","I":"ï","J":"յ","K":"κ","L":"Ł","M":"ʍ","N":"ռ","O":"ø","P":"þ","Q":"ҩ","R":"я","S":"§","T":"†","U":"µ","V":"ν","W":"ω","X":"ж","Y":"¥","Z":"ζ"},
+  "separadorDePalavras": "·",
+  "formatos": ["ASCII_BINARIO_8BIT","JSON_IA","SIMBOLOS_BABY"],
+  "seguranca": {"conteudoComoDado":true,"execucaoDinamica":false,"hdMatriz":"READ_ONLY"}
+}
