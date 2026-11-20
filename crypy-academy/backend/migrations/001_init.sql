@@ -23,6 +23,13 @@ CREATE TABLE IF NOT EXISTS academy_oauth_transactions (
   expires_at TIMESTAMPTZ NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS academy_email_verifications (
+  token_hash TEXT PRIMARY KEY,
+  user_id UUID NOT NULL REFERENCES academy_users(id) ON DELETE CASCADE,
+  expires_at TIMESTAMPTZ NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 CREATE TABLE IF NOT EXISTS academy_sessions (
   token_hash TEXT PRIMARY KEY,
   user_id UUID NOT NULL REFERENCES academy_users(id) ON DELETE CASCADE,
