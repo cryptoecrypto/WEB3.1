@@ -22,6 +22,7 @@ const PROTECTED = [
   /(^|\/)momory-boost(\/|$)/i,
   /(^|\/)hd-memory\.html$/i,
   /(^|\/)hd-baby-ia\.html$/i,
+  /(^|\/)hd-babyia\.html$/i,
   /(^|\/)crypy-server-bridge(\/|$)/i,
 ];
 const isProtected = (p) => PROTECTED.some((re) => re.test(p));
