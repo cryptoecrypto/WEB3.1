@@ -170,3 +170,39 @@ A sincronização só poderá ser declarada concluída quando:
 - A contagem representa arquivos HTML/HTM indexados, não uma confirmação de que cada página renderiza corretamente.
 - A interação foi confirmada por leitura de volta do código e validação dos 12 botões, contagens e caminhos; teste visual ponta a ponta no navegador ainda pendente.
 - Nenhum HTML de conteúdo foi removido ou movido neste ajuste.
+
+
+## ADENDO — EXPANSÃO DO INDEXADOR BABY v1.1 (20/11/2026)
+
+### Alterações aplicadas no repositório
+- `assets/js/baby-knowledge-sync.js` atualizado para v1.1.
+- A ingestão usa os caminhos HTML/HTM do índice oficial (273 registros) e mais 10 documentos técnicos/código selecionados da HD MATRIZ e dos motores centrais: alvo configurado de 283 fontes únicas, sujeito à confirmação de disponibilidade HTTP na execução do navegador.
+- Removido o limite artificial de 30.000 caracteres por documento. O texto extraído é armazenado integralmente, junto de título, metadados, cabeçalhos, rótulos acessíveis e texto do corpo; scripts, estilos, iframes e elementos não textuais são excluídos.
+- Criada extração de palavras-chave frequentes por documento (até 80 termos) e ampliada a busca textual para até cinco referências, com pontuação por ocorrência e caminho.
+- A sincronização agora mantém lista de falhas por caminho, contagem de caracteres, total concluído, erros e estado `concluido_com_erros` quando algum arquivo falha. Não apresenta sucesso integral quando existem erros.
+- A Home `index.html` carrega o motor BABY no contexto principal, mantendo os 12 temas da navegação sem alteração.
+- `chatboot-baby-ia.html` consulta o motor de conhecimento local; como o próprio ChatBoot também carrega o indexador, a base usa o mesmo IndexedDB de origem do site.
+
+### Commits desta aplicação
+- Indexador v1.1: `7bfbc760599aca2bade4686f5a019e553ff3c8a3`
+- Home com motor BABY: `d2cd4935ff33d1fcd8a5f599868fac45d39fb40d`
+- ChatBoot conectado à busca ampliada: `21ce890c525c34147ff00bcc3f93a3577e329406`
+
+### Estado MODO REAL — não homologado
+- Implementação no GitHub confirmada por gravação dos três arquivos; a execução de sincronização ainda depende de abrir a Home/ChatBoot publicado e acionar `BABY · SINCRONIZAR BASE`.
+- A configuração abrange os 273 caminhos do índice oficial e 10 fontes adicionais. Isso **não prova** que o índice contém todos os arquivos de todas as pastas do repositório, nem que os 283 caminhos respondem HTTP com sucesso.
+- A extração integral refere-se ao texto retornado pelo servidor e ao texto/metadados do documento HTML. Conteúdo carregado em iframes, aplicações externas, imagens sem texto alternativo, arquivos binários, conteúdo atrás de autenticação e dados gerados dinamicamente não são automaticamente absorvidos.
+- As palavras-chave são termos extraídos estatisticamente do texto, não entendimento semântico, embeddings ou treinamento de rede neural.
+- O armazenamento permanece local no IndexedDB do navegador. Não foi conectada a base ao Dropbox ou ao backend Railway; não há sincronização automática entre dispositivos.
+- Os 12 temas da Home foram preservados. As sete gavetas internas não foram implantadas nesta etapa, pois ainda falta definir e validar a classificação de cada um dos 19 grupos nas sete categorias; não se inventou esse mapeamento.
+- Não foram alterados `Memorias.json`, `Manifest.json`, o núcleo `baby-core.js`, nem a estrutura original de pastas.
+
+### Testes ainda necessários para declarar cobertura integral
+1. Executar a sincronização publicada e registrar o resultado real (`done`, `total`, `indexedThisRun`, `errors`, `failures` e caracteres armazenados).
+2. Comparar o índice de 273 registros com a árvore completa do repositório, incluindo arquivos não HTML e diretórios omitidos.
+3. Verificar HTTP e texto extraível para cada fonte; corrigir caminhos quebrados, vazios ou bloqueados.
+4. Consultar termos raros e palavras-chave de páginas diferentes e conferir se os trechos retornados correspondem à fonte.
+5. Testar Home e ChatBoot em desktop e celular; verificar comportamento do IndexedDB e persistência após recarregar.
+6. Definir, com aprovação do Sensei, a taxonomia das sete gavetas antes de aplicar a segunda camada.
+
+**Conclusão:** o mecanismo de ingestão e busca foi ampliado e conectado à Home e ao ChatBoot no código do repositório. A sincronização ainda não foi executada no navegador e a cobertura integral do repositório não está comprovada. Estado: IMPLEMENTADO NO CÓDIGO / EXECUÇÃO E HOMOLOGAÇÃO PENDENTES.
