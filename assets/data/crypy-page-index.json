@@ -1,7 +1,7 @@
 {
   "version": "1.6",
   "generated_at": "2026-11-20",
-  "total": 298,
+  "total": 297,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -1216,11 +1216,6 @@
     {
       "path": "health.html",
       "label": "Health",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index.htm",
-      "label": "HOME",
       "group": "RAIZ"
     },
     {
