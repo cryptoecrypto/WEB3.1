@@ -1,0 +1,23 @@
+name: CRYPY — validação dos assistentes por página
+on:
+  push:
+    branches: [feature/crypy-page-assistants-sync]
+  pull_request:
+    branches: [feature/crypy-home-full-sync-safe]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verificar sintaxe do assistente
+        run: node --check assets/js/crypy-page-assistant.js
+      - name: Verificar integração na HOME
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; const h=fs.readFileSync('index.html','utf8'); const j=fs.readFileSync('assets/js/crypy-page-assistant.js','utf8'); if(!h.includes('crypy-page-assistant.js')) throw new Error('HOME não carrega o assistente'); if(!j.includes('iframe[name=\\\"crypy-content\\\"]')) throw new Error('Assistente não acompanha o iframe do portal'); if(!j.includes('sem IA generativa')) throw new Error('Aviso de capacidade não encontrado'); console.log('Integração estática aprovada');"
