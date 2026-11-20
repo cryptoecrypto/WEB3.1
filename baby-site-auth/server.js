@@ -46,26 +46,35 @@ function splitChunks(text,url,title){
  return out;
 }
 async function learnSite(){
- const base=new URL(SITE_URL),paths=new Set(["/","/mapa-colmeia.html"]);
- for(const p of ["/","/mapa-colmeia.html"]){
-  try{
-   const r=await fetch(new URL(p,base));if(!r.ok)continue;
+ const base=new URL(SITE_URL.endsWith("/")?SITE_URL:SITE_URL+"/");
+ const paths=new Set(["index.html","mapa-colmeia.html"]);
+ const areaSlugs=["art-figure-marketplace","baby-ia","biografia","contato","crypy-academy","crypy-coin","crypy-games-desafios","crypy-infinyt","crypy-news","esquadrao-das-cores","marketing","memory-boost","nft-collection","padrao","pluguin","sincronizacao","social-crypykut","web3.1"];
+ for(const slug of areaSlugs)paths.add(slug+"/index.html");
+ try{
+  const r=await fetch(new URL("mapa-colmeia.html",base));
+  if(r.ok){
    const h=await r.text();
    for(const m of h.matchAll(/href=["']([^"'#]+)["']/gi)){
-    try{const u=new URL(m[1],base);if(u.origin===base.origin&&(u.pathname.endsWith(".html")||u.pathname.endsWith(".htm")))paths.add(u.pathname);}catch{}
+    try{
+     const u=new URL(m[1],base);
+     if(u.origin===base.origin&&u.pathname.startsWith(base.pathname)&&
+       (u.pathname.endsWith(".html")||u.pathname.endsWith(".htm"))){
+      paths.add(u.pathname.slice(base.pathname.length));
+     }
+    }catch{}
    }
-  }catch{}
- }
+  }
+ }catch{}
  const list=[...paths].slice(0,500),fresh=[];let cursor=0;
  async function worker(){
   while(cursor<list.length){
    const p=list[cursor++];
    try{
-    const r=await fetch(new URL(p,base),{headers:{"User-Agent":"BABY-Site-Learning/1.0"}});
+    const url=new URL(p,base),r=await fetch(url,{headers:{"User-Agent":"BABY-Site-Learning/1.0"}});
     if(!r.ok||!String(r.headers.get("content-type")||"").includes("text/html"))continue;
     const html=await r.text();if(html.length>2000000)continue;
     const title=(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)||[])[1]||p;
-    fresh.push(...splitChunks(textFromHtml(html),new URL(p,base).href,title.replace(/<[^>]*>/g,"").trim()));
+    fresh.push(...splitChunks(textFromHtml(html),url.href,title.replace(/<[^>]*>/g,"").trim()));
    }catch{}
   }
  }
