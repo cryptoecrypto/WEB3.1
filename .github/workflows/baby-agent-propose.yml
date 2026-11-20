@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: baby-agent-\${{ github.ref }}
+  group: baby-agent-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -18,12 +18,12 @@ jobs:
     permissions:
       contents: read
     outputs:
-      has_changes: \${{ steps.guard.outputs.has_changes }}
+      has_changes: ${{ steps.guard.outputs.has_changes }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Preparar Node
@@ -35,12 +35,12 @@ jobs:
         id: codex
         uses: openai/codex-action@v1
         with:
-          openai-api-key: \${{ secrets.OPENAI_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .github/codex/BABY-SITE-AUTONOMY.md
           sandbox: workspace-write
           safety-strategy: drop-sudo
           codex-args: '["--ephemeral"]'
-          output-file: baby-agent-report.md
+          output-file: /tmp/baby-agent-report.md
 
       - name: Gerar patch e validar caminhos permitidos
         id: guard
@@ -58,7 +58,7 @@ jobs:
           name: baby-agent-proposal
           path: |
             /tmp/baby-agent.patch
-            baby-agent-report.md
+            /tmp/baby-agent-report.md
           if-no-files-found: warn
           retention-days: 7
 
@@ -75,7 +75,7 @@ jobs:
       - name: Checkout da revisão analisada
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
 
       - name: Baixar patch validado
         uses: actions/download-artifact@v4
@@ -89,8 +89,8 @@ jobs:
       - name: Criar Pull Request para revisão humana
         uses: peter-evans/create-pull-request@v7
         with:
-          token: \${{ secrets.GITHUB_TOKEN }}
-          branch: baby/proposta-\${{ github.run_id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: baby/proposta-${{ github.run_id }}
           delete-branch: true
           title: "BABY: proposta automática de melhoria do WEB3.1"
           body: |
