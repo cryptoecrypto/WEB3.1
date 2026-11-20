@@ -1,7 +1,7 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "generated_at": "2026-11-20",
-  "total": 273,
+  "total": 275,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -96,6 +96,11 @@
     {
       "path": "baby-ia/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/esquadrao-auto-config.html",
+      "label": "Esquadrao Auto Config",
       "group": "baby-ia"
     },
     {
