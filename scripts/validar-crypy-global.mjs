@@ -26,7 +26,7 @@ for (const page of manifest.pages || []) {
   else if (!fs.existsSync(target)) errors.push("página ausente: " + page.path);
 }
 
-const menuCount = (home.match(/<button\\b[^>]*\\bdata-theme="/g) || []).length;
+const menuCount = (home.match(/<button\b[^>]*\bdata-theme="/g) || []).length;
 if (menuCount !== 12) errors.push("HOME deveria conter 12 áreas; encontrou " + menuCount);
 if (!home.includes("assets/js/baby-knowledge-sync.js")) errors.push("HOME não carrega o indexador de conhecimento BABY");
 if (!home.includes("baby-ia/esquadrao-auto-config.js")) errors.push("HOME não carrega a configuração do Esquadrão");
