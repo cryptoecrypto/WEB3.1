@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#030a07">
+<meta name="description" content="CRYPY Academy WEB3.1: sete áreas de formação, três módulos de progressão e nível especial CryptoëCrypto PHD.">
+<title>CRYPY ACADEMY · Cursos WEB3.1</title>
+<link rel="stylesheet" href="../assets/css/crypy-world.css">
+<style>
+:root{--academy-bg:#030907;--academy-panel:#071810;--academy-line:#1d6840;--academy-green:#00ff88;--academy-text:#eafff2;--academy-muted:#9cc7ad}
+*{box-sizing:border-box}
+body{background:radial-gradient(ellipse at 15% 0%,#00ff8816,transparent 38%),radial-gradient(ellipse at 90% 10%,#00baff12,transparent 35%),#030907;color:var(--academy-text)}
+.academy-shell{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:28px 0 70px}
+.academy-top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 0 20px;border-bottom:1px solid #1b5737}
+.academy-top a{color:#bafbd5;text-decoration:none;font-weight:700}
+.academy-hero{padding:32px 0 22px}
+.eyebrow{color:var(--academy-green);font-size:12px;letter-spacing:.16em;font-weight:900}
+.academy-hero h1{font-size:clamp(30px,5vw,58px);line-height:1.02;margin:12px 0;background:linear-gradient(90deg,#fff,#00ff88,#80eaff,#fff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.academy-hero p{max-width:850px;color:#c6e8d2;font-size:16px;line-height:1.7}
+.status-note{border:1px solid #8b7130;background:#251c08;color:#ffe9a9;border-radius:12px;padding:13px 15px;margin:18px 0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 26px}
+.stat,.panel,.track-card,.lesson{background:linear-gradient(145deg,#081b12,#07121a);border:1px solid #205c3b;border-radius:14px;padding:15px}
+.stat b{display:block;color:var(--academy-green);font-size:24px}
+.stat span{color:var(--academy-muted);font-size:12px}
+.catalog-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px;align-items:start}
+.track-list{display:grid;gap:8px}
+.track-button,.level-button{width:100%;text-align:left;padding:12px;border:1px solid #245d3d;border-radius:10px;background:#06140d;color:#eafff2;cursor:pointer;font-weight:800}
+.track-button:hover,.track-button[aria-pressed=true],.level-button:hover,.level-button[aria-pressed=true]{border-color:var(--academy-green);background:#0b2a19;box-shadow:0 0 16px #00ff8820}
+.track-button small{display:block;color:#9bc9aa;font-weight:500;margin-top:4px}
+.course-head h2{color:var(--academy-green);margin:0 0 8px;font-size:25px}
+.course-head p{color:#c4e7d1;line-height:1.6}
+.levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0}
+.level-button{text-align:center;padding:11px 6px}
+.level-button small{display:block;color:#9cc7ad;font-size:10px;margin-top:4px}
+.level-button.phd{border-color:#9b8b35;background:linear-gradient(140deg,#241d08,#102218)}
+.level-button.phd[aria-pressed=true]{border-color:#ffe27b;box-shadow:0 0 18px #ffe27b25}
+.level-detail{margin-top:14px}
+.level-detail h3{margin:0 0 8px;color:#fff}
+.outcome{color:#b9e5c9;line-height:1.6}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}
+.lesson{display:flex;gap:10px;align-items:flex-start;padding:12px}
+.lesson input{accent-color:#00ff88;margin-top:3px;width:18px;height:18px;flex:0 0 auto}
+.lesson label{line-height:1.45;font-size:14px;cursor:pointer}
+.lesson label small{display:block;color:#8fb79d;font-size:11px;margin-top:3px}
+.progress-line{height:7px;background:#10261a;border-radius:99px;overflow:hidden;margin:8px 0}
+.progress-line span{display:block;height:100%;width:0;background:linear-gradient(90deg,#00ff88,#4be5ff);transition:width .2s}
+.progress-text{font-size:12px;color:#a7d5b7}
+.detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.detail-grid h4{margin:0 0 8px;color:var(--academy-green)}
+.detail-grid p{margin:0;color:#c4e7d1;font-size:13px;line-height:1.6}
+.resource-list{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.resource-list a{color:#baffd6;border:1px solid #266543;border-radius:999px;padding:8px 12px;text-decoration:none;font-size:12px}
+.resource-list a:hover{border-color:var(--academy-green)}
+.certificate{margin-top:24px;border-color:#8b7130}
+.certificate h2{color:#ffe49b}
+.certificate p,.certificate li{color:#f1e6c2;line-height:1.6}
+.footer-note{margin-top:24px;color:#89ad98;font-size:12px;line-height:1.6}
+@media(max-width:850px){.catalog-layout{grid-template-columns:1fr}.track-list{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.track-list{grid-template-columns:1fr}.levels{grid-template-columns:repeat(2,minmax(0,1fr))}.lesson-grid,.detail-grid{grid-template-columns:1fr}.academy-shell{width:min(calc(100% - 20px),1180px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="academy-shell">
+<header class="academy-top">
+<a href="../index.html">CRYPY // COLMEIA</a>
+<nav aria-label="Navegação Academy">
+<a href="academia.html">ACADEMY</a>
+<a href="../baby-ia/centro.html">BABY I.A.</a>
+<a href="../index.html">HOME</a>
+</nav>
+</header>
+<main>
+<section class="academy-hero">
+<div class="eyebrow">CRYPY · FORMAÇÃO CONTÍNUA · WEB3.1</div>
+<h1>FORTALEZA DO ENSINO</h1>
+<p>Sete áreas de formação, trilhas progressivas e laboratórios práticos. Aprender, aplicar, provar e registrar. O conhecimento é construído com estudo, exercício, evidência e revisão — não apenas com leitura.</p>
+</section>
+<div class="status-note"><strong>ESTADO REAL:</strong> currículo e interface didática preparados. Aulas gravadas/ao vivo, matrícula autenticada, presença, avaliações persistentes e emissão de certificados dependem de implantação própria. As marcações de progresso desta página ficam somente neste navegador.</div>
+<section class="stats" aria-label="Estrutura da Academy">
+<div class="stat"><b>07</b><span>Áreas de formação</span></div>
+<div class="stat"><b>03</b><span>Módulos fixos</span></div>
+<div class="stat"><b>01</b><span>Nível especial PHD</span></div>
+<div class="stat"><b>28</b><span>Trilhas área × nível</span></div>
+</section>
+<section class="catalog-layout" aria-label="Catálogo de cursos">
+<aside class="panel">
+<div class="eyebrow">ESCOLHA UMA ÁREA</div>
+<h2 style="margin:8px 0 14px">Sete caminhos</h2>
+<div class="track-list" id="track-list"><p>Carregando catálogo…</p></div>
+</aside>
+<section class="panel" aria-live="polite" id="course-panel">
+<p>Preparando as trilhas de ensino…</p>
+</section>
+</section>
+<section class="panel certificate" id="certificado">
+<div class="eyebrow">CERTIFICAÇÃO CRYPY</div>
+<h2>Certificado de Participação e Aprendizado</h2>
+<p>O certificado da CRYPY Academy registra participação e aprendizado dentro do programa. <strong>Não é reconhecido pelo MEC nem por órgão externo</strong>, não é diploma e não equivale a habilitação ou certificação profissional regulamentada.</p>
+<ul>
+<li>Identificação do curso e da carga horária realmente cumprida.</li>
+<li>Registro de participação e evidências das atividades.</li>
+<li>Validação humana das entregas e aprovação do responsável.</li>
+<li>Identificador único e verificação segura quando o sistema de matrícula estiver implantado.</li>
+</ul>
+<p><strong>Emissão automática:</strong> ainda não implementada. Nenhum certificado será emitido apenas por marcar caixas nesta página.</p>
+</section>
+<p class="footer-note">CRYPY ACADEMY · O nível WEB3.1 CryptoëCrypto PHD permite pesquisa independente de fontes, com prioridade para documentação oficial, padrões, artigos científicos, white papers, auditorias e experimentos reproduzíveis. Todo estudo deve registrar fontes, datas, método, limites e evidências.</p>
+</main>
+</div>
+<script>
+(function(){
+"use strict";
+var catalogUrl="./cursos/catalogo-cursos.json";
+var progressKey="crypy-academy-progress-v1";
+var trackList=document.getElementById("track-list");
+var panel=document.getElementById("course-panel");
+var data=null;
+var selectedTrack=null;
+var selectedLevel="iniciante";
+var progress={};
+try{progress=JSON.parse(localStorage.getItem(progressKey)||"{}")||{};}catch(e){progress={};}
+function node(tag,cls,txt){var n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
+function saveProgress(){try{localStorage.setItem(progressKey,JSON.stringify(progress));}catch(e){}}
+function keyFor(track,level,index){return track+"|"+level+"|"+index;}
+function renderTrackList(){
+ trackList.replaceChildren();
+ data.tracks.forEach(function(track){
+  var b=node("button","track-button");
+  b.type="button";b.setAttribute("aria-pressed",String(track.id===selectedTrack));
+  b.append(document.createTextNode(track.icon+" "+track.title));
+  var small=node("small","",track.levels.length+" níveis · "+track.summary);
+  b.append(small);
+  b.addEventListener("click",function(){selectedTrack=track.id;renderTrackList();renderCourse();});
+  trackList.append(b);
+ });
+}
+function renderCourse(){
+ var track=data.tracks.find(function(t){return t.id===selectedTrack;});
+ if(!track)return;
+ var level=track.levels.find(function(l){return l.id===selectedLevel;});
+ panel.replaceChildren();
+ var head=node("div","course-head");
+ head.append(node("div","eyebrow","TRILHA DE FORMAÇÃO"));
+ head.append(node("h2","",track.icon+" "+track.title));
+ head.append(node("p","",track.summary));
+ var objectives=node("ul");
+ track.objectives.forEach(function(x){objectives.append(node("li","",x));});
+ head.append(objectives);
+ panel.append(head);
+ var levels=node("div","levels");
+ data.levels.forEach(function(item){
+  var b=node("button","level-button"+(item.id==="phd"?" phd":""));
+  b.type="button";b.setAttribute("aria-pressed",String(item.id===selectedLevel));
+  b.append(document.createTextNode(item.name));
+  b.append(node("small","",item.hours+" h estimadas"+(item.id==="phd"?"+":"")));
+  b.addEventListener("click",function(){selectedLevel=item.id;renderCourse();});
+  levels.append(b);
+ });
+ panel.append(levels);
+ var detail=node("div","level-detail");
+ detail.append(node("h3","",level.id==="phd"?"WEB3.1 · CRYPTOËCRYPTO · NÍVEL PHD":level.id.toUpperCase()+" · "+level.hours+" HORAS ESTIMADAS"));
+ detail.append(node("p","outcome",level.outcome));
+ var progressId=track.id+"|"+level.id;
+ var count=level.lessons.filter(function(_,i){return !!progress[keyFor(track.id,level.id,i)];}).length;
+ var line=node("div","progress-line");var fill=node("span");fill.style.width=(count/level.lessons.length*100)+"%";line.append(fill);
+ detail.append(line);
+ detail.append(node("p","progress-text",count+" de "+level.lessons.length+" unidades marcadas neste navegador · isso não comprova presença ou conclusão."));
+ var lessonGrid=node("div","lesson-grid");
+ level.lessons.forEach(function(lesson,i){
+  var wrap=node("div","lesson");
+  var check=node("input");check.type="checkbox";check.id="lesson-"+track.id+"-"+level.id+"-"+i;check.checked=!!progress[keyFor(track.id,level.id,i)];
+  var label=node("label");label.htmlFor=check.id;label.append(document.createTextNode((i+1)+". "+lesson));
+  label.append(node("small","", "Marcação pessoal local"));
+  check.addEventListener("change",function(){progress[keyFor(track.id,level.id,i)]=check.checked;saveProgress();renderCourse();});
+  wrap.append(check,label);lessonGrid.append(wrap);
+ });
+ detail.append(lessonGrid);
+ var details=node("div","detail-grid");
+ [["LABORATÓRIO",level.lab],["AVALIAÇÃO",level.assessment],["EVIDÊNCIAS",level.evidence]].forEach(function(item){
+  var card=node("article","track-card");card.append(node("h4","",item[0]));card.append(node("p","",item[1]));details.append(card);
+ });
+ detail.append(details);
+ if(level.id==="phd"){
+  var research=node("article","track-card");research.style.marginTop="12px";
+  research.append(node("h4","","LIBERDADE DE PESQUISA COM RIGOR"));
+  var list=node("ul");data.phdMethod.forEach(function(x){list.append(node("li","",x));});research.append(list);detail.append(research);
+ }
+ panel.append(detail);
+ var resources=node("div","resource-list");
+ var links=[
+  ["Grade curricular completa","./cursos/GRADE-CURRICULAR-CRYPY-ACADEMY-001.md"],
+  ["Política de certificado","./cursos/POLITICA-CERTIFICADO-PARTICIPACAO-001.md"],
+  ["Inventário de fontes","./cursos/INVENTARIO-EDUCACIONAL-001.md"],
+  ["Curso PHD de imagem e vídeo","./cursos/fontes/CURSO-EDICAO-IMAGEM-VIDEO-PHD-001.md"],
+  ["Terminal Central","./cursos/fontes/TERMINAL-CENTRAL-README.md"],
+  ["CRYPY Server","./cursos/fontes/CRYPY-SERVER-README.md"],
+  ["Abecedário binário","./cursos/fontes/ABECEDARIO-BINARIO-BABY-IA.txt"],
+  ["Guia de segurança digital","./cursos/fontes/GUIA-SEGURANCA-DIGITAL-CRYPY.md"]
+ ];
+ links.forEach(function(item){var a=node("a","",item[0]);a.href=item[1];a.target="_blank";a.rel="noopener";resources.append(a);});
+ panel.append(resources);
+}
+fetch(catalogUrl,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("Catálogo HTTP "+r.status);return r.json();}).then(function(json){
+ data=json;selectedTrack=data.tracks[0].id;renderTrackList();renderCourse();
+}).catch(function(err){trackList.textContent="Não foi possível carregar o catálogo: "+err.message;panel.textContent="Catálogo indisponível. Nenhuma trilha foi inventada.";});
+})();
+</script>
+</body>
+</html>
