@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: baby-agent}}-github.ref}}
+  group: baby-agent-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -18,18 +18,18 @@ jobs:
     permissions:
       contents: read
     outputs:
-      has_changes: ${{ steps.guard.outputs.has_changes ${{
+      has_changes: ${{ steps.guard.outputs.has_changes }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha ${{
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Executar Codex em sandbox restrito
         uses: openai/codex-action@v1
         with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY ${{
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .github/codex/BABY-SITE-AUTONOMY.md
           sandbox: workspace-write
           safety-strategy: drop-sudo
@@ -65,12 +65,12 @@ jobs:
     permissions:
       contents: read
     outputs:
-      validated: ${{ steps.result.outputs.validated ${{
+      validated: ${{ steps.result.outputs.validated }}
     steps:
       - name: Checkout da revisão analisada
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha ${{
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Baixar patch
@@ -132,7 +132,7 @@ jobs:
       - name: Checkout da revisão analisada
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha ${{
+          ref: ${{ github.sha }}
 
       - name: Baixar patch validado
         uses: actions/download-artifact@v4
@@ -149,8 +149,8 @@ jobs:
       - name: Criar Pull Request para revisão humana
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN ${{
-          branch: baby/proposta-${{ github.run_id ${{
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: baby/proposta-${{ github.run_id }}
           delete-branch: true
           title: "BABY: proposta automática de melhoria do WEB3.1"
           body: |
