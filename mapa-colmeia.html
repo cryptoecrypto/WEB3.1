@@ -42,4 +42,48 @@ input{width:min(100%,460px);background:#07110a;color:white;border:1px solid #286
 const q=document.getElementById('filter'),items=[...document.querySelectorAll('.group')];
 q.addEventListener('input',()=>{let visible=0;items.forEach(g=>{const s=q.value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();const ok=g.innerText.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(s);g.style.display=ok?'':'none';if(ok)visible++});document.getElementById('empty').style.display=visible?'none':'block'});
 </script><script src="assets/js/crypy-page-assistant.js" defer></script>
+
+<script>
+/* MAPA DINÂMICO — usa o índice central como fonte única de páginas */
+(function(){
+  "use strict";
+  var main=document.querySelector("main");
+  if(!main)return;
+  function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function slug(v){return String(v||"grupo").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9-]+/g,"-").replace(/^-|-$/g,"")||"grupo";}
+  fetch(new URL("assets/data/crypy-page-index.json",document.baseURI).href,{cache:"no-cache"})
+    .then(function(r){if(!r.ok)throw new Error("Índice HTTP "+r.status);return r.json();})
+    .then(function(data){
+      var pages=Array.isArray(data.pages)?data.pages:[];
+      var groups={};
+      pages.forEach(function(p){if(!p||!p.path)return;(groups[p.group||"SEM GRUPO"]||(groups[p.group||"SEM GRUPO"]=[])).push(p);});
+      var keys=Object.keys(groups).sort(function(a,b){return a.localeCompare(b,"pt-BR");});
+      var html='<h1>As páginas da <em>Colmeia</em></h1><p class="intro">Índice central WEB3.1. Cada cartão abre o HTML original no caminho registrado; esta camada não modifica os arquivos de origem.</p>';
+      html+='<div class="summary"><div class="count"><strong>'+pages.length+'</strong> páginas registradas</div><div class="count"><strong>'+keys.length+'</strong> grupos/pastas</div><input id="filter" type="search" placeholder="Buscar página ou pasta..." aria-label="Buscar página ou pasta"></div>';
+      keys.forEach(function(k){
+        var arr=groups[k].slice().sort(function(a,b){return a.path.localeCompare(b.path,"pt-BR");});
+        html+='<section class="group" id="'+esc(slug(k))+'"><h2>'+esc(k)+' <small>'+arr.length+' páginas</small></h2><div class="links">';
+        arr.forEach(function(p){
+          var label=p.label||p.path.split("/").pop();
+          var href=p.path.split("/").map(encodeURIComponent).join("/");
+          html+='<a class="page" href="'+esc(href)+'"><span>'+esc(label)+'</span><small>'+esc(p.path)+'</small></a>';
+        });
+        html+='</div></section>';
+      });
+      html+='<p class="empty" id="empty">Nenhuma página encontrada.</p>';
+      main.innerHTML=html;
+      var q=main.querySelector("#filter"),items=Array.prototype.slice.call(main.querySelectorAll(".group"));
+      q.addEventListener("input",function(){
+        var s=q.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(),visible=0;
+        items.forEach(function(g){var ok=g.innerText.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().indexOf(s)!==-1;g.style.display=ok?"":"none";if(ok)visible++;});
+        main.querySelector("#empty").style.display=visible?"none":"block";
+      });
+    })
+    .catch(function(err){
+      var p=document.createElement("p");p.className="empty";p.style.display="block";p.textContent="Falha ao carregar o índice central: "+err.message+" — a lista estática anterior foi preservada no histórico Git.";
+      main.appendChild(p);
+    });
+})();
+</script>
+
 </body></html>
