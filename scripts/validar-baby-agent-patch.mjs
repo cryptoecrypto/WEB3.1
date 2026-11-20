@@ -6,7 +6,7 @@ if (!patchPath || !fs.existsSync(patchPath)) {
   process.exit(2);
 }
 const patch = fs.readFileSync(patchPath, "utf8");
-const paths = [...patch.matchAll(/^diff --git a\/(.+?) b\/(.+)$/gm)].map(m => m[2]);
+const pairs = [...patch.matchAll(/^diff --git a\/(.+?) b\/(.+)$/gm)].map(m => [m[1], m[2]]);\nconst paths = pairs.flat();
 if (patch.trim() && paths.length === 0) {
   console.error("Não foi possível identificar caminhos no patch.");
   process.exit(3);
