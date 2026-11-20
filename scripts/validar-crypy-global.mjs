@@ -1,1 +1,22 @@
-import fs from "node:fs";import path from "node:path";const root=process.cwd(),m=JSON.parse(fs.readFileSync(path.join(root,"assets/data/crypy-page-index.json"),"utf8")),missing=[],without=[];for(const p of m.pages){const f=path.join(root,p.path);if(!fs.existsSync(f)){missing.push(p.path);continue}const b=path.posix.basename(p.path).toLowerCase(),safe=["index.htm","hd-baby-ia.html","hd-babyia.html","hd-memory.html","hd-baby-ia-completo-tudo.html"].includes(b)||/(^|\/)(hd-matriz|hd-oculto)(\/|$)/i.test(p.path)||p.path==="index.html";if(!safe&&!fs.readFileSync(f,"utf8").includes("crypy-global-nav.js"))without.push(p.path)}if(missing.length||without.length){console.error({missing,without});process.exit(1)}console.log("PASS:",m.pages.length,"páginas catalogadas; páginas elegíveis sincronizadas; HOME principal e HDs preservados.")
+import fs from "node:fs";
+import path from "node:path";
+const root=process.cwd();
+const manifestPath=path.join(root,"assets","data","crypy-page-index.json");
+const homePath=path.join(root,"index.html");
+const navPath=path.join(root,"assets","js","crypy-global-nav.js");
+const chatPath=path.join(root,"assets","js","baby-global-chat.js");
+const manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));
+const home=fs.readFileSync(homePath,"utf8");
+const nav=fs.readFileSync(navPath,"utf8");
+const missing=manifest.pages.filter(p=>!fs.existsSync(path.join(root,p.path))).map(p=>p.path);
+const duplicate=new Set();
+for(const p of manifest.pages){if(duplicate.has(p.path))throw new Error("Caminho duplicado: "+p.path);duplicate.add(p.path)}
+const errors=[];
+if(manifest.total!==manifest.pages.length)errors.push("total do índice não confere");
+if(missing.length)errors.push("páginas ausentes: "+missing.slice(0,20).join(", "));
+if(!home.includes("crypy-global-nav.js"))errors.push("HOME não carrega o menu global");
+if(!home.includes("baby-global-chat.js"))errors.push("HOME não carrega o widget BABY");
+if(!nav.includes('target:"crypy-content"'))errors.push("menu não mantém navegação dentro do frame principal");
+if(!fs.existsSync(chatPath))errors.push("widget BABY ausente");
+if(errors.length){console.error(errors.join("\\n"));process.exit(1)}
+console.log("PASS: "+manifest.pages.length+" páginas catalogadas e presentes; HOME carrega menu global e BABY; navegação permanece no frame principal.");
