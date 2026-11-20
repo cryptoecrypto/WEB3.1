@@ -17,7 +17,11 @@ if (patch.trim() && paths.length === 0) {
   process.exit(3);
 }
 
-if (new Set(paths).size > 8) {\n  console.error("Limite de 8 arquivos por execução excedido.");\n  process.exit(6);\n}\n\nfunction allowed(file) {
+if (new Set(paths).size > 8) {
+  console.error("Limite de 8 arquivos por execução excedido.");\n  process.exit(6);
+}
+
+function allowed(file) {
   if (!file || file.startsWith("/") || file.split("/").includes("..")) return false;
   if (file === "index.html") return false;
   if (file.split("/").some(part => /^hd-/i.test(part) || /hd-matriz/i.test(part))) return false;
