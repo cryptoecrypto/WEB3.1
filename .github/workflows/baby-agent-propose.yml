@@ -83,7 +83,7 @@ jobs:
         run: |
           set -euo pipefail
           node scripts/validar-baby-agent-patch.mjs /tmp/baby-agent-proposal/baby-agent.patch
-          git apply --binary /tmp/baby-agent-proposal/baby-agent.patch
+          git apply --binary /tmp/baby-agent-proposal/baby-agent.patch\n          git diff --check
 
       - name: Verificar sintaxe JavaScript
         run: |
