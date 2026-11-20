@@ -62,15 +62,18 @@
     "seguranca.html": "../crypy-academy/cursos.html",
     "topo.html": "../index.html#topo",
     "crypy-infinit.html": "../crypy-infinyt/portal.html",
-    "BABY-IA-Fortaleza-Digital.html": "../baby-ia/centro.html"
+    "BABY-IA-Fortaleza-Digital.html": "../baby-ia/centro.html",
+    "index.html": "../index.html",
+    "nft-genesis.html": "nft-genesis.html"
   };
 
   function normalizeLegacyLinks() {
-    document.querySelectorAll("a[href]").forEach(function (a) {
-      var raw = (a.getAttribute("href") || "").trim();
+    document.querySelectorAll("a[href],iframe[src]").forEach(function (a) {
+      var attr = a.tagName.toLowerCase() === "iframe" ? "src" : "href";
+      var raw = (a.getAttribute(attr) || "").trim();
       if (!raw || /^(#|https?:|mailto:|tel:|data:|javascript:|blob:)/i.test(raw)) return;
       var file = raw.split(/[?#]/)[0].split("/").pop();
-      if (legacy[file]) a.href = new URL(legacy[file], rootUrl).href;
+      if (legacy[file]) a.setAttribute(attr, new URL(legacy[file], rootUrl).href);
     });
   }
 
