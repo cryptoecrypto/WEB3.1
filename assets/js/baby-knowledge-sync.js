@@ -6,7 +6,7 @@
  */
 (function () {
   "use strict";
-  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.1") return;
+  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.2") return;
 
   var script = document.currentScript;
   var root = new URL("../../", script && script.src ? script.src : document.baseURI);
@@ -15,6 +15,7 @@
   var storeName = "documents";
   var fixedFiles = [
     "crypy-news/hd-matriz/ABECEDARIO-BINARIO-BABY-IA.txt",
+    "crypy-news/hd-matriz/CURSO-EDICAO-IMAGEM-VIDEO-PHD-001.md",
     "crypy-news/hd-matriz/CRYPY-RENDA-PASSIVA-001.md",
     "crypy-news/hd-matriz/Memorias.json",
     "crypy-news/hd-matriz/Manifest.json",
@@ -186,7 +187,7 @@
 
   function snapshot() {
     return {
-      version: "1.1", state: progress.state, indexedThisRun: progress.indexed,
+      version: "1.2", state: progress.state, indexedThisRun: progress.indexed,
       done: progress.done, total: progress.total, sourceTotal: progress.sourceTotal,
       fixedTotal: progress.fixedTotal, errors: progress.errors, chars: progress.chars,
       updatedAt: progress.updatedAt, failures: failures.slice(), error: progress.error || null
@@ -225,7 +226,7 @@
     });
   }
 
-  window.BabyKnowledge = { version: "1.1", sync: sync, search: search, status: status };
+  window.BabyKnowledge = { version: "1.2", sync: sync, search: search, status: status };
   function mount() {
     if (!document.body || document.getElementById("baby-knowledge-sync")) return;
     var b = document.createElement("button");
