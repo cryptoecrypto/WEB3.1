@@ -136,3 +136,8 @@
 @media(max-width:900px){#crypykut-app .ck-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#crypykut-app .ck-orkut-layout{grid-template-columns:190px minmax(0,1fr)}#crypykut-app .ck-orkut-layout>aside:last-child{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){#crypykut-app .ck-wrap{width:calc(100% - 16px)}#crypykut-app .ck-online{display:none}#crypykut-app .ck-top{margin-top:8px}#crypykut-app .ck-main-tabs{gap:6px}#crypykut-app .ck-tab{font-size:10px;padding:8px}#crypykut-app .ck-phone{border-radius:0;border-left:0;border-right:0}#crypykut-app .ck-stage{min-height:580px}#crypykut-app .ck-feed-grid{grid-template-columns:1fr;max-width:430px}#crypykut-app .ck-card-visual{min-height:500px}#crypykut-app .ck-fields{grid-template-columns:1fr}#crypykut-app .ck-field.full{grid-column:auto}#crypykut-app .ck-orkut-layout{grid-template-columns:1fr}#crypykut-app .ck-orkut-layout>aside:last-child{grid-column:auto;grid-template-columns:1fr}#crypykut-app .ck-orkut-banner{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){#crypykut-app *,#crypykut-app *:before,#crypykut-app *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Authentication status and provider buttons */
+#crypykut-app .ck-auth{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px auto;padding:12px 14px;border:1px solid #1d3a2a;border-radius:14px;background:rgba(5,16,9,.96);color:#9db8a8;font-size:11px}
+#crypykut-app .ck-auth span{flex:1 1 240px}
+#crypykut-app .ck-auth button{min-height:38px}
