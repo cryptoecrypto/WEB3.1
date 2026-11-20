@@ -17,13 +17,20 @@
     {id:"MINI",name:"MINI — Spam e segurança de links",focus:"Spam, encurtadores suspeitos e coleta de dados",block:["digite sua senha aqui","informe sua seed phrase neste formulário","mande sua chave privada no direct"],review:["clique agora para ganhar","prêmio grátis limitado","bit.ly/","tinyurl.com/","wa.me/","telegram.me/","http://"]},
     {id:"CHAT",name:"CHAT — Proteção da comunidade",focus:"Dados pessoais, perseguição e exposição de terceiros",block:["meu endereço residencial é","meu cpf é","meu telefone pessoal é"],review:["expor endereço de alguém","vazar telefone","doxxing","perseguir essa pessoa","publicar dados pessoais"]}
   ];
+  const squadConfig = window.CrypySquadAutoConfig || null;
+  const configuredProfiles = squadConfig
+    ? profiles.map(profile => {
+        const configured = squadConfig.moderators.find(item => item.id === profile.id);
+        return configured ? { ...profile, name: configured.name + " — " + configured.role } : profile;
+      })
+    : profiles;
   function evaluate(profile, text) {
     const blocked=has(text,profile.block), flagged=has(text,profile.review);
     const verdict=blocked.length?"BLOQUEAR":flagged.length?"REVISÃO":"SEM ALERTA TEXTUAL";
     return {id:profile.id,name:profile.name,focus:profile.focus,verdict,matched:[...blocked,...flagged]};
   }
   function inspect(file, caption) {
-    const text=norm(caption), reports=profiles.map(p=>evaluate(p,text));
+    const text=norm(caption), reports=configuredProfiles.map(p=>evaluate(p,text));
     const validType=!!file&&["video/mp4","video/webm","video/quicktime"].includes(file.type);
     const maxBytes=100*1024*1024;
     const topicTerms=["btc","bitcoin","eth","ethereum","usdt","tether","web3","blockchain","defi","wallet","carteira","nft","smart contract","contrato inteligente","mineracao","staking","cripto","criptomoeda"];
@@ -42,7 +49,7 @@
     return {
       allowedForLocalReview:technicalOK&&blocks.length===0,
       status:!technicalOK||blocks.length?"BLOQUEADO_LOCALMENTE":"AGUARDANDO_REVISAO_HUMANA",
-      reasons,reports,moderators:profiles.map(p=>({id:p.id,name:p.name,focus:p.focus})),
+      reasons,reports,moderators:configuredProfiles.map(p=>({id:p.id,name:p.name,focus:p.focus})),\n      leadership:squadConfig ? squadConfig.leadership : {primaryModerator:{id:"BABY"},technicalCoordinator:{id:"NEXUS"},finalAuthority:{id:"SENSEI"}},\n      configurationLoaded:!!squadConfig,
       checks:{fileType:validType,fileSize:!!file&&file.size<=maxBytes,cryptoTopic:topic,textPolicy:blocks.length===0},
       limitation:"Triagem somente de texto e metadados do arquivo. Nenhum dos oito módulos analisa cenas, imagens ou áudio. Aprovação final humana; publicação pública desativada."
     };
