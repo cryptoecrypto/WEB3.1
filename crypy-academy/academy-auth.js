@@ -9,6 +9,7 @@
   const loginButtons = root.querySelectorAll("[data-academy-login]");
   const logout = document.getElementById("academy-logout");
   const diplomaList = document.getElementById("academy-diplomas");
+  const verifyButton = document.getElementById("academy-verify-email");
   const state = { user: null, csrf: null, enabled: /^https:\/\//i.test(apiBase) && !apiBase.includes("SEU-SERVICO") };
 
   function message(text) { if (status) status.textContent = text; }
@@ -45,8 +46,10 @@
       button.title = !state.enabled ? "Backend ainda não configurado" : "";
     });
     if (logout) logout.hidden = !state.user;
+    if (verifyButton) verifyButton.hidden = !state.user || !!state.user.emailVerified;
     if (identity) identity.textContent = state.user ? (state.user.name + " · " + state.user.email) : "Nenhum aluno conectado";
     if (!state.enabled) message("LOGIN AINDA NÃO ATIVO — backend, OAuth e domínio precisam ser configurados.");
+    else if (state.user && !state.user.emailVerified) message("Conta conectada. Confirme o e-mail enviado para liberar progresso, provas e diplomas.");
     else if (state.user) message("Conectado. Progresso e avaliações são vinculados à sua conta.");
     else message("Entre com Google ou Microsoft para salvar seu progresso e realizar as provas.");
     document.dispatchEvent(new CustomEvent("crypyacademy:auth", { detail: { user: state.user, enabled: state.enabled } }));
@@ -69,6 +72,10 @@
     if (!state.enabled || !["google", "microsoft"].includes(provider)) return;
     window.location.assign(apiBase + "/api/auth/" + provider + "/start");
   }));
+  if (verifyButton) verifyButton.addEventListener("click", async () => {
+    try { const result = await request("/api/email/resend", { method: "POST" }); message(result.sent ? "Link de confirmação enviado. Verifique sua caixa de entrada." : "Configure o serviço de e-mail para enviar a confirmação."); }
+    catch (error) { message("Falha ao reenviar confirmação: " + error.message); }
+  });
   if (logout) logout.addEventListener("click", async () => {
     try {
       await request("/api/logout", { method: "POST" });
