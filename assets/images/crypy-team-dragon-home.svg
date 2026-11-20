@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="t d">
+<title id="t">Esquadrão CRYPY reunido com o dragão guardião</title><desc id="d">Ilustração vetorial de reconstrução: equipe futurista em armaduras coloridas sob um dragão dourado e verde, com circuitos Matrix ao fundo.</desc>
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2a5"/><stop offset=".45" stop-color="#ffd35a"/><stop offset="1" stop-color="#8e5100"/></linearGradient>
+ <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c8ffe2"/><stop offset=".4" stop-color="#00ff88"/><stop offset="1" stop-color="#006b3c"/></linearGradient>
+ <linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3fbff"/><stop offset="1" stop-color="#168cff"/></linearGradient>
+ <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1c8ff"/><stop offset="1" stop-color="#7540d9"/></linearGradient>
+ <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb6b6"/><stop offset="1" stop-color="#d12d42"/></linearGradient>
+ <radialGradient id="core"><stop stop-color="#00ff88" stop-opacity=".45"/><stop offset="1" stop-color="#00ff88" stop-opacity="0"/></radialGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="26"/></filter>
+</defs>
+<ellipse cx="700" cy="470" rx="650" ry="390" fill="url(#core)"/>
+<g opacity=".23" stroke="#00ff88" fill="none"><path d="M0 160H140L190 205H340M1400 125H1230L1180 180H1040M0 510H180L240 450H360M1400 560H1220L1160 500H1040" stroke-width="3"/><path d="M80 0V260M1320 0V300M240 0V185M1170 0V190M0 690H1400" stroke-dasharray="5 15"/></g>
+<!-- Dragon: long guardian body winding above the team -->
+<path d="M65 430 C165 250 320 210 455 285 C570 350 720 310 800 190 C880 75 1035 45 1160 105 C1275 160 1320 270 1245 355 C1180 430 1050 432 965 375 C875 315 820 390 845 470" fill="none" stroke="#052819" stroke-width="112" stroke-linecap="round"/>
+<path d="M65 430 C165 250 320 210 455 285 C570 350 720 310 800 190 C880 75 1035 45 1160 105 C1275 160 1320 270 1245 355 C1180 430 1050 432 965 375 C875 315 820 390 845 470" fill="none" stroke="url(#gold)" stroke-width="78" stroke-linecap="round" filter="url(#glow)"/>
+<path d="M82 427 C190 285 315 250 445 312 C574 378 716 334 800 216 C885 96 1032 78 1153 128 C1255 173 1290 266 1223 337 C1160 402 1055 402 978 350" fill="none" stroke="url(#green)" stroke-width="17" stroke-linecap="round"/>
+<!-- dragon head -->
+<path d="M1100 115 Q1178 36 1260 55 L1327 95 L1287 137 Q1330 171 1300 215 L1248 240 L1198 204 L1150 213 L1128 172 L1080 160Z" fill="url(#gold)" stroke="#062b18" stroke-width="12"/>
+<path d="M1184 122 Q1240 92 1291 117 Q1255 155 1203 157Z" fill="#032419"/>
+<ellipse cx="1238" cy="132" rx="13" ry="8" fill="#00ff88" filter="url(#glow)"/>
+<path d="M1288 179 L1360 205 L1300 210Z" fill="#00ff88"/>
+<path d="M1152 84 L1120 18 L1190 58 M1222 70 L1215 10 L1262 58" fill="none" stroke="url(#gold)" stroke-width="20" stroke-linecap="round"/>
+<!-- wings -->
+<path d="M870 195 Q930 10 1090 18 Q1030 105 1065 165 Q990 135 950 225Z" fill="#073923" stroke="url(#green)" stroke-width="8"/>
+<path d="M890 194L1015 45L983 190M930 202L1070 72L1022 208" fill="none" stroke="#b2ffd5" stroke-width="6" opacity=".8"/>
+<!-- team platform -->
+<path d="M105 780 Q700 680 1295 780 L1225 850H175Z" fill="#06150d" stroke="#00ff88" stroke-width="5"/>
+<path d="M190 810H1210M270 835H1130" stroke="#00ff88" stroke-opacity=".5" stroke-width="3"/>
+<!-- Team silhouettes as nine distinct guardians -->
+<g stroke="#07140e" stroke-width="12" stroke-linejoin="round">
+ <g transform="translate(135 420)"><path d="M-80 300Q-75 190-42 160Q0 132 45 160Q80 193 85 300Z" fill="#d5d9e0"/><path d="M-46 162Q-50 85 0 75Q50 85 45 162L25 207H-25Z" fill="#e4e8ed"/><path d="M-53 122Q-30 40 4 52Q40 39 55 118L30 104H-30Z" fill="#f6f8fb"/><circle cx="-18" cy="135" r="7" fill="#f4fff8" stroke="none"/><circle cx="18" cy="135" r="7" fill="#f4fff8" stroke="none"/><path d="M-70 225L-112 290M70 225L112 290" stroke="#b9c4d0" stroke-width="20"/></g>
+ <g transform="translate(285 430)"><path d="M-78 290Q-70 180-40 155Q0 135 42 155Q75 185 80 290Z" fill="#d9a92c"/><path d="M-45 155Q-55 80 0 70Q55 80 45 155L25 205H-25Z" fill="#f4d39a"/><path d="M-52 112Q-25 25 0 40Q35 24 58 110L30 100H-30Z" fill="#ffd35a"/><path d="M-19 132L-5 132M12 132L25 132" stroke="#fff" stroke-width="8"/></g>
+ <g transform="translate(435 430)"><path d="M-77 290Q-70 180-38 155Q0 132 42 155Q75 183 80 290Z" fill="#146bc3"/><path d="M-46 155Q-55 80 0 70Q52 80 45 155L25 205H-25Z" fill="#d9b99f"/><path d="M-55 107Q-20 20 0 38Q42 20 60 110L25 98H-30Z" fill="#bcefff"/><path d="M-20 132L-4 132M12 132L27 132" stroke="#e7fbff" stroke-width="8"/></g>
+ <g transform="translate(585 422)"><path d="M-78 300Q-75 184-42 155Q0 130 43 155Q75 186 80 300Z" fill="#6d3cb6"/><path d="M-47 155Q-54 82 0 72Q52 82 46 155L26 206H-26Z" fill="#f0d5c8"/><path d="M-70 128Q-78 32-4 42Q64 26 68 125L45 105H-44Z" fill="#a94ce2"/><path d="M-19 132L-3 132M12 132L28 132" stroke="#f7dcff" stroke-width="8"/></g>
+ <g transform="translate(735 408)"><path d="M-100 320Q-90 178-48 145Q0 112 50 145Q90 180 100 320Z" fill="#031d14" stroke="#00ff88" stroke-width="16"/><path d="M-62 139L-52 55L0 24L52 55L62 139L35 196H-35Z" fill="#050a08" stroke="#00ff88" stroke-width="12"/><path d="M-43 106L-12 80L-3 126L-36 144Z M43 106L12 80L3 126L36 144Z" fill="#eafff5" stroke="#6affbd" stroke-width="5"/><path d="M-23 212L0 180L23 212L0 244Z" fill="#00ff88" stroke="#baffd9" stroke-width="5"/></g>
+ <g transform="translate(885 430)"><path d="M-78 290Q-70 180-40 155Q0 132 42 155Q75 185 80 290Z" fill="#13a66f"/><path d="M-46 155Q-55 80 0 70Q52 80 45 155L25 205H-25Z" fill="#dbbca9"/><path d="M-57 110Q-35 30 0 42Q35 28 58 110L28 96H-30Z" fill="#b9ffe1"/><circle cx="-18" cy="132" r="7" fill="#00ff88" stroke="none"/><circle cx="18" cy="132" r="7" fill="#00ff88" stroke="none"/></g>
+ <g transform="translate(1035 430)"><path d="M-78 290Q-70 180-40 155Q0 132 42 155Q75 185 80 290Z" fill="#b52a3e"/><path d="M-46 155Q-55 80 0 70Q52 80 45 155L25 205H-25Z" fill="#e0b89e"/><path d="M-58 105Q-25 25 10 42Q52 28 58 110L30 96H-30Z" fill="#6b3529"/><path d="M-19 132L-3 132M12 132L28 132" stroke="#ffb9c3" stroke-width="8"/></g>
+ <g transform="translate(1185 420)"><path d="M-80 300Q-75 185-42 155Q0 130 45 155Q80 190 85 300Z" fill="#087c4a"/><path d="M-48 155Q-55 80 0 70Q55 80 48 155L28 205H-28Z" fill="#b77d5e"/><path d="M-62 118Q-45 32 0 44Q45 32 65 118L30 98H-30Z" fill="#1c3328"/><circle cx="-18" cy="132" r="7" fill="#00ff88" stroke="none"/><circle cx="18" cy="132" r="7" fill="#00ff88" stroke="none"/></g>
+</g>
+<!-- energy sparks -->
+<g fill="#d8ffe9" filter="url(#glow)"><circle cx="160" cy="310" r="5"/><circle cx="360" cy="260" r="4"/><circle cx="705" cy="280" r="6"/><circle cx="950" cy="275" r="4"/><circle cx="1180" cy="300" r="5"/></g>
+</svg>
