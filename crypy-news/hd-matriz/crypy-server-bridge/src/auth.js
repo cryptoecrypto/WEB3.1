@@ -112,7 +112,7 @@ export function createAuth({
 
   function sameOrigin(req) {
     const origin = req.headers.origin;
-    if (!origin) return true; // ferramentas locais e testes; cookies permanecem SameSite=Strict
+    if (!origin) return false; // POSTs autenticados precisam declarar a própria origem
     try {
       return new URL(origin).host.toLowerCase() === String(req.headers.host || '').toLowerCase();
     } catch {
