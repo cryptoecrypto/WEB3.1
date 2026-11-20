@@ -4,7 +4,7 @@ import { rateLimit } from "express-rate-limit";
 import pg from "pg";
 import nodemailer from "nodemailer";
 import PDFDocument from "pdfkit";
-import { randomBytes, createHash, timingSafeEqual } from "node:crypto";
+import { randomBytes, createHmac, timingSafeEqual } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -32,7 +32,7 @@ function required(name) {
   if (!value) throw new Error("Variável obrigatória ausente: " + name);
   return value;
 }
-function hash(value) { return createHash("sha256").update(value).digest("hex"); }
+function hash(value) { return createHmac("sha256", SESSION_SECRET).update(value).digest("hex"); }
 function safeEqual(a, b) {
   if (typeof a !== "string" || typeof b !== "string") return false;
   const aa = Buffer.from(a), bb = Buffer.from(b);
@@ -168,7 +168,7 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
     const claims = oidc.getValidatedIdTokenClaims(tokens);
     const email = String(claims.email || claims.preferred_username || "").trim().toLowerCase();
     const verified = provider === "google" ? claims.email_verified === true : claims.email_verified !== false;
-    if (!claims.sub || !email || !verified) return res.status(403).send("O provedor não confirmou um e-mail utilizável.");
+    if (!claims.sub || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) || !verified) return res.status(403).send("O provedor não confirmou um e-mail utilizável.");
     await client.query("BEGIN");
     let identity = await client.query(
       "SELECT user_id FROM academy_identities WHERE provider=$1 AND subject=$2",
