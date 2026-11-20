@@ -35,6 +35,7 @@
   control.appendChild(button);
   header.appendChild(control);
 
+  var provider = window.ethereum && window.ethereum.isMetaMask === true ? window.ethereum : null;
   var connectedAddress = null;
   var chainId = null;
 
@@ -72,12 +73,12 @@
   }
 
   async function refresh() {
-    if (!window.ethereum || typeof window.ethereum.request !== "function") {
+    if (!provider || typeof provider.request !== "function") {
       state.textContent = "MetaMask não detectada";
       button.textContent = "MetaMask indisponível";
       return;
     }
-    var accounts = await window.ethereum.request({ method: "eth_accounts" });
+    var accounts = await provider.request({ method: "eth_accounts" });
     connectedAddress = Array.isArray(accounts) && accounts[0] ? accounts[0] : null;
     chainId = await window.ethereum.request({ method: "eth_chainId" }).catch(function () { return null; });
     render();
@@ -109,13 +110,13 @@
     }
   });
 
-  if (window.ethereum && typeof window.ethereum.on === "function") {
-    window.ethereum.on("accountsChanged", function (accounts) {
+  if (provider && typeof provider.on === "function") {
+    provider.on("accountsChanged", function (accounts) {
       connectedAddress = Array.isArray(accounts) && accounts[0] ? accounts[0] : null;
       render();
       publish();
     });
-    window.ethereum.on("chainChanged", function (nextChainId) {
+    provider.on("chainChanged", function (nextChainId) {
       chainId = nextChainId;
       render();
       publish();
