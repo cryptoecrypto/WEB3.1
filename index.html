@@ -14,6 +14,20 @@ nav a:hover,.home:hover{background:var(--n);color:#001b0c;border-color:var(--n)}
 .home{color:var(--n);border-color:var(--n)}
 iframe{display:block;width:100%;height:calc(100% - 58px);border:0;background:#000}
 @media(max-width:700px){header{height:auto;min-height:58px;align-items:flex-start;flex-direction:column;gap:6px;padding:8px 10px}nav{width:100%;max-width:100%;padding-bottom:4px}iframe{height:calc(100% - 86px)}}
+
+/* CRYPY soundtrack — official YouTube embed */
+.music-dock{position:fixed;right:16px;bottom:16px;z-index:30;width:min(340px,calc(100vw - 24px));background:#020b06;border:1px solid #00ff88;border-radius:14px;box-shadow:0 0 22px #00ff8840;padding:10px;color:#eafff2}
+.music-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.08em;color:#00ff88}
+.music-head span{flex:1}
+.music-actions{display:flex;gap:6px}
+.music-actions button,.music-reopen{border:1px solid #1b8b50;background:#06180e;color:#dfffea;border-radius:8px;padding:7px 9px;font-size:11px;font-weight:800;cursor:pointer}
+.music-actions button:hover,.music-reopen:hover{background:#00ff88;color:#001b0c}
+.music-frame{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;background:#000}
+.music-note{font-size:10px;color:#9bc9ad;margin-top:6px;line-height:1.4}
+.music-reopen{position:fixed;right:16px;bottom:16px;z-index:29;border-color:#00ff88;color:#00ff88;box-shadow:0 0 18px #00ff8840}
+[hidden]{display:none!important}
+@media(max-width:700px){.music-dock{right:8px;bottom:8px;width:min(300px,calc(100vw - 16px))}.music-reopen{right:8px;bottom:8px}}
+
 </style>
 </head>
 <body>
@@ -43,4 +57,53 @@ iframe{display:block;width:100%;height:calc(100% - 58px);border:0;background:#00
 <a class="home" href="./mapa-colmeia.html" target="crypy-content">MAPA · 168 PÁGINAS</a>
 </header>
 <iframe name="crypy-content" src="./index.htm" title="Página original da Home CRYPY" loading="eager"></iframe>
+
+<section class="music-dock" id="crypy-music" aria-label="Música do portal CRYPY">
+  <div class="music-head"><span>♫ CRYPY SOUNDTRACK · BAD TIMES</span>
+    <div class="music-actions">
+      <button type="button" id="music-sound" aria-label="Ativar som">ATIVAR SOM</button>
+      <button type="button" id="music-close" aria-label="Fechar música">FECHAR ×</button>
+    </div>
+  </div>
+  <iframe class="music-frame" id="music-frame"
+    title="Bad Times — Imael Angel"
+    src="https://www.youtube-nocookie.com/embed/8PeU6AVPQVg?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=8PeU6AVPQVg&amp;controls=1&amp;playsinline=1&amp;rel=0"
+    allow="autoplay; encrypted-media; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="music-note" id="music-note">A faixa tenta iniciar ao abrir o portal. Se o navegador bloquear o som automático, toque em ATIVAR SOM. Use os controles do player para pausar e ajustar o volume.</div>
+</section>
+<button class="music-reopen" id="music-reopen" type="button" hidden>♫ ABRIR MÚSICA</button>
+<script>
+(function(){
+  const dock=document.getElementById('crypy-music');
+  const frame=document.getElementById('music-frame');
+  const sound=document.getElementById('music-sound');
+  const close=document.getElementById('music-close');
+  const reopen=document.getElementById('music-reopen');
+  const note=document.getElementById('music-note');
+  const video='8PeU6AVPQVg';
+  function playerUrl(muted){
+    return 'https://www.youtube-nocookie.com/embed/'+video+
+      '?autoplay=1&mute='+(muted?'1':'0')+'&loop=1&playlist='+video+
+      '&controls=1&playsinline=1&rel=0';
+  }
+  sound.addEventListener('click',function(){
+    frame.src=playerUrl(false);
+    sound.textContent='SOM ATIVADO';
+    note.textContent='Bad Times — Imael Angel. Loop ativado; pause e volume ficam nos controles do player.';
+  });
+  close.addEventListener('click',function(){
+    frame.src='about:blank';
+    dock.hidden=true;
+    reopen.hidden=false;
+  });
+  reopen.addEventListener('click',function(){
+    dock.hidden=false;
+    reopen.hidden=true;
+    frame.src=playerUrl(true);
+    sound.textContent='ATIVAR SOM';
+  });
+})();
+</script>
+
 </body></html>
