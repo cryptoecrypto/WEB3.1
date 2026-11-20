@@ -7,7 +7,7 @@
 
 ## Componentes
 - `src/server.js`: servidor HTTP Node.js e rotas API.
-- `src/auth.js`: autenticação administrativa, sessão HttpOnly e controle de tentativas.
+- `src/auth.js`: autenticação administrativa com senha + Google Authenticator TOTP, sessão HttpOnly, anti-replay persistente e controle de tentativas.
 - `src/baby.js`: orquestração de tarefas.
 - `src/memory.js`: inventário, hashes SHA-256, índice e busca.
 - `src/vault.js`: snapshots aditivos, deduplicação e verificação.
@@ -33,7 +33,9 @@ O painel é servido na raiz `/`; a verificação pública mínima é `/health`. 
 Definir no gerenciador de segredos do Railway, nunca no HTML ou no repositório:
 - `NODE_ENV=production`
 - `CRYPY_ADMIN_USER=sensei`
-- `CRYPY_ADMIN_PASSWORD`: segredo aleatório com pelo menos 24 caracteres.
+- `CRYPY_ADMIN_PASSWORD`: senha administrativa atual, com pelo menos 24 caracteres; não precisa ser alterada para ativar o segundo fator.
+- `CRYPY_TOTP_SECRET`: chave Base32 privada do autenticador, com pelo menos 160 bits; nunca colocar no GitHub, HTML, backup comum ou conversa.
+- `CRYPY_TOTP_COUNTER_FILE`: caminho persistente opcional do contador anti-replay; padrão no volume `/data/crypy-baby/totp-last-counter.json`.
 - `CRYPY_SENSEI_TOKEN`: token aleatório com pelo menos 32 bytes, separado da senha.
 - `CRYPY_DATA_DIR=/data/crypy-baby`
 - `CRYPY_EVIDENCE_DIR=/data/crypy-baby/evidence`
@@ -53,7 +55,9 @@ As sessões são mantidas em memória do processo e expiram após oito horas; um
 - Nenhuma senha ou token padrão é aceito em produção.
 - API sem autenticação responde 401.
 - Operações POST da API exigem mesma origem.
-- Cookies de sessão: HttpOnly, SameSite=Strict e Secure em produção.
+- Login exige senha administrativa + código TOTP de seis dígitos (SHA-1, janela de 30 segundos, tolerância de um passo de relógio).
+- O contador TOTP aceito é persistido no volume antes de criar a sessão, impedindo reutilização do mesmo passo após reinicialização.
+- Cookies de sessão: HttpOnly, SameSite=Strict e Secure em produção; janela administrativa padrão de cinco minutos.
 - Limite do corpo HTTP: 1 MB.
 - Operações destrutivas permanecem em dry-run por padrão e exigem aprovação do Sensei para executar.
 - O painel não coleta seed phrase, chave privada ou credenciais de carteira.
