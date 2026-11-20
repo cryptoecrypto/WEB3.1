@@ -42,6 +42,26 @@ iframe{display:none;width:100%;height:100%;min-height:70vh;border:0;background:#
 #music-expand{display:none}
 @media(max-width:600px){#crypy-music{right:9px;bottom:9px;width:260px}#crypy-music.is-minimized{width:44px;height:44px}#crypy-music.is-minimized .music-head{height:38px}#crypy-music.is-minimized #music-expand{width:38px;height:38px}}
 
+
+/* CRYPY COSMIC RGB — Home visual layer */
+:root{--neon:#00ffd0;--bg:#03040c;--panel:#081326;--line:#1a5570}
+html,body{background:#03040c url('./assets/images/crypy-cosmos.svg') center/cover fixed no-repeat}
+body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 15% 15%,#00f0ff26,transparent 38%),radial-gradient(ellipse at 85% 30%,#ff26cf24,transparent 36%),radial-gradient(ellipse at 50% 90%,#6d4cff26,transparent 42%);animation:home-cosmos 18s ease-in-out infinite alternate}
+body>*{position:relative;z-index:1}
+nav#main-menu{background:rgba(2,5,17,.86);backdrop-filter:blur(16px);border-bottom:1px solid transparent;border-image:linear-gradient(90deg,#00ffd0,#00cfff,#ff38c9,#9b5cff,#00ffd0) 1}
+nav#main-menu button{position:relative;overflow:hidden;background:linear-gradient(125deg,#07162b,#170d2b,#06232a);border:1px solid #43eaff66;color:#edffff;box-shadow:inset 0 0 18px #00d9ff0b;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+nav#main-menu button:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,#ffffff24,transparent);transform:translateX(-130%);transition:transform .65s ease}
+nav#main-menu button:hover:after{transform:translateX(130%)}
+nav#main-menu button:hover,nav#main-menu button:focus-visible{background:linear-gradient(110deg,#00ffd0,#00d9ff,#ff54d9);color:#06101b;border-color:#fff;box-shadow:0 0 22px #00d9ff66,0 0 34px #ff38c944;transform:translateY(-2px)}
+#workspace{background:linear-gradient(135deg,#020611d9,#0b0b20c9,#031b20d9)}
+#catalog h1{background:linear-gradient(90deg,#fff,#8ffff0,#7ceaff,#ff9bea,#fff0a6);background-size:250% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:home-rgb 9s linear infinite}
+.page-link{background:linear-gradient(120deg,#08172bdf,#1b0e2ad9,#06232add);border-color:#55eaff55;box-shadow:inset 0 0 20px #00d9ff0b;transition:transform .25s ease,box-shadow .25s ease}
+.page-link:hover,.page-link:focus-visible{border-color:#ff65df;color:#fff;box-shadow:0 0 20px #00d9ff55,0 0 25px #ff38c933;transform:translateY(-2px)}
+#status{background:rgba(2,6,17,.92);border-top:1px solid #48eaff66;color:#b9e9ed}
+@keyframes home-rgb{to{background-position:250% center}}
+@keyframes home-cosmos{from{opacity:.55}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
