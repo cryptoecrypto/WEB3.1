@@ -12,13 +12,20 @@
 
   var style = document.createElement("style");
   style.textContent = [
-    "#baby-metamask-control{margin-left:auto;display:flex;align-items:center;gap:7px;min-width:0}",
+    "#baby-metamask-control{display:flex;align-items:center;gap:7px;min-width:0}",
+    "#baby-miner-manager-link{margin-left:auto;color:#00ff88;text-decoration:none;font-size:11px;font-weight:700;white-space:nowrap}",
     "#baby-metamask-connect{border:1px solid #00ff88;background:#061b10;color:#00ff88;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}",
     "#baby-metamask-connect:focus-visible{outline:2px solid #fff;outline-offset:3px}",
     "#baby-metamask-state{font-size:10px;color:#a8d8bb;max-width:116px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
     "@media(max-width:420px){#baby-metamask-state{display:none}#baby-metamask-connect{padding:8px;font-size:11px}}"
   ].join("\n");
   document.head.appendChild(style);
+
+  var managerLink = document.createElement("a");
+  managerLink.id = "baby-miner-manager-link";
+  managerLink.href = "./baby-miner-manager.html";
+  managerLink.textContent = "Miner Manager";
+  managerLink.setAttribute("aria-label", "Abrir painel BABY Miner Manager");
 
   var control = document.createElement("div");
   control.id = "baby-metamask-control";
@@ -33,6 +40,7 @@
   button.textContent = "Conectar MetaMask";
   control.appendChild(state);
   control.appendChild(button);
+  header.appendChild(managerLink);
   header.appendChild(control);
 
   var provider = window.ethereum && window.ethereum.isMetaMask === true ? window.ethereum : null;
