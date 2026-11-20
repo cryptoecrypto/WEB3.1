@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050806">
+<title>BABY Miner Manager — CRYPY</title>
+<style>
+:root{color-scheme:dark;--bg:#050806;--panel:#0c1510;--line:#244332;--green:#00ff88;--muted:#a5b9ac;--warn:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#eafff2;font:15px system-ui,Segoe UI,sans-serif}
+header{padding:20px max(18px,calc((100vw - 980px)/2));border-bottom:1px solid var(--line);background:#07110b}
+header a{color:var(--green);text-decoration:none}main{max-width:980px;margin:auto;padding:22px 16px 48px}
+h1{margin:0;color:var(--green);font-size:clamp(25px,5vw,38px)}h2{font-size:18px;margin:0 0 12px}
+.sub{color:var(--muted);margin:8px 0 0}.notice{border:1px solid #6a5524;background:#211b0b;color:#ffe6a3;border-radius:12px;padding:13px;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.metric{font-size:24px;font-weight:750;color:var(--green);margin-top:8px}.muted{color:var(--muted);font-size:13px}
+.pill{display:inline-block;border:1px solid #53685a;border-radius:999px;padding:4px 9px;font-size:12px;color:#c6d7cc}
+button,a.action{display:inline-block;border:1px solid var(--green);border-radius:9px;background:#082416;color:var(--green);padding:10px 13px;font-weight:700;text-decoration:none}
+button:disabled{opacity:.45;cursor:not-allowed}
+ul{padding-left:20px;line-height:1.7}.foot{border-top:1px solid var(--line);margin-top:22px;padding-top:16px;color:var(--muted);font-size:13px}
+code{color:#b4ffd5}
+</style>
+</head>
+<body>
+<header><a href="./chatboot-baby-ia.html">← Voltar ao BABY I.A.</a></header>
+<main>
+<h1>BABY MINER MANAGER</h1>
+<p class="sub">Painel de preparação e monitoramento — CRYPY</p>
+<div class="notice"><strong>ESTADO REAL: NÃO CONECTADO.</strong><br>Este painel não está minerando, não está conectado a um pool e não apresenta ganhos simulados como reais. Os campos permanecem indisponíveis até existir uma fonte de dados verificada.</div>
+<section class="grid" aria-label="Estado da operação">
+<div class="card"><span class="pill">Equipamento</span><div class="metric">Não conectado</div><p class="muted">PC ainda não identificado pelo agente local.</p></div>
+<div class="card"><span class="pill">Hashrate</span><div class="metric">—</div><p class="muted">Aguardando leitura do minerador.</p></div>
+<div class="card"><span class="pill">Pool</span><div class="metric">Não conectado</div><p class="muted">Nenhum endpoint configurado.</p></div>
+<div class="card"><span class="pill">Pagamentos BTC</span><div class="metric">—</div><p class="muted">Sem consulta de pagamentos.</p></div>
+</section>
+<section class="card">
+<h2>O que falta conectar</h2>
+<ul>
+<li>Identificar CPU, GPU, sistema operacional e consumo do PC.</li>
+<li>Instalar e validar manualmente um software de mineração confiável, obtido da fonte oficial.</li>
+<li>Escolher pool e verificar taxas, mínimo de pagamento e suporte ao protocolo.</li>
+<li>Configurar endereço Bitcoin público de recebimento — separado da MetaMask.</li>
+<li>Instalar um agente local com autenticação, permissões limitadas e API somente leitura inicialmente.</li>
+<li>Testar telemetria real antes de habilitar qualquer comando de controle.</li>
+</ul>
+</section>
+<section class="card" style="margin-top:14px">
+<h2>Segurança</h2>
+<ul>
+<li>Nunca inserir seed phrase, chave privada ou senha da carteira neste painel.</li>
+<li>Nunca executar comandos arbitrários recebidos do navegador.</li>
+<li>Não habilitar mineração automaticamente na inicialização do PC.</li>
+<li>Exigir confirmação local para iniciar/parar o processo e limitar consumo/temperatura.</li>
+<li>Manter registros de conexão e operações; não enviar credenciais para GitHub Pages.</li>
+</ul>
+</section>
+<section class="card" style="margin-top:14px">
+<h2>Próximo passo</h2>
+<p class="muted">Preencher o diagnóstico do PC e calcular custo de energia antes de escolher o minerador. A mineração de Bitcoin em PC convencional tende a ser economicamente inviável frente a ASICs.</p>
+<a class="action" href="./chatboot-baby-ia.html">Voltar e informar o hardware</a>
+</section>
+<div class="foot">BABY Miner Manager · Protótipo de interface. Nenhuma mineração ou conexão de pool foi executada.</div>
+</main>
+</body>
+</html>
