@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS academy_oauth_transactions (
   provider TEXT NOT NULL CHECK (provider IN ('google','microsoft')),
   nonce TEXT NOT NULL,
   code_verifier TEXT NOT NULL,
+  browser_hash TEXT NOT NULL,
   expires_at TIMESTAMPTZ NOT NULL
 );
 
