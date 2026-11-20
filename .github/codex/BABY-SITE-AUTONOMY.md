@@ -47,3 +47,11 @@ Se uma correção exigir qualquer caminho protegido, interromper a alteração e
 
 ## Critério de conclusão
 IMPLEMENTADO = patch existe; TESTADO = comandos executados e aprovados; PRONTO PARA REVISÃO = PR aberta; APROVADO = decisão humana; SINCRONIZADO = merge e validação posterior na branch principal.
+
+## Tarefa padrão de cada execução
+- Conferir o índice `assets/data/crypy-page-index.json` e revisar as páginas HTML públicas nele listadas, identificando links quebrados, navegação inconsistente, erros de acessibilidade, problemas mobile e falhas locais verificáveis.
+- Examinar também os dois ativos compartilhados permitidos e verificar se as páginas usam os caminhos relativos corretos.
+- Corrigir no máximo 8 arquivos existentes por execução. Não criar, excluir ou renomear arquivos.
+- Priorizar defeitos concretos e impacto para o visitante; não reformular conteúdo editorial nem inventar funcionalidades.
+- Antes de concluir, executar os testes estruturais disponíveis e registrar cada comando e resultado. Se qualquer teste falhar, explicar a falha; a etapa externa de validação bloqueará a PR.
+- Se não houver correção segura e comprovável, não fabricar alterações: entregar apenas o relatório.
