@@ -64,15 +64,38 @@
   .flash.show{opacity:1;transform:none}
   .flash.err{border-color:var(--red)}
   footer{grid-column:1/-1;color:var(--dim);font-size:11px;text-align:center;padding-top:6px}
+
+  body:not(.authenticated)>header, body:not(.authenticated)>main, body:not(.authenticated)>.flash{display:none}
+  .auth-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(900px 500px at 50% 0%,#103d25 0%,#070b09 65%)}
+  .auth-card{width:min(430px,100%);padding:26px;border:1px solid #1d5737;border-radius:18px;background:#0d1512;box-shadow:0 18px 70px #0009,0 0 35px #00ff8818}
+  .auth-card h1{font-size:23px;line-height:1.15;margin:14px 0 7px}.auth-card p{color:#9bb8a8;font-size:12px;line-height:1.55}
+  .auth-card label{display:block;margin:13px 0 5px;color:#9bb8a8;font-size:11px}
+  .auth-card input{width:100%;padding:12px;border:1px solid #1d3a2a;border-radius:9px;background:#050a07;color:#eafff3}
+  .auth-card button{width:100%;margin-top:16px;padding:12px;background:#00ff88;border:0;border-radius:9px;color:#031007;font-weight:900}
+  .auth-error{margin-top:12px;color:#ff8a96!important}.logout{border:1px solid #ff6b7a!important;color:#ff8a96!important;background:#ff6b7a12!important;width:auto!important;margin:0!important}
+
 </style>
 </head>
 <body>
+<div class="auth-screen" id="authScreen">
+  <form class="auth-card" id="authForm" autocomplete="on">
+    <span class="pill"><b>HD MATRIZ · ACESSO RESTRITO</b></span>
+    <h1>CRYPY · BABY<br><span class="ok">Núcleo operacional</span></h1>
+    <p>Entre com a conta administrativa do Sensei. A sessão é protegida por cookie HttpOnly e expira automaticamente.</p>
+    <label for="authUser">Usuário</label>
+    <input id="authUser" name="username" autocomplete="username" value="sensei" required maxlength="80">
+    <label for="authPass">Senha</label>
+    <input id="authPass" name="password" type="password" autocomplete="current-password" required minlength="24">
+    <button type="submit" id="authSubmit">ENTRAR NO SERVIDOR</button>
+    <p id="authError" class="auth-error" role="alert"></p>
+  </form>
+</div>
 <header>
   <div>
     <h1>CRYPY · <span>BABY</span> — núcleo operacional <span class="tag">MODO REAL</span></h1>
     <div class="sub" id="principle">Não estamos construindo uma IA para conversar sobre o CRYPY. Estamos construindo uma IA para trabalhar dentro do CRYPY.</div>
   </div>
-  <div class="pills" id="pills"><span class="pill">carregando…</span></div>
+  <div class="pills" id="pills"><span class="pill">carregando…</span><button class="logout" id="logoutBtn" type="button">SAIR</button></div>
 </header>
 
 <main>
@@ -173,8 +196,12 @@ let STATUS = null;
 function flash(msg, err){ const f=$('#flash'); f.textContent=msg; f.className='flash show'+(err?' err':''); setTimeout(()=>f.className='flash',4200); }
 function show(o){ $('#out').textContent = typeof o==='string'? o : JSON.stringify(o,null,2); }
 async function api(path, opts){
-  const res = await fetch(path, opts);
+  const res = await fetch(path, { credentials:'same-origin', ...(opts||{}) });
   const body = await res.json().catch(()=>({ok:false,reason:'resposta não-JSON'}));
+  if(res.status===401 && !path.startsWith('/auth/')){
+    showAuth('Sua sessão expirou. Entre novamente.');
+    throw new Error('sessão expirada');
+  }
   if(!res.ok && body.reason) flash(body.reason, true);
   return body;
 }
@@ -285,8 +312,44 @@ $('#btnAdvance').onclick = async ()=>{
   show(r); flash(r.ok? `${id}: ${r.from} → ${r.to}` : (r.reason||'negado'), !r.ok);
   await refresh();
 };
-refresh();
-setInterval(refresh, 20000);
+
+function showAuth(message=''){
+  document.body.classList.remove('authenticated');
+  $('#authScreen').hidden=false;
+  $('#authError').textContent=message;
+  $('#authPass').value='';
+}
+function hideAuth(){
+  document.body.classList.add('authenticated');
+  $('#authScreen').hidden=true;
+}
+let refreshTimer=null;
+$('#authForm').addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const btn=$('#authSubmit');btn.disabled=true;btn.textContent='AUTENTICANDO…';
+  try{
+    const res=await fetch('/auth/login',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({username:$('#authUser').value,password:$('#authPass').value})});
+    const body=await res.json().catch(()=>({ok:false,reason:'resposta inválida'}));
+    if(!res.ok||!body.ok) throw new Error(body.reason||'Não foi possível entrar.');
+    $('#authPass').value='';hideAuth();await refresh();
+    if(!refreshTimer) refreshTimer=setInterval(refresh,20000);
+  }catch(err){showAuth(err.message||'Falha ao autenticar.');}
+  finally{btn.disabled=false;btn.textContent='ENTRAR NO SERVIDOR';}
+});
+$('#logoutBtn').addEventListener('click',async()=>{
+  try{await fetch('/auth/logout',{method:'POST',credentials:'same-origin'});}catch{}
+  showAuth('Sessão encerrada.');
+});
+async function bootAuth(){
+  try{
+    const res=await fetch('/auth/session',{credentials:'same-origin'});
+    const session=await res.json();
+    if(session.authenticated){hideAuth();await refresh();if(!refreshTimer)refreshTimer=setInterval(refresh,20000);}
+    else showAuth('');
+  }catch{showAuth('Servidor indisponível. Tente novamente em alguns instantes.');}
+}
+
+bootAuth();
 </script>
 </body>
 </html>
