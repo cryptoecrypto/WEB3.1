@@ -15,7 +15,7 @@ export async function fixture({ corpus = true } = {}) {
   for (const d of [projectRoot, evidenceDir, sandboxDir, path.join(projectRoot, 'src'), path.join(projectRoot, 'test'), path.join(projectRoot, 'docs'), path.join(projectRoot, 'public')]) {
     await fsp.mkdir(d, { recursive: true });
   }
-  await fsp.writeFile(path.join(projectRoot, 'public', 'index.html'), '<!doctype html><title>fixture</title>', 'utf8');
+  await fsp.writeFile(path.join(projectRoot, 'public', 'index.html'), '<!doctype html><html><body><form id="authForm"><button>ENTRAR NO SERVIDOR</button></form></body></html>', 'utf8');
   await fsp.writeFile(path.join(projectRoot, 'src', 'mod1.js'), 'export const a = 1;\n', 'utf8');
   await fsp.writeFile(path.join(projectRoot, 'src', 'mod2.js'), '// TODO: revisar\nexport const b = 2;\n', 'utf8');
   await fsp.writeFile(path.join(projectRoot, 'test', 'mod2.test.js'), '// teste de mod2\n', 'utf8');
