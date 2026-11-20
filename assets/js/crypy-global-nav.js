@@ -66,7 +66,7 @@
       ["BIOGRAFIA","biografia/biografia.html"],
       ["GAMES","crypy-games-desafios/crypy-games-desafios.html"]
     ].forEach(function(item) {
-      shortcuts.appendChild(node("a", { href:new URL(item[1],siteRoot).href }, item[0]));
+      shortcuts.appendChild(node("a", { href:new URL(item[1],siteRoot).href, target:"crypy-content" }, item[0]));
     });
     head.appendChild(shortcuts);
     var searchWrap = node("div", { className:"crypy-nav-search" });
@@ -108,7 +108,7 @@
         return;
       }
       matches.forEach(function(page) {
-        var link = node("a", { className:"crypy-nav-link", href:new URL(page.path,siteRoot).href, role:"listitem" });
+        var link = node("a", { className:"crypy-nav-link", href:new URL(page.path,siteRoot).href, target:"crypy-content", role:"listitem" });
         link.appendChild(node("strong", {}, page.label));
         link.appendChild(node("small", {}, page.group + " · " + page.path));
         list.appendChild(link);
