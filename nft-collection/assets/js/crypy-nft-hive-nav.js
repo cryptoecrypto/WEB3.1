@@ -38,6 +38,7 @@
   var legacy = {
     "CRYPY-INDEX-FINAL.html": "../index.html",
     "nft-5-paginas.html": "collection-crypy-nft.html",
+    "nft-exhibition.html": "crypy-nft-edition.html",
     "nft-esquadrao.html": "../esquadrao-das-cores/esquadrao.html",
     "nft-exhibition.html": "crypy-nft-edition.html",
     "crypy-infinit-completo.html": "../crypy-infinyt/portal.html",
@@ -56,6 +57,7 @@
     "baby-consulta.html": "chatboot-baby-ia.html",
     "baby.html": "../baby-ia/centro.html",
     "hd_oculto_baby_v13.html": "hd-baby-ia.html",
+    "BABY-IA-Fortaleza-Digital.html": "../baby-ia/centro.html",
     "biografia.html": "../biografia/historia.html",
     "explorar.html": "galeria.html",
     "qualidade.html": "../crypy-academy/cursos.html",
