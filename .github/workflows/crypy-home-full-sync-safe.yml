@@ -1,5 +1,7 @@
 name: CRYPY — validação da sincronização global
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -16,5 +18,5 @@ jobs:
           node-version: 20
       - name: Verificar sintaxe
         run: node --check scripts/sincronizar-crypy-global.mjs && node --check scripts/validar-crypy-global.mjs && node --check assets/js/crypy-global-nav.js && node --check assets/js/baby-global-chat.js
-      - name: Validar índice e integração
+      - name: Validar índice e integração BABY
         run: node scripts/validar-crypy-global.mjs
