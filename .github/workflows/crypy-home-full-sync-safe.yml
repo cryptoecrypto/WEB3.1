@@ -18,5 +18,7 @@ jobs:
           node-version: 20
       - name: Verificar sintaxe
         run: node --check scripts/sincronizar-crypy-global.mjs && node --check scripts/validar-crypy-global.mjs && node --check assets/js/crypy-global-nav.js && node --check assets/js/baby-global-chat.js
+      - name: Testar núcleo BABY e política de permissões
+        run: node --test crypy-server-bridge/test/
       - name: Validar índice e integração BABY
         run: node scripts/validar-crypy-global.mjs
