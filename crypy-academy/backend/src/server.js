@@ -84,6 +84,22 @@ const mailer = process.env.SMTP_HOST ? nodemailer.createTransport({
   auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined
 }) : null;
 
+async function sendEmailVerification(userId, email) {
+  if (!mailer) return false;
+  const token = randomBytes(32).toString("base64url");
+  await pool.query(
+    "INSERT INTO academy_email_verifications(token_hash,user_id,expires_at) VALUES($1,$2,NOW()+INTERVAL '30 minutes')",
+    [hash(token), userId]
+  );
+  const link = API_BASE_URL + "/api/email/verify/" + token;
+  await mailer.sendMail({
+    from: required("SMTP_FROM"), to: email,
+    subject: "Confirme seu e-mail · CRYPY Academy",
+    text: "Para confirmar seu endereço de e-mail, abra este link (válido por 30 minutos): " + link
+  });
+  return true;
+}
+
 app.disable("x-powered-by");
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 app.use((req, res, next) => {
@@ -123,6 +139,11 @@ async function requireUser(req, res, next) {
     }
     next();
   } catch (error) { next(error); }
+}
+
+async function requireVerifiedUser(req, res, next) {
+  if (!req.user.email_verified) return res.status(403).json({ error: "EMAIL_NAO_VERIFICADO" });
+  next();
 }
 
 app.get("/health", (_req, res) => res.json({ status: "ok", service: "crypy-academy-api" }));
@@ -171,8 +192,8 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
     });
     const claims = tokens.claims();
     const email = String(claims.email || claims.preferred_username || "").trim().toLowerCase();
-    const verified = provider === "google" ? claims.email_verified === true : claims.email_verified !== false;
-    if (!claims.sub || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) || !verified) return res.status(403).send("O provedor não confirmou um e-mail utilizável.");
+    const verified = claims.email_verified === true;
+    if (!claims.sub || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) return res.status(403).send("O provedor não forneceu um e-mail utilizável.");
     await client.query("BEGIN");
     let identity = await client.query(
       "SELECT user_id FROM academy_identities WHERE provider=$1 AND subject=$2",
@@ -181,14 +202,21 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
     let userId;
     if (identity.rowCount) {
       userId = identity.rows[0].user_id;
-      await client.query("UPDATE academy_users SET email=$2,display_name=$3,email_verified=TRUE WHERE id=$1",
-        [userId, email, String(claims.name || email).slice(0, 160)]);
+      await client.query("UPDATE academy_users SET email=$2,display_name=$3,email_verified=(email_verified OR $4) WHERE id=$1",
+        [userId, email, String(claims.name || email).slice(0, 160), verified]);
     } else {
-      const user = await client.query(
-        "INSERT INTO academy_users(email,display_name,email_verified) VALUES($1,$2,TRUE) ON CONFLICT(email) DO UPDATE SET email_verified=TRUE RETURNING id",
-        [email, String(claims.name || email).slice(0, 160)]
-      );
-      userId = user.rows[0].id;
+      const existing = await client.query("SELECT id,email_verified FROM academy_users WHERE email=$1", [email]);
+      if (existing.rowCount && !verified) throw new Error("EMAIL_JA_CADASTRADO_COM_OUTRO_PROVEDOR");
+      if (existing.rowCount) {
+        userId = existing.rows[0].id;
+        await client.query("UPDATE academy_users SET email_verified=TRUE WHERE id=$1", [userId]);
+      } else {
+        const user = await client.query(
+          "INSERT INTO academy_users(email,display_name,email_verified) VALUES($1,$2,$3) RETURNING id",
+          [email, String(claims.name || email).slice(0, 160), verified]
+        );
+        userId = user.rows[0].id;
+      }
       await client.query("INSERT INTO academy_identities(provider,subject,user_id) VALUES($1,$2,$3)",
         [provider, claims.sub, userId]);
     }
@@ -199,7 +227,11 @@ app.get("/api/auth/:provider/callback", authLimiter, async (req, res, next) => {
     await client.query("COMMIT");
     setCookie(res, "__Host-crypy_academy_session", session, 7 * 24 * 60 * 60, true);
     setCookie(res, "crypy_academy_csrf", csrf, 7 * 24 * 60 * 60, false);
-    res.redirect(FRONTEND_URL + "?login=success");
+    if (!verified) {
+      try { await sendEmailVerification(userId, email); }
+      catch (mailError) { console.error("Falha ao enviar verificação:", mailError.message); }
+    }
+    res.redirect(FRONTEND_URL + (verified ? "?login=success" : "?login=success&verify_email=1"));
   } catch (error) {
     await client.query("ROLLBACK").catch(() => {});
     next(error);
@@ -211,6 +243,26 @@ app.get("/api/me", requireUser, (req, res) => res.json({
   csrf: cookieValue(req, "crypy_academy_csrf")
 }));
 
+app.get("/api/email/verify/:token", async (req, res, next) => {
+  try {
+    const result = await pool.query(
+      "DELETE FROM academy_email_verifications WHERE token_hash=$1 AND expires_at>NOW() RETURNING user_id",
+      [hash(req.params.token)]
+    );
+    if (!result.rowCount) return res.status(400).send("Link de verificação inválido ou expirado.");
+    await pool.query("UPDATE academy_users SET email_verified=TRUE WHERE id=$1", [result.rows[0].user_id]);
+    res.redirect(FRONTEND_URL + "?email=verified");
+  } catch (error) { next(error); }
+});
+
+app.post("/api/email/resend", requireUser, async (req, res, next) => {
+  try {
+    if (req.user.email_verified) return res.json({ ok: true, alreadyVerified: true });
+    const sent = await sendEmailVerification(req.user.id, req.user.email);
+    res.json({ ok: true, sent });
+  } catch (error) { next(error); }
+});
+
 app.post("/api/logout", requireUser, async (req, res, next) => {
   try {
     const raw = cookieValue(req, "__Host-crypy_academy_session");
@@ -221,7 +273,7 @@ app.post("/api/logout", requireUser, async (req, res, next) => {
   } catch (error) { next(error); }
 });
 
-app.get("/api/progress", requireUser, async (req, res, next) => {
+app.get("/api/progress", requireUser, requireVerifiedUser, async (req, res, next) => {
   try {
     const { track, level } = req.query;
     if (!courseLevel(String(track || ""), String(level || ""))) return res.status(400).json({ error: "CURSO_INVALIDO" });
@@ -233,7 +285,7 @@ app.get("/api/progress", requireUser, async (req, res, next) => {
   } catch (error) { next(error); }
 });
 
-app.put("/api/progress", requireUser, async (req, res, next) => {
+app.put("/api/progress", requireUser, requireVerifiedUser, async (req, res, next) => {
   try {
     const { track, level, lessonIndex, completed } = req.body || {};
     const course = courseLevel(track, level);
@@ -248,7 +300,7 @@ app.put("/api/progress", requireUser, async (req, res, next) => {
   } catch (error) { next(error); }
 });
 
-app.get("/api/exams/:track/:level", requireUser, async (req, res, next) => {
+app.get("/api/exams/:track/:level", requireUser, requireVerifiedUser, async (req, res, next) => {
   try {
     if (!courseLevel(req.params.track, req.params.level)) return res.status(404).json({ error: "CURSO_INVALIDO" });
     const rows = await pool.query(
@@ -278,7 +330,7 @@ async function makeCertificatePdf(user, course, level, code, issuedAt) {
   return done;
 }
 
-app.post("/api/exams/:track/:level/submit", requireUser, examLimiter, async (req, res, next) => {
+app.post("/api/exams/:track/:level/submit", requireUser, requireVerifiedUser, examLimiter, async (req, res, next) => {
   try {
     const { track, level } = req.params;
     const course = courseLevel(track, level);
@@ -347,7 +399,7 @@ app.post("/api/exams/:track/:level/submit", requireUser, examLimiter, async (req
   } catch (error) { next(error); }
 });
 
-app.get("/api/diplomas", requireUser, async (req, res, next) => {
+app.get("/api/diplomas", requireUser, requireVerifiedUser, async (req, res, next) => {
   try {
     const rows = await pool.query(
       "SELECT verification_code,track_id,level_id,score,issued_at,email_status FROM academy_diplomas WHERE user_id=$1 ORDER BY issued_at DESC",
