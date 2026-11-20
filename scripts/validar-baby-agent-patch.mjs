@@ -17,11 +17,11 @@ if (patch.trim() && paths.length === 0) {
   process.exit(3);
 }
 
-function allowed(file) {
+if (new Set(paths).size > 8) {\n  console.error("Limite de 8 arquivos por execução excedido.");\n  process.exit(6);\n}\n\nfunction allowed(file) {
   if (!file || file.startsWith("/") || file.split("/").includes("..")) return false;
   if (file === "index.html") return false;
   if (file.split("/").some(part => /^hd-/i.test(part) || /hd-matriz/i.test(part))) return false;
-  if (file.split("/").some(part => /^(backup|backups|memoria|memorias|manifest)$/i.test(part))) return false;
+  if (file.split("/").some(part => /(backup|survival|memoria|manifest)/i.test(part))) return false;
   if (/^(nft-collection|crypy-news\/hd-matriz|crypy-server-bridge|\.github|scripts)\//i.test(file)) return false;
   if (/^baby-ia\//i.test(file) && file !== "baby-ia/centro.html") return false;
   if (/^(Memorias\.json|Manifest\.json)$/i.test(file) || /(^|\/)(Memorias|Manifest)\.json$/i.test(file)) return false;
