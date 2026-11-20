@@ -154,8 +154,9 @@
       } else {
         histories[active].forEach(function (item) { addMessage(item.text, item.kind, item.source); });
       }
-      log.style.setProperty("--active-color", colorStyle(member));
-      panel.style.setProperty("--active-color", colorStyle(member));
+      var accent = member.color === "iridescent" ? "#ff65b8" : member.color;
+      log.style.setProperty("--active-color", accent);
+      panel.style.setProperty("--active-color", accent);
       send.style.background = colorStyle(member);
     }
     function choose(id) {
