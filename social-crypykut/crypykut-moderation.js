@@ -49,7 +49,9 @@
     return {
       allowedForLocalReview:technicalOK&&blocks.length===0,
       status:!technicalOK||blocks.length?"BLOQUEADO_LOCALMENTE":"AGUARDANDO_REVISAO_HUMANA",
-      reasons,reports,moderators:configuredProfiles.map(p=>({id:p.id,name:p.name,focus:p.focus})),\n      leadership:squadConfig ? squadConfig.leadership : {primaryModerator:{id:"BABY"},technicalCoordinator:{id:"NEXUS"},finalAuthority:{id:"SENSEI"}},\n      configurationLoaded:!!squadConfig,
+      reasons,reports,moderators:configuredProfiles.map(p=>({id:p.id,name:p.name,focus:p.focus})),
+      leadership:squadConfig ? squadConfig.leadership : {primaryModerator:{id:"BABY"},technicalCoordinator:{id:"NEXUS"},finalAuthority:{id:"SENSEI"}},
+      configurationLoaded:!!squadConfig,
       checks:{fileType:validType,fileSize:!!file&&file.size<=maxBytes,cryptoTopic:topic,textPolicy:blocks.length===0},
       limitation:"Triagem somente de texto e metadados do arquivo. Nenhum dos oito módulos analisa cenas, imagens ou áudio. Aprovação final humana; publicação pública desativada."
     };
