@@ -1,112 +1,41 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CRYPY — HOME / COLMEIA WEB3.1</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CRYPY — Menu</title>
 <style>
-:root{--n:#00ff88;--bg:#020502;--line:#16472b}
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:#eafff2;font:14px Arial,sans-serif}
-header{height:58px;display:flex;align-items:center;gap:14px;padding:7px 14px;background:#020702;border-bottom:1px solid var(--line);position:relative;z-index:5}
-.brand{font-size:19px;font-weight:900;white-space:nowrap}.brand b{color:var(--n)}
-nav{display:flex;align-items:center;gap:7px;overflow-x:auto;flex:1;scrollbar-width:thin}
-nav a,.home{white-space:nowrap;text-decoration:none;color:#dfffea;border:1px solid #1b5835;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800}
-nav a:hover,.home:hover{background:var(--n);color:#001b0c;border-color:var(--n)}
-.home{color:var(--n);border-color:var(--n)}
-iframe{display:block;width:100%;height:calc(100% - 58px);border:0;background:#000}
-@media(max-width:700px){header{height:auto;min-height:58px;align-items:flex-start;flex-direction:column;gap:6px;padding:8px 10px}nav{width:100%;max-width:100%;padding-bottom:4px}iframe{height:calc(100% - 86px)}}
-
-/* CRYPY soundtrack — official YouTube embed */
-.music-dock{position:fixed;right:16px;bottom:16px;z-index:30;width:min(340px,calc(100vw - 24px));background:#020b06;border:1px solid #00ff88;border-radius:14px;box-shadow:0 0 22px #00ff8840;padding:10px;color:#eafff2}
-.music-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.08em;color:#00ff88}
-.music-head span{flex:1}
-.music-actions{display:flex;gap:6px}
-.music-actions button,.music-reopen{border:1px solid #1b8b50;background:#06180e;color:#dfffea;border-radius:8px;padding:7px 9px;font-size:11px;font-weight:800;cursor:pointer}
-.music-actions button:hover,.music-reopen:hover{background:#00ff88;color:#001b0c}
-.music-frame{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;background:#000}
-.music-note{font-size:10px;color:#9bc9ad;margin-top:6px;line-height:1.4}
-.music-reopen{position:fixed;right:16px;bottom:16px;z-index:29;border-color:#00ff88;color:#00ff88;box-shadow:0 0 18px #00ff8840}
-[hidden]{display:none!important}
-@media(max-width:700px){.music-dock{right:8px;bottom:8px;width:min(300px,calc(100vw - 16px))}.music-reopen{right:8px;bottom:8px}}
-
+:root{color-scheme:dark;--neon:#00ff88;--bg:#020502;--line:#16472b}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:#eafff2;font:14px/1.4 Arial,sans-serif}
+body{display:flex;flex-direction:column}
+nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;padding:14px;background:#020702;border-bottom:1px solid var(--line)}
+nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:9px 12px;border:1px solid #1b5835;border-radius:9px;background:#06140b;color:#dfffea;text-align:center;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.035em}
+nav a:hover,nav a:focus-visible{background:var(--neon);color:#001b0c;border-color:var(--neon);outline:none}
+main{flex:1;min-height:0;position:relative;background:#000}
+iframe{display:block;width:100%;height:100%;border:0;background:#000}
+@media(max-width:760px){nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:9px}nav a{font-size:10px;min-height:42px;padding:8px 5px}}
+@media(max-width:360px){nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-<header>
-<div class="brand">CRYPY <b>∞</b></div>
-<a class="home" href="./index.htm" target="crypy-content">HOME</a>
-<nav aria-label="Navegação da Colmeia">
-<a href="./mapa-colmeia.html#art-figure-marketplace" target="crypy-content">ART-FIGURE</a>
-<a href="./mapa-colmeia.html#baby-ia" target="crypy-content">BABY I.A.</a>
+<nav aria-label="Menu principal CRYPY">
+<a href="./mapa-colmeia.html#crypy-infinyt" target="crypy-content">CRYPY INFINYT</a>
+<a href="./mapa-colmeia.html#nft-collection" target="crypy-content">NFT-COLLECTION</a>
+<a href="./mapa-colmeia.html#esquadrao-das-cores" target="crypy-content">ESQUADRÃO DAS CORES</a>
+<a href="./mapa-colmeia.html#crypy-academy" target="crypy-content">CRYPY ACADEMY-WEB3.1</a>
 <a href="./mapa-colmeia.html#biografia" target="crypy-content">BIOGRAFIA</a>
+<a href="./mapa-colmeia.html#nft-collection" target="crypy-content">MUSEU DIGITAL</a>
+<a href="./mapa-colmeia.html#art-figure-marketplace" target="crypy-content">ART-FIGURE / MARKETPLACE</a>
+<a href="./mapa-colmeia.html#crypy-games-desafios" target="crypy-content">CRYPY GAMES-DESAFIO</a>
+<a href="./mapa-colmeia.html#social-crypykut" target="crypy-content">SOCIAL-CRYPYKUT</a>
+<a href="./baby-ia.html" target="crypy-content">BABY I.A.</a>
+<a href="./mapa-colmeia.html#crypy-news" target="crypy-content">WHITE PAPER</a>
 <a href="./mapa-colmeia.html#contato" target="crypy-content">CONTATO</a>
-<a href="./mapa-colmeia.html#crypy-academy" target="crypy-content">ACADEMY</a>
-<a href="./mapa-colmeia.html#crypy-coin" target="crypy-content">COIN</a>
-<a href="./mapa-colmeia.html#crypy-games-desafios" target="crypy-content">GAMES</a>
-<a href="./mapa-colmeia.html#crypy-infinyt" target="crypy-content">INFINYT</a>
-<a href="./mapa-colmeia.html#crypy-news" target="crypy-content">NEWS</a>
-<a href="./mapa-colmeia.html#esquadrao-das-cores" target="crypy-content">ESQUADRÃO</a>
-<a href="./mapa-colmeia.html#marketing" target="crypy-content">MARKETING</a>
-<a href="./mapa-colmeia.html#memory-boost" target="crypy-content">MEMORY BOOST</a>
-<a href="./mapa-colmeia.html#nft-collection" target="crypy-content">NFT</a>
-<a href="./mapa-colmeia.html#padrao" target="crypy-content">PADRÃO</a>
-<a href="./mapa-colmeia.html#pluguin" target="crypy-content">PLUGUINS</a>
-<a href="./mapa-colmeia.html#sincronizacao" target="crypy-content">SYNC</a>
-<a href="./mapa-colmeia.html#social-crypykut" target="crypy-content">SOCIAL</a>
-<a href="./mapa-colmeia.html#web3.1" target="crypy-content">WEB3.1</a>
 </nav>
-<a class="home" href="./mapa-colmeia.html" target="crypy-content">MAPA · 168 PÁGINAS</a>
-</header>
-<iframe name="crypy-content" src="./index.htm" title="Página original da Home CRYPY" loading="eager"></iframe>
-
-<section class="music-dock" id="crypy-music" aria-label="Música do portal CRYPY">
-  <div class="music-head"><span>♫ CRYPY SOUNDTRACK · BAD TIMES</span>
-    <div class="music-actions">
-      <button type="button" id="music-sound" aria-label="Ativar som">ATIVAR SOM</button>
-      <button type="button" id="music-close" aria-label="Fechar música">FECHAR ×</button>
-    </div>
-  </div>
-  <iframe class="music-frame" id="music-frame"
-    title="Bad Times — Imael Angel"
-    src="https://www.youtube-nocookie.com/embed/8PeU6AVPQVg?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=8PeU6AVPQVg&amp;controls=1&amp;playsinline=1&amp;rel=0"
-    allow="autoplay; encrypted-media; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <div class="music-note" id="music-note">A faixa tenta iniciar ao abrir o portal. Se o navegador bloquear o som automático, toque em ATIVAR SOM. Use os controles do player para pausar e ajustar o volume.</div>
-</section>
-<button class="music-reopen" id="music-reopen" type="button" hidden>♫ ABRIR MÚSICA</button>
-<script>
-(function(){
-  const dock=document.getElementById('crypy-music');
-  const frame=document.getElementById('music-frame');
-  const sound=document.getElementById('music-sound');
-  const close=document.getElementById('music-close');
-  const reopen=document.getElementById('music-reopen');
-  const note=document.getElementById('music-note');
-  const video='8PeU6AVPQVg';
-  function playerUrl(muted){
-    return 'https://www.youtube-nocookie.com/embed/'+video+
-      '?autoplay=1&mute='+(muted?'1':'0')+'&loop=1&playlist='+video+
-      '&controls=1&playsinline=1&rel=0';
-  }
-  sound.addEventListener('click',function(){
-    frame.src=playerUrl(false);
-    sound.textContent='SOM ATIVADO';
-    note.textContent='Bad Times — Imael Angel. Loop ativado; pause e volume ficam nos controles do player.';
-  });
-  close.addEventListener('click',function(){
-    frame.src='about:blank';
-    dock.hidden=true;
-    reopen.hidden=false;
-  });
-  reopen.addEventListener('click',function(){
-    dock.hidden=false;
-    reopen.hidden=true;
-    frame.src=playerUrl(true);
-    sound.textContent='ATIVAR SOM';
-  });
-})();
-</script>
-
-<script src="./assets/js/baby-global-chat.js" defer></script>
-<script src="./assets/js/crypy-global-nav.js" defer></script>
-<script src="./assets/js/crypy-page-assistant.js" defer></script>
-</body></html>
+<main>
+<iframe name="crypy-content" src="about:blank" title="Conteúdo do tema selecionado" loading="lazy"></iframe>
+</main>
+</body>
+</html>
