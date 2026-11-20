@@ -57,6 +57,7 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 
 <div id="barra"><span>🎤</span><input id="inp" placeholder="Fale com o BABY I.A..." autocomplete="off" inputmode="text" enterkeyhint="send"><button onclick="enviar()">➤</button></div>
 
+<script src="assets/js/baby-knowledge-sync.js"></script>
 <script>
 var msgsEl=document.getElementById("msgs");
 var chatMsgs=document.getElementById("chatMsgs");
@@ -97,8 +98,17 @@ function enviar(){
   if(!v) return;
   addMsg(v,"user");
   inp.value=""; esp.classList.remove("on"); esp.textContent="";
-  setTimeout(function(){
-    var r=raciocinar(v);
+  setTimeout(async function(){
+    var r="";
+    try{
+      var hits=window.BabyKnowledge?await window.BabyKnowledge.search(v,3):[];
+      if(hits&&hits.length){
+        r="Encontrei conhecimento documentado na base local da Colmeia. Estes são trechos recuperados, não uma resposta de modelo treinado:\n\n"+
+          hits.map(function(h,i){return (i+1)+". "+h.path+"\n"+h.snippet;}).join("\n\n");
+      }else{
+        r=raciocinar(v);
+      }
+    }catch(e){r=raciocinar(v);}
     addMsg(r,"baby");
   }, 300);
 }
