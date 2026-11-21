@@ -2,12 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const manifestPath = path.join(root,"assets","data","crypy-page-index.json");
-const homePath = path.join(root,"index.html");
-const knowledgePath = path.join(root,"assets","js","baby-knowledge-sync.js");
-const squadPath = path.join(root,"baby-ia","esquadrao-auto-config.js");
-const manifest = JSON.parse(fs.readFileSync(manifestPath,"utf8"));
-const home = fs.readFileSync(homePath,"utf8");
+const manifestPath = path.join(root, "assets", "data", "crypy-page-index.json");
+const homePath = path.join(root, "index.html");
+const loaderPath = path.join(root, "dev", "micro-clock.js");
+const navPath = path.join(root, "assets", "js", "crypy-global-nav.js");
+const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+const home = fs.readFileSync(homePath, "utf8");
+const loader = fs.readFileSync(loaderPath, "utf8");
+const nav = fs.readFileSync(navPath, "utf8");
 const errors = [];
 
 if (!Array.isArray(manifest.pages)) errors.push("índice não contém pages[]");
@@ -15,24 +17,49 @@ if (manifest.total !== manifest.pages.length) errors.push("total do índice não
 
 const seen = new Set();
 for (const page of manifest.pages || []) {
-  if (!page || typeof page.path !== "string") {
+  if (!page || typeof page.path !== "string" || !page.path.trim()) {
     errors.push("entrada inválida no índice");
     continue;
   }
-  if (seen.has(page.path)) errors.push("caminho duplicado: " + page.path);
-  seen.add(page.path);
-  const target = path.resolve(root,page.path);
-  if (!target.startsWith(root + path.sep)) errors.push("caminho fora do repositório: " + page.path);
-  else if (!fs.existsSync(target)) errors.push("página ausente: " + page.path);
+  const normalized = page.path.replace(/\\/g, "/");
+  if (normalized.startsWith("/") || normalized.split("/").includes("..")) {
+    errors.push("caminho inseguro no índice: " + page.path);
+    continue;
+  }
+  if (seen.has(normalized)) errors.push("caminho duplicado: " + normalized);
+  seen.add(normalized);
+  const target = path.resolve(root, normalized);
+  if (!target.startsWith(root + path.sep)) errors.push("caminho fora do repositório: " + normalized);
+  else if (!fs.existsSync(target)) errors.push("página ausente: " + normalized);
 }
 
-const menuCount = (home.match(/<button\b[^>]*\bdata-theme="/g) || []).length;
-if (menuCount !== 13) errors.push("HOME deveria conter 13 categorias oficiais; encontrou " + menuCount);
-if (!home.includes("assets/js/baby-knowledge-sync.js")) errors.push("HOME não carrega o indexador de conhecimento BABY");
-if (!home.includes("baby-ia/esquadrao-auto-config.js")) errors.push("HOME não carrega a configuração do Esquadrão");
-if (!home.includes('id="viewer"')) errors.push("HOME não contém o visualizador de páginas");
-if (!fs.existsSync(knowledgePath)) errors.push("indexador BABY ausente");
-if (!fs.existsSync(squadPath)) errors.push("configuração do Esquadrão ausente");
+const officialCategories = [
+  "CRYPY-INFINIT",
+  "CRYPY-ACADEMY",
+  "ESQUADRÃO DAS CORES",
+  "NFT-COLLECTION",
+  "BIOGRAFIA",
+  "CRYPY-NEWS",
+  "MUSEU DIGITAL",
+  "MARKETPLACE",
+  "CRYPY-GAMES",
+  "CRYPYCUT",
+  "CRYPY-COIN",
+  "CONTATO",
+  "WHITE PAPER"
+];
+
+let previous = -1;
+for (const label of officialCategories) {
+  const at = nav.indexOf('label:"' + label + '"');
+  if (at < 0) errors.push("categoria oficial ausente no menu global: " + label);
+  else if (at <= previous) errors.push("ordem das categorias oficiais incorreta a partir de: " + label);
+  previous = at;
+}
+
+if (!home.includes("./dev/micro-clock.js")) errors.push("HOME não carrega a ponte de compatibilidade do menu global");
+if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte da HOME não carrega o menu global");
+if (!fs.existsSync(navPath)) errors.push("menu global ausente");
 
 const serviceEntrypoints = [
   "crypy-server-bridge/public/index.html",
@@ -43,8 +70,8 @@ for (const file of serviceEntrypoints) {
 }
 
 if (errors.length) {
-  console.error(errors.join("\n"));
+  console.error(errors.join("\\n"));
   process.exit(1);
 }
 
-console.log("PASS: " + manifest.pages.length + " páginas catalogadas e presentes; HOME com 13 categorias oficiais; BABY knowledge-sync e Esquadrão configurados; entradas operacionais excluídas.");
+console.log("PASS: " + manifest.pages.length + " páginas catalogadas e presentes; HOME conectada ao menu global; 13 categorias oficiais na ordem aprovada; HD MATRIZ e entradas operacionais fora do índice público.");
