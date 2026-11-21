@@ -8,46 +8,36 @@ if(window.__CRYPY_SQUAD_ASSISTANT__)return;
 window.__CRYPY_SQUAD_ASSISTANT__=true;
 try{if(window.self!==window.top)return;}catch(_){return;}
 
-/* ChatBoot global: ativa o botão BABY em toda página que carrega este assistente.
- * A própria página ChatBoot permanece como destino, sem criar iframe recursivo.
+/* Os assistentes especializados usam este widget contextual por categoria.
+ * O antigo widget global BABY não é carregado aqui; a página original permanece intacta.
  */
-(function loadBabyGlobalChat(){
-  var currentPath = (window.location.pathname || "").toLowerCase();
-  if (/chatboot-baby-ia|baby\.ia\.chatboot/.test(currentPath)) return;
-  if (window.__CRYPY_BABY_GLOBAL_CHAT__ || document.getElementById("crypy-baby-global-chat-loader")) return;
-  var currentScript = document.currentScript;
-  var scriptUrl = currentScript && currentScript.src;
-  if (!scriptUrl) {
-    var scripts = document.getElementsByTagName("script");
-    for (var i = scripts.length - 1; i >= 0; i--) {
-      if (/crypy-page-assistant\.js(?:\?|$)/.test(scripts[i].src || "")) { scriptUrl = scripts[i].src; break; }
-    }
-  }
-  if (!scriptUrl) return;
-  var loader = document.createElement("script");
-  loader.id = "crypy-baby-global-chat-loader";
-  loader.src = new URL("baby-global-chat.js", scriptUrl).href;
-  loader.defer = true;
-  document.head.appendChild(loader);
-})();
 var TEAM={
 NEXUS:"coordenação e auditoria",BABY:"porta-voz e coordenação central",
 DOLA:"arte e criação",MINI:"análise",ALICE:"pesquisa e conhecimento",
 ETH:"construção e arquitetura",BTC:"guarda da memória",USDT:"equilíbrio",
 CHAT:"revisão histórica e conexão"
 };
-function roles(path,title){
+var PROFILES=[
+{key:"crypy-infinyt",name:"NÚCLEO CRYPY",scope:"Universo, identidade, arquitetura e funcionamento do ecossistema",roles:["NEXUS","BABY","BTC"],match:/crypy-infinyt|^\\/$|index\\.html/},
+{key:"crypy-academy",name:"ACADEMY",scope:"Ensino, cursos, trilhas e aprendizagem WEB3.1",roles:["ALICE","BABY","ETH"],match:/crypy-academy|academy|curso|aula/},
+{key:"esquadrao-das-cores",name:"ESQUADRÃO",scope:"Integrantes, funções, relações e identidade visual",roles:["NEXUS","ALICE","CHAT"],match:/esquadrao-das-cores|esquadrão/},
+{key:"nft-collection",name:"NFT COLLECTION",scope:"Coleções, NFTs, arte digital e acervo de tokens",roles:["DOLA","MINI","ALICE"],match:/nft-collection|\\bnft\\b/},
+{key:"biografia",name:"BIOGRAFIA",scope:"História, trajetória, linha do tempo e registros biográficos",roles:["CHAT","BTC","ALICE"],match:/biografia|historia|timeline/},
+{key:"crypy-news",name:"CRYPY NEWS",scope:"Notícias, comunicados e atualizações do ecossistema",roles:["ALICE","MINI","CHAT"],match:/crypy-news|noticia|news/},
+{key:"museu-digital",name:"MUSEU DIGITAL",scope:"Memória, exposições, obras e preservação do acervo",roles:["DOLA","BTC","ALICE"],match:/museu-digital|museu/},
+{key:"marketplace",name:"MARKETPLACE",scope:"Catálogo, produtos digitais, ofertas e informações de mercado",roles:["USDT","DOLA","MINI"],match:/art-figure-marketplace|marketplace|marketing/},
+{key:"crypy-games",name:"CRYPY GAMES",scope:"Jogos, regras, personagens, fases e desafios",roles:["MINI","ETH","NEXUS"],match:/crypy-games|games|game|desafio/},
+{key:"crypykut",name:"CRYPYKUT",scope:"Comunidade, conteúdo social e participação",roles:["CHAT","ALICE","BABY"],match:/social-crypykut|crypykut/},
+{key:"crypy-coin",name:"CRYPY COIN",scope:"Utilidade, economia interna, token e fundamentos",roles:["USDT","BTC","MINI"],match:/crypy-coin|coin|token|economia/},
+{key:"contato",name:"CONTATO",scope:"Atendimento, dúvidas institucionais e comunicação",roles:["BABY","NEXUS","CHAT"],match:/contato/},
+{key:"white-paper",name:"WHITE PAPER",scope:"Documentação, princípios, governança e fundamentos técnicos",roles:["NEXUS","ETH","BTC"],match:/white-paper|white.?paper/}
+];
+function profileFor(path,title){
 var s=(path+" "+title).toLowerCase();
-if(/darkness|nft|art-figure|museu|arte|collection/.test(s))return["DOLA","MINI","ALICE"];
-if(/game|desafio|analise|mini/.test(s))return["MINI","ETH","NEXUS"];
-if(/academy|pesquisa|curso|aula/.test(s))return["ALICE","BABY","CHAT"];
-if(/web3|pluguin|plugin|tecnologia|sincronizacao|memory-boost/.test(s))return["ETH","NEXUS","BABY"];
-if(/coin|finance|economia|token/.test(s))return["USDT","BTC","MINI"];
-if(/biografia|historia|timeline|social|crypykut/.test(s))return["CHAT","BTC","ALICE"];
-if(/hd-|memoria|backup|baby/.test(s))return["BABY","BTC","NEXUS"];
-if(/news|noticia|marketing/.test(s))return["ALICE","MINI","CHAT"];
-return["BABY","NEXUS","ALICE"];
+for(var i=0;i<PROFILES.length;i++){if(PROFILES[i].match.test(s))return PROFILES[i];}
+return PROFILES[0];
 }
+function roles(path,title){return profileFor(path,title).roles;}
 function el(t,a,v){var n=document.createElement(t);Object.keys(a||{}).forEach(function(k){n.setAttribute(k,a[k]);});if(v!=null)n.textContent=v;return n;}
 function norm(s){return s.toLocaleLowerCase("pt-BR").normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
 function extract(doc){
@@ -62,7 +52,8 @@ function mount(){
 if(document.getElementById("crypy-squad-assistant"))return;
 var frame=document.querySelector('iframe[name="crypy-content"]');
 var page={title:"Página CRYPY",url:location.href,chunks:[]};
-var squad=["BABY","NEXUS","ALICE"];
+var squad=["NEXUS","BABY","BTC"];
+var activeProfile=PROFILES[0];
 var root=el("aside",{id:"crypy-squad-assistant","aria-label":"Esquadrão CRYPY — assistente contextual"});
 var css=el("style");css.textContent=
 "#crypy-squad-assistant{position:fixed;left:16px;bottom:16px;z-index:2147483000;font:14px system-ui,sans-serif;color:#eafff2}"+
