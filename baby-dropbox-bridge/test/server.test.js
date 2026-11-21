@@ -7,6 +7,10 @@ describe("Dropbox bridge HTTP security", () => {
   let base;
   const token = "bridge-test-token-with-at-least-thirty-two-bytes";
   const allowedOrigin = "https://cryptoecrypto.github.io";
+  const audit = {
+    async verify() { return { ok: true, count: 2, reason: "cadeia íntegra" }; },
+    async entries() { return [{ seq: 2, action: "dropbox.backup.completed" }]; }
+  };
   const adapter = {
     async status() { return { configured: false, missing: ["DROPBOX_APP_SECRET"], connected: false }; },
     startAuthorization() { return { authorizationUrl: "https://www.dropbox.com/oauth2/authorize?state=mock" }; },
@@ -22,7 +26,8 @@ describe("Dropbox bridge HTTP security", () => {
         CRYPY_DROPBOX_BRIDGE_TOKEN: token,
         CRYPY_DROPBOX_ALLOWED_ORIGINS: allowedOrigin
       },
-      adapter
+      adapter,
+      audit
     });
     server = created.server;
     await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -57,6 +62,16 @@ describe("Dropbox bridge HTTP security", () => {
       headers: { authorization: "Bearer " + token, origin: allowedOrigin }
     });
     assert.equal(accepted.status, 200);
+  });
+
+  it("exposes only an authenticated, verified audit summary", async () => {
+    const response = await fetch(base + "/api/dropbox/audit", {
+      headers: { authorization: "Bearer " + token, origin: allowedOrigin }
+    });
+    assert.equal(response.status, 200);
+    const body = await response.json();
+    assert.equal(body.verification.ok, true);
+    assert.equal(body.entries[0].action, "dropbox.backup.completed");
   });
 
   it("supports an allowed preflight and blocks a foreign preflight", async () => {
