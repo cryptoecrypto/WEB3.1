@@ -1,0 +1,9 @@
+{
+  "name":"crypy-baby-dropbox-bridge",
+  "version":"0.1.0",
+  "private":true,
+  "description":"Isolated, least-privilege Dropbox OAuth bridge for BABY I.A.",
+  "type":"module",
+  "engines":{"node":">=20"},
+  "scripts":{"start":"node src/server.js","test":"node --test test/"}
+}
