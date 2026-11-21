@@ -40,6 +40,18 @@
     }
     return categories[0];
   }
+  function hideLegacyMenus() {
+    var signatures = ["CRYPY INFINYT","NFT-COLLECTION","ESQUADRÃO DAS CORES","CRYPY ACADEMY","MUSEU DIGITAL","WHITE PAPER","CRYPY-NEWS","MARKETPLACE","CRYPY-GAMES","CRYPYCUT","CRYPY-COIN"];
+    document.querySelectorAll("nav,.crypy-menu-caixa,.crypy-portal-nav,.menu-principal,.main-menu,.crypy-main-menu,.crypy-menu").forEach(function(el) {
+      if (el.closest("#crypy-global-navigation")) return;
+      var classes = String(el.className || "");
+      var knownLegacy = /crypy-menu-caixa|crypy-portal-nav|menu-principal|main-menu|crypy-main-menu|crypy-menu/i.test(classes);
+      var text = String(el.textContent || "").toLocaleUpperCase("pt-BR");
+      var isCategoryMenu = el.tagName.toLowerCase() === "nav" && signatures.some(function(label) { return text.includes(label); });
+      if (knownLegacy || isCategoryMenu) el.classList.add("crypy-legacy-menu-hidden");
+    });
+  }
+
   function mount() {
     if (!document.body || document.getElementById("crypy-global-navigation")) return;
     var root = node("div", {id:"crypy-global-navigation"});
@@ -70,7 +82,7 @@
       ".crypy-nav-link strong{font-size:13px;font-weight:650}",
       ".crypy-nav-link small{font-size:10px;color:#9bbda8;overflow-wrap:anywhere}",
       ".crypy-nav-empty{padding:18px 12px;color:#a5cbb4;font-size:13px}",
-      ".crypy-menu-caixa,.crypy-portal-nav,[aria-label='Portal CRYPY — 23 páginas']{display:none!important}",
+      ".crypy-menu-caixa,.crypy-portal-nav,[aria-label='Portal CRYPY — 23 páginas'],.crypy-legacy-menu-hidden{display:none!important}",
       "@media(max-width:600px){#crypy-global-navigation{top:10px;right:10px}#crypy-global-nav-panel{top:62px;left:10px;right:10px;width:auto;max-height:calc(100dvh - 74px)}#crypy-global-nav-toggle{padding:10px 13px}.crypy-nav-categories{grid-template-columns:1fr}}",
       "@media(prefers-reduced-motion:reduce){#crypy-global-navigation *{scroll-behavior:auto!important;transition:none!important}}"
     ].join("\n");
@@ -102,6 +114,7 @@
     root.appendChild(panel);
     root.appendChild(toggle);
     document.body.appendChild(root);
+    hideLegacyMenus();
 
     var pages = [];
     var selected = null;
