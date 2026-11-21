@@ -35,6 +35,7 @@ export class EncryptedJsonStore {
   async write(value) {
     const dir = path.dirname(this.filePath);
     await fs.mkdir(dir, { recursive: true, mode: 0o700 });
+    await fs.chmod(dir, 0o700);
     const iv = crypto.randomBytes(12);
     const cipher = crypto.createCipheriv("aes-256-gcm", this.key, iv);
     const plaintext = Buffer.from(JSON.stringify(value), "utf8");
