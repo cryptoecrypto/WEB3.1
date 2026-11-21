@@ -132,6 +132,7 @@ export class DropboxAdapter {
     if (typeof code !== "string" || !code || code.length > 4096) {
       throw new DropboxBridgeError("Código OAuth inválido.", { code: "OAUTH_CODE_INVALID" });
     }
+    if (this.audit) await this.audit.append({ action: "dropbox.oauth.exchange.start", target: BABY_ROOT, detail: { flow: "authorization_code" } });
     const form = new URLSearchParams({
       grant_type: "authorization_code",
       code,
@@ -209,6 +210,7 @@ export class DropboxAdapter {
         publicMessage: "Não foi possível renovar a sessão Dropbox. Reautorize a integração."
       });
     }
+    if (this.audit) await this.audit.append({ action: "dropbox.oauth.refresh.start", target: BABY_ROOT, detail: {} });
     const updated = {
       ...token,
       accessToken: payload.access_token,
@@ -216,6 +218,7 @@ export class DropboxAdapter {
       scope: payload.scope || token.scope
     };
     await this.store.write(updated);
+    if (this.audit) await this.audit.append({ action: "dropbox.oauth.refresh.completed", target: BABY_ROOT, detail: {} });
     return updated.accessToken;
   }
 
@@ -317,16 +320,38 @@ export class DropboxAdapter {
       sha256: hash,
       bytes: size
     };
-    const backup = await this.#upload(backupPath, content);
-    const manifest = await this.#upload(manifestPath, JSON.stringify(metadata, null, 2));
-    const syncLog = await this.#upload(logPath, JSON.stringify({ ...metadata, result: "backup-uploaded" }, null, 2));
     if (this.audit) {
       await this.audit.append({
-        action: "dropbox.backup.upload",
+        action: "dropbox.backup.start",
         target: backupPath,
-        detail: { sha256: hash, bytes: size, manifestCreated: true, syncLogCreated: true }
+        detail: { sha256: hash, bytes: size, manifestPath, syncLogPath: logPath }
       });
     }
-    return { ok: true, backup, manifest, syncLog, sha256: hash, bytes: size, overwrite: false };
+    let stage = "backup";
+    try {
+      const backup = await this.#upload(backupPath, content);
+      stage = "manifest";
+      const manifest = await this.#upload(manifestPath, JSON.stringify(metadata, null, 2));
+      stage = "sync-log";
+      const syncLog = await this.#upload(logPath, JSON.stringify({ ...metadata, result: "backup-uploaded" }, null, 2));
+      if (this.audit) {
+        await this.audit.append({
+          action: "dropbox.backup.completed",
+          target: backupPath,
+          detail: { sha256: hash, bytes: size, manifestCreated: true, syncLogCreated: true }
+        });
+      }
+      return { ok: true, backup, manifest, syncLog, sha256: hash, bytes: size, overwrite: false };
+    } catch (error) {
+      if (this.audit) {
+        await this.audit.append({
+          action: "dropbox.backup.failed",
+          target: backupPath,
+          ok: false,
+          detail: { sha256: hash, bytes: size, stage, code: error.code || "DROPBOX_FAILURE" }
+        }).catch(() => {});
+      }
+      throw error;
+    }
   }
 }
