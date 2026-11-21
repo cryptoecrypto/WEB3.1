@@ -240,6 +240,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 window.CRYPY_BABY_AGENT=Object.freeze({version:VERSION,getState:()=>JSON.parse(JSON.stringify(S)),getPersonalities:()=>PERSONALITIES.map(p=>({...p,knowledgeDomains:[...p.knowledgeDomains],capabilities:[...p.capabilities],boundaries:[...p.boundaries],routes:[...p.routes]})),
  getPersonality:id=>{const p=PERSONALITIES.find(x=>x.id===String(id||'').toUpperCase());return p?JSON.parse(JSON.stringify(p)):null},
- suggestPersonality:query=>{const words=String(query||'').toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');const ranked=PERSONALITIES.map(p=>({id:p.id,score:p.routes.reduce((n,k)=>n+(words.includes(k.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\\u0300-\\u036f]/g,''))?1:0),0)})).sort((a,b)=>b.score-a.score);return ranked[0]&&ranked[0].score>0?{suggestion:ranked[0].id,score:ranked[0].score,automaticForwarding:false}: {suggestion:null,score:0,automaticForwarding:false}},
+ suggestPersonality:query=>{const words=String(query||'').toLocaleLowerCase('pt-BR').normalize('NFD').replace(/\p{M}/gu,'');const ranked=PERSONALITIES.map(p=>({id:p.id,score:p.routes.reduce((n,k)=>n+(words.includes(k.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/\p{M}/gu,''))?1:0),0)})).sort((a,b)=>b.score-a.score);return ranked[0]&&ranked[0].score>0?{suggestion:ranked[0].id,score:ranked[0].score,automaticForwarding:false}: {suggestion:null,score:0,automaticForwarding:false}},
  autoRead,scanMirrors,interpret,plan,bridgeHealth});
 })();
