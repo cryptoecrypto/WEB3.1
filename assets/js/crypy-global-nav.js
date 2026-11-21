@@ -6,6 +6,16 @@
   var scriptUrl = document.currentScript && document.currentScript.src;
   if (!scriptUrl) return;
   var siteRoot = new URL("../../", scriptUrl);
+  // O quadro de mercado é carregado somente na Home, sem alterar o HTML principal.
+  var currentPath = window.location.pathname.toLowerCase();
+  var homeRootPath = new URL("./", siteRoot).pathname.toLowerCase();
+  var homeIndexPath = new URL("index.html", siteRoot).pathname.toLowerCase();
+  if (currentPath === homeRootPath || currentPath === homeIndexPath) {
+    var marketScript = document.createElement("script");
+    marketScript.src = new URL("assets/js/crypy-live-market.js", siteRoot).href;
+    marketScript.defer = true;
+    document.head.appendChild(marketScript);
+  }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
   var categories = [
     {label:"CRYPY-INFINIT", groups:["crypy-infinyt","baby-ia","memory-boost","padrao","pluguin","sincronizacao","RAIZ"]},
