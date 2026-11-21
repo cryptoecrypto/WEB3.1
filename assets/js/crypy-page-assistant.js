@@ -18,10 +18,10 @@ ETH:"construção e arquitetura",BTC:"guarda da memória",USDT:"equilíbrio",
 CHAT:"revisão histórica e conexão"
 };
 var PROFILES=[
-{key:"crypy-infinyt",name:"NÚCLEO CRYPY",scope:"Universo, identidade, arquitetura e funcionamento do ecossistema",roles:["NEXUS","BABY","BTC"],match:/crypy-infinyt|^\\/$|index\\.html/},
+{key:"crypy-infinyt",name:"NÚCLEO CRYPY",scope:"Universo, identidade, arquitetura e funcionamento do ecossistema",roles:["NEXUS","BABY","BTC"],match:/crypy-infinyt|^\/$|index\.html/},
 {key:"crypy-academy",name:"ACADEMY",scope:"Ensino, cursos, trilhas e aprendizagem WEB3.1",roles:["ALICE","BABY","ETH"],match:/crypy-academy|academy|curso|aula/},
 {key:"esquadrao-das-cores",name:"ESQUADRÃO",scope:"Integrantes, funções, relações e identidade visual",roles:["NEXUS","ALICE","CHAT"],match:/esquadrao-das-cores|esquadrão/},
-{key:"nft-collection",name:"NFT COLLECTION",scope:"Coleções, NFTs, arte digital e acervo de tokens",roles:["DOLA","MINI","ALICE"],match:/nft-collection|\\bnft\\b/},
+{key:"nft-collection",name:"NFT COLLECTION",scope:"Coleções, NFTs, arte digital e acervo de tokens",roles:["DOLA","MINI","ALICE"],match:/nft-collection|\bnft\b/},
 {key:"biografia",name:"BIOGRAFIA",scope:"História, trajetória, linha do tempo e registros biográficos",roles:["CHAT","BTC","ALICE"],match:/biografia|historia|timeline/},
 {key:"crypy-news",name:"CRYPY NEWS",scope:"Notícias, comunicados e atualizações do ecossistema",roles:["ALICE","MINI","CHAT"],match:/crypy-news|noticia|news/},
 {key:"museu-digital",name:"MUSEU DIGITAL",scope:"Memória, exposições, obras e preservação do acervo",roles:["DOLA","BTC","ALICE"],match:/museu-digital|museu/},
