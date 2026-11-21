@@ -1,8 +1,23 @@
 {
   "version": "1.7",
-  "generated_at": "2026-11-21",
-  "total": 306,
+  "generated_at": "2026-11-21T19:05:00-03:00",
+  "total": 307,
   "pages": [
+    {
+      "path": "art-figure-marketplace/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "art-figure-marketplace"
+    },
+    {
+      "path": "art-figure-marketplace/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "art-figure-marketplace"
+    },
     {
       "path": "art-figure-marketplace/marketplace.html",
       "label": "Art-Figure — Marketplace",
@@ -19,28 +34,13 @@
       "group": "art-figure-marketplace"
     },
     {
-      "path": "art-figure-marketplace/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "art-figure-marketplace"
-    },
-    {
       "path": "art-figure-marketplace/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "art-figure-marketplace"
     },
     {
-      "path": "art-figure-marketplace/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "art-figure-marketplace"
-    },
-    {
       "path": "art-figure-marketplace/memory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/hd-memory.html",
-      "label": "Hd Memory",
       "group": "art-figure-marketplace"
     },
     {
@@ -74,6 +74,21 @@
       "group": "art-figure-marketplace"
     },
     {
+      "path": "baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "RAIZ"
+    },
+    {
+      "path": "baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "RAIZ"
+    },
+    {
+      "path": "baby-ia.html",
+      "label": "Baby Ia",
+      "group": "RAIZ"
+    },
+    {
       "path": "baby-ia/auto-config.html",
       "label": "Auto Config",
       "group": "baby-ia"
@@ -89,47 +104,7 @@
       "group": "baby-ia"
     },
     {
-      "path": "baby-ia/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "baby-ia"
-    },
-    {
       "path": "baby-ia/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/padrao/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "baby-ia"
     },
@@ -144,47 +119,32 @@
       "group": "baby-ia"
     },
     {
-      "path": "baby-ia/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/padrao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
       "path": "baby-ia/hd-memory.html",
       "label": "Hd Memory",
       "group": "baby-ia"
     },
     {
+      "path": "baby-ia/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
       "path": "baby-ia/momory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/padrao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/hd-memory.html",
       "label": "Hd Memory",
       "group": "baby-ia"
     },
@@ -194,8 +154,8 @@
       "group": "baby-ia"
     },
     {
-      "path": "baby-ia/sincronizacao/momory-boost/health.html",
-      "label": "Health",
+      "path": "baby-ia/momory-boost/pluguin-tuto.html",
+      "label": "Pluguin Tuto",
       "group": "baby-ia"
     },
     {
@@ -204,28 +164,83 @@
       "group": "baby-ia"
     },
     {
-      "path": "baby-ia/sincronizacao/momory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/pluguin-tuto.html",
-      "label": "Pluguin Tuto",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "baby-ia"
-    },
-    {
       "path": "baby-ia/momory-boost/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "baby-ia"
     },
     {
+      "path": "baby-ia/padrao/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/padrao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/padrao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
       "path": "baby-ia/relogio-mundial.html",
       "label": "Relogio Mundial",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/health.html",
+      "label": "Health",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "baby-ia"
+    },
+    {
+      "path": "baby-ia/sincronizacao/momory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
       "group": "baby-ia"
     },
     {
@@ -244,17 +259,7 @@
       "group": "biografia"
     },
     {
-      "path": "biografia/historia.html",
-      "label": "Biografia CRYPY — História",
-      "group": "biografia"
-    },
-    {
       "path": "biografia/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "biografia"
     },
@@ -264,13 +269,23 @@
       "group": "biografia"
     },
     {
-      "path": "biografia/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "biografia/hd-memory.html",
+      "label": "Hd Memory",
       "group": "biografia"
     },
     {
-      "path": "biografia/hd-memory.html",
-      "label": "Hd Memory",
+      "path": "biografia/historia.html",
+      "label": "Biografia CRYPY — História",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "biografia"
+    },
+    {
+      "path": "biografia/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
       "group": "biografia"
     },
     {
@@ -304,22 +319,12 @@
       "group": "biografia"
     },
     {
-      "path": "contato/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "contato"
+      "path": "chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "RAIZ"
     },
     {
       "path": "contato/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "contato"
     },
@@ -339,13 +344,28 @@
       "group": "contato"
     },
     {
-      "path": "contato/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "contato/hd-memory.html",
+      "label": "Hd Memory",
       "group": "contato"
     },
     {
-      "path": "contato/hd-memory.html",
-      "label": "Hd Memory",
+      "path": "contato/momory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "contato"
+    },
+    {
+      "path": "contato/momory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
       "group": "contato"
     },
     {
@@ -374,6 +394,31 @@
       "group": "contato"
     },
     {
+      "path": "crypy-academy/academia.html",
+      "label": "CRYPY Academy — Trilhas avançadas",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/cursos.html",
+      "label": "Catálogo de Cursos — Fortaleza do Ensino",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-academy"
+    },
+    {
       "path": "crypy-academy/memory-boost/baby-ia-agente.html",
       "label": "Baby Ia Agente",
       "group": "crypy-academy"
@@ -384,38 +429,13 @@
       "group": "crypy-academy"
     },
     {
-      "path": "crypy-academy/cursos.html",
-      "label": "Catálogo de Cursos — Fortaleza do Ensino",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-academy"
-    },
-    {
       "path": "crypy-academy/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "crypy-academy"
     },
     {
-      "path": "crypy-academy/academia.html",
-      "label": "CRYPY Academy — Trilhas avançadas",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-academy"
-    },
-    {
       "path": "crypy-academy/memory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/hd-memory.html",
-      "label": "Hd Memory",
       "group": "crypy-academy"
     },
     {
@@ -449,28 +469,8 @@
       "group": "crypy-academy"
     },
     {
-      "path": "crypy-coin/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "crypy-coin"
-    },
-    {
       "path": "crypy-coin/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/white-paper.html",
-      "label": "CRYPY — White Paper",
       "group": "crypy-coin"
     },
     {
@@ -484,13 +484,28 @@
       "group": "crypy-coin"
     },
     {
-      "path": "crypy-coin/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "crypy-coin/hd-memory.html",
+      "label": "Hd Memory",
       "group": "crypy-coin"
     },
     {
-      "path": "crypy-coin/hd-memory.html",
-      "label": "Hd Memory",
+      "path": "crypy-coin/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
       "group": "crypy-coin"
     },
     {
@@ -524,6 +539,16 @@
       "group": "crypy-coin"
     },
     {
+      "path": "crypy-coin/white-paper.html",
+      "label": "CRYPY — White Paper",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-games-desafios/arena.html",
+      "label": "CRYPY Games — Arena",
+      "group": "crypy-games-desafios"
+    },
+    {
       "path": "crypy-games-desafios/batalha-esquadrao.html",
       "label": "Batalha do Esquadrão",
       "group": "crypy-games-desafios"
@@ -531,16 +556,6 @@
     {
       "path": "crypy-games-desafios/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/pluguin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/arena.html",
-      "label": "CRYPY Games — Arena",
       "group": "crypy-games-desafios"
     },
     {
@@ -554,18 +569,28 @@
       "group": "crypy-games-desafios"
     },
     {
-      "path": "crypy-games-desafios/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "crypy-games-desafios/dungeon-crypy.html",
+      "label": "DUNGEON-CRYPY",
       "group": "crypy-games-desafios"
     },
     {
-      "path": "crypy-games-desafios/pluguin/hd-baby-ia.html",
+      "path": "crypy-games-desafios/hd-baby-ia.html",
       "label": "Hd Baby Ia",
       "group": "crypy-games-desafios"
     },
     {
       "path": "crypy-games-desafios/hd-memory.html",
       "label": "Hd Memory",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/pluguin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
       "group": "crypy-games-desafios"
     },
     {
@@ -589,6 +614,21 @@
       "group": "crypy-games-desafios"
     },
     {
+      "path": "crypy-infinyt/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-infinyt/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-infinyt"
+    },
+    {
       "path": "crypy-infinyt/memory-boost/baby-ia-agente.html",
       "label": "Baby Ia Agente",
       "group": "crypy-infinyt"
@@ -599,33 +639,13 @@
       "group": "crypy-infinyt"
     },
     {
-      "path": "crypy-infinyt/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
       "path": "crypy-infinyt/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "crypy-infinyt"
     },
     {
-      "path": "crypy-infinyt/portal.html",
-      "label": "CRYPY INFINYT — Portal",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
       "path": "crypy-infinyt/memory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/hd-memory.html",
-      "label": "Hd Memory",
       "group": "crypy-infinyt"
     },
     {
@@ -654,22 +674,27 @@
       "group": "crypy-infinyt"
     },
     {
+      "path": "crypy-infinyt/portal.html",
+      "label": "CRYPY INFINYT — Portal",
+      "group": "crypy-infinyt"
+    },
+    {
       "path": "crypy-infinyt/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "crypy-infinyt"
     },
     {
-      "path": "crypy-news/hd-matriz/baby-ia.html",
-      "label": "Baby Ia",
+      "path": "crypy-news/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-babyia.html",
+      "label": "Hd Babyia",
       "group": "crypy-news"
     },
     {
       "path": "crypy-news/hd-matriz/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-agente.html",
       "label": "Baby Ia Agente",
       "group": "crypy-news"
     },
@@ -679,23 +704,13 @@
       "group": "crypy-news"
     },
     {
-      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
+      "path": "crypy-news/hd-matriz/baby-ia.html",
+      "label": "Baby Ia",
       "group": "crypy-news"
     },
     {
-      "path": "crypy-news/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
+      "path": "crypy-news/hd-matriz/crypy-server/public/index.html",
+      "label": "Página inicial",
       "group": "crypy-news"
     },
     {
@@ -704,37 +719,7 @@
       "group": "crypy-news"
     },
     {
-      "path": "crypy-news/hd-matriz/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-babyia.html",
-      "label": "Hd Babyia",
-      "group": "crypy-news"
-    },
-    {
       "path": "crypy-news/hd-matriz/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-memory.html",
       "label": "Hd Memory",
       "group": "crypy-news"
     },
@@ -744,27 +729,37 @@
       "group": "crypy-news"
     },
     {
+      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
       "path": "crypy-news/hd-matriz/memory-boost/health.html",
       "label": "Health",
       "group": "crypy-news"
     },
     {
-      "path": "crypy-news/museu.html",
-      "label": "Museu Digital — Acervo",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/crypy-server/public/index.html",
-      "label": "Página inicial",
-      "group": "crypy-news"
-    },
-    {
       "path": "crypy-news/hd-matriz/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/pluguin.html",
       "label": "Pluguin",
       "group": "crypy-news"
     },
@@ -774,18 +769,48 @@
       "group": "crypy-news"
     },
     {
-      "path": "crypy-news/hd-matriz/pluguin/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-news"
-    },
-    {
       "path": "crypy-news/hd-matriz/memory-boost/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "crypy-news"
     },
     {
+      "path": "crypy-news/hd-matriz/pluguin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/pluguin.html",
+      "label": "Pluguin",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-matriz/pluguin/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "crypy-news"
+    },
+    {
       "path": "crypy-news/hd-matriz/relogio-mundial.html",
       "label": "Relogio Mundial",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/museu.html",
+      "label": "Museu Digital — Acervo",
       "group": "crypy-news"
     },
     {
@@ -799,28 +824,13 @@
       "group": "esquadrao-das-cores"
     },
     {
-      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/esquadrao.html",
-      "label": "Esquadrão das Cores — Funções",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hq-collection/esquadrao-das-cores.html",
-      "label": "Esquadrão das Cores — HQ Collection",
-      "group": "esquadrao-das-cores"
-    },
-    {
       "path": "esquadrao-das-cores/esquadrao-das-cores.html",
       "label": "Esquadrão das Cores — Página principal",
       "group": "esquadrao-das-cores"
     },
     {
-      "path": "esquadrao-das-cores/hq-collection/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "esquadrao-das-cores/esquadrao.html",
+      "label": "Esquadrão das Cores — Funções",
       "group": "esquadrao-das-cores"
     },
     {
@@ -834,6 +844,21 @@
       "group": "esquadrao-das-cores"
     },
     {
+      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/esquadrao-das-cores.html",
+      "label": "Esquadrão das Cores — HQ Collection",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "esquadrao-das-cores"
+    },
+    {
       "path": "esquadrao-das-cores/hq-collection/hd-memory.html",
       "label": "Hd Memory",
       "group": "esquadrao-das-cores"
@@ -842,6 +867,71 @@
       "path": "esquadrao-das-cores/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "hd-memory.html",
+      "label": "Hd Memory",
+      "group": "RAIZ"
+    },
+    {
+      "path": "health.html",
+      "label": "Health",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index-home-anterior-a-home-aprovada-2026-11-20.html",
+      "label": "HOME anterior — arquivo histórico",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index-home-portal-preservado-2026-11-20.html",
+      "label": "HOME portal — versão preservada",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index.htm",
+      "label": "Index HTM — HOME preservada",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index.html",
+      "label": "HOME",
+      "group": "RAIZ"
+    },
+    {
+      "path": "Index.html",
+      "label": "Index — Página alternativa",
+      "group": "RAIZ"
+    },
+    {
+      "path": "mapa-colmeia.html",
+      "label": "Mapa Colmeia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "marketing/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "marketing"
+    },
+    {
+      "path": "marketing/marketing.html",
+      "label": "Marketing",
+      "group": "marketing"
     },
     {
       "path": "marketing/memory-boost/baby-ia-agente.html",
@@ -854,28 +944,13 @@
       "group": "marketing"
     },
     {
-      "path": "marketing/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "marketing"
-    },
-    {
       "path": "marketing/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "marketing"
     },
     {
-      "path": "marketing/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "marketing"
-    },
-    {
       "path": "marketing/memory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "marketing"
-    },
-    {
-      "path": "marketing/hd-memory.html",
-      "label": "Hd Memory",
       "group": "marketing"
     },
     {
@@ -886,11 +961,6 @@
     {
       "path": "marketing/memory-boost/health.html",
       "label": "Health",
-      "group": "marketing"
-    },
-    {
-      "path": "marketing/marketing.html",
-      "label": "Marketing",
       "group": "marketing"
     },
     {
@@ -914,6 +984,21 @@
       "group": "marketing"
     },
     {
+      "path": "memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "memory-boost"
+    },
+    {
+      "path": "memory-boost/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "memory-boost"
+    },
+    {
       "path": "memory-boost/memory-boost/baby-ia-agente.html",
       "label": "Baby Ia Agente",
       "group": "memory-boost"
@@ -924,28 +1009,13 @@
       "group": "memory-boost"
     },
     {
-      "path": "memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "memory-boost"
-    },
-    {
       "path": "memory-boost/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "memory-boost"
     },
     {
-      "path": "memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "memory-boost"
-    },
-    {
       "path": "memory-boost/memory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "memory-boost"
-    },
-    {
-      "path": "memory-boost/hd-memory.html",
-      "label": "Hd Memory",
       "group": "memory-boost"
     },
     {
@@ -979,22 +1049,7 @@
       "group": "memory-boost"
     },
     {
-      "path": "nft-collection/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "nft-collection"
-    },
-    {
       "path": "nft-collection/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "nft-collection"
     },
@@ -1019,18 +1074,38 @@
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "nft-collection/galeria.html",
+      "label": "NFT Collection — Galeria",
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/memory-boost/hd-baby-ia.html",
+      "path": "nft-collection/hd-baby-ia.html",
       "label": "Hd Baby Ia",
       "group": "nft-collection"
     },
     {
       "path": "nft-collection/hd-memory.html",
       "label": "Hd Memory",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
       "group": "nft-collection"
     },
     {
@@ -1041,26 +1116,6 @@
     {
       "path": "nft-collection/memory-boost/health.html",
       "label": "Health",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/nft-colection-edition.html",
-      "label": "Nft Colection Edition",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/galeria.html",
-      "label": "NFT Collection — Galeria",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/nft-darkness.html",
-      "label": "Nft Darkness",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/nft-genesis.html",
-      "label": "Nft Genesis",
       "group": "nft-collection"
     },
     {
@@ -1079,9 +1134,34 @@
       "group": "nft-collection"
     },
     {
+      "path": "nft-collection/nft-colection-edition.html",
+      "label": "Nft Colection Edition",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/nft-darkness.html",
+      "label": "Nft Darkness",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/nft-genesis.html",
+      "label": "Nft Genesis",
+      "group": "nft-collection"
+    },
+    {
       "path": "nft-collection/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "nft-collection"
+    },
+    {
+      "path": "padrao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "padrao"
+    },
+    {
+      "path": "padrao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "padrao"
     },
     {
       "path": "padrao/momory-boost/baby-ia-agente.html",
@@ -1099,18 +1179,8 @@
       "group": "padrao"
     },
     {
-      "path": "padrao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "padrao"
-    },
-    {
       "path": "padrao/momory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "padrao"
-    },
-    {
-      "path": "padrao/hd-memory.html",
-      "label": "Hd Memory",
       "group": "padrao"
     },
     {
@@ -1139,6 +1209,21 @@
       "group": "padrao"
     },
     {
+      "path": "pluguin/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "pluguin"
+    },
+    {
+      "path": "pluguin/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "pluguin"
+    },
+    {
       "path": "pluguin/memory-boost/baby-ia-agente.html",
       "label": "Baby Ia Agente",
       "group": "pluguin"
@@ -1149,28 +1234,13 @@
       "group": "pluguin"
     },
     {
-      "path": "pluguin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "pluguin"
-    },
-    {
       "path": "pluguin/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "pluguin"
     },
     {
-      "path": "pluguin/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "pluguin"
-    },
-    {
       "path": "pluguin/memory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "pluguin"
-    },
-    {
-      "path": "pluguin/hd-memory.html",
-      "label": "Hd Memory",
       "group": "pluguin"
     },
     {
@@ -1189,11 +1259,6 @@
       "group": "pluguin"
     },
     {
-      "path": "pluguin/pluguin.html",
-      "label": "Pluguin",
-      "group": "pluguin"
-    },
-    {
       "path": "pluguin/memory-boost/pluguins-tuto.html",
       "label": "Pluguins Tuto",
       "group": "pluguin"
@@ -1204,74 +1269,29 @@
       "group": "pluguin"
     },
     {
-      "path": "baby-ia.html",
-      "label": "Baby Ia",
-      "group": "RAIZ"
-    },
-    {
-      "path": "baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "RAIZ"
-    },
-    {
-      "path": "baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "RAIZ"
-    },
-    {
-      "path": "chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "RAIZ"
-    },
-    {
-      "path": "hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "RAIZ"
-    },
-    {
-      "path": "hd-memory.html",
-      "label": "Hd Memory",
-      "group": "RAIZ"
-    },
-    {
-      "path": "health.html",
-      "label": "Health",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index.html",
-      "label": "HOME",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index-home-anterior-a-home-aprovada-2026-11-20.html",
-      "label": "HOME anterior — arquivo histórico",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index-home-portal-preservado-2026-11-20.html",
-      "label": "HOME portal — versão preservada",
-      "group": "RAIZ"
-    },
-    {
-      "path": "Index.html",
-      "label": "Index — Página alternativa",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index.htm",
-      "label": "Index HTM — HOME preservada",
-      "group": "RAIZ"
-    },
-    {
-      "path": "mapa-colmeia.html",
-      "label": "Mapa Colmeia",
-      "group": "RAIZ"
+      "path": "pluguin/pluguin.html",
+      "label": "Pluguin",
+      "group": "pluguin"
     },
     {
       "path": "relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "RAIZ"
+    },
+    {
+      "path": "sincronizacao/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "sincronizacao"
     },
     {
       "path": "sincronizacao/memory-boost/baby-ia-agente.html",
@@ -1284,18 +1304,8 @@
       "group": "sincronizacao"
     },
     {
-      "path": "sincronizacao/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "sincronizacao"
-    },
-    {
       "path": "sincronizacao/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
-      "group": "sincronizacao"
-    },
-    {
-      "path": "sincronizacao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
       "group": "sincronizacao"
     },
     {
@@ -1304,22 +1314,7 @@
       "group": "sincronizacao"
     },
     {
-      "path": "sincronizacao/sinc/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "sincronizacao"
-    },
-    {
-      "path": "sincronizacao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "sincronizacao"
-    },
-    {
       "path": "sincronizacao/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "sincronizacao"
-    },
-    {
-      "path": "sincronizacao/sinc/hd-memory.html",
       "label": "Hd Memory",
       "group": "sincronizacao"
     },
@@ -1349,27 +1344,22 @@
       "group": "sincronizacao"
     },
     {
+      "path": "sincronizacao/sinc/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "sincronizacao"
+    },
+    {
+      "path": "sincronizacao/sinc/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "sincronizacao"
+    },
+    {
       "path": "social-crypykut/amigos.html",
       "label": "Amigos",
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "social-crypykut"
-    },
-    {
       "path": "social-crypykut/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "social-crypykut"
     },
@@ -1379,13 +1369,13 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/comunidades.html",
-      "label": "Comunidades",
+      "path": "social-crypykut/comunidade.html",
+      "label": "Social CRYPYKUT — Comunidade",
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/reals.html",
-      "label": "CRYPYKUT Reels",
+      "path": "social-crypykut/comunidades.html",
+      "label": "Comunidades",
       "group": "social-crypykut"
     },
     {
@@ -1404,13 +1394,33 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
+      "path": "social-crypykut/hd-memory.html",
+      "label": "Hd Memory",
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/hd-memory.html",
-      "label": "Hd Memory",
+      "path": "social-crypykut/jogos.html",
+      "label": "Jogos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/baby-ia-agente.html",
+      "label": "Baby Ia Agente",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/baby-ia-conectado.html",
+      "label": "Baby Ia Conectado",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
       "group": "social-crypykut"
     },
     {
@@ -1424,8 +1434,18 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/jogos.html",
-      "label": "Jogos",
+      "path": "social-crypykut/memory-boost/pluguin.html",
+      "label": "Pluguin",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/pluguins-tuto.html",
+      "label": "Pluguins Tuto",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/memory-boost/relogio-mundial.html",
+      "label": "Relogio Mundial",
       "group": "social-crypykut"
     },
     {
@@ -1439,23 +1459,13 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
+      "path": "social-crypykut/reals.html",
+      "label": "CRYPYKUT Reels",
       "group": "social-crypykut"
     },
     {
       "path": "social-crypykut/recados.html",
       "label": "Recados",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
       "group": "social-crypykut"
     },
     {
@@ -1469,9 +1479,19 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/comunidade.html",
-      "label": "Social CRYPYKUT — Comunidade",
-      "group": "social-crypykut"
+      "path": "web3.1/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/hd-baby-ia.html",
+      "label": "Hd Baby Ia",
+      "group": "web3.1"
+    },
+    {
+      "path": "web3.1/hd-memory.html",
+      "label": "Hd Memory",
+      "group": "web3.1"
     },
     {
       "path": "web3.1/momory-boost/baby-ia-agente.html",
@@ -1484,28 +1504,13 @@
       "group": "web3.1"
     },
     {
-      "path": "web3.1/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "web3.1"
-    },
-    {
       "path": "web3.1/momory-boost/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "web3.1"
     },
     {
-      "path": "web3.1/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "web3.1"
-    },
-    {
       "path": "web3.1/momory-boost/hd-baby-ia.html",
       "label": "Hd Baby Ia",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/hd-memory.html",
-      "label": "Hd Memory",
       "group": "web3.1"
     },
     {
