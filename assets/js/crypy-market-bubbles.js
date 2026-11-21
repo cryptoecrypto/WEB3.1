@@ -34,10 +34,13 @@
     return null;
   }
   function findMarketBox() {
-    var candidates = Array.prototype.slice.call(document.querySelectorAll("h1,h2,h3,h4,h5,h6,[aria-label],.title,.titulo"));
-    var heading = candidates.find(function (n) {
-      return /CRYPY\s*MARKET\s*NEWS/i.test((n.textContent || "").trim());
-    });
+    var candidates = Array.prototype.slice.call(document.querySelectorAll("body *"));
+    var heading = candidates.filter(function (n) {
+      var text = (n.textContent || "").replace(/\s+/g, " ").trim();
+      return text.length <= 100 && /CRYPY\s*MARKET\s*NEWS/i.test(text);
+    }).sort(function (a, b) {
+      return (a.textContent || "").length - (b.textContent || "").length;
+    })[0];
     if (!heading) return null;
     return heading.closest("section,article,.card,.box,.panel,[class*='card'],[class*='box'],[class*='panel']") || heading.parentElement;
   }
