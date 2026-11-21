@@ -206,6 +206,9 @@
         return String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase();
       }
       function hiddenByMenuRule(page) {
+        var group=normalized(page.group);
+        var hiddenGroups=["memory-boost","padrao","pluguin","sincronizacao"];
+        if (hiddenGroups.indexOf(group)!==-1) return true;
         var searchable=normalized(String(page.path||"")+" "+String(page.label||""));
         var technicalRules=[
           /(^|[^a-z0-9])hd([^a-z0-9]|$)/,
