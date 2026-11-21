@@ -80,9 +80,10 @@ try{if(frame){doc=frame.contentDocument;url=frame.contentWindow.location.href;if
 catch(_){page={title:"Conteúdo indisponível",url:url,chunks:[]};squad=["BABY","NEXUS"];name.textContent="BABY · CONTEXTO INDISPONÍVEL";sub.textContent="Não foi possível ler esta página.";team.textContent="Nenhum dado foi enviado.";return;}
 page={title:doc.title||"Página CRYPY",url:url,chunks:extract(doc)};
 squad=roles(new URL(url).pathname,page.title);
-name.textContent=squad[0]+" · "+page.title;
-sub.textContent=page.chunks.length+" trechos locais · busca contextual";
-team.textContent="Esquadrão: "+squad.map(function(x){return x+" — "+TEAM[x];}).join(" | ")+" | BABY coordena · NEXUS audita";
+activeProfile=profileFor(new URL(url).pathname,page.title);
+name.textContent=activeProfile.name+" · "+page.title;
+sub.textContent=activeProfile.scope+" · "+page.chunks.length+" trechos locais";
+team.textContent="Perfil: "+activeProfile.name+" | Esquadrão: "+squad.map(function(x){return x+" — "+TEAM[x];}).join(" | ");
 log.replaceChildren();
 add("Assistente contextual da página. Pesquiso o texto visível e mostro evidências. As personalidades são perfis de contexto, não modelos de IA conectados. Não salvo memória permanente nem envio dados.", "agent");
 }
