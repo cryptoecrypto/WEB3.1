@@ -41,14 +41,35 @@
     return categories[0];
   }
   function hideLegacyMenus() {
-    var signatures = ["CRYPY INFINYT","NFT-COLLECTION","ESQUADRÃO DAS CORES","CRYPY ACADEMY","MUSEU DIGITAL","WHITE PAPER","CRYPY-NEWS","MARKETPLACE","CRYPY-GAMES","CRYPYCUT","CRYPY-COIN"];
-    document.querySelectorAll("nav,.crypy-menu-caixa,.crypy-portal-nav,.menu-principal,.main-menu,.crypy-main-menu,.crypy-menu").forEach(function(el) {
+    var signatures = [
+      "CRYPY INFINYT","CRYPY-INFINIT","NFT-COLLECTION","ESQUADRÃO DAS CORES",
+      "CRYPY ACADEMY","CRYPY-ACADEMY","BIOGRAFIA","CRYPY-NEWS",
+      "MUSEU DIGITAL","MARKETPLACE","CRYPY-GAMES","CRYPYCUT",
+      "CRYPY-COIN","WHITE PAPER","CONTATO"
+    ];
+    var selector = [
+      "nav","[role='navigation']","[aria-label*='menu' i]",
+      "[class*='crypy-menu' i]","[id*='crypy-menu' i]",
+      "[class*='portal-nav' i]","[class*='menu-principal' i]",
+      "[class*='main-menu' i]","[class*='navbar' i]",
+      "[class*='navigation-menu' i]"
+    ].join(",");
+    document.querySelectorAll(selector).forEach(function(el) {
       if (el.closest("#crypy-global-navigation")) return;
-      var classes = String(el.className || "");
-      var knownLegacy = /crypy-menu-caixa|crypy-portal-nav|menu-principal|main-menu|crypy-main-menu|crypy-menu/i.test(classes);
+      if (el.classList.contains("crypy-legacy-menu-hidden")) return;
+      var identity = (
+        String(el.className || "") + " " +
+        String(el.id || "") + " " +
+        String(el.getAttribute("aria-label") || "")
+      ).toLocaleLowerCase("pt-BR");
+      var knownLegacy = /crypy.*(menu|nav)|(?:menu|nav).*crypy|portal-nav|menu-principal|main-menu|navbar|navigation-menu/.test(identity);
       var text = String(el.textContent || "").toLocaleUpperCase("pt-BR");
-      var isCategoryMenu = el.tagName.toLowerCase() === "nav" && signatures.some(function(label) { return text.includes(label); });
-      if (knownLegacy || isCategoryMenu) el.classList.add("crypy-legacy-menu-hidden");
+      var categoryHits = signatures.filter(function(label) { return text.includes(label); }).length;
+      var linkCount = el.querySelectorAll("a").length;
+      var navWithSeveralLinks = el.tagName.toLowerCase() === "nav" && linkCount >= 3;
+      if (knownLegacy || categoryHits >= 2 || (navWithSeveralLinks && /menu|portal|navega|categoria/i.test(identity + " " + text.slice(0,180)))) {
+        el.classList.add("crypy-legacy-menu-hidden");
+      }
     });
   }
 
