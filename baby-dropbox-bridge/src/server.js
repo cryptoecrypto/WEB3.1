@@ -134,7 +134,7 @@ export function createBridgeServer({
       }
 
       if (url.pathname.startsWith("/api/")) {
-        const match = /^Bearer\\s+(.+)$/i.exec(String(req.headers.authorization || ""));
+        const match = /^Bearer\s+(.+)$/i.exec(String(req.headers.authorization || ""));
         if (!safeEqual(match?.[1], expectedToken)) {
           return sendJson(res, 401, {
             ok: false,
