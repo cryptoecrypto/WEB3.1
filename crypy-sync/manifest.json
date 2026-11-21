@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "repository": "cryptoecrypto/WEB3.1",
+  "role": "public-client",
+  "authority": "WEB3.1",
+  "description": "Interface pública, páginas e cliente BABY; nenhum segredo pode ser armazenado aqui.",
+  "repositories": [
+    {
+      "name": "cryptoecrypto/WEB3.1",
+      "role": "public-client"
+    },
+    {
+      "name": "cryptoecrypto/HD-MATRIZ",
+      "role": "private-core"
+    },
+    {
+      "name": "cryptoecrypto/SECURYTY-SUBC",
+      "role": "security-controls"
+    }
+  ],
+  "policy": {
+    "directPushToMain": false,
+    "promotion": "pull-request-only",
+    "conflictResolution": "manual-review-required",
+    "allowed": [
+      "crypy-server-bridge/src/server.js",
+      "crypy-server-bridge/src/auth.js",
+      "crypy-server-bridge/test/server.test.js",
+      "crypy-server-bridge/package.json",
+      "crypy-server-bridge/README.md",
+      "crypy-sync/**",
+      ".github/workflows/crypy-three-repo.yml",
+      "baby-server-bridge.js"
+    ],
+    "denied": [
+      ".env*",
+      "**/.baby/**",
+      "**/data/**",
+      "**/evidence/**",
+      "**/snapshots/**",
+      "**/sessions/**",
+      "**/*token*",
+      "**/*secret*",
+      "**/Memorias.json",
+      "**/memory*.json",
+      "**/backup*"
+    ],
+    "privateDataReplication": false,
+    "destructiveSync": false
+  },
+  "automation": {
+    "requiredSecret": "CRYPY_SYNC_TOKEN",
+    "status": "blocked-until-secret-provisioned",
+    "permissions": [
+      "contents:read/write",
+      "pull-requests:read/write"
+    ]
+  },
+  "apiContract": {
+    "scheme": "Bearer",
+    "header": "Authorization",
+    "prefix": "Bearer",
+    "minimumTokenBytes": 32,
+    "originsEnv": "CRYPY_ALLOWED_ORIGINS",
+    "originPolicy": "exact-match-no-wildcard",
+    "clientStorage": "sessionStorage"
+  },
+  "branch": "feat/crypy-three-repo-sync-v1"
+}
