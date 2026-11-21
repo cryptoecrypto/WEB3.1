@@ -153,7 +153,7 @@
     foot.appendChild(node("a", {
       href: "./crypy-infinyt/relogio-mundial.html"
     }, "RELÓGIO MUNDIAL"));
-    foot.appendChild(document.createTextNode(". O relógio usa o horário do dispositivo; a data/hora da cotação vem do provedor."));
+    foot.appendChild(document.createTextNode(". O relógio usa o horário do dispositivo; a data/hora da cotação vem do provedor. CRYPYCOIN não aparece na tabela: ainda não foi emitida e não possui cotação de mercado."));
 
     section.appendChild(style);
     section.appendChild(head);
