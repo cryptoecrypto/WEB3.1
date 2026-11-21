@@ -34,7 +34,14 @@
   }
   function categoryFor(page) {
     var group = String(page.group || "").toLowerCase();
-    var pathGroup = String(page.path || "").split("/")[0].toLowerCase();
+    var pagePath = String(page.path || "").replace(/\\\\/g, "/").toLowerCase();
+    var pathGroup = pagePath.split("/")[0];
+
+    // Exceções de classificação: estas páginas vivem em grupos técnicos,
+    // mas pertencem a categorias editoriais próprias do menu oficial.
+    if (pagePath === "crypy-news/museu.html") return categories[6];
+    if (pagePath === "crypy-coin/white-paper.html") return categories[12];
+
     for (var i = 0; i < categories.length; i++) {
       if (categories[i].groups.indexOf(group) !== -1 || categories[i].groups.indexOf(pathGroup) !== -1) return categories[i];
     }
