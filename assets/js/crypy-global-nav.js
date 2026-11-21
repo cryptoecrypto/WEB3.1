@@ -11,14 +11,23 @@
   var homeRootPath = new URL("./", siteRoot).pathname.toLowerCase();
   var homeIndexPath = new URL("index.html", siteRoot).pathname.toLowerCase();
   if (currentPath === homeRootPath || currentPath === homeIndexPath) {
-    var marketScript = document.createElement("script");
-    marketScript.src = new URL("assets/js/crypy-live-market.js", siteRoot).href;
-    marketScript.defer = true;
-    document.head.appendChild(marketScript);
-    var bubblesScript = document.createElement("script");
-    bubblesScript.src = new URL("assets/js/crypy-market-bubbles.js", siteRoot).href;
-    bubblesScript.defer = true;
-    document.head.appendChild(bubblesScript);
+    function loadBubblesScript() {
+      if (document.querySelector('script[data-crypy-bubbles-loader="true"]')) return;
+      var bubblesScript = document.createElement("script");
+      bubblesScript.src = new URL("assets/js/crypy-market-bubbles.js", siteRoot).href;
+      bubblesScript.dataset.crypyBubblesLoader = "true";
+      document.head.appendChild(bubblesScript);
+    }
+    if (!document.querySelector('script[data-crypy-live-market-loader="true"]')) {
+      var marketScript = document.createElement("script");
+      marketScript.src = new URL("assets/js/crypy-live-market.js", siteRoot).href;
+      marketScript.dataset.crypyLiveMarketLoader = "true";
+      marketScript.onload = loadBubblesScript;
+      marketScript.onerror = loadBubblesScript;
+      document.head.appendChild(marketScript);
+    } else {
+      loadBubblesScript();
+    }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
   var categories = [
