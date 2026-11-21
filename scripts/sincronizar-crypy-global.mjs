@@ -2,11 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const applyChanges = process.argv.includes('--apply');
+const applyChanges = process.argv.includes("--apply");
 const skip = new Set([".git","node_modules",".baby",".tmp",".cache",".venv","__pycache__","dist","build","coverage","out","target",".next",".vite"]);
 const protectedNames = new Set(["index.htm","hd-baby-ia.html","hd-babyia.html","hd-memory.html","hd-baby-ia-completo-tudo.html"]);
 const protectedPaths = [
-  /^nft-collection\//i,
   /^crypy-news\/hd-matriz\//i,
   /^crypy-server-bridge\//i
 ];
@@ -17,7 +16,7 @@ const serviceEntrypoints = new Set([
 const navAsset = "assets/js/crypy-global-nav.js";
 const indexPath = path.join(root,"assets","data","crypy-page-index.json");
 
-function walk(dir, out = []) {
+function walk(dir,out=[]) {
   for (const entry of fs.readdirSync(dir,{withFileTypes:true})) {
     if (entry.isDirectory()) {
       if (!skip.has(entry.name)) walk(path.join(dir,entry.name),out);
@@ -33,52 +32,39 @@ function label(file) {
     : base.replace(/[-_]+/g," ").replace(/\b\w/g,c=>c.toLocaleUpperCase("pt-BR"));
 }
 
-const files = walk(root).sort();
-const pages = [];
-let updated = 0, planned = 0, already = 0, preserved = 0, invalid = 0, excluded = 0;
-
-for (const file of files) {
-  if (serviceEntrypoints.has(file)) { excluded++; continue; }
-  const absolute = path.join(root,file);
-  const html = fs.readFileSync(absolute,"utf8");
-  if (!/<(?:!doctype\s+html|html\b|body\b)/i.test(html) || html.includes("\u0000")) {
-    invalid++;
-    continue;
-  }
-  pages.push({path:file,label:label(file),group:file.includes("/") ? file.split("/")[0] : "RAIZ"});
-
-  const base = path.posix.basename(file).toLowerCase();
-  const protectedFile = protectedNames.has(base)
-    || file === "index.html"
+const files=walk(root).sort();
+const pages=[];
+let updated=0,planned=0,already=0,preserved=0,invalid=0,excluded=0;
+for(const file of files) {
+  if(serviceEntrypoints.has(file)){excluded++;continue;}
+  const absolute=path.join(root,file);
+  const html=fs.readFileSync(absolute,"utf8");
+  if(!/<(?:!doctype\s+html|html\b|body\b)/i.test(html)||html.includes("\u0000")){invalid++;continue;}
+  pages.push({path:file,label:label(file),group:file.includes("/")?file.split("/")[0]:"RAIZ"});
+  const base=path.posix.basename(file).toLowerCase();
+  const protectedFile=protectedNames.has(base)
+    || file==="index.html"
     || protectedPaths.some(pattern=>pattern.test(file));
-  if (protectedFile) { preserved++; continue; }
-  if (html.includes("crypy-global-nav.js")) { already++; continue; }
-
-  const directory = path.posix.dirname(file);
-  let source = path.posix.relative(directory === "." ? "" : directory,navAsset);
-  if (!source.startsWith(".")) source = "./" + source;
-  const tag = '<script src="' + source + '" defer></script>';
-  const next = /<\/body\s*>/i.test(html)
-    ? html.replace(/<\/body\s*>/i,tag + "\n</body>")
+  if(protectedFile){preserved++;continue;}
+  if(html.includes("crypy-global-nav.js")){already++;continue;}
+  const directory=path.posix.dirname(file);
+  let source=path.posix.relative(directory==="."?"":directory,navAsset);
+  if(!source.startsWith("."))source="./"+source;
+  const tag='<script src="'+source+'" defer></script>';
+  const next=/<\/body\s*>/i.test(html)
+    ? html.replace(/<\/body\s*>/i,tag+"\n</body>")
     : /<\/html\s*>/i.test(html)
-      ? html.replace(/<\/html\s*>/i,tag + "\n</html>")
-      : html + "\n" + tag + "\n";
-  if (applyChanges) { fs.writeFileSync(absolute,next,"utf8"); updated++; }
-  else { planned++; }
+      ? html.replace(/<\/html\s*>/i,tag+"\n</html>")
+      : html+"\n"+tag+"\n";
+  if(applyChanges){fs.writeFileSync(absolute,next,"utf8");updated++;}
+  else{planned++;}
 }
-
 pages.sort((a,b)=>a.group.localeCompare(b.group,"pt-BR")||a.label.localeCompare(b.label,"pt-BR")||a.path.localeCompare(b.path,"pt-BR"));
-if (applyChanges) {
+if(applyChanges){
   fs.mkdirSync(path.dirname(indexPath),{recursive:true});
-  fs.writeFileSync(indexPath,JSON.stringify({
-    version:"1.5",
-    generated_at:new Date().toISOString(),
-    total:pages.length,
-    pages
-  },null,2)+"\n");
+  fs.writeFileSync(indexPath,JSON.stringify({version:"1.7",generated_at:new Date().toISOString(),total:pages.length,pages},null,2)+"\n");
 }
-
-console.log("Modo:",applyChanges ? "APLICAÇÃO" : "SIMULAÇÃO (padrão)",
+console.log("Modo:",applyChanges?"APLICAÇÃO":"SIMULAÇÃO (padrão)",
   "| páginas catalogadas:",pages.length,
   "| atualizadas:",updated,
   "| alterações planejadas:",planned,
