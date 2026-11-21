@@ -57,6 +57,13 @@ for (const label of officialCategories) {
   previous = at;
 }
 
+if (!nav.includes('if (pagePath === "crypy-news/museu.html") return categories[6];')) {
+  errors.push("Museu Digital não está roteado para sua categoria oficial");
+}
+if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html") return categories[12];')) {
+  errors.push("White Paper não está roteado para sua categoria oficial");
+}
+
 if (!home.includes("./dev/micro-clock.js")) errors.push("HOME não carrega a ponte de compatibilidade do menu global");
 if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte da HOME não carrega o menu global");
 if (!fs.existsSync(navPath)) errors.push("menu global ausente");
