@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "BASELINE_PENDING",
+  "description": "Inventário deliberadamente vazio até auditoria dos caminhos reais. Não inventar caminhos nem hashes.",
+  "hashAlgorithm": "SHA-256",
+  "files": [],
+  "protectedRoots": [
+    "cf-web-baby/"
+  ],
+  "rules": {
+    "unknownPath": "REJECT_PROMOTION",
+    "mismatch": "BLOCK_AND_AUDIT",
+    "automaticOverwrite": false,
+    "automaticRestore": false
+  }
+}
