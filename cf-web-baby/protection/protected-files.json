@@ -1,16 +1,70 @@
 {
   "schemaVersion": "1.0.0",
-  "status": "BASELINE_PENDING",
-  "description": "Inventário deliberadamente vazio até auditoria dos caminhos reais. Não inventar caminhos nem hashes.",
+  "status": "BASELINE_CREATED_PENDING_SIGNATURE",
+  "description": "SHA-256 baseline of selected canonical BABY public runtime artifacts in WEB3.1. This inventory does not include private HD-MATRIZ or memory data.",
   "hashAlgorithm": "SHA-256",
-  "files": [],
+  "baselineSource": {
+    "repository": "cryptoecrypto/WEB3.1",
+    "ref": "main",
+    "commit": "096668a01e8fae62a6ea5c1e8e3786b30a5389bd",
+    "capturedAt": "2026-11-21"
+  },
+  "files": [
+    {
+      "path": "baby-ia.html",
+      "sha256": "529916d3aab37bb0e925d1d29822d4d3d69313331ea53a6f4070e6d0ed488ddc",
+      "gitBlobSha": "20e272c57489b8dbf7582fcd4600cb40bc15c9c7",
+      "bytes": 273811
+    },
+    {
+      "path": "baby-ia-conectado.html",
+      "sha256": "08aa473775e7ae79ad43d44583d9cb7ded217c05f991b40b5921b846ff089842",
+      "gitBlobSha": "65963c124bf88aff7f96f2e9fff3b48db2acfabc",
+      "bytes": 273933
+    },
+    {
+      "path": "baby-core.js",
+      "sha256": "f0a90b59ea2e9f4b2e2572419863c9644e8d7a3fed4dd62246a7fe0d0d55799b",
+      "gitBlobSha": "2619cd110c908d8967aa91437b28a343a5dcee71",
+      "bytes": 10229
+    },
+    {
+      "path": "baby-bridge.js",
+      "sha256": "df6b3f283b2f65fb1c11549950c4a9f4c5481264de3f125de8951c1be9034722",
+      "gitBlobSha": "c8bbe2005c19a87cf252ddb3a80b1aca6b1fa2cc",
+      "bytes": 5140
+    },
+    {
+      "path": "baby-server-bridge.js",
+      "sha256": "07dc109865476bacff506a7841b49b474d2e71fe01f48a2af0ebb66192178261",
+      "gitBlobSha": "03fddd3270a42d1f7835f671f3e5a83256c5d753",
+      "bytes": 4728
+    },
+    {
+      "path": "chatboot-baby-ia.html",
+      "sha256": "057244dafc7a884cb1582fb0a2603f99e53e9d118cbf2b780e3f3f2b04d986a9",
+      "gitBlobSha": "6b23470a891cf0f2a4ddcd9d70aa21b9ff17613e",
+      "bytes": 63571
+    },
+    {
+      "path": "hd-baby-ia.html",
+      "sha256": "5d36d609895265365057edf62b3db340d820b4958fe454aeee558f49243e522b",
+      "gitBlobSha": "72c8fa7fc7eee6bcb7d2bfdd3c2be8fb36740c70",
+      "bytes": 767307
+    }
+  ],
   "protectedRoots": [
     "cf-web-baby/"
   ],
   "rules": {
-    "unknownPath": "REJECT_PROMOTION",
-    "mismatch": "BLOCK_AND_AUDIT",
+    "unknownPath": "REVIEW_REQUIRED",
+    "mismatch": "BLOCK_PROMOTION_AND_AUDIT",
     "automaticOverwrite": false,
     "automaticRestore": false
+  },
+  "trust": {
+    "manifestSignature": "NOT_YET_PROVISIONED",
+    "trustedPublicKey": "NOT_YET_PROVISIONED",
+    "signatureRequiredForProductionPromotion": true
   }
 }
