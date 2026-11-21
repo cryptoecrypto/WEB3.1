@@ -86,7 +86,11 @@ export class DropboxAdapter {
 
   async status() {
     const missing = this.missingConfiguration();
-    const connected = missing.length === 0 ? await this.store.exists() : false;
+    let connected = false;
+    if (missing.length === 0) {
+      const token = await this.store.read();
+      connected = Boolean(token?.refreshToken);
+    }
     return {
       configured: missing.length === 0,
       missing,
