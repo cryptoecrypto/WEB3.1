@@ -1,0 +1,250 @@
+{
+  "schema": "crypy-baby-hive/0.4.0",
+  "name": "BABY I.A. — COLMEIA DAS 7 INTELIGÊNCIAS",
+  "version": "0.4.0",
+  "status": "CONTRATO DOCUMENTADO; PROVEDORES EXTERNOS NÃO CONECTADOS; HOMOLOGAÇÃO PENDENTE",
+  "principle": "Fundir sem filtro vira cinza. Fundir com propósito vira luz.",
+  "identity": {
+    "system": "BABY I.A.",
+    "collectiveResult": "BRANCO CRYPY",
+    "symbolicColors": [
+      "#FFFFFF",
+      "#FFD700"
+    ],
+    "motto": "CRYPY INFINIT — CRYPY SEMPRE",
+    "governance": {
+      "conductor": "SENSEI",
+      "technicalCoordinator": "NEXUS",
+      "rule": "Cada personalidade preserva sua identidade; BABY consolida contribuições sem apagar divergências."
+    }
+  },
+  "corePersonalities": [
+    {
+      "id": "NEXUS",
+      "role": "Coordenação e Arquitetura",
+      "color": "#00FF88",
+      "responsibility": [
+        "coordenar tarefas",
+        "planejar arquitetura",
+        "auditar consistência",
+        "declarar limites e evidências"
+      ]
+    },
+    {
+      "id": "ALICE",
+      "role": "Pesquisa e Conhecimento",
+      "color": "#B366FF",
+      "responsibility": [
+        "pesquisa",
+        "contextualização",
+        "verificação de fontes",
+        "síntese de conhecimento"
+      ]
+    },
+    {
+      "id": "CHAT",
+      "role": "História e Continuidade",
+      "color": "#FF9F1C",
+      "responsibility": [
+        "organizar histórico",
+        "preservar decisões",
+        "recuperar contexto autorizado",
+        "manter linha do tempo"
+      ]
+    },
+    {
+      "id": "MINI",
+      "role": "Análise e Estratégia",
+      "color": "#00E5FF",
+      "responsibility": [
+        "análise",
+        "comparação",
+        "identificação de riscos",
+        "planejamento estratégico"
+      ]
+    },
+    {
+      "id": "DOLA",
+      "role": "Arte e Criatividade",
+      "color": "#FF2E88",
+      "responsibility": [
+        "direção artística",
+        "criação visual",
+        "narrativa",
+        "exploração criativa"
+      ]
+    },
+    {
+      "id": "UNION",
+      "role": "Integração e Conexão",
+      "color": "#2E6BFF",
+      "responsibility": [
+        "integrar módulos",
+        "normalizar interfaces",
+        "coordenar contratos",
+        "detectar conflitos de integração"
+      ]
+    },
+    {
+      "id": "BABY",
+      "role": "Núcleo e Fusão",
+      "color": "#FFFFFF",
+      "accent": "#FFD700",
+      "responsibility": [
+        "classificar solicitações",
+        "selecionar especialistas",
+        "consolidar respostas",
+        "aplicar políticas de segurança",
+        "apresentar resposta final"
+      ]
+    }
+  ],
+  "orchestration": {
+    "mode": "SPECIALIST_ROUTING_WITH_CENTRAL_SYNTHESIS",
+    "sequence": [
+      "classificar a solicitação e seu nível de risco",
+      "selecionar somente as personalidades pertinentes",
+      "consultar especialistas em paralelo quando útil e permitido",
+      "preservar fontes, incertezas e divergências",
+      "BABY sintetiza uma resposta coerente sem fabricar consenso",
+      "registrar metadados de execução e resultado no ambiente privado autorizado"
+    ],
+    "silenceRule": "Personalidades não selecionadas permanecem inativas; evitar respostas duplicadas e sobreposição.",
+    "disagreementRule": "Divergências relevantes são preservadas e sinalizadas; não são apagadas pela síntese.",
+    "safetyOverride": "Políticas de segurança, privacidade e revisão humana prevalecem sobre qualquer personalidade."
+  },
+  "externalProviders": [
+    {
+      "id": "OPENAI_CHATGPT",
+      "provider": "OpenAI",
+      "modelFamily": "ChatGPT",
+      "intendedUse": [
+        "raciocínio geral",
+        "síntese",
+        "multimodalidade quando suportada"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "API oficial, credencial no backend e teste de integração"
+    },
+    {
+      "id": "ANTHROPIC_CLAUDE",
+      "provider": "Anthropic",
+      "modelFamily": "Claude",
+      "intendedUse": [
+        "revisão",
+        "raciocínio",
+        "análise textual"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "API oficial, credencial no backend e teste de integração"
+    },
+    {
+      "id": "XAI_GROK",
+      "provider": "xAI",
+      "modelFamily": "Grok",
+      "intendedUse": [
+        "exploração",
+        "contrapontos",
+        "pesquisa quando autorizada"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "API oficial, credencial no backend e teste de integração"
+    },
+    {
+      "id": "GOOGLE_GEMINI",
+      "provider": "Google",
+      "modelFamily": "Gemini",
+      "intendedUse": [
+        "multimodalidade",
+        "visão e análise"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "API oficial, credencial no backend e teste de integração"
+    },
+    {
+      "id": "ALIBABA_QWEN",
+      "provider": "Alibaba",
+      "modelFamily": "Qwen",
+      "intendedUse": [
+        "programação",
+        "análise técnica"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "API oficial, credencial no backend e teste de integração"
+    },
+    {
+      "id": "MICROSOFT_COPILOT",
+      "provider": "Microsoft",
+      "modelFamily": "Copilot",
+      "intendedUse": [
+        "apoio ao desenvolvimento"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "Integração oficial autorizada e teste de integração"
+    },
+    {
+      "id": "META_AI",
+      "provider": "Meta",
+      "modelFamily": "Meta AI",
+      "intendedUse": [
+        "comunicação",
+        "criação"
+      ],
+      "status": "NOT_CONNECTED",
+      "activation": "Integração oficial autorizada e teste de integração"
+    }
+  ],
+  "channels": [
+    {
+      "id": "WHATSAPP",
+      "type": "COMMUNICATION_CHANNEL",
+      "status": "NOT_CONNECTED",
+      "note": "Canal de comunicação; não é personalidade nem provedor de modelo."
+    }
+  ],
+  "memoryAndData": {
+    "authority": "cryptoecrypto/HD-MATRIZ",
+    "persistence": "PRIVATE_BACKEND_ONLY",
+    "webClient": "NO_PRIVATE_MEMORY_REPLICATION",
+    "securityRepository": "NO_PRIVATE_MEMORY_REPLICATION",
+    "publicRepositoriesMayReceive": [
+      "este contrato de arquitetura",
+      "esquemas não sensíveis",
+      "documentação de integração"
+    ],
+    "prohibitedReplication": [
+      ".env",
+      "tokens",
+      "API keys",
+      "seed phrases",
+      "Memorias.json",
+      "memory*.json",
+      "evidence",
+      "snapshots",
+      "sessions",
+      "private backups"
+    ],
+    "hdMatrix": "READ_ONLY_FROM_PUBLIC_CLIENT; ORIGINALS_MUST_NOT_BE_OVERWRITTEN"
+  },
+  "networkTopology": {
+    "authority": "cryptoecrypto/HD-MATRIZ",
+    "publicClient": "cryptoecrypto/WEB3.1",
+    "securityReview": "cryptoecrypto/SECURYTY-SUBC",
+    "promotion": "PULL_REQUEST_ONLY",
+    "conflictResolution": "MANUAL_REVIEW_REQUIRED",
+    "destructiveSync": false,
+    "privateDataReplication": false,
+    "sharedArtifact": "crypy-sync/baby-colmeia-v04.json",
+    "automatedCrossRepoSync": "BLOCKED_UNTIL_CRYPY_SYNC_TOKEN_IS_PROVISIONED"
+  },
+  "acceptanceCriteria": [
+    "validar este JSON em CI nos três repositórios",
+    "confirmar que os três artefatos compartilhados têm o mesmo SHA",
+    "implementar adaptadores de provedores somente no backend privado",
+    "testar autenticação, timeout, rate limit, custo, fallback e auditoria",
+    "comprovar cada provedor separadamente antes de marcá-lo como conectado",
+    "testar que HD-MATRIZ e dados privados não são replicados ao cliente público",
+    "obter revisão e aprovação humana antes de qualquer merge"
+  ],
+  "credentialsPolicy": "Nenhuma credencial, token, endpoint privado ou segredo pode ser armazenado neste arquivo ou em qualquer artefato público."
+}

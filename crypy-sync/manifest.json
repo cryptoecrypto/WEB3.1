@@ -30,7 +30,9 @@
       "crypy-server-bridge/README.md",
       "crypy-sync/**",
       ".github/workflows/crypy-three-repo.yml",
-      "baby-server-bridge.js"
+      "baby-server-bridge.js",
+      "crypy-sync/baby-colmeia-v04.json",
+      "crypy-sync/BABY-COLMEIA-V04.md"
     ],
     "denied": [
       ".env*",
@@ -65,5 +67,16 @@
     "originPolicy": "exact-match-no-wildcard",
     "clientStorage": "sessionStorage"
   },
-  "branch": "feat/crypy-three-repo-sync-v1"
+  "branch": "feat/crypy-three-repo-sync-v1",
+  "sharedContracts": {
+    "babyHive": {
+      "version": "0.4.0",
+      "path": "crypy-sync/baby-colmeia-v04.json",
+      "documentation": "crypy-sync/BABY-COLMEIA-V04.md",
+      "sourceOfTruth": "cryptoecrypto/HD-MATRIZ",
+      "replication": "non-sensitive-contract-only",
+      "promotion": "pull-request-only",
+      "runtimeStatus": "DOCUMENTED_NOT_HOMOLOGATED"
+    }
+  }
 }
