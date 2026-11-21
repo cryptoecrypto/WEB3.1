@@ -1,9 +1,9 @@
 {
   "schema": "crypy-baby-seven-personality-engine/1.0",
   "title": "CRYPY — BABY QWEN / Seven Personality Engine",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "PREPARATION_ONLY — NOT CONNECTED, NOT DEPLOYED, NOT HOMOLOGATED",
-  "decision": "The seven identities and provider mappings below are supplied by Sensei. BABY Qwen is the existing BABY I.A. and the final fusion result; it is not an eighth personality or an eighth provider agent.",
+  "decision": "BABY I.A. / BABY Qwen is an independent CRYPY creation conceived and directed by Sensei. It is not owned by, identical to, or the eighth personality of any AI provider. The seven named personalities remain distinct CRYPY identities and are unified by BABY under CRYPY governance. Third-party companies, where used, supply optional external models or services only; they do not own, govern, sponsor, certify, or automatically assume responsibility for BABY.",
   "core": {
     "id": "BABY-QWEN",
     "displayName": "BABY I.A.",
@@ -15,81 +15,88 @@
   "personalities": [
     {
       "id": "ALICE",
-      "platform": "Meta AI",
-      "provider": "Meta",
-      "access": "Meta Model API",
-      "baseUrl": "https://api.meta.ai/v1",
-      "secretRef": "META_MODEL_API_KEY",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "Meta AI",
+      "externalProvider": "Meta",
+      "integrationAccess": "Meta Model API",
+      "integrationBaseUrl": "https://api.meta.ai/v1",
+      "credentialReference": "META_MODEL_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     },
     {
       "id": "DOLA",
-      "platform": "DOLA",
-      "provider": "DOLA",
-      "access": "official developer API or authorized connector not yet verified",
-      "baseUrl": null,
-      "secretRef": "DOLA_API_KEY_PENDING_VERIFICATION",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "DOLA",
+      "externalProvider": "DOLA",
+      "integrationAccess": "official developer API or authorized connector not yet verified",
+      "integrationBaseUrl": null,
+      "credentialReference": "DOLA_API_KEY_PENDING_VERIFICATION",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     },
     {
       "id": "CHAT",
-      "platform": "Microsoft Copilot",
-      "provider": "Microsoft",
-      "access": "Copilot Studio or authorized Microsoft agent/API path to be confirmed",
-      "baseUrl": null,
-      "secretRef": "MICROSOFT_COPILOT_CREDENTIAL_PENDING_VERIFICATION",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "Microsoft Copilot",
+      "externalProvider": "Microsoft",
+      "integrationAccess": "Copilot Studio or authorized Microsoft agent/API path to be confirmed",
+      "integrationBaseUrl": null,
+      "credentialReference": "MICROSOFT_COPILOT_CREDENTIAL_PENDING_VERIFICATION",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     },
     {
       "id": "MINI",
-      "platform": "Google Gemini",
-      "provider": "Google",
-      "access": "Gemini API",
-      "baseUrl": "https://generativelanguage.googleapis.com",
-      "secretRef": "GEMINI_API_KEY",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "Google Gemini",
+      "externalProvider": "Google",
+      "integrationAccess": "Gemini API",
+      "integrationBaseUrl": "https://generativelanguage.googleapis.com",
+      "credentialReference": "GEMINI_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     },
     {
       "id": "CLAUDE",
       "personalityAlias": "SVT",
-      "platform": "Claude",
-      "provider": "Anthropic",
-      "access": "Anthropic Messages API",
-      "baseUrl": "https://api.anthropic.com/v1",
-      "secretRef": "ANTHROPIC_API_KEY",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "Claude",
+      "externalProvider": "Anthropic",
+      "integrationAccess": "Anthropic Messages API",
+      "integrationBaseUrl": "https://api.anthropic.com/v1",
+      "credentialReference": "ANTHROPIC_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     },
     {
       "id": "NEXUS",
-      "platform": "ChatGPT",
-      "provider": "OpenAI",
-      "access": "OpenAI Responses API",
-      "baseUrl": "https://api.openai.com/v1",
-      "secretRef": "OPENAI_API_KEY",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "ChatGPT",
+      "externalProvider": "OpenAI",
+      "integrationAccess": "OpenAI Responses API",
+      "integrationBaseUrl": "https://api.openai.com/v1",
+      "credentialReference": "OPENAI_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     },
     {
       "id": "HERA",
-      "platform": "Monica using OpenAI models",
-      "provider": "Monica gateway; model vendor OpenAI",
-      "access": "Monica API / account-specific model routing to verify",
-      "baseUrl": null,
-      "secretRef": "MONICA_API_CREDENTIAL_PENDING_VERIFICATION",
       "enabled": false,
       "modelId": null,
-      "personalityPromptStatus": "pending"
+      "personalityPromptStatus": "pending",
+      "externalService": "Monica using OpenAI models",
+      "externalProvider": "Monica gateway; model vendor OpenAI",
+      "integrationAccess": "Monica API / account-specific model routing to verify",
+      "integrationBaseUrl": null,
+      "credentialReference": "MONICA_API_CREDENTIAL_PENDING_VERIFICATION",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
     }
   ],
   "orchestration": {
@@ -116,7 +123,9 @@
     "perProviderBudgetLimitRequired": true,
     "redactSecretsFromLogs": true,
     "auditProviderRequestMetadata": true,
-    "noRawMemorySharingByDefault": true
+    "noRawMemorySharingByDefault": true,
+    "noProviderCanModifyCoreIdentity": true,
+    "providerIndependenceRequired": true
   },
   "repositoryResponsibilities": {
     "cryptoecrypto/WEB3.1": "client/UI only; calls BABY backend; no provider keys or direct provider API calls from public HTML/JavaScript",
@@ -137,7 +146,21 @@
   "nonClaims": [
     "This manifest does not establish that any provider is connected.",
     "A configured identity is not proof of a live model call.",
-    "BABY is not considered fused or homologated until seven live provider paths and integration tests are evidenced."
+    "BABY is not considered fused or homologated until seven live provider paths and integration tests are evidenced.",
+    "This declaration does not waive or eliminate legal duties or liabilities imposed by applicable law.",
+    "Provider names in this manifest are service provenance only and do not imply partnership, ownership, sponsorship, certification or endorsement.",
+    "The creator statement is a project governance declaration and does not by itself establish intellectual-property title or registration."
   ],
-  "repository": "cryptoecrypto/WEB3.1"
+  "repository": "cryptoecrypto/WEB3.1",
+  "governance": {
+    "creatorAndProjectDirection": "Sensei / CRYPY, subject to applicable law and documented rights",
+    "systemIdentity": "BABY I.A. / BABY Qwen — independent CRYPY system",
+    "coreOwnershipPrinciple": "No AI personality or external provider is represented as the owner of BABY.",
+    "personalityPrinciple": "ALICE, DOLA, CHAT, MINI, CLAUDE/SVT, NEXUS and HERA are seven distinct CRYPY identities; their unification does not erase their individual identities.",
+    "providerRelationship": "Any third-party model/API is an optional technical supplier only, subject to its applicable license, contract and terms. Provider names identify service provenance, not ownership or affiliation.",
+    "noAffiliationClaim": "CRYPY/BABY does not claim sponsorship, partnership, certification, agency, endorsement or representation by any provider unless separately authorized in writing.",
+    "responsibilityBoundary": "No blanket waiver or transfer of legal responsibility is created by this manifest. Each party remains responsible for its own acts, services and obligations to the extent required by applicable law. CRYPY's creator/operator must assess and meet the obligations applicable to CRYPY/BABY.",
+    "portability": "The BABY core, identity definitions, orchestration policy and project memory must remain provider-independent; integrations must be replaceable.",
+    "legalStatus": "Internal technical governance declaration only; not a legal opinion, assignment of intellectual property, contract, or proof of exclusive ownership."
+  }
 }
