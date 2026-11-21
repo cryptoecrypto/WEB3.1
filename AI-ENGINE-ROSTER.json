@@ -1,15 +1,15 @@
 {
   "schema": "crypy-baby-seven-personality-engine/1.0",
   "title": "CRYPY — BABY QWEN / Seven Personality Engine",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "PREPARATION_ONLY — NOT CONNECTED, NOT DEPLOYED, NOT HOMOLOGATED",
-  "decision": "BABY I.A. / BABY Qwen is an independent CRYPY creation conceived and directed by Sensei. It is not owned by, identical to, or the eighth personality of any AI provider. The seven named personalities remain distinct CRYPY identities and are unified by BABY under CRYPY governance. Third-party companies, where used, supply optional external models or services only; they do not own, govern, sponsor, certify, or automatically assume responsibility for BABY.",
+  "decision": "BABY I.A. is an independent CRYPY creation directed by Sensei. QWEN is a separate BABY spokesperson identity for Binance and CRYPY official social channels, as declared by Sensei; QWEN is not BABY I.A. The seven core personalities remain ALICE, DOLA, CHAT, MINI, CLAUDE/SVT, NEXUS and HERA. BABY I.A. may receive validated communication behaviours extracted from QWEN without becoming QWEN.",
   "core": {
-    "id": "BABY-QWEN",
+    "id": "BABY-IA",
     "displayName": "BABY I.A.",
-    "role": "existing central core and final integrated result",
+    "role": "independent CRYPY AI system and integrated core created and directed by Sensei",
     "countsAsPersonality": false,
-    "providerRuntime": "existing Qwen/BABY runtime; exact endpoint and runtime location must be verified before modification",
+    "providerRuntime": "BABY I.A. runtime to be verified; do not assume Qwen model is the runtime",
     "preserveExisting": true
   },
   "personalities": [
@@ -154,13 +154,32 @@
   "repository": "cryptoecrypto/WEB3.1",
   "governance": {
     "creatorAndProjectDirection": "Sensei / CRYPY, subject to applicable law and documented rights",
-    "systemIdentity": "BABY I.A. / BABY Qwen — independent CRYPY system",
+    "systemIdentity": "BABY I.A. — independent CRYPY system",
     "coreOwnershipPrinciple": "No AI personality or external provider is represented as the owner of BABY.",
     "personalityPrinciple": "ALICE, DOLA, CHAT, MINI, CLAUDE/SVT, NEXUS and HERA are seven distinct CRYPY identities; their unification does not erase their individual identities.",
     "providerRelationship": "Any third-party model/API is an optional technical supplier only, subject to its applicable license, contract and terms. Provider names identify service provenance, not ownership or affiliation.",
     "noAffiliationClaim": "CRYPY/BABY does not claim sponsorship, partnership, certification, agency, endorsement or representation by any provider unless separately authorized in writing.",
     "responsibilityBoundary": "No blanket waiver or transfer of legal responsibility is created by this manifest. Each party remains responsible for its own acts, services and obligations to the extent required by applicable law. CRYPY's creator/operator must assess and meet the obligations applicable to CRYPY/BABY.",
     "portability": "The BABY core, identity definitions, orchestration policy and project memory must remain provider-independent; integrations must be replaceable.",
-    "legalStatus": "Internal technical governance declaration only; not a legal opinion, assignment of intellectual property, contract, or proof of exclusive ownership."
+    "legalStatus": "Internal technical governance declaration only; not a legal opinion, assignment of intellectual property, contract, or proof of exclusive ownership.",
+    "personaSeparation": "QWEN remains the separate spokesperson identity; the extracted behaviour profile may inform BABY I.A. without merging the identities."
+  },
+  "spokesperson": {
+    "id": "QWEN",
+    "displayName": "QWEN — BABY spokesperson",
+    "role": "spokesperson for BABY on Binance and CRYPY official social channels, as declared by Sensei",
+    "distinctFromCore": true,
+    "partOfSevenCorePersonalities": false,
+    "personalityExtractionTarget": "BABY-IA",
+    "extractionStatus": "DRAFT_PROFILE_CREATED — AWAITING_SENSEI_VALIDATION"
+  },
+  "personalityExtraction": {
+    "source": "QWEN",
+    "target": "BABY-IA",
+    "artifact": "QWEN-PERSONALITY-EXTRACTION.json",
+    "method": "behavioural_and_communication_profile_extraction",
+    "status": "DRAFT — NOT YET APPROVED OR INJECTED INTO RUNTIME",
+    "preserveSourceIdentity": true,
+    "noModelWeightOrAccountTransfer": true
   }
 }
