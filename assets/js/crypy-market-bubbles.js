@@ -34,15 +34,46 @@
     return null;
   }
   function findMarketBox() {
+    // Na HOME atual, "CRYPY MARKET NEWS" aparece no texto alternativo da imagem de capa,
+    // não necessariamente como texto de um título. Detectar ambos os formatos.
+    var cover = document.querySelector('img[alt*="CRYPY MARKET NEWS" i]');
+    if (cover) {
+      var ancestor = cover;
+      for (var depth = 0; depth < 8 && ancestor.parentElement; depth++) {
+        ancestor = ancestor.parentElement;
+        var content = (ancestor.textContent || "").replace(/\s+/g, " ").trim();
+        if (content.length < 9000 && /\bBTC\b/i.test(content) &&
+            /\bETH\b/i.test(content) && /\bUSDT\b/i.test(content)) return ancestor;
+      }
+      return cover.parentElement || null;
+    }
     var candidates = Array.prototype.slice.call(document.querySelectorAll("body *"));
     var heading = candidates.filter(function (n) {
       var text = (n.textContent || "").replace(/\s+/g, " ").trim();
-      return text.length <= 100 && /CRYPY\s*MARKET\s*NEWS/i.test(text);
+      return text.length <= 140 && /CRYPY\s*MARKET\s*NEWS/i.test(text);
     }).sort(function (a, b) {
       return (a.textContent || "").length - (b.textContent || "").length;
     })[0];
     if (!heading) return null;
     return heading.closest("section,article,.card,.box,.panel,[class*='card'],[class*='box'],[class*='panel']") || heading.parentElement;
+  }
+  function mergeSharedQuotes(list, quotes) {
+    var shared = quotes || null;
+    if (!shared) {
+      try {
+        var saved = JSON.parse(localStorage.getItem("crypy.live-market.v1") || "null");
+        shared = saved && saved.data;
+      } catch (e) {}
+    }
+    if (!shared) return;
+    list.forEach(function (coin) {
+      var quote = shared[coin.id];
+      if (!quote) return;
+      if (typeof quote.usd === "number") coin.current_price = quote.usd;
+      if (typeof quote.brl === "number") coin.__crypy_brl = quote.brl;
+      if (typeof quote.usd_24h_change === "number") coin.price_change_percentage_24h = quote.usd_24h_change;
+      if (quote.last_updated_at) coin.__crypy_updated = quote.last_updated_at * 1000;
+    });
   }
   function mount() {
     if (document.getElementById("crypy-market-bubbles")) return true;
@@ -95,10 +126,10 @@
     detailNode.replaceChildren();
     detailNode.appendChild(el("strong", {}, c.name + " (" + String(c.symbol || "").toUpperCase() + ")"));
     detailNode.appendChild(document.createTextNode(" · Preço: " + money(c.current_price, "USD") +
-      " · BRL: " + (rate ? money(c.current_price * rate, "BRL") : "aguardando cotação BRL") +
+      " · BRL: " + (typeof c.__crypy_brl === "number" ? money(c.__crypy_brl, "BRL") : (rate ? money(c.current_price * rate, "BRL") : "aguardando cotação BRL")) +
       " · 24h: " + (change == null ? "—" : (change > 0 ? "+" : "") + change.toFixed(2) + "%") +
       " · Market cap: " + money(c.market_cap, "USD") +
-      " · Atualizado: " + new Date(c.last_updated || Date.now()).toLocaleString("pt-BR")));
+      " · Atualizado: " + new Date(c.__crypy_updated || c.last_updated || Date.now()).toLocaleString("pt-BR")));
   }
   function render(list, stale) {
     if (!root) return;
@@ -134,6 +165,7 @@
         var pinned = PINNED.map(function (id) { return byId.get(id); }).filter(Boolean);
         var rest = data.filter(function (c) { return PINNED.indexOf(c.id) === -1; });
         items = pinned.concat(rest).slice(0, 40);
+        mergeSharedQuotes(items);
         render(items, false);
         try { localStorage.setItem(CACHE, JSON.stringify({ savedAt: Date.now(), items: items })); } catch (e) {}
       })
@@ -146,6 +178,11 @@
       });
   }
   function start() {
+    window.addEventListener("crypy:market-updated", function (event) {
+      if (!items.length) return;
+      mergeSharedQuotes(items, event.detail || null);
+      render(items, false);
+    });
     var attempts = 0;
     function tryMount() {
       attempts++;
