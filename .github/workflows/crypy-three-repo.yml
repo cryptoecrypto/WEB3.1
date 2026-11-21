@@ -1,0 +1,35 @@
+name: CRYPY three-repository integration checks
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crypy-three-repo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate bridge syntax
+        working-directory: crypy-server-bridge
+        run: |
+          node --check src/server.js
+          if [ -f src/auth.js ]; then node --check src/auth.js; fi
+      - name: Run bridge tests
+        working-directory: crypy-server-bridge
+        run: npm test
+      - name: Validate synchronization manifest
+        run: node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('crypy-sync/manifest.json','utf8')); if(m.version!=='1.0.0'||m.repositories.length!==3) throw new Error('Manifesto CRYPY inválido'); if(m.policy.directPushToMain!==false) throw new Error('Proteção de main desativada'); console.log('Manifesto CRYPY 3-repos válido:',m.repositories.map(x=>x.name).join(', '));"
