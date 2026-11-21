@@ -15,6 +15,10 @@
     marketScript.src = new URL("assets/js/crypy-live-market.js", siteRoot).href;
     marketScript.defer = true;
     document.head.appendChild(marketScript);
+    var bubblesScript = document.createElement("script");
+    bubblesScript.src = new URL("assets/js/crypy-market-bubbles.js", siteRoot).href;
+    bubblesScript.defer = true;
+    document.head.appendChild(bubblesScript);
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
   var categories = [
