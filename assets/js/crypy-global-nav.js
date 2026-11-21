@@ -262,7 +262,7 @@
         String(el.id || "") + " " +
         String(el.getAttribute("aria-label") || "")
       ).toLocaleLowerCase("pt-BR");
-      var knownLegacy = /crypy.*(menu|nav)|(?:menu|nav).*crypy|portal-nav|menu-principal|main-menu|navbar|navigation-menu/.test(identity);
+      var knownLegacy = /crypy.*(menu|nav)|(?:menu|nav).*crypy|portal-nav|menu-principal/.test(identity);
       var text = String(el.textContent || "").toLocaleUpperCase("pt-BR");
       var categoryHits = signatures.filter(function (label) { return text.includes(label); }).length;
       /* Não esconder navegações locais como a do CRYPYKUT só por terem vários links. */
