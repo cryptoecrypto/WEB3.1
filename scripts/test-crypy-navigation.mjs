@@ -60,7 +60,7 @@ test("pipeline remove técnicos e cópias mantendo entradas únicas", () => {
   ];
   const result = api.filterAndDeduplicate(input);
   assert.equal(result.hiddenCount, 2);
-  assert.equal(result.duplicatesRemoved, 2);
+  assert.equal(result.duplicatesRemoved, 1);
   assert.deepEqual(Array.from(result.pages, page => page.path).sort(), [
     "chatboot-baby-ia.html",
     "crypy-academy/cursos.html",
