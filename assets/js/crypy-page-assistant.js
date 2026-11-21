@@ -7,6 +7,29 @@
 if(window.__CRYPY_SQUAD_ASSISTANT__)return;
 window.__CRYPY_SQUAD_ASSISTANT__=true;
 try{if(window.self!==window.top)return;}catch(_){return;}
+
+/* ChatBoot global: ativa o botão BABY em toda página que carrega este assistente.
+ * A própria página ChatBoot permanece como destino, sem criar iframe recursivo.
+ */
+(function loadBabyGlobalChat(){
+  var currentPath = (window.location.pathname || "").toLowerCase();
+  if (/chatboot-baby-ia|baby\.ia\.chatboot/.test(currentPath)) return;
+  if (window.__CRYPY_BABY_GLOBAL_CHAT__ || document.getElementById("crypy-baby-global-chat-loader")) return;
+  var currentScript = document.currentScript;
+  var scriptUrl = currentScript && currentScript.src;
+  if (!scriptUrl) {
+    var scripts = document.getElementsByTagName("script");
+    for (var i = scripts.length - 1; i >= 0; i--) {
+      if (/crypy-page-assistant\.js(?:\?|$)/.test(scripts[i].src || "")) { scriptUrl = scripts[i].src; break; }
+    }
+  }
+  if (!scriptUrl) return;
+  var loader = document.createElement("script");
+  loader.id = "crypy-baby-global-chat-loader";
+  loader.src = new URL("baby-global-chat.js", scriptUrl).href;
+  loader.defer = true;
+  document.head.appendChild(loader);
+})();
 var TEAM={
 NEXUS:"coordenação e auditoria",BABY:"porta-voz e coordenação central",
 DOLA:"arte e criação",MINI:"análise",ALICE:"pesquisa e conhecimento",
