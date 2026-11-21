@@ -34,18 +34,20 @@
     return null;
   }
   function findMarketBox() {
-    // Na HOME atual, "CRYPY MARKET NEWS" aparece no texto alternativo da imagem de capa,
-    // não necessariamente como texto de um título. Detectar ambos os formatos.
     var cover = document.querySelector('img[alt*="CRYPY MARKET NEWS" i]');
     if (cover) {
+      // Preferir a menor seção que contém os três gráficos antigos.
       var ancestor = cover;
-      for (var depth = 0; depth < 8 && ancestor.parentElement; depth++) {
+      var best = cover.parentElement || document.body;
+      for (var depth = 0; depth < 12 && ancestor.parentElement; depth++) {
         ancestor = ancestor.parentElement;
         var content = (ancestor.textContent || "").replace(/\s+/g, " ").trim();
-        if (content.length < 9000 && /\bBTC\b/i.test(content) &&
-            /\bETH\b/i.test(content) && /\bUSDT\b/i.test(content)) return ancestor;
+        if (/\bBTC\b/i.test(content) && /\bETH\b/i.test(content) && /\bUSDT\b/i.test(content)) {
+          best = ancestor;
+          if (content.length < 18000) break;
+        }
       }
-      return cover.parentElement || null;
+      return best;
     }
     var candidates = Array.prototype.slice.call(document.querySelectorAll("body *"));
     var heading = candidates.filter(function (n) {
@@ -116,7 +118,14 @@
     detailNode = el("div", { className: "cb-detail", id: "crypy-bubbles-detail", "aria-live": "polite" }, "Selecione uma bolha para consultar os detalhes.");
     var legend = el("div", { className: "cb-legend" }, "Verde = alta · Vermelho = queda · Cinza = estável/sem variação");
     root.appendChild(style); root.appendChild(head); root.appendChild(field); root.appendChild(detailNode); root.appendChild(legend);
-    host.appendChild(root);
+    var cover = document.querySelector('img[alt*="CRYPY MARKET NEWS" i]');
+    if (cover && host.contains(cover)) {
+      // Inserir imediatamente após a capa do bloco de mercado, sem substituir
+      // nem remover os gráficos históricos que já estão na seção.
+      cover.insertAdjacentElement("afterend", root);
+    } else {
+      host.appendChild(root);
+    }
     refresh.addEventListener("click", load);
     return true;
   }
