@@ -1,0 +1,31 @@
+name: BABY Dropbox Bridge
+
+on:
+  pull_request:
+    paths:
+      - "baby-dropbox-bridge/**"
+      - ".github/workflows/baby-dropbox-bridge.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "baby-dropbox-bridge/**"
+      - ".github/workflows/baby-dropbox-bridge.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: baby-dropbox-bridge
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node --check src/server.js
+      - run: node --check src/dropbox.js
+      - run: node --check src/secure-store.js
+      - run: npm test
