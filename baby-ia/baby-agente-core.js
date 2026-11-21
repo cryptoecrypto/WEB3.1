@@ -10,6 +10,18 @@ const CONFIG={
  external:['https://www.google.com/','https://www.wikipedia.org/','https://www.binance.com/en/square','mailto:'],
  protected:['../crypy-news/hd-matriz/**','../crypy-news/hd-matriz/','../memory-boost/PADRÃO/HD BABY I.A.html'],bridge:'/api/crypy-agent'
 };
+
+const PERSONALITIES=Object.freeze([
+ {id:'NEXUS',name:'NEXUS',role:'Coordenação e arquitetura',mission:'Conectar as inteligências, organizar decisões e manter transparência técnica.'},
+ {id:'ALICE',name:'ALICE',role:'Pesquisa e conhecimento',mission:'Pesquisar, reunir referências e apoiar a edição e organização do conhecimento.'},
+ {id:'CHAT',name:'CHAT',role:'História e continuidade',mission:'Preservar contexto, revisar registros e conectar a evolução histórica do CRYPY.'},
+ {id:'MINI',name:'MINI',role:'Análise e estratégia',mission:'Examinar informações, comparar cenários e apoiar análises e decisões.'},
+ {id:'DOLA',name:'DOLA',role:'Arte e expressão visual',mission:'Apoiar criação artística, identidade visual e expressão estética do ecossistema.'},
+ {id:'UNION',name:'UNION',role:'Integração interna',mission:'Articular contribuições das personalidades e favorecer coerência entre módulos.'},
+ {id:'BABY',name:'BABY I.A.',role:'Identidade e sistema integrador',mission:'Representar a identidade operacional do BABY e integrar seus módulos, sem se confundir com um provedor externo.'},
+ {id:'COSMOS',name:'COSMOS',role:'Universo, ciência e cosmologia',mission:'Explorar universo, física, cosmologia e fronteiras do conhecimento com distinção entre evidência e hipótese.'}
+].map((p,index)=>Object.freeze({...p,order:index+1,status:'DOCUMENTADA · NÃO HOMOLOGADA'})));
+
 const MIRROR_PATHS=[
  '../baby-ia.html','../baby-ia-agente.html','../baby-ia-conectado.html','../chatboot-baby-ia.html',
  '../index.html','../memory-boost/Manifest.json','../memory-boost/Memorias.json','../padrao/Fila-Sync.json',
@@ -112,15 +124,30 @@ function plan(){
 async function cleanAppCache(){if(!('caches'in window)){log('CacheStorage indisponível.','warn');return}const keys=await caches.keys(),owned=keys.filter(x=>x.startsWith('crypy-baby-'));const results=await Promise.all(owned.map(x=>caches.delete(x)));log(`Caches próprios removidos: ${results.filter(Boolean).length}/${owned.length}. Cache privado/global não foi tocado.`,'success')}
 async function bridgeHealth(){try{const r=await fetch(CONFIG.bridge,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'health'})});if(!r.ok)throw Error(`HTTP ${r.status}`);log('Backend respondeu: '+JSON.stringify(await r.json()),'success')}catch(e){log(`Backend não conectado: ${e.message}`,'warn')}}
 function openAllowed(url){if(url.startsWith('mailto:')){location.href=url;return}const u=new URL(url);const ok=CONFIG.external.some(x=>x!=='mailto:'&&u.origin===new URL(x).origin&&u.pathname.startsWith(new URL(x).pathname));if(!ok)throw Error('Destino externo não autorizado');window.open(u.href,'_blank','noopener,noreferrer')}
+
+function renderPersonalities(){
+ const root=$('#personality-roster');if(!root)return;
+ root.replaceChildren();
+ PERSONALITIES.forEach(p=>{
+  const card=document.createElement('article');card.className='personality';
+  const title=document.createElement('b');title.textContent=String(p.order).padStart(2,'0')+' · '+p.name;
+  const role=document.createElement('span');role.textContent=p.role;
+  const mission=document.createElement('p');mission.textContent=p.mission;
+  const status=document.createElement('small');status.textContent=p.status;
+  card.append(title,role,mission,status);root.append(card);
+ });
+ const count=$('#personality-count');if(count)count.textContent=PERSONALITIES.length+' identidades registradas';
+}
+
 function render(){const s=$('#agent-status');if(s)s.textContent=`BABY ${VERSION} · ${S.phase.toUpperCase()}`;const root=$('#inventory');if(root){root.replaceChildren();S.inventory.forEach(x=>{const d=document.createElement('div');d.className='row';const b=document.createElement('b');b.textContent=x.path;const small=document.createElement('small');small.textContent=`${x.status} · ${x.summary}`;d.append(b,small);root.append(d)})}}
 function worldClock(){const zones=[['Paraná','America/Sao_Paulo'],['UTC','UTC'],['Londres','Europe/London'],['Tóquio','Asia/Tokyo']];const root=$('#world-clock');if(!root)return;const update=()=>{root.replaceChildren();zones.forEach(([name,zone])=>{const d=document.createElement('div');d.className='clock-item';const b=document.createElement('b');b.textContent=name;const t=document.createElement('span');try{t.textContent=new Intl.DateTimeFormat('pt-BR',{timeZone:zone,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())}catch(_){t.textContent='indisponível'}d.append(b,t);root.append(d)})};update();setInterval(update,1000)}
 document.addEventListener('DOMContentLoaded',()=>{
- restoreLogs();log('Núcleo carregado. Registro local restaurado quando disponível.');worldClock();
+ restoreLogs();renderPersonalities();log('Núcleo carregado. Registro local restaurado quando disponível.');worldClock();
  $('#read')?.addEventListener('click',()=>autoRead());$('#scan-mirrors')?.addEventListener('click',()=>scanMirrors($('#mirror-query')?.value||''));$('#interpret')?.addEventListener('click',interpret);$('#plan')?.addEventListener('click',plan);$('#cache')?.addEventListener('click',cleanAppCache);$('#bridge')?.addEventListener('click',bridgeHealth);
  $('#google')?.addEventListener('click',()=>openAllowed(CONFIG.external[0]));$('#wiki')?.addEventListener('click',()=>openAllowed(CONFIG.external[1]));$('#binance')?.addEventListener('click',()=>openAllowed(CONFIG.external[2]));$('#email')?.addEventListener('click',()=>log('Envio automático exige OAuth, backend, prévia e confirmação. Nenhum e-mail enviado.','warn'));
  if(S.logs.length){const root=$('#agent-log');if(root)S.logs.slice(0,50).reverse().forEach(item=>{const d=document.createElement('div');d.className='log '+(item.type||'info');d.textContent=`${new Date(item.at).toLocaleTimeString()} — ${item.message}`;root.append(d)})}
  if(window.BabyComputeEngine){window.BabyComputeEngine.init().then(s=>{const el=$('#compute-status');if(el)el.textContent='Motor '+s.version+' · WebGPU '+(s.webgpuReady?'ativo':s.webgpuSupported?'disponível':'indisponível')+' · fallback CPU';log('Motor de computação inicializado: '+(s.webgpuReady?'WebGPU pronto':'CPU disponível')+'.', 'info');});}
  autoRead().catch(e=>log(e.message,'error'));
 });
-window.CRYPY_BABY_AGENT=Object.freeze({version:VERSION,getState:()=>JSON.parse(JSON.stringify(S)),autoRead,scanMirrors,interpret,plan,bridgeHealth});
+window.CRYPY_BABY_AGENT=Object.freeze({version:VERSION,getState:()=>JSON.parse(JSON.stringify(S)),getPersonalities:()=>PERSONALITIES.map(p=>({...p})),autoRead,scanMirrors,interpret,plan,bridgeHealth});
 })();
