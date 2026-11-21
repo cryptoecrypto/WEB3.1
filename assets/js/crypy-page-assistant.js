@@ -8,6 +8,31 @@ if(window.__CRYPY_SQUAD_ASSISTANT__)return;
 window.__CRYPY_SQUAD_ASSISTANT__=true;
 try{if(window.self!==window.top)return;}catch(_){return;}
 
+/* Navegação global: páginas com o assistente também recebem o menu único. */
+(function loadGlobalNavigation(){
+  if (window.__CRYPY_GLOBAL_NAV__ || document.getElementById("crypy-global-nav-loader")) return;
+  var currentScript = document.currentScript;
+  var scriptUrl = currentScript && currentScript.src;
+  if (!scriptUrl) {
+    var scripts = document.getElementsByTagName("script");
+    for (var i = scripts.length - 1; i >= 0; i--) {
+      if (/crypy-page-assistant\.js(?:\?|$)/.test(scripts[i].src || "")) { scriptUrl = scripts[i].src; break; }
+    }
+  }
+  if (!scriptUrl) return;
+  var navUrl = new URL("crypy-global-nav.js", scriptUrl);
+  navUrl.searchParams.set("v", "20261121-nav-memoryboost-1");
+  var alreadyRequested = Array.prototype.some.call(document.scripts, function (script) {
+    return /\/crypy-global-nav\.js(?:\?|$)/.test(script.src || "");
+  });
+  if (alreadyRequested) return;
+  var loader = document.createElement("script");
+  loader.id = "crypy-global-nav-loader";
+  loader.src = navUrl.href;
+  loader.defer = true;
+  document.head.appendChild(loader);
+})();
+
 /* ChatBoot global: ativa o botão BABY em toda página que carrega este assistente.
  * A própria página ChatBoot permanece como destino, sem criar iframe recursivo.
  */
@@ -63,6 +88,7 @@ if(document.getElementById("crypy-squad-assistant"))return;
 var frame=document.querySelector('iframe[name="crypy-content"]');
 var page={title:"Página CRYPY",url:location.href,chunks:[]};
 var squad=["BABY","NEXUS","ALICE"];
+var contextReady=false;
 var root=el("aside",{id:"crypy-squad-assistant","aria-label":"Esquadrão CRYPY — assistente contextual"});
 var css=el("style");css.textContent=
 "#crypy-squad-assistant{position:fixed;left:16px;bottom:16px;z-index:2147483000;font:14px system-ui,sans-serif;color:#eafff2}"+
@@ -95,9 +121,9 @@ team.textContent="Esquadrão: "+squad.map(function(x){return x+" — "+TEAM[x];}
 log.replaceChildren();
 add("Assistente contextual da página. Pesquiso o texto visível e mostro evidências. As personalidades são perfis de contexto, não modelos de IA conectados. Não salvo memória permanente nem envio dados.", "agent");
 }
-refreshContext();
-if(frame)frame.addEventListener("load",refreshContext);
-toggle.addEventListener("click",function(){var v=panel.getAttribute("data-open")!=="true";panel.setAttribute("data-open",v?"true":"false");toggle.setAttribute("aria-expanded",v?"true":"false");if(v)input.focus();});
+function ensureContext(){if(contextReady)return;contextReady=true;refreshContext();}
+if(frame)frame.addEventListener("load",function(){if(contextReady)refreshContext();});
+toggle.addEventListener("click",function(){var v=panel.getAttribute("data-open")!=="true";panel.setAttribute("data-open",v?"true":"false");toggle.setAttribute("aria-expanded",v?"true":"false");if(v){ensureContext();input.focus();}});
 form.addEventListener("submit",function(e){e.preventDefault();var q=input.value.trim();if(!q)return;add(q,"user");input.value="";
 var terms=norm(q).match(/[a-z0-9]{2,}/g)||[];
 var found=page.chunks.map(function(t,i){var n=norm(t),score=terms.reduce(function(s,x){return s+(n.includes(x)?1:0);},0);return{text:t,index:i,score:score};}).filter(function(x){return x.score>0;}).sort(function(a,b){return b.score-a.score||a.index-b.index;}).slice(0,4);
