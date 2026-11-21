@@ -50,7 +50,7 @@ for(const file of files) {
   const directory=path.posix.dirname(file);
   let source=path.posix.relative(directory==="."?"":directory,navAsset);
   if(!source.startsWith("."))source="./"+source;
-  const tag='<script src="'+source+'" defer></script>';
+  const tag='<script src="'+source+'?v=20261121-nav-memoryboost-1" defer></script>';
   const next=/<\/body\s*>/i.test(html)
     ? html.replace(/<\/body\s*>/i,tag+"\n</body>")
     : /<\/html\s*>/i.test(html)

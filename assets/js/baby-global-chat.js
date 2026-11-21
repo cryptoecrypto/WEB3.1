@@ -36,7 +36,7 @@
     frame.id = "crypy-baby-global-frame";
     frame.title = "BABY I.A — ChatBoot CRYPY";
     frame.loading = "lazy";
-    frame.src = new URL("../../chatboot-baby-ia.html?embed=1", widgetScriptUrl || document.baseURI).href;
+    frame.setAttribute("data-src", new URL("../../chatboot-baby-ia.html?embed=1", widgetScriptUrl || document.baseURI).href);
     frame.referrerPolicy = "same-origin";
     panel.appendChild(frame);
 
@@ -54,6 +54,7 @@
       button.setAttribute("aria-label", open ? "Fechar conversa com BABY I.A" : "Abrir conversa com BABY I.A");
       button.textContent = open ? "×" : "🤖";
       if (open && frame.getAttribute("data-loaded") !== "true") {
+        frame.src = frame.getAttribute("data-src");
         frame.setAttribute("data-loaded", "true");
       }
     }

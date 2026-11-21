@@ -554,7 +554,23 @@
             }
         }
 
-        setInterval(drawMatrix, 35);
+        let matrixTimer = null;
+        const reducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        function startMatrix() {
+            if (reducedMotion || document.hidden || matrixTimer !== null) return;
+            matrixTimer = window.setInterval(drawMatrix, 65);
+        }
+        function stopMatrix() {
+            if (matrixTimer !== null) {
+                window.clearInterval(matrixTimer);
+                matrixTimer = null;
+            }
+        }
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) stopMatrix();
+            else startMatrix();
+        });
+        startMatrix();
 
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
