@@ -20,7 +20,7 @@ const panel=document.createElement("div");panel.id="baby-server-panel";
 panel.innerHTML='<h3>BABY I.A · conexão com o núcleo</h3><label>URL pública HTTPS do servidor</label><input id="baby-server-url" type="url" placeholder="https://seu-servico.onrender.com"><label>Token de acesso da API</label><input id="baby-server-token" type="password" autocomplete="off" placeholder="Token configurado no host"><button id="baby-server-save">Salvar nesta sessão</button><button id="baby-server-test">Testar conexão</button><div id="baby-server-result">Aguardando configuração. O token fica somente nesta sessão do navegador.</div>';
 document.body.appendChild(panel);
 const $=s=>panel.querySelector(s), result=$("#baby-server-result");
-$("#baby-server-url").value=localStorage.getItem("crypy_server_url")||"";
+$("#baby-server-url").value=localStorage.getItem("crypy_server_url")||"https://baby-site-auth-production.up.railway.app";
 $("#baby-server-token").value=sessionStorage.getItem("crypy_server_token")||"";
 fab.addEventListener("click",()=>panel.style.display=panel.style.display==="block"?"none":"block");
 $("#baby-server-save").addEventListener("click",()=>{
