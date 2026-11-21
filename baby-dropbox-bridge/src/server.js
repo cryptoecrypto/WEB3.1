@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash, timingSafeEqual } from "node:crypto";
 import { DropboxAdapter, DropboxBridgeError } from "./dropbox.js";
+import { PersistentAuditLog } from "./audit.js";
 
 const MAX_BODY = 5 * 1024 * 1024;
 
@@ -65,7 +66,9 @@ export function createBridgeServer({
     String(env.CRYPY_DROPBOX_ALLOWED_ORIGINS || "")
       .split(",").map((value) => value.trim()).filter(Boolean)
   );
-  const dropbox = adapter || new DropboxAdapter({ env, fetchImpl, audit });
+  const dataDir = env.DROPBOX_DATA_DIR || "/data/crypy-dropbox";
+  const auditLog = audit || new PersistentAuditLog({ dir: path.join(dataDir, "audit") });
+  const dropbox = adapter || new DropboxAdapter({ env, fetchImpl, audit: auditLog });
 
   const server = http.createServer(async (req, res) => {
     res.setHeader("X-Content-Type-Options", "nosniff");
@@ -163,6 +166,12 @@ export function createBridgeServer({
         return sendJson(res, 201, result);
       }
 
+      if (req.method === "GET" && url.pathname === "/api/dropbox/audit") {
+        const verification = await auditLog.verify();
+        const entries = await auditLog.entries({ limit: 50 });
+        return sendJson(res, 200, { ok: verification.ok, verification, entries });
+      }
+
       return sendJson(res, 404, { ok: false, code: "NOT_FOUND", reason: "Rota não encontrada." });
     } catch (error) {
       const status = Number(error.statusCode) || (error instanceof DropboxBridgeError ? 400 : 500);
@@ -175,7 +184,7 @@ export function createBridgeServer({
     }
   });
 
-  return { server, dropbox };
+  return { server, dropbox, audit: auditLog };
 }
 
 const currentFile = fileURLToPath(import.meta.url);
