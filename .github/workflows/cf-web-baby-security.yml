@@ -1,0 +1,42 @@
+name: CF-WEB-BABY Security Gate
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "cf-web-baby/**"
+      - "baby-ia.html"
+      - "baby-ia-conectado.html"
+      - "baby-core.js"
+      - "baby-bridge.js"
+      - "baby-server-bridge.js"
+      - "chatboot-baby-ia.html"
+      - "hd-baby-ia.html"
+      - ".github/workflows/cf-web-baby-security.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cf-web-baby-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: cf-web-baby-security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout reviewed commit
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate security JSON
+        run: |
+          node -e "for (const p of ['cf-web-baby/config/security-policy.json','cf-web-baby/protection/protected-files.json','cf-web-baby/audit/audit-log-schema.json']) JSON.parse(require('fs').readFileSync(p,'utf8')); console.log('Security JSON valid')"
+      - name: Run CF-WEB-BABY unit tests
+        run: node --experimental-default-type=module --test cf-web-baby/tests/security-tests.js
+      - name: Verify canonical BABY SHA-256 baseline
+        run: node cf-web-baby/audit/verify-baseline.mjs
