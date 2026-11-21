@@ -143,9 +143,13 @@ describe("Dropbox bridge: paths, OAuth PKCE, encrypted token vault and backup", 
     );
   });
 
-  it("does not report connected before OAuth consent", async () => {
+  it("reports connected only after successfully decrypting the saved OAuth token", async () => {
     const { adapter } = await makeAdapter();
     assert.equal((await adapter.status()).connected, false);
+    const start = adapter.startAuthorization();
+    const state = new URL(start.authorizationUrl).searchParams.get("state");
+    await adapter.completeAuthorization({ code: "test-code", state });
+    assert.equal((await adapter.status()).connected, true);
   });
 
   it("detects tampering with the encrypted token envelope", async () => {
@@ -157,6 +161,7 @@ describe("Dropbox bridge: paths, OAuth PKCE, encrypted token vault and backup", 
     const envelope = JSON.parse(await fs.readFile(tokenPath, "utf8"));
     envelope.ciphertext = Buffer.from("tampered").toString("base64");
     await fs.writeFile(tokenPath, JSON.stringify(envelope));
+    await assert.rejects(adapter.status(), { code: "STORE_INTEGRITY_FAILED" });
     await assert.rejects(adapter.listFolder(), { code: "STORE_INTEGRITY_FAILED" });
   });
 });
