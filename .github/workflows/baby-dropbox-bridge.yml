@@ -28,4 +28,5 @@ jobs:
       - run: node --check src/server.js
       - run: node --check src/dropbox.js
       - run: node --check src/secure-store.js
+      - run: node --check src/audit.js
       - run: npm test
