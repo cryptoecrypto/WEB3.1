@@ -11,7 +11,7 @@ Serviço lateral de integração do BABY. Não altera o núcleo operacional aloj
 - Escopo de arquivos limitado a /CRYPY/BABY; rejeita caminhos fora dessa raiz e segmentos de travessia.
 - Upload de snapshot JSON limitado a 4 MB, com SHA-256, nomes únicos e modo Dropbox add (não sobrescreve).
 - Guarda o backup em BACKUP, manifesto em MANIFEST e registro em SYNC-LOG.
-- API protegida por token Bearer de serviço, CORS por allowlist, respostas sem cache, cabeçalhos de segurança e erros 500 sem detalhes internos.
+- API protegida por token Bearer de serviço, CORS por allowlist, respostas sem cache, HSTS em produção, erros 500 sem detalhes internos e auditoria local append-only encadeada por SHA-256 com âncora persistente.
 
 ## Rotas
 
@@ -53,7 +53,7 @@ Montar um volume persistente em /data. Definir as variáveis somente no gerencia
 
 Gerar uma chave de 32 bytes fora do chat e guardá-la como segredo do Railway (por exemplo, openssl rand -base64 32). Nunca enviar App Secret, bridge token ou chave de criptografia pelo chat, HTML público ou Git.
 
-No Dropbox App Console, habilitar somente os escopos listados e registrar exatamente o valor de DROPBOX_REDIRECT_URI. O app deverá solicitar acesso apenas aos arquivos necessários.
+No Dropbox App Console, habilitar somente os escopos listados e registrar exatamente o valor de DROPBOX_REDIRECT_URI. Como as pastas CRYPY/BABY já ficam na raiz da conta, o app precisa do tipo Full Dropbox; o código restringe os caminhos atendidos à raiz BABY e os escopos continuam mínimos. Se optar por App Folder, será necessário adaptar o destino para a pasta privada do app.\n\nO state OAuth é mantido em memória por 10 minutos; executar este bridge com uma réplica única até migrar o state para armazenamento compartilhado.
 
 ## Execução local e testes
 
@@ -66,7 +66,7 @@ Os testes usam respostas simuladas do Dropbox: comprovam o contrato interno, cri
 
 ## Estado MODO REAL em 21/11/2026
 
-- Código e testes do bridge: preparados nesta branch/PR.
+- Código e testes do bridge: preparados nesta branch/PR.\n- Auditoria local do bridge: cadeia append-only com SHA-256 e âncora, verificada pela rota autenticada /api/dropbox/audit.
 - OAuth real: depende de App Key, App Secret, Redirect URI e consentimento humano no Dropbox.
 - Persistência: depende de volume Railway separado e chave criptográfica configurada.
 - Conexão com o backend BABY atual: ainda precisa de configuração do novo serviço e inserção da URL/token na integração cliente aprovada.
