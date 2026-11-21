@@ -36,7 +36,7 @@
   function findMarketBox() {
     var candidates = Array.prototype.slice.call(document.querySelectorAll("h1,h2,h3,h4,h5,h6,[aria-label],.title,.titulo"));
     var heading = candidates.find(function (n) {
-      return /CRYPY\\s*MARKET\\s*NEWS/i.test((n.textContent || "").trim());
+      return /CRYPY\s*MARKET\s*NEWS/i.test((n.textContent || "").trim());
     });
     if (!heading) return null;
     return heading.closest("section,article,.card,.box,.panel,[class*='card'],[class*='box'],[class*='panel']") || heading.parentElement;
