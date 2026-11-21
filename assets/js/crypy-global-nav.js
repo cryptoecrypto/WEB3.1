@@ -207,6 +207,11 @@
       }
       function hiddenByMenuRule(page) {
         var group=normalized(page.group);
+        var fileName=String(page.path||"").split("/").pop().toLowerCase();
+        var pageLabel=normalized(page.label);
+        // BABY ChatBoot permanece acessível pelo endereço direto e pelo widget,
+        // mas não aparece como destino em nenhum menu da Colmeia.
+        if (fileName === "chatboot-baby-ia.html" || /chatboot baby ia/.test(pageLabel)) return true;
         var hiddenGroups=["memory-boost","padrao","pluguin","sincronizacao"];
         var pathSegments=String(page.path||"").split("/").map(normalized);
         var hiddenPathSegments=["memory-boost","momory-boost","padrao","pluguin","sincronizacao"];
