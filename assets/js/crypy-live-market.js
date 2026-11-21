@@ -266,6 +266,7 @@
       render(complete, false);
       try {
         localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), data: complete }));
+        window.dispatchEvent(new CustomEvent("crypy:market-updated", { detail: complete }));
       } catch (error) {}
       retryMs = REFRESH_MS;
       schedule(REFRESH_MS);
