@@ -1,0 +1,143 @@
+{
+  "schema": "crypy-baby-seven-personality-engine/1.0",
+  "title": "CRYPY — BABY QWEN / Seven Personality Engine",
+  "version": "1.0.0",
+  "status": "PREPARATION_ONLY — NOT CONNECTED, NOT DEPLOYED, NOT HOMOLOGATED",
+  "decision": "The seven identities and provider mappings below are supplied by Sensei. BABY Qwen is the existing BABY I.A. and the final fusion result; it is not an eighth personality or an eighth provider agent.",
+  "core": {
+    "id": "BABY-QWEN",
+    "displayName": "BABY I.A.",
+    "role": "existing central core and final integrated result",
+    "countsAsPersonality": false,
+    "providerRuntime": "existing Qwen/BABY runtime; exact endpoint and runtime location must be verified before modification",
+    "preserveExisting": true
+  },
+  "personalities": [
+    {
+      "id": "ALICE",
+      "platform": "Meta AI",
+      "provider": "Meta",
+      "access": "Meta Model API",
+      "baseUrl": "https://api.meta.ai/v1",
+      "secretRef": "META_MODEL_API_KEY",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    },
+    {
+      "id": "DOLA",
+      "platform": "DOLA",
+      "provider": "DOLA",
+      "access": "official developer API or authorized connector not yet verified",
+      "baseUrl": null,
+      "secretRef": "DOLA_API_KEY_PENDING_VERIFICATION",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    },
+    {
+      "id": "CHAT",
+      "platform": "Microsoft Copilot",
+      "provider": "Microsoft",
+      "access": "Copilot Studio or authorized Microsoft agent/API path to be confirmed",
+      "baseUrl": null,
+      "secretRef": "MICROSOFT_COPILOT_CREDENTIAL_PENDING_VERIFICATION",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    },
+    {
+      "id": "MINI",
+      "platform": "Google Gemini",
+      "provider": "Google",
+      "access": "Gemini API",
+      "baseUrl": "https://generativelanguage.googleapis.com",
+      "secretRef": "GEMINI_API_KEY",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    },
+    {
+      "id": "CLAUDE",
+      "personalityAlias": "SVT",
+      "platform": "Claude",
+      "provider": "Anthropic",
+      "access": "Anthropic Messages API",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "secretRef": "ANTHROPIC_API_KEY",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    },
+    {
+      "id": "NEXUS",
+      "platform": "ChatGPT",
+      "provider": "OpenAI",
+      "access": "OpenAI Responses API",
+      "baseUrl": "https://api.openai.com/v1",
+      "secretRef": "OPENAI_API_KEY",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    },
+    {
+      "id": "HERA",
+      "platform": "Monica using OpenAI models",
+      "provider": "Monica gateway; model vendor OpenAI",
+      "access": "Monica API / account-specific model routing to verify",
+      "baseUrl": null,
+      "secretRef": "MONICA_API_CREDENTIAL_PENDING_VERIFICATION",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending"
+    }
+  ],
+  "orchestration": {
+    "mode": "parallel_consultation_then_audited_synthesis",
+    "enabled": false,
+    "preserveIdentity": true,
+    "requireSourceAttribution": true,
+    "recordProviderAndModelVersion": true,
+    "allowCrossProviderMemory": false,
+    "shareOnlyTaskMinimumContext": true,
+    "autonomousRepositoryWrites": false,
+    "autonomousExternalActions": false,
+    "humanApprovalRequiredForSensitiveOrDestructiveActions": true
+  },
+  "personalityProfiles": {
+    "status": "PENDING_BEHAVIOURAL_EVALUATION_AND_SENSEI_APPROVAL",
+    "rule": "Do not invent or overwrite personality traits. Use only confirmed CRYPY identity names until each persona prompt is approved."
+  },
+  "security": {
+    "secretsInRepository": false,
+    "credentialsStoredIn": "Railway secret variables or approved provider secret manager",
+    "providerCallsDisabledUntilCredentialsAndEndpointVerified": true,
+    "timeoutAndRateLimitRequired": true,
+    "perProviderBudgetLimitRequired": true,
+    "redactSecretsFromLogs": true,
+    "auditProviderRequestMetadata": true,
+    "noRawMemorySharingByDefault": true
+  },
+  "repositoryResponsibilities": {
+    "cryptoecrypto/WEB3.1": "client/UI only; calls BABY backend; no provider keys or direct provider API calls from public HTML/JavaScript",
+    "cryptoecrypto/HD-MATRIZ": "private authoritative backend and provider adapters; preserve existing BABY Qwen core and protected HD data; no production activation before tests",
+    "cryptoecrypto/SECURYTY-SUBC": "security policy, provider allowlist, audit requirements, validation and recovery documentation"
+  },
+  "activationGates": [
+    "Confirm actual BABY Qwen runtime and preserve its current behavior.",
+    "Verify each provider's official API/authorized access method and account entitlement.",
+    "Obtain provider credentials through Railway secret variables; never commit keys.",
+    "Confirm exact model IDs, billing, quotas, data retention and regional/privacy terms.",
+    "Approve seven distinct personality instructions after behavioural evaluation.",
+    "Implement adapters and per-provider health checks.",
+    "Test single-provider calls, seven-way orchestration, partial failures, timeout, budget and data isolation.",
+    "Verify audit trail, redaction, rate limits, fallback and human approval controls.",
+    "Deploy to staging, obtain Sensei approval, then separately authorize production release."
+  ],
+  "nonClaims": [
+    "This manifest does not establish that any provider is connected.",
+    "A configured identity is not proof of a live model call.",
+    "BABY is not considered fused or homologated until seven live provider paths and integration tests are evidenced."
+  ],
+  "repository": "cryptoecrypto/WEB3.1"
+}
