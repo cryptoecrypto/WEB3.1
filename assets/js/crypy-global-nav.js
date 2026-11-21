@@ -201,7 +201,28 @@
       if(!response.ok)throw new Error("HTTP "+response.status);
       return response.json();
     }).then(function(data){
-      pages=Array.isArray(data.pages)?data.pages:[];
+      var indexedPages=Array.isArray(data.pages)?data.pages:[];
+      function normalized(value) {
+        return String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase();
+      }
+      function hiddenByMenuRule(page) {
+        var group=normalized(page.group);
+        var hiddenGroups=["memory-boost","padrao","pluguin","sincronizacao"];
+        if (hiddenGroups.indexOf(group)!==-1) return true;
+        var searchable=normalized(String(page.path||"")+" "+String(page.label||""));
+        var technicalRules=[
+          /(^|[^a-z0-9])hd([^a-z0-9]|$)/,
+          /plug[u]?in/,
+          /sincronizacao/,
+          /memor[y]?[-_ ]boost/,
+          /momor[y]?[-_ ]boost/
+        ];
+        if (technicalRules.some(function(rule){return rule.test(searchable);})) return true;
+        var isWorldClock=/relogio[-_ ]mundial/.test(searchable);
+        if (isWorldClock) return String(page.path||"").toLowerCase()!=="relogio-mundial.html";
+        return false;
+      }
+      pages=indexedPages.filter(function(page){return !hiddenByMenuRule(page);});
       render();
     }).catch(function(){
       count.textContent="Não foi possível carregar o índice de páginas.";
