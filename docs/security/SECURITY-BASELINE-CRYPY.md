@@ -1,77 +1,119 @@
-# CRYPY / BABY I.A. — Baseline de Segurança
+# CRYPY / BABY I.A. — Baseline e auditoria de segurança
 
-**Data:** 2026-11-21  
-**Repositório:** `cryptoecrypto/WEB3.1`  
-**Estado:** protocolo registrado em branch isolada; implementação técnica e homologação pendentes.
+**Data da revisão:** 2026-11-21  
+**Repositório deste registro:** `cryptoecrypto/WEB3.1`  
+**Backend observado:** serviço Railway `baby-site-auth`, projeto `CRYPY-BABY-Backend`  
+**Estado:** revisão documental e de código concluída parcialmente; controles existentes identificados; lacunas de implementação e testes continuam abertas.
 
 ## Regra de liberação
 
-O BABY não deve ser liberado para operação plena até que os controles abaixo tenham sido implementados, testados e documentados com evidências reproduzíveis. Este documento, por si só, não comprova que qualquer controle já esteja ativo.
+O BABY não deve ser liberado para operação plena até que os controles abaixo tenham sido implementados, testados em ambiente apropriado e documentados com evidências reproduzíveis. Serviço online ou deploy bem-sucedido não equivale a homologação de segurança.
 
-## 1. Integridade criptográfica dos backups
+## 1. Constatações verificadas nesta revisão
 
-- Gerar um manifesto SHA-256 para cada conjunto de backup, cobrindo caminho relativo, tamanho em bytes e hash de cada arquivo.
-- Guardar o manifesto separado do conjunto de dados e protegê-lo contra alteração não autorizada.
-- Verificar novamente os hashes antes de aceitar, sincronizar ou restaurar um backup.
-- Rejeitar arquivos ausentes, extras inesperados ou divergências de hash; registrar o resultado da validação.
-- Não incluir tokens, senhas, segredos OAuth, códigos TOTP ou chaves privadas nos backups.
-- Definir retenção e cópias independentes; nunca sobrescrever automaticamente a HD MATRIZ.
+A revisão consultou os arquivos de backend no repositório privado `cryptoecrypto/HD-MATRIZ` em modo somente leitura e a configuração/estado do serviço Railway. Nenhum arquivo da HD MATRIZ, variável, volume ou configuração de produção foi alterado nesta etapa.
 
-**Evidência exigida:** manifesto SHA-256, relatório de validação e teste negativo que demonstre rejeição após alteração intencional de um arquivo.
+### Controles já presentes no código-fonte
 
-## 2. Permissões de leitura e gravação
+- `src/memory.js`: inventário de arquivos com SHA-256, comparação de alterações e histórico.
+- `src/vault.js`: snapshots aditivos content-addressed, manifestos, deduplicação e verificação de hashes; restauração com dry-run por padrão, aprovação e revalidação antes da cópia.
+- `src/audit.js`: trilha append-only encadeada por hashes, com verificação de sequência, conteúdo e âncora local.
+- `src/policy.js`: raízes permitidas, modos read/readwrite e exigência de aprovação para operações destrutivas efetivas.
+- `src/auth.js`: senha administrativa mínima de 24 caracteres, sessões em cookie HttpOnly/SameSite=Strict/Secure em produção, expiração e bloqueio temporário após tentativas inválidas.
+- `src/server.js`: autenticação das rotas `/api/*`, comparação de token em tempo constante, allowlist CORS exata, limite de corpo HTTP e cabeçalhos defensivos.
+- `test/vault.test.js` e `test/server.test.js`: existem casos automatizados para corrupção/ausência de blobs, manifesto adulterado, restauração, autenticação, CORS, bloqueio sem login e outras rotas.
 
-- Inventariar identidades, serviços, tokens e diretórios que acessam os dados.
-- Aplicar menor privilégio: leitura separada de gravação; exclusão e administração restritas.
-- Restringir credenciais a escopos mínimos e ambientes específicos.
-- Verificar permissões de repositório, armazenamento, API e sincronizador.
-- Registrar concessões, revogações e operações administrativas.
-- Não colocar segredos em HTML público, JavaScript entregue ao navegador, commits ou arquivos de configuração versionados.
+**Limite da evidência:** inspeção de código e existência de testes não comprovam que os testes passaram nesta revisão nem que todos os cenários foram exercitados em produção.
 
-**Evidência exigida:** matriz identidade × recurso × permissão, configuração revisada e testes comprovando que uma identidade somente-leitura não consegue gravar ou excluir.
+### Estado observado no Railway
 
-## 3. Autenticação e acesso indevido
+- Serviço `baby-site-auth`: estado Online.
+- Último deployment consultado: `SUCCESS`.
+- Uma réplica ativa; sem falhas recentes ou alertas reportados no resumo consultado.
+- Volume persistente de 500 MB montado em `/data`.
+- Nomes de variáveis de configuração relevantes presentes: `CRYPY_ADMIN_PASSWORD`, `CRYPY_API_TOKEN`, `CRYPY_ALLOWED_ORIGINS`, `CRYPY_SENSEI_TOKEN`, `CRYPY_DATA_DIR`, `CRYPY_EVIDENCE_DIR`, `CRYPY_SANDBOX_DIR` e `DROPBOX_APP_KEY`.
+- Os valores das variáveis foram ocultados e não foram lidos nem alterados.
 
-- Concluir OAuth 2.0 Authorization Code com PKCE para integrações aplicáveis; validar `state`, `redirect_uri`, expiração e revogação.
-- Manter tokens e segredos somente em backend/secret manager; nunca no cliente público.
-- Exigir MFA/TOTP para funções administrativas quando suportado, com proteção contra repetição e limitação de tentativas.
-- Negar por padrão rotas e operações sem autenticação e autorização válidas.
-- Validar autorização no servidor em cada operação; ocultar botões na interface não é controle de segurança.
-- Registrar eventos de autenticação e autorização sem registrar tokens, senhas ou códigos.
+**Limite da evidência:** estado Online/SUCCESS e presença de nomes de variáveis não comprovam que os valores sejam fortes, corretos, rotacionados ou que a configuração completa esteja segura.
 
-**Evidência exigida:** testes de sessão ausente/expirada, token inválido/revogado, usuário sem permissão, tentativa de repetição e limitação de tentativas.
+## 2. Integridade criptográfica e backups
 
-## 4. Recuperação e continuidade
+**Parcialmente implementado no código.** O cofre calcula SHA-256 por objeto e raiz do manifesto, verifica objetos ausentes/corrompidos e revalida antes da restauração. Snapshots são aditivos e não sobrescrevem os objetos existentes.
 
-- Restaurar primeiro em ambiente isolado, nunca diretamente sobre a HD MATRIZ.
-- Validar hashes, estrutura, contagem e legibilidade dos arquivos restaurados.
-- Documentar RPO/RTO pretendidos, responsáveis e sequência de recuperação.
-- Fazer simulação de perda/corrupção e registrar tempos, falhas e resultado.
-- Exigir aprovação humana antes de qualquer promoção de restauração para ambiente operacional.
+**Lacuna importante:** manifesto e âncora de auditoria ficam no mesmo armazenamento persistente. Isso detecta corrupção acidental e adulterações parciais, mas não prova autenticidade contra um invasor capaz de alterar simultaneamente objetos, manifestos e âncora. Falta uma âncora externa ou assinatura criptográfica protegida separadamente.
 
-**Evidência exigida:** relatório de restauração isolada, comparação de integridade antes/depois e aprovação registrada.
+Ações pendentes:
+- Proteger manifestos por assinatura ou âncora externa imutável, com chave fora do volume de dados.
+- Testar corrupção de manifesto, blob, remoção e truncamento da trilha no ambiente de teste.
+- Criar cópia independente e testar recuperação em ambiente isolado.
+- Não restaurar nem sincronizar diretamente sobre a HD MATRIZ.
 
-## 5. Portões de auditoria
+## 3. Permissões de leitura e gravação
+
+**Parcialmente implementado no código.** A política separa raízes e modos `read`/`readwrite`, e operações destrutivas exigem aprovação.
+
+Ações pendentes:
+- Auditar a configuração efetiva de raízes e modos em produção sem expor caminhos ou segredos em relatórios públicos.
+- Testar identidade somente-leitura contra operações de escrita e exclusão.
+- Confirmar que rotas e tarefas não oferecem bypass da política.
+- Revisar permissões do volume, do serviço Railway e dos tokens externos.
+
+## 4. Autenticação e acesso indevido
+
+**Parcialmente implementado no código e no serviço ativo.** Há autenticação administrativa por sessão e suporte a Bearer token, CORS com origens exatas e limite temporário de tentativas inválidas.
+
+Ações pendentes:
+- Testar sessão ausente/expirada, logout, token inválido/revogado, origem não autorizada e tentativas repetidas.
+- Revisar rotação e armazenamento dos segredos no Railway; esta revisão não leu seus valores.
+- Avaliar proteção contra CSRF, limites distribuídos de tentativas e invalidação de sessões em múltiplas réplicas.
+- Não foi identificado fluxo OAuth 2.0 Authorization Code + PKCE nem TOTP no código inspecionado; esses controles permanecem pendentes.
+
+## 5. Dropbox e armazenamento externo
+
+**Não implementado como integração operacional no backend inspecionado.** O README do serviço classifica Dropbox e sincronização de outros HDs como adaptadores planejados. A variável `DROPBOX_APP_KEY` existe, mas sua presença não comprova OAuth, PKCE, escopos, armazenamento seguro de tokens ou sincronização.
+
+Ações pendentes:
+- Projetar OAuth 2.0 Authorization Code + PKCE, validação de `state`, escopos mínimos, refresh/revogação e armazenamento de tokens exclusivamente no backend.
+- Implementar operações de upload/download com versionamento, sem sobrescrita automática.
+- Verificar hash antes e depois de cada transferência.
+- Excluir segredos, memória privada, evidências e backups de qualquer fluxo para repositórios públicos.
+- Executar primeiro em sandbox e com conta/pasta de teste.
+
+## 6. Recuperação e continuidade
+
+**Parcialmente implementado no código; recuperação real não homologada.** A restauração tem dry-run padrão, aprovação e verificação de hash após a cópia.
+
+Ações pendentes:
+- Executar restauração isolada com dados de teste.
+- Demonstrar que a HD MATRIZ original permanece inalterada.
+- Registrar RPO/RTO, inventário restaurado, hashes e resultado.
+- Exigir aprovação humana antes de promover qualquer restauração para ambiente operacional.
+
+## 7. Estado consolidado
 
 | Controle | Estado em 2026-11-21 |
 |---|---|
-| Regras e baseline documental | Registrado nesta branch |
-| SHA-256 em backups reais | Pendente de implementação e teste |
-| Auditoria de permissões | Pendente |
-| OAuth/PKCE e gestão segura de tokens | Pendente de verificação |
-| MFA/TOTP administrativo | Pendente de implementação e teste |
-| Testes de acesso indevido | Pendente |
-| Restauração isolada | Pendente |
-| Auditoria técnica independente | Pendente |
-| Homologação geral | Bloqueada |
+| Baseline documental | Registrada |
+| Hash SHA-256 em memória/cofre | Implementado no código; teste de produção pendente |
+| Manifestos e snapshots aditivos | Implementados no código; proteção externa pendente |
+| Trilha de auditoria encadeada | Implementada no código; âncora externa pendente |
+| Política read/readwrite | Implementada no código; auditoria efetiva pendente |
+| Sessão administrativa e Bearer | Implementados no código; testes independentes pendentes |
+| CORS por allowlist | Implementado no código; teste de produção pendente |
+| OAuth 2.0 + PKCE Dropbox | Pendente |
+| TOTP/MFA administrativo | Pendente |
+| Testes de acesso indevido | Parcialmente cobertos por testes existentes; execução/auditoria pendente |
+| Restauração isolada | Testes automatizados existentes; ensaio operacional pendente |
+| Homologação técnica independente | Pendente |
+| Liberação plena do BABY | Bloqueada até evidências e homologação |
 
-## 6. Proteção da HD MATRIZ
+## 8. Proteção da HD MATRIZ
 
-A HD MATRIZ é tratada como fonte original protegida. Esta baseline não autoriza alterações, migrações, exclusões, sincronizações destrutivas nem restaurações sobre ela. Qualquer operação desse tipo exige autorização específica, backup verificado e plano de reversão.
+A HD MATRIZ permanece como fonte original protegida. Esta revisão foi somente leitura. Este registro não autoriza alterações, migrações, exclusões, sincronizações destrutivas, mudanças de variáveis, deploys ou restaurações sobre ela. Qualquer operação futura exige autorização específica, backup verificado e plano de reversão.
 
-## 7. Critério de conclusão
+## 9. Critério de conclusão
 
-Um item só pode mudar para **concluído** quando houver implementação identificável, teste reproduzível, evidência registrada e revisão. Planejamento, documentação ou criação de branch não equivalem a implementação, teste ou homologação.
+Um item só pode mudar para **concluído** quando houver implementação identificável, teste reproduzível, evidência registrada e revisão. Planejamento, documentação, código presente, testes apenas escritos ou deploy bem-sucedido não equivalem a homologação.
 
 ## Referências de orientação
 
