@@ -1,147 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BABY RELÓGIO MUNDIAL</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#00ff88;font-family:'Consolas','Courier New',monospace;min-height:100vh;padding:18px;overflow-x:hidden}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);opacity:.35}
-header{max-width:1100px;margin:0 auto 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border:1px solid #00ff88;padding:14px 18px;box-shadow:0 0 22px rgba(0,255,136,.35)}
-h1{font-size:26px;letter-spacing:2px;text-shadow:0 0 12px #00ff88}
-small{color:#9dffc8}
-.badge{border:1px solid #00ff88;padding:6px 10px;font-size:12px}
-main{max-width:1100px;margin:0 auto}
-.hero{border:1px solid #00ff88;padding:16px;margin-bottom:14px;text-align:center;box-shadow:0 0 18px rgba(0,255,136,.25)}
-.hero .time{font-size:64px;font-weight:900;letter-spacing:4px;text-shadow:0 0 18px #00ff88}
-.hero .date{font-size:16px;margin-top:6px;color:#c8ffe2}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.hero .time{font-size:44px}}
-.card{border:1px solid #00ff88;padding:16px;background:#010805;box-shadow:0 0 14px rgba(0,255,136,.18)}
-.card h2{font-size:16px;letter-spacing:1px}
-.card .t{font-size:46px;font-weight:900;margin:10px 0 4px;text-shadow:0 0 14px #00ff88}
-.card .d{color:#c8ffe2;font-size:14px}
-.meta{margin-top:10px;font-size:12px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#9dffc8}
-button{background:#00ff88;color:#000;border:0;padding:10px 14px;font-family:inherit;font-weight:900;cursor:pointer;margin-top:12px;width:100%}
-button:hover{background:#00ff41;box-shadow:0 0 14px #00ff88}
-.panel{max-width:1100px;margin:16px auto 0;border:1px solid #00ff88;padding:16px}
-.panel h3{margin-bottom:8px}
-pre{white-space:pre-wrap;word-break:break-word;color:#c8ffe2;font-size:13px;line-height:1.6}
-#log{max-height:160px;overflow:auto}
-.warn{color:#ffe27a;border:1px dashed #ffe27a;padding:10px;margin-top:12px;font-size:13px}
-footer{max-width:1100px;margin:14px auto;text-align:center;color:#9dffc8;font-size:12px}
-</style>
-</head>
-<body>
-<header>
-<div><h1>BABY RELÓGIO MUNDIAL</h1><small>BABY // SISTEMA MATRIX — HD-MATRIZ INTOCADO 🟢</small></div>
-<div style="display:flex;gap:8px;align-items:center"><span class="badge" id="net">● ONLINE</span><span class="badge">ATUALIZA A CADA 1s</span></div>
-</header>
-<main>
-<section class="hero">
-<div>⏰ RELÓGIO PRINCIPAL — BRASÍLIA / PARANÁ</div>
-<div class="time" id="hero-time">--:--:--</div>
-<div class="date" id="hero-date">--</div>
-<div class="meta"><span id="hero-tz">America/Sao_Paulo</span><span id="hero-off">UTC-3</span><span id="hero-day">--</span></div>
-<button onclick="syncNow()">SINCRONIZAR AGORA</button>
-</section>
-<section class="grid" id="grid"></section>
-</main>
-<section class="panel">
-<h3>🔌 API BABY_CLOCK_API</h3>
-<pre>window.BABY_CLOCK_API.getTime('America/Sao_Paulo')
-window.BABY_CLOCK_API.getAllTimes()
-window.BABY_CLOCK_API.subscribe((dados) => console.log(dados))</pre>
-<div class="warn">⚠️ PONTE CHATBOT MATRIX preparada, mas NÃO testada com o motor original. Conectar ao manipulador real de mensagens do BABY antes de usar em produção.</div>
-</section>
-<section class="panel">
-<h3>📡 LOG — PONTE CHATBOT MATRIX</h3>
-<pre id="log"></pre>
-<button onclick="testBridge()">TESTAR PONTE: ENVIAR baby-clock:request</button>
-</section>
-<footer>Funciona offline — usa o relógio do dispositivo. Londres com ajuste automático de horário de verão (BST/GMT) via Intl.</footer>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=/WEB3.1/relogio-mundial.html">
+<title>Relógio Mundial CRYPY — Centralizado</title>
 <script>
-const ZONES=[
- {id:'br',label:'BRASÍLIA / PARANÁ',tz:'America/Sao_Paulo'},
- {id:'utc',label:'UTC / ZULU',tz:'UTC'},
- {id:'lon',label:'LONDRES',tz:'Europe/London'},
- {id:'tok',label:'TÓQUIO',tz:'Asia/Tokyo'}
-];
-const grid=document.getElementById('grid');
-ZONES.forEach(z=>{
- const d=document.createElement('div'); d.className='card'; d.id='card-'+z.id;
- d.innerHTML=`<h2>${z.label}</h2><div class="t" data-t>--:--:--</div><div class="d" data-d>--</div><div class="meta"><span data-tz>${z.tz}</span><span data-off>--</span><span data-day>--</span></div><button data-copy>Copiar hora</button>`;
- grid.appendChild(d);
- d.querySelector('[data-copy]').onclick=()=>{const txt=d.querySelector('[data-t]').textContent; navigator.clipboard?.writeText(`${z.label} ${txt}`); alert('Copiado: '+z.label+' '+txt);};
-});
-function fmt(date,tz,opts){return new Intl.DateTimeFormat('pt-BR',{timeZone:tz,...opts}).format(date);}
-function offsetLabel(date,tz){
- try{
-  const parts=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'longOffset'}).formatToParts(date);
-  const o=parts.find(p=>p.type==='timeZoneName'); return o?o.value:'';
- }catch(e){return '';}
-}
-function isDay(date,tz){
- const h=Number(fmt(date,tz,{hour:'numeric',hour12:false}));
- return (h>=6&&h<18)?'☀️ DIA':'🌙 NOITE';
-}
-function getData(){
- const now=new Date(); const out={};
- ZONES.forEach(z=>{
-  const time=fmt(now,z.tz,{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
-  const dateStr=fmt(now,z.tz,{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
-  const off=offsetLabel(now,z.tz); const day=isDay(now,z.tz);
-  const isLondon=z.tz==='Europe/London';
-  const bst = isLondon ? (fmt(now,z.tz,{timeZoneName:'short'}).includes('BST')?'BST — Horário de Verão':'GMT — Horário Normal') : '';
-  out[z.tz]={label:z.label,time,date:dateStr,offset:off,period:day,london:bst,timestamp:now.toISOString()};
- });
- return out;
-}
-function tick(){
- const data=getData(); const now=new Date();
- const br=data['America/Sao_Paulo'];
- document.getElementById('hero-time').textContent=br.time;
- document.getElementById('hero-date').textContent=br.date;
- document.getElementById('hero-off').textContent=br.offset;
- document.getElementById('hero-day').textContent=br.period;
- ZONES.forEach(z=>{
-  const el=document.getElementById('card-'+z.id); const d=data[z.tz];
-  el.querySelector('[data-t]').textContent=d.time;
-  el.querySelector('[data-d]').textContent=d.date+(d.london?' • '+d.london:'');
-  el.querySelector('[data-off]').textContent=d.offset;
-  el.querySelector('[data-day]').textContent=d.period;
- });
- const ev=new CustomEvent('baby-clock:tick',{detail:data});
- window.dispatchEvent(ev);
- window.BABY_CLOCK_API._listeners.forEach(fn=>{try{fn(data)}catch(e){}});
-}
-window.BABY_CLOCK_API={
- getTime:(tz)=>{const d=getData(); return d[tz]||null;},
- getAllTimes:()=>getData(),
- subscribe:(fn)=>{window.BABY_CLOCK_API._listeners.push(fn); return ()=>{window.BABY_CLOCK_API._listeners=window.BABY_CLOCK_API._listeners.filter(x=>x!==fn);};},
- _listeners:[]
-};
-window.addEventListener('baby-clock:request',()=>{
- const data=getData();
- window.dispatchEvent(new CustomEvent('baby-clock:response',{detail:data}));
- log('← baby-clock:request recebido → baby-clock:response enviado');
-});
-window.addEventListener('baby-clock:tick',()=>{});
-function log(msg){
- const el=document.getElementById('log');
- el.textContent='['+new Date().toLocaleTimeString('pt-BR')+'] '+msg+'\n'+el.textContent;
-}
-function syncNow(){tick(); log('↻ Sincronização manual solicitada');}
-function testBridge(){
- log('→ Enviando baby-clock:request (teste)');
- window.dispatchEvent(new CustomEvent('baby-clock:request'));
-}
-function updateNet(){document.getElementById('net').textContent=navigator.onLine?'● ONLINE':'● OFFLINE';}
-window.addEventListener('online',updateNet); window.addEventListener('offline',updateNet); updateNet();
-tick(); setInterval(tick,1000);
-log('BABY_CLOCK_API pronta. Ponte MATRIX preparada — aguardando manipulador real do BABY.');
+(function () {
+  var target = new URL("/WEB3.1/relogio-mundial.html", window.location.origin);
+  window.location.replace(target.href);
+})();
 </script>
-<script src="../../assets/js/crypy-page-assistant.js" defer></script>
+</head>
+<body style="margin:0;background:#030603;color:#eafff2;font:16px Arial,sans-serif;display:grid;min-height:100vh;place-items:center;text-align:center;padding:24px;box-sizing:border-box">
+<main>
+<h1 style="color:#00ff88">RELÓGIO MUNDIAL CRYPY</h1>
+<p>O relógio foi centralizado em uma única página oficial.</p>
+<p><a style="color:#00ff88" href="/WEB3.1/relogio-mundial.html">Abrir relógio oficial de Brasília / Paraná</a></p>
+</main>
 </body>
 </html>
