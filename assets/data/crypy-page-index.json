@@ -1,7 +1,7 @@
 {
-  "version": "1.8",
-  "generated_at": "2026-11-22T19:25:00-03:00",
-  "total": 303,
+  "version": "1.9",
+  "generated_at": "2026-11-22",
+  "total": 304,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -1517,6 +1517,11 @@
       "path": "web3.1/momory-boost/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "web3.1"
+    },
+    {
+      "path": "crypy-news/index.html",
+      "label": "CRYPY NEWS — Central Editorial",
+      "group": "crypy-news"
     }
   ]
 }
