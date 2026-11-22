@@ -125,15 +125,15 @@
     var root = node("div", {id:"crypy-global-navigation"});
     var style = node("style");
     style.textContent = [
-      "#crypy-global-navigation{position:fixed;top:14px;right:14px;z-index:2147483002;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#eafff3}",
+      "#crypy-global-navigation{position:fixed;top:14px;left:14px;right:auto;z-index:2147483002;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#eafff3}",
       "#crypy-global-navigation *{box-sizing:border-box}",
-      "#crypy-global-nav-toggle{display:flex;align-items:center;gap:9px;border:1px solid #00ff88;border-radius:999px;padding:11px 16px;background:#03130a;color:#00ff88;font-weight:800;font-size:13px;letter-spacing:.06em;box-shadow:0 0 18px #00ff8833;cursor:pointer}",
+      "#crypy-global-nav-toggle{display:flex;align-items:center;justify-content:center;gap:7px;min-width:48px;min-height:48px;border:2px solid #00ff88;border-radius:50%;padding:8px;background:#03130a;color:#00ff88;font-weight:900;font-size:20px;letter-spacing:0;box-shadow:0 0 18px #00ff8833;cursor:pointer}",
       "#crypy-global-nav-toggle:focus-visible,#crypy-global-navigation a:focus-visible,#crypy-global-navigation button:focus-visible,#crypy-global-navigation input:focus-visible{outline:2px solid #fff;outline-offset:3px}",
-      "#crypy-global-nav-panel{display:none;position:fixed;top:68px;right:14px;width:min(460px,calc(100vw - 28px));max-height:calc(100dvh - 84px);overflow:hidden;border:1px solid #00ff88;border-radius:16px;background:#030a05;box-shadow:0 18px 60px #000b,0 0 24px #00ff8822}",
+      "#crypy-global-nav-panel{display:none;position:fixed;top:68px;left:14px;right:auto;width:min(460px,calc(100vw - 28px));max-height:calc(100dvh - 84px);overflow:hidden;border:1px solid #00ff88;border-radius:16px;background:#030a05;box-shadow:0 18px 60px #000b,0 0 24px #00ff8822}",
       "#crypy-global-nav-panel[data-open=true]{display:flex;flex-direction:column}",
       ".crypy-nav-head{padding:16px;border-bottom:1px solid #17462b;background:linear-gradient(135deg,#092014,#030a05)}",
       ".crypy-nav-title{font-size:14px;font-weight:900;letter-spacing:.12em;color:#00ff88}",
-      ".crypy-nav-subtitle{font-size:11px;color:#a5cbb4;margin-top:4px}",
+      ".crypy-nav-subtitle{font-size:11px;color:#a5cbb4;margin-top:4px}\n      .crypy-nav-catalog-link{display:inline-flex;align-items:center;margin-top:11px;padding:8px 11px;border:1px solid #00ff88;border-radius:9px;background:#06190d;color:#00ff88;text-decoration:none;font-size:11px;font-weight:900;letter-spacing:.04em}\n      .crypy-nav-catalog-link:hover{background:#00ff88;color:#00190a}",
       ".crypy-nav-search{padding:12px 14px;border-bottom:1px solid #17462b}",
       ".crypy-nav-search input{width:100%;padding:11px 12px;border:1px solid #276542;border-radius:10px;background:#07170e;color:#eafff3;font-size:14px}",
       ".crypy-nav-count{font-size:11px;color:#a5cbb4;margin-top:7px}",
@@ -151,17 +151,17 @@
       ".crypy-nav-link small{font-size:10px;color:#9bbda8;overflow-wrap:anywhere}",
       ".crypy-nav-empty{padding:18px 12px;color:#a5cbb4;font-size:13px}",
       ".crypy-menu-caixa,.crypy-portal-nav,[aria-label='Portal CRYPY — 23 páginas'],.crypy-legacy-menu-hidden{display:none!important}",
-      "@media(max-width:600px){#crypy-global-navigation{top:10px;right:10px}#crypy-global-nav-panel{top:62px;left:10px;right:10px;width:auto;max-height:calc(100dvh - 74px)}#crypy-global-nav-toggle{padding:10px 13px}.crypy-nav-categories{grid-template-columns:1fr}}",
+      "@media(max-width:600px){#crypy-global-navigation{top:10px;left:10px;right:auto}#crypy-global-nav-panel{top:62px;left:10px;right:10px;width:auto;max-height:calc(100dvh - 74px)}#crypy-global-nav-toggle{padding:10px 13px}.crypy-nav-categories{grid-template-columns:1fr}}",
       "@media(prefers-reduced-motion:reduce){#crypy-global-navigation *{scroll-behavior:auto!important;transition:none!important}}"
     ].join("\n");
 
     var toggle = node("button",{id:"crypy-global-nav-toggle",type:"button","aria-expanded":"false","aria-controls":"crypy-global-nav-panel"});
-    toggle.appendChild(node("span",{},"☰"));
+    toggle.appendChild(node("span",{},"♾️"));
     toggle.appendChild(node("span",{},"MENU CRYPY"));
     var panel = node("section",{id:"crypy-global-nav-panel","data-open":"false","aria-label":"Menu global CRYPY"});
     var head = node("div",{className:"crypy-nav-head"});
     head.appendChild(node("div",{className:"crypy-nav-title"},"COLMEIA CRYPY"));
-    head.appendChild(node("div",{className:"crypy-nav-subtitle"},"13 categorias oficiais · páginas conectadas por área"));
+    head.appendChild(node("div",{className:"crypy-nav-subtitle"},"13 categorias oficiais · páginas conectadas por área"));\n    var catalogLink=node("a",{className:"crypy-nav-catalog-link",href:new URL("index3.html",siteRoot).href},"ABRIR CATÁLOGO COMPLETO ↗");\n    head.appendChild(catalogLink);
     var searchWrap = node("div",{className:"crypy-nav-search"});
     var search = node("input",{type:"search",placeholder:"Buscar página nas 13 categorias…","aria-label":"Buscar páginas"});
     var count = node("div",{className:"crypy-nav-count"},"Carregando índice de páginas…");
