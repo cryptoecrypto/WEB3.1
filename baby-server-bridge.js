@@ -1,6 +1,6 @@
-/* BABY I.A — ponte autenticada com CRYPY SERVER.
- * O token fica apenas em sessionStorage (sessão atual do navegador).
- * /health é público; endpoints /api/* exigem CRYPY_API_TOKEN.
+/* BABY I.A — cliente de conexão CRYPY SERVER.
+ * MODO REAL: o cliente só declara autenticação se o servidor devolver prova explícita.
+ * sessionStorage não é cofre contra XSS; não reutilize token em páginas não confiáveis.
  */
 (function(){
 "use strict";
@@ -17,7 +17,7 @@ css.textContent=`
 document.head.appendChild(css);
 const fab=document.createElement("button");fab.id="baby-server-fab";fab.textContent="◉ CRYPY SERVER";document.body.appendChild(fab);
 const panel=document.createElement("div");panel.id="baby-server-panel";
-panel.innerHTML='<h3>BABY I.A · conexão com o núcleo</h3><label>URL pública HTTPS do servidor</label><input id="baby-server-url" type="url" placeholder="https://seu-servico.onrender.com"><label>Token de acesso da API</label><input id="baby-server-token" type="password" autocomplete="off" placeholder="Token configurado no host"><button id="baby-server-save">Salvar nesta sessão</button><button id="baby-server-test">Testar conexão</button><div id="baby-server-result">Aguardando configuração. O token fica somente nesta sessão do navegador.</div>';
+panel.innerHTML='<h3>BABY I.A · conexão com o núcleo</h3><label>URL pública HTTPS do servidor</label><input id="baby-server-url" type="url" placeholder="https://seu-servico.onrender.com"><label>Token de acesso da API</label><input id="baby-server-token" type="password" autocomplete="off" placeholder="Token configurado no host"><button id="baby-server-save">Salvar nesta sessão</button><button id="baby-server-test">Testar conexão</button><div id="baby-server-result">Aguardando configuração. O token fica em sessionStorage, mas não está protegido contra scripts maliciosos da mesma origem (XSS).</div>';
 document.body.appendChild(panel);
 const $=s=>panel.querySelector(s), result=$("#baby-server-result");
 $("#baby-server-url").value=localStorage.getItem("crypy_server_url")||"https://baby-site-auth-production.up.railway.app";
@@ -28,7 +28,7 @@ $("#baby-server-save").addEventListener("click",()=>{
  if(!/^https:\/\//i.test(u)){result.textContent="Informe uma URL HTTPS válida.";return;}
  localStorage.setItem("crypy_server_url",u);
  if(t)sessionStorage.setItem("crypy_server_token",t);else sessionStorage.removeItem("crypy_server_token");
- result.textContent="Endereço salvo. Token guardado apenas na sessão atual.";
+ result.textContent="Endereço salvo. Token guardado em sessionStorage; isso não protege contra XSS.";
 });
 $("#baby-server-test").addEventListener("click",async()=>{
  const u=$("#baby-server-url").value.trim().replace(/\/+$/,""),t=$("#baby-server-token").value.trim();
@@ -42,6 +42,9 @@ $("#baby-server-test").addEventListener("click",async()=>{
   const a=await fetch(u+"/api/status",{headers:{Authorization:"Bearer "+t},cache:"no-store"});
   const aj=await a.json();
   if(!a.ok)throw new Error("API não autorizada: HTTP "+a.status+" — "+(aj.reason||aj.code||""));
+  if(!aj.security || aj.security.authentication!=="bearer" || aj.security.authenticated!==true){
+    throw new Error("O backend não apresentou prova explícita de autenticação Bearer. Health pode responder, mas a API NÃO está homologada; conexão não confirmada.");
+  }
   const caps=Array.isArray(aj.capabilities)?aj.capabilities.length:0;
   result.textContent="CONEXÃO CONFIRMADA\nServidor: "+u+"\nVersão BABY: "+(aj.version||hj.version||"—")+"\nCapacidades: "+caps+"\nAuditoria: "+(aj.live?.audit?.ok?"íntegra":"verificar")+
    "\nCofre: "+(aj.live?.vault?.ok?"verificado":"sem verificação")+

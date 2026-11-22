@@ -4,9 +4,9 @@
   if (window.__CRYPY_BUBBLES__) return;
   window.__CRYPY_BUBBLES__ = true;
 
-  var API = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h";
+  var API = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether%2Cbinancecoin%2Cinternet-computer%2Cshiba-inu&sparkline=false&price_change_percentage=24h";
   var CACHE = "crypy.bubbles.market.v1";
-  var PINNED = ["bitcoin", "ethereum", "tether", "binancecoin", "shiba-inu", "internet-computer"];
+  var PINNED = ["bitcoin", "ethereum", "tether", "binancecoin", "internet-computer", "shiba-inu"];
   var root, statusNode, detailNode, timer;
   var items = [];
 
@@ -111,8 +111,7 @@
     var actions = el("div", { className: "cb-actions" });
     statusNode = el("span", { className: "cb-state", role: "status" }, "Conectando à CoinGecko…");
     var refresh = el("button", { type: "button" }, "ATUALIZAR");
-    var original = el("a", { href: "https://cryptobubbles.net/", target: "_blank", rel: "noopener noreferrer" }, "ABRIR CRYPTOBUBBLES ORIGINAL ↗");
-    actions.appendChild(statusNode); actions.appendChild(refresh); actions.appendChild(original);
+    actions.appendChild(statusNode); actions.appendChild(refresh);
     head.appendChild(titleWrap); head.appendChild(actions);
     var field = el("div", { className: "cb-field", id: "crypy-bubbles-field", "aria-label": "Bolhas de criptomoedas" });
     detailNode = el("div", { className: "cb-detail", id: "crypy-bubbles-detail", "aria-live": "polite" }, "Selecione uma bolha para consultar os detalhes.");
@@ -171,9 +170,7 @@
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then(function (data) {
         var byId = new Map(data.map(function (c) { return [c.id, c]; }));
-        var pinned = PINNED.map(function (id) { return byId.get(id); }).filter(Boolean);
-        var rest = data.filter(function (c) { return PINNED.indexOf(c.id) === -1; });
-        items = pinned.concat(rest).slice(0, 40);
+        items = PINNED.map(function (id) { return byId.get(id); }).filter(Boolean);
         mergeSharedQuotes(items);
         render(items, false);
         try { localStorage.setItem(CACHE, JSON.stringify({ savedAt: Date.now(), items: items })); } catch (e) {}
@@ -181,7 +178,11 @@
       .catch(function (err) {
         try {
           var saved = JSON.parse(localStorage.getItem(CACHE) || "null");
-          if (saved && Array.isArray(saved.items)) { items = saved.items; render(items, true); return; }
+          if (saved && Array.isArray(saved.items)) {
+            var cachedById = new Map(saved.items.map(function (c) { return [c.id, c]; }));
+            items = PINNED.map(function (id) { return cachedById.get(id); }).filter(Boolean);
+            render(items, true); return;
+          }
         } catch (e) {}
         statusNode.textContent = "API indisponível · " + (err && err.message ? err.message : "sem conexão");
       });
