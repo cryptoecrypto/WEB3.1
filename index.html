@@ -4,31 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#020805">
-<meta name="description" content="HOME principal CRYPY: Quarteto das Cores, fotos originais, Crypto Bubbles e navegação integrada da Colmeia WEB3.1.">
-<title>CRYPY — HOME PRINCIPAL | QUARTETO + COLMEIA</title>
+<meta name="description" content="CRYPY — HOME central da Colmeia WEB3.1. Quarteto das Cores, Crypto Bubbles e navegação integrada.">
+<title>CRYPY — HOME PRINCIPAL | QUARTETO + CRYPTO BUBBLES</title>
 <style>
 :root{color-scheme:dark;--g:#00ff88;--bg:#020805;--panel:#06140b;--line:#17643a;--txt:#eafff2;--muted:#9bc9ad}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--txt);font:14px/1.45 Arial, sans-serif}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--txt);font:14px/1.45 Arial,sans-serif}
 #crypy-home-frame{position:fixed;inset:0;width:100%;height:100%;border:0;background:#000}
-.cx-launcher{position:fixed;z-index:999999;top:12px;right:12px;display:flex;gap:7px}
-.cx-launcher button{border:1px solid var(--g);border-radius:999px;background:#03130a;color:var(--g);padding:10px 14px;font-size:11px;font-weight:900;letter-spacing:.05em;cursor:pointer;box-shadow:0 0 15px #00ff8830}
-.cx-launcher button:hover,.cx-launcher button:focus-visible{background:var(--g);color:#001b0c;outline:none}
-#cx-panel{position:fixed;z-index:999998;inset:0 0 0 auto;width:min(460px,100vw);height:100dvh;overflow:auto;background:rgba(2,8,5,.97);border-left:1px solid var(--line);box-shadow:-15px 0 45px #000b;padding:18px;transform:translateX(105%);transition:transform .25s ease}
+.cx-launcher{position:fixed;z-index:999999;top:12px;right:12px;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.cx-launcher button,.cx-action{border:1px solid var(--g);border-radius:999px;background:#03130a;color:var(--g);padding:10px 14px;font-size:11px;font-weight:900;letter-spacing:.05em;cursor:pointer;box-shadow:0 0 15px #00ff8830}
+.cx-launcher button:hover,.cx-launcher button:focus-visible,.cx-action:hover{background:var(--g);color:#001b0c;outline:none}
+#cx-panel{position:fixed;z-index:999998;inset:0 0 0 auto;width:min(490px,100vw);height:100dvh;overflow:auto;background:rgba(2,8,5,.98);border-left:1px solid var(--line);box-shadow:-15px 0 45px #000b;padding:18px;transform:translateX(105%);transition:transform .25s ease}
 #cx-panel.open{transform:translateX(0)}
-.cx-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.cx-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
 .cx-panel-head h1{font-size:19px;line-height:1.15;color:var(--g);margin:0;letter-spacing:.04em}
-.cx-panel-head button,.cx-home-btn,.cx-map-btn{border:1px solid var(--line);border-radius:9px;background:#07170d;color:var(--txt);padding:9px 11px;font-weight:800;cursor:pointer}
-.cx-home-btn{width:100%;border-color:var(--g);color:var(--g);margin-bottom:10px}
-.cx-map-btn{width:100%;margin-bottom:13px}
-.cx-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-.cx-tabs button{min-height:41px;padding:8px;border:1px solid var(--line);border-radius:8px;background:#06170d;color:var(--txt);font-size:10px;font-weight:850;cursor:pointer}
+.cx-panel-head button,.cx-home-btn,.cx-map-btn,.cx-audit-btn{border:1px solid var(--line);border-radius:9px;background:#07170d;color:var(--txt);padding:9px 11px;font-weight:800;cursor:pointer}
+.cx-home-btn{width:100%;border-color:var(--g);color:var(--g);margin-bottom:8px}
+.cx-map-btn,.cx-audit-btn{width:100%;margin-bottom:8px}
+.cx-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:12px 0}
+.cx-tabs button{min-height:42px;padding:8px;border:1px solid var(--line);border-radius:8px;background:#06170d;color:var(--txt);font-size:10px;font-weight:850;cursor:pointer}
 .cx-tabs button[aria-pressed=true],.cx-tabs button:hover{background:var(--g);color:#001b0c;border-color:var(--g)}
-#cx-status{font-size:11px;color:var(--muted);margin:14px 0 9px}
-#cx-pages{display:grid;gap:7px}
-.cx-page{display:block;padding:11px;border:1px solid #17452b;border-radius:8px;background:#06130b;color:var(--txt);text-decoration:none;overflow-wrap:anywhere;font-size:12px}
-.cx-page:hover{border-color:var(--g);color:var(--g)}
+#cx-status{font-size:11px;color:var(--muted);margin:12px 0 9px}
+#cx-pages{display:grid;gap:7px;margin-bottom:20px}
+.cx-page{display:block;width:100%;padding:11px;border:1px solid #17452b;border-radius:8px;background:#06130b;color:var(--txt);text-align:left;text-decoration:none;overflow-wrap:anywhere;font-size:12px;cursor:pointer}
+.cx-page:hover,.cx-page:focus-visible{border-color:var(--g);color:var(--g);outline:none}
 .cx-page small{display:block;color:#86aa93;font-size:10px;margin-top:4px}
+.cx-search{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:#020b06;color:var(--txt);margin:6px 0 10px}
+.cx-tools{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cx-tools button{border:1px solid var(--line);border-radius:8px;background:#06170d;color:var(--txt);padding:9px;font-size:10px;font-weight:800;cursor:pointer}
+.cx-note{color:var(--muted);font-size:10px;line-height:1.5;margin:10px 0}
+.cx-section-title{margin:14px 0 6px;color:var(--g);font-size:11px;letter-spacing:.1em;font-weight:900}
 #cx-music{position:fixed;z-index:999997;left:12px;bottom:12px}
 #cx-music-toggle{border:1px solid var(--g);border-radius:50%;width:42px;height:42px;background:#03130a;color:var(--g);font-size:19px;cursor:pointer;box-shadow:0 0 14px #00ff8830}
 #cx-music-box{display:none;width:min(260px,calc(100vw - 24px));padding:10px;border:1px solid var(--g);border-radius:12px;background:#020b06;box-shadow:0 0 18px #00ff8840}
@@ -44,12 +49,15 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
 <iframe id="crypy-home-frame" src="./index1.htm" title="HOME principal CRYPY — Quarteto das Cores e Crypto Bubbles" allow="autoplay; fullscreen" loading="eager"></iframe>
 <div class="cx-launcher">
  <button type="button" id="cx-open" aria-expanded="false" aria-controls="cx-panel">♾️ COLMEIA</button>
- <button type="button" id="cx-home">HOME 1</button>
+ <button type="button" id="cx-home">HOME QUARTETO</button>
 </div>
 <aside id="cx-panel" aria-label="Navegação global da Colmeia">
  <div class="cx-panel-head"><h1>CRYPY · COLMEIA WEB3.1</h1><button type="button" id="cx-close" aria-label="Fechar navegação">✕</button></div>
- <button class="cx-home-btn" type="button" id="cx-home-panel">♾️ VOLTAR À HOME PRINCIPAL</button>
- <button class="cx-map-btn" type="button" id="cx-map">ABRIR MAPA DA COLMEIA</button>
+ <button class="cx-home-btn" type="button" id="cx-home-panel">♾️ VOLTAR À HOME DO QUARTETO</button>
+ <div class="cx-tools">
+  <button type="button" id="cx-map">ABRIR MAPA DA COLMEIA</button>
+  <button type="button" id="cx-all">TODAS AS PÁGINAS</button>
+ </div>
  <div class="cx-tabs" id="cx-tabs">
   <button type="button" data-cx="infinyt" aria-pressed="false">CRYPY-INFINIT</button>
   <button type="button" data-cx="academy" aria-pressed="false">CRYPY-ACADEMY</button>
@@ -62,11 +70,15 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
   <button type="button" data-cx="games" aria-pressed="false">CRYPY-GAMES</button>
   <button type="button" data-cx="social" aria-pressed="false">CRYPYCUT</button>
   <button type="button" data-cx="baby" aria-pressed="false">BABY I.A.</button>
-  <button type="button" data-cx="whitepaper" aria-pressed="false">WHITE PAPER</button>
+  <button type="button" data-cx="whitepaper" aria-pressed="false">WHITE PAPER / COIN</button>
   <button type="button" data-cx="contact" aria-pressed="false">CONTATO</button>
  </div>
  <p id="cx-status" role="status">Carregando o índice oficial da Colmeia…</p>
+ <input id="cx-search" class="cx-search" type="search" placeholder="Buscar página pelo nome ou caminho…" aria-label="Buscar páginas">
  <div id="cx-pages"></div>
+ <div class="cx-section-title">AUDITORIA DE NAVEGAÇÃO</div>
+ <button class="cx-audit-btn" type="button" id="cx-audit">VERIFICAR PÁGINAS DO ÍNDICE</button>
+ <p class="cx-note" id="cx-audit-status">A verificação testa a existência HTTP das páginas públicas listadas no índice. Ela não substitui testes funcionais de login, APIs, sincronização do BABY ou serviços externos.</p>
 </aside>
 <div id="cx-music">
  <button type="button" id="cx-music-toggle" aria-label="Abrir trilha sonora CRYPY">♫</button>
@@ -85,106 +97,141 @@ const panel=document.getElementById('cx-panel');
 const openBtn=document.getElementById('cx-open');
 const status=document.getElementById('cx-status');
 const list=document.getElementById('cx-pages');
+const search=document.getElementById('cx-search');
+const auditStatus=document.getElementById('cx-audit-status');
+const HOME=new URL('./index.html',location.href);
+const HOME1='./index1.htm';
 const cfg={
-infinyt:{label:'CRYPY-INFINIT',groups:['crypy-infinyt','marketing']},
-academy:{label:'CRYPY-ACADEMY',groups:['crypy-academy','web3.1']},
-squad:{label:'ESQUADRÃO DAS CORES',groups:['esquadrao-das-cores']},
-nft:{label:'NFT-COLLECTION',groups:['nft-collection']},
-bio:{label:'BIOGRAFIA',groups:['biografia']},
-news:{label:'CRYPY-NEWS',paths:['crypy-news/index.html']},
-museum:{label:'MUSEU DIGITAL',paths:['crypy-news/museu.html']},
-market:{label:'MARKETPLACE',groups:['art-figure-marketplace']},
-games:{label:'CRYPY-GAMES',groups:['crypy-games-desafios']},
-social:{label:'CRYPYCUT',groups:['social-crypykut']},
-baby:{label:'BABY I.A.',groups:['RAIZ','baby-ia','memory-boost','padrao','pluguin','sincronizacao']},
-whitepaper:{label:'WHITE PAPER',paths:['crypy-coin/white-paper.html']},
-contact:{label:'CONTATO',groups:['contato']}
+ infinyt:{label:'CRYPY-INFINIT',groups:['crypy-infinyt','marketing']},
+ academy:{label:'CRYPY-ACADEMY',groups:['crypy-academy','web3.1']},
+ squad:{label:'ESQUADRÃO DAS CORES',groups:['esquadrao-das-cores']},
+ nft:{label:'NFT-COLLECTION',groups:['nft-collection']},
+ bio:{label:'BIOGRAFIA',groups:['biografia']},
+ news:{label:'CRYPY-NEWS',groups:['crypy-news']},
+ museum:{label:'MUSEU DIGITAL',paths:['crypy-news/museu.html']},
+ market:{label:'MARKETPLACE',groups:['art-figure-marketplace']},
+ games:{label:'CRYPY-GAMES',groups:['crypy-games-desafios']},
+ social:{label:'CRYPYCUT',groups:['social-crypykut']},
+ baby:{label:'BABY I.A.',groups:['baby-ia','RAIZ','memory-boost','padrao','pluguin','sincronizacao']},
+ whitepaper:{label:'WHITE PAPER / COIN',paths:['crypy-coin/white-paper.html','crypy-coin/Crypy-Coin.html']},
+ contact:{label:'CONTATO',groups:['contato']}
 };
-let pages=[];
-function showPanel(show){panel.classList.toggle('open',show);openBtn.setAttribute('aria-expanded',String(show));}
-document.getElementById('cx-open').addEventListener('click',()=>showPanel(!panel.classList.contains('open')));
-document.getElementById('cx-close').addEventListener('click',()=>showPanel(false));
-function home(){frame.src='./index1.htm';showPanel(false);}
-document.getElementById('cx-home').addEventListener('click',home);
-document.getElementById('cx-home-panel').addEventListener('click',home);
-document.getElementById('cx-map').addEventListener('click',()=>{frame.src='./mapa-colmeia.html';showPanel(false);});
-function safe(p){
- if(!p||typeof p.path!=='string')return false;
- const path=p.path,low=path.toLowerCase(),file=low.split('/').pop();
- if(path.startsWith('/')||path.split('/').includes('..')||!(/\.html?$/i.test(path)))return false;
- if(/(^|\/)(hd-oculto|hd-matriz|crypy-server|crypy-server-bridge)(\/|$)/i.test(path))return false;
- if(/^(chatboot-baby-ia|hd-baby-ia|hd-babyia|hd-memory|health|pluguin|pluguins-tuto|relogio-mundial|baby-ia-agente|baby-ia-conectado|baby-agente-cons|auto-config|esquadrao-auto-config)\.html?$/i.test(file))return false;
+const legacyRoutes=[
+ [/\/dev\/01-infinyt\//i,'crypy-infinyt/portal.html'],
+ [/\/dev\/02-nft-collection\//i,'nft-collection/galeria.html'],
+ [/\/dev\/03-esquadrao\//i,'esquadrao-das-cores/esquadrao.html'],
+ [/\/dev\/04-academy\//i,'crypy-academy/academia.html'],
+ [/\/dev\/05-biografia\//i,'biografia/historia.html'],
+ [/\/dev\/06-museu\//i,'crypy-news/museu.html'],
+ [/\/dev\/07-marketplace\//i,'art-figure-marketplace/marketplace.html'],
+ [/\/dev\/08-games\//i,'crypy-games-desafios/crypy-games-desafios.html'],
+ [/\/dev\/09-social\//i,'social-crypykut/comunidade.html'],
+ [/\/dev\/10-baby-ia\//i,'baby-ia/centro.html'],
+ [/\/dev\/11-coin\//i,'crypy-coin/Crypy-Coin.html'],
+ [/\/dev\/12-whitepaper\//i,'crypy-coin/white-paper.html'],
+ [/\/dev\/13-contato\//i,'contato/contato-oficial.html']
+];
+let pages=[],allPages=[],activeKey=null;
+function isPublic(p){
+ if(!p||typeof p.path!=='string'||!p.path.endsWith('.html'))return false;
+ const path=p.path.replace(/\\/g,'/');
+ if(path.startsWith('/')||path.split('/').includes('..')||path==='index.html')return false;
+ if(/(^|\/)(hd-oculto|hd-matriz|crypy-server|crypy-server-bridge|dev)(\/|$)/i.test(path))return false;
  return true;
 }
-function select(key){
- const theme=cfg[key];if(!theme)return;
- document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cx===key)));
- list.replaceChildren();
- const selected=pages.filter(p=>safe(p)&&((theme.paths&&theme.paths.includes(p.path))||(theme.groups&&theme.groups.includes(p.group))));
- status.textContent=theme.label+' · '+selected.length+' página(s) pública(s) no índice.';
- if(!selected.length){const empty=document.createElement('p');empty.textContent='Nenhuma página pública encontrada para esta área. Nenhum caminho foi inventado.';list.append(empty);return;}
+function showPanel(show){panel.classList.toggle('open',show);openBtn.setAttribute('aria-expanded',String(show));}
+function go(path){if(!path)return;frame.src='./'+path;showPanel(false);}
+function home(){frame.src=HOME1;showPanel(false);activeKey=null;document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));}
+document.getElementById('cx-open').addEventListener('click',()=>showPanel(!panel.classList.contains('open')));
+document.getElementById('cx-close').addEventListener('click',()=>showPanel(false));
+document.getElementById('cx-home').addEventListener('click',home);
+document.getElementById('cx-home-panel').addEventListener('click',home);
+document.getElementById('cx-map').addEventListener('click',()=>go('mapa-colmeia.html'));
+document.getElementById('cx-all').addEventListener('click',()=>{activeKey='all';document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));render();});
+function render(){
+ const q=(search.value||'').trim().toLocaleLowerCase('pt-BR');
+ let selected=activeKey==='all'?pages:activeKey==='museum'?pages.filter(p=>cfg.museum.paths.includes(p.path)):activeKey&&cfg[activeKey]?
+  pages.filter(p=>(cfg[activeKey].paths||[]).includes(p.path)||(cfg[activeKey].groups||[]).includes(p.group)):pages.filter(p=>p.path==='mapa-colmeia.html');
+ if(q)selected=selected.filter(p=>(p.label+' '+p.path+' '+(p.group||'')).toLocaleLowerCase('pt-BR').includes(q));
  selected.sort((a,b)=>(a.label||a.path).localeCompare(b.label||b.path,'pt-BR'));
+ list.replaceChildren();
  selected.forEach(p=>{
-  const a=document.createElement('a');a.className='cx-page';a.href='./'+p.path;a.textContent=p.label||p.path;a.title=p.path;
+  const a=document.createElement('button');a.type='button';a.className='cx-page';a.textContent=p.label||p.path;a.title=p.path;
   const small=document.createElement('small');small.textContent=p.path;a.append(small);
-  a.addEventListener('click',e=>{e.preventDefault();frame.src='./'+p.path;showPanel(false);});
-  list.append(a);
+  a.addEventListener('click',()=>go(p.path));list.append(a);
  });
+ const label=activeKey==='all'?'TODAS AS PÁGINAS':activeKey&&cfg[activeKey]?cfg[activeKey].label:'MAPA DA COLMEIA';
+ status.textContent=label+' · '+selected.length+' página(s) nesta lista · '+pages.length+' páginas públicas indexadas.';
+ if(!selected.length){const empty=document.createElement('p');empty.className='cx-note';empty.textContent='Nenhuma página encontrada com esse filtro. O caminho não será inventado.';list.append(empty);}
 }
-document.querySelectorAll('[data-cx]').forEach(b=>b.addEventListener('click',()=>select(b.dataset.cx)));
+document.querySelectorAll('[data-cx]').forEach(b=>b.addEventListener('click',()=>{activeKey=b.dataset.cx;document.querySelectorAll('[data-cx]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));search.value='';render();}));
+search.addEventListener('input',render);
 fetch('./assets/data/crypy-page-index.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
  if(!Array.isArray(data.pages))throw new Error('Formato do índice inválido');
- pages=data.pages.filter(safe);
- status.textContent='ÍNDICE v'+(data.version||'?')+' · '+pages.length+' páginas públicas filtradas · selecione uma das 13 áreas.';
-}).catch(err=>{status.textContent='Índice indisponível: '+err.message+'. A HOME 1 continua funcionando.';});
+ allPages=data.pages;
+ pages=allPages.filter(isPublic);
+ status.textContent='ÍNDICE v'+(data.version||'?')+' · '+pages.length+' páginas públicas carregadas de '+allPages.length+' registros.';
+ activeKey='all';render();
+}).catch(err=>{status.textContent='Índice indisponível: '+err.message+'. A HOME do Quarteto continua funcionando.';});
+async function auditPages(){
+ if(!pages.length){auditStatus.textContent='Índice ainda não carregado; auditoria não iniciada.';return;}
+ const button=document.getElementById('cx-audit');button.disabled=true;button.textContent='VERIFICANDO…';
+ let next=0,ok=[],bad=[];
+ const workers=Array.from({length:8},async()=>{
+  while(next<pages.length){
+   const p=pages[next++],url='./'+p.path;
+   try{
+    const r=await fetch(url,{method:'HEAD',cache:'no-store'});
+    (r.ok?ok:bad).push({path:p.path,status:r.status});
+   }catch(e){bad.push({path:p.path,status:'ERRO DE REDE'});}
+   auditStatus.textContent='Verificando páginas… '+(ok.length+bad.length)+' / '+pages.length;
+  }
+ });
+ await Promise.all(workers);
+ auditStatus.textContent='AUDITORIA HTTP CONCLUÍDA: '+ok.length+' acessíveis; '+bad.length+' com falha, de '+pages.length+' páginas públicas. '+(bad.length?'Falhas: '+bad.map(x=>x.path+' ['+x.status+']').join(' | '):'Nenhuma falha HTTP encontrada nesta lista.');
+ button.textContent='REPETIR VERIFICAÇÃO';button.disabled=false;
+}
+document.getElementById('cx-audit').addEventListener('click',auditPages);
+function legacyTarget(url,anchor){
+ for(const [re,path] of legacyRoutes)if(re.test(url.pathname))return path;
+ if(/CRYPY-ART-FIGURE-ONIUM-COLECAO\.html$/i.test(url.pathname))return 'art-figure-marketplace/marketplace.html';
+ const t=(anchor.textContent||'').toLocaleLowerCase('pt-BR');
+ if(/museu/.test(t))return 'crypy-news/museu.html';
+ if(/marketplace|art.figure/.test(t))return 'art-figure-marketplace/marketplace.html';
+ if(/quarteto|esquadr[aã]o/.test(t))return 'esquadrao-das-cores/esquadrao.html';
+ if(/white.paper/.test(t))return 'crypy-coin/white-paper.html';
+ if(/baby|chatbot/.test(t))return 'baby-ia/centro.html';
+ return null;
+}
+function installFrameBridge(){
+ try{
+  const d=frame.contentDocument;if(!d||d.__crypyRootBridge)return;
+  d.__crypyRootBridge=true;
+  d.addEventListener('click',async e=>{
+   const a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
+   const raw=a.getAttribute('href');if(!raw||raw.startsWith('#')||/^(mailto:|tel:|javascript:|data:)/i.test(raw))return;
+   let u;try{u=new URL(raw,d.baseURI)}catch(_){return;}
+   if(u.origin!==location.origin)return;
+   if(u.pathname===HOME.pathname){e.preventDefault();e.stopImmediatePropagation();home();return;}
+   const mapped=legacyTarget(u,a);
+   if(mapped){e.preventDefault();e.stopImmediatePropagation();go(mapped);return;}
+   if(u.pathname.includes('/dev/')){e.preventDefault();e.stopImmediatePropagation();status.textContent='Destino antigo sem correspondência segura: '+raw;showPanel(true);return;}
+   const relative=u.pathname.replace(new URL('./',location.href).pathname,'');
+   if(relative&&relative!==u.pathname&&relative.endsWith('.html')){
+    e.preventDefault();e.stopImmediatePropagation();
+    try{const r=await fetch(u.href,{method:'HEAD',cache:'no-store'});if(r.ok)frame.src=u.href;else{status.textContent='LINK NÃO LOCALIZADO ('+r.status+'): '+relative;showPanel(true);}}
+    catch(err){status.textContent='Falha ao conferir o link: '+relative;showPanel(true);}
+   }
+  },true);
+ }catch(err){status.textContent='A ponte de navegação não conseguiu acessar esta página: '+err.message;}
+}
+frame.addEventListener('load',()=>{installFrameBridge();setTimeout(installFrameBridge,250);setTimeout(installFrameBridge,900);});
 const musicBox=document.getElementById('cx-music-box'),musicFrame=document.getElementById('cx-music-frame');
-const video='8PeU6AVPQVg';let musicLoaded=false;
+const video='8PeU6AVPQVg';
 function musicUrl(muted){return 'https://www.youtube-nocookie.com/embed/'+video+'?autoplay=1&mute='+(muted?'1':'0')+'&loop=1&playlist='+video+'&controls=1&playsinline=1&rel=0';}
 document.getElementById('cx-music-toggle').addEventListener('click',()=>musicBox.classList.toggle('open'));
 document.getElementById('cx-music-close').addEventListener('click',()=>musicBox.classList.remove('open'));
-document.getElementById('cx-music-sound').addEventListener('click',()=>{musicFrame.src=musicUrl(false);musicLoaded=true;});
-})();
-</script>
-<script id="crypy-frame-navigation-bridge">
-(function(){
- const frame=document.getElementById('crypy-home-frame');
- if(!frame)return;
- const links=[
-  ['CRYPY-INFINIT','./crypy-infinyt/portal.html'],
-  ['CRYPY-ACADEMY','./crypy-academy/academia.html'],
-  ['ESQUADRÃO DAS CORES','./esquadrao-das-cores/esquadrao.html'],
-  ['NFT-COLLECTION','./nft-collection/galeria.html'],
-  ['BIOGRAFIA','./biografia/historia.html'],
-  ['CRYPY-NEWS','./crypy-news/index.html'],
-  ['MUSEU DIGITAL','./crypy-news/museu.html'],
-  ['MARKETPLACE','./art-figure-marketplace/marketplace.html'],
-  ['CRYPY-GAMES','./crypy-games-desafios/crypy-games-desafios.html'],
-  ['CRYPYCUT','./social-crypykut/comunidade.html'],
-  ['BABY I.A','./baby-ia/centro.html'],
-  ['WHITE PAPER','./crypy-coin/white-paper.html'],
-  ['CONTATO','./contato/contato-oficial.html']
- ];
- function apply(){
-  try{
-   const d=frame.contentDocument;if(!d)return;
-   if(!d.__crypyUnifiedBridge){
-    d.__crypyUnifiedBridge=true;
-    d.addEventListener('click',function(e){
-     const a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
-     let u;try{u=new URL(a.getAttribute('href'),d.baseURI)}catch(_){return}
-     const root=new URL('./index.html',d.baseURI);
-     if(u.origin===root.origin&&u.pathname===root.pathname){
-      e.preventDefault();e.stopImmediatePropagation();frame.src='./index1.htm';return;
-     }
-    },true);
-   }
-   const navs=d.querySelectorAll('nav.crypy-menu-novo');
-   navs.forEach(nav=>{
-    nav.innerHTML='<a href="./index.html" class="home">♾️ HOME</a>'+links.map(x=>'<a href="'+x[1]+'">'+x[0]+'</a>').join('');
-   });
-  }catch(err){}
- }
- frame.addEventListener('load',function(){apply();setTimeout(apply,350);setTimeout(apply,1100);});
+document.getElementById('cx-music-sound').addEventListener('click',()=>{musicFrame.src=musicUrl(false);});
 })();
 </script>
 </body>
