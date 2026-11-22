@@ -31,7 +31,7 @@
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
   var categories = [
-    {label:"CRYPY-INFINIT", groups:["crypy-infinyt","baby-ia","memory-boost","padrao","pluguin","sincronizacao","RAIZ"]},
+    {label:"CRYPY-INFINIT", groups:["crypy-infinyt"]},
     {label:"CRYPY-ACADEMY", groups:["crypy-academy","web3.1"]},
     {label:"ESQUADRÃO DAS CORES", groups:["esquadrao-das-cores"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
@@ -41,9 +41,9 @@
     {label:"MARKETPLACE", groups:["art-figure-marketplace","marketing"]},
     {label:"CRYPY-GAMES", groups:["crypy-games-desafios"]},
     {label:"CRYPYCUT", groups:["social-crypykut"]},
-    {label:"CRYPY-COIN", groups:["crypy-coin"]},
-    {label:"CONTATO", groups:["contato"]},
-    {label:"WHITE PAPER", groups:["white-paper"]}
+    {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
+    {label:"WHITE PAPER", groups:["crypy-coin","white-paper"]},
+    {label:"CONTATO", groups:["contato"]}
   ];
 
   function node(tag, attrs, value) {
@@ -63,7 +63,7 @@
     // Exceções de classificação: estas páginas vivem em grupos técnicos,
     // mas pertencem a categorias editoriais próprias do menu oficial.
     if (pagePath === "crypy-news/museu.html") return categories[6];
-    if (pagePath === "crypy-coin/white-paper.html") return categories[12];
+    if (pagePath === "crypy-coin/white-paper.html" || pagePath === "crypy-coin/crypy-coin.html") return categories[11];
 
     for (var i = 0; i < categories.length; i++) {
       if (categories[i].groups.indexOf(group) !== -1 || categories[i].groups.indexOf(pathGroup) !== -1) return categories[i];
