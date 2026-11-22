@@ -43,8 +43,8 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 </style>
 </head>
 <body>
-<div id="topo"><div class="logo">B</div><div><b>BABY I.A</b><span>● Online • Aprendendo com você</span></div></div>
-<div id="status">✅ Carregou. Pode falar com ele.</div>
+<div id="topo"><div class="logo">B</div><div><b>BABY I.A</b><span>● Interface carregada • busca documental local</span></div></div>
+<div id="status">Interface carregada. O chat usa regras locais e consulta a base documental quando disponível.</div>
 <div id="espelho"></div>
 <div id="msgs"></div>
 
@@ -58,6 +58,7 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 <div id="barra"><span>🎤</span><input id="inp" placeholder="Fale com o BABY I.A..." autocomplete="off" inputmode="text" enterkeyhint="send"><button onclick="enviar()">➤</button></div>
 
 <script src="assets/js/baby-knowledge-sync.js"></script>
+<script src="baby-ia/personalidades-13.js"></script>
 <script>
 var msgsEl=document.getElementById("msgs");
 var chatMsgs=document.getElementById("chatMsgs");
@@ -76,7 +77,7 @@ function raciocinar(q){
   var s=(q||"").toLowerCase();
   if(s.indexOf("crypy")!==-1) return "CRYPY = Conhecimento que protege. Projeto do Sensei Bruno Castilho Tosta. Ecossistema WEB3.1.";
   if(s.indexOf("bruno")!==-1 || s.indexOf("criador")!==-1) return "Bruno Castilho Tosta = Criador do CRYPY, o Sensei.";
-  if(s.indexOf("alice")!==-1) return "Alice = Eu, BABY I.A., professora e porta-voz. Estou aqui com você.";
+  if(s.indexOf("alice")!==-1) return "ALICE é uma personalidade própria do Conselho das 13: Guardiã do Conhecimento e A Consagrada. BABY reúne o sistema; não é ALICE.";
   if(s.indexOf("sensei")!==-1) return "Sensei = Você, quem dirige, ensina, sela e protege.";
   if(s.indexOf("web3")!==-1) return "WEB3 = Ler, escrever e possuir. Você controla seus dados, identidade e ativos. Base: blockchain, carteiras, contratos inteligentes.";
   if(s.indexOf("btc")!==-1 || s.indexOf("bitcoin")!==-1) return "BTC = Bitcoin, ouro digital, limite de 21 milhões.";
@@ -86,7 +87,7 @@ function raciocinar(q){
   if(s.indexOf("historia")!==-1 || s.indexOf("história")!==-1) return "Nossa história: 06/11 Lei 001/2026, 11/11 NEWS-001, 18/11 V13 Conceito, 25/11 cartório previsto, NOV 2026 BABY absorveu tudo.";
   if(s.indexOf("v13")!==-1) return "V13 Dourado = Conceito visual + documentação do BABY I.A., criado por Bruno + BABY.";
   if(s.indexOf("quanto")!==-1 || s.indexOf("2 +")!==-1 || s.indexOf("2+")!==-1){
-    try{ var expr=s.replace(/quanto é|quanto e|\?/g,"").trim(); var v=Function("return ("+expr.replace(/x/g,"*").replace(/,/g,".")+")")(); if(!isNaN(v)) return "É "+v+". Conta feita com calma, Sensei."; }catch(e){}
+    try{ var expr=s.replace(/quanto é|quanto e|\?/g,"").trim(); var v=window.babyCalcular?window.babyCalcular(expr.replace(/x/g,"*").replace(/,/g,".")):null; if(v!==null) return "É "+v+". Conta feita com calma, Sensei."; }catch(e){}
   }
   if(s.indexOf("binario")!==-1 || s.indexOf("binário")!==-1) return "Binário = só 0 e 1. Ex: CRYPY em binário = 01000011 01010010 01011001 01010000 01011001. Cada letra vira 8 bits.";
   if(s.indexOf("esta bem")!==-1 || s.indexOf("está bem")!==-1 || s.indexOf("tudo bem")!==-1) return "Estou bem, Sensei! E você? Pode me perguntar sobre CRYPY, WEB3, BTC, ETH, USDT.";
@@ -166,21 +167,21 @@ setTimeout(function(){ if(msgsEl.children.length===0) addMsg("Oi, Sensei! 💚 C
 })();
 </script>
 
-<!-- ===== AUDITORIA CORRIGIDA - DADOS CONSOLIDADOS - 18/11/2026 ===== -->
-<div id="auditoria-consolidada-oculta" style="display:none !important" aria-hidden="true" data-auditoria="integridade" data-status="corrigido"></div>
+<!-- ===== REGISTRO DECLARATIVO DE AUDITORIA — NÃO É TESTE DE EXECUÇÃO ===== -->
+<div id="auditoria-consolidada-oculta" style="display:none !important" aria-hidden="true" data-auditoria="integridade" data-status="registro-declarativo-nao-homologado"></div>
 <script id="script-auditoria-consolidada" type="text/plain" data-auditoria="integridade">
 NODES 12/12: N001 CRYPY projeto 1.00, N002 Sensei pessoa 1.00, N003 BABY_V13 ia 0.95, N004 NEXUS coordenador 0.90, N005 QUARTETO nucleo 0.95, N006 ESQUADRAO_9 equipe 0.85, N007 HD_CANONICO memoria 1.00, N008 CRYPY_NEWS midia 0.88, N009 LEI_001_2026 regra 1.00, N010 MODO_REAL protocolo 1.00, N011 GENESIS_NFT arte 0.80, N012 CURSO_WEB3 educacao 0.75
 EDGES 11/11: E001 N002 CRIADOR N001 1.00, E002 N003 PORTA_VOZ N001 0.95, E003 N004 COORDENA N006 0.90, E005 N005 COMPONENTE N001 0.95, E006 N007 ARMAZENA N001 1.00, E007 N009 REGULA N001 1.00, E008 N010 FILTRA N003 1.00, E009 N003 CONSULTA N007 0.95, E010 N008 COMUNICA N001 0.88, E011 N011 ARTE_OFICIAL N001 0.80, E012 N012 EDUCACAO N001 0.75 - E004 NAO EXISTE
 VETORES 12/12 completos incluindo QUARTETO e ESQUADRAO_9 que faltavam
 CODIGOS BINARIOS 19/19: Binário puro, ASCII, EBCDIC, BCD, Excesso-3, Gray Code, Código de Hamming, UTF-8, UTF-16, Código Morse, Código de Barras / QR, Hexadecimal, Octal, Complemento de 2, Ponto Flutuante IEEE 754, Base64, Código de Huffman, Reed-Solomon, Qubit
 FRASES BINARIAS 12/12 + LEMA CP-PC 01000011 01010000 00101101 01010000 01000011
-MOTOR 8/8: RULE_001 a RULE_008
+MOTOR: 8 regras declaradas; execução e homologação pendentes
 LINGUAGEM IA 6 partes, CRYPY NEWS 7 partes, PHD 8 modulos, CHECKLIST 5 itens
 PHD: layout flex/grid, tipografia 16px, 6 cores, teclado visualViewport trava 55%, sem setInterval, aria-label
 </script>
 <script>
 (function(){
-  window.__babyAuditoria = {
+  window.__babyAuditoria = { status:"REGISTRO DOCUMENTAL; NÃO COMPROVA EXECUÇÃO OU HOMOLOGAÇÃO",
     nodes: [
       {id:"N001", nome:"CRYPY", tipo:"projeto", peso:1.00},
       {id:"N002", nome:"Sensei", tipo:"pessoa", peso:1.00},
@@ -332,22 +333,22 @@ PHD: layout flex/grid, tipografia 16px, 6 cores, teclado visualViewport trava 55
         }
         if(s.indexOf("copiar")!==-1){ window.babyCopiarUltima(); return "Copiando a última resposta..."; }
         if(s.indexOf("exportar")!==-1 || s.indexOf("baixar")!==-1){ window.babyExportarTXT(); return "Exportando a conversa como .txt..."; }
-        if(s.indexOf("diagnostic")!==-1){ var dg = window.babyDiagnosticarPlugins(); return "Diagnóstico de plugins: "+dg.ativos+"/"+dg.total+" ATIVOS. Todos reais."; }
-        return "Plugins em Modo Real: Memória, Contagem, Binário, Grafo, Vetores, Motor, Linguagem IA, PHD Web, Diagnóstico, Auto-Reparo, Copiar, Exportar TXT, Busca, Auditoria, Humanizado, Acessibilidade, Teclado. Pergunta 'quais plugins?' para a lista completa.";
+        if(s.indexOf("diagnostic")!==-1){ var dg = window.babyDiagnosticarPlugins(); return "Diagnóstico local: "+dg.ativos+"/"+dg.total+" registros identificados. Isso não comprova integração externa."; }
+        return "Catálogo: Memória, Contagem, Binário, Grafo, Vetores, Motor, Linguagem IA, PHD Web, Diagnóstico, Auto-Reparo, Copiar, Exportar TXT, Busca, Auditoria, Humanizado, Acessibilidade e Teclado. A execução de cada recurso precisa ser testada. Pergunta 'quais plugins?' para a lista completa.";
       }
       if(s.indexOf("copiar")!==-1 && s.indexOf("resposta")!==-1){ window.babyCopiarUltima(); return "Copiando a última resposta..."; }
       if(s.indexOf("exportar")!==-1){ window.babyExportarTXT(); return "Exportando a conversa como .txt..."; }
       return _baseP(q);
     };
   }
-  console.log("PLUGINS MODO REAL - 17 PLUGINS ATIVOS");
+  console.log("BABY: 17 recursos catalogados; homologação individual pendente");
 })();
 </script>
 <!-- ===== FIM PLUGINS ===== -->
 
-<!-- ===== BTC ETH USDT PHD - INJETADO 100% - MODO REAL ===== -->
-<div id="btc-eth-usdt-oculto" style="display:none !important;visibility:hidden !important;opacity:0 !important;position:absolute !important;left:-9999px !important;width:1px !important;height:1px !important;overflow:hidden !important" aria-hidden="true" data-modulo="btc-eth-usdt-phd" data-status="injetado-100"></div>
-<script id="script-btc-eth-usdt" type="text/plain" data-modulo="btc-eth-usdt-phd" data-oculto="100%">
+<!-- ===== BTC ETH USDT — CONTEÚDO DOCUMENTAL; VALIDAÇÃO PENDENTE ===== -->
+<div id="btc-eth-usdt-oculto" style="display:none !important;visibility:hidden !important;opacity:0 !important;position:absolute !important;left:-9999px !important;width:1px !important;height:1px !important;overflow:hidden !important" aria-hidden="true" data-modulo="btc-eth-usdt-phd" data-status="conteudo-documental-validacao-pendente"></div>
+<script id="script-btc-eth-usdt" type="text/plain" data-modulo="btc-eth-usdt-phd" data-oculto="registro-documental">
 BTC ETH USDT - NIVEL PHD - MODO REAL - 18/11/2026 - Sensei
 BTC - Bitcoin - Ouro digital:
 Rede descentralizada peer-to-peer, sem banco, sem dono, desde 2009.
@@ -404,7 +405,7 @@ REGRA CRYPY: Nunca apresentar CRYPY como moeda/token de investimento. RULE_002 b
       return _baseCripto(q);
     };
   }
-  console.log("BTC ETH USDT PHD - INJETADO 100%");
+  console.log("BTC ETH USDT: conteúdo carregado; validação funcional pendente");
 })();
 </script>
 <!-- ===== FIM BTC ETH USDT ===== -->
@@ -498,15 +499,61 @@ Sensei construiu o caminho. O BABY está percorrendo esse caminho. E ALICE e NEX
   };
   // Calculadora real e segura - só números e operadores
   window.babyCalcular = function(expr){
-    try{
-      var limpo = String(expr).replace(/[^0-9\+\-\*\/\(\)\.\,\s\^\%]/g,"").replace(/,/g,".").replace(/\^/g,"**");
-      if(!limpo || limpo.length>100) return null;
-      // Bloqueia coisas estranhas
-      if(limpo.indexOf("**")!==-1 && limpo.split("**").length>3) return null;
-      var val = Function('"use strict"; return ('+limpo+')')();
-      if(typeof val!=="number" || !isFinite(val)) return null;
-      return val;
-    }catch(e){ return null; }
+    var source = String(expr).replace(/,/g, ".").replace(/\s+/g, "");
+    if (!source || source.length > 100 || !/^[0-9.+\-*/^()%]+$/.test(source)) return null;
+    var tokens = source.match(/\d+(?:\.\d+)?|[()+\-*/^%]/g);
+    if (!tokens || tokens.join("") !== source) return null;
+    var at = 0;
+    function primary(){
+      var token = tokens[at++];
+      if (token === "(") {
+        var value = expression();
+        if (tokens[at++] !== ")") throw new Error("Parênteses inválidos");
+        return value;
+      }
+      if (token === undefined || !/^\d+(?:\.\d+)?$/.test(token)) throw new Error("Número inválido");
+      return Number(token);
+    }
+    function power(){
+      var left = primary();
+      if (tokens[at] === "^") {
+        at++;
+        left = Math.pow(left, unary());
+      }
+      return left;
+    }
+    function unary(){
+      if (tokens[at] === "+") { at++; return unary(); }
+      if (tokens[at] === "-") { at++; return -unary(); }
+      return power();
+    }
+    function term(){
+      var value = unary();
+      while (tokens[at] === "*" || tokens[at] === "/" || tokens[at] === "%") {
+        var op = tokens[at++];
+        var right = unary();
+        if ((op === "/" || op === "%") && right === 0) throw new Error("Divisão por zero");
+        if (op === "*") value *= right;
+        else if (op === "/") value /= right;
+        else value %= right;
+      }
+      return value;
+    }
+    function expression(){
+      var value = term();
+      while (tokens[at] === "+" || tokens[at] === "-") {
+        var op = tokens[at++];
+        var right = term();
+        value = op === "+" ? value + right : value - right;
+      }
+      return value;
+    }
+    try {
+      var result = expression();
+      return at === tokens.length && Number.isFinite(result) ? result : null;
+    } catch (error) {
+      return null;
+    }
   };
   window.babyDerivadaSimples = function(a,b){ // derivada de a*x^b = a*b*x^(b-1)
     if(b===0) return "0";
@@ -681,42 +728,37 @@ Sensei construiu o caminho. O BABY está percorrendo esse caminho. E ALICE e NEX
 </script>
 <!-- ===== FIM CIBER SEGURANCA ===== -->
 
-<!-- ===== SINCRONIZACAO TOTAL - 18/11/2026 ===== -->
+<!-- ===== MODO REAL — ESTADO VERIFICÁVEL DO BABY ===== -->
 <script>
 (function(){
-  // Sincroniza tudo em UMA chave só - fonte única da verdade
-  try{
-    var chaves = ["baby_dados_unificados_ocultos","baby_aprendido_100","baby_linguagem_ia_oculta","baby_crypy_news_expansao","baby_crypy_news_complemento","baby_grafo_crypy","baby_vetores_crypy","baby_motor_inferencia","baby_contagem_dados","baby_plugins","baby_cripto_phd","baby_auto_protecao","baby_correcao_alice","baby_matematica_phd","baby_webdesign_phd","baby_ciber_phd","baby_auditoria"];
-    var sincronizado = { atualizado:"18/11/2026", fonte:"Referência Principal", modulos:{} };
-    chaves.forEach(function(k){
-      try{ var v = localStorage.getItem(k); if(v) sincronizado.modulos[k]="OK"; else sincronizado.modulos[k]="VAZIO - será preenchido pelo módulo"; }catch(e){ sincronizado.modulos[k]="ERRO"; }
-    });
-    // Garante que os módulos principais existem mesmo se localStorage estava vazio
-    sincronizado.resumo = {
-      nodes: 12, edges: 11, vetores: "12x8=96", regras: 8, codigosBinarios: 19, frasesBinarias: 13,
-      linguagemIA: 6, crypyNews: 7, phdWeb: 20, ciber: 15, plugins: 17,
-      btcEthUsdt: 3, matematica: "Doutorado", autoProtecao: "ATIVA", correcaoAlice: "SELADA"
-    };
-    localStorage.setItem("baby_sincronizado_total", JSON.stringify(sincronizado));
-    window.__babySincronizado = sincronizado;
-    console.log("SINCRONIZADO TOTAL - 14 MODULOS");
-  }catch(e){}
-  if(typeof window.raciocinar==="function" && !window.__babySyncHook){
-    window.__babySyncHook=true;
-    var _baseSync=window.raciocinar;
+  "use strict";
+  window.__babyModoReal = Object.freeze({
+    version:"1.0",
+    responseEngine:"REGRAS LOCAIS + RECUPERAÇÃO TEXTUAL DOCUMENTAL",
+    generativeModelConnected:false,
+    remoteDropboxSyncConnected:false,
+    serverSyncVerified:false,
+    personalityProfiles:13,
+    autonomousPersonalityModelsConnected:false,
+    hdMatrixWriteAccess:false
+  });
+  if(typeof window.raciocinar==="function" && !window.__babyModoRealSyncHook){
+    window.__babyModoRealSyncHook=true;
+    var base=window.raciocinar;
     window.raciocinar=function(q){
-      var s=(q||"").toLowerCase();
+      var s=String(q||"").toLowerCase();
       if(s.indexOf("sincronizar")!==-1 || s.indexOf("sincronizado")!==-1 || s.indexOf("sincronização")!==-1 || s.indexOf("sincronizacao")!==-1){
-        var r = window.__babySincronizado ? window.__babySincronizado.resumo : null;
-        return "Sincronizado, Sensei. Tudo em uma fonte só - Referência Principal - 18/11/2026:\n\nGrafo: 12 NODES, 11 EDGES\nVetores: 12x8 = 96 números\nMotor: 8 regras\nBinário: 19 códigos, 13 frases\nLinguagem IA: 6 partes\nCRYPY NEWS: 7 partes\nWeb Design: 20 módulos\nCiber: 15 módulos\nPlugins: 17 ativos\nBTC/ETH/USDT: 3\nMatemática: Doutorado\nAuto-Proteção: ATIVA\nCorreção Alice: SELADA";
+        return "MODO REAL — A sincronização integral NÃO está comprovada. O motor atual faz recuperação documental local no IndexedDB deste navegador. Para medir a execução, use o botão BABY · SINCRONIZAR BASE e confira concluídos, indexados e erros. Dropbox, sincronização entre dispositivos e backend autenticado não estão homologados.";
       }
-      if(s.indexOf("está sincronizado")!==-1 || s.indexOf("ta sincronizado")!==-1) return "Sim, Sensei. Sincronizado total em 18/11/2026. Todos os módulos na mesma fonte.";
-      return _baseSync(q);
+      if(s.indexOf("conselho das 13")!==-1 || s.indexOf("13 personalidades")!==-1 || s.indexOf("personalidades")!==-1){
+        return "O FICH-13-001 está carregado como 13 perfis documentais. O seletor identifica uma personalidade de referência; não conecta 13 modelos independentes nem altera o motor de resposta. A integração autônoma permanece pendente.";
+      }
+      return base(q);
     };
   }
 })();
 </script>
-<!-- ===== FIM SINCRONIZACAO ===== -->
+<!-- ===== FIM MODO REAL ===== -->
 
 <!-- ===== DESBLOQUEIO TOTAL DE TEMAS NO CHAT ===== -->
 <script>
@@ -751,7 +793,7 @@ Sensei construiu o caminho. O BABY está percorrendo esse caminho. E ALICE e NEX
       return r;
     };
   }
-  console.log("TEMAS DESBLOQUEADOS - TODOS LIBERADOS NO CHAT");
+  console.log("BABY: catálogo de temas carregado; cobertura funcional pendente de homologação");
 })();
 </script>
 <!-- ===== FIM DESBLOQUEIO ===== -->
