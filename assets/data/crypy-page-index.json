@@ -1,6 +1,6 @@
 {
-  "version": "1.7",
-  "generated_at": "2026-11-21T19:05:00-03:00",
+  "version": "1.8",
+  "generated_at": "2026-11-22T19:00:00-03:00",
   "total": 307,
   "pages": [
     {
@@ -474,7 +474,7 @@
       "group": "crypy-coin"
     },
     {
-      "path": "crypy-coin/crypy-coin.html",
+      "path": "crypy-coin/Crypy-Coin.html",
       "label": "CRYPY COIN",
       "group": "crypy-coin"
     },
