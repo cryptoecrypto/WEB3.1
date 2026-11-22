@@ -210,7 +210,7 @@ function installFrameBridge(){
   d.addEventListener('click',async e=>{
    const a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
    const raw=a.getAttribute('href');if(!raw||raw.startsWith('#')||/^(mailto:|tel:|javascript:|data:)/i.test(raw))return;
-   let u;try{u=new URL(raw,d.baseURI)}catch(_){return;}
+   let u;try{u=new URL(raw,d.baseURI)}catch(_){return}
    if(u.origin!==location.origin)return;
    if(u.pathname===HOME.pathname){e.preventDefault();e.stopImmediatePropagation();home();return;}
    const mapped=legacyTarget(u,a);
@@ -221,6 +221,41 @@ function installFrameBridge(){
     e.preventDefault();e.stopImmediatePropagation();
     try{const r=await fetch(u.href,{method:'HEAD',cache:'no-store'});if(r.ok)frame.src=u.href;else{status.textContent='LINK NÃO LOCALIZADO ('+r.status+'): '+relative;showPanel(true);}}
     catch(err){status.textContent='Falha ao conferir o link: '+relative;showPanel(true);}
+   }
+  },true);
+  const win=d.defaultView;
+  if(win&&typeof win.__crypyNavigate==='function'){
+   win.__crypyNavigate=function(target,title){
+    const anchors={'topo':'crypy-topo-infinito','quarteto':'quarteto','crypto-bubbles':'crypto-bubbles','chat-baby':'baby-ia-chatbot-novo'};
+    if(anchors[target]){
+     const node=d.getElementById(anchors[target])||d.getElementById(target);
+     if(node){node.scrollIntoView({behavior:'smooth',block:'start'});return;}
+     if(target==='topo'){d.defaultView.scrollTo({top:0,behavior:'smooth'});return;}
+    }
+    const routes={
+     'crypy-infinit':'crypy-infinyt/portal.html','universo':'crypy-infinyt/portal.html','explorar':'crypy-infinyt/portal.html',
+     'web3':'crypy-academy/academia.html','o-que-e-web3':'crypy-academy/academia.html','seguranca':'crypy-academy/academia.html',
+     'nft-overview':'nft-collection/galeria.html','colecoes':'nft-collection/galeria.html',
+     'crypy-news':'crypy-news/index.html','museu-digital':'crypy-news/museu.html',
+     'documentacao':'crypy-coin/white-paper.html','contato':'contato/contato-oficial.html',
+     'jogo-da-nave-crypy':'crypy-games-desafios/arena.html'
+    };
+    if(routes[target]){go(routes[target]);return;}
+    if(target==='mapa'){go('mapa-colmeia.html');return;}
+    const wanted=String(target||'').toLocaleLowerCase('pt-BR');
+    const match=pages.find(p=>p.path.toLocaleLowerCase('pt-BR').includes(wanted)||String(p.label||'').toLocaleLowerCase('pt-BR').includes(wanted));
+    if(match){go(match.path);return;}
+    status.textContent='Destino "'+String(title||target)+'" ainda não tem página pública confirmada no índice. Nenhum link alternativo foi inventado.';
+    showPanel(true);
+   };
+  }
+  d.addEventListener('error',e=>{
+   const img=e.target;if(!img||img.tagName!=='IMG')return;
+   const src=img.getAttribute('src')||'';
+   if(/CRYPY_ALICE_PRESENTE_ASSETS|ESQUADRAO_DAS_CORES_CAPA|(^|\/)NEXUS\.png$/i.test(src)){
+    img.style.display='none';img.dataset.crypyAssetMissing='true';
+    const note=d.createElement('span');note.textContent='Imagem original não localizada no repositório';note.style.cssText='display:block;color:#ffcc66;font-size:10px;padding:5px 8px;border:1px dashed #8a6a22;border-radius:7px;margin:5px 0;';
+    img.insertAdjacentElement('afterend',note);
    }
   },true);
  }catch(err){status.textContent='A ponte de navegação não conseguiu acessar esta página: '+err.message;}
