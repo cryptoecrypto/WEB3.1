@@ -103,6 +103,31 @@
     });
   }
 
+  function applySingleClockPolicy() {
+    var path = window.location.pathname.replace(/\\/+$/, "").toLowerCase();
+    var canonicalPath = new URL("relogio-mundial.html", siteRoot).pathname.replace(/\\/+$/, "").toLowerCase();
+    var isCanonicalClock = path === canonicalPath;
+    var styleId = "crypy-single-clock-policy";
+    if (!document.getElementById(styleId)) {
+      var clockStyle = document.createElement("style");
+      clockStyle.id = styleId;
+      clockStyle.textContent = [
+        "body.crypy-duplicate-world-clock > header,body.crypy-duplicate-world-clock > main,body.crypy-duplicate-world-clock > section.panel,body.crypy-duplicate-world-clock > footer{display:none!important}",
+        "body.crypy-main-world-clock #grid{display:none!important}",
+        "#crypy-live-market #crypy-market-utc-time{display:none!important}"
+      ].join("\\n");
+      (document.head || document.documentElement).appendChild(clockStyle);
+    }
+    if (/relogio-mundial\\.html$/i.test(path) && !isCanonicalClock) {
+      document.body.classList.add("crypy-duplicate-world-clock");
+    }
+    if (isCanonicalClock) {
+      document.body.classList.add("crypy-main-world-clock");
+    }
+    var utcClock = document.getElementById("crypy-market-utc-time");
+    if (utcClock && utcClock.parentElement) utcClock.parentElement.style.display = "none";
+  }
+
   function mount() {
     if (!document.body || document.getElementById("crypy-global-navigation")) return;
     var root = node("div", {id:"crypy-global-navigation"});
@@ -164,7 +189,7 @@
     root.appendChild(style);
     root.appendChild(panel);
     root.appendChild(toggle);
-    document.body.appendChild(root);
+    document.body.appendChild(root);\n    applySingleClockPolicy();
     hideLegacyMenus();
 
     var pages = [];
