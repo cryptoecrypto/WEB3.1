@@ -145,5 +145,47 @@ document.getElementById('cx-music-close').addEventListener('click',()=>musicBox.
 document.getElementById('cx-music-sound').addEventListener('click',()=>{musicFrame.src=musicUrl(false);musicLoaded=true;});
 })();
 </script>
+<script id="crypy-frame-navigation-bridge">
+(function(){
+ const frame=document.getElementById('crypy-home-frame');
+ if(!frame)return;
+ const links=[
+  ['CRYPY-INFINIT','./crypy-infinyt/portal.html'],
+  ['CRYPY-ACADEMY','./crypy-academy/academia.html'],
+  ['ESQUADRÃO DAS CORES','./esquadrao-das-cores/esquadrao.html'],
+  ['NFT-COLLECTION','./nft-collection/galeria.html'],
+  ['BIOGRAFIA','./biografia/historia.html'],
+  ['CRYPY-NEWS','./crypy-news/index.html'],
+  ['MUSEU DIGITAL','./crypy-news/museu.html'],
+  ['MARKETPLACE','./art-figure-marketplace/marketplace.html'],
+  ['CRYPY-GAMES','./crypy-games-desafios/crypy-games-desafios.html'],
+  ['CRYPYCUT','./social-crypykut/comunidade.html'],
+  ['BABY I.A','./baby-ia/centro.html'],
+  ['WHITE PAPER','./crypy-coin/white-paper.html'],
+  ['CONTATO','./contato/contato-oficial.html']
+ ];
+ function apply(){
+  try{
+   const d=frame.contentDocument;if(!d)return;
+   if(!d.__crypyUnifiedBridge){
+    d.__crypyUnifiedBridge=true;
+    d.addEventListener('click',function(e){
+     const a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
+     let u;try{u=new URL(a.getAttribute('href'),d.baseURI)}catch(_){return}
+     const root=new URL('./index.html',d.baseURI);
+     if(u.origin===root.origin&&u.pathname===root.pathname){
+      e.preventDefault();e.stopImmediatePropagation();frame.src='./index1.htm';return;
+     }
+    },true);
+   }
+   const navs=d.querySelectorAll('nav.crypy-menu-novo');
+   navs.forEach(nav=>{
+    nav.innerHTML='<a href="./index.html" class="home">♾️ HOME</a>'+links.map(x=>'<a href="'+x[1]+'">'+x[0]+'</a>').join('');
+   });
+  }catch(err){}
+ }
+ frame.addEventListener('load',function(){apply();setTimeout(apply,350);setTimeout(apply,1100);});
+})();
+</script>
 </body>
 </html>
