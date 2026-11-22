@@ -1,7 +1,7 @@
 {
   "version": "1.8",
-  "generated_at": "2026-11-22T19:00:00-03:00",
-  "total": 307,
+  "generated_at": "2026-11-22T19:25:00-03:00",
+  "total": 303,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -884,28 +884,8 @@
       "group": "RAIZ"
     },
     {
-      "path": "index-home-anterior-a-home-aprovada-2026-11-20.html",
-      "label": "HOME anterior — arquivo histórico",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index-home-portal-preservado-2026-11-20.html",
-      "label": "HOME portal — versão preservada",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index.htm",
-      "label": "Index HTM — HOME preservada",
-      "group": "RAIZ"
-    },
-    {
       "path": "index.html",
       "label": "HOME",
-      "group": "RAIZ"
-    },
-    {
-      "path": "Index.html",
-      "label": "Index — Página alternativa",
       "group": "RAIZ"
     },
     {
