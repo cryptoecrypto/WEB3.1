@@ -16,13 +16,12 @@ const serviceEntrypoints = new Set([
 const navAsset = "assets/js/crypy-global-nav.js";
 const indexPath = path.join(root,"assets","data","crypy-page-index.json");
 
+const PRIVATE_SEGMENTS = new Set(["baby-ia","memory-boost","momory-boost","pluguin","sincronizacao","hd-oculto","hd-matriz","crypy-server-bridge","crypy-13-chatboots"]);
+const PRIVATE_FILE_NAMES = /^(Memorias\.json|memory[^/]*\.json|Fila-Sync\.json|Manifest\.json|auto-config[^/]*|autoconfig[^/]*|profile\.json|hd-baby-ia\.html|hd-memory\.html|baby-ia-agente\.html|baby-ia-conectado\.html)$/i;
 function isPrivatePublicPath(file) {
-  return /^CRYPY-13-CHATBOOTS\\//i.test(file)
-    || /^crypy-server-bridge\\//i.test(file)
-    || /(^|\\/)(baby-ia|memory-boost|momory-boost|pluguin|sincronizacao|hd-oculto|hd-matriz)(\\/|$)/i.test(file)
-    || /(^|\\/)(Memorias\\.json|memory[^/]*\\.json|Fila-Sync\\.json|Manifest\\.json|auto-config[^/]*|autoconfig[^/]*)$/i.test(file)
-    || /(^|\\/)(hd-baby-ia|hd-memory|baby-ia-agente|baby-ia-conectado)\\.html$/i.test(file)
-    || /(^|\\/)profile\\.json$/i.test(file);
+  const parts = file.split("/");
+  const name = parts[parts.length - 1];
+  return parts.some(part => PRIVATE_SEGMENTS.has(part.toLowerCase())) || PRIVATE_FILE_NAMES.test(name);
 }
 
 function walk(dir,out=[]) {
