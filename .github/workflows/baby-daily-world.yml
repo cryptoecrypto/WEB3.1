@@ -1,0 +1,35 @@
+name: BABY Daily World — preview
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Data da edição (YYYY-MM-DD); vazio usa a data de São Paulo"
+        required: false
+        type: string
+  schedule:
+    - cron: "0 3 * * *" # 00:00 America/Sao_Paulo (UTC-3)
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: baby-daily-world-preview
+  cancel-in-progress: false
+jobs:
+  generate-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Generate daily edition preview
+        run: node scripts/generate-daily-edition.mjs "${{ inputs.date }}"
+      - name: Validate generated JSON
+        run: node -e "const fs=require('fs'); const p='crypy-daily-world/generated/daily-edition.json'; const d=JSON.parse(fs.readFileSync(p,'utf8')); if(d.status!=='preview_only'||!d.edition_id||!d.sha256) process.exit(1); console.log(d.edition_id)"
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: baby-daily-world-preview-${{ github.run_id }}
+          path: crypy-daily-world/generated/daily-edition.json
+          if-no-files-found: error
+          retention-days: 14
