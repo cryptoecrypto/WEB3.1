@@ -120,15 +120,15 @@ function enviar(){
       if(searchIntent){
         var sections=[];
         if(searchIntent.provider==="google"||searchIntent.provider==="both"){
-          sections.push("GOOGLE\\n"+(googleOpened&&googleOpened.opened?"Resultados abertos em uma nova guia.":"Abra os resultados pelo endereço abaixo.")+"\\n"+window.BabyResearch.googleUrl(searchIntent.query)+"\\nPara o BABY analisar uma página do Google, envie o link ou cole o conteúdo aqui.");
+          sections.push("GOOGLE\n"+(googleOpened&&googleOpened.opened?"Resultados abertos em uma nova guia.":"Abra os resultados pelo endereço abaixo.")+"\n"+window.BabyResearch.googleUrl(searchIntent.query)+"\nPara o BABY analisar uma página do Google, envie o link ou cole o conteúdo aqui.");
         }
         if(searchIntent.provider==="wikipedia"||searchIntent.provider==="both"){
           try{
             var wiki=await window.BabyResearch.searchWikipedia(searchIntent.query);
             if(wiki.length){
-              sections.push("WIKIPEDIA · RESULTADOS EM PORTUGUÊS\\n"+wiki.map(function(item,i){
-                return (i+1)+". "+item.title+"\\n"+item.snippet+"\\n"+item.url;
-              }).join("\\n\\n"));
+              sections.push("WIKIPEDIA · RESULTADOS EM PORTUGUÊS\n"+wiki.map(function(item,i){
+                return (i+1)+". "+item.title+"\n"+item.snippet+"\n"+item.url;
+              }).join("\n\n"));
             }else{
               sections.push("WIKIPEDIA: nenhum resultado encontrado para esta consulta.");
             }
@@ -136,7 +136,7 @@ function enviar(){
             sections.push("WIKIPEDIA: não consegui consultar a API agora. "+String(wikiError&&wikiError.message||wikiError));
           }
         }
-        r="BABY · PESQUISA EXTERNA AUTORIZADA\\nConsulta: "+searchIntent.query+"\\n\\n"+sections.join("\\n\\n");
+        r="BABY · PESQUISA EXTERNA AUTORIZADA\nConsulta: "+searchIntent.query+"\n\n"+sections.join("\n\n");
       }else{
         if(window.CRPYColmeia&&window.CRPYColmeia.ready){
           await window.CRPYColmeia.ready;
@@ -146,20 +146,20 @@ function enviar(){
         delivery=window.CRPYColmeiaBusInstance?window.CRPYColmeiaBusInstance.dispatch(v,route):null;
         var hits=knowledge?await knowledge.search(v,5):[];
         if(hits&&hits.length){
-          r="Encontrei conhecimento documentado na base local da Colmeia. Estes são trechos recuperados, não uma resposta de modelo treinado:\\n\\n"+
-            hits.map(function(h,i){return (i+1)+". "+h.path+"\\n"+h.snippet;}).join("\\n\\n");
+          r="Encontrei conhecimento documentado na base local da Colmeia. Estes são trechos recuperados, não uma resposta de modelo treinado:\n\n"+
+            hits.map(function(h,i){return (i+1)+". "+h.path+"\n"+h.snippet;}).join("\n\n");
         }else{
           r=raciocinar(v);
         }
       }
     }catch(e){r=raciocinar(v);}
     if(delivery){
-      r="COLMEIA · DISTRIBUIÇÃO INTERNA\\nEnvelope: "+delivery.id+"\\nPerfis notificados: "+delivery.recipientCount+"/13\\nEspecialista sugerido: "+delivery.primaryAgent+" · Revisor: "+delivery.reviewerId+"\\nInferência generativa externa: não conectada.\\n\\n"+r;
+      r="COLMEIA · DISTRIBUIÇÃO INTERNA\nEnvelope: "+delivery.id+"\nPerfis notificados: "+delivery.recipientCount+"/13\nEspecialista sugerido: "+delivery.primaryAgent+" · Revisor: "+delivery.reviewerId+"\nInferência generativa externa: não conectada.\n\n"+r;
     }
     if(route){
       var apoio=route.collaborators.map(function(a){return a.name;}).join(", ")||"nenhum adicional";
-      r="COLMEIA · ENCAMINHAMENTO SUGERIDO\\nBABY coordena · Especialista: "+route.primary.name+" · Apoio: "+apoio+
-        "\\nModo: roteamento local; nenhum modelo especialista foi chamado.\\n\\n"+r;
+      r="COLMEIA · ENCAMINHAMENTO SUGERIDO\nBABY coordena · Especialista: "+route.primary.name+" · Apoio: "+apoio+
+        "\nModo: roteamento local; nenhum modelo especialista foi chamado.\n\n"+r;
     }
     addMsg(r,"baby");
   }, 300);
