@@ -8,8 +8,8 @@
 ## Resultado do filtro aplicado ao índice
 
 - Entradas antes: 304
-- Entradas públicas mantidas: 75
-- Entradas privadas excluídas do índice: 229
+- Entradas públicas mantidas: 82
+- Entradas privadas excluídas do índice: 222
 
 ## Limite importante
 
