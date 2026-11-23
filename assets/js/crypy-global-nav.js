@@ -288,6 +288,10 @@
         var hiddenGroups=["memory-boost","padrao","pluguin","sincronizacao"];
         var pathSegments=String(page.path||"").split("/").map(normalized);
         var hiddenPathSegments=["memory-boost","momory-boost","padrao","pluguin","sincronizacao"];
+        var normalizedPath=String(page.path || "").toLowerCase();
+        if (normalizedPath === "index.html" || normalizedPath === "index2.html" || normalizedPath === "index4.html") return true;
+        var protectedSegments=["hd-matriz","hd-oculto","crypy-server-bridge","crypy-13-chatboots","backup-geral"];
+        if (pathSegments.some(function(segment){return protectedSegments.indexOf(segment)!==-1;})) return true;
         if (hiddenGroups.indexOf(group)!==-1 || pathSegments.some(function(segment){return hiddenPathSegments.indexOf(segment)!==-1;})) return true;
         var searchable=normalized(String(page.path||"")+" "+String(page.label||""));
         var technicalRules=[
