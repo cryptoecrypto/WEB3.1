@@ -64,9 +64,16 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-const homeMenuCount = (home.match(/data-cx="/g) || []).length;
-if (!home.includes('id="cx-panel"') || !home.includes('id="cx-open"') || homeMenuCount !== 13) {
-  errors.push("HOME principal não contém o painel próprio com as 13 categorias oficiais");
+// A HOME atual usa 13 cartões próprios (hive-card), não o painel legado cx-panel.
+ // Aceitar o painel legado apenas se estiver completo; caso contrário, validar os 13 cartões atuais.
+const legacyPanelCount = (home.match(/data-cx="/g) || []).length;
+const hasLegacyPanel = home.includes('id="cx-panel"') &&
+  home.includes('id="cx-open"') && legacyPanelCount === 13;
+const homeCards = [...home.matchAll(/<a\b(?=[^>]*class="[^"]*\bhive-card\b)[^>]*>([\s\S]*?)<\/a>/gi)];
+const hasCurrentHomeCards = homeCards.length === 13 &&
+  officialCategories.every(label => home.includes(label));
+if (!hasLegacyPanel && !hasCurrentHomeCards) {
+  errors.push("HOME principal não contém o painel legado completo nem os 13 cartões oficiais da HOME atual");
 }
 if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte de compatibilidade das páginas legadas não carrega o menu global");
 if (!fs.existsSync(navPath)) errors.push("menu global ausente");
