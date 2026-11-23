@@ -11,6 +11,15 @@
   var script = document.currentScript;
   var root = new URL("../../", script && script.src ? script.src : document.baseURI);
   var indexUrl = new URL("assets/data/crypy-page-index.json", root);
+  var fileIndexUrl = new URL("assets/data/crypy-file-index.json", root);
+  var textExtensions = new Set(["html","htm","md","txt","js","mjs","css","json","yml","yaml","tsx","svg"]);
+  var fileRegistry = null;
+  function isPublicTextFile(item) {
+    return !!item && typeof item.path === "string" &&
+      item.access === "público" && !item.protected && !item.sensitive &&
+      textExtensions.has(String(item.extension || "").toLowerCase()) &&
+      Number(item.sizeBytes || 0) <= 900000;
+  }
   var dbName = "crypy_baby_knowledge_v1";
   var storeName = "documents";
   var fixedFiles = [
@@ -147,20 +156,42 @@
     if (progress.state === "sincronizando") return Promise.resolve(snapshot());
     progress = {
       state: "sincronizando", done: 0, total: 0, indexed: 0, errors: 0,
-      chars: 0, updatedAt: null, sourceTotal: 0, fixedTotal: fixedFiles.length
+      chars: 0, updatedAt: null, sourceTotal: 0, fixedTotal: 0
     };
     failures = [];
     updateButton();
-    return fetch(indexUrl.href, { cache: "no-cache" }).then(function (res) {
-      if (!res.ok) throw new Error("Índice HTTP " + res.status);
+    return fetch(fileIndexUrl.href, { cache: "no-cache" }).then(function (res) {
+      if (!res.ok) throw new Error("Inventário de arquivos HTTP " + res.status);
       return res.json();
-    }).then(function (data) {
-      var listed = (data.pages || []).map(function (p) { return p && p.path; })
-        .filter(function (p) { return typeof p === "string" && /\.html?$/i.test(p); });
-      var uniquePages = Array.from(new Set(listed));
-      var paths = Array.from(new Set(uniquePages.concat(fixedFiles)));
-      progress.sourceTotal = uniquePages.length;
+    }).then(function (registry) {
+      if (!registry || !Array.isArray(registry.files)) throw new Error("Inventário global sem files[]");
+      fileRegistry = registry;
+      var allowed = registry.files.filter(isPublicTextFile);
+      var allowedByPath = new Map(allowed.map(function (item) { return [item.path, item]; }));
+      var paths = Array.from(new Set(allowed.map(function (item) { return item.path; })));
+      fixedFiles.forEach(function (path) {
+        if (allowedByPath.has(path) && paths.indexOf(path) === -1) paths.push(path);
+      });
+      progress.sourceTotal = paths.length;
       progress.total = paths.length;
+      progress.fixedTotal = fixedFiles.filter(function (path) { return allowedByPath.has(path); }).length;
+      window.BabyFileRegistry = {
+        version: registry.version,
+        totalFiles: registry.total,
+        hiddenFiles: registry.hiddenFiles,
+        protectedFiles: registry.protectedFiles,
+        restrictedFiles: registry.restrictedFiles,
+        searchableTextFiles: paths.length,
+        search: function (query, limit) {
+          var terms = normalize(query).split(/\s+/).filter(Boolean);
+          if (!terms.length) return [];
+          return registry.files.filter(isPublicTextFile).map(function (item) {
+            var searchable = normalize(item.path + " " + item.extension);
+            var score = terms.reduce(function (sum, term) { return sum + (searchable.indexOf(term) !== -1 ? 1 : 0); }, 0);
+            return score ? { path: item.path, extension: item.extension, sizeBytes: item.sizeBytes, score: score } : null;
+          }).filter(Boolean).sort(function (a, b) { return b.score - a.score; }).slice(0, limit || 10);
+        }
+      };
       var cursor = 0;
       function worker() {
         if (cursor >= paths.length) return Promise.resolve();
