@@ -42,6 +42,21 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
 #cx-music-box button{border:1px solid var(--line);border-radius:7px;background:#06180e;color:var(--g);padding:8px;font-size:10px;font-weight:900;cursor:pointer}
 #cx-music-box p{color:var(--muted);font-size:10px;margin:7px 0 0}
 @media(max-width:520px){.cx-launcher{top:8px;right:8px}.cx-launcher button{padding:9px 11px;font-size:10px}#cx-panel{padding:14px}}
+
+#cx-baby-widget{position:fixed;z-index:999996;right:12px;bottom:12px}
+#cx-baby-launcher{border:1px solid var(--g);border-radius:999px;background:#03130a;color:var(--g);padding:11px 16px;font-size:11px;font-weight:900;letter-spacing:.06em;cursor:pointer;box-shadow:0 0 18px #00ff8840}
+#cx-baby-launcher:hover,#cx-baby-launcher:focus-visible{background:var(--g);color:#001b0c;outline:none}
+#cx-baby-panel{display:none;position:fixed;right:12px;bottom:68px;width:min(430px,calc(100vw - 24px));height:min(680px,calc(100dvh - 92px));min-height:380px;flex-direction:column;overflow:hidden;border:1px solid var(--g);border-radius:15px;background:#020805;box-shadow:0 0 32px #00ff8830}
+#cx-baby-panel.open{display:flex}
+.cx-baby-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#06170d;border-bottom:1px solid var(--line)}
+.cx-baby-head strong{color:var(--g);font-size:12px;letter-spacing:.08em}
+.cx-baby-head button,.cx-baby-sync{border:1px solid var(--line);border-radius:8px;background:#03130a;color:var(--g);padding:8px 10px;font-size:10px;font-weight:900;cursor:pointer}
+.cx-baby-meta{padding:9px 11px;border-bottom:1px solid #17452b;background:#030d07}
+#cx-baby-sync-status{display:block;color:var(--muted);font-size:10px;line-height:1.45;margin-top:6px}
+#cx-baby-frame{display:block;flex:1;width:100%;min-height:0;border:0;background:#000}
+#baby-knowledge-sync{display:none!important}
+@media(max-width:520px){#cx-baby-widget{right:8px;bottom:8px}#cx-baby-panel{right:8px;bottom:64px;width:calc(100vw - 16px);height:calc(100dvh - 80px);min-height:320px}}
+
 @media(prefers-reduced-motion:reduce){#cx-panel{transition:none}}
 </style>
 </head>
@@ -261,6 +276,35 @@ function installFrameBridge(){
  }catch(err){status.textContent='A ponte de navegação não conseguiu acessar esta página: '+err.message;}
 }
 frame.addEventListener('load',()=>{installFrameBridge();setTimeout(installFrameBridge,250);setTimeout(installFrameBridge,900);});
+
+const babyPanel=document.getElementById('cx-baby-panel');
+const babyLauncher=document.getElementById('cx-baby-launcher');
+const babyFrame=document.getElementById('cx-baby-frame');
+const babySyncStatus=document.getElementById('cx-baby-sync-status');
+function openBaby(){
+ babyPanel.classList.add('open');babyLauncher.setAttribute('aria-expanded','true');
+ if(!babyFrame.src)babyFrame.src='./chatboot-baby-ia.html?embed=1';
+ refreshBabyStatus();
+}
+function closeBaby(){babyPanel.classList.remove('open');babyLauncher.setAttribute('aria-expanded','false');}
+async function refreshBabyStatus(){
+ if(!window.BabyKnowledge){babySyncStatus.textContent='Indexador BABY ainda carregando. Aguarde alguns segundos.';return;}
+ try{const s=await window.BabyKnowledge.status();babySyncStatus.textContent='Base local: '+(s.documentsStored||0)+' documentos guardados · estado: '+(s.state||'aguardando')+'. Clique em sincronizar para atualizar as páginas.';}
+ catch(e){babySyncStatus.textContent='Não foi possível consultar o estado da base local: '+e.message;}
+}
+babyLauncher.addEventListener('click',()=>babyPanel.classList.contains('open')?closeBaby():openBaby());
+document.getElementById('cx-baby-close').addEventListener('click',closeBaby);
+document.getElementById('cx-baby-sync').addEventListener('click',async()=>{
+ if(!window.BabyKnowledge){babySyncStatus.textContent='Indexador BABY ainda não carregou. Recarregue a HOME e tente novamente.';return;}
+ const button=document.getElementById('cx-baby-sync');button.disabled=true;button.textContent='SINCRONIZANDO…';
+ babySyncStatus.textContent='Lendo o índice e os documentos selecionados. O processo pode levar alguns minutos.';
+ try{
+  const s=await window.BabyKnowledge.sync();
+  babySyncStatus.textContent='Resultado: '+s.state+' · '+s.done+'/'+s.total+' fontes processadas · '+s.indexedThisRun+' indexadas · '+s.errors+' erros. '+(s.failures&&s.failures.length?'Falhas: '+s.failures.slice(0,5).map(x=>x.path+' ('+x.error+')').join(' | '):'Nenhuma falha registrada pelo indexador.');
+ }catch(e){babySyncStatus.textContent='Falha na sincronização local: '+e.message;}
+ button.disabled=false;button.textContent='REPETIR SINCRONIZAÇÃO';
+});
+
 const musicBox=document.getElementById('cx-music-box'),musicFrame=document.getElementById('cx-music-frame');
 const video='8PeU6AVPQVg';
 function musicUrl(muted){return 'https://www.youtube-nocookie.com/embed/'+video+'?autoplay=1&mute='+(muted?'1':'0')+'&loop=1&playlist='+video+'&controls=1&playsinline=1&rel=0';}
@@ -269,5 +313,19 @@ document.getElementById('cx-music-close').addEventListener('click',()=>musicBox.
 document.getElementById('cx-music-sound').addEventListener('click',()=>{musicFrame.src=musicUrl(false);});
 })();
 </script>
+
+<div id="cx-baby-widget">
+ <button type="button" id="cx-baby-launcher" aria-expanded="false" aria-controls="cx-baby-panel">🤖 BABY I.A.</button>
+ <section id="cx-baby-panel" aria-label="BABY I.A. conectado à base de conhecimento local">
+  <div class="cx-baby-head"><strong>BABY I.A. · BASE DA COLMEIA</strong><button type="button" id="cx-baby-close" aria-label="Fechar BABY">FECHAR</button></div>
+  <div class="cx-baby-meta">
+   <button type="button" class="cx-baby-sync" id="cx-baby-sync">SINCRONIZAR BASE DA COLMEIA</button>
+   <span id="cx-baby-sync-status" role="status" aria-live="polite">Aguardando o indexador local. A base consulta as páginas do índice e documentos técnicos selecionados.</span>
+  </div>
+  <iframe id="cx-baby-frame" title="BABY I.A. — ChatBoot com busca na base local" loading="lazy"></iframe>
+ </section>
+</div>
+<script src="./assets/js/baby-knowledge-sync.js" defer></script>
+
 </body>
 </html>
