@@ -53,9 +53,8 @@ function isProtected(file) {
 }
 function isSensitive(file) {
   const base=path.posix.basename(file).toLowerCase();
-  return /^(memorias|memory|fila-sync|manifest)\.json$/i.test(base)
-    || /(^|\/)\.env(?:\.|$)/i.test(file)
-    || /(secret|credential|token|seedphrase|private[-_]?key)/i.test(base);
+  return /(memoria|memory|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key)/i.test(base)
+    || /(^|\/)\.env(?:\.|$)/i.test(file);
 }
 function extension(file) {
   const ext=path.posix.extname(file).replace(/^\./,"").toLowerCase();
@@ -96,6 +95,7 @@ function buildFileIndex() {
     hiddenFiles:records.filter(item=>item.hidden).length,
     protectedFiles:records.filter(item=>item.protected).length,
     restrictedFiles:records.filter(item=>item.sensitive).length,
+    duplicateGroups:Object.values(counts).filter(count=>count>1).length,
     duplicateEntries:records.filter(item=>item.duplicateCount>1).length,
     byExtension,
     exclusions:[".git","node_modules",".baby",".tmp",".cache",".venv","__pycache__","dist","build","coverage","out","target",".next",".vite"],
