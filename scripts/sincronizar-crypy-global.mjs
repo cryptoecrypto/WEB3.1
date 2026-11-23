@@ -64,7 +64,7 @@ function buildFileIndex() {
   const paths=walkFiles(root).sort();
   const records=paths.map(file=>{
     const buffer=fs.readFileSync(path.join(root,file));
-    const sha256=crypto.createHash("sha256").update(buffer).digest("hex");
+    const gitBlobSha=crypto.createHash("sha1").update("blob "+buffer.length+"\0").update(buffer).digest("hex");
     const protectedFile=isProtected(file);
     const sensitive=isSensitive(file);
     const hidden=file.split("/").some(part=>part.startsWith("."));
@@ -73,7 +73,7 @@ function buildFileIndex() {
       root:file.includes("/")?file.split("/")[0]:"RAIZ",
       extension:extension(file),
       sizeBytes:buffer.length,
-      sha256,
+      gitBlobSha,
       hidden,
       protected:protectedFile,
       sensitive,
@@ -82,12 +82,13 @@ function buildFileIndex() {
     };
   });
   const counts={};
-  records.forEach(item=>{counts[item.sha256]=(counts[item.sha256]||0)+1;});
-  records.forEach(item=>{item.duplicateCount=counts[item.sha256];});
+  records.forEach(item=>{counts[item.gitBlobSha]=(counts[item.gitBlobSha]||0)+1;});
+  records.forEach(item=>{item.duplicateCount=counts[item.gitBlobSha];});
   const byExtension={};
   records.forEach(item=>{byExtension[item.extension]=(byExtension[item.extension]||0)+1;});
   return {
     version:"1.0",
+    hashAlgorithm:"git-sha1",
     generated_at:new Date().toISOString(),
     repository:"cryptoecrypto/WEB3.1",
     branch:"main",
