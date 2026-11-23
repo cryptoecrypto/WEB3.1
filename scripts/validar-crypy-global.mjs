@@ -16,13 +16,21 @@ if (!Array.isArray(manifest.pages)) errors.push("índice não contém pages[]");
 if (manifest.total !== manifest.pages.length) errors.push("total do índice não confere");
 
 const seen = new Set();
-const privatePath = p => /^CRYPY-13-CHATBOOTS\\//i.test(p) || /^crypy-server-bridge\\//i.test(p) || /(^|\\/)(baby-ia|memory-boost|momory-boost|pluguin|sincronizacao|hd-oculto|hd-matriz)(\\/|$)/i.test(p) || /(^|\\/)(Memorias\\.json|memory[^/]*\\.json|Fila-Sync\\.json|Manifest\\.json|auto-config[^/]*|autoconfig[^/]*)$/i.test(p) || /(^|\\/)(hd-baby-ia|hd-memory|baby-ia-agente|baby-ia-conectado)\\.html$/i.test(p) || /(^|\\/)profile\\.json$/i.test(p);
+const PRIVATE_SEGMENTS = new Set(["baby-ia","memory-boost","momory-boost","pluguin","sincronizacao","hd-oculto","hd-matriz","crypy-server-bridge","crypy-13-chatboots"]);
+const PRIVATE_FILE_NAMES = /^(Memorias\.json|memory[^/]*\.json|Fila-Sync\.json|Manifest\.json|auto-config[^/]*|autoconfig[^/]*|profile\.json|hd-baby-ia\.html|hd-memory\.html|baby-ia-agente\.html|baby-ia-conectado\.html)$/i;
+function isPrivatePublicPath(file) {
+  const parts = file.split("/");
+  const name = parts[parts.length - 1];
+  return parts.some(part => PRIVATE_SEGMENTS.has(part.toLowerCase())) || PRIVATE_FILE_NAMES.test(name);
+}
+
 for (const page of manifest.pages || []) {
   if (!page || typeof page.path !== "string" || !page.path.trim()) {
     errors.push("entrada inválida no índice");
     continue;
   }
   const normalized = page.path.replace(/\\/g, "/");
+  if (isPrivatePublicPath(normalized)) errors.push("caminho privado no índice público: " + normalized);
   if (normalized.startsWith("/") || normalized.split("/").includes("..")) {
     errors.push("caminho inseguro no índice: " + page.path);
     continue;
