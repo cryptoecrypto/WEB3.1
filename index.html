@@ -272,6 +272,38 @@ function installFrameBridge(){
     showPanel(true);
    };
   }
+  function installNestedBridge(childFrame){
+   try{
+    if(!childFrame.__crypyRootLoadHook){
+     childFrame.__crypyRootLoadHook=true;
+     childFrame.addEventListener('load',()=>installNestedBridge(childFrame));
+    }
+    const nd=childFrame.contentDocument;if(!nd)return;
+    if(!nd.__crypyNestedRootBridge){
+     nd.__crypyNestedRootBridge=true;
+     const nestedStyle=nd.createElement('style');nestedStyle.textContent='#baby-knowledge-sync,#crypy-music{display:none!important}';nd.head&&nd.head.appendChild(nestedStyle);
+     nd.addEventListener('click',async ev=>{
+      const a=ev.target&&ev.target.closest&&ev.target.closest('a[href]');if(!a)return;
+      const raw=a.getAttribute('href');if(!raw||raw.startsWith('#')||/^(mailto:|tel:|javascript:|data:)/i.test(raw))return;
+      let u;try{u=new URL(raw,nd.baseURI)}catch(_){return}
+      if(u.origin!==location.origin)return;
+      if(u.pathname===HOME.pathname){ev.preventDefault();ev.stopImmediatePropagation();home();return;}
+      if(u.pathname===nd.location.pathname&&u.hash)return;
+      const mapped=legacyTarget(u,a);
+      if(mapped){ev.preventDefault();ev.stopImmediatePropagation();go(mapped);return;}
+      if(u.pathname.includes('/dev/')){ev.preventDefault();ev.stopImmediatePropagation();status.textContent='Destino antigo sem correspondência segura: '+raw;showPanel(true);return;}
+      const relative=u.pathname.replace(new URL('./',location.href).pathname,'');
+      if(relative&&relative!==u.pathname&&relative.endsWith('.html')){
+       ev.preventDefault();ev.stopImmediatePropagation();
+       try{const r=await fetch(u.href,{method:'HEAD',cache:'no-store'});if(r.ok)go(relative);else{status.textContent='LINK NÃO LOCALIZADO ('+r.status+'): '+relative;showPanel(true);}}
+       catch(err){status.textContent='Falha ao conferir o link: '+relative;showPanel(true);}
+      }
+     },true);
+    }
+    nd.querySelectorAll('iframe').forEach(nested=>installNestedBridge(nested));
+   }catch(err){}
+  }
+  d.querySelectorAll('iframe').forEach(child=>installNestedBridge(child));
   d.addEventListener('error',e=>{
    const img=e.target;if(!img||img.tagName!=='IMG')return;
    const src=img.getAttribute('src')||'';
