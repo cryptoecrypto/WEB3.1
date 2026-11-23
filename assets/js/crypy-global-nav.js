@@ -45,7 +45,6 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["crypy-infinyt/portal.html","crypy-academy/academia.html","esquadrao-das-cores/esquadrao.html","nft-collection/galeria.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","social-crypykut/comunidade.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
   var categories = [
     {label:"CRYPY-INFINIT", groups:["crypy-infinyt"]},
     {label:"CRYPY-ACADEMY", groups:["crypy-academy","web3.1"]},
@@ -76,15 +75,14 @@
     var pagePath = String(page.path || "").replace(/\\\\/g, "/").toLowerCase();
     var pathGroup = pagePath.split("/")[0];
 
-    // Exceções de classificação: estas páginas vivem em grupos técnicos,
-    // mas pertencem a categorias editoriais próprias do menu oficial.
+    if (group === "raiz" || pathGroup === "raiz") return categories[10];
     if (pagePath === "crypy-news/museu.html") return categories[6];
     if (pagePath === "crypy-coin/white-paper.html" || pagePath === "crypy-coin/crypy-coin.html") return categories[11];
 
     for (var i = 0; i < categories.length; i++) {
       if (categories[i].groups.indexOf(group) !== -1 || categories[i].groups.indexOf(pathGroup) !== -1) return categories[i];
     }
-    return categories[0];
+    return null;
   }
   function hideLegacyMenus() {
     var signatures = [
@@ -304,7 +302,7 @@
         if (isWorldClock) return String(page.path||"").toLowerCase()!=="relogio-mundial.html";
         return false;
       }
-      pages=indexedPages.filter(function(page){return officialMenuPaths.indexOf(String(page.path||""))!==-1;});
+      pages=indexedPages.filter(function(page){return !hiddenByMenuRule(page) && categoryFor(page)!==null;});
       render();
     }).catch(function(){
       count.textContent="Não foi possível carregar o índice de páginas.";
