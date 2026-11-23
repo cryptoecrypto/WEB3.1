@@ -18,5 +18,7 @@ test("cada pasta possui um profile.json coerente com o catálogo",async()=>{for(
 const {createBus}=require("../collaboration-bus.js");
 test("barramento distribui envelope aos 13 perfis sem simular inferência",()=>{const bus=createBus(registry);let received=null;bus.subscribe(e=>received=e);const e=bus.dispatch("auditar a colmeia",createRouter(registry).route("auditar a colmeia"));assert.equal(e.recipientCount,13);assert.equal(e.recipients.length,13);assert.equal(e.generativeInference,false);assert.equal(e.modelInvocations,0);assert.equal(received.id,e.id);assert.equal(bus.status().connectedProfiles,13);assert.equal(bus.status().modelEndpointsConnected,0);});
 
-const {getTimes,zones}=require("../world-clock.js");
+const {getTimes,zones,getTime}=require("../world-clock.js");
 test("relógio mundial expõe seis fusos e horários válidos",()=>{const t=getTimes(new Date("2026-11-22T12:00:00Z"));assert.equal(zones.length,6);assert.equal(t.br.timeZone,"America/Sao_Paulo");assert.equal(t.utc.timeZone,"UTC");for(const z of zones){assert.match(t[z.id].time,/^[0-9]{2}:[0-9]{2}:[0-9]{2}$/);}});
+
+test("API global do relógio resolve o fuso por identificador",()=>{const value=getTime("America/Sao_Paulo");assert.equal(value.timeZone,"America/Sao_Paulo");assert.equal(typeof value.time,"string");});
