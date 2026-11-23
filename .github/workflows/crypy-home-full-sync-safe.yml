@@ -39,11 +39,16 @@ jobs:
         if: always()
         run: |
           mkdir -p /tmp/crypy-global-sync/files
-          while IFS= read -r file; do
+          git diff --name-only --diff-filter=ACM -z > /tmp/crypy-global-sync/changed-files.bin
+          count=0
+          while IFS= read -r -d '' file; do
             [ -f "$file" ] || continue
             mkdir -p "/tmp/crypy-global-sync/files/$(dirname "$file")"
             cp "$file" "/tmp/crypy-global-sync/files/$file"
-          done < <(git diff --name-only --diff-filter=ACM)
+            printf '%s\\n' "$file" >> /tmp/crypy-global-sync/SYNC_FILES.txt
+            count=$((count+1))
+          done < /tmp/crypy-global-sync/changed-files.bin
+          echo "Arquivos alterados empacotados: $count"
           if [ -f assets/data/crypy-file-index.json ]; then
             mkdir -p /tmp/crypy-global-sync/files/assets/data
             cp assets/data/crypy-file-index.json /tmp/crypy-global-sync/files/assets/data/
