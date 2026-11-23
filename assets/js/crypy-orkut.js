@@ -7,7 +7,7 @@ const write=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));return true
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const babyReply=q=>{
  const s=q.toLowerCase();
- if(/orkut|comunidade|scrap/.test(s))return "O espírito do Orkut era proximidade: perfil, amigos, comunidades e recados. No CRYPYKUT, vamos manter a memória social com privacidade e respeito.";
+ if(/comunidade|scrap/.test(s))return "O CRYPYKUT aproxima pessoas por perfis, amigos, grupos e recados, com privacidade e respeito.";
  if(/senha|golpe|seguran|link|phishing/.test(s))return "Dica do BABY: nunca compartilhe senha, código 2FA, frase-semente ou chave privada. Confira links e remetentes antes de clicar.";
  if(/web3|blockchain|carteira|nft/.test(s))return "WEB3 reúne carteiras, redes e contratos. Leia o que está assinando e confirme a rede correta antes de qualquer transação.";
  if(/foto|imagem|privacidade|menor/.test(s))return "Antes de publicar fotos de outras pessoas, peça consentimento. Evite dados pessoais, documentos, localização e imagens de menores.";
