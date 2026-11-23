@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "repository": "cryptoecrypto/WEB3.1",
   "role": "public-client",
-  "authority": "WEB3.1",
-  "description": "Interface pública, páginas e cliente BABY; nenhum segredo pode ser armazenado aqui.",
+  "authority": "HD-MATRIZ",
+  "description": "Cliente público do ecossistema CRYPY. HD-MATRIZ é a autoridade privada; este repositório mantém apenas site, índices públicos, interface e integração mínima online.",
   "repositories": [
     {
       "name": "cryptoecrypto/WEB3.1",
@@ -23,14 +23,12 @@
     "promotion": "pull-request-only",
     "conflictResolution": "manual-review-required",
     "allowed": [
-      "crypy-server-bridge/src/server.js",
-      "crypy-server-bridge/src/auth.js",
-      "crypy-server-bridge/test/server.test.js",
-      "crypy-server-bridge/package.json",
-      "crypy-server-bridge/README.md",
+      "assets/data/crypy-page-index.json",
+      "assets/js/crypy-global-nav.js",
+      "assets/js/baby-global-chat.js",
+      "baby-server-bridge.js",
       "crypy-sync/**",
-      ".github/workflows/crypy-three-repo.yml",
-      "baby-server-bridge.js"
+      ".github/workflows/crypy-three-repo.yml"
     ],
     "denied": [
       ".env*",
@@ -43,7 +41,23 @@
       "**/*secret*",
       "**/Memorias.json",
       "**/memory*.json",
-      "**/backup*"
+      "**/Fila-Sync.json",
+      "**/Manifest.json",
+      "**/backup*",
+      "**/memory-boost/**",
+      "**/momory-boost/**",
+      "**/baby-ia/**",
+      "**/hd-oculto/**",
+      "**/hd-matriz/**",
+      "**/pluguin/**",
+      "**/sincronizacao/**",
+      "CRYPY-13-CHATBOOTS/**",
+      "crypy-server-bridge/**",
+      "**/hd-baby-ia.html",
+      "**/hd-memory.html",
+      "**/auto-config*",
+      "**/autoconfig*",
+      "**/profile.json"
     ],
     "privateDataReplication": false,
     "destructiveSync": false
