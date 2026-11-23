@@ -68,8 +68,8 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
  // Aceitar o painel legado apenas se estiver completo; caso contrário, validar os 13 cartões atuais.
 const legacyPanelCount = (home.match(/data-cx="/g) || []).length;
 const hasLegacyPanel = home.includes('id="cx-panel"') &&
-  home.includes('id="cx-open"') && legacyPanelCount === 13;
-const homeCards = [...home.matchAll(/<a\b(?=[^>]*class="[^"]*\bhive-card\b)[^>]*>([\s\\S]*?)<\/a>/gi)];
+// Aceitar o painel legado apenas se estiver completo; caso contrário, validar os 13 cartões atuais.
+const homeCards = [...home.matchAll(/<a\b(?=[^>]*class="[^"]*\bhive-card\b)[^>]*>([\s\S]*?)<\/a>/gi)];
 const hasCurrentHomeCards = homeCards.length === 13 &&
   officialCategories.every(label => home.includes(label));
 if (!hasLegacyPanel && !hasCurrentHomeCards) {
