@@ -509,5 +509,46 @@
         "gMemory": "memória-em-três-níveis"
       }
     }
-  ]
+  ],
+  "sharedSkills": {
+    "dailyMaintenance": {
+      "guide": "crypy-academy/cursos/fontes/GUIA-MANUTENCAO-DESIGN-AGENTES-001.md",
+      "scope": "somente áreas expressamente autorizadas",
+      "workflow": [
+        "observar",
+        "diagnosticar",
+        "propor",
+        "prototipar",
+        "revisar",
+        "testar",
+        "aguardar_aprovacao",
+        "registrar"
+      ],
+      "monthlyDesign": "assets/data/crypy-design-calendar.json",
+      "dailyDesign": "assets/js/crypy-dynamic-design.js",
+      "permissions": {
+        "read": "documentação e páginas públicas autorizadas",
+        "visualLayer": "tema visual automático sem alteração do conteúdo",
+        "editorialOrStructuralChanges": "exige aprovação explícita do Sensei",
+        "protected": [
+          "HD-MATRIZ",
+          "backups",
+          "Memorias.json",
+          "Manifest.json",
+          "credenciais",
+          "carteiras"
+        ]
+      },
+      "status": "instrução compartilhada documentada; autonomia e execução generativa não homologadas"
+    },
+    "handoffRequired": [
+      "objetivo",
+      "área autorizada",
+      "fontes e hashes",
+      "mudanças propostas",
+      "riscos",
+      "testes",
+      "estado de aprovação"
+    ]
+  }
 }
