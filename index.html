@@ -69,10 +69,11 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
 </div>
 <aside id="cx-panel" aria-label="Navegação global da Colmeia">
  <div class="cx-panel-head"><h1>CRYPY · COLMEIA WEB3.1</h1><button type="button" id="cx-close" aria-label="Fechar navegação">✕</button></div>
- <button class="cx-home-btn" type="button" id="cx-home-panel">♾️ VOLTAR À HOME DO QUARTETO</button>
+ <button class="cx-home-btn" type="button" id="cx-home-panel">♾️ HOME PRINCIPAL · QUARTETO + CRYPTO BUBBLES</button>
  <div class="cx-tools">
-  <button type="button" id="cx-mode-matrix">HOME MATRIX · DRAGÃO</button>
-  <button type="button" id="cx-mode-catalog">CATÁLOGO DA COLMEIA</button>
+  <button type="button" id="cx-mode-matrix">HOME 02 · MATRIX / DRAGÃO</button>
+  <button type="button" id="cx-mode-catalog">HOME 03 · CATÁLOGO DA COLMEIA</button>
+  <button type="button" id="cx-mode-matrix-old">HOME 04 · MATRIX CLÁSSICA</button>
   <button type="button" id="cx-map">ABRIR MAPA DA COLMEIA</button>
   <button type="button" id="cx-all">TODAS AS PÁGINAS</button>
  </div>
@@ -165,8 +166,9 @@ document.getElementById('cx-open').addEventListener('click',()=>showPanel(!panel
 document.getElementById('cx-close').addEventListener('click',()=>showPanel(false));
 document.getElementById('cx-home').addEventListener('click',home);
 document.getElementById('cx-home-panel').addEventListener('click',home);
-document.getElementById('cx-mode-matrix').addEventListener('click',()=>{status.textContent='MODO MATRIX · DRAGÃO — conteúdo original da HOME 2.';go('home-02-matrix.html');});
-document.getElementById('cx-mode-catalog').addEventListener('click',()=>{status.textContent='CATÁLOGO DA COLMEIA — conteúdo original da HOME 3.';go('home-03-catalogo.html');});
+document.getElementById('cx-mode-matrix').addEventListener('click',()=>{status.textContent='HOME 02 · MATRIX / DRAGÃO — visualização integrada na HOME principal.';go('home-02-matrix.html');});
+document.getElementById('cx-mode-catalog').addEventListener('click',()=>{status.textContent='HOME 03 · CATÁLOGO DA COLMEIA — visualização integrada na HOME principal.';go('home-03-catalogo.html');});
+document.getElementById('cx-mode-matrix-old').addEventListener('click',()=>{status.textContent='HOME 04 · MATRIX CLÁSSICA — visualização integrada na HOME principal.';go('home-04-matrix-anterior.html');});
 document.getElementById('cx-map').addEventListener('click',()=>go('mapa-colmeia.html'));
 document.getElementById('cx-all').addEventListener('click',()=>{activeKey='all';document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));render();});
 function render(){
@@ -198,7 +200,7 @@ async function auditPages(){
  if(!allPages.length){auditStatus.textContent='Índice ainda não carregado; auditoria não iniciada.';return;}
  const button=document.getElementById('cx-audit');button.disabled=true;button.textContent='LENDO PÁGINAS…';
  const siteRoot=new URL('./',location.href);
- const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index.html','index1.htm','home-02-matrix.html','home-03-catalogo.html'])));
+ const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index.html','index1.htm','home-02-matrix.html','home-03-catalogo.html','home-04-matrix-anterior.html'])));
  let pageCursor=0,read=0,fetchFailures=[],refs=new Map(),externalSkipped=0;
  function collectRef(source,raw,el,base){
   if(!raw||/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(raw))return;
