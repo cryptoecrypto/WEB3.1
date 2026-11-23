@@ -73,6 +73,8 @@ footer a{color:var(--green);text-decoration:none}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* Navegação sincronizada das cinco páginas principais */
+.main-nav{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:620px){.main-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .crypy-page-switcher-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 0 12px}
 .crypy-page-switcher-label{color:#00ff88;font-size:9px;font-weight:900;letter-spacing:.16em}
 .crypy-page-switcher{display:flex;flex-wrap:wrap;gap:6px}
@@ -175,7 +177,7 @@ footer a{color:var(--green);text-decoration:none}
   <a class="btn secondary" href="./crypy-coin/white-paper.html">LER WHITE PAPER</a>
  </section>
 </main>
-<footer><div class="wrap foot-inner"><span>© 2026 CRYPTOEËCRYPTO · CRYPY WEB3.1</span><span>PROTEÇÃO É SUA MAIOR FORÇA · <a href="./contato/contato-oficial.html">CANAIS OFICIAIS</a></span></div><div class="crypy-page-switcher-wrap crypy-page-switcher-bottom"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html">INDEX5</a></nav></div>
+<footer><div class="wrap foot-inner"><span>© 2026 CRYPTOEËCRYPTO · CRYPY WEB3.1</span><span>PROTEÇÃO É SUA MAIOR FORÇA · <a href="./contato/contato-oficial.html">CANAIS OFICIAIS</a></span></div><div class="crypy-page-switcher-wrap crypy-page-switcher-bottom"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html" aria-current="page">INDEX5</a></nav></div>
 </footer>
 <script defer src="./assets/js/crypy-home-matrix.js"></script>
 <script defer src="./assets/js/crypy-dynamic-design.js"></script>
