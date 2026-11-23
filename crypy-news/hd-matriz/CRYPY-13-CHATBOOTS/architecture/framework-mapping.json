@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "status": "padrões_de_arquitetura_documentados",
+  "notice": "Referências conceituais. Não são cópias dos frameworks nem prova de integração com seus SDKs.",
+  "patterns": [
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "use": "Perfis com papel, missão, responsabilidades, tarefas, colaboradores e memória individual/compartilhada com escopo."
+    },
+    {
+      "id": "microsoft-agent-framework",
+      "name": "Microsoft AutoGen / Agent Framework",
+      "use": "Mensagens estruturadas, colaboração em equipe, seleção de próximo agente e handoffs explícitos; usar o Agent Framework como referência atual."
+    },
+    {
+      "id": "openai-agents-sdk",
+      "name": "OpenAI Agents SDK",
+      "use": "Orquestrador, especialistas, transferências de responsabilidade, ferramentas delimitadas, guardrails e rastreamento."
+    },
+    {
+      "id": "metagpt",
+      "name": "MetaGPT",
+      "use": "Fluxo de trabalho por artefatos e etapas: especificação, plano, execução, revisão e integração."
+    },
+    {
+      "id": "g-memory",
+      "name": "G-Memory",
+      "use": "Memória em três camadas: insights consolidados, consultas/contexto e trajetórias de colaboração."
+    }
+  ]
+}
