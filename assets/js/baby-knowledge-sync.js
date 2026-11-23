@@ -15,6 +15,9 @@
   var storeName = "documents";
   var fixedFiles = [
     "crypy-news/hd-matriz/ABECEDARIO-BINARIO-BABY-IA.txt",
+    "crypy-academy/cursos/fontes/GUIA-MANUTENCAO-DESIGN-AGENTES-001.md",
+    "assets/data/crypy-design-calendar.json",
+    "assets/js/crypy-dynamic-design.js",
     "crypy-news/hd-matriz/CURSO-EDICAO-IMAGEM-VIDEO-PHD-001.md",
     "crypy-news/hd-matriz/CRYPY-RENDA-PASSIVA-001.md",
     "crypy-news/hd-matriz/Memorias.json",
