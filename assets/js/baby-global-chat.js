@@ -4,6 +4,9 @@
  */
 (function () {
   "use strict";
+  var currentPath = String(location.pathname || "").toLowerCase();
+  if (/\/chatboot-baby-ia\.html$/.test(currentPath) ||
+      new URLSearchParams(location.search).get("embed") === "1") return;
   if (window.__CRYPY_BABY_GLOBAL_CHAT__) return;
   window.__CRYPY_BABY_GLOBAL_CHAT__ = true;
   var widgetScriptUrl = document.currentScript && document.currentScript.src;
