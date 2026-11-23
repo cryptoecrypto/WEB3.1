@@ -121,6 +121,23 @@
     if (utcClock && utcClock.parentElement) utcClock.parentElement.style.display = "none";
   }
 
+  function applyGlobalRgbSkin() {
+    if (document.getElementById("crypy-global-rgb-skin")) return;
+    var skin = node("style", {id:"crypy-global-rgb-skin"});
+    skin.textContent = [
+      ":root{--crypy-rgb-green:#00ff88;--crypy-rgb-blue:#269cff;--crypy-rgb-red:#ff3a58;--crypy-rgb-gold:#ffd35a}",
+      "::selection{background:rgba(0,255,136,.28);color:#fff}",
+      "a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--crypy-rgb-green)!important;outline-offset:3px}",
+      "button:not(#crypy-global-nav-toggle),[role=button]{transition:box-shadow .2s ease,border-color .2s ease,filter .2s ease}",
+      "button:not(#crypy-global-nav-toggle):hover,[role=button]:hover{box-shadow:0 0 16px rgba(0,255,136,.18),0 0 12px rgba(38,156,255,.12)}",
+      "a:hover{filter:drop-shadow(0 0 6px rgba(0,255,136,.2))}",
+      ":where(article,.card,.panel,.tile,.hive-card,.team-card,.module-card,.feature-card){border-color:rgba(0,255,136,.24)}",
+      ":where(article,.card,.panel,.tile,.hive-card,.team-card,.module-card,.feature-card):hover{border-color:rgba(0,255,136,.65);box-shadow:0 0 18px rgba(0,255,136,.12),0 0 12px rgba(38,156,255,.08)}",
+      "@media(prefers-reduced-motion:reduce){button,a,:where(article,.card,.panel,.tile,.hive-card,.team-card,.module-card,.feature-card){transition:none!important}}"
+    ].join("\\n");
+    (document.head || document.documentElement).appendChild(skin);
+  }
+
   function mount() {
     if (!document.body || document.getElementById("crypy-global-navigation")) return;
     var root = node("div", {id:"crypy-global-navigation"});
@@ -183,6 +200,7 @@
     root.appendChild(panel);
     root.appendChild(toggle);
     document.body.appendChild(root);
+    applyGlobalRgbSkin();
     applySingleClockPolicy();
     hideLegacyMenus();
 
