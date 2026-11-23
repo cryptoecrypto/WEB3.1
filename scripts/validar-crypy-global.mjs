@@ -43,10 +43,10 @@ const officialCategories = [
   "MUSEU DIGITAL",
   "MARKETPLACE",
   "CRYPY-GAMES",
-  "CRYPYCUT",
-  "CRYPY-COIN",
-  "CONTATO",
-  "WHITE PAPER"
+  "CRYPYKUT",
+  "BABY I.A.",
+  "WHITE PAPER",
+  "CONTATO"
 ];
 
 let previous = -1;
@@ -60,12 +60,15 @@ for (const label of officialCategories) {
 if (!nav.includes('if (pagePath === "crypy-news/museu.html") return categories[6];')) {
   errors.push("Museu Digital não está roteado para sua categoria oficial");
 }
-if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html") return categories[12];')) {
+if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath === "crypy-coin/crypy-coin.html") return categories[11];')) {
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-if (!home.includes("./dev/micro-clock.js")) errors.push("HOME não carrega a ponte de compatibilidade do menu global");
-if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte da HOME não carrega o menu global");
+const homeMenuCount = (home.match(/data-cx="/g) || []).length;
+if (!home.includes('id="cx-panel"') || !home.includes('id="cx-open"') || homeMenuCount !== 13) {
+  errors.push("HOME principal não contém o painel próprio com as 13 categorias oficiais");
+}
+if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte de compatibilidade das páginas legadas não carrega o menu global");
 if (!fs.existsSync(navPath)) errors.push("menu global ausente");
 
 const serviceEntrypoints = [
