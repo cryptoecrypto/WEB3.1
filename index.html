@@ -165,8 +165,8 @@ document.getElementById('cx-open').addEventListener('click',()=>showPanel(!panel
 document.getElementById('cx-close').addEventListener('click',()=>showPanel(false));
 document.getElementById('cx-home').addEventListener('click',home);
 document.getElementById('cx-home-panel').addEventListener('click',home);
-document.getElementById('cx-mode-matrix').addEventListener('click',()=>{status.textContent='MODO MATRIX · DRAGÃO — conteúdo original da HOME 2.';go('index 2.html');});
-document.getElementById('cx-mode-catalog').addEventListener('click',()=>{status.textContent='CATÁLOGO DA COLMEIA — conteúdo original da HOME 3.';go('index3.html');});
+document.getElementById('cx-mode-matrix').addEventListener('click',()=>{status.textContent='MODO MATRIX · DRAGÃO — conteúdo original da HOME 2.';go('home-02-matrix.html');});
+document.getElementById('cx-mode-catalog').addEventListener('click',()=>{status.textContent='CATÁLOGO DA COLMEIA — conteúdo original da HOME 3.';go('home-03-catalogo.html');});
 document.getElementById('cx-map').addEventListener('click',()=>go('mapa-colmeia.html'));
 document.getElementById('cx-all').addEventListener('click',()=>{activeKey='all';document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));render();});
 function render(){
@@ -198,7 +198,7 @@ async function auditPages(){
  if(!allPages.length){auditStatus.textContent='Índice ainda não carregado; auditoria não iniciada.';return;}
  const button=document.getElementById('cx-audit');button.disabled=true;button.textContent='LENDO PÁGINAS…';
  const siteRoot=new URL('./',location.href);
- const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index.html','index1.htm','index 2.html','index3.html'])));
+ const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index.html','index1.htm','home-02-matrix.html','home-03-catalogo.html'])));
  let pageCursor=0,read=0,fetchFailures=[],refs=new Map(),externalSkipped=0;
  function collectRef(source,raw,el,base){
   if(!raw||/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(raw))return;
