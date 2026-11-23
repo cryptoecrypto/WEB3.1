@@ -1,12 +1,12 @@
-/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.3
- * Percorre todos os caminhos HTML/HTM do índice oficial e documentos técnicos selecionados.
+/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.4
+ * Percorre todos os caminhos HTML/HTM do índice oficial e somente materiais públicos e didáticos aprovados; memórias, manifestos e configuração privada ficam fora.
  * Extrai texto visível e metadados, mantém o conteúdo integral (sem corte de caracteres)
  * e grava no IndexedDB deste navegador. Recuperação textual; não treina rede neural.
- * Não acessa carteiras/chaves, não envia conteúdo a terceiros e não altera arquivos-fonte.
+ * Não indexa memórias pessoais, backups, credenciais ou configuração privada; não envia conteúdo a terceiros e não altera arquivos-fonte.
  */
 (function () {
   "use strict";
-  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.3") return;
+  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.4") return;
 
   var script = document.currentScript;
   var root = new URL("../../", script && script.src ? script.src : document.baseURI);
@@ -14,26 +14,21 @@
   var dbName = "crypy_baby_knowledge_v1";
   var storeName = "documents";
   var fixedFiles = [
-    "crypy-news/hd-matriz/ABECEDARIO-BINARIO-BABY-IA.txt",
+    "crypy-academy/cursos/fontes/ABECEDARIO-BINARIO-BABY-IA.txt",
     "crypy-academy/cursos/fontes/GUIA-MANUTENCAO-DESIGN-AGENTES-001.md",
+    "crypy-academy/cursos/fontes/CRYPY-COLMEIA-BASE-CONHECIMENTO-001.md",
+    "crypy-academy/cursos/fontes/CURSO-EDICAO-IMAGEM-VIDEO-PHD-001.md",
+    "crypy-academy/cursos/fontes/TERMINAL-CENTRAL-README.md",
+    "crypy-academy/cursos/fontes/CRYPY-SERVER-README.md",
+    "crypy-academy/cursos/fontes/GUIA-PLUGINS-CRYPY.txt",
+    "crypy-academy/cursos/fontes/GUIA-SEGURANCA-DIGITAL-CRYPY.md",
+    "crypy-academy/cursos/GRADE-CURRICULAR-CRYPY-ACADEMY-001.md",
+    "crypy-academy/cursos/POLITICA-CERTIFICADO-PARTICIPACAO-001.md",
+    "crypy-academy/cursos/catalogo-cursos.json",
+    "web3.1/auto-config-baby.txt",
+    "web3.1/instruncao.txt",
     "assets/data/crypy-design-calendar.json",
-    "assets/js/crypy-dynamic-design.js",
-    "crypy-news/hd-matriz/CURSO-EDICAO-IMAGEM-VIDEO-PHD-001.md",
-    "crypy-news/hd-matriz/CRYPY-RENDA-PASSIVA-001.md",
-    "crypy-news/hd-matriz/Memorias.json",
-    "crypy-news/hd-matriz/Manifest.json",
-    "baby-core.js",
-    "baby-bridge.js",
-    "baby-server-bridge.js",
-    "assets/js/baby-global-chat.js",
-    "assets/js/crypy-global-nav.js",
-    "assets/js/crypy-page-assistant.js",
-    "CRYPY-13-CHATBOOTS/config/agents.json",
-    "CRYPY-13-CHATBOOTS/architecture/colmeia-architecture.md",
-    "CRYPY-13-CHATBOOTS/shared-memory/memory-contract.json",
-    "CRYPY-13-CHATBOOTS/baby-core/orchestrator.js",
-    "CRYPY-13-CHATBOOTS/collaboration-bus.js",
-    "CRYPY-13-CHATBOOTS/world-clock.js"
+    "assets/js/crypy-dynamic-design.js"
   ];
 
   var memoryDocs = [];
@@ -196,7 +191,7 @@
 
   function snapshot() {
     return {
-      version: "1.3", state: progress.state, indexedThisRun: progress.indexed,
+      version: "1.4", state: progress.state, indexedThisRun: progress.indexed,
       done: progress.done, total: progress.total, sourceTotal: progress.sourceTotal,
       fixedTotal: progress.fixedTotal, errors: progress.errors, chars: progress.chars,
       updatedAt: progress.updatedAt, failures: failures.slice(), error: progress.error || null
@@ -235,7 +230,7 @@
     });
   }
 
-  window.BabyKnowledge = { version: "1.3", sync: sync, search: search, status: status };
+  window.BabyKnowledge = { version: "1.4", sync: sync, search: search, status: status };
   function mount() {
     if (!document.body || document.getElementById("baby-knowledge-sync")) return;
     var b = document.createElement("button");
