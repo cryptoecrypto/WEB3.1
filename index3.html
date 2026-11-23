@@ -63,23 +63,60 @@ nav#main-menu button:hover,nav#main-menu button:focus-visible{background:linear-
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 </style>
-<style id="crypy-home-return-style">.crypy-home-return{position:fixed;top:12px;left:12px;z-index:2147483001;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border:1px solid #00ff88;border-radius:999px;background:#020b06;color:#00ff88;text-decoration:none;font:800 11px Arial,sans-serif;box-shadow:0 0 16px #00ff8833}.crypy-home-return:focus-visible,.crypy-home-return:hover{background:#00ff88;color:#001b0c;outline:none}@media(max-width:600px){.crypy-home-return{top:9px;left:9px;padding:9px 11px;font-size:10px}}</style>
+<style id="crypy-home-return-style">.crypy-home-return{position:fixed;top:12px;left:12px;z-index:2147483001;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border:1px solid #00ff88;border-radius:999px;background:#020b06;color:#00ff88;text-decoration:none;font:800 11px Arial,sans-serif;box-shadow:0 0 16px #00ff8833}.crypy-home-return:focus-visible,.crypy-home-return:hover{background:#00ff88;color:#001b0c;outline:none}@media(max-width:600px){.crypy-home-return{top:9px;left:9px;padding:9px 11px;font-size:10px}}
+/* Menu oficial compartilhado e navegação entre as cinco páginas */
+.crypy-official-menu{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;padding:12px;background:#020805;border-bottom:1px solid #16472b}
+.crypy-official-menu a{display:flex;align-items:center;justify-content:center;min-height:39px;padding:7px 8px;border:1px solid #16462b;border-radius:9px;background:#04140b;color:#dfffea;text-align:center;text-decoration:none;font-size:10px;font-weight:900;letter-spacing:.04em}
+.crypy-official-menu a:hover,.crypy-official-menu a:focus-visible{background:#00ff88;border-color:#00ff88;color:#001b0c;outline:none}
+.crypy-filter-label{margin:0;padding:10px 14px 0;color:#00ff88;background:#020805;font-size:10px;font-weight:900;letter-spacing:.15em}
+#main-menu{background:#020805!important;border-bottom:1px solid #16472b!important}
+#main-menu button{background:#04140b!important;border:1px solid #16462b!important;color:#dfffea!important;box-shadow:none!important}
+#main-menu button:hover,#main-menu button:focus-visible,#main-menu button[aria-pressed="true"]{background:#00ff88!important;border-color:#00ff88!important;color:#001b0c!important;transform:none!important}
+.crypy-page-switcher-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:#020805;border-bottom:1px solid #16472b}
+.crypy-page-switcher-label{color:#00ff88;font-size:9px;font-weight:900;letter-spacing:.16em}
+.crypy-page-switcher{display:flex;flex-wrap:wrap;gap:6px}
+.crypy-page-switcher a{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:6px 11px;border:1px solid #16462b;border-radius:999px;background:#04140b;color:#dfffea;text-decoration:none;font-size:9px;font-weight:900;letter-spacing:.08em}
+.crypy-page-switcher a:hover,.crypy-page-switcher a:focus-visible,.crypy-page-switcher a[aria-current="page"]{background:#00ff88;border-color:#00ff88;color:#001b0c;outline:none}
+.crypy-page-switcher-bottom{border-top:1px solid rgba(0,255,136,.2);border-bottom:0}
+@media(max-width:760px){.crypy-official-menu{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:9px}.crypy-official-menu a{font-size:9px;min-height:42px}}
+@media(max-width:600px){.crypy-official-menu{grid-template-columns:repeat(2,minmax(0,1fr))}.crypy-page-switcher-wrap{align-items:flex-start;flex-direction:column;gap:7px}.crypy-page-switcher{width:100%}.crypy-page-switcher a{flex:1 1 auto}}
+</style>
 </head>
 <body>
 <a class="crypy-home-return" href="./index.html" aria-label="Voltar à Home principal da Colmeia">♾️ HOME PRINCIPAL</a>
-<nav id="main-menu" aria-label="Menu principal CRYPY">
-<button type="button" data-theme="infinyt">CRYPY INFINYT</button>
-<button type="button" data-theme="nft">NFT-COLLECTION</button>
+<nav class="crypy-official-menu" aria-label="Navegação principal — 13 categorias oficiais">
+ <a href="./crypy-infinyt/portal.html">CRYPY-INFINIT</a>
+ <a href="./crypy-academy/academia.html">CRYPY-ACADEMY</a>
+ <a href="./esquadrao-das-cores/esquadrao.html">ESQUADRÃO DAS CORES</a>
+ <a href="./nft-collection/galeria.html">NFT-COLLECTION</a>
+ <a href="./biografia/historia.html">BIOGRAFIA</a>
+ <a href="./crypy-news/index.html">CRYPY-NEWS</a>
+ <a href="./crypy-news/museu.html">MUSEU DIGITAL</a>
+ <a href="./art-figure-marketplace/marketplace.html">MARKETPLACE</a>
+ <a href="./crypy-games-desafios/crypy-games-desafios.html">CRYPY-GAMES</a>
+ <a href="./social-crypykut/comunidade.html">CRYPYKUT</a>
+ <a href="./crypy-coin/Crypy-Coin.html">CRYPY-COIN</a>
+ <a href="./contato/contato-oficial.html">CONTATO</a>
+ <a href="./crypy-coin/white-paper.html">WHITE PAPER</a>
+ <a href="#catalog">CONTEÚDOS</a>
+</nav>
+<div class="crypy-page-switcher-wrap"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html" aria-current="page">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html">INDEX5</a></nav></div>
+<p class="crypy-filter-label">FILTRAR CONTEÚDOS POR CATEGORIA</p>
+<nav id="main-menu" aria-label="Filtros de conteúdo por categoria">
+<button type="button" data-theme="infinyt">CRYPY-INFINIT</button>
+<button type="button" data-theme="academy">CRYPY-ACADEMY</button>
 <button type="button" data-theme="squad">ESQUADRÃO DAS CORES</button>
-<button type="button" data-theme="academy">CRYPY ACADEMY-WEB3.1</button>
+<button type="button" data-theme="nft">NFT-COLLECTION</button>
 <button type="button" data-theme="bio">BIOGRAFIA</button>
+<button type="button" data-theme="news">CRYPY-NEWS</button>
 <button type="button" data-theme="museum">MUSEU DIGITAL</button>
-<button type="button" data-theme="art">ART-FIGURE / MARKETPLACE</button>
-<button type="button" data-theme="games">CRYPY GAMES-DESAFIO</button>
-<button type="button" data-theme="social">SOCIAL-CRYPYKUT</button>
-<button type="button" data-theme="baby">BABY I.A.</button>
-<button type="button" data-theme="whitepaper">WHITE PAPER</button>
+<button type="button" data-theme="market">MARKETPLACE</button>
+<button type="button" data-theme="games">CRYPY-GAMES</button>
+<button type="button" data-theme="social">CRYPYKUT</button>
+<button type="button" data-theme="coin">CRYPY-COIN</button>
 <button type="button" data-theme="contact">CONTATO</button>
+<button type="button" data-theme="whitepaper">WHITE PAPER</button>
+<button type="button" data-theme="baby">BABY I.A. · APOIO</button>
 <button type="button" data-map>MAPA DA COLMEIA</button>
 </nav>
 <main id="workspace">
@@ -98,18 +135,20 @@ nav#main-menu button:hover,nav#main-menu button:focus-visible{background:linear-
 'use strict';
 const INDEX_URL='./assets/data/crypy-page-index.json';
 const themes={
-infinyt:{label:'CRYPY INFINYT',groups:['crypy-infinyt','marketing']},
-nft:{label:'NFT-COLLECTION',groups:['nft-collection']},
+infinyt:{label:'CRYPY-INFINIT',groups:['crypy-infinyt']},
+academy:{label:'CRYPY-ACADEMY',groups:['crypy-academy','web3.1']},
 squad:{label:'ESQUADRÃO DAS CORES',groups:['esquadrao-das-cores']},
-academy:{label:'CRYPY ACADEMY-WEB3.1',groups:['crypy-academy','web3.1']},
+nft:{label:'NFT-COLLECTION',groups:['nft-collection']},
 bio:{label:'BIOGRAFIA',groups:['biografia']},
-museum:{label:'MUSEU DIGITAL',groups:['crypy-news']},
-art:{label:'ART-FIGURE / MARKETPLACE',groups:['art-figure-marketplace']},
-games:{label:'CRYPY GAMES-DESAFIO',groups:['crypy-games-desafios']},
-social:{label:'SOCIAL-CRYPYKUT',groups:['social-crypykut']},
-baby:{label:'BABY I.A.',groups:['RAIZ','baby-ia','memory-boost','padrao','pluguin','sincronizacao']},
-whitepaper:{label:'WHITE PAPER',groups:['crypy-coin']},
-contact:{label:'CONTATO',groups:['contato']}
+news:{label:'CRYPY-NEWS',groups:['crypy-news'],paths:['crypy-news/index.html']},
+museum:{label:'MUSEU DIGITAL',groups:['crypy-news'],paths:['crypy-news/museu.html']},
+market:{label:'MARKETPLACE',groups:['art-figure-marketplace','marketing']},
+games:{label:'CRYPY-GAMES',groups:['crypy-games-desafios']},
+social:{label:'CRYPYKUT',groups:['social-crypykut']},
+coin:{label:'CRYPY-COIN',groups:['crypy-coin'],paths:['crypy-coin/Crypy-Coin.html']},
+contact:{label:'CONTATO',groups:['contato']},
+whitepaper:{label:'WHITE PAPER',groups:['crypy-coin'],paths:['crypy-coin/white-paper.html']},
+baby:{label:'BABY I.A. · APOIO',groups:['RAIZ','baby-ia','memory-boost','padrao','pluguin','sincronizacao']}
 };
 let pages=[];
 const status=document.getElementById('status');
@@ -122,9 +161,10 @@ function isPublicPage(path){
  const internal=/^(chatboot-baby-ia|hd-baby-ia|hd-babyia|hd-memory|health|pluguin|pluguins-tuto|relogio-mundial|baby-ia-agente|baby-ia-conectado|baby-agente-cons|auto-config|esquadrao-auto-config)\.html?$/.test(file);
  return !internal&&!/^index\.html?$/.test(file);
 }
+function matchesTheme(page,theme){return theme.groups.includes(page.group)&&(!theme.paths||theme.paths.includes(page.path));}
 function openTheme(key){
 const theme=themes[key];if(!theme)return;
-const selected=pages.filter(p=>theme.groups.includes(p.group)&&isPublicPage(p.path)&&safePath(p.path)).sort((a,b)=>(a.label||a.path).localeCompare(b.label||b.path,'pt-BR'));
+const selected=pages.filter(p=>matchesTheme(p,theme)&&isPublicPage(p.path)&&safePath(p.path)).sort((a,b)=>(a.label||a.path).localeCompare(b.label||b.path,'pt-BR'));
 document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.theme===key)));
 viewer.style.display='none';viewer.removeAttribute('src');catalog.style.display='block';
 document.querySelector('#catalog h1').textContent=theme.label;
@@ -144,13 +184,13 @@ fetch(INDEX_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.
 if(!Array.isArray(data.pages))throw new Error('Formato de índice inválido');
 pages=data.pages.filter(p=>p&&safePath(p.path)&&p.group);
 Object.entries(themes).forEach(([key,theme])=>{
-const count=pages.filter(p=>theme.groups.includes(p.group)&&isPublicPage(p.path)).length;
+const count=pages.filter(p=>matchesTheme(p,theme)&&isPublicPage(p.path)).length;
 const button=document.querySelector('[data-theme="'+key+'"]');
 const small=document.createElement('small');small.textContent=count+' páginas';button.append(small);
 });
 const assigned=Object.values(themes).reduce((n,t)=>n+pages.filter(p=>t.groups.includes(p.group)).length,0);
 const unassigned=pages.filter(p=>!Object.values(themes).some(t=>t.groups.includes(p.group))).length;
-status.textContent='PORTAL CRYPY ATIVO · 12 ÁREAS · conteúdo técnico e arquivos internos preservados fora da navegação pública · índice v'+(data.version||'?');
+status.textContent='PORTAL CRYPY ATIVO · 13 CATEGORIAS OFICIAIS + BABY I.A. DE APOIO · conteúdo técnico e arquivos internos preservados fora da navegação pública · índice v'+(data.version||'?');
 }).catch(err=>{status.textContent='Não foi possível carregar o índice oficial: '+err.message+'. Nenhuma lista foi inventada.';});
 })();
 </script>
@@ -199,7 +239,6 @@ status.textContent='PORTAL CRYPY ATIVO · 12 ÁREAS · conteúdo técnico e arqu
   });
 })();
 </script>
-
-<script defer src="assets/js/crypy-global-nav.js"></script>
+<div class="crypy-page-switcher-wrap crypy-page-switcher-bottom"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html" aria-current="page">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html">INDEX5</a></nav></div>
 </body>
 </html>
