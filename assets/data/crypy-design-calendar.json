@@ -1,0 +1,259 @@
+{
+  "version": "1.0.0",
+  "status": "configuracao_visual_documentada",
+  "monthlyThemes": [
+    {
+      "month": 1,
+      "name": "AURORA",
+      "layout": "aurora",
+      "background": "#050b16",
+      "panel": "#101d35",
+      "accent": "#55f5c7",
+      "accent2": "#5b9dff",
+      "accent3": "#f6a6ff",
+      "glow": "#55f5c7"
+    },
+    {
+      "month": 2,
+      "name": "PULSE",
+      "layout": "pulse",
+      "background": "#130613",
+      "panel": "#250d29",
+      "accent": "#ff4fa3",
+      "accent2": "#8e5bff",
+      "accent3": "#ffc2e5",
+      "glow": "#ff4fa3"
+    },
+    {
+      "month": 3,
+      "name": "CYBER",
+      "layout": "cyber",
+      "background": "#030b0b",
+      "panel": "#08201d",
+      "accent": "#00ffc8",
+      "accent2": "#00a8ff",
+      "accent3": "#d6ff4f",
+      "glow": "#00ffc8"
+    },
+    {
+      "month": 4,
+      "name": "PRISM",
+      "layout": "prism",
+      "background": "#0b0717",
+      "panel": "#1b1231",
+      "accent": "#a78bfa",
+      "accent2": "#4de7ff",
+      "accent3": "#ff75cf",
+      "glow": "#a78bfa"
+    },
+    {
+      "month": 5,
+      "name": "OCEAN",
+      "layout": "ocean",
+      "background": "#03101b",
+      "panel": "#09243a",
+      "accent": "#39d8ff",
+      "accent2": "#287cff",
+      "accent3": "#70ffd0",
+      "glow": "#39d8ff"
+    },
+    {
+      "month": 6,
+      "name": "SOLAR",
+      "layout": "solar",
+      "background": "#130d03",
+      "panel": "#2b1b08",
+      "accent": "#ffca55",
+      "accent2": "#ff7b45",
+      "accent3": "#fff19a",
+      "glow": "#ffca55"
+    },
+    {
+      "month": 7,
+      "name": "NEON",
+      "layout": "neon",
+      "background": "#080515",
+      "panel": "#170d2b",
+      "accent": "#d56bff",
+      "accent2": "#55f5ff",
+      "accent3": "#ff5c8a",
+      "glow": "#d56bff"
+    },
+    {
+      "month": 8,
+      "name": "QUANTUM",
+      "layout": "quantum",
+      "background": "#050914",
+      "panel": "#101a2b",
+      "accent": "#80ff70",
+      "accent2": "#4aa8ff",
+      "accent3": "#e7ff75",
+      "glow": "#80ff70"
+    },
+    {
+      "month": 9,
+      "name": "MATRIX",
+      "layout": "matrix",
+      "background": "#020a06",
+      "panel": "#071a10",
+      "accent": "#00ff88",
+      "accent2": "#45e5a2",
+      "accent3": "#d5ff6e",
+      "glow": "#00ff88"
+    },
+    {
+      "month": 10,
+      "name": "EMBER",
+      "layout": "ember",
+      "background": "#120704",
+      "panel": "#2a100a",
+      "accent": "#ff7147",
+      "accent2": "#ffb347",
+      "accent3": "#ff4f7a",
+      "glow": "#ff7147"
+    },
+    {
+      "month": 11,
+      "name": "GALAXY",
+      "layout": "galaxy",
+      "background": "#080617",
+      "panel": "#17112f",
+      "accent": "#72a7ff",
+      "accent2": "#d28cff",
+      "accent3": "#6fffe2",
+      "glow": "#72a7ff"
+    },
+    {
+      "month": 12,
+      "name": "CRYSTAL",
+      "layout": "crystal",
+      "background": "#061016",
+      "panel": "#102733",
+      "accent": "#a7f4ff",
+      "accent2": "#8da9ff",
+      "accent3": "#ffffff",
+      "glow": "#a7f4ff"
+    }
+  ],
+  "dailySkins": [
+    {
+      "name": "RUBI",
+      "accent": "#ff456b",
+      "accent2": "#ff9b55",
+      "accent3": "#ffd166",
+      "effect": "edge"
+    },
+    {
+      "name": "ESMERALDA",
+      "accent": "#00ff88",
+      "accent2": "#48e5b5",
+      "accent3": "#d4ff73",
+      "effect": "glow"
+    },
+    {
+      "name": "SAFIRA",
+      "accent": "#399cff",
+      "accent2": "#57e4ff",
+      "accent3": "#a3c7ff",
+      "effect": "glass"
+    },
+    {
+      "name": "AMETISTA",
+      "accent": "#bd75ff",
+      "accent2": "#ff78d2",
+      "accent3": "#8b8dff",
+      "effect": "holo"
+    },
+    {
+      "name": "SOL",
+      "accent": "#ffc247",
+      "accent2": "#ff7a42",
+      "accent3": "#fff0a6",
+      "effect": "wave"
+    },
+    {
+      "name": "TURQUESA",
+      "accent": "#26e0d0",
+      "accent2": "#42aaff",
+      "accent3": "#b1fff5",
+      "effect": "grid"
+    },
+    {
+      "name": "ARCO-ÍRIS",
+      "accent": "#ff5bce",
+      "accent2": "#56d9ff",
+      "accent3": "#8dff9e",
+      "effect": "prism"
+    }
+  ],
+  "dailyMessages": [
+    {
+      "phrase": "A harmonia nasce quando cada função respeita a outra.",
+      "idea": "Transforme uma área do site em uma experiência guiada de três passos.",
+      "tip": "Antes de editar, registre o caminho, a versão e o objetivo do arquivo."
+    },
+    {
+      "phrase": "NEXUS conecta; Sensei conduz.",
+      "idea": "Crie um cartão que explique como uma das 13 áreas se conecta às outras.",
+      "tip": "Teste a página em tela pequena e grande antes de publicar."
+    },
+    {
+      "phrase": "Preservar é permitir que o futuro continue.",
+      "idea": "Adicione uma linha do tempo visual a uma página histórica.",
+      "tip": "Nunca edite a HD MATRIZ como se fosse uma pasta de rascunhos."
+    },
+    {
+      "phrase": "Uma boa interface ensina antes mesmo de alguém perguntar.",
+      "idea": "Converta um texto longo em cartões com títulos, exemplos e próximos passos.",
+      "tip": "Mantenha contraste forte e fontes legíveis; animação não deve atrapalhar leitura."
+    },
+    {
+      "phrase": "Criatividade com método vira construção.",
+      "idea": "Experimente uma capa sazonal sem mudar a estrutura ou os endereços da página.",
+      "tip": "Prefira variáveis CSS compartilhadas a copiar estilos em dezenas de HTMLs."
+    },
+    {
+      "phrase": "O detalhe também merece auditoria.",
+      "idea": "Inclua uma pequena seção 'O que mudou hoje' com data e versão.",
+      "tip": "Confirme os links internos e a navegação por teclado."
+    },
+    {
+      "phrase": "Cor é linguagem; equilíbrio é arquitetura.",
+      "idea": "Use uma cor de destaque por função e mantenha o restante da paleta em equilíbrio.",
+      "tip": "Evite depender apenas da cor para transmitir estados: use texto e ícones."
+    },
+    {
+      "phrase": "Não confunda movimento com progresso.",
+      "idea": "Crie uma demonstração interativa que permita comparar duas versões de um recurso.",
+      "tip": "Respeite prefers-reduced-motion e não use animações excessivas."
+    },
+    {
+      "phrase": "O conhecimento fica mais forte quando tem fonte.",
+      "idea": "Transforme uma pergunta recorrente em um mini-guia com exemplos reais.",
+      "tip": "Toda afirmação técnica deve indicar se é documentada, testada ou apenas planejada."
+    },
+    {
+      "phrase": "Primeiro proteger. Depois aprimorar. Por fim, publicar.",
+      "idea": "Crie uma prévia visual antes de substituir qualquer conteúdo público.",
+      "tip": "Faça backup verificável antes de alterações amplas."
+    },
+    {
+      "phrase": "Pequenas melhorias diárias constroem grandes sistemas.",
+      "idea": "Melhore uma única interação por dia e registre o resultado.",
+      "tip": "Não remova funcionalidades existentes para simplificar uma página sem autorização."
+    },
+    {
+      "phrase": "O futuro é construído com evidências no presente.",
+      "idea": "Mostre o estado de cada módulo: planejado, implementado, testado ou aprovado.",
+      "tip": "Nunca declare sincronização ou homologação sem evidência reproduzível."
+    }
+  ],
+  "governance": {
+    "monthlyChange": "automatic_visual_theme_only",
+    "dailyChange": "automatic_visual_skin_and_daily_message",
+    "contentMutation": "requires_explicit_approval",
+    "sourceFiles": "read_only_by_default",
+    "reducedMotion": "required",
+    "timezone": "browser_local_date"
+  }
+}
