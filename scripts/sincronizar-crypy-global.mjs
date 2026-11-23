@@ -16,6 +16,15 @@ const serviceEntrypoints = new Set([
 const navAsset = "assets/js/crypy-global-nav.js";
 const indexPath = path.join(root,"assets","data","crypy-page-index.json");
 
+function isPrivatePublicPath(file) {
+  return /^CRYPY-13-CHATBOOTS\\//i.test(file)
+    || /^crypy-server-bridge\\//i.test(file)
+    || /(^|\\/)(baby-ia|memory-boost|momory-boost|pluguin|sincronizacao|hd-oculto|hd-matriz)(\\/|$)/i.test(file)
+    || /(^|\\/)(Memorias\\.json|memory[^/]*\\.json|Fila-Sync\\.json|Manifest\\.json|auto-config[^/]*|autoconfig[^/]*)$/i.test(file)
+    || /(^|\\/)(hd-baby-ia|hd-memory|baby-ia-agente|baby-ia-conectado)\\.html$/i.test(file)
+    || /(^|\\/)profile\\.json$/i.test(file);
+}
+
 function walk(dir,out=[]) {
   for (const entry of fs.readdirSync(dir,{withFileTypes:true})) {
     if (entry.isDirectory()) {
@@ -32,7 +41,7 @@ function label(file) {
     : base.replace(/[-_]+/g," ").replace(/\b\w/g,c=>c.toLocaleUpperCase("pt-BR"));
 }
 
-const files=walk(root).sort();
+const files=walk(root).filter(file=>!isPrivatePublicPath(file)).sort();
 const pages=[];
 let updated=0,planned=0,already=0,preserved=0,invalid=0,excluded=0;
 for(const file of files) {
