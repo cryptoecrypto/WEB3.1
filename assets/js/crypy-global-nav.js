@@ -161,7 +161,9 @@
     var panel = node("section",{id:"crypy-global-nav-panel","data-open":"false","aria-label":"Menu global CRYPY"});
     var head = node("div",{className:"crypy-nav-head"});
     head.appendChild(node("div",{className:"crypy-nav-title"},"COLMEIA CRYPY"));
-    head.appendChild(node("div",{className:"crypy-nav-subtitle"},"13 categorias oficiais · páginas conectadas por área"));\n    var catalogLink=node("a",{className:"crypy-nav-catalog-link",href:new URL("index3.html",siteRoot).href},"ABRIR CATÁLOGO COMPLETO ↗");\n    head.appendChild(catalogLink);
+    head.appendChild(node("div",{className:"crypy-nav-subtitle"},"13 categorias oficiais · páginas conectadas por área"));
+    var catalogLink=node("a",{className:"crypy-nav-catalog-link",href:new URL("index3.html",siteRoot).href},"ABRIR CATÁLOGO COMPLETO ↗");
+    head.appendChild(catalogLink);
     var searchWrap = node("div",{className:"crypy-nav-search"});
     var search = node("input",{type:"search",placeholder:"Buscar página nas 13 categorias…","aria-label":"Buscar páginas"});
     var count = node("div",{className:"crypy-nav-count"},"Carregando índice de páginas…");
