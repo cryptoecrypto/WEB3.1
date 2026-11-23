@@ -70,6 +70,8 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
  <div class="cx-panel-head"><h1>CRYPY · COLMEIA WEB3.1</h1><button type="button" id="cx-close" aria-label="Fechar navegação">✕</button></div>
  <button class="cx-home-btn" type="button" id="cx-home-panel">♾️ VOLTAR À HOME DO QUARTETO</button>
  <div class="cx-tools">
+  <button type="button" id="cx-mode-matrix">HOME MATRIX · DRAGÃO</button>
+  <button type="button" id="cx-mode-catalog">CATÁLOGO DA COLMEIA</button>
   <button type="button" id="cx-map">ABRIR MAPA DA COLMEIA</button>
   <button type="button" id="cx-all">TODAS AS PÁGINAS</button>
  </div>
@@ -161,6 +163,8 @@ document.getElementById('cx-open').addEventListener('click',()=>showPanel(!panel
 document.getElementById('cx-close').addEventListener('click',()=>showPanel(false));
 document.getElementById('cx-home').addEventListener('click',home);
 document.getElementById('cx-home-panel').addEventListener('click',home);
+document.getElementById('cx-mode-matrix').addEventListener('click',()=>{status.textContent='MODO MATRIX · DRAGÃO — conteúdo original da HOME 2.';go('index 2.html');});
+document.getElementById('cx-mode-catalog').addEventListener('click',()=>{status.textContent='CATÁLOGO DA COLMEIA — conteúdo original da HOME 3.';go('index3.html');});
 document.getElementById('cx-map').addEventListener('click',()=>go('mapa-colmeia.html'));
 document.getElementById('cx-all').addEventListener('click',()=>{activeKey='all';document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));render();});
 function render(){
@@ -222,6 +226,7 @@ function installFrameBridge(){
  try{
   const d=frame.contentDocument;if(!d||d.__crypyRootBridge)return;
   d.__crypyRootBridge=true;
+  const shellStyle=d.createElement('style');shellStyle.textContent='#baby-knowledge-sync,#crypy-music{display:none!important}';d.head.appendChild(shellStyle);
   d.addEventListener('click',async e=>{
    const eye=e.target&&e.target.closest&&e.target.closest('#baby-olho-interativo, #babyOlho, .baby-olho');
    if(eye){e.preventDefault();e.stopImmediatePropagation();openBaby();return;}
