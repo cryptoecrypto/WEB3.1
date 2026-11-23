@@ -40,11 +40,14 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
   #chatBox{left:auto;width:360px}
   #barra{left:50%;transform:translateX(-50%);width:520px}
 }
+
+#colmeia-console{margin:8px 12px 10px;padding:10px;border:1px solid #145c38;border-radius:14px;background:#020b06;color:#d9ffea}#colmeia-console .cc-head{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:#00ff88}#colmeia-console .cc-note{font-size:10px;color:#a4cbb5;margin:5px 0 8px}#colmeia-agents{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}#colmeia-agents span{font-size:10px;border:1px solid #145c38;border-radius:999px;padding:4px 7px;color:#c8ffe2}#baby-world-clock{border-top:1px solid #145c38;padding-top:8px}.baby-world-clock-head{font-size:11px;color:#00ff88;margin-bottom:7px;font-weight:800}.baby-world-clock-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.baby-clock-card{min-width:0;border:1px solid #123b27;border-radius:9px;padding:6px;background:#04140b;display:flex;flex-direction:column;gap:2px}.baby-clock-card b{font-size:9px;color:#a9eac4;overflow-wrap:anywhere}.baby-clock-card strong{font-size:16px;color:#00ff88;font-variant-numeric:tabular-nums}.baby-clock-card small{font-size:8px;color:#9cb9a7;overflow-wrap:anywhere}@media(max-width:420px){.baby-world-clock-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 </style>
 </head>
 <body>
 <div id="topo"><div class="logo">B</div><div><b>BABY I.A</b><span>● Online • Aprendendo com você</span></div></div>
-<div id="status">✅ Carregou. Pode falar com ele.</div>
+<div id="status">Carregando BABY e a Colmeia…</div>
+<section id="colmeia-console" aria-label="Conexão da Colmeia"><div class="cc-head"><b>🐝 COLMEIA CRYPY · 13 PERFIS</b><span id="colmeia-status">INICIALIZANDO</span></div><div class="cc-note" id="colmeia-note">Perfis e encaminhamento local. Modelos generativos externos dependem de backend e credenciais.</div><div id="colmeia-agents"></div><div id="baby-world-clock"></div></section>
 <div id="espelho"></div>
 <div id="msgs"></div>
 
@@ -59,7 +62,10 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 
 <script src="CRYPY-13-CHATBOOTS/baby-core/orchestrator.js"></script>
 <script src="CRYPY-13-CHATBOOTS/baby-core/browser-adapter.js"></script>
+<script src="CRYPY-13-CHATBOOTS/collaboration-bus.js"></script>
+<script src="CRYPY-13-CHATBOOTS/world-clock.js"></script>
 <script src="assets/js/baby-knowledge-sync.js"></script>
+<script>(function(){ "use strict"; var status=document.getElementById("colmeia-status"),note=document.getElementById("colmeia-note"),list=document.getElementById("colmeia-agents"); function start(){var api=window.CRPYColmeia;if(!api||api.state!=="pronto"||!window.CRPYColmeiaBus||!window.BABYWorldClock){if(status)status.textContent="AGUARDANDO COMPONENTES";return;}var profiles=api.list();window.CRPYColmeiaBusInstance=window.CRPYColmeiaBus.createBus({agents:profiles});if(list){list.textContent="";profiles.forEach(function(p){var tag=document.createElement("span");tag.textContent=p.name+" · perfil";tag.title=p.role;list.appendChild(tag);});}var s=window.CRPYColmeiaBusInstance.status();if(status)status.textContent=s.connectedProfiles+"/13 PERFIS NO BARRAMENTO";if(note)note.textContent="Barramento local ativo; distribuição lógica para os 13 perfis. Modelos independentes: "+s.modelEndpointsConnected+"/13 conectados. Perfil carregado não significa IA generativa ativa.";var clock=document.getElementById("baby-world-clock");if(clock&&!clock.dataset.mounted){window.BABYWorldClock.mount(clock);clock.dataset.mounted="1";}window.dispatchEvent(new CustomEvent("crypy:colmeia:ready",{detail:s}));}if(window.CRPYColmeia&&window.CRPYColmeia.ready)window.CRPYColmeia.ready.then(start);else window.addEventListener("load",start,{once:true});})();</script>
 <script>
 var msgsEl=document.getElementById("msgs");
 var chatMsgs=document.getElementById("chatMsgs");
@@ -108,6 +114,7 @@ function enviar(){
         route=window.CRPYColmeia.route(v);
       }
       var knowledge=window.BabyKnowledge||(window.parent!==window?window.parent.BabyKnowledge:null);
+      var delivery=window.CRPYColmeiaBusInstance?window.CRPYColmeiaBusInstance.dispatch(v,route):null;
       var hits=knowledge?await knowledge.search(v,5):[];
       if(hits&&hits.length){
         r="Encontrei conhecimento documentado na base local da Colmeia. Estes são trechos recuperados, não uma resposta de modelo treinado:\n\n"+
@@ -116,6 +123,9 @@ function enviar(){
         r=raciocinar(v);
       }
     }catch(e){r=raciocinar(v);}
+    if(delivery){
+      r="COLMEIA · DISTRIBUIÇÃO INTERNA\\nEnvelope: "+delivery.id+"\\nPerfis notificados: "+delivery.recipientCount+"/13\\nEspecialista sugerido: "+delivery.primaryAgent+" · Revisor: "+delivery.reviewerId+"\\nInferência generativa externa: não conectada.\\n\\n"+r;
+    }
     if(route){
       var apoio=route.collaborators.map(function(a){return a.name;}).join(", ")||"nenhum adicional";
       r="COLMEIA · ENCAMINHAMENTO SUGERIDO\nBABY coordena · Especialista: "+route.primary.name+" · Apoio: "+apoio+

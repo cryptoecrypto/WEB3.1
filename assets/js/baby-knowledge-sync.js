@@ -28,7 +28,9 @@
     "CRYPY-13-CHATBOOTS/config/agents.json",
     "CRYPY-13-CHATBOOTS/architecture/colmeia-architecture.md",
     "CRYPY-13-CHATBOOTS/shared-memory/memory-contract.json",
-    "CRYPY-13-CHATBOOTS/baby-core/orchestrator.js"
+    "CRYPY-13-CHATBOOTS/baby-core/orchestrator.js",
+    "CRYPY-13-CHATBOOTS/collaboration-bus.js",
+    "CRYPY-13-CHATBOOTS/world-clock.js"
   ];
 
   var memoryDocs = [];

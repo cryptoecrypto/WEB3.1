@@ -41,3 +41,7 @@ Os perfis individuais estão em `chatboots/*/profile.json` e no catálogo `confi
 3. Conectar um provedor de modelo por adaptador seguro no backend.
 4. Implementar mensageria, sessões, autorização, memória por escopo e auditoria.
 5. Executar testes de segurança, integração, recuperação e qualidade antes de homologar.
+
+
+## Conexão geral — barramento local
+O BABY carrega os 13 perfis e distribui um envelope de tarefa para todos pelo `collaboration-bus.js`. Cada envelope registra destinatários, agente principal sugerido, colaboradores e revisor. Esta camada comprova distribuição lógica aos perfis; não comprova resposta de 13 LLMs. Modelos externos permanecem 0/13 até cada endpoint ser configurado, autenticado e testado. O relógio mundial usa fusos IANA via `Intl`, sem depender de API externa.
