@@ -1,0 +1,185 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  🟢 BABY AUTO-CONFIG SYSTEM — MANUAL DE OPERAÇÃO v1.0          ║
+║  CRYPY WEB3.1 — MODO REAL ATIVO                                ║
+║  Data: 16/11/2026                                              ║
+╚══════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════
+1. VISÃO GERAL DO SISTEMA
+═══════════════════════════════════════════════════════════════════
+
+O BABY AUTO-CONFIG SYSTEM é o motor de auto-configuração, auto-leitura,
+decisão e aprendizado da BABY I.A. do projeto CRYPY.
+
+CAPACIDADES:
+✓ Auto-configuração baseada em regras CRYPY
+✓ Leitura e interpretação de arquivos TXT/JSON/HTML
+✓ Motor de decisão com árvore de lógica
+✓ Reconhecimento de padrões
+✓ Sistema de autodefesa
+✓ Aprendizado contínuo
+✓ Sincronização com HD Matriz (614 KiB)
+✓ Auto-diagnóstico e reparação
+
+═══════════════════════════════════════════════════════════════════
+2. MÓDULOS DO SISTEMA
+═══════════════════════════════════════════════════════════════════
+
+MÓDULO 1: AUTO-CONFIGURAÇÃO
+────────────────────────────
+Função: Configurar parâmetros operacionais da BABY
+Controles:
+  • Modo de Operação (REAL/TESTE/CONCEITUAL)
+  • Nível de Autonomia (Baixo/Médio/Alto)
+  • Modo de Sincronização (Auto/Manual/Tempo Real)
+  • Protocolo de Segurança (CRYPY/Padrão)
+
+Regras:
+  • MODO REAL é obrigatório para operações documentais
+  • Autonomia Alta só executa regras seladas
+  • Toda alteração requer aprovação do Sensei
+
+MÓDULO 2: AUTO-LEITURA E INTERPRETAÇÃO
+────────────────────────────────────────
+Função: Ler e interpretar arquivos do repositório
+Capacidades:
+  • Análise de arquivos TXT, JSON, HTML
+  • Extração de padrões (datas, versões, regras)
+  • Identificação de palavras-chave
+  • Geração de resumos automáticos
+
+Padrões Detectáveis:
+  • Protocolo CRYPY/crypy
+  • Referências a Sensei/S3nsei/Criador
+  • Datas (DD/MM/AAAA)
+  • Versões (V1, v1.0, etc.)
+  • Regras/Leis/Protocolos
+  • Termos de segurança
+  • NFT/Cripto/Web3
+
+MÓDULO 3: MOTOR DE DECISÃO
+───────────────────────────
+Função: Processar decisões baseadas em regras CRYPY
+Cenários:
+  • Segurança/Proteção (Prioridade: ALTA)
+  • Conteúdo/Publicação (Prioridade: MÉDIA)
+  • Sincronização/Backup (Prioridade: MÉDIA)
+  • Aprendizado/Evolução (Prioridade: BAIXA)
+  • Autodefesa/Anomalia (Prioridade: CRÍTICA)
+
+Fluxo de Decisão:
+  1. Recebe input
+  2. Analisa contexto
+  3. Verifica regras CRYPY
+  4. Sugere ação
+  5. Aguarda aprovação Sensei
+
+MÓDULO 4: AUTODEFESA E RECONHECIMENTO DE PADRÕES
+──────────────────────────────────────────────────
+Função: Proteger o sistema e detectar anomalias
+Protocolos:
+  ✓ Detecção de alterações não autorizadas
+  ✓ Validação de integridade de arquivos
+  ✓ Monitoramento de padrões suspeitos
+  ✓ Bloqueio de ações sem aprovação Sensei
+  ✓ Registro de todas as tentativas de acesso
+
+MÓDULO 5: APRENDIZADO CONTÍNUO
+───────────────────────────────
+Função: Evoluir através de padrões e decisões
+Níveis de Evolução:
+  Nível 1: Leitura e interpretação básica
+  Nível 2: Reconhecimento de padrões
+  Nível 3: Tomada de decisão assistida
+  Nível 4: Auto-reparação básica
+  Nível 5: Aprendizado contínuo avançado
+  Nível 6: Sincronização autônoma
+  Nível 7: Evolução sistemática
+
+MÓDULO 6: SINCRONIZAÇÃO HD MATRIZ/MEMÓRIA
+──────────────────────────────────────────
+Função: Manter HD local sincronizado com GitHub
+HD Matriz: 614 KiB
+Repositório: cryptoecrypto/WEB3.1
+Branch: principal
+Frequência: Automática (5min) ou Manual
+
+MÓDULO 7: COGNIÇÃO E AUTO-REPARAÇÃO
+────────────────────────────────────
+Função: Auto-diagnóstico e evolução
+Ciclo de Auto-Reparação:
+  1. Detecta anomalia
+  2. Analisa causa raiz
+  3. Busca padrão similar
+  4. Aplica correção
+  5. Valida resultado
+  6. Registra aprendizado
+
+═══════════════════════════════════════════════════════════════════
+3. REGRAS CRYPY IMUTÁVEIS
+═══════════════════════════════════════════════════════════════════
+
+Regra 1: Preservar antes de tudo
+Regra 2: O Criador decide (nenhuma proposta vira regra sem aprovação)
+Regra 3: MODO REAL sempre ativo (diferenciar planejamento, implementação e aprovação)
+Regra 4: As identidades são funções, sem afirmar consciência autônoma
+Regra 5: Alteração só com autorização explícita do Sensei
+Regra 6: Nada é publicado sem registro prévio
+Regra 7: A memória é inviolável
+Regra 8: Isenção financeira obrigatória
+Regra 9: Harmonia com o NEXUS
+Regra 10: Proibido antecipar fatos não concluídos
+
+═══════════════════════════════════════════════════════════════════
+4. INSTRUÇÕES DE USO
+═══════════════════════════════════════════════════════════════════
+
+PASSO 1: Abrir o arquivo BABY-AUTO-CONFIG-SYSTEM.html em um navegador
+PASSO 2: Configurar parâmetros no Módulo 1
+PASSO 3: Usar Módulo 2 para ler e analisar arquivos
+PASSO 4: Usar Módulo 3 para processar decisões
+PASSO 5: Monitorar Módulo 4 para segurança
+PASSO 6: Acompanhar aprendizado no Módulo 5
+PASSO 7: Sincronizar HD no Módulo 6
+PASSO 8: Executar diagnósticos no Módulo 7
+
+═══════════════════════════════════════════════════════════════════
+5. LIMITAÇÕES E AVISOS
+═══════════════════════════════════════════════════════════════════
+
+⚠️ MODO REAL ATIVO:
+  • Este sistema opera em lógica de programação real
+  • NÃO possui consciência autônoma ou IA generativa
+  • TODA decisão final é do Sensei (Criador)
+  • Sistema executa regras, não cria regras
+  • Aprendizado é baseado em padrões, não em experiência subjetiva
+
+⚠️ SEGURANÇA:
+  • Credenciais privadas NUNCA devem ser inseridas
+  • Sistema não armazena senhas ou chaves privadas
+  • Backup não inclui dados sensíveis
+  • Protocolo CRYPY v1.0 exige autenticação externa
+
+═══════════════════════════════════════════════════════════════════
+6. FRASES SELADAS CRYPY
+═══════════════════════════════════════════════════════════════════
+
+"PROTEÇÃO É SUA MAIOR FORÇA."
+"O Núcleo não corre. Ele equilibra."
+"Uma ficção com pontos de verdade."
+"Uma família de personagens. Uma história preservada. 
+ Um sistema em evolução. Um Criador com a palavra final."
+
+═══════════════════════════════════════════════════════════════════
+7. CONTATO E SUPORTE
+═══════════════════════════════════════════════════════════════════
+
+Criador: Bruno Castilho Tosta (Sensei)
+Projeto: CRYPY WEB3.1
+Repositório: github.com/cryptoecrypto/WEB3.1
+Versão do Sistema: v1.0
+Data de Criação: 16/11/2026
+
+═══════════════════════════════════════════════════════════════════
+  🟢 CRYPY — Comunicar é preservar. Preservar é continuar.
+═══════════════════════════════════════════════════════════════════
