@@ -30,6 +30,7 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
+  var officialMenuPaths = ["crypy-infinyt/portal.html","crypy-academy/academia.html","esquadrao-das-cores/esquadrao.html","nft-collection/galeria.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","social-crypykut/comunidade.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
   var categories = [
     {label:"CRYPY-INFINIT", groups:["crypy-infinyt"]},
     {label:"CRYPY-ACADEMY", groups:["crypy-academy","web3.1"]},
@@ -127,7 +128,7 @@
     style.textContent = [
       "#crypy-global-navigation{position:fixed;top:14px;left:14px;right:auto;z-index:2147483002;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#eafff3}",
       "#crypy-global-navigation *{box-sizing:border-box}",
-      "#crypy-global-nav-toggle{display:flex;align-items:center;justify-content:center;gap:7px;min-width:48px;min-height:48px;border:2px solid #00ff88;border-radius:50%;padding:8px;background:#03130a;color:#00ff88;font-weight:900;font-size:20px;letter-spacing:0;box-shadow:0 0 18px #00ff8833;cursor:pointer}",
+      "#crypy-global-nav-toggle{display:flex;align-items:center;justify-content:center;gap:7px;min-width:48px;min-height:48px;border:2px solid #00ff88;border-radius:50%;padding:8px;background:#03130a;color:#00ff88;font-weight:900;font-size:20px;letter-spacing:0;box-shadow:0 0 18px #00ff8833,0 0 18px rgba(38,156,255,.18);cursor:pointer}",
       "#crypy-global-nav-toggle:focus-visible,#crypy-global-navigation a:focus-visible,#crypy-global-navigation button:focus-visible,#crypy-global-navigation input:focus-visible{outline:2px solid #fff;outline-offset:3px}",
       "#crypy-global-nav-panel{display:none;position:fixed;top:68px;left:14px;right:auto;width:min(460px,calc(100vw - 28px));max-height:calc(100dvh - 84px);overflow:hidden;border:1px solid #00ff88;border-radius:16px;background:#030a05;box-shadow:0 18px 60px #000b,0 0 24px #00ff8822}",
       "#crypy-global-nav-panel[data-open=true]{display:flex;flex-direction:column}",
@@ -162,8 +163,6 @@
     var head = node("div",{className:"crypy-nav-head"});
     head.appendChild(node("div",{className:"crypy-nav-title"},"COLMEIA CRYPY"));
     head.appendChild(node("div",{className:"crypy-nav-subtitle"},"13 categorias oficiais · páginas conectadas por área"));
-    var catalogLink=node("a",{className:"crypy-nav-catalog-link",href:new URL("index3.html",siteRoot).href},"ABRIR CATÁLOGO COMPLETO ↗");
-    head.appendChild(catalogLink);
     var searchWrap = node("div",{className:"crypy-nav-search"});
     var search = node("input",{type:"search",placeholder:"Buscar página nas 13 categorias…","aria-label":"Buscar páginas"});
     var count = node("div",{className:"crypy-nav-count"},"Carregando índice de páginas…");
@@ -200,7 +199,7 @@
       var matches = pages.filter(function(page){
         return !query || (page.label+" "+page.path+" "+page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = "Exibindo "+matches.length+" de "+pages.length+" páginas · 13 categorias oficiais";
+      count.textContent = "Exibindo "+matches.length+" de "+pages.length+" destinos oficiais · 13 categorias";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div",{className:"crypy-nav-empty"},"Nenhuma página encontrada. Tente outro termo."));
@@ -272,7 +271,7 @@
         if (isWorldClock) return String(page.path||"").toLowerCase()!=="relogio-mundial.html";
         return false;
       }
-      pages=indexedPages.filter(function(page){return !hiddenByMenuRule(page);});
+      pages=indexedPages.filter(function(page){return officialMenuPaths.indexOf(String(page.path||""))!==-1;});
       render();
     }).catch(function(){
       count.textContent="Não foi possível carregar o índice de páginas.";
