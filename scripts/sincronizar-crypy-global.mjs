@@ -49,7 +49,7 @@ function label(file) {
 }
 function isProtected(file) {
   const base=path.posix.basename(file).toLowerCase();
-  return protectedNames.has(base)||protectedPaths.some(pattern=>pattern.test(file));
+  return file==="index.html"||protectedNames.has(base)||protectedPaths.some(pattern=>pattern.test(file));
 }
 function isSensitive(file) {
   const base=path.posix.basename(file).toLowerCase();
