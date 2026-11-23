@@ -43,10 +43,10 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
 #cx-music-box p{color:var(--muted);font-size:10px;margin:7px 0 0}
 @media(max-width:520px){.cx-launcher{top:8px;right:8px}.cx-launcher button{padding:9px 11px;font-size:10px}#cx-panel{padding:14px}}
 
-#cx-baby-widget{position:fixed;z-index:999996;right:12px;bottom:12px}
+#cx-baby-widget{position:fixed;z-index:999996;right:12px;bottom:76px}
 #cx-baby-launcher{border:1px solid var(--g);border-radius:999px;background:#03130a;color:var(--g);padding:11px 16px;font-size:11px;font-weight:900;letter-spacing:.06em;cursor:pointer;box-shadow:0 0 18px #00ff8840}
 #cx-baby-launcher:hover,#cx-baby-launcher:focus-visible{background:var(--g);color:#001b0c;outline:none}
-#cx-baby-panel{display:none;position:fixed;right:12px;bottom:68px;width:min(430px,calc(100vw - 24px));height:min(680px,calc(100dvh - 92px));min-height:380px;flex-direction:column;overflow:hidden;border:1px solid var(--g);border-radius:15px;background:#020805;box-shadow:0 0 32px #00ff8830}
+#cx-baby-panel{display:none;position:fixed;right:12px;bottom:132px;width:min(430px,calc(100vw - 24px));height:min(680px,calc(100dvh - 92px));min-height:380px;flex-direction:column;overflow:hidden;border:1px solid var(--g);border-radius:15px;background:#020805;box-shadow:0 0 32px #00ff8830}
 #cx-baby-panel.open{display:flex}
 .cx-baby-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#06170d;border-bottom:1px solid var(--line)}
 .cx-baby-head strong{color:var(--g);font-size:12px;letter-spacing:.08em}
@@ -55,7 +55,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
 #cx-baby-sync-status{display:block;color:var(--muted);font-size:10px;line-height:1.45;margin-top:6px}
 #cx-baby-frame{display:block;flex:1;width:100%;min-height:0;border:0;background:#000}
 #baby-knowledge-sync{display:none!important}
-@media(max-width:520px){#cx-baby-widget{right:8px;bottom:8px}#cx-baby-panel{right:8px;bottom:64px;width:calc(100vw - 16px);height:calc(100dvh - 80px);min-height:320px}}
+@media(max-width:520px){#cx-baby-widget{right:8px;bottom:72px}#cx-baby-panel{right:8px;bottom:128px;width:calc(100vw - 16px);height:calc(100dvh - 80px);min-height:320px}}
 
 @media(prefers-reduced-motion:reduce){#cx-panel{transition:none}}
 </style>
@@ -223,6 +223,8 @@ function installFrameBridge(){
   const d=frame.contentDocument;if(!d||d.__crypyRootBridge)return;
   d.__crypyRootBridge=true;
   d.addEventListener('click',async e=>{
+   const eye=e.target&&e.target.closest&&e.target.closest('#baby-olho-interativo, #babyOlho, .baby-olho');
+   if(eye){e.preventDefault();e.stopImmediatePropagation();openBaby();return;}
    const a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
    const raw=a.getAttribute('href');if(!raw||raw.startsWith('#')||/^(mailto:|tel:|javascript:|data:)/i.test(raw))return;
    let u;try{u=new URL(raw,d.baseURI)}catch(_){return}
@@ -298,10 +300,11 @@ document.getElementById('cx-baby-sync').addEventListener('click',async()=>{
  if(!window.BabyKnowledge){babySyncStatus.textContent='Indexador BABY ainda não carregou. Recarregue a HOME e tente novamente.';return;}
  const button=document.getElementById('cx-baby-sync');button.disabled=true;button.textContent='SINCRONIZANDO…';
  babySyncStatus.textContent='Lendo o índice e os documentos selecionados. O processo pode levar alguns minutos.';
+ const timer=setInterval(async()=>{try{const p=await window.BabyKnowledge.status();babySyncStatus.textContent='Progresso local: '+p.done+'/'+p.total+' fontes · '+p.indexedThisRun+' indexadas · '+p.errors+' erros.';}catch(e){}},1000);
  try{
-  const s=await window.BabyKnowledge.sync();
-  babySyncStatus.textContent='Resultado: '+s.state+' · '+s.done+'/'+s.total+' fontes processadas · '+s.indexedThisRun+' indexadas · '+s.errors+' erros. '+(s.failures&&s.failures.length?'Falhas: '+s.failures.slice(0,5).map(x=>x.path+' ('+x.error+')').join(' | '):'Nenhuma falha registrada pelo indexador.');
- }catch(e){babySyncStatus.textContent='Falha na sincronização local: '+e.message;}
+  const s=await window.BabyKnowledge.sync();clearInterval(timer);
+  babySyncStatus.textContent='Resultado: '+s.state+' · páginas do índice: '+s.sourceTotal+' · arquivos técnicos selecionados: '+s.fixedTotal+' · '+s.done+'/'+s.total+' fontes processadas · '+s.indexedThisRun+' indexadas · '+s.errors+' erros. '+(s.failures&&s.failures.length?'Falhas: '+s.failures.slice(0,5).map(x=>x.path+' ('+x.error+')').join(' | '):'Nenhuma falha registrada pelo indexador.');
+ }catch(e){clearInterval(timer);babySyncStatus.textContent='Falha na sincronização local: '+e.message;}
  button.disabled=false;button.textContent='REPETIR SINCRONIZAÇÃO';
 });
 
