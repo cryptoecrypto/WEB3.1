@@ -64,9 +64,14 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-const homeMenuCount = (home.match(/data-cx="/g) || []).length;
-if (!home.includes('id="cx-panel"') || !home.includes('id="cx-open"') || homeMenuCount !== 13) {
-  errors.push("HOME principal não contém o painel próprio com as 13 categorias oficiais");
+const homeNav = home.match(/<nav\\b[^>]*class=["']main-nav["'][^>]*>([\\s\\S]*?)<\\/nav>/i);
+const homeLabels = homeNav
+  ? Array.from(homeNav[1].matchAll(/<a\\b[^>]*>([\\s\\S]*?)<\\/a>/gi))
+      .map(match => match[1].replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim())
+  : [];
+if (!homeNav || homeLabels.length !== officialCategories.length ||
+    homeLabels.some((label, index) => label !== officialCategories[index])) {
+  errors.push("HOME principal não contém as 13 categorias oficiais na ordem aprovada");
 }
 if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte de compatibilidade das páginas legadas não carrega o menu global");
 if (!fs.existsSync(navPath)) errors.push("menu global ausente");
