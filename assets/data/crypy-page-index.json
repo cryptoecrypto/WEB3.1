@@ -1,7 +1,7 @@
 {
-  "version": "1.9",
-  "generated_at": "2026-11-22",
-  "total": 304,
+  "version": "2.0",
+  "generated_at": "2026-11-23",
+  "total": 305,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -401,6 +401,11 @@
     {
       "path": "crypy-academy/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/colmeia-conhecimento.html",
+      "label": "Base de Conhecimento da Colmeia",
       "group": "crypy-academy"
     },
     {
@@ -806,6 +811,11 @@
     {
       "path": "crypy-news/hd-memory.html",
       "label": "Hd Memory",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/index.html",
+      "label": "CRYPY NEWS — Central Editorial",
       "group": "crypy-news"
     },
     {
@@ -1517,11 +1527,6 @@
       "path": "web3.1/momory-boost/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "web3.1"
-    },
-    {
-      "path": "crypy-news/index.html",
-      "label": "CRYPY NEWS — Central Editorial",
-      "group": "crypy-news"
     }
   ]
 }
