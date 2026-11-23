@@ -1,4 +1,4 @@
-name: CRYPY — validação da sincronização global
+name: CRYPY — sincronização e auditoria global segura
 on:
   push:
     branches: [main]
@@ -6,21 +6,44 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Verificar sintaxe
-        run: node --check scripts/sincronizar-crypy-global.mjs && node --check scripts/validar-crypy-global.mjs && node --check assets/js/crypy-global-nav.js && node --check assets/js/baby-global-chat.js && node --check dev/micro-clock.js
-      - name: Testar núcleo BABY e política de permissões
-        run: node --test crypy-server-bridge/test/
-      - name: Simular sincronização sem alterar arquivos
-        run: node scripts/sincronizar-crypy-global.mjs
-      - name: Validar índice e integração BABY
+      - name: Verificar sintaxe dos módulos
+        run: |
+          node --check scripts/sincronizar-crypy-global.mjs
+          node --check scripts/validar-crypy-global.mjs
+          node --check scripts/validar-baby-chat-inline.mjs
+          node --check assets/js/crypy-global-nav.js
+          node --check assets/js/crypy-global-runtime.js
+          node --check assets/js/baby-global-chat.js
+          node --check assets/js/baby-research.js
+          node --check dev/micro-clock.js
+      - name: Testar núcleo BABY, permissões e pesquisa externa
+        run: node --test crypy-server-bridge/test/ CRYPY-13-CHATBOOTS/tests/
+      - name: Aplicar sincronização global com proteção das HDs
+        run: node scripts/sincronizar-crypy-global.mjs --apply
+      - name: Validar scripts inline do BABY
+        run: node scripts/validar-baby-chat-inline.mjs
+      - name: Validar índice, menu e integração BABY
         run: node scripts/validar-crypy-global.mjs
+      - name: Persistir sincronização validada
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -u
+            git add -- assets/data/crypy-page-index.json assets/data/crypy-file-index.json
+            git commit -m "chore: aplicar sincronização global CRYPY [skip ci]"
+            git push
+          else
+            echo "Nenhuma alteração pendente."
+          fi
