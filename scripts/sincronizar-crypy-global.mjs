@@ -53,7 +53,7 @@ function isProtected(file) {
 }
 function isSensitive(file) {
   const base=path.posix.basename(file).toLowerCase();
-  return /(memoria|memory|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key)/i.test(base)
+  return /(memoria|memory|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(base)
     || /(^|\/)\.env(?:\.|$)/i.test(file);
 }
 function extension(file) {
