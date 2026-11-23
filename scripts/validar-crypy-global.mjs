@@ -16,6 +16,7 @@ if (!Array.isArray(manifest.pages)) errors.push("índice não contém pages[]");
 if (manifest.total !== manifest.pages.length) errors.push("total do índice não confere");
 
 const seen = new Set();
+const privatePath = p => /^CRYPY-13-CHATBOOTS\\//i.test(p) || /^crypy-server-bridge\\//i.test(p) || /(^|\\/)(baby-ia|memory-boost|momory-boost|pluguin|sincronizacao|hd-oculto|hd-matriz)(\\/|$)/i.test(p) || /(^|\\/)(Memorias\\.json|memory[^/]*\\.json|Fila-Sync\\.json|Manifest\\.json|auto-config[^/]*|autoconfig[^/]*)$/i.test(p) || /(^|\\/)(hd-baby-ia|hd-memory|baby-ia-agente|baby-ia-conectado)\\.html$/i.test(p) || /(^|\\/)profile\\.json$/i.test(p);
 for (const page of manifest.pages || []) {
   if (!page || typeof page.path !== "string" || !page.path.trim()) {
     errors.push("entrada inválida no índice");
