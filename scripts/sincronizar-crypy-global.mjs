@@ -158,4 +158,4 @@ console.log("Modo:",applyChanges?"APLICAÇÃO":"SIMULAÇÃO (padrão)",
   "| ocultos:",fileIndex.hiddenFiles,
   "| protegidos:",fileIndex.protectedFiles,
   "| restritos:",fileIndex.restrictedFiles,
-  "| entradas duplicadas:",fileIndex.duplicateEntries);
+  "| grupos duplicados:",fileIndex.duplicateGroups,"| entradas duplicadas:",fileIndex.duplicateEntries);
