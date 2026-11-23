@@ -1,0 +1,37 @@
+name: CRYPY 13 ChatBoots — testes locais
+on:
+  push:
+    branches: [main]
+    paths:
+      - "CRYPY-13-CHATBOOTS/**"
+      - "chatboot-baby-ia.html"
+      - "assets/js/baby-knowledge-sync.js"
+      - ".github/workflows/crypy-13-chatboots-tests.yml"
+  pull_request:
+    paths:
+      - "CRYPY-13-CHATBOOTS/**"
+      - "chatboot-baby-ia.html"
+      - "assets/js/baby-knowledge-sync.js"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verificar sintaxe dos módulos
+        run: |
+          node --check CRYPY-13-CHATBOOTS/baby-core/orchestrator.js
+          node --check CRYPY-13-CHATBOOTS/baby-core/browser-adapter.js
+      - name: Executar testes dos 13 perfis
+        run: node --test CRYPY-13-CHATBOOTS/tests/colmeia.test.mjs
+      - name: Validar JSONs do catálogo e da memória
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('CRYPY-13-CHATBOOTS/config/agents.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('CRYPY-13-CHATBOOTS/shared-memory/memory-contract.json','utf8'))"
