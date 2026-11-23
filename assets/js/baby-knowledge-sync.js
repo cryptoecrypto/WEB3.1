@@ -1,4 +1,4 @@
-/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.1
+/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.3
  * Percorre todos os caminhos HTML/HTM do índice oficial e documentos técnicos selecionados.
  * Extrai texto visível e metadados, mantém o conteúdo integral (sem corte de caracteres)
  * e grava no IndexedDB deste navegador. Recuperação textual; não treina rede neural.
@@ -6,7 +6,7 @@
  */
 (function () {
   "use strict";
-  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.2") return;
+  if (window.BabyKnowledge && window.BabyKnowledge.version === "1.3") return;
 
   var script = document.currentScript;
   var root = new URL("../../", script && script.src ? script.src : document.baseURI);
@@ -196,7 +196,7 @@
 
   function snapshot() {
     return {
-      version: "1.2", state: progress.state, indexedThisRun: progress.indexed,
+      version: "1.3", state: progress.state, indexedThisRun: progress.indexed,
       done: progress.done, total: progress.total, sourceTotal: progress.sourceTotal,
       fixedTotal: progress.fixedTotal, errors: progress.errors, chars: progress.chars,
       updatedAt: progress.updatedAt, failures: failures.slice(), error: progress.error || null
@@ -235,7 +235,7 @@
     });
   }
 
-  window.BabyKnowledge = { version: "1.2", sync: sync, search: search, status: status };
+  window.BabyKnowledge = { version: "1.3", sync: sync, search: search, status: status };
   function mount() {
     if (!document.body || document.getElementById("baby-knowledge-sync")) return;
     var b = document.createElement("button");
