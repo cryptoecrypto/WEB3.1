@@ -64,10 +64,10 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-const homeNav = home.match(/<nav\\b[^>]*class=["']main-nav["'][^>]*>([\\s\\S]*?)<\\/nav>/i);
+const homeNav = home.match(/<nav\b[^>]*class=["']main-nav["'][^>]*>([\s\S]*?)<\/nav>/i);
 const homeLabels = homeNav
-  ? Array.from(homeNav[1].matchAll(/<a\\b[^>]*>([\\s\\S]*?)<\\/a>/gi))
-      .map(match => match[1].replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim())
+  ? Array.from(homeNav[1].matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi))
+      .map(match => match[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim())
   : [];
 if (!homeNav || homeLabels.length !== officialCategories.length ||
     homeLabels.some((label, index) => label !== officialCategories[index])) {
