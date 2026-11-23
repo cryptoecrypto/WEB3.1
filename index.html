@@ -94,8 +94,8 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);c
  <input id="cx-search" class="cx-search" type="search" placeholder="Buscar página pelo nome ou caminho…" aria-label="Buscar páginas">
  <div id="cx-pages"></div>
  <div class="cx-section-title">AUDITORIA DE NAVEGAÇÃO</div>
- <button class="cx-audit-btn" type="button" id="cx-audit">VERIFICAR PÁGINAS DO ÍNDICE</button>
- <p class="cx-note" id="cx-audit-status">A verificação testa a existência HTTP das páginas públicas listadas no índice. Ela não substitui testes funcionais de login, APIs, sincronização do BABY ou serviços externos.</p>
+ <button class="cx-audit-btn" type="button" id="cx-audit">AUDITORIA PROFUNDA DE LINKS</button>
+ <p class="cx-note" id="cx-audit-status">A auditoria percorre as páginas do índice e as três HOME originais, verifica links e arquivos locais (imagens, scripts, folhas de estilo e páginas). Links externos, autenticação, APIs e Dropbox exigem testes próprios.</p>
 </aside>
 <div id="cx-music">
  <button type="button" id="cx-music-toggle" aria-label="Abrir trilha sonora CRYPY">♫</button>
@@ -193,22 +193,67 @@ fetch('./assets/data/crypy-page-index.json',{cache:'no-store'}).then(r=>{if(!r.o
  activeKey='all';render();
 }).catch(err=>{status.textContent='Índice indisponível: '+err.message+'. A HOME do Quarteto continua funcionando.';});
 async function auditPages(){
- if(!pages.length){auditStatus.textContent='Índice ainda não carregado; auditoria não iniciada.';return;}
- const button=document.getElementById('cx-audit');button.disabled=true;button.textContent='VERIFICANDO…';
- let next=0,ok=[],bad=[];
- const workers=Array.from({length:8},async()=>{
-  while(next<pages.length){
-   const p=pages[next++],url='./'+p.path;
+ if(!allPages.length){auditStatus.textContent='Índice ainda não carregado; auditoria não iniciada.';return;}
+ const button=document.getElementById('cx-audit');button.disabled=true;button.textContent='LENDO PÁGINAS…';
+ const siteRoot=new URL('./',location.href);
+ const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index1.htm','index 2.html','index3.html'])));
+ let pageCursor=0,read=0,fetchFailures=[],refs=new Map(),externalSkipped=0;
+ function collectRef(source,raw,el,base){
+  if(!raw||/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(raw))return;
+  let u;try{u=new URL(raw,base)}catch(e){return;}
+  if(u.origin!==location.origin){externalSkipped++;return;}
+  if(!u.pathname.startsWith(siteRoot.pathname)){externalSkipped++;return;}
+  if(u.hash&&u.pathname===new URL(source,siteRoot).pathname)return;
+  const legacy=(u.pathname.includes('/dev/')||/CRYPY-ART-FIGURE-ONIUM-COLECAO\.html$/i.test(u.pathname));
+  if(legacy){const mapped=legacyTarget(u,el||{textContent:''});if(mapped)u=new URL(mapped,siteRoot);}
+  if(u.pathname.endsWith('/'))u.pathname+='index.html';
+  u.search='';u.hash='';
+  const path=u.pathname.slice(siteRoot.pathname.length);
+  if(!path)return;
+  const key=u.href;
+  if(!refs.has(key))refs.set(key,{url:u.href,path,from:[],refs:[],legacy});
+  const item=refs.get(key);if(item.from.length<8)item.from.push(source);if(item.refs.length<8)item.refs.push(raw);
+ }
+ const pageWorkers=Array.from({length:5},async()=>{
+  while(pageCursor<sources.length){
+   const path=sources[pageCursor++],url=new URL(path,siteRoot);
    try{
-    const r=await fetch(url,{method:'HEAD',cache:'no-store'});
-    (r.ok?ok:bad).push({path:p.path,status:r.status});
-   }catch(e){bad.push({path:p.path,status:'ERRO DE REDE'});}
-   auditStatus.textContent='Verificando páginas… '+(ok.length+bad.length)+' / '+pages.length;
+    const response=await fetch(url.href,{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const raw=await response.text();
+    const doc=new DOMParser().parseFromString(raw,'text/html');
+    const baseTag=doc.querySelector('base[href]');
+    const base=baseTag?new URL(baseTag.getAttribute('href'),url):url;
+    doc.querySelectorAll('a[href],img[src],script[src],link[href],iframe[src],source[src],video[poster],audio[src]').forEach(el=>{
+     const attr=el.hasAttribute('href')?'href':el.hasAttribute('src')?'src':el.hasAttribute('poster')?'poster':null;
+     if(attr)collectRef(path,el.getAttribute(attr),el,base);
+    });
+    read++;
+   }catch(e){fetchFailures.push({path,error:String(e.message||e)});}
+   auditStatus.textContent='Lendo páginas: '+read+'/'+sources.length+' · destinos locais encontrados: '+refs.size;
   }
  });
- await Promise.all(workers);
- auditStatus.textContent='AUDITORIA HTTP CONCLUÍDA: '+ok.length+' acessíveis; '+bad.length+' com falha, de '+pages.length+' páginas públicas. '+(bad.length?'Falhas: '+bad.map(x=>x.path+' ['+x.status+']').join(' | '):'Nenhuma falha HTTP encontrada nesta lista.');
- button.textContent='REPETIR VERIFICAÇÃO';button.disabled=false;
+ await Promise.all(pageWorkers);
+ const destinations=Array.from(refs.values());
+ let checkCursor=0,ok=0,bad=[];
+ const checkWorkers=Array.from({length:10},async()=>{
+  while(checkCursor<destinations.length){
+   const item=destinations[checkCursor++];
+   try{
+    const response=await fetch(item.url,{method:'HEAD',cache:'no-store'});
+    if(response.ok)ok++;
+    else bad.push({path:item.path,status:response.status,from:item.from.slice(0,2),refs:item.refs.slice(0,2),legacy:item.legacy});
+   }catch(e){bad.push({path:item.path,status:'ERRO DE REDE',from:item.from.slice(0,2),refs:item.refs.slice(0,2),legacy:item.legacy});}
+   auditStatus.textContent='Conferindo destinos: '+(ok+bad.length)+'/'+destinations.length+' · falhas '+bad.length;
+  }
+ });
+ await Promise.all(checkWorkers);
+ const lines=bad.slice(0,14).map(x=>x.path+' ['+x.status+'] ← '+x.from.join(', '));
+ const pageLine=fetchFailures.slice(0,8).map(x=>x.path+' ['+x.error+']');
+ auditStatus.textContent='AUDITORIA CONCLUÍDA · '+read+'/'+sources.length+' páginas lidas · '+destinations.length+' destinos locais verificados · '+ok+' acessíveis · '+bad.length+' destinos com falha · '+fetchFailures.length+' páginas não lidas · '+externalSkipped+' referências externas ignoradas.'+
+  (bad.length?' Falhas: '+lines.join(' | '):' Nenhuma falha local encontrada nos atributos HTML examinados.')+
+  (fetchFailures.length?' Páginas não lidas: '+pageLine.join(' | '):'');
+ button.textContent='REPETIR AUDITORIA PROFUNDA';button.disabled=false;
 }
 document.getElementById('cx-audit').addEventListener('click',auditPages);
 function legacyTarget(url,anchor){
