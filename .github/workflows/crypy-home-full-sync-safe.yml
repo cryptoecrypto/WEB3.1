@@ -6,7 +6,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -25,6 +25,7 @@ jobs:
           node --check assets/js/crypy-global-runtime.js
           node --check assets/js/baby-global-chat.js
           node --check assets/js/baby-research.js
+          node --check assets/js/baby-knowledge-sync.js
           node --check dev/micro-clock.js
       - name: Testar núcleo BABY, permissões e pesquisa externa
         run: node --test crypy-server-bridge/test/ CRYPY-13-CHATBOOTS/tests/
@@ -34,16 +35,24 @@ jobs:
         run: node scripts/validar-baby-chat-inline.mjs
       - name: Validar índice, menu e integração BABY
         run: node scripts/validar-crypy-global.mjs
-      - name: Persistir sincronização validada
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+      - name: Empacotar alterações para aplicação controlada
+        if: always()
         run: |
-          if ! git diff --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -u
-            git add -- assets/data/crypy-page-index.json assets/data/crypy-file-index.json
-            git commit -m "chore: aplicar sincronização global CRYPY [skip ci]"
-            git push
-          else
-            echo "Nenhuma alteração pendente."
+          mkdir -p /tmp/crypy-global-sync/files
+          while IFS= read -r file; do
+            [ -f "$file" ] || continue
+            mkdir -p "/tmp/crypy-global-sync/files/$(dirname "$file")"
+            cp "$file" "/tmp/crypy-global-sync/files/$file"
+          done < <(git diff --name-only --diff-filter=ACM)
+          if [ -f assets/data/crypy-file-index.json ]; then
+            mkdir -p /tmp/crypy-global-sync/files/assets/data
+            cp assets/data/crypy-file-index.json /tmp/crypy-global-sync/files/assets/data/
           fi
+          printf 'Run: %s\nCommit base: %s\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" > /tmp/crypy-global-sync/INFO.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: crypy-global-sync-${{ github.run_id }}
+          path: /tmp/crypy-global-sync/
+          if-no-files-found: error
+          retention-days: 7
