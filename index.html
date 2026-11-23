@@ -89,6 +89,15 @@ footer a{color:var(--green);text-decoration:none}
 .content-links a:hover,.content-links a:focus-visible{background:rgba(0,255,136,.1);color:var(--accent,#00ff88);outline:none}
 .content-note{font-size:.82rem;margin-top:1rem}
 @media(max-width:600px){.content-group summary{padding:13px}.content-links a{padding:10px;font-size:.88rem}}
+
+/* Navegação sincronizada das cinco páginas principais */
+.crypy-page-switcher-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 0 12px}
+.crypy-page-switcher-label{color:#00ff88;font-size:9px;font-weight:900;letter-spacing:.16em}
+.crypy-page-switcher{display:flex;flex-wrap:wrap;gap:6px}
+.crypy-page-switcher a{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:6px 11px;border:1px solid #16462b;border-radius:999px;background:#04140b;color:#dfffea;text-decoration:none;font-size:9px;font-weight:900;letter-spacing:.08em}
+.crypy-page-switcher a:hover,.crypy-page-switcher a:focus-visible,.crypy-page-switcher a[aria-current="page"]{background:#00ff88;border-color:#00ff88;color:#001b0c;outline:none}
+.crypy-page-switcher-bottom{padding:12px 0 0;border-top:1px solid rgba(0,255,136,.2)}
+@media(max-width:620px){.crypy-page-switcher-wrap{align-items:flex-start;flex-direction:column;gap:7px}.crypy-page-switcher{width:100%}.crypy-page-switcher a{flex:1 1 auto}}
 </style>
 </head>
 <body>
@@ -101,7 +110,7 @@ footer a{color:var(--green);text-decoration:none}
    </a>
    <div class="head-tag"><span class="signal"></span> HARMONY IN MOTION</div>
   </div>
-  <nav class="main-nav" aria-label="As 13 categorias oficiais do CRYPY">
+  <nav class="main-nav" aria-label="Navegação principal — 13 categorias oficiais">
    <a href="./crypy-infinyt/portal.html">CRYPY-INFINIT</a>
    <a href="./crypy-academy/academia.html">CRYPY-ACADEMY</a>
    <a href="./esquadrao-das-cores/esquadrao.html">ESQUADRÃO DAS CORES</a>
@@ -115,8 +124,9 @@ footer a{color:var(--green);text-decoration:none}
    <a href="./crypy-coin/Crypy-Coin.html">CRYPY-COIN</a>
    <a href="./contato/contato-oficial.html">CONTATO</a>
    <a href="./crypy-coin/white-paper.html">WHITE PAPER</a>
-   <a href="#conteudos-das-areas">CONTEÚDOS</a>
+   <a href="./index.html#conteudos-das-areas">CONTEÚDOS</a>
   </nav>
+  <div class="crypy-page-switcher-wrap"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html" aria-current="page">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html">INDEX5</a></nav></div>
  </div>
 </header>
 <main>
