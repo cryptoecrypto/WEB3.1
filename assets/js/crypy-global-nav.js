@@ -6,6 +6,13 @@
   var scriptUrl = document.currentScript && document.currentScript.src;
   if (!scriptUrl) return;
   var siteRoot = new URL("../../", scriptUrl);
+  if (!document.querySelector('script[data-crypy-global-runtime="true"]')) {
+    var runtime = document.createElement("script");
+    runtime.src = new URL("assets/js/crypy-global-runtime.js", siteRoot).href;
+    runtime.defer = true;
+    runtime.dataset.crypyGlobalRuntime = "true";
+    (document.head || document.documentElement).appendChild(runtime);
+  }
   // Camada visual dinâmica compartilhada: tema mensal + variação diária.
   if (!document.querySelector('script[data-crypy-dynamic-design="true"]')) {
     var dynamicDesign = document.createElement("script");
