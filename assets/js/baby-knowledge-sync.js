@@ -212,11 +212,64 @@
         updateButton();
         return snapshot();
       });
-    }).catch(function (err) {
-      progress.state = "erro";
-      progress.error = String(err && err.message || err);
-      updateButton();
-      return snapshot();
+    }).catch(function (inventoryError) {
+      // Fallback temporário e conservador enquanto o inventário completo aguarda revisão/publicação.
+      return fetch(indexUrl.href, { cache: "no-cache" }).then(function (res) {
+        if (!res.ok) throw new Error("Catálogo HTML HTTP " + res.status);
+        return res.json();
+      }).then(function (catalog) {
+        function safeFallbackPath(path) {
+          var base = String(path || "").split("/").pop().toLowerCase();
+          if (path === "index.html") return false;
+          if (/^crypy-news\/hd-matriz\//i.test(path) || /^crypy-server-bridge\//i.test(path)) return false;
+          if (/(^|\/)hd-(?:oculto|matriz)(\/|$)/i.test(path)) return false;
+          if (["hd-baby-ia.html","hd-babyia.html","hd-memory.html","hd-baby-ia-completo-tudo.html"].indexOf(base) !== -1) return false;
+          if (/(memoria|memory|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(base)) return false;
+          return true;
+        }
+        var paths = (Array.isArray(catalog.pages) ? catalog.pages : [])
+          .map(function (item) { return item.path; })
+          .filter(safeFallbackPath);
+        fixedFiles.filter(safeFallbackPath).forEach(function (path) {
+          if (paths.indexOf(path) === -1) paths.push(path);
+        });
+        paths = Array.from(new Set(paths));
+        progress.sourceTotal = paths.length;
+        progress.total = paths.length;
+        progress.fixedTotal = fixedFiles.filter(safeFallbackPath).length;
+        progress.fallback = true;
+        window.BabyFileRegistry = {
+          fallback: true,
+          searchableTextFiles: paths.length,
+          note: "Inventário completo aguardando publicação; HDs e arquivos restritos continuam excluídos."
+        };
+        var cursor = 0;
+        function worker() {
+          if (cursor >= paths.length) return Promise.resolve();
+          var path = paths[cursor++];
+          return fetchAndIndex(path).catch(function (err) {
+            progress.errors += 1;
+            failures.push({ path: path, error: String(err && err.message || err) });
+          }).then(function () {
+            progress.done += 1;
+            updateButton();
+            return worker();
+          });
+        }
+        return Promise.all([worker(), worker(), worker(), worker()]).then(function () {
+          progress.state = progress.errors ? "concluido_com_erros" : "concluido";
+          progress.updatedAt = new Date().toISOString();
+          progress.fallbackReason = String(inventoryError && inventoryError.message || inventoryError);
+          progress.failures = failures.slice();
+          updateButton();
+          return snapshot();
+        });
+      }).catch(function (fallbackError) {
+        progress.state = "erro";
+        progress.error = String(fallbackError && fallbackError.message || fallbackError);
+        updateButton();
+        return snapshot();
+      });
     });
   }
 
