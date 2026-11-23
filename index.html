@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#020805">
-<meta name="description" content="CRYPY — colmeia digital de CRYPTOEËCRYPTO. Esquadrão reunido, Matrix, dragão guardião e 12 áreas conectadas.">
+<meta name="description" content="CRYPY — colmeia digital de CRYPTOEËCRYPTO. Esquadrão reunido, Matrix, dragão guardião e 13 categorias conectadas.">
 <meta name="robots" content="index,follow">
 <title>CRYPY INFINYT — HOME MATRIX</title>
 <style>
@@ -71,6 +71,35 @@ footer a{color:var(--green);text-decoration:none}
 @media(max-width:900px){.hero{grid-template-columns:1fr;gap:10px;padding-top:36px}.hero-art{max-width:760px;margin:auto}.team-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.wrap{width:min(100% - 22px,1240px)}.brand-row{padding:10px 0}.head-tag{font-size:9px}.main-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding-bottom:10px}.main-nav a{min-height:38px;font-size:9px}.hero{padding:28px 0 25px;min-height:0}.hero-art img{max-height:340px;object-fit:contain}.section{padding:26px 0 34px}.section-head{display:block}.section-head p{margin-top:10px}.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hive-grid{grid-template-columns:1fr}.hive-card{min-height:94px}.token-band{align-items:flex-start;flex-direction:column}.hero-actions .btn{flex:1}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Índice de páginas de conteúdo já existentes no repositório */
+.content-directory{margin-top:clamp(2rem,5vw,4rem);margin-bottom:clamp(2rem,5vw,4rem)}
+.content-directory .section-heading{max-width:760px;margin-bottom:1.25rem}
+.content-directory .section-heading h2{font-size:clamp(1.7rem,4vw,2.6rem);margin:.45rem 0}
+.content-directory .section-heading h2 span{color:var(--accent,#00ff88)}
+.content-directory .section-heading p,.content-note{color:var(--muted,#9ca3af);line-height:1.6}
+.content-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.content-group{border:1px solid rgba(0,255,136,.24);border-radius:14px;background:rgba(0,0,0,.28);overflow:hidden}
+.content-group summary{cursor:pointer;list-style:none;padding:15px 16px;font-weight:800;display:flex;align-items:center;gap:9px}
+.content-group summary::-webkit-details-marker{display:none}
+.content-group summary small{margin-left:auto;color:var(--muted,#9ca3af);font-size:.72rem;font-weight:600}
+.content-group[open] summary{border-bottom:1px solid rgba(0,255,136,.18);color:var(--accent,#00ff88)}
+.content-links{display:grid;gap:2px;padding:8px}
+.content-links a{display:flex;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:8px;color:inherit;text-decoration:none;font-size:.9rem}
+.content-links a:hover,.content-links a:focus-visible{background:rgba(0,255,136,.1);color:var(--accent,#00ff88);outline:none}
+.content-note{font-size:.82rem;margin-top:1rem}
+@media(max-width:600px){.content-group summary{padding:13px}.content-links a{padding:10px;font-size:.88rem}}
+
+/* Navegação sincronizada das cinco páginas principais */
+.main-nav{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:620px){.main-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.crypy-page-switcher-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 0 12px}
+.crypy-page-switcher-label{color:#00ff88;font-size:9px;font-weight:900;letter-spacing:.16em}
+.crypy-page-switcher{display:flex;flex-wrap:wrap;gap:6px}
+.crypy-page-switcher a{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:6px 11px;border:1px solid #16462b;border-radius:999px;background:#04140b;color:#dfffea;text-decoration:none;font-size:9px;font-weight:900;letter-spacing:.08em}
+.crypy-page-switcher a:hover,.crypy-page-switcher a:focus-visible,.crypy-page-switcher a[aria-current="page"]{background:#00ff88;border-color:#00ff88;color:#001b0c;outline:none}
+.crypy-page-switcher-bottom{padding:12px 0 0;border-top:1px solid rgba(0,255,136,.2)}
+@media(max-width:620px){.crypy-page-switcher-wrap{align-items:flex-start;flex-direction:column;gap:7px}.crypy-page-switcher{width:100%}.crypy-page-switcher a{flex:1 1 auto}}
 </style>
 </head>
 <body>
@@ -83,20 +112,23 @@ footer a{color:var(--green);text-decoration:none}
    </a>
    <div class="head-tag"><span class="signal"></span> HARMONY IN MOTION</div>
   </div>
-  <nav class="main-nav" aria-label="As 12 áreas principais do CRYPY">
-   <a href="./crypy-infinyt/portal.html">CRYPY INFINYT</a>
-   <a href="./nft-collection/galeria.html">NFT-COLLECTION</a>
+  <nav class="main-nav" aria-label="Navegação principal — 13 categorias oficiais">
+   <a href="./crypy-infinyt/portal.html">CRYPY-INFINIT</a>
+   <a href="./crypy-academy/academia.html">CRYPY-ACADEMY</a>
    <a href="./esquadrao-das-cores/esquadrao.html">ESQUADRÃO DAS CORES</a>
-   <a href="./crypy-academy/academia.html">CRYPY ACADEMY</a>
+   <a href="./nft-collection/galeria.html">NFT-COLLECTION</a>
    <a href="./biografia/historia.html">BIOGRAFIA</a>
+   <a href="./crypy-news/index.html">CRYPY-NEWS</a>
    <a href="./crypy-news/museu.html">MUSEU DIGITAL</a>
-   <a href="./art-figure-marketplace/marketplace.html">ART-FIGURE / MARKETPLACE</a>
-   <a href="./crypy-games-desafios/crypy-games-desafios.html">CRYPY GAMES</a>
-   <a href="./social-crypykut/comunidade.html">SOCIAL-CRYPYKUT</a>
-   <a href="./baby-ia/centro.html">BABY I.A.</a>
-   <a href="./crypy-coin/white-paper.html">WHITE PAPER</a>
+   <a href="./art-figure-marketplace/marketplace.html">MARKETPLACE</a>
+   <a href="./crypy-games-desafios/crypy-games-desafios.html">CRYPY-GAMES</a>
+   <a href="./social-crypykut/comunidade.html">CRYPYKUT</a>
+   <a href="./crypy-coin/Crypy-Coin.html">CRYPY-COIN</a>
    <a href="./contato/contato-oficial.html">CONTATO</a>
+   <a href="./crypy-coin/white-paper.html">WHITE PAPER</a>
+   <a href="./index.html#conteudos-das-areas">CONTEÚDOS</a>
   </nav>
+  <div class="crypy-page-switcher-wrap"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html" aria-current="page">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html">INDEX5</a></nav></div>
  </div>
 </header>
 <main>
@@ -105,9 +137,9 @@ footer a{color:var(--green);text-decoration:none}
    <div class="kicker"><span class="signal"></span> HOME MATRIX · PORTAL DA COLMEIA</div>
    <h1>A COLMEIA <span>ESTÁ VIVA.</span></h1>
    <p class="hero-copy"><strong>CRYPTOEËCRYPTO é o universo. CRYPY é o sistema. O Esquadrão é quem movimenta a colmeia.</strong> Tecnologia, criação, conhecimento e memória conectados em uma única jornada.</p>
-   <p class="hero-copy">Entre no universo CRYPY. Explore as doze áreas, conheça o Esquadrão e descubra o papel do BABY I.A. nesta construção WEB3.1.</p>
+   <p class="hero-copy">Entre no universo CRYPY. Explore as 13 categorias oficiais, conheça o Esquadrão e descubra o papel do BABY I.A. nesta construção WEB3.1.</p>
    <div class="hero-actions">
-    <a class="btn primary" href="#colmeia">EXPLORAR AS 12 ÁREAS</a>
+    <a class="btn primary" href="#colmeia">EXPLORAR AS 13 CATEGORIAS</a>
     <a class="btn secondary" href="./esquadrao-das-cores/esquadrao.html">CONHECER O ESQUADRÃO</a>
    </div>
   </div>
@@ -136,31 +168,57 @@ footer a{color:var(--green);text-decoration:none}
  </section>
  <section class="wrap section" id="colmeia" aria-labelledby="hive-title">
   <div class="section-head">
-   <div><div class="section-kicker">NAVEGAÇÃO PRINCIPAL</div><h2 id="hive-title">12 portas. Uma colmeia.</h2></div>
+   <div><div class="section-kicker">NAVEGAÇÃO PRINCIPAL</div><h2 id="hive-title">13 portas. Uma colmeia.</h2></div>
    <p>Cada atalho abre diretamente sua área principal. Os menus internos das páginas continuam disponíveis para chegar aos conteúdos relacionados.</p>
   </div>
   <div class="hive-grid">
-   <a class="hive-card" href="./crypy-infinyt/portal.html"><span class="hive-icon">🌐</span><span><b>CRYPY INFINYT</b><p>Universo, visão e arquitetura do ecossistema.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./nft-collection/galeria.html"><span class="hive-icon">💎</span><span><b>NFT-COLLECTION</b><p>Galeria, coleções e identidade digital.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./crypy-infinyt/portal.html"><span class="hive-icon">🌐</span><span><b>CRYPY-INFINIT</b><p>Universo, visão e arquitetura do ecossistema.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./crypy-academy/academia.html"><span class="hive-icon">🎓</span><span><b>CRYPY-ACADEMY</b><p>Aprendizado, tecnologia e formação WEB3.1.</p><span class="arrow">ENTRAR ↗</span></span></a>
    <a class="hive-card" href="./esquadrao-das-cores/esquadrao.html"><span class="hive-icon">🛡</span><span><b>ESQUADRÃO DAS CORES</b><p>Integrantes, funções e harmonia.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-academy/academia.html"><span class="hive-icon">🎓</span><span><b>CRYPY ACADEMY</b><p>Aprendizado, tecnologia e formação WEB3.1.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./nft-collection/galeria.html"><span class="hive-icon">💎</span><span><b>NFT-COLLECTION</b><p>Galeria, coleções e identidade digital.</p><span class="arrow">ENTRAR ↗</span></span></a>
    <a class="hive-card" href="./biografia/historia.html"><span class="hive-icon">📜</span><span><b>BIOGRAFIA</b><p>Origem, trajetória e memória do projeto.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./crypy-news/index.html"><span class="hive-icon">📰</span><span><b>CRYPY-NEWS</b><p>Central editorial, notícias e atualizações do universo CRYPY.</p><span class="arrow">ENTRAR ↗</span></span></a>
    <a class="hive-card" href="./crypy-news/museu.html"><span class="hive-icon">🏛</span><span><b>MUSEU DIGITAL</b><p>Acervo, curadoria e preservação criativa.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./art-figure-marketplace/marketplace.html"><span class="hive-icon">🖼</span><span><b>ART-FIGURE / MARKETPLACE</b><p>Arte, figuras e experiências de mercado.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-games-desafios/crypy-games-desafios.html"><span class="hive-icon">🎮</span><span><b>CRYPY GAMES</b><p>Jogos, desafios e experimentação.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./social-crypykut/comunidade.html"><span class="hive-icon">💬</span><span><b>SOCIAL-CRYPYKUT</b><p>Comunidade, conversas e criação compartilhada.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./baby-ia/centro.html"><span class="hive-icon">🤖</span><span><b>BABY I.A.</b><p>Centro de conhecimento e evolução do BABY.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-coin/white-paper.html"><span class="hive-icon">🪙</span><span><b>WHITE PAPER</b><p>Fundamentos, utilidade e governança da CRYPY COIN.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./art-figure-marketplace/marketplace.html"><span class="hive-icon">🖼</span><span><b>MARKETPLACE</b><p>Arte, figuras e experiências de mercado.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./crypy-games-desafios/crypy-games-desafios.html"><span class="hive-icon">🎮</span><span><b>CRYPY-GAMES</b><p>Jogos, desafios e experimentação.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./social-crypykut/comunidade.html"><span class="hive-icon">💬</span><span><b>CRYPYKUT</b><p>Comunidade, conversas e criação compartilhada.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./crypy-coin/Crypy-Coin.html"><span class="hive-icon">🪙</span><span><b>CRYPY-COIN</b><p>Área da moeda e informações do ecossistema.</p><span class="arrow">ENTRAR ↗</span></span></a>
    <a class="hive-card" href="./contato/contato-oficial.html"><span class="hive-icon">✉</span><span><b>CONTATO</b><p>Canais oficiais e conexão com o projeto.</p><span class="arrow">ENTRAR ↗</span></span></a>
+   <a class="hive-card" href="./crypy-coin/white-paper.html"><span class="hive-icon">📘</span><span><b>WHITE PAPER</b><p>Fundamentos, utilidade e governança da CRYPY COIN.</p><span class="arrow">ENTRAR ↗</span></span></a>
   </div>
+
+ <section class="wrap content-directory" id="conteudos-das-areas" aria-labelledby="content-directory-title">
+  <div class="section-heading"><div class="kicker"><span class="signal"></span> NAVEGAÇÃO COMPLETA</div><h2 id="content-directory-title">CONTEÚDOS <span>DA COLMEIA</span></h2><p>Links para páginas de conteúdo encontradas nas subpastas do WEB3.1, organizados pelas 13 categorias oficiais. BABY I.A. aparece separado como área de apoio, sem alterar a lista oficial.</p></div>
+  <div class="content-groups">
+   <details class="content-group"><summary><span>🌐</span> CRYPY-INFINIT <small>1 página</small></summary><div class="content-links"><a href="./crypy-infinyt/portal.html">Portal CRYPY INFINIT <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🎓</span> CRYPY-ACADEMY <small>3 páginas</small></summary><div class="content-links"><a href="./crypy-academy/academia.html">Academia <span aria-hidden="true">↗</span></a><a href="./crypy-academy/colmeia-conhecimento.html">Colmeia do Conhecimento <span aria-hidden="true">↗</span></a><a href="./crypy-academy/cursos.html">Cursos <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🛡</span> ESQUADRÃO DAS CORES <small>3 páginas</small></summary><div class="content-links"><a href="./esquadrao-das-cores/esquadrao.html">Esquadrão <span aria-hidden="true">↗</span></a><a href="./esquadrao-das-cores/esquadrao-das-cores.html">Esquadrão das Cores <span aria-hidden="true">↗</span></a><a href="./esquadrao-das-cores/hq-collection/esquadrao-das-cores.html">HQ Collection — Esquadrão <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>💎</span> NFT-COLLECTION <small>8 páginas</small></summary><div class="content-links"><a href="./nft-collection/galeria.html">Galeria NFT <span aria-hidden="true">↗</span></a><a href="./nft-collection/collection-crypy-nft.html">Coleção CRYPY NFT <span aria-hidden="true">↗</span></a><a href="./nft-collection/crypy-collection-crypypasta.html">CRYPY Collection — Crypypasta <span aria-hidden="true">↗</span></a><a href="./nft-collection/crypy-genesis.html">CRYPY Genesis <span aria-hidden="true">↗</span></a><a href="./nft-collection/crypy-nft-edition.html">CRYPY NFT Edition <span aria-hidden="true">↗</span></a><a href="./nft-collection/nft-colection-edition.html">NFT Collection Edition <span aria-hidden="true">↗</span></a><a href="./nft-collection/nft-darkness.html">NFT Darkness <span aria-hidden="true">↗</span></a><a href="./nft-collection/nft-genesis.html">NFT Genesis <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>📜</span> BIOGRAFIA <small>3 páginas</small></summary><div class="content-links"><a href="./biografia/historia.html">História <span aria-hidden="true">↗</span></a><a href="./biografia/biografia.html">Biografia <span aria-hidden="true">↗</span></a><a href="./biografia/baby.ia.chatboot.html">BABY I.A. — História e Chatbot <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>📰</span> CRYPY-NEWS <small>1 página</small></summary><div class="content-links"><a href="./crypy-news/index.html">Central CRYPY-NEWS <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🏛</span> MUSEU DIGITAL <small>1 página</small></summary><div class="content-links"><a href="./crypy-news/museu.html">Museu Digital <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🖼</span> MARKETPLACE <small>2 páginas</small></summary><div class="content-links"><a href="./art-figure-marketplace/marketplace.html">Marketplace <span aria-hidden="true">↗</span></a><a href="./marketing/marketing.html">Marketing <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🎮</span> CRYPY-GAMES <small>8 páginas</small></summary><div class="content-links"><a href="./crypy-games-desafios/crypy-games-desafios.html">Central de Games <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/arena.html">Arena <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/batalha-esquadrao.html">Batalha do Esquadrão <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/dungeon-crypy.html">Dungeon CRYPY <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/dungeon-crypy-v2.html">Dungeon CRYPY V2 <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/crypy-dungeons/Masmorra%20dos%20Tr%C3%AAs%20Pilares.html">Masmorra dos Três Pilares <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/crypy-pac-crypyman.html">CRYPY PAC — CRYPYMAN <span aria-hidden="true">↗</span></a><a href="./crypy-games-desafios/CRYPY-LAND/crypy-land.html">CRYPY LAND <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>💬</span> CRYPYKUT <small>11 páginas</small></summary><div class="content-links"><a href="./social-crypykut/comunidade.html">Comunidade <span aria-hidden="true">↗</span></a><a href="./social-crypykut/comunidades.html">Comunidades <span aria-hidden="true">↗</span></a><a href="./social-crypykut/amigos.html">Amigos <span aria-hidden="true">↗</span></a><a href="./social-crypykut/depoimentos.html">Depoimentos <span aria-hidden="true">↗</span></a><a href="./social-crypykut/fotos.html">Fotos <span aria-hidden="true">↗</span></a><a href="./social-crypykut/jogos.html">Jogos <span aria-hidden="true">↗</span></a><a href="./social-crypykut/mensagens.html">Mensagens <span aria-hidden="true">↗</span></a><a href="./social-crypykut/perfil.html">Perfil <span aria-hidden="true">↗</span></a><a href="./social-crypykut/reals.html">Reals <span aria-hidden="true">↗</span></a><a href="./social-crypykut/recados.html">Recados <span aria-hidden="true">↗</span></a><a href="./social-crypykut/shots.html">Shots <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🪙</span> CRYPY-COIN <small>1 página</small></summary><div class="content-links"><a href="./crypy-coin/Crypy-Coin.html">CRYPY COIN <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>✉</span> CONTATO <small>2 páginas</small></summary><div class="content-links"><a href="./contato/contato-oficial.html">Contato Oficial <span aria-hidden="true">↗</span></a><a href="./contato/crypykut.html">CRYPYKUT <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>📘</span> WHITE PAPER <small>1 página</small></summary><div class="content-links"><a href="./crypy-coin/white-paper.html">White Paper <span aria-hidden="true">↗</span></a></div></details>
+   <details class="content-group"><summary><span>🤖</span> BABY I.A. — APOIO <small>2 páginas</small></summary><div class="content-links"><a href="./baby-ia/centro.html">Centro BABY I.A. <span aria-hidden="true">↗</span></a><a href="./baby-ia/baby-agente-cons.html">Consulta ao Agente BABY <span aria-hidden="true">↗</span></a></div></details>
+  </div>
+  <p class="content-note">Páginas técnicas, espelhos do BABY, HDs e interfaces operacionais permanecem fora deste índice público.</p>
+ </section>
  </section>
  <section class="wrap token-band">
   <div><div class="token-label">UTILIDADE ANTES DA ECONOMIA</div><strong>CRYPY COIN · conceito em desenvolvimento</strong><p>O contrato CRYPY COIN foi implantado na BNB Smart Chain Mainnet, com emissão inicial de 12.000.000 CRYPY. A auditoria independente e a utilidade no ecossistema continuam em desenvolvimento.</p></div>
   <a class="btn secondary" href="./crypy-coin/white-paper.html">LER WHITE PAPER</a>
  </section>
 </main>
-<footer><div class="wrap foot-inner"><span>© 2026 CRYPTOEËCRYPTO · CRYPY WEB3.1</span><span>PROTEÇÃO É SUA MAIOR FORÇA · <a href="./contato/contato-oficial.html">CANAIS OFICIAIS</a></span></div></footer>
+<footer><div class="wrap foot-inner"><span>© 2026 CRYPTOEËCRYPTO · CRYPY WEB3.1</span><span>PROTEÇÃO É SUA MAIOR FORÇA · <a href="./contato/contato-oficial.html">CANAIS OFICIAIS</a></span></div><div class="crypy-page-switcher-wrap crypy-page-switcher-bottom"><span class="crypy-page-switcher-label">PÁGINAS DA COLMEIA</span><nav class="crypy-page-switcher" aria-label="Navegação entre as cinco páginas principais"><a href="./index.html" aria-current="page">INDEX</a><a href="./index2.html">INDEX2</a><a href="./index3.html">INDEX3</a><a href="./index4.html">INDEX4</a><a href="./index5.html">INDEX5</a></nav></div>
+</footer>
 <script defer src="./assets/js/crypy-home-matrix.js"></script>
-<script defer src="./dev/micro-clock.js"></script>
+<!-- O injetor legado do menu foi desativado nesta Home; o relógio principal permanece no HTML. -->
+<script defer src="./assets/js/crypy-dynamic-design.js"></script>
+<script defer src="./assets/js/crypy-live-market.js"></script>
+<script defer src="./assets/js/crypy-market-bubbles.js"></script>
 </body>
 </html>
