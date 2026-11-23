@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "generated_at": "2026-11-23",
-  "total": 75,
+  "total": 82,
   "pages": [
     {
       "path": "art-figure-marketplace/chatboot-baby-ia.html",
@@ -10,18 +10,13 @@
     },
     {
       "path": "art-figure-marketplace/marketplace.html",
-      "label": "Art-Figure — Marketplace",
+      "label": "Marketplace",
       "group": "art-figure-marketplace"
     },
     {
       "path": "art-figure-marketplace/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "art-figure-marketplace"
-    },
-    {
-      "path": "baby-ia.html",
-      "label": "Baby Ia",
-      "group": "RAIZ"
     },
     {
       "path": "biografia/baby.ia.chatboot.html",
@@ -40,7 +35,7 @@
     },
     {
       "path": "biografia/historia.html",
-      "label": "Biografia CRYPY — História",
+      "label": "Historia",
       "group": "biografia"
     },
     {
@@ -49,28 +44,23 @@
       "group": "biografia"
     },
     {
-      "path": "chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "RAIZ"
-    },
-    {
       "path": "contato/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "contato"
     },
     {
       "path": "contato/contato-oficial.html",
-      "label": "Contato CRYPY — Oficial",
+      "label": "Contato Oficial",
       "group": "contato"
     },
     {
       "path": "contato/crypykut.html",
-      "label": "CRYPYKUT",
+      "label": "Crypykut",
       "group": "contato"
     },
     {
       "path": "crypy-academy/academia.html",
-      "label": "CRYPY Academy — Trilhas avançadas",
+      "label": "Academia",
       "group": "crypy-academy"
     },
     {
@@ -80,7 +70,7 @@
     },
     {
       "path": "crypy-academy/cursos.html",
-      "label": "Catálogo de Cursos — Fortaleza do Ensino",
+      "label": "Cursos",
       "group": "crypy-academy"
     },
     {
@@ -95,7 +85,12 @@
     },
     {
       "path": "crypy-coin/Crypy-Coin.html",
-      "label": "CRYPY COIN",
+      "label": "Crypy Coin",
+      "group": "crypy-coin"
+    },
+    {
+      "path": "crypy-coin/index.html",
+      "label": "Página inicial",
       "group": "crypy-coin"
     },
     {
@@ -105,17 +100,17 @@
     },
     {
       "path": "crypy-coin/white-paper.html",
-      "label": "CRYPY — White Paper",
+      "label": "White Paper",
       "group": "crypy-coin"
     },
     {
       "path": "crypy-games-desafios/arena.html",
-      "label": "CRYPY Games — Arena",
+      "label": "Arena",
       "group": "crypy-games-desafios"
     },
     {
       "path": "crypy-games-desafios/batalha-esquadrao.html",
-      "label": "Batalha do Esquadrão",
+      "label": "Batalha Esquadrao",
       "group": "crypy-games-desafios"
     },
     {
@@ -135,7 +130,17 @@
     },
     {
       "path": "crypy-games-desafios/dungeon-crypy.html",
-      "label": "DUNGEON-CRYPY",
+      "label": "Dungeon Crypy",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/dungeon-crypy-v2.html",
+      "label": "Dungeon Crypy V2",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/crypy-dungeons/Masmorra dos Três Pilares.html",
+      "label": "Masmorra Dos TrêS Pilares",
       "group": "crypy-games-desafios"
     },
     {
@@ -150,7 +155,7 @@
     },
     {
       "path": "crypy-infinyt/portal.html",
-      "label": "CRYPY INFINYT — Portal",
+      "label": "Portal",
       "group": "crypy-infinyt"
     },
     {
@@ -170,7 +175,12 @@
     },
     {
       "path": "crypy-news/museu.html",
-      "label": "Museu Digital — Acervo",
+      "label": "Museu",
+      "group": "crypy-news"
+    },
+    {
+      "path": "crypy-news/index.html",
+      "label": "Página inicial",
       "group": "crypy-news"
     },
     {
@@ -184,13 +194,23 @@
       "group": "esquadrao-das-cores"
     },
     {
-      "path": "esquadrao-das-cores/esquadrao-das-cores.html",
-      "label": "Esquadrão das Cores — Página principal",
+      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
       "group": "esquadrao-das-cores"
     },
     {
       "path": "esquadrao-das-cores/esquadrao.html",
-      "label": "Esquadrão das Cores — Funções",
+      "label": "Esquadrao",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/esquadrao-das-cores.html",
+      "label": "Esquadrao Das Cores",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "esquadrao-das-cores/hq-collection/esquadrao-das-cores.html",
+      "label": "Esquadrao Das Cores",
       "group": "esquadrao-das-cores"
     },
     {
@@ -199,34 +219,9 @@
       "group": "esquadrao-das-cores"
     },
     {
-      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hq-collection/esquadrao-das-cores.html",
-      "label": "Esquadrão das Cores — HQ Collection",
-      "group": "esquadrao-das-cores"
-    },
-    {
       "path": "esquadrao-das-cores/relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "health.html",
-      "label": "Health",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index.html",
-      "label": "HOME",
-      "group": "RAIZ"
-    },
-    {
-      "path": "mapa-colmeia.html",
-      "label": "Mapa Colmeia",
-      "group": "RAIZ"
     },
     {
       "path": "marketing/chatboot-baby-ia.html",
@@ -270,7 +265,7 @@
     },
     {
       "path": "nft-collection/galeria.html",
-      "label": "NFT Collection — Galeria",
+      "label": "Galeria",
       "group": "nft-collection"
     },
     {
@@ -294,6 +289,51 @@
       "group": "nft-collection"
     },
     {
+      "path": "baby-ia.html",
+      "label": "Baby Ia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "chatboot-baby-ia.html",
+      "label": "Chatboot Baby Ia",
+      "group": "RAIZ"
+    },
+    {
+      "path": "health.html",
+      "label": "Health",
+      "group": "RAIZ"
+    },
+    {
+      "path": "index.html",
+      "label": "HOME",
+      "group": "RAIZ"
+    },
+    {
+      "path": "home2.html",
+      "label": "Home2",
+      "group": "RAIZ"
+    },
+    {
+      "path": "home3.html",
+      "label": "Home3",
+      "group": "RAIZ"
+    },
+    {
+      "path": "home4.html",
+      "label": "Home4",
+      "group": "RAIZ"
+    },
+    {
+      "path": "home5.html",
+      "label": "Home5",
+      "group": "RAIZ"
+    },
+    {
+      "path": "mapa-colmeia.html",
+      "label": "Mapa Colmeia",
+      "group": "RAIZ"
+    },
+    {
       "path": "relogio-mundial.html",
       "label": "Relogio Mundial",
       "group": "RAIZ"
@@ -309,13 +349,13 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/comunidade-editorial-preservada-2026-11-20.html",
-      "label": "Comunidade Editorial — versão preservada",
+      "path": "social-crypykut/comunidade.html",
+      "label": "Comunidade",
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/comunidade.html",
-      "label": "Social CRYPYKUT — Comunidade",
+      "path": "social-crypykut/comunidade-editorial-preservada-2026-11-20.html",
+      "label": "Comunidade Editorial Preservada 2026 11 20",
       "group": "social-crypykut"
     },
     {
@@ -350,7 +390,7 @@
     },
     {
       "path": "social-crypykut/reals.html",
-      "label": "CRYPYKUT Reels",
+      "label": "Reals",
       "group": "social-crypykut"
     },
     {
@@ -372,11 +412,6 @@
       "path": "web3.1/chatboot-baby-ia.html",
       "label": "Chatboot Baby Ia",
       "group": "web3.1"
-    },
-    {
-      "path": "crypy-news/index.html",
-      "label": "CRYPY NEWS — Central Editorial",
-      "group": "crypy-news"
     }
   ]
 }
