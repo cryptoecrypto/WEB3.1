@@ -134,7 +134,7 @@
       ":where(article,.card,.panel,.tile,.hive-card,.team-card,.module-card,.feature-card){border-color:rgba(0,255,136,.24)}",
       ":where(article,.card,.panel,.tile,.hive-card,.team-card,.module-card,.feature-card):hover{border-color:rgba(0,255,136,.65);box-shadow:0 0 18px rgba(0,255,136,.12),0 0 12px rgba(38,156,255,.08)}",
       "@media(prefers-reduced-motion:reduce){button,a,:where(article,.card,.panel,.tile,.hive-card,.team-card,.module-card,.feature-card){transition:none!important}}"
-    ].join("\\n");
+    ].join("\n");
     (document.head || document.documentElement).appendChild(skin);
   }
 
