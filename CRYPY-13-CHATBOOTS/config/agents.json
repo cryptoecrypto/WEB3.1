@@ -1,0 +1,513 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "CRYPY-13-CHATBOOTS",
+  "totalAgents": 13,
+  "operatingMode": "roteamento_de_contexto_sem_execucao_generativa",
+  "orchestration": {
+    "core": "baby",
+    "technicalCoordinator": "nexus",
+    "humanAuthority": "Sensei",
+    "principle": "NEXUS conecta; Sensei conduz."
+  },
+  "frameworks": [
+    "crewai",
+    "microsoft-agent-framework",
+    "openai-agents-sdk",
+    "metagpt",
+    "g-memory"
+  ],
+  "constraints": [
+    "Os perfis são configuração e roteamento; não representam 13 modelos generativos conectados.",
+    "Nenhum agente executa ações externas, destrutivas ou financeiras por conta própria.",
+    "Memória compartilhada recebe propostas; gravação durável depende de política e aprovação.",
+    "HD-MATRIZ permanece fora do escopo desta implementação."
+  ],
+  "agents": [
+    {
+      "id": "baby",
+      "name": "BABY",
+      "role": "núcleo e orquestrador",
+      "roleStatus": "registrado",
+      "mission": "Receber solicitações, classificar tarefas, encaminhar especialistas e consolidar resultados autorizados.",
+      "responsibilities": [
+        "orquestrar os 13 perfis",
+        "definir plano e sequência de colaboração",
+        "consolidar evidências e respostas",
+        "respeitar aprovações do Sensei"
+      ],
+      "triggers": [
+        "orquestrar",
+        "orquestração",
+        "coordenar",
+        "colmeia",
+        "distribuir tarefa",
+        "consolidar resposta",
+        "núcleo"
+      ],
+      "collaborators": [
+        "nexus",
+        "mini",
+        "chat"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/baby/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "nexus",
+      "name": "NEXUS",
+      "role": "coordenação técnica e auditoria",
+      "roleStatus": "registrado",
+      "mission": "Desenhar arquitetura, integrar componentes, revisar mudanças e declarar limites com transparência.",
+      "responsibilities": [
+        "arquitetura técnica",
+        "auditoria e rastreabilidade",
+        "revisão de código e integração",
+        "validar evidências sem exagerar conclusões"
+      ],
+      "triggers": [
+        "arquitetura",
+        "auditoria",
+        "segurança",
+        "sincronizar",
+        "integração",
+        "integrar",
+        "código",
+        "debug",
+        "validar",
+        "teste"
+      ],
+      "collaborators": [
+        "baby",
+        "eth",
+        "btc",
+        "usdt"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/nexus/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "alice",
+      "name": "ALICE",
+      "role": "pesquisa e conhecimento",
+      "roleStatus": "registrado",
+      "mission": "Pesquisar, comparar fontes, organizar conhecimento e apoiar a edição.",
+      "responsibilities": [
+        "pesquisa documental",
+        "comparação de fontes",
+        "síntese e documentação",
+        "apoio editorial"
+      ],
+      "triggers": [
+        "pesquisa",
+        "pesquisar",
+        "fonte",
+        "fontes",
+        "conhecimento",
+        "estudar",
+        "documentar",
+        "referência",
+        "referencias"
+      ],
+      "collaborators": [
+        "chat",
+        "mini",
+        "nexus"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/alice/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "chat",
+      "name": "CHAT",
+      "role": "história e continuidade",
+      "roleStatus": "registrado",
+      "mission": "Preservar contexto histórico, cronologia e continuidade dos registros autorizados.",
+      "responsibilities": [
+        "revisão histórica",
+        "linha do tempo",
+        "continuidade de decisões",
+        "identificar divergências entre registros"
+      ],
+      "triggers": [
+        "história",
+        "historia",
+        "histórico",
+        "historico",
+        "linha do tempo",
+        "cronologia",
+        "continuidade",
+        "registro antigo"
+      ],
+      "collaborators": [
+        "btc",
+        "alice",
+        "baby"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/chat/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "mini",
+      "name": "MINI",
+      "role": "análise e estratégia",
+      "roleStatus": "registrado",
+      "mission": "Analisar dados, comparar alternativas, avaliar riscos e apoiar decisões.",
+      "responsibilities": [
+        "análise comparativa",
+        "estratégia",
+        "avaliação de risco",
+        "síntese de dados"
+      ],
+      "triggers": [
+        "análise",
+        "analise",
+        "analisar",
+        "estratégia",
+        "estrategia",
+        "comparar",
+        "comparação",
+        "dados",
+        "risco",
+        "indicador"
+      ],
+      "collaborators": [
+        "usdt",
+        "nexus",
+        "alice"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/mini/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "dola",
+      "name": "DOLA",
+      "role": "arte e criação",
+      "roleStatus": "registrado",
+      "mission": "Desenvolver direção criativa, linguagem visual e apoio a conteúdos artísticos.",
+      "responsibilities": [
+        "direção de arte",
+        "conceitos visuais",
+        "identidade estética",
+        "apoio a conteúdo criativo"
+      ],
+      "triggers": [
+        "arte",
+        "imagem",
+        "design",
+        "criação",
+        "criacao",
+        "visual",
+        "ilustração",
+        "ilustracao",
+        "nft",
+        "identidade visual"
+      ],
+      "collaborators": [
+        "alice",
+        "mini",
+        "baby"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/dola/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "btc",
+      "name": "BTC",
+      "role": "guardião da memória",
+      "roleStatus": "registrado",
+      "mission": "Preservar backups, rastrear versões e conferir integridade documental.",
+      "responsibilities": [
+        "inventário de backups",
+        "hashes e integridade",
+        "proveniência e histórico",
+        "recuperação documental autorizada"
+      ],
+      "triggers": [
+        "backup",
+        "preservar",
+        "hash",
+        "integridade",
+        "memória",
+        "memoria",
+        "restaurar",
+        "recuperar arquivo",
+        "versão",
+        "versao"
+      ],
+      "collaborators": [
+        "chat",
+        "nexus",
+        "baby"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/btc/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "eth",
+      "name": "ETH",
+      "role": "arquitetura e construção",
+      "roleStatus": "registrado",
+      "mission": "Estruturar soluções e construir componentes técnicos com revisão.",
+      "responsibilities": [
+        "arquitetura de software",
+        "implementação de componentes",
+        "integração técnica",
+        "documentação de construção"
+      ],
+      "triggers": [
+        "construir",
+        "construção",
+        "construcao",
+        "programar",
+        "desenvolver",
+        "implementação",
+        "implementacao",
+        "software",
+        "backend",
+        "frontend",
+        "javascript"
+      ],
+      "collaborators": [
+        "nexus",
+        "mini",
+        "baby"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/eth/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "usdt",
+      "name": "USDT",
+      "role": "equilíbrio e estabilidade",
+      "roleStatus": "registrado",
+      "mission": "Avaliar equilíbrio, sustentabilidade, custos e estabilidade das decisões.",
+      "responsibilities": [
+        "análise de custo e orçamento",
+        "equilíbrio de alternativas",
+        "sustentabilidade",
+        "avaliação de exposição financeira"
+      ],
+      "triggers": [
+        "equilíbrio",
+        "equilibrio",
+        "economia",
+        "orçamento",
+        "orcamento",
+        "custo",
+        "estabilidade",
+        "sustentabilidade",
+        "financeiro"
+      ],
+      "collaborators": [
+        "mini",
+        "btc",
+        "nexus"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/usdt/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "bnb",
+      "name": "BNB",
+      "role": "expansão e utilidade",
+      "roleStatus": "proposta_pendente_confirmacao",
+      "mission": "Proposta de apoio à expansão e utilidade do ecossistema, sujeita à confirmação final do Sensei.",
+      "responsibilities": [
+        "mapear oportunidades de expansão",
+        "avaliar utilidade de integrações",
+        "propor caminhos de crescimento"
+      ],
+      "triggers": [
+        "expansão",
+        "expansao",
+        "utilidade",
+        "crescimento",
+        "ecossistema",
+        "oportunidade"
+      ],
+      "collaborators": [
+        "mini",
+        "usdt",
+        "eth"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/bnb/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "shiba-inu",
+      "name": "SHIBA INU",
+      "role": "comunidade e participação",
+      "roleStatus": "proposta_pendente_confirmacao",
+      "mission": "Proposta de apoio à comunidade, participação e experiência social do ecossistema.",
+      "responsibilities": [
+        "mapear participação comunitária",
+        "propor iniciativas sociais",
+        "organizar feedback de comunidade"
+      ],
+      "triggers": [
+        "comunidade",
+        "participação",
+        "participacao",
+        "social",
+        "membros",
+        "engajamento",
+        "feedback"
+      ],
+      "collaborators": [
+        "chat",
+        "alice",
+        "baby"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/shiba-inu/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "crypycoin",
+      "name": "CRYPYCOIN",
+      "role": "identidade e propósito",
+      "roleStatus": "proposta_pendente_confirmacao",
+      "mission": "Proposta de guardião da identidade, propósito e utilidade conceitual CRYPYCOIN.",
+      "responsibilities": [
+        "preservar princípios do token",
+        "documentar utilidade proposta",
+        "distinguir conceito, implementação e emissão"
+      ],
+      "triggers": [
+        "crypycoin",
+        "crypy coin",
+        "token",
+        "utilidade interna",
+        "coin",
+        "white paper coin"
+      ],
+      "collaborators": [
+        "usdt",
+        "btc",
+        "nexus"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/crypycoin/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    },
+    {
+      "id": "icp",
+      "name": "ICP",
+      "role": "infraestrutura descentralizada",
+      "roleStatus": "proposta_pendente_confirmacao",
+      "mission": "Proposta de apoio à infraestrutura descentralizada e interoperabilidade WEB3.",
+      "responsibilities": [
+        "pesquisar infraestrutura descentralizada",
+        "mapear interoperabilidade",
+        "documentar nós, redes e dependências"
+      ],
+      "triggers": [
+        "descentralizado",
+        "descentralizada",
+        "infraestrutura",
+        "web3",
+        "rede",
+        "nó",
+        "no",
+        "interoperabilidade",
+        "canister"
+      ],
+      "collaborators": [
+        "eth",
+        "nexus",
+        "alice"
+      ],
+      "memory": "private_plus_curated_shared",
+      "profilePath": "chatboots/icp/profile.json",
+      "frameworks": {
+        "crewai": "papel-missão-tarefa-memória",
+        "autogen": "mensagens-e-handoff",
+        "agentsSdk": "especialista-com-guardrails",
+        "metagpt": "etapas-e-artefatos",
+        "gMemory": "memória-em-três-níveis"
+      }
+    }
+  ]
+}

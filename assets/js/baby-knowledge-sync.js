@@ -24,7 +24,11 @@
     "baby-server-bridge.js",
     "assets/js/baby-global-chat.js",
     "assets/js/crypy-global-nav.js",
-    "assets/js/crypy-page-assistant.js"
+    "assets/js/crypy-page-assistant.js",
+    "CRYPY-13-CHATBOOTS/config/agents.json",
+    "CRYPY-13-CHATBOOTS/architecture/colmeia-architecture.md",
+    "CRYPY-13-CHATBOOTS/shared-memory/memory-contract.json",
+    "CRYPY-13-CHATBOOTS/baby-core/orchestrator.js"
   ];
 
   var memoryDocs = [];
@@ -136,7 +140,7 @@
     else if (progress.state === "concluido_com_erros") b.textContent = "BABY · " + progress.indexed + " OK / " + progress.errors + " ERROS";
     else if (progress.state === "erro") b.textContent = "BABY · FALHA NA BASE";
     else b.textContent = "BABY · SINCRONIZAR BASE";
-    b.title = "Catálogo oficial + documentos técnicos da HD MATRIZ. Clique para executar/reexecutar.";
+    b.title = "Índice WEB3.1 + documentos autorizados + catálogo dos 13 ChatBoots. Recuperação textual local; não treina modelos nem altera fontes.";
   }
 
   function sync() {

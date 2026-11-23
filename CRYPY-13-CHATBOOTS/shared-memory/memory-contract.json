@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "status": "contrato_documentado_nao_deployado",
+  "principles": [
+    "memória individual isolada por agente",
+    "memória compartilhada somente com escopo autorizado",
+    "proveniência obrigatória",
+    "sem gravação automática de toda conversa",
+    "sem ingestão de segredos ou dados sensíveis desnecessários"
+  ],
+  "layers": [
+    {
+      "id": "insight",
+      "name": "Insights consolidados",
+      "purpose": "Fatos, decisões e conhecimento curado com fonte, confiança e data.",
+      "defaultRetention": "persistente somente após aprovação",
+      "write": "proposta"
+    },
+    {
+      "id": "query",
+      "name": "Consultas e contexto",
+      "purpose": "Pergunta, contexto mínimo, recuperação e resultado associado.",
+      "defaultRetention": "temporário por sessão",
+      "write": "registro mínimo sob política"
+    },
+    {
+      "id": "collaboration",
+      "name": "Trajetórias de colaboração",
+      "purpose": "Handoffs, decisões, artefatos, revisões e motivos de consolidação.",
+      "defaultRetention": "trilha auditável conforme política",
+      "write": "append-only proposto"
+    }
+  ],
+  "scopes": {
+    "privateAgent": {
+      "read": "somente o agente proprietário e BABY quando autorizado",
+      "write": "agente proprietário; sujeito a política"
+    },
+    "sharedCurated": {
+      "read": "agentes autorizados por tarefa",
+      "write": "proposta ao BABY; aprovação do Sensei para registros sensíveis ou permanentes"
+    },
+    "sourceEvidence": {
+      "read": "somente caminhos explicitamente autorizados",
+      "write": "não altera arquivos de origem"
+    }
+  },
+  "requiredMetadata": [
+    "memoryId",
+    "layer",
+    "scope",
+    "ownerAgent",
+    "source",
+    "sourceHash quando aplicável",
+    "createdAt",
+    "confidence",
+    "approvalState"
+  ],
+  "prohibited": [
+    "seed phrases",
+    "private keys",
+    "senhas",
+    "tokens de sessão",
+    "segredos de API",
+    "dados pessoais sem necessidade e autorização"
+  ],
+  "exclusions": [
+    "HD-MATRIZ",
+    "carteiras e credenciais",
+    "arquivos originais não autorizados"
+  ]
+}

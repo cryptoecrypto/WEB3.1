@@ -57,6 +57,8 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 
 <div id="barra"><span>🎤</span><input id="inp" placeholder="Fale com o BABY I.A..." autocomplete="off" inputmode="text" enterkeyhint="send"><button onclick="enviar()">➤</button></div>
 
+<script src="CRYPY-13-CHATBOOTS/baby-core/orchestrator.js"></script>
+<script src="CRYPY-13-CHATBOOTS/baby-core/browser-adapter.js"></script>
 <script src="assets/js/baby-knowledge-sync.js"></script>
 <script>
 var msgsEl=document.getElementById("msgs");
@@ -99,8 +101,12 @@ function enviar(){
   addMsg(v,"user");
   inp.value=""; esp.classList.remove("on"); esp.textContent="";
   setTimeout(async function(){
-    var r="";
+    var r="", route=null;
     try{
+      if(window.CRPYColmeia&&window.CRPYColmeia.ready){
+        await window.CRPYColmeia.ready;
+        route=window.CRPYColmeia.route(v);
+      }
       var knowledge=window.BabyKnowledge||(window.parent!==window?window.parent.BabyKnowledge:null);
       var hits=knowledge?await knowledge.search(v,5):[];
       if(hits&&hits.length){
@@ -110,6 +116,11 @@ function enviar(){
         r=raciocinar(v);
       }
     }catch(e){r=raciocinar(v);}
+    if(route){
+      var apoio=route.collaborators.map(function(a){return a.name;}).join(", ")||"nenhum adicional";
+      r="COLMEIA · ENCAMINHAMENTO SUGERIDO\nBABY coordena · Especialista: "+route.primary.name+" · Apoio: "+apoio+
+        "\nModo: roteamento local; nenhum modelo especialista foi chamado.\n\n"+r;
+    }
     addMsg(r,"baby");
   }, 300);
 }

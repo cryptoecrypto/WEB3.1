@@ -1,19 +1,25 @@
 # CRYPY — 13 ChatBoots
 
-Estrutura independente dos 13 ChatBoots da Colmeia CRYPY.
+Arquitetura unificada dos 13 perfis da Colmeia CRYPY.
 
-## Princípios
-- BABY é o núcleo/orquestrador; NEXUS coordena arquitetura e auditoria.
-- Cada ChatBoot tem identidade, instruções e memória isoladas.
-- A memória compartilhada só será acessada por permissões explícitas.
-- Nenhuma chave/API secret será armazenada neste repositório ou no HTML público.
-- A HD-MATRIZ e as páginas originais do WEB3.1 não fazem parte desta implementação e devem permanecer intactas.
+## Governança
+- Sensei mantém a autoridade humana.
+- BABY é o núcleo/orquestrador.
+- NEXUS coordena arquitetura técnica, integração e auditoria.
+- Cada ChatBoot tem perfil e escopo próprios.
+- Memória compartilhada é curada e controlada por permissões.
+- HD-MATRIZ e páginas originais permanecem fora do escopo.
 
-## Fases
-1. Estrutura de pastas e documentação (fase atual).
-2. Configuração dos perfis e regras de memória.
-3. Integração de APIs em backend independente.
-4. Ingestão auditável do conhecimento autorizado do WEB3.1.
-5. Testes, segurança e homologação.
+## Cinco referências incorporadas como padrões
+- CrewAI: papéis, tarefas e memória individual/compartilhada.
+- Microsoft AutoGen / Agent Framework: mensagens, equipes e handoffs.
+- OpenAI Agents SDK: orquestração, especialistas, guardrails e tracing.
+- MetaGPT: fluxo de artefatos e revisão por etapas.
+- G-Memory: memória em três níveis.
 
-**Estado:** estrutura inicial em preparação; APIs ainda não conectadas; chats generativos ainda não ativos.
+## Estado real desta entrega
+**Implementado:** 13 perfis JSON; catálogo único; roteador determinístico; adaptador de catálogo no BABY; inclusão do catálogo e da arquitetura no indexador local; testes automatizados preparados.
+
+**Ainda pendente:** 13 modelos generativos independentes; backend de inferência; mensageria de produção; armazenamento compartilhado remoto; sincronização com Dropbox; homologação de segurança e testes de navegador.
+
+O catálogo no BABY é roteamento de contexto, não prova de que 13 modelos estão ativos. Nenhuma chave/API secret deve ser colocada no repositório ou no HTML público.
