@@ -136,10 +136,12 @@ for(const file of files) {
   else{planned++;if(matches.length)repaired++;}
 }
 pages.sort((a,b)=>a.group.localeCompare(b.group,"pt-BR")||a.label.localeCompare(b.label,"pt-BR")||a.path.localeCompare(b.path,"pt-BR"));
-const fileIndex=buildFileIndex();
 if(applyChanges){
   fs.mkdirSync(path.dirname(indexPath),{recursive:true});
   fs.writeFileSync(indexPath,JSON.stringify({version:"2.1",generated_at:new Date().toISOString(),total:pages.length,pages},null,2)+"\n");
+}
+const fileIndex=buildFileIndex();
+if(applyChanges){
   fs.writeFileSync(fileIndexPath,JSON.stringify(fileIndex,null,2)+"\n");
 }
 console.log("Modo:",applyChanges?"APLICAÇÃO":"SIMULAÇÃO (padrão)",
