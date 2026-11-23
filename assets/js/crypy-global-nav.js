@@ -6,6 +6,14 @@
   var scriptUrl = document.currentScript && document.currentScript.src;
   if (!scriptUrl) return;
   var siteRoot = new URL("../../", scriptUrl);
+  // Camada visual dinâmica compartilhada: tema mensal + variação diária.
+  if (!document.querySelector('script[data-crypy-dynamic-design="true"]')) {
+    var dynamicDesign = document.createElement("script");
+    dynamicDesign.src = new URL("assets/js/crypy-dynamic-design.js", siteRoot).href;
+    dynamicDesign.dataset.crypyDynamicDesign = "true";
+    dynamicDesign.async = true;
+    (document.head || document.documentElement).appendChild(dynamicDesign);
+  }
   // O quadro de mercado é carregado somente na Home, sem alterar o HTML principal.
   var currentPath = window.location.pathname.toLowerCase();
   var homeRootPath = new URL("./", siteRoot).pathname.toLowerCase();
