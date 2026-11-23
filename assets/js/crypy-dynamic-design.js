@@ -24,8 +24,8 @@
   var close=document.createElement("button");close.id="crypy-daily-close";close.type="button";close.setAttribute("aria-label","Fechar");close.textContent="×";
   var title=document.createElement("h3");title.textContent=message.phrase;
   var meta=document.createElement("div");meta.id="crypy-daily-meta";meta.textContent=theme.name+" · "+skin.name;
-  var idea=document.createElement("p");idea.innerHTML="<b>IDEIA</b> — "+message.idea;
-  var tip=document.createElement("p");tip.innerHTML="<b>DICA</b> — "+message.tip;
+  var idea=document.createElement("p");var ideaLabel=document.createElement("b");ideaLabel.textContent="IDEIA — ";idea.append(ideaLabel,document.createTextNode(message.idea));
+  var tip=document.createElement("p");var tipLabel=document.createElement("b");tipLabel.textContent="DICA — ";tip.append(tipLabel,document.createTextNode(message.tip));
   panel.append(close,meta,title,idea,tip);box.append(style,toggle,panel);document.body.appendChild(box);
   toggle.addEventListener("click",function(){box.setAttribute("data-open",box.getAttribute("data-open")==="true"?"false":"true");});
   close.addEventListener("click",function(){box.setAttribute("data-open","false");});
@@ -48,11 +48,12 @@
   rootEl.dataset.crypyMonthlyTheme=theme.name;
   rootEl.dataset.crypyDailySkin=skin.name;
   rootEl.dataset.crypyDailyEffect=skin.effect||"glow";
+  rootEl.dataset.crypyDayStamp=String(day);
   var cssId="crypy-dynamic-design-skin";
   var css=document.getElementById(cssId);
   if(!css){css=document.createElement("style");css.id=cssId;document.head.appendChild(css);}
   css.textContent="body{background-color:var(--crypy-theme-bg)!important}body:before{background:radial-gradient(ellipse at 12% 10%,color-mix(in srgb,var(--crypy-theme-accent) 18%,transparent),transparent 34%),radial-gradient(ellipse at 88% 16%,color-mix(in srgb,var(--crypy-daily-accent2) 15%,transparent),transparent 32%),linear-gradient(180deg,transparent,var(--crypy-theme-bg) 90%)!important} :where(.card,.panel,.tile,.module,.hive-card,.team-card,.lesson,.track-card,article){border-color:color-mix(in srgb,var(--crypy-daily-accent) 42%,transparent)} :where(.card,.panel,.tile,.module,.hive-card,.team-card,.lesson,.track-card,article):hover{box-shadow:0 0 22px color-mix(in srgb,var(--crypy-daily-accent) 20%,transparent),0 0 12px color-mix(in srgb,var(--crypy-daily-accent2) 12%,transparent)} :where(h1,h2,.section-kicker,.eyebrow,.band-label){text-shadow:0 0 14px color-mix(in srgb,var(--crypy-theme-accent) 28%,transparent)} :where(button,.btn,.track-button,.level-button):focus-visible,:where(a,input,textarea,select):focus-visible{outline:2px solid var(--crypy-daily-accent)!important;outline-offset:3px} #crypy-global-nav-toggle{border-color:var(--crypy-daily-accent)!important;color:var(--crypy-daily-accent)!important;box-shadow:0 0 18px color-mix(in srgb,var(--crypy-daily-accent) 25%,transparent)!important} body[data-crypy-daily-effect=\"glass\"] :where(.card,.panel,.tile,.module,article){backdrop-filter:blur(10px)} body[data-crypy-daily-effect=\"edge\"] :where(.card,.panel,.tile,.module,article){border-left:3px solid var(--crypy-daily-accent)} body[data-crypy-daily-effect=\"grid\"]{background-image:linear-gradient(color-mix(in srgb,var(--crypy-daily-accent) 5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--crypy-daily-accent) 5%,transparent) 1px,transparent 1px);background-size:32px 32px} body[data-crypy-daily-effect=\"prism\"] :where(.card,.panel,.tile,.module,article){box-shadow:0 0 0 1px color-mix(in srgb,var(--crypy-daily-accent2) 15%,transparent),0 0 15px color-mix(in srgb,var(--crypy-daily-accent3) 10%,transparent)}"+(reduced?"*{scroll-behavior:auto!important}":"");
-  if(document.body)document.body.dataset.crypyMonthlyTheme=theme.name;
+  if(document.body){document.body.dataset.crypyMonthlyTheme=theme.name;document.body.dataset.crypyDailyEffect=skin.effect||"glow";}
   ensureWidget(message,theme,skin);
  }
  function boot(){
