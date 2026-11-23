@@ -157,8 +157,8 @@ function isPublic(p){
  return true;
 }
 function showPanel(show){panel.classList.toggle('open',show);openBtn.setAttribute('aria-expanded',String(show));}
-function go(path){if(!path)return;frame.src='./'+path;showPanel(false);}
-function home(){frame.src=HOME1;showPanel(false);activeKey=null;document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));}
+function go(path){if(!path)return;const target='./'+path;const absolute=new URL(target,location.href).href;if(frame.src!==absolute)frame.src=target;showPanel(false);}
+function home(){if(frame.src!==new URL(HOME1,location.href).href)frame.src=HOME1;showPanel(false);activeKey=null;document.querySelectorAll('[data-cx]').forEach(b=>b.setAttribute('aria-pressed','false'));}
 document.getElementById('cx-open').addEventListener('click',()=>showPanel(!panel.classList.contains('open')));
 document.getElementById('cx-close').addEventListener('click',()=>showPanel(false));
 document.getElementById('cx-home').addEventListener('click',home);
@@ -196,7 +196,7 @@ async function auditPages(){
  if(!allPages.length){auditStatus.textContent='Índice ainda não carregado; auditoria não iniciada.';return;}
  const button=document.getElementById('cx-audit');button.disabled=true;button.textContent='LENDO PÁGINAS…';
  const siteRoot=new URL('./',location.href);
- const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index1.htm','index 2.html','index3.html'])));
+ const sources=Array.from(new Set(allPages.map(p=>p.path).filter(Boolean).concat(['index.html','index1.htm','index 2.html','index3.html'])));
  let pageCursor=0,read=0,fetchFailures=[],refs=new Map(),externalSkipped=0;
  function collectRef(source,raw,el,base){
   if(!raw||/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(raw))return;
@@ -267,11 +267,36 @@ function legacyTarget(url,anchor){
  if(/baby|chatbot/.test(t))return 'baby-ia/centro.html';
  return null;
 }
+function applyFramePerformance(d){
+ try{
+  if(!d||d.__crypyPerformanceLayer)return;
+  d.__crypyPerformanceLayer=true;
+  const path=(d.location&&d.location.pathname)||'';
+  const purplePage=/\\/contato\\//i.test(path)||/\\/nft-collection\\/(collection-crypy-nft|crypy-nft-edition|nft-colection-edition|nft-genesis)\\.html$/i.test(path);
+  const style=d.createElement('style');
+  style.dataset.crypyPerformance='true';
+  style.textContent='html{scroll-behavior:auto!important;background-attachment:scroll!important}body{background-attachment:scroll!important}';
+  if(purplePage){
+   style.textContent+='[class*="backdrop-blur"]{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}[class*="blur-3xl"],[class*="blur-2xl"],[class*="blur-xl"]{filter:none!important}.card,.nft-card,.gallery-card,.product-card,.bubble-card{content-visibility:auto;contain-intrinsic-size:auto 340px}';
+  }
+  if(d.head)d.head.appendChild(style);
+  const view=d.defaultView;
+  d.querySelectorAll('img').forEach(img=>{
+   img.decoding='async';
+   const rect=img.getBoundingClientRect();
+   if(view&&rect.top>(view.innerHeight||800)*1.15)img.loading='lazy';
+  });
+  d.querySelectorAll('iframe').forEach(child=>{
+   const rect=child.getBoundingClientRect();
+   if(view&&rect.top>(view.innerHeight||800)*1.15)child.loading='lazy';
+  });
+ }catch(err){}
+}
 function installFrameBridge(){
  try{
   const d=frame.contentDocument;if(!d||d.__crypyRootBridge)return;
   d.__crypyRootBridge=true;
-  const shellStyle=d.createElement('style');shellStyle.textContent='#baby-knowledge-sync,#crypy-music{display:none!important}';d.head.appendChild(shellStyle);
+  const shellStyle=d.createElement('style');shellStyle.textContent='#baby-knowledge-sync,#crypy-music{display:none!important}';d.head.appendChild(shellStyle);applyFramePerformance(d);
   d.addEventListener('click',async e=>{
    const eye=e.target&&e.target.closest&&e.target.closest('#baby-olho-interativo, #babyOlho, .baby-olho');
    if(eye){e.preventDefault();e.stopImmediatePropagation();openBaby();return;}
@@ -286,8 +311,7 @@ function installFrameBridge(){
    const relative=u.pathname.replace(new URL('./',location.href).pathname,'');
    if(relative&&relative!==u.pathname&&relative.endsWith('.html')){
     e.preventDefault();e.stopImmediatePropagation();
-    try{const r=await fetch(u.href,{method:'HEAD',cache:'no-store'});if(r.ok)frame.src=u.href;else{status.textContent='LINK NÃO LOCALIZADO ('+r.status+'): '+relative;showPanel(true);}}
-    catch(err){status.textContent='Falha ao conferir o link: '+relative;showPanel(true);}
+    go(relative);
    }
   },true);
   const win=d.defaultView;
@@ -297,8 +321,8 @@ function installFrameBridge(){
     const anchors={'topo':'crypy-topo-infinito','quarteto':'quarteto','crypto-bubbles':'crypto-bubbles','chat-baby':'baby-ia-chatbot-novo'};
     if(anchors[target]){
      const node=d.getElementById(anchors[target])||d.getElementById(target);
-     if(node){node.scrollIntoView({behavior:'smooth',block:'start'});return;}
-     if(target==='topo'){d.defaultView.scrollTo({top:0,behavior:'smooth'});return;}
+     if(node){node.scrollIntoView({behavior:'auto',block:'start'});return;}
+     if(target==='topo'){d.defaultView.scrollTo({top:0,behavior:'auto'});return;}
     }
     const routes={
      'crypy-infinit':'crypy-infinyt/portal.html','universo':'crypy-infinyt/portal.html','explorar':'crypy-infinyt/portal.html',
@@ -326,7 +350,7 @@ function installFrameBridge(){
     const nd=childFrame.contentDocument;if(!nd)return;
     if(!nd.__crypyNestedRootBridge){
      nd.__crypyNestedRootBridge=true;
-     const nestedStyle=nd.createElement('style');nestedStyle.textContent='#baby-knowledge-sync,#crypy-music{display:none!important}';nd.head&&nd.head.appendChild(nestedStyle);
+     const nestedStyle=nd.createElement('style');nestedStyle.textContent='#baby-knowledge-sync,#crypy-music{display:none!important}';nd.head&&nd.head.appendChild(nestedStyle);applyFramePerformance(nd);
      nd.addEventListener('click',async ev=>{
       const a=ev.target&&ev.target.closest&&ev.target.closest('a[href]');if(!a)return;
       const raw=a.getAttribute('href');if(!raw||raw.startsWith('#')||/^(mailto:|tel:|javascript:|data:)/i.test(raw))return;
@@ -340,8 +364,7 @@ function installFrameBridge(){
       const relative=u.pathname.replace(new URL('./',location.href).pathname,'');
       if(relative&&relative!==u.pathname&&relative.endsWith('.html')){
        ev.preventDefault();ev.stopImmediatePropagation();
-       try{const r=await fetch(u.href,{method:'HEAD',cache:'no-store'});if(r.ok)go(relative);else{status.textContent='LINK NÃO LOCALIZADO ('+r.status+'): '+relative;showPanel(true);}}
-       catch(err){status.textContent='Falha ao conferir o link: '+relative;showPanel(true);}
+       go(relative);
       }
      },true);
     }
