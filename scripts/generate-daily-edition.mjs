@@ -1,18 +1,42 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
+
 const configPath = resolve("crypy-daily-world/config/daily-themes.json");
 const outPath = resolve("crypy-daily-world/generated/daily-edition.json");
 const config = JSON.parse(await readFile(configPath, "utf8"));
 const dateArg = process.argv[2];
-const date = dateArg || new Intl.DateTimeFormat("en-CA", { timeZone: config.timezone, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)) throw new Error("Data deve usar YYYY-MM-DD");
+const date = dateArg || new Intl.DateTimeFormat("en-CA", {
+  timeZone: config.timezone, year: "numeric", month: "2-digit", day: "2-digit"
+}).format(new Date());
+
+if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+  throw new Error("Data deve usar YYYY-MM-DD");
+}
 const themes = config.themes;
-if (!Array.isArray(themes) || themes.length === 0) throw new Error("Nenhum tema configurado");
+if (!Array.isArray(themes) || themes.length === 0) {
+  throw new Error("Nenhum tema configurado");
+}
 const dayNumber = Math.floor(Date.parse(date + "T00:00:00Z") / 86400000);
 const theme = themes[((dayNumber % themes.length) + themes.length) % themes.length];
-const edition = { edition_id: date + "-" + theme.id, date, timezone: config.timezone, theme_id: theme.id, scene: theme.scene, palette: theme.palette, headline: theme.headline, message: theme.message, layout: theme.layout, motion: theme.motion, image_set: theme.image_set, gif_set: theme.gif_set, status: "preview_only", publication: config.publication, generated_at: new Date().toISOString() };
+const edition = {
+  edition_id: date + "-" + theme.id,
+  date,
+  timezone: config.timezone,
+  theme_id: theme.id,
+  scene: theme.scene,
+  palette: theme.palette,
+  headline: theme.headline,
+  message: theme.message,
+  layout: theme.layout,
+  motion: theme.motion,
+  image_set: theme.image_set,
+  gif_set: theme.gif_set,
+  status: "preview_only",
+  publication: config.publication,
+  generated_at: new Date().toISOString()
+};
 edition.sha256 = createHash("sha256").update(JSON.stringify(edition)).digest("hex");
 await mkdir(dirname(outPath), { recursive: true });
-await writeFile(outPath, JSON.stringify(edition, null, 2) + "\\n", "utf8");
+await writeFile(outPath, JSON.stringify(edition, null, 2) + "\n", "utf8");
 console.log(JSON.stringify({ outPath, edition_id: edition.edition_id, status: edition.status }));
