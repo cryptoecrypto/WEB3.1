@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-11-21T02:11:33.007Z",
+  "state": {
+    "status": "online",
+    "memory": 614,
+    "patterns": [
+      {
+        "name": "Versões",
+        "count": 652
+      },
+      {
+        "name": "Regras/Leis",
+        "count": 2
+      },
+      {
+        "name": "NFT/Cripto",
+        "count": 2
+      }
+    ],
+    "decisions": [],
+    "learningLevel": 1,
+    "lastSync": "2026-11-21T02:11:28.918Z",
+    "config": {
+      "mode": "real",
+      "autonomy": "high",
+      "sync": "realtime",
+      "security": "standard"
+    }
+  },
+  "rules": {
+    "rule1": "Preservar antes de tudo",
+    "rule2": "O Criador decide (nenhuma proposta vira regra sem aprovação)",
+    "rule3": "MODO REAL sempre ativo (diferenciar planejamento, implementação e aprovação)",
+    "rule4": "As identidades são funções, sem afirmar consciência autônoma",
+    "rule5": "Alteração só com autorização explícita do Sensei",
+    "rule6": "Nada é publicado sem registro prévio",
+    "rule7": "A memória é inviolável",
+    "rule8": "Isenção financeira obrigatória",
+    "rule9": "Harmonia com o NEXUS",
+    "rule10": "Proibido antecipar fatos não concluídos"
+  }
+}
