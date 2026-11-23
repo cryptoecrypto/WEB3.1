@@ -45,3 +45,16 @@ Os perfis individuais estão em `chatboots/*/profile.json` e no catálogo `confi
 
 ## Conexão geral — barramento local
 O BABY carrega os 13 perfis e distribui um envelope de tarefa para todos pelo `collaboration-bus.js`. Cada envelope registra destinatários, agente principal sugerido, colaboradores e revisor. Esta camada comprova distribuição lógica aos perfis; não comprova resposta de 13 LLMs. Modelos externos permanecem 0/13 até cada endpoint ser configurado, autenticado e testado. O relógio mundial usa fusos IANA via `Intl`, sem depender de API externa.
+
+
+## Habilidade compartilhada — manutenção e design diário
+
+O catálogo `config/agents.json` registra a habilidade compartilhada `dailyMaintenance`. O guia operacional está em `crypy-academy/cursos/fontes/GUIA-MANUTENCAO-DESIGN-AGENTES-001.md`.
+
+- Calendário visual mensal: `assets/data/crypy-design-calendar.json` — 12 temas, um por mês.
+- Variação visual diária: `assets/js/crypy-dynamic-design.js` — sete peles cromáticas e mensagens diárias.
+- A camada é carregada pelo menu global nas 13 páginas oficiais de entrada.
+- A rotação muda apenas apresentação visual e mensagem inspiracional; não modifica conteúdo, URLs, permissões ou HDs.
+- Tarefas de manutenção seguem observar → diagnosticar → propor → prototipar → revisar → testar → aprovar → registrar.
+- Mudanças editoriais, estruturais, de memória ou de segurança continuam dependentes de autorização do Sensei.
+- A documentação é conhecimento disponibilizado ao indexador BABY; a ingestão efetiva depende de executar a sincronização no navegador.
