@@ -43,7 +43,7 @@ const officialCategories = [
   "MUSEU DIGITAL",
   "MARKETPLACE",
   "CRYPY-GAMES",
-  "CRYPYKUT",
+  "CRYPYCUT",
   "BABY I.A.",
   "WHITE PAPER",
   "CONTATO"
