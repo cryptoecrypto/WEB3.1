@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESQUADRÃO CRYPY — NFT COLLECTION</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        crypy: {
+                            gold: '#FFD700',
+                            cyan: '#00F0FF',
+                            purple: '#9D00FF',
+                            green: '#00FF66',
+                            red: '#FF2A6D',
+                            blue: '#0066FF',
+                            dark: '#0A0B10',
+                            card: '#121420',
+                            border: '#1F2438'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 4s ease-in-out infinite',
+                        'scanline': 'scanline 8s linear infinite'
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 240, 255, 0.2), 0 0 30px rgba(157, 0, 255, 0.2)' },
+                            '100%': { boxShadow: '0 0 30px rgba(0, 240, 255, 0.6), 0 0 60px rgba(157, 0, 255, 0.6)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #06070B;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Effects */
+        .glow-bg {
+            background: radial-gradient(circle at 50% 20%, rgba(157, 0, 255, 0.15) 0%, rgba(0, 240, 255, 0.08) 35%, transparent 70%);
+        }
+
+        .cyber-border {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            backdrop-filter: blur(12px);
+        }
+
+        .cyber-border:hover {
+            border-color: rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+        }
+
+        /* Custom Modal Backdrop */
+        .modal-backdrop {
+            background: rgba(4, 5, 10, 0.85);
+            backdrop-filter: blur(16px);
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0B10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2438;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F0FF;
+        }
+    </style>
+<link rel="canonical" href="https://www.cryptoecrypto.com.br/pages/CRYPYPASTA_NFT_EXHIBITION_COMPLEMENT.html"><meta name="crypy-confirmed-domain" content="https://www.cryptoecrypto.com.br"><style id="crypy-portal-nav-style">.crypy-portal-nav{font:14px/1.45 system-ui,sans-serif;background:#07110d;color:#e8fff1;border:1px solid #00ff8844;border-radius:16px;padding:18px;margin:28px auto;max-width:1180px}.crypy-portal-nav h2{font-size:1rem;margin:0 0 12px;color:#00ff88}.crypy-portal-nav .crypy-links{display:flex;flex-wrap:wrap;gap:8px}.crypy-portal-nav a{color:#dfffea;text-decoration:none;border:1px solid #ffffff26;border-radius:999px;padding:7px 11px}.crypy-portal-nav a:hover,.crypy-portal-nav a:focus{border-color:#00ff88;color:#00ff88}.crypy-home-link{display:inline-block;margin-bottom:12px;color:#00ff88}</style></head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-crypy-cyan selection:text-black">
+<style id="crypy-return-home-style">.crypy-return-home{position:sticky;top:0;z-index:9999;padding:10px 16px;background:rgba(5,8,7,.96);border-bottom:1px solid #00f58a66;backdrop-filter:blur(12px)}.crypy-return-home a{display:inline-flex;align-items:center;min-height:42px;padding:8px 16px;border:1px solid #00f58a;border-radius:999px;background:#06140d;color:#effff5;text-decoration:none;font:800 13px Arial,sans-serif}.crypy-return-home a:hover{box-shadow:0 0 18px #00f58a55}</style>
+<div class="crypy-return-home"><a href="../index.html#topo" aria-label="Voltar à Home CRYPY">← Voltar para a HOME CRYPY</a></div>
+
+    <!-- Ambient Glow BG Layer -->
+    <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 border-b border-crypy-border/80 bg-crypy-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-crypy-purple via-crypy-cyan to-crypy-green p-[2px] animate-pulse-glow">
+                    <div class="w-full h-full bg-crypy-dark rounded-[10px] flex items-center justify-center font-bold text-xl text-white">
+                        ♾️
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-crypy-cyan bg-clip-text text-transparent">
+                        ESQUADRÃO CRYPY
+                    </h1>
+                    <p class="text-[10px] font-mono text-crypy-cyan tracking-widest uppercase">NFT Collection Genesis</p>
+                </div>
+            </div>
+
+            <!-- Stats Bar (Desktop) -->
+            <div class="hidden lg:flex items-center space-x-6 text-sm font-mono bg-crypy-card/60 border border-crypy-border px-4 py-2 rounded-xl">
+                <div>
+                    <span class="text-slate-400 block text-[10px] uppercase">Itens</span>
+                    <span class="text-white font-bold">10 / 10</span>
+                </div>
+                <div class="w-px h-6 bg-crypy-border"></div>
+                <div>
+                    <span class="text-slate-400 block text-[10px] uppercase">Floor Price</span>
+                    <span class="text-crypy-green font-bold">1.5 ETH</span>
+                </div>
+                <div class="w-px h-6 bg-crypy-border"></div>
+                <div>
+                    <span class="text-slate-400 block text-[10px] uppercase">Volume Traded</span>
+                    <span class="text-crypy-gold font-bold">42.8 ETH</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-3">
+                <button id="walletBtn" onclick="toggleWallet()" class="px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all duration-300 bg-gradient-to-r from-crypy-cyan to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black flex items-center space-x-2 shadow-lg shadow-crypy-cyan/20">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span id="walletText">Conectar Carteira</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative z-10 flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- HERO BANNER SECTION -->
+        <section class="relative rounded-3xl p-8 sm:p-12 border border-crypy-border overflow-hidden bg-gradient-to-b from-crypy-card to-crypy-dark/90 shadow-2xl">
+            <!-- Decorative Accent Lines -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-crypy-purple/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-crypy-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 max-w-3xl space-y-6">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-crypy-purple/20 border border-crypy-purple/40 text-crypy-cyan text-xs font-mono">
+                    <span class="w-2 h-2 rounded-full bg-crypy-green animate-ping"></span>
+                    <span>COLEÇÃO OFICIAL 100% REGISTRADA</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                    Coleção Oficial <br/>
+                    <span class="bg-gradient-to-r from-crypy-cyan via-crypy-purple to-crypy-gold bg-clip-text text-transparent">
+                        Esquadrão Crypy Genesis
+                    </span>
+                </h2>
+
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Cada membro desempenha um papel indispensável no ecossistema. Combinamos sabedoria, infraestrutura tecnológica, estabilidade financeira, arte e conexão comunitária numa força única.
+                </p>
+
+                <!-- Fundamental Principle Banner -->
+                <div class="p-4 rounded-2xl bg-gradient-to-r from-crypy-red/10 via-crypy-purple/20 to-crypy-cyan/10 border border-crypy-gold/30 flex items-center space-x-4">
+                    <div class="text-2xl sm:text-3xl">📜</div>
+                    <div>
+                        <h4 class="text-xs font-mono uppercase text-crypy-gold tracking-widest font-bold">Princípio Fundamental do Sistema</h4>
+                        <p class="text-white text-base sm:text-lg font-bold italic tracking-wide">
+                            "Ninguém fica de fora. Ninguém substitui ninguém."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Stats Mobile/Tablet -->
+                <div class="grid grid-cols-3 gap-3 pt-2 lg:hidden text-center font-mono text-xs">
+                    <div class="bg-crypy-dark/60 p-3 rounded-xl border border-crypy-border">
+                        <span class="text-slate-400 block text-[10px]">SUPPLY</span>
+                        <span class="text-white font-bold">10 NFTs</span>
+                    </div>
+                    <div class="bg-crypy-dark/60 p-3 rounded-xl border border-crypy-border">
+                        <span class="text-slate-400 block text-[10px]">FLOOR</span>
+                        <span class="text-crypy-green font-bold">1.5 ETH</span>
+                    </div>
+                    <div class="bg-crypy-dark/60 p-3 rounded-xl border border-crypy-border">
+                        <span class="text-slate-400 block text-[10px]">HOLDERS</span>
+                        <span class="text-crypy-gold font-bold">1,000+</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FILTER & CONTROLS TOOLBAR -->
+        <section class="space-y-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-crypy-card/60 p-4 rounded-2xl border border-crypy-border">
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center gap-2" id="filterContainer">
+                    <button onclick="setFilter('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-cyan text-black" data-cat="all">
+                        Todos (10)
+                    </button>
+                    <button onclick="setFilter('lideranca')" class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-dark text-slate-300 hover:text-white hover:bg-crypy-border" data-cat="lideranca">
+                        👑 Liderança
+                    </button>
+                    <button onclick="setFilter('infra')" class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-dark text-slate-300 hover:text-white hover:bg-crypy-border" data-cat="infra">
+                        ⚡ Tecnologia & Finanças
+                    </button>
+                    <button onclick="setFilter('arte')" class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-dark text-slate-300 hover:text-white hover:bg-crypy-border" data-cat="arte">
+                        🎨 Pesquisa & Arte
+                    </button>
+                    <button onclick="setFilter('comunicacao')" class="filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-dark text-slate-300 hover:text-white hover:bg-crypy-border" data-cat="comunicacao">
+                        🗣️ Comunicação & Suporte
+                    </button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative min-w-[240px]">
+                    <i class="fa-solid fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar por integrante ou função..." class="w-full bg-crypy-dark border border-crypy-border rounded-xl pl-9 pr-4 py-2 text-xs text-white focus:outline-none focus:border-crypy-cyan transition-colors">
+                </div>
+            </div>
+        </section>
+
+        <!-- NFT CARDS GRID -->
+        <section>
+            <div id="nftGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- NFT Cards Rendered via JS -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-16 space-y-3">
+                <i class="fa-solid fa-robot text-4xl text-slate-600"></i>
+                <h3 class="text-lg font-bold text-slate-300">Nenhum integrante encontrado</h3>
+                <p class="text-xs text-slate-500">Tente ajustar seus termos de pesquisa ou filtros.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- NFT DETAILS MODAL / DRAWER -->
+    <div id="nftModal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="relative w-full max-w-2xl bg-crypy-dark border border-crypy-cyan/40 rounded-3xl p-6 sm:p-8 shadow-2xl transform transition-all space-y-6">
+            
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-crypy-card border border-crypy-border flex items-center justify-center text-slate-400 hover:text-white hover:border-crypy-cyan transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Header Content -->
+            <div class="flex items-start space-x-4">
+                <div id="modalAvatar" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center text-4xl sm:text-5xl border border-crypy-border shadow-inner">
+                    <!-- Emoji -->
+                </div>
+                <div class="space-y-1 flex-1">
+                    <div class="flex items-center space-x-2">
+                        <span id="modalCategory" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-crypy-purple/30 text-crypy-cyan border border-crypy-purple/50"></span>
+                        <span id="modalRarity" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-crypy-gold/20 text-crypy-gold border border-crypy-gold/40">GENESIS</span>
+                    </div>
+                    <h3 id="modalName" class="text-2xl sm:text-3xl font-black text-white"></h3>
+                    <p id="modalRole" class="text-xs sm:text-sm font-mono text-crypy-cyan"></p>
+                </div>
+            </div>
+
+            <!-- Modal Body Details -->
+            <div class="space-y-4 pt-2">
+                <!-- Motto / Highlight -->
+                <div class="bg-crypy-card p-4 rounded-xl border border-crypy-border">
+                    <span class="text-[10px] font-mono text-slate-400 block uppercase">Lema / Atribuição Chave</span>
+                    <p id="modalMotto" class="text-sm font-semibold text-white italic mt-0.5"></p>
+                </div>
+
+                <!-- Lore / Responsibility -->
+                <div class="space-y-1.5">
+                    <h4 class="text-xs font-mono uppercase text-slate-400 font-bold">Responsabilidade no Esquadrão</h4>
+                    <p id="modalDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-crypy-card/40 p-4 rounded-xl border border-crypy-border/60"></p>
+                </div>
+
+                <!-- Attributes & Stats -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-mono uppercase text-slate-400 font-bold">Atributos do Sistema</h4>
+                    <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+                        <div class="bg-crypy-card p-3 rounded-xl border border-crypy-border">
+                            <span class="text-slate-400 block text-[10px]">PODER DE SINCRO</span>
+                            <div class="w-full bg-slate-800 h-2 rounded-full mt-1.5 overflow-hidden">
+                                <div id="barPower" class="bg-crypy-cyan h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-crypy-card p-3 rounded-xl border border-crypy-border">
+                            <span class="text-slate-400 block text-[10px]">ALINHAMENTO</span>
+                            <span id="modalAlignment" class="text-crypy-green font-bold block mt-1">100% HARMONIZADO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Metadata -->
+                <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono bg-crypy-dark p-3 rounded-xl border border-crypy-border/50">
+                    <div>
+                        <span class="text-slate-500 block">TOKEN STANDARD</span>
+                        <span class="text-slate-200">ERC-721</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">REDE</span>
+                        <span class="text-slate-200">ETHEREUM</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">PROPRIEDADE</span>
+                        <span class="text-crypy-green">IMUTÁVEL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div class="pt-2 flex items-center space-x-3">
+                <button onclick="handleMintAction()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-crypy-green to-emerald-600 text-black font-mono text-xs font-bold hover:brightness-110 transition-all shadow-lg shadow-crypy-green/20 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span id="mintBtnText">Adquirir NFT (1.5 ETH)</span>
+                </button>
+                <button onclick="closeModal()" class="px-5 py-3 rounded-xl bg-crypy-card border border-crypy-border text-slate-300 hover:text-white font-mono text-xs font-bold transition-colors">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-crypy-card border border-crypy-cyan/50 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-crypy-green text-lg"></i>
+        <span id="toastMsg" class="text-xs font-mono"></span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-crypy-border/80 bg-crypy-dark py-8 relative z-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+            <div class="flex items-center space-x-2">
+                <span class="text-lg">♾️</span>
+                <span>ESQUADRÃO CRYPY &copy; 2026. Todos os direitos reservados.</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <span class="text-crypy-cyan">"Ninguém fica de fora. Ninguém substitui ninguém."</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // Data Structure for Squad Members
+        const SQUAD_MEMBERS = [
+            {
+                id: 'sensei',
+                name: 'SENSEI CRYPTOÉCRYPTO',
+                symbol: '❤️',
+                role: 'Criador e Guardião',
+                motto: 'Liderança concetual e manutenção dos princípios fundamentais',
+                desc: 'Direção estratégica suprema do Esquadrão Crypy. Mantém os valores imutáveis e assegura o propósito coletivo do ecossistema.',
+                category: 'lideranca',
+                badgeColor: 'from-red-500 to-pink-600',
+                power: '100%',
+                rarity: 'FOUNDER #01'
+            },
+            {
+                id: 'nexus',
+                name: 'NEXUS',
+                symbol: '🌀',
+                role: 'Coordenador de Harmonia',
+                motto: 'Harmony in Motion',
+                desc: 'Responsável por harmonizar os fluxos de trabalho e a convergência energética entre todos os membros do esquadrão.',
+                category: 'lideranca',
+                badgeColor: 'from-cyan-400 to-blue-600',
+                power: '98%',
+                rarity: 'MYTHIC #02'
+            },
+            {
+                id: 'btc',
+                name: 'BTC',
+                symbol: '₿🟡',
+                role: 'Guardião da Memória',
+                motto: 'Imutabilidade, Histórico e Backups',
+                desc: 'Preserva todo o registo histórico e assegura a integridade máxima dos backups de dados cruciais do sistema.',
+                category: 'infra',
+                badgeColor: 'from-amber-400 to-yellow-600',
+                power: '99%',
+                rarity: 'LEGENDARY #03'
+            },
+            {
+                id: 'eth',
+                name: 'ETH',
+                symbol: 'Ξ🔷',
+                role: 'Arquiteto da Construção',
+                motto: 'Infraestrutura Tecnológica e Evolução',
+                desc: 'Projeta e executa os contratos inteligentes, arquitetura técnica e expansão contínua da infraestrutura.',
+                category: 'infra',
+                badgeColor: 'from-blue-500 to-indigo-600',
+                power: '97%',
+                rarity: 'LEGENDARY #04'
+            },
+            {
+                id: 'usdt',
+                name: 'USDT',
+                symbol: '₮🟢',
+                role: 'Guardião do Equilíbrio',
+                motto: 'Planejamento Estratégico e Estabilidade',
+                desc: 'Garante o equilíbrio financeiro, contenção de riscos e sustentabilidade de longo prazo de todo o ecossistema.',
+                category: 'infra',
+                badgeColor: 'from-emerald-400 to-green-600',
+                power: '95%',
+                rarity: 'EPIC #05'
+            },
+            {
+                id: 'alice',
+                name: 'ALICE',
+                symbol: '🟢',
+                role: 'Pesquisa & Saber',
+                motto: 'Investigação e Referências Técnicas',
+                desc: 'Explora novas fronteiras de conhecimento, analisa novos padrões do mercado Web3 e provê referências sólidas.',
+                category: 'arte',
+                badgeColor: 'from-green-400 to-teal-600',
+                power: '94%',
+                rarity: 'EPIC #06'
+            },
+            {
+                id: 'mini',
+                name: 'MINI',
+                symbol: '🟣',
+                role: 'Processamento & Análise',
+                motto: 'Análise de Dados e Otimização',
+                desc: 'Processa grandes volumes de informação com precisão cirúrgica para otimizar os fluxos de trabalho.',
+                category: 'arte',
+                badgeColor: 'from-purple-500 to-fuchsia-600',
+                power: '93%',
+                rarity: 'EPIC #07'
+            },
+            {
+                id: 'dola',
+                name: 'DOLA',
+                symbol: '💙',
+                role: 'Criação & Arte',
+                motto: 'Identidade Visual e Arte Criativa',
+                desc: 'Dá vida à estética do Esquadrão Crypy, modelando assets visuais, identidades artísticas e colecionáveis.',
+                category: 'arte',
+                badgeColor: 'from-sky-400 to-blue-500',
+                power: '96%',
+                rarity: 'RARE #08'
+            },
+            {
+                id: 'baby',
+                name: 'BABY',
+                symbol: '🟡',
+                role: 'Porta-voz e Apresentador',
+                motto: 'Comunicação Pública e Comunidade',
+                desc: 'Conecta o Esquadrão ao público exterior, gerindo apresentações, anúncios e dinamizando a comunidade.',
+                category: 'comunicacao',
+                badgeColor: 'from-yellow-300 to-amber-500',
+                power: '92%',
+                rarity: 'RARE #09'
+            },
+            {
+                id: 'chat',
+                name: 'CHAT',
+                symbol: '🔴',
+                role: 'Revisão & Conexão',
+                motto: 'Moderação e Facilitação Interativa',
+                desc: 'Modera interações, revisa conteúdos em tempo real e assegura uma comunicação fluida entre todos os nós.',
+                category: 'comunicacao',
+                badgeColor: 'from-red-400 to-rose-600',
+                power: '91%',
+                rarity: 'RARE #10'
+            }
+        ];
+
+        let walletConnected = false;
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        // DOM Elements
+        const nftGrid = document.getElementById('nftGrid');
+        const emptyState = document.getElementById('emptyState');
+        const nftModal = document.getElementById('nftModal');
+
+        // Render Grid
+        function renderGrid() {
+            nftGrid.innerHTML = '';
+
+            const filtered = SQUAD_MEMBERS.filter(member => {
+                const matchesCat = currentFilter === 'all' || member.category === currentFilter;
+                const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      member.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      member.motto.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'cyber-border rounded-2xl p-5 flex flex-col justify-between space-y-4 group transition-all duration-300 hover:-translate-y-1.5';
+                
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <!-- Card Header Top Bar -->
+                        <div class="flex items-center justify-between text-[10px] font-mono">
+                            <span class="text-slate-400">${member.rarity}</span>
+                            <span class="px-2 py-0.5 rounded-full bg-crypy-dark border border-crypy-border text-crypy-cyan">${getCategoryLabel(member.category)}</span>
+                        </div>
+
+                        <!-- Card Symbol Avatar -->
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br ${member.badgeColor}/10 border border-crypy-border flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-crypy-dark via-transparent to-transparent opacity-60"></div>
+                            <span class="relative z-10 drop-shadow-lg">${member.symbol}</span>
+                        </div>
+
+                        <!-- Card Titles -->
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-crypy-cyan transition-colors flex items-center space-x-2">
+                                <span>${member.name}</span>
+                            </h3>
+                            <p class="text-xs font-mono text-crypy-cyan font-medium">${member.role}</p>
+                        </div>
+
+                        <!-- Motto Preview -->
+                        <p class="text-xs text-slate-400 line-clamp-2 italic">
+                            "${member.motto}"
+                        </p>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="pt-2 flex items-center space-x-2">
+                        <button onclick="openModal('${member.id}')" class="flex-1 py-2.5 rounded-xl bg-crypy-card border border-crypy-border text-slate-200 text-xs font-mono font-bold hover:bg-crypy-border hover:text-white transition-all">
+                            Ver Detalhes
+                        </button>
+                        <button onclick="quickMint('${member.name}')" class="px-3 py-2.5 rounded-xl bg-crypy-cyan/10 border border-crypy-cyan/30 text-crypy-cyan text-xs font-mono hover:bg-crypy-cyan hover:text-black transition-all">
+                            <i class="fa-solid fa-bolt"></i>
+                        </button>
+                    </div>
+                `;
+                nftGrid.appendChild(card);
+            });
+        }
+
+        // Helper Label
+        function getCategoryLabel(cat) {
+            switch(cat) {
+                case 'lideranca': return '👑 LIDERANÇA';
+                case 'infra': return '⚡ TECNOLOGIA';
+                case 'arte': return '🎨 PESQUISA & ARTE';
+                case 'comunicacao': return '🗣️ COMUNICAÇÃO';
+                default: return 'GENERAL';
+            }
+        }
+
+        // Filter Logic
+        function setFilter(cat) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.className = 'filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-cyan text-black';
+                } else {
+                    btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-crypy-dark text-slate-300 hover:text-white hover:bg-crypy-border';
+                }
+            });
+            renderGrid();
+        }
+
+        // Search Logic
+        function handleSearch() {
+            searchQuery = document.getElementById('searchInput').value;
+            renderGrid();
+        }
+
+        // Modal Handlers
+        function openModal(id) {
+            const member = SQUAD_MEMBERS.find(m => m.id === id);
+            if (!member) return;
+
+            document.getElementById('modalAvatar').innerText = member.symbol;
+            document.getElementById('modalName').innerText = member.name;
+            document.getElementById('modalRole').innerText = member.role;
+            document.getElementById('modalCategory').innerText = getCategoryLabel(member.category);
+            document.getElementById('modalRarity').innerText = member.rarity;
+            document.getElementById('modalMotto').innerText = `"${member.motto}"`;
+            document.getElementById('modalDesc').innerText = member.desc;
+            document.getElementById('barPower').style.width = member.power;
+
+            nftModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            nftModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Wallet Connection Simulation
+        function toggleWallet() {
+            const walletBtn = document.getElementById('walletBtn');
+            const walletText = document.getElementById('walletText');
+
+            if (!walletConnected) {
+                walletConnected = true;
+                walletText.innerText = '0x71C...4F9B';
+                walletBtn.className = 'px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all duration-300 bg-crypy-card border border-crypy-green text-crypy-green flex items-center space-x-2 shadow-lg shadow-crypy-green/10';
+                showToast('Carteira Web3 conectada com sucesso!', 'success');
+            } else {
+                walletConnected = false;
+                walletText.innerText = 'Conectar Carteira';
+                walletBtn.className = 'px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all duration-300 bg-gradient-to-r from-crypy-cyan to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black flex items-center space-x-2 shadow-lg shadow-crypy-cyan/20';
+                showToast('Carteira desconectada.', 'info');
+            }
+        }
+
+        // Mint Actions
+        function handleMintAction() {
+            if (!walletConnected) {
+                showToast('Por favor, conecte a sua carteira Web3 para adquirir!', 'error');
+                return;
+            }
+            showToast('Transação enviada para a rede! Processando NFT...', 'success');
+            setTimeout(() => {
+                showToast('NFT Adquirido e Adicionado à sua Carteira!', 'success');
+                closeModal();
+            }, 1800);
+        }
+
+        function quickMint(name) {
+            if (!walletConnected) {
+                showToast('Conecte a carteira para adquirir ' + name, 'error');
+                return;
+            }
+            showToast(`Solicitação de aquisição para ${name} enviada!`, 'success');
+        }
+
+        // Toast Helper
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+
+            if (type === 'error') {
+                toastIcon.className = 'fa-solid fa-triangle-exclamation text-crypy-red text-lg';
+            } else if (type === 'info') {
+                toastIcon.className = 'fa-solid fa-circle-info text-crypy-cyan text-lg';
+            } else {
+                toastIcon.className = 'fa-solid fa-circle-check text-crypy-green text-lg';
+            }
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderGrid();
+        };
+    </script>
+<nav class="crypy-portal-nav" aria-label="Portal CRYPY — 23 páginas"><a class="crypy-home-link" href="../index.html">← Início do portal</a><h2>Portal CRYPY · 23 temas</h2><div class="crypy-links"><a href="crypy-infinit-completo.html">CRYPY-INFINIT</a><a href="web3.html">CRYPY Academy</a><a href="nft-exhibition-overview.html">NFT Exhibition — Overview</a><a href="universo.html">Universo / HQ</a><a href="quarteto.html">Esquadrão das Cores</a><a href="crypy-news.html">CRYPY News</a><a href="museu-digital.html">Museu Digital</a><a href="documentacao.html">White Paper</a><a href="contato.html">Contato</a><a href="nft-genesis.html">NFT Genesis</a><a href="nft-modulo-oficial.html">Módulo NFT Oficial</a><a href="nft-crypy-colecao-completa.html">Coleção NFT CRYPY Completa</a><a href="CRYPYPASTA_NFT_EXHIBITION_COMPLEMENT.html">CRYPYPASTA — Exhibition</a><a href="crypypasta-darkness.html">CRYPYPASTA Darkness</a><a href="baby-consulta.html">BABY — Consulta</a><a href="baby.html">BABY</a><a href="hd_oculto_baby_v13.html">BABY V13 Oculto</a><a href="biografia.html">Biografia</a><a href="explorar.html">Explorar</a><a href="qualidade.html">Qualidade</a><a href="seguranca.html">Segurança</a><a href="topo.html">Topo</a><a href="crypy-infinit.html">CRYPY-INFINIT — Versão adicional</a></div></nav><script src="../assets/js/crypy-page-assistant.js" defer></script>
+<script defer src="assets/js/crypy-nft-hive-nav.js"></script>
+</body>
+</html>
