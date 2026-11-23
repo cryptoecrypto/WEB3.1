@@ -11,7 +11,7 @@ function createBus(registry,options){
  function dispatch(message,route){
   var text=String(message||"").trim();if(!text)throw new Error("Mensagem vazia.");sequence++;
   var envelope={id:"crypy-colmeia-"+sequence,type:"task.broadcast",createdAt:new Date().toISOString(),message:text,recipients:agents.map(function(a){return a.id;}),recipientCount:agents.length,primaryAgent:route&&route.primary?route.primary.id:"baby",collaboratorIds:route&&Array.isArray(route.collaborators)?route.collaborators.map(function(a){return a.id;}):[],reviewerId:route&&route.reviewer?route.reviewer.id:"nexus",delivery:"local_profile_bus",profileDelivery:"dispatched",modelInvocations:0,generativeInference:false,executionAllowed:false,note:"Os 13 perfis recebem o envelope lógico. Nenhum modelo generativo externo foi chamado."};
-  listeners.slice().forEach(function(fn){try{fn(envelope);}catch(e){}});if(options.onDispatch)options.onDispatch(envelope);return envelope;
+  listeners.slice().forEach(function(fn){try{fn(envelope);}catch(e){}});if(typeof window!=="undefined"&&typeof CustomEvent!=="undefined")window.dispatchEvent(new CustomEvent("crypy:colmeia:message",{detail:envelope}));if(options.onDispatch)options.onDispatch(envelope);return envelope;
  }
  return {dispatch:dispatch,subscribe:subscribe,status:function(){return {state:"ready",registeredProfiles:agents.length,connectedProfiles:agents.length,modelEndpointsConnected:0,generativeInference:false,mode:"local_profile_bus"};},list:function(){return agents.slice();}};
 }

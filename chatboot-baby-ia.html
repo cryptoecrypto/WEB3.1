@@ -13,7 +13,7 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 #topo b{font-size:16px}
 #topo span{display:block;font-size:12px;color:#00ff88}
 #status{padding:8px 16px;font-size:12px;color:#00ff88}
-#msgs{position:absolute;top:96px;left:12px;right:12px;bottom:92px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:4px}
+#msgs{position:absolute;top:340px;left:12px;right:12px;bottom:92px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:4px}
 .msg{max-width:85%;padding:10px 12px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
 .msg.baby{align-self:flex-start;background:#07150d;border:1px solid #173d28}
 .msg.user{align-self:flex-end;background:#00ff88;color:#03130a;border-bottom-right-radius:4px}
@@ -35,6 +35,7 @@ html,body{height:100%;background:#000;color:#eafff3;font-family:system-ui,-apple
 #fab{position:fixed;right:16px;bottom:430px;z-index:30;width:56px;height:56px;border-radius:50%;background:#00ff88;border:2px solid #00ff88;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 #espelho{display:none;padding:6px 12px;font-size:12px;color:#00ff88}
 #espelho.on{display:block}
+@media(max-width:420px){#msgs{top:390px;}}
 @media(min-width:640px){
   #msgs{left:50%;transform:translateX(-50%);width:520px}
   #chatBox{left:auto;width:360px}
@@ -124,7 +125,7 @@ function enviar(){
       }
     }catch(e){r=raciocinar(v);}
     if(delivery){
-      r="COLMEIA · DISTRIBUIÇÃO INTERNA\\nEnvelope: "+delivery.id+"\\nPerfis notificados: "+delivery.recipientCount+"/13\\nEspecialista sugerido: "+delivery.primaryAgent+" · Revisor: "+delivery.reviewerId+"\\nInferência generativa externa: não conectada.\\n\\n"+r;
+      r="COLMEIA · DISTRIBUIÇÃO INTERNA\nEnvelope: "+delivery.id+"\nPerfis notificados: "+delivery.recipientCount+"/13\nEspecialista sugerido: "+delivery.primaryAgent+" · Revisor: "+delivery.reviewerId+"\nInferência generativa externa: não conectada.\n\n"+r;
     }
     if(route){
       var apoio=route.collaborators.map(function(a){return a.name;}).join(", ")||"nenhum adicional";
