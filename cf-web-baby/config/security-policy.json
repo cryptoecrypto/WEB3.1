@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "system": "BABY I.A.",
+  "securityLayer": "CF-WEB-BABY",
+  "mode": "DETECT_AND_BLOCK_PROMOTION",
+  "status": "BASELINE_PENDING",
+  "principles": {
+    "defaultDeny": true,
+    "failClosed": true,
+    "humanApprovalRequired": true,
+    "immutableOriginals": true,
+    "noAutomaticRepair": true,
+    "noPrivateDataReplication": true
+  },
+  "cryptography": {
+    "hash": "SHA-256",
+    "signature": "ECDSA-P256-SHA256",
+    "trustedPublicKeySource": "OUT_OF_BAND_TRUSTED_CONFIGURATION",
+    "publicRepositoryMayContainPrivateKeys": false
+  },
+  "changeControl": {
+    "requireVerifiedManifest": true,
+    "requiredApprovals": 1,
+    "protectedBranchOnly": true,
+    "pullRequestOnly": true,
+    "rejectUnsignedChanges": true,
+    "rejectUnknownProtectedPaths": true
+  },
+  "storage": {
+    "privateMemoryAuthority": "cryptoecrypto/HD-MATRIZ",
+    "publicRepository": "cryptoecrypto/WEB3.1",
+    "securityReviewRepository": "cryptoecrypto/SECURYTY-SUBC",
+    "replicatePrivateMemory": false
+  },
+  "protectedInventory": {
+    "file": "cf-web-baby/protection/protected-files.json",
+    "baselineStatus": "NOT_ESTABLISHED",
+    "note": "Populate only after auditing exact paths and computing hashes in a trusted environment."
+  },
+  "incidentHandling": {
+    "onMismatch": "BLOCK_PROMOTION_AND_LOG",
+    "autoRestore": false,
+    "overwriteOriginals": false,
+    "requireHumanReview": true
+  }
+}

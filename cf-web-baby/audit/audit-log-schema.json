@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cryptoecrypto.github.io/WEB3.1/cf-web-baby/audit/audit-log-schema.json",
+  "title": "CF-WEB-BABY Security Audit Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "eventId",
+    "timestamp",
+    "eventType",
+    "actor",
+    "target",
+    "result"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "INTEGRITY_CHECK",
+        "SIGNATURE_CHECK",
+        "CHANGE_REJECTED",
+        "CHANGE_APPROVED",
+        "KEY_ROTATION",
+        "RECOVERY_REVIEW"
+      ]
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expectedSha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "actualSha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "details": {
+      "type": "string"
+    }
+  }
+}
