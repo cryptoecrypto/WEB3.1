@@ -39,4 +39,24 @@
 - Este inventário é a primeira entrega de metadados. Ingestão integral e atualização dos 13 perfis dependem da classificação segura do conteúdo e dos testes de cobertura.
 
 ## Contagem por extensão
-- undefined: 1330
+- html: 587
+- json: 241
+- txt: 167
+- js: 153
+- md: 91
+- png: 17
+- mjs: 16
+- [sem extensão]: 14
+- tsx: 8
+- css: 8
+- yml: 7
+- dll: 4
+- mui: 3
+- yaml: 3
+- svg: 2
+- docx: 2
+- cmd: 2
+- ps1: 2
+- exe: 1
+- bat: 1
+- gz: 1
