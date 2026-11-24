@@ -1,92 +1,60 @@
 {
-  "version": "2.0",
-  "generated_at": "2026-11-23",
-  "total": 305,
+  "version": "3.0",
+  "generated_at": "2026-11-24T10:46:00-03:00",
+  "source_branch": "main",
+  "source_html_total": 587,
+  "total": 254,
+  "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
   "pages": [
     {
-      "path": "art-figure-marketplace/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "art-figure-marketplace"
+      "path": "CRYPY-SHOTS/01-feed-para-voce.html",
+      "label": "01 Feed Para Voce",
+      "group": "social-crypykut"
     },
     {
-      "path": "art-figure-marketplace/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "art-figure-marketplace"
+      "path": "CRYPY-SHOTS/02-seguindo.html",
+      "label": "02 Seguindo",
+      "group": "social-crypykut"
     },
     {
-      "path": "art-figure-marketplace/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "art-figure-marketplace"
+      "path": "CRYPY-SHOTS/03-ao-vivo.html",
+      "label": "03 Ao Vivo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/04-descobrir.html",
+      "label": "04 Descobrir",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/05-publicar.html",
+      "label": "05 Publicar",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/06-meu-perfil.html",
+      "label": "06 Meu Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/07-nft-shorts.html",
+      "label": "07 Nft Shorts",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/08-config-shots.html",
+      "label": "08 Config Shots",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/crypyshots.html",
+      "label": "Crypyshots",
+      "group": "social-crypykut"
     },
     {
       "path": "art-figure-marketplace/marketplace.html",
-      "label": "Art-Figure — Marketplace",
+      "label": "Marketplace",
       "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/health.html",
-      "label": "Health",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "art-figure-marketplace/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "art-figure-marketplace"
-    },
-    {
-      "path": "baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "RAIZ"
-    },
-    {
-      "path": "baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "RAIZ"
-    },
-    {
-      "path": "baby-ia.html",
-      "label": "Baby Ia",
-      "group": "RAIZ"
     },
     {
       "path": "baby-ia/auto-config.html",
@@ -100,152 +68,12 @@
     },
     {
       "path": "baby-ia/centro.html",
-      "label": "BABY I.A. — Centro de Conhecimento",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
+      "label": "Centro",
       "group": "baby-ia"
     },
     {
       "path": "baby-ia/esquadrao-auto-config.html",
       "label": "Esquadrao Auto Config",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/health.html",
-      "label": "Health",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/pluguin-tuto.html",
-      "label": "Pluguin Tuto",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/momory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/padrao/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/padrao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/padrao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/health.html",
-      "label": "Health",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "baby-ia"
-    },
-    {
-      "path": "baby-ia/sincronizacao/momory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
       "group": "baby-ia"
     },
     {
@@ -259,308 +87,143 @@
       "group": "biografia"
     },
     {
-      "path": "biografia/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "biografia"
-    },
-    {
       "path": "biografia/historia.html",
-      "label": "Biografia CRYPY — História",
+      "label": "Historia",
       "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/health.html",
-      "label": "Health",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "biografia"
-    },
-    {
-      "path": "biografia/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "biografia"
-    },
-    {
-      "path": "chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "RAIZ"
-    },
-    {
-      "path": "contato/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "contato"
     },
     {
       "path": "contato/contato-oficial.html",
-      "label": "Contato CRYPY — Oficial",
+      "label": "Contato Oficial",
       "group": "contato"
     },
     {
       "path": "contato/crypykut.html",
-      "label": "CRYPYKUT",
-      "group": "contato"
-    },
-    {
-      "path": "contato/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "contato"
-    },
-    {
-      "path": "contato/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/health.html",
-      "label": "Health",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "contato"
-    },
-    {
-      "path": "contato/momory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
+      "label": "Crypykut",
       "group": "contato"
     },
     {
       "path": "crypy-academy/academia.html",
-      "label": "CRYPY Academy — Trilhas avançadas",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
+      "label": "Academia",
       "group": "crypy-academy"
     },
     {
       "path": "crypy-academy/colmeia-conhecimento.html",
-      "label": "Base de Conhecimento da Colmeia",
+      "label": "Colmeia Conhecimento",
       "group": "crypy-academy"
     },
     {
       "path": "crypy-academy/cursos.html",
-      "label": "Catálogo de Cursos — Fortaleza do Ensino",
+      "label": "Cursos",
       "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/health.html",
-      "label": "Health",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-academy/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-academy"
-    },
-    {
-      "path": "crypy-coin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-coin"
     },
     {
       "path": "crypy-coin/Crypy-Coin.html",
-      "label": "CRYPY COIN",
+      "label": "Crypy Coin",
       "group": "crypy-coin"
     },
     {
-      "path": "crypy-coin/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/health.html",
-      "label": "Health",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-coin"
-    },
-    {
-      "path": "crypy-coin/relogio-mundial.html",
-      "label": "Relogio Mundial",
+      "path": "crypy-coin/index.html",
+      "label": "Index",
       "group": "crypy-coin"
     },
     {
       "path": "crypy-coin/white-paper.html",
-      "label": "CRYPY — White Paper",
+      "label": "White Paper",
       "group": "crypy-coin"
     },
     {
+      "path": "crypy-games-desafios/CRYPY-DUNGEONS/Masmorra dos Três Pilares.html",
+      "label": "Masmorra Dos TrêS Pilares",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-DUNGEONS/batalha-esquadrao.html",
+      "label": "Batalha Esquadrao",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-DUNGEONS/dungeon-crypy-v2.html",
+      "label": "Dungeon Crypy V2",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-DUNGEONS/dungeon-crypy.html",
+      "label": "Dungeon Crypy",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/baby-ia.html",
+      "label": "Baby Ia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/crypy-land.html",
+      "label": "Crypy Land",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/mapa-colmeia.html",
+      "label": "Mapa Colmeia",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/collection-crypy-nft.html",
+      "label": "Collection Crypy Nft",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-collection-crypypasta.html",
+      "label": "Crypy Collection Crypypasta",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-genesis.html",
+      "label": "Crypy Genesis",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-nft-edition.html",
+      "label": "Crypy Nft Edition",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/galeria.html",
+      "label": "Galeria",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/nft-colection-edition.html",
+      "label": "Nft Colection Edition",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/nft-darkness.html",
+      "label": "Nft Darkness",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/nft-genesis.html",
+      "label": "Nft Genesis",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-MANPAC/crypy-pac-crypyman.html",
+      "label": "Crypy Pac Crypyman",
+      "group": "crypy-games-desafios"
+    },
+    {
       "path": "crypy-games-desafios/arena.html",
-      "label": "CRYPY Games — Arena",
+      "label": "Arena",
       "group": "crypy-games-desafios"
     },
     {
       "path": "crypy-games-desafios/batalha-esquadrao.html",
-      "label": "Batalha do Esquadrão",
+      "label": "Batalha Esquadrao",
       "group": "crypy-games-desafios"
     },
     {
-      "path": "crypy-games-desafios/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
+      "path": "crypy-games-desafios/crypy-dungeons/Masmorra dos Três Pilares.html",
+      "label": "Masmorra Dos TrêS Pilares",
       "group": "crypy-games-desafios"
     },
     {
@@ -574,473 +237,263 @@
       "group": "crypy-games-desafios"
     },
     {
+      "path": "crypy-games-desafios/dungeon-crypy-v2.html",
+      "label": "Dungeon Crypy V2",
+      "group": "crypy-games-desafios"
+    },
+    {
       "path": "crypy-games-desafios/dungeon-crypy.html",
-      "label": "DUNGEON-CRYPY",
+      "label": "Dungeon Crypy",
       "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/pluguin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/pluguin/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/pluguin/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/pluguin/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/pluguin/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-infinyt/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/health.html",
-      "label": "Health",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-infinyt"
     },
     {
       "path": "crypy-infinyt/portal.html",
-      "label": "CRYPY INFINYT — Portal",
+      "label": "Portal",
       "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-infinyt/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "crypy-news/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-babyia.html",
-      "label": "Hd Babyia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/baby-ia.html",
-      "label": "Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/crypy-server/public/index.html",
-      "label": "Página inicial",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/health.html",
-      "label": "Health",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/health.html",
-      "label": "Health",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/pluguin.html",
-      "label": "Pluguin",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/pluguin/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-matriz/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "crypy-news"
     },
     {
       "path": "crypy-news/index.html",
-      "label": "CRYPY NEWS — Central Editorial",
+      "label": "Index",
       "group": "crypy-news"
     },
     {
       "path": "crypy-news/museu.html",
-      "label": "Museu Digital — Acervo",
+      "label": "Museu",
       "group": "crypy-news"
-    },
-    {
-      "path": "crypy-news/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "crypy-news"
-    },
-    {
-      "path": "esquadrao-das-cores/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "esquadrao-das-cores"
     },
     {
       "path": "esquadrao-das-cores/esquadrao-das-cores.html",
-      "label": "Esquadrão das Cores — Página principal",
+      "label": "Esquadrao Das Cores",
       "group": "esquadrao-das-cores"
     },
     {
       "path": "esquadrao-das-cores/esquadrao.html",
-      "label": "Esquadrão das Cores — Funções",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hd-babyia.html",
-      "label": "Hd Babyia",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hq-collection/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
+      "label": "Esquadrao",
       "group": "esquadrao-das-cores"
     },
     {
       "path": "esquadrao-das-cores/hq-collection/esquadrao-das-cores.html",
-      "label": "Esquadrão das Cores — HQ Collection",
+      "label": "Esquadrao Das Cores",
       "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hq-collection/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/hq-collection/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "esquadrao-das-cores/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "RAIZ"
-    },
-    {
-      "path": "hd-memory.html",
-      "label": "Hd Memory",
-      "group": "RAIZ"
-    },
-    {
-      "path": "health.html",
-      "label": "Health",
-      "group": "RAIZ"
-    },
-    {
-      "path": "index.html",
-      "label": "HOME",
-      "group": "RAIZ"
-    },
-    {
-      "path": "mapa-colmeia.html",
-      "label": "Mapa Colmeia",
-      "group": "RAIZ"
-    },
-    {
-      "path": "marketing/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "marketing"
-    },
-    {
-      "path": "marketing/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "marketing"
-    },
-    {
-      "path": "marketing/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "marketing"
     },
     {
       "path": "marketing/marketing.html",
       "label": "Marketing",
-      "group": "marketing"
+      "group": "art-figure-marketplace"
     },
     {
-      "path": "marketing/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-CARDS/nft-crypy-cards.html",
+      "label": "Nft Crypy Cards",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-01/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-02/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-03/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-04/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/health.html",
-      "label": "Health",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-05/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-06/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/PAGINA-07/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/crypy-nft-edition.html",
+      "label": "Crypy Nft Edition",
+      "group": "nft-collection"
     },
     {
-      "path": "marketing/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "marketing"
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-01/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-02/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-03/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-04/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-05/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-06/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/PAGINA-07/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/health.html",
-      "label": "Health",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-DARKNESS/nft-crypy-darkness.html",
+      "label": "Nft Crypy Darkness",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-01/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-02/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-03/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "memory-boost"
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-04/index.html",
+      "label": "Index",
+      "group": "nft-collection"
     },
     {
-      "path": "nft-collection/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-05/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-06/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-GAME/PAGINA-07/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-GAME/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-01/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-02/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-03/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-04/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-05/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-06/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/PAGINA-07/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-01/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-02/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-03/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-04/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-05/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-06/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-07/index.html",
+      "label": "Index",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/index.html",
+      "label": "Index",
       "group": "nft-collection"
     },
     {
@@ -1065,62 +518,7 @@
     },
     {
       "path": "nft-collection/galeria.html",
-      "label": "NFT Collection — Galeria",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/health.html",
-      "label": "Health",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
+      "label": "Galeria",
       "group": "nft-collection"
     },
     {
@@ -1139,209 +537,644 @@
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "nft-collection"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-01-depoimentos-recebidos.html",
+      "label": "Depoimentos Recebidos",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-02-depoimentos-enviados.html",
+      "label": "Depoimentos Enviados",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-03-escrever-depoimento.html",
+      "label": "Escrever Depoimento",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-04-aprovar-depoimento.html",
+      "label": "Aprovar Depoimento",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-05-depoimentos-em-destaque.html",
+      "label": "Depoimentos Em Destaque",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-06-meus-fas.html",
+      "label": "Meus Fas",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-07-meus-idolos.html",
+      "label": "Meus Idolos",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-08-virar-fa.html",
+      "label": "Virar Fa",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/health.html",
-      "label": "Health",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-09-avaliacoes.html",
+      "label": "Avaliacoes",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-10-testemunhos-em-video.html",
+      "label": "Testemunhos Em Video",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-11-depoimentos-de-aniversario.html",
+      "label": "Depoimentos De Aniversario",
+      "group": "social-crypykut"
     },
     {
-      "path": "padrao/momory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "padrao"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-12-depoimentos-arquivados.html",
+      "label": "Depoimentos Arquivados",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "pluguin"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-13-denunciar-depoimento.html",
+      "label": "Denunciar Depoimento",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "pluguin"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-14-selos-de-fa.html",
+      "label": "Selos De Fa",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "pluguin"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-15-ranking-de-fas.html",
+      "label": "Ranking De Fas",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "pluguin"
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-16-histórico-de-fas.html",
+      "label": "HistóRico De Fas",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-01-configuracoes-da-conta.html",
+      "label": "Configuracoes Da Conta",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-02-login-local.html",
+      "label": "Login Local",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-03-login-com-google.html",
+      "label": "Login Com Google",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-04-login-com-microsoft.html",
+      "label": "Login Com Microsoft",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/health.html",
-      "label": "Health",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-05-senha-e-seguranca.html",
+      "label": "Senha E Seguranca",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-06-e-mail-e-telefone.html",
+      "label": "E Mail E Telefone",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-07-notificacoes-por-e-mail.html",
+      "label": "Notificacoes Por E Mail",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-08-tema-claro-escuro.html",
+      "label": "Tema Claro Escuro",
+      "group": "social-crypykut"
     },
     {
-      "path": "pluguin/pluguin.html",
-      "label": "Pluguin",
-      "group": "pluguin"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-09-idioma.html",
+      "label": "Idioma",
+      "group": "social-crypykut"
     },
     {
-      "path": "relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "RAIZ"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-10-aplicativos.html",
+      "label": "Aplicativos",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "sincronizacao"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-11-jogos.html",
+      "label": "Jogos",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "sincronizacao"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-12-crypy-coins.html",
+      "label": "Crypy Coins",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "sincronizacao"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-13-minhas-nfts.html",
+      "label": "Minhas Nfts",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "sincronizacao"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-14-virar-nft.html",
+      "label": "Virar Nft",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "sincronizacao"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-15-carteira-crypy.html",
+      "label": "Carteira Crypy",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "sincronizacao"
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-16-sair-da-conta.html",
+      "label": "Sair Da Conta",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-01-pagina-inicial.html",
+      "label": "Pagina Inicial",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-02-atualizacoes-dos-amigos.html",
+      "label": "Atualizacoes Dos Amigos",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/health.html",
-      "label": "Health",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-03-meu-scrapbook.html",
+      "label": "Meu Scrapbook",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-04-atividades-recentes.html",
+      "label": "Atividades Recentes",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-05-notificacoes.html",
+      "label": "Notificacoes",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-06-mensagens-nao-lidas.html",
+      "label": "Mensagens Nao Lidas",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-07-aniversarios-de-hoje.html",
+      "label": "Aniversarios De Hoje",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/sinc/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-08-amigos-online-agora.html",
+      "label": "Amigos Online Agora",
+      "group": "social-crypykut"
     },
     {
-      "path": "sincronizacao/sinc/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "sincronizacao"
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-09-sugestoes-de-amigos.html",
+      "label": "Sugestoes De Amigos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-10-pessoas-que-visitaram.html",
+      "label": "Pessoas Que Visitaram",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-11-destaques-da-comunidade.html",
+      "label": "Destaques Da Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-12-enquetes-da-semana.html",
+      "label": "Enquetes Da Semana",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-13-eventos-próximos.html",
+      "label": "Eventos PróXimos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-14-aplicativos-em-destaque.html",
+      "label": "Aplicativos Em Destaque",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-15-novidades-crypy.html",
+      "label": "Novidades Crypy",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-16-ajuda-rapida.html",
+      "label": "Ajuda Rapida",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-01-meu-perfil.html",
+      "label": "Meu Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-02-editar-perfil.html",
+      "label": "Editar Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-03-editar-foto.html",
+      "label": "Editar Foto",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-04-sobre-mim.html",
+      "label": "Sobre Mim",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-05-interesses.html",
+      "label": "Interesses",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-06-musica-e-filmes.html",
+      "label": "Musica E Filmes",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-07-livros-favoritos.html",
+      "label": "Livros Favoritos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-08-esportes.html",
+      "label": "Esportes",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-09-profissao-e-escola.html",
+      "label": "Profissao E Escola",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-10-onde-moro.html",
+      "label": "Onde Moro",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-11-contato.html",
+      "label": "Contato",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-12-privacidade-do-perfil.html",
+      "label": "Privacidade Do Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-13-badges-e-selos.html",
+      "label": "Badges E Selos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-14-meu-album.html",
+      "label": "Meu Album",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-15-meu-video.html",
+      "label": "Meu Video",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-16-histórico.html",
+      "label": "HistóRico",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-01-meus-amigos.html",
+      "label": "Meus Amigos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-02-buscar-amigos.html",
+      "label": "Buscar Amigos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-03-convites-recebidos.html",
+      "label": "Convites Recebidos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-04-convites-enviados.html",
+      "label": "Convites Enviados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-05-amigos-em-comum.html",
+      "label": "Amigos Em Comum",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-06-melhores-amigos.html",
+      "label": "Melhores Amigos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-07-fas.html",
+      "label": "Fas",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-08-idolos.html",
+      "label": "Idolos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-09-amigos-por-cidade.html",
+      "label": "Amigos Por Cidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-10-amigos-por-escola.html",
+      "label": "Amigos Por Escola",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-11-amigos-por-trabalho.html",
+      "label": "Amigos Por Trabalho",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-12-bloqueados.html",
+      "label": "Bloqueados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-13-listas-de-amigos.html",
+      "label": "Listas De Amigos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-14-importar-contatos.html",
+      "label": "Importar Contatos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-15-convidar-por-e-mail.html",
+      "label": "Convidar Por E Mail",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-16-sugerir-amigo.html",
+      "label": "Sugerir Amigo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-01-recados-recebidos.html",
+      "label": "Recados Recebidos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-02-recados-enviados.html",
+      "label": "Recados Enviados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-03-escrever-recado.html",
+      "label": "Escrever Recado",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-04-recados-favoritos.html",
+      "label": "Recados Favoritos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-05-recados-com-foto.html",
+      "label": "Recados Com Foto",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-06-recados-com-video.html",
+      "label": "Recados Com Video",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-07-recados-de-aniversario.html",
+      "label": "Recados De Aniversario",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-08-responder-recado.html",
+      "label": "Responder Recado",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-09-excluir-recados.html",
+      "label": "Excluir Recados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-10-recados-arquivados.html",
+      "label": "Recados Arquivados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-11-recados-em-grupo.html",
+      "label": "Recados Em Grupo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-12-recados-da-comunidade.html",
+      "label": "Recados Da Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-13-notificar-por-e-mail.html",
+      "label": "Notificar Por E Mail",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-14-rascunhos.html",
+      "label": "Rascunhos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-15-lixeira-de-recados.html",
+      "label": "Lixeira De Recados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-16-regras-de-recados.html",
+      "label": "Regras De Recados",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-01-minhas-comunidades.html",
+      "label": "Minhas Comunidades",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-02-buscar-comunidades.html",
+      "label": "Buscar Comunidades",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-03-criar-comunidade.html",
+      "label": "Criar Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-04-comunidade-esquadrao-das-cores.html",
+      "label": "Comunidade Esquadrao Das Cores",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-05-comunidade-nft-crypy.html",
+      "label": "Comunidade Nft Crypy",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-06-comunidade-sensei-web3.html",
+      "label": "Comunidade Sensei Web3",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-07-comunidade-dola-ai.html",
+      "label": "Comunidade Dola Ai",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-08-comunidade-crypy-games.html",
+      "label": "Comunidade Crypy Games",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-09-comunidade-crypy-eternity.html",
+      "label": "Comunidade Crypy Eternity",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-10-tópicos-da-comunidade.html",
+      "label": "TóPicos Da Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-11-enquetes-da-comunidade.html",
+      "label": "Enquetes Da Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-12-membros-da-comunidade.html",
+      "label": "Membros Da Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-13-moderadores.html",
+      "label": "Moderadores",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-14-denunciar-comunidade.html",
+      "label": "Denunciar Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-15-comunidades-populares.html",
+      "label": "Comunidades Populares",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-16-sair-de-comunidade.html",
+      "label": "Sair De Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-01-minhas-fotos.html",
+      "label": "Minhas Fotos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-02-albuns.html",
+      "label": "Albuns",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-03-enviar-foto.html",
+      "label": "Enviar Foto",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-04-fotos-marcadas.html",
+      "label": "Fotos Marcadas",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-05-fotos-curtidas.html",
+      "label": "Fotos Curtidas",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-06-fotos-comentadas.html",
+      "label": "Fotos Comentadas",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-07-meus-videos.html",
+      "label": "Meus Videos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-08-enviar-video.html",
+      "label": "Enviar Video",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-09-videos-curtidos.html",
+      "label": "Videos Curtidos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-10-videos-da-comunidade.html",
+      "label": "Videos Da Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-11-capa-do-perfil.html",
+      "label": "Capa Do Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-12-fotos-de-capa.html",
+      "label": "Fotos De Capa",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-13-privacidade-de-fotos.html",
+      "label": "Privacidade De Fotos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-14-denunciar-foto.html",
+      "label": "Denunciar Foto",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-15-download-de-fotos.html",
+      "label": "Download De Fotos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-16-lixeira-de-fotos.html",
+      "label": "Lixeira De Fotos",
+      "group": "social-crypykut"
     },
     {
       "path": "social-crypykut/amigos.html",
@@ -1349,23 +1182,58 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "social-crypykut"
-    },
-    {
       "path": "social-crypykut/comunidade-editorial-preservada-2026-11-20.html",
-      "label": "Comunidade Editorial — versão preservada",
+      "label": "Comunidade Editorial Preservada 2026 11 20",
       "group": "social-crypykut"
     },
     {
       "path": "social-crypykut/comunidade.html",
-      "label": "Social CRYPYKUT — Comunidade",
+      "label": "Comunidade",
       "group": "social-crypykut"
     },
     {
       "path": "social-crypykut/comunidades.html",
       "label": "Comunidades",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/01-feed-para-voce.html",
+      "label": "01 Feed Para Voce",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/02-seguindo.html",
+      "label": "02 Seguindo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/03-ao-vivo.html",
+      "label": "03 Ao Vivo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/04-descobrir.html",
+      "label": "04 Descobrir",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/05-publicar.html",
+      "label": "05 Publicar",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/06-meu-perfil.html",
+      "label": "06 Meu Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/07-nft-shorts.html",
+      "label": "07 Nft Shorts",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/08-config-shots.html",
+      "label": "08 Config Shots",
       "group": "social-crypykut"
     },
     {
@@ -1379,63 +1247,8 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "social-crypykut"
-    },
-    {
       "path": "social-crypykut/jogos.html",
       "label": "Jogos",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/health.html",
-      "label": "Health",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/memory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
       "group": "social-crypykut"
     },
     {
@@ -1450,7 +1263,7 @@
     },
     {
       "path": "social-crypykut/reals.html",
-      "label": "CRYPYKUT Reels",
+      "label": "Reals",
       "group": "social-crypykut"
     },
     {
@@ -1459,74 +1272,9 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "social-crypykut"
-    },
-    {
       "path": "social-crypykut/shots.html",
       "label": "Shots",
       "group": "social-crypykut"
-    },
-    {
-      "path": "web3.1/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/baby-ia-agente.html",
-      "label": "Baby Ia Agente",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/baby-ia-conectado.html",
-      "label": "Baby Ia Conectado",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/chatboot-baby-ia.html",
-      "label": "Chatboot Baby Ia",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/hd-baby-ia.html",
-      "label": "Hd Baby Ia",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/hd-memory.html",
-      "label": "Hd Memory",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/health.html",
-      "label": "Health",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/pluguin.html",
-      "label": "Pluguin",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/pluguins-tuto.html",
-      "label": "Pluguins Tuto",
-      "group": "web3.1"
-    },
-    {
-      "path": "web3.1/momory-boost/relogio-mundial.html",
-      "label": "Relogio Mundial",
-      "group": "web3.1"
     }
   ]
 }
