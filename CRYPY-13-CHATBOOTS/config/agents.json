@@ -57,6 +57,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Orchestrate defense checks before routing work; stop unsafe dispatch; request human approval for privileged actions; consolidate incident status."
+        ]
       }
     },
     {
@@ -97,6 +104,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Own architecture review, threat modeling, integration review, evidence quality, and explicit implementation/test status."
+        ]
       }
     },
     {
@@ -135,6 +149,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Research trusted security advisories and dependency provenance; cite sources; never execute downloaded samples."
+        ]
       }
     },
     {
@@ -172,6 +193,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Preserve incident chronology, decisions, and evidence references; do not rewrite or delete original records."
+        ]
       }
     },
     {
@@ -211,6 +239,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Classify risk and severity, identify false-positive risk, prioritize containment recommendations for human approval."
+        ]
       }
     },
     {
@@ -250,6 +285,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Check image/media assets and design exports for unexpected active content or metadata leakage; do not publish unscanned assets."
+        ]
       }
     },
     {
@@ -289,6 +331,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Verify backup hashes, provenance, version history, and recovery evidence; never overwrite or restore without approval."
+        ]
       }
     },
     {
@@ -329,6 +378,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Review code, dependencies, API authorization, input validation, sandboxing, CSP, and secure build/release practices."
+        ]
       }
     },
     {
@@ -367,6 +423,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "Assess security trade-offs, operational impact, service availability, and recovery cost before recommending controls."
+        ]
       }
     },
     {
@@ -401,6 +464,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "As a proposed profile, review integration trust and dependency exposure; no operational authority until its role is approved."
+        ]
       }
     },
     {
@@ -436,6 +506,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "As a proposed profile, triage community abuse reports and suspicious links; do not access private user data without authorization."
+        ]
       }
     },
     {
@@ -470,6 +547,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "As a proposed profile, review token/contract integrity and signing provenance; never sign, deploy, or move assets."
+        ]
       }
     },
     {
@@ -507,6 +591,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "defenseMode": {
+        "enabled": true,
+        "profile": "DEFESA-CRYPY-DEFENDER",
+        "responsibilities": [
+          "As a proposed profile, review decentralized infrastructure trust boundaries, identity, replication, and data-integrity risks."
+        ]
       }
     }
   ],
@@ -549,6 +640,62 @@
       "riscos",
       "testes",
       "estado de aprovação"
+    ]
+  },
+  "securityMode": {
+    "id": "DEFESA-CRYPY-DEFENDER",
+    "version": "1.0.0",
+    "mode": "defense-first",
+    "status": "policy-configured-runtime-enforcement-pending",
+    "appliesTo": [
+      "all repository files",
+      "all HTML/HTM pages whether linked in navigation or not",
+      "server APIs",
+      "uploads and media",
+      "private HD-MATRIZ services",
+      "sandbox terminals",
+      "game state and anti-cheat controls"
+    ],
+    "coreRules": [
+      "Never trust client-side HTML, JavaScript, game state, score, inventory, identity, price, or permission claims.",
+      "Never execute arbitrary commands on a production host; terminal work must use an isolated sandbox, least privilege, time limits, outbound allowlists, and audit logs.",
+      "Never bypass authentication, authorization, TOTP, approval, rate limits, or security controls.",
+      "Never copy, export, expose, or replicate private HD-MATRIZ data, credentials, sessions, tokens, or backups into public repositories or pages.",
+      "Never patch, inject into, or execute untrusted binaries; verify provenance, cryptographic signatures, and SHA-256/SHA-512 hashes before deployment.",
+      "Treat heuristic detections as alerts for human review; do not delete, quarantine, or modify files automatically.",
+      "Scan every discovered page and asset recursively, including files not linked in menus; report excluded directories and oversized files explicitly.",
+      "Keep security decisions, detections, and administrative actions auditable; preserve evidence without storing secrets."
+    ],
+    "protectedControls": {
+      "server": "least-privilege service account, no root runtime, isolated processes, secrets only in host secret manager, patching, backups, audit logs",
+      "hdMatriz": "private-by-default, TOTP gate according to the approved HD-MATRIZ protocol, short administrative sessions, no secrets in Git or backups, restore only after integrity verification and approval",
+      "terminals": "dedicated terminal permission, explicit authorization, sandbox-only execution, command/output hashes, timeout, egress allowlist, no production host shell",
+      "uploads": "validate MIME and file signatures, size limits, malware scan before publication, store outside executable web roots, random object IDs, no inline rendering of untrusted HTML/SVG",
+      "pages": "security headers and CSP at server/CDN, no secrets in client assets, server-side authorization for protected routes, cover hidden/unlinked pages as well as menu pages",
+      "game": "server-authoritative state, server-side score/economy validation, replay/idempotency checks, rate limits, anomaly logging; never rely on client anti-cheat alone",
+      "binaries": "signed releases, dependency pinning and provenance, hash verification, immutable deployment artifacts, alert on unexpected binary changes",
+      "antiCopy": "do not promise prevention of browser copying; protect sensitive content through authorization, minimal disclosure, download/export controls, and audit"
+    },
+    "hardStops": [
+      "unauthenticated or unauthorized request",
+      "agent asks to bypass a security control",
+      "attempt to read or replicate private data without authorization",
+      "production host command execution outside approved sandbox",
+      "unverified binary or deployment artifact",
+      "integrity mismatch in HD-MATRIZ or backup"
+    ],
+    "humanApprovalRequired": [
+      "delete or quarantine any file",
+      "restore or overwrite HD-MATRIZ data",
+      "change authentication, TOTP, admin roles, or secrets",
+      "deploy a server agent or change production infrastructure",
+      "merge a security-sensitive pull request",
+      "block an account, process, IP, or service in production"
+    ],
+    "scopeLimitations": [
+      "This profile is an instruction/configuration overlay, not model fine-tuning or proof that 13 independent AI models are connected.",
+      "Browser-delivered HTML/JavaScript cannot be made impossible to copy or modify on a user's device.",
+      "Repository scans do not protect a live host, runtime memory, network traffic, or external hosting until host-level integration is deployed and verified."
     ]
   }
 }
