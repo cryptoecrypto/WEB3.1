@@ -9,7 +9,7 @@ Primeira versão do mecanismo defensivo de inspeção do ecossistema CRYPY.
 - Detecta algumas assinaturas/padrões heurísticos; não afirma detectar todo malware.
 - Pode executar ClamAV (\`clamscan\`) com assinaturas instaladas no host.
 - Gera relatório JSON sem copiar o conteúdo dos arquivos.
-- Modo estrito retorna código diferente de zero quando encontra indicadores.
+- Modo estrito retorna código diferente de zero para indicadores críticos ou infecção confirmada pelo ClamAV. Indicadores heurísticos de severidade alta são alertas para revisão humana, não confirmação de malware.
 
 ## Uso
 \`\`\`bash
