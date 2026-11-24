@@ -16,7 +16,7 @@ test('não sinaliza texto comum sem padrão perigoso', () => {
   assert.equal(inspectBuffer('readme.txt', Buffer.from('Documentação normal do projeto CRYPY.')).length, 0);
 });
 test('detecta comando PowerShell codificado', () => {
-  const sample = 'powershell.exe -' + 'EncodedCommand QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVo='';
+  const sample = 'powershell.exe -' + 'EncodedCommand QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVo=';
   const hits = inspectBuffer('script.ps1', Buffer.from(sample));
   assert.ok(hits.some(x => x.rule === 'PS.ENCODED_COMMAND'));
 });
