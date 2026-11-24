@@ -17,7 +17,7 @@ export function inspectBuffer(filePath, buffer) {
   const add = (rule, severity, description) => findings.push({ file: filePath, rule, severity, description });
   if (/X5O!P%@AP\[4\\PZX54\(P\^\)7CC\)7\}\$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!\$H\+H\*/i.test(text)) add('TEST.EICAR', 'critical', 'Assinatura de teste EICAR detectada.');
   if (/(?:eval|Function)\s*\(\s*(?:atob|Buffer\.from)\s*\(/i.test(text) || /new\s+Function\s*\([^)]*(?:atob|fromCharCode)/i.test(text)) add('JS.OBFUSCATED_EXECUTION', 'high', 'Possível execução de código JavaScript ofuscado.');
-  if (/powershell(?:\.exe)?\s+[^\n]{0,120}-(?:enc|encodedcommand)\b/i.test(text)) add('PS.ENCODED_COMMAND', 'high', 'Comando PowerShell codificado encontrado.');
+  if (/powershell(?:\.exe)?\s+[^\n]{0,120}-(?:enc|encodedcommand)\s+[A-Za-z0-9+/]{24,}={0,2}(?:\s|$)/i.test(text)) add('PS.ENCODED_COMMAND', 'high', 'Comando PowerShell codificado encontrado.');
   if (/\beval\s*\(\s*base64_decode\s*\(/i.test(text)) add('PHP.ENCODED_EVAL', 'critical', 'Possível execução PHP de conteúdo codificado.');
   if (/(?:\/dev\/tcp\/|nc\s+-e\s+\/bin\/(?:sh|bash)|bash\s+-i\s+>&\s*\/dev\/tcp)/i.test(text)) add('SHELL.REVERSE_CONNECTION', 'critical', 'Padrão comum de shell reverso encontrado.');
   return findings;
