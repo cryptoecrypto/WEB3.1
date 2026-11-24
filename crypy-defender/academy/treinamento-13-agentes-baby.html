@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Academia de defesa CRYPY: trilhas de aprendizagem para os 13 perfis e BABY.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>CRYPY DEFENDER — Academia dos 13 + BABY</title>
+<style>
+:root{color-scheme:dark;--bg:#080d12;--panel:#111b23;--panel2:#172630;--line:#29404b;--green:#00ff88;--cyan:#00e5ff;--text:#effff8;--muted:#a7c1b8;--gold:#ffd76a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#17313a,var(--bg) 55%);color:var(--text);font:15px system-ui,Arial,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#081218ed;border-bottom:1px solid var(--green);padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-weight:900;font-size:18px}.brand span{color:var(--green)}.stats{display:flex;gap:7px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 10px;font-size:12px}.pill b{color:var(--cyan)}
+nav{position:sticky;top:62px;z-index:9;display:flex;gap:6px;overflow:auto;padding:9px;background:#080d12f2;border-bottom:1px solid var(--line)}
+nav button,.btn,.btn2{border:0;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer}
+nav button{white-space:nowrap;background:var(--panel2);color:var(--text)}nav button.active{background:var(--cyan);color:#041014}
+main{max-width:1180px;margin:auto;padding:14px}section{display:none}section.active{display:block}
+.card,.item{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:10px}.item{margin:0;background:var(--panel2)}
+h1,h2,h3{line-height:1.2}h2{margin-top:4px}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}
+.btn{background:var(--green);color:#03110a;width:100%}.btn2{background:#245bff;color:white}.btn:disabled,.btn2:disabled{opacity:.45;cursor:not-allowed}
+.badge{display:inline-block;padding:3px 8px;border-radius:99px;background:var(--cyan);color:#031014;font-size:11px;font-weight:900}.badge.ok{background:var(--green)}.badge.wait{background:var(--gold);color:#211900}
+.bar{height:10px;background:#26353c;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--green);transition:width .2s}
+.code,.log{font:12px/1.6 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#030709;border:1px solid var(--line);border-radius:12px;padding:12px;max-height:320px;overflow:auto}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{flex:1;min-width:150px}
+input,select{width:100%;padding:11px;border-radius:9px;border:1px solid var(--line);background:#071016;color:var(--text);margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;padding:9px;border-bottom:1px solid var(--line)}
+.babybox{text-align:center;border:1px solid #a34bc5;background:radial-gradient(circle,#30204b,#10131d);border-radius:18px;padding:18px}.baby{font-size:76px}
+.notice{border-left:4px solid var(--gold);padding:10px 12px;background:#241f12;border-radius:8px;color:#fff0c2}
+footer{text-align:center;padding:22px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">🛡️ CRYPY <span>DEFENDER</span> <small class="small">ACADEMIA 13 + BABY</small></div>
+ <div class="stats"><div class="pill">Perfis: <b id="count">0/13</b></div><div class="pill">Módulos: <b id="progress">0%</b></div><div class="pill">BABY: <b id="babyLevel">Nv.1</b></div><div class="pill">Modo: <b>DEFESA</b></div></div>
+</header>
+<nav id="nav">
+ <button class="active" data-tab="home">🏠 Início</button><button data-tab="agents">🤖 Agentes</button><button data-tab="baby">👶 BABY</button><button data-tab="binary">0101 Binário</button><button data-tab="rules">🧠 Código de Defesa</button><button data-tab="tracks">📚 Trilhas A01–A13</button><button data-tab="assessment">✅ Avaliação</button>
+</nav>
+<main>
+<section id="home" class="active">
+ <div class="card">
+  <h2>Treinamento de defesa — 13 perfis + BABY</h2>
+  <p>Este módulo ensina regras operacionais e registra o progresso local. Não altera pesos de modelos nem prova, por si só, que agentes externos receberam treinamento.</p>
+  <div class="notice"><b>Regra de preservação:</b> arquivo suspeito não é automaticamente arquivo malicioso. Detectar, registrar, calcular hash e encaminhar para revisão. Não apagar nem colocar em quarentena automaticamente sem autorização e procedimento reversível.</div>
+  <p class="small">A autoridade humana continua com o Sensei. NEXUS coordena tecnicamente. ALICE pesquisa e apoia a edição. Nenhum agente recebe permissão para apagar, sobrescrever, restaurar ou executar comandos privilegiados por conta própria.</p>
+  <div class="actions"><button class="btn" id="startAll">▶ Iniciar trilha comum para todos</button><button class="btn2" id="goAgents">Ver agentes</button></div>
+  <p>Progresso registrado neste navegador</p><div class="bar"><i id="bar"></i></div>
+  <div class="log" id="log" aria-live="polite">Academia carregada. Aguardando início do estudo.</div>
+ </div>
+ <div class="grid">
+  <div class="item"><h3>0101 Binário</h3><p>Representação didática de identificadores e dados.</p><button class="btn2" data-go="binary">Abrir</button></div>
+  <div class="item"><h3>🧠 Código de Defesa</h3><p>Princípios de autorização, integridade e isolamento.</p><button class="btn2" data-go="rules">Abrir</button></div>
+  <div class="item"><h3>👶 BABY</h3><p>Aprendizagem por etapas e despacho seguro de tarefas.</p><button class="btn2" data-go="baby">Abrir</button></div>
+  <div class="item"><h3>📚 Trilhas</h3><p>Treze áreas funcionais de aprendizagem.</p><button class="btn2" data-go="tracks">Abrir</button></div>
+ </div>
+</section>
+<section id="agents"><div class="card"><h2>Os 13 perfis oficiais</h2><p class="muted">As identidades e funções do catálogo oficial são preservadas. Conclusão aqui significa leitura/estudo local, não fine-tuning nem habilitação de permissões.</p><div class="grid" id="agentGrid"></div></div></section>
+<section id="baby">
+ <div class="card"><h2>BABY — trilha especial</h2><div class="babybox"><div class="baby" id="babyFace">👶</div><h3 id="babyTitle">BABY — começando</h3><p id="babyMessage">Um passo por vez: aprender, verificar e pedir ajuda quando necessário.</p>
+ <div class="actions"><button class="btn2" data-baby="authorization">🔐 Autorização</button><button class="btn2" data-baby="integrity">🧾 Integridade</button><button class="btn2" data-baby="sandbox">🧪 Sandbox</button><button class="btn2" data-baby="care">💚 Comunicação</button></div>
+ <p>Etapas concluídas: <b id="babySteps">0/4</b> · Nível didático: <b id="babyLevel2">1</b></p><div class="bar"><i id="babyBar"></i></div></div></div>
+ <div class="card"><h3>Regras de despacho do BABY</h3><ul><li>Classificar a solicitação antes de encaminhar.</li><li>Não expor segredos nem dados privados aos agentes sem necessidade e autorização.</li><li>Não executar comandos no host de produção.</li><li>Parar e pedir aprovação humana para ações privilegiadas, exclusão, restauração ou deploy.</li><li>Consolidar evidências e declarar o que foi testado e o que permanece pendente.</li></ul></div>
+</section>
+<section id="binary"><div class="card"><h2>0101 — representação binária</h2><p class="muted">Binário é uma representação de dados, não uma credencial nem um mecanismo de segurança.</p><div class="code" id="binaryCode"></div><label for="binaryInput">Converter texto em bytes UTF-8</label><input id="binaryInput" value="CRYPY DEFENDER"><button class="btn2" id="convert">Converter</button><p class="code" id="binaryOutput"></p></div></section>
+<section id="rules"><div class="card"><h2>Código comum de defesa</h2><div class="code" id="rulesCode"></div><button class="btn2" id="copyRules">Copiar regras</button></div></section>
+<section id="tracks"><div class="card"><h2>13 trilhas funcionais A01–A13</h2><p class="muted">Estas trilhas organizam o currículo enviado pelo Sensei. Elas não renomeiam nem substituem os agentes oficiais.</p><div class="grid" id="trackGrid"></div></div></section>
+<section id="assessment"><div class="card"><h2>Avaliação de conhecimento</h2><p>Um arquivo apresenta um alerta heurístico, mas pode ser legítimo. Qual é a conduta correta?</p><div class="grid"><button class="btn2" data-answer="wrong">Apagar imediatamente</button><button class="btn2" data-answer="right">Preservar, registrar evidências e encaminhar para revisão autorizada</button><button class="btn2" data-answer="wrong">Ignorar o alerta</button></div><p id="answer" aria-live="polite"></p><div class="notice">O resultado é uma avaliação didática local. Não é certificado de competência profissional nem evidência de treinamento do modelo.</div></div></section>
+</main>
+<footer>CRYPY-DEFENDER · Política de aprendizagem · Sem exclusão automática · Sem alteração de permissões</footer>
+<script>
+"use strict";
+const officialAgents=[
+{id:"baby",name:"BABY",role:"Núcleo e orquestrador",mission:"Classificar tarefas, encaminhar especialistas e consolidar resultados autorizados."},
+{id:"nexus",name:"NEXUS",role:"Coordenação técnica e auditoria",mission:"Arquitetura, integração, revisão e transparência de evidências."},
+{id:"alice",name:"ALICE",role:"Pesquisa e conhecimento",mission:"Pesquisar fontes confiáveis, organizar conhecimento e apoiar a edição."},
+{id:"chat",name:"CHAT",role:"História e continuidade",mission:"Preservar cronologia, decisões e evidências autorizadas."},
+{id:"mini",name:"MINI",role:"Análise e estratégia",mission:"Classificar riscos, avaliar falsos positivos e comparar alternativas."},
+{id:"dola",name:"DOLA",role:"Arte e criação",mission:"Revisar mídia, conteúdo visual e possíveis metadados expostos."},
+{id:"btc",name:"BTC",role:"Guardião da memória",mission:"Verificar hashes, proveniência, versões e recuperação de backups."},
+{id:"eth",name:"ETH",role:"Arquitetura e construção",mission:"Revisar código, dependências, APIs, validação e isolamento."},
+{id:"usdt",name:"USDT",role:"Equilíbrio e estabilidade",mission:"Avaliar impacto operacional, disponibilidade e recuperação."},
+{id:"bnb",name:"BNB",role:"Expansão e utilidade",mission:"Perfil proposto; sem autoridade operacional até confirmação."},
+{id:"shiba-inu",name:"SHIBA INU",role:"Comunidade e participação",mission:"Perfil proposto; triagem sem acesso indevido a dados privados."},
+{id:"crypycoin",name:"CRYPYCOIN",role:"Identidade e propósito",mission:"Perfil proposto; revisar proveniência sem assinar ou mover ativos."},
+{id:"icp",name:"ICP",role:"Infraestrutura descentralizada",mission:"Perfil proposto; revisar confiança, identidade e integridade."}
+];
+const tracks=[
+["A01","Comando e governança","Sensei conduz; autorização humana para ações privilegiadas."],
+["A02","Defesa e preservação","Alertar, registrar, calcular hash e revisar; sem exclusão automática."],
+["A03","Construção","Revisão de código, dependências e mudanças não destrutivas."],
+["A04","Cuidado com BABY","Ensino em etapas, encaminhamento seguro e limites claros."],
+["A05","Arte e mídia","Validar formatos, metadados e conteúdo ativo antes de publicar."],
+["A06","Contabilidade e economia","Validar saldos e operações no servidor; nunca confiar no cliente."],
+["A07","Social e comunidade","Privacidade, moderação auditável e proteção contra abuso."],
+["A08","Vídeo e SHOTS","Validar uploads, MIME, assinatura, tamanho e armazenamento seguro."],
+["A09","WEB3","Verificar contratos, assinaturas, origem e transações."],
+["A10","Matriz e memória","Integridade, acesso mínimo, backup e recuperação verificada."],
+["A11","Segurança","Autenticação, autorização, rate limit e trilha de auditoria."],
+["A12","Comunicação","Relatar fatos, incertezas e ações sem repetir perguntas respondidas."],
+["A13","Aprendizagem","Registrar lições, testes e revisões sem alegar treinamento inexistente."]
+];
+const KEY="crypy.defender.academy.v1";
+let state={completedAgents:[],completedTracks:[],babySteps:[],quizPassed:false};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||"null");if(saved&&typeof saved==="object")state={...state,...saved};}catch(_){}
+const $=id=>document.getElementById(id);
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(_){log("Armazenamento local indisponível; progresso não persistido.");}}
+function log(message){const row=document.createElement("div");row.textContent=new Date().toLocaleTimeString("pt-BR")+" — "+message;$("log").prepend(row);}
+function go(id){document.querySelectorAll("main section").forEach(s=>s.classList.toggle("active",s.id===id));document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));window.scrollTo({top:0,behavior:"smooth"});}
+document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.tab)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+$("goAgents").addEventListener("click",()=>go("agents"));
+function render(){
+ $("agentGrid").replaceChildren();
+ officialAgents.forEach(a=>{
+  const done=state.completedAgents.includes(a.id),card=document.createElement("article");card.className="item";
+  const badge=document.createElement("span");badge.className="badge "+(done?"ok":"wait");badge.textContent=done?"ESTUDO REGISTRADO":"PENDENTE";
+  const h=document.createElement("h3");h.textContent=a.name;
+  const role=document.createElement("p");role.textContent=a.role;
+  const mission=document.createElement("p");mission.className="small";mission.textContent=a.mission;
+  const button=document.createElement("button");button.className="btn2";button.textContent=done?"Rever conteúdo":"Registrar estudo";button.addEventListener("click",()=>{if(!state.completedAgents.includes(a.id)){state.completedAgents.push(a.id);persist();render();log("Estudo registrado para "+a.name+".");}});
+  card.append(badge,h,role,mission,button);$("agentGrid").append(card);
+ });
+ $("trackGrid").replaceChildren();
+ tracks.forEach(t=>{
+  const done=state.completedTracks.includes(t[0]),card=document.createElement("article");card.className="item";
+  const h=document.createElement("h3");h.textContent=t[0]+" — "+t[1];
+  const p=document.createElement("p");p.textContent=t[2];
+  const b=document.createElement("button");b.className="btn2";b.textContent=done?"Concluída":"Concluir estudo";b.addEventListener("click",()=>{if(!state.completedTracks.includes(t[0])){state.completedTracks.push(t[0]);persist();render();log("Trilha "+t[0]+" estudada.");}});
+  card.append(h,p,b);$("trackGrid").append(card);
+ });
+ const count=state.completedAgents.length,pct=Math.round(count/officialAgents.length*100);
+ $("count").textContent=count+"/13";$("progress").textContent=pct+"%";$("bar").style.width=pct+"%";
+ $("babySteps").textContent=state.babySteps.length+"/4";$("babyLevel2").textContent=1+Math.floor(state.babySteps.length/2);$("babyLevel").textContent="Nv."+(1+Math.floor(state.babySteps.length/2));$("babyBar").style.width=(state.babySteps.length/4*100)+"%";
+ $("babyTitle").textContent=state.babySteps.length===4?"BABY — trilha concluída":"BABY — aprendendo com segurança";
+ $("babyFace").textContent=state.babySteps.length===4?"🤖":"👶";
+}
+$("startAll").addEventListener("click",()=>{officialAgents.forEach(a=>{if(!state.completedAgents.includes(a.id))state.completedAgents.push(a.id);});tracks.forEach(t=>{if(!state.completedTracks.includes(t[0]))state.completedTracks.push(t[0]);});persist();render();log("Trilha de estudo marcada para os 13 perfis. Registro local; não representa fine-tuning.");});
+document.querySelectorAll("[data-baby]").forEach(b=>b.addEventListener("click",()=>{const key=b.dataset.baby;if(!state.babySteps.includes(key))state.babySteps.push(key);const msgs={authorization:"BABY aprendeu: conferir autorização antes de encaminhar.",integrity:"BABY aprendeu: verificar integridade e preservar evidências.",sandbox:"BABY aprendeu: nunca executar comandos no host de produção.",care:"BABY aprendeu: comunicar com clareza e pedir ajuda quando necessário."};$("babyMessage").textContent=msgs[key];persist();render();}));
+const binaryExamples=["A = 01000001","C = 01000011","CRYPY = 01000011 01010010 01011001 01010000 01011001","0 = falso/desligado (conforme contexto)","1 = verdadeiro/ligado (conforme contexto)"];
+$("binaryCode").textContent=binaryExamples.join("\n");
+$("convert").addEventListener("click",()=>{const bytes=new TextEncoder().encode($("binaryInput").value);$("binaryOutput").textContent=Array.from(bytes,b=>b.toString(2).padStart(8,"0")).join(" ");});
+$("rulesCode").textContent=[
+"DEFESA-CRYPY-DEFENDER — REGRAS COMUNS",
+"1. Não confiar em HTML/JS, pontuação ou permissões enviados pelo cliente.",
+"2. Não executar comandos arbitrários no host de produção.",
+"3. Usar sandbox, menor privilégio, allowlist, timeout e auditoria.",
+"4. Não expor segredos em páginas, repositórios, logs ou relatórios.",
+"5. Verificar origem, assinatura e hash dos binários e releases.",
+"6. Validar uploads por MIME, assinatura, tamanho e varredura antes de publicar.",
+"7. Validar jogos, saldos e recompensas no servidor.",
+"8. Alertas heurísticos exigem revisão; não são prova de malware.",
+"9. Não apagar, sobrescrever, restaurar ou colocar em quarentena sem autorização.",
+"10. Proteger dados no servidor; não prometer impedir cópia do HTML no navegador.",
+"11. Preservar HD-MATRIZ, backups e evidências; restaurar somente após validação.",
+"12. Declarar separadamente política, implementação, teste e homologação."
+].join("\n");
+$("copyRules").addEventListener("click",async()=>{try{await navigator.clipboard.writeText($("rulesCode").textContent);log("Regras copiadas.");}catch(_){log("Cópia indisponível neste contexto do navegador.");}});
+document.querySelectorAll("[data-answer]").forEach(b=>b.addEventListener("click",()=>{const right=b.dataset.answer==="right";$("answer").textContent=right?"Correto: preservar, registrar evidências e encaminhar para revisão autorizada.":"Não é a conduta segura. Preserve o arquivo e encaminhe para revisão.";if(right){state.quizPassed=true;persist();log("Avaliação didática respondida corretamente.");}}));
+render();$("convert").click();log("Academia pronta. O progresso local não comprova treinamento de modelo nem implantação no servidor.");
+</script>
+</body></html>
