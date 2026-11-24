@@ -2,18 +2,21 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 import { after, before, describe, it } from 'node:test';
 import { createServer } from '../src/server.js';
+import { generateTotp } from '../src/auth.js';
 import { fixture, write } from './helpers.js';
 
 describe('C2 / núcleo HTTP: servidor, autenticação e operações', () => {
   let f, server, base, cookie;
   const username = 'sensei';
   const password = 'test-password-that-is-longer-than-24-chars';
+  const totpSecret = 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ';
+  let testNow = Date.now();
 
   before(async () => {
     f = await fixture();
     const created = await createServer({
       baby: f.baby,
-      auth: { username, password, secure: false, ttlSeconds: 60 },
+      auth: { username, password, totpSecret, counterFile: path.join(f.root, 'totp-last-counter.json'), now: () => testNow, secure: false, ttlSeconds: 300 },
     });
     server = created.server;
     await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -37,7 +40,7 @@ describe('C2 / núcleo HTTP: servidor, autenticação e operações', () => {
     return { status: res.status, body: await res.json(), headers: res.headers };
   };
   const login = async () => {
-    const r = await post('/auth/login', { username, password });
+    const r = await post('/auth/login', { username, password, otp: generateTotp(totpSecret, testNow) });
     const setCookie = r.headers.get('set-cookie');
     assert.equal(r.status, 200);
     assert.ok(setCookie, 'login precisa emitir cookie de sessão');
@@ -58,6 +61,8 @@ describe('C2 / núcleo HTTP: servidor, autenticação e operações', () => {
     assert.equal(r.status, 200);
     assert.match(r.body, /authForm/);
     assert.match(r.body, /ENTRAR NO SERVIDOR/);
+    assert.match(r.body, /authOtp/);
+    assert.match(r.body, /Google Authenticator/);
   });
 
   it('bloqueia a API sem login', async () => {
@@ -67,9 +72,13 @@ describe('C2 / núcleo HTTP: servidor, autenticação e operações', () => {
   });
 
   it('nega credenciais incorretas e aceita credenciais válidas com sessão HttpOnly', async () => {
-    const bad = await post('/auth/login', { username, password: 'wrong-password-that-is-long-enough' });
-    assert.equal(bad.status, 401);
+    const badPassword = await post('/auth/login', { username, password: 'wrong-password-that-is-long-enough', otp: generateTotp(totpSecret, testNow) });
+    assert.equal(badPassword.status, 401);
+    const badOtp = await post('/auth/login', { username, password, otp: '000000' });
+    assert.equal(badOtp.status, 401);
     const ok = await login();
+    const replay = await post('/auth/login', { username, password, otp: generateTotp(totpSecret, testNow) });
+    assert.equal(replay.status, 401, 'o mesmo código TOTP não pode ser reutilizado');
     assert.match(ok.headers.get('set-cookie'), /HttpOnly/);
     assert.match(ok.headers.get('set-cookie'), /SameSite=Strict/);
     const session = await get('/auth/session');
