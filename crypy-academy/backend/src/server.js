@@ -4,7 +4,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const PORT = Number(process.env.PORT || 8080);
-const APP_ORIGIN = (process.env.APP_ORIGIN || "https://cryptoecrypto.github.io/WEB3.1").replace(/\/$/, "");
+const APP_BASE_URL = (process.env.APP_ORIGIN || "https://cryptoecrypto.github.io/WEB3.1").replace(/\/$/, "");
+const APP_ORIGIN = new URL(APP_BASE_URL).origin;
 const DROPBOX_APP_KEY = process.env.DROPBOX_APP_KEY || "";
 const DROPBOX_REDIRECT_URI = process.env.DROPBOX_REDIRECT_URI || "";
 const TOKEN_FILE = process.env.DROPBOX_TOKEN_FILE || "/data/dropbox-token.json";
@@ -97,7 +98,7 @@ const server = http.createServer(async (req, res) => {
     const data = await response.json();
     if (!response.ok || !data.refresh_token) return send(res, 502, { ok: false, error: "DROPBOX_TOKEN_EXCHANGE_FAILED" }, headers);
     await saveToken({ refresh_token: data.refresh_token, access_token: data.access_token, expires_at: Date.now() + Number(data.expires_in || 14400) * 1000, account_id: data.account_id || null, saved_at: new Date().toISOString() });
-    res.writeHead(302, { location: APP_ORIGIN + "/WEB3.1/crypy-academy/academia.html?dropbox=connected", "cache-control": "no-store" }); return res.end();
+    res.writeHead(302, { location: APP_BASE_URL + "/crypy-academy/academia.html?dropbox=connected", "cache-control": "no-store" }); return res.end();
   }
   if (req.method === "POST" && url.pathname === "/api/dropbox/upload") {
     if (!syncReady()) return send(res, 503, { ok: false, error: "SYNC_KEY_NOT_CONFIGURED" }, headers);
