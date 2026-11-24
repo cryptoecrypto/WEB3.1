@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const PORT = Number(process.env.PORT || 8080);
-const APP_ORIGIN = (process.env.APP_ORIGIN || "https://cryptoecrypto.github.io").replace(/\/$/, "");
+const APP_ORIGIN = (process.env.APP_ORIGIN || "https://cryptoecrypto.github.io/WEB3.1").replace(/\/$/, "");
 const DROPBOX_APP_KEY = process.env.DROPBOX_APP_KEY || "";
 const DROPBOX_REDIRECT_URI = process.env.DROPBOX_REDIRECT_URI || "";
 const TOKEN_FILE = process.env.DROPBOX_TOKEN_FILE || "/data/dropbox-token.json";
@@ -26,7 +26,7 @@ const readBody = async (req) => {
 };
 const allowedOrigin = (req) => {
   const origin = req.headers.origin;
-  return !origin || origin === APP_ORIGIN || origin === "https://cryptoecrypto.github.io";
+  return !origin || origin === APP_ORIGIN;
 };
 const cors = (req) => {
   const origin = req.headers.origin;
@@ -43,6 +43,7 @@ const saveToken = async (token) => {
   await fs.rename(tmp, TOKEN_FILE);
 };
 const configReady = () => Boolean(DROPBOX_APP_KEY && DROPBOX_REDIRECT_URI && DROPBOX_REDIRECT_URI.startsWith("https://"));
+const syncReady = () => SYNC_KEY.length >= 32;
 
 async function refreshAccessToken(token) {
   if (!token?.refresh_token) throw new Error("DROPBOX_NOT_AUTHORIZED");
@@ -73,7 +74,7 @@ const server = http.createServer(async (req, res) => {
   if (req.method === "GET" && url.pathname === "/api/status") {
     let authorized = false;
     try { authorized = Boolean((await readToken())?.refresh_token); } catch {}
-    return send(res, 200, { ok: true, service: "crypy-academy-api", dropbox: { configured: configReady(), authorized }, syncEndpoint: Boolean(SYNC_KEY), storage: TOKEN_FILE.startsWith("/data/") ? "persistent-volume-required" : "custom" }, headers);
+    return send(res, 200, { ok: true, service: "crypy-academy-api", dropbox: { configured: configReady(), authorized }, syncEndpoint: syncReady(), storage: TOKEN_FILE.startsWith("/data/") ? "persistent-volume-required" : "custom" }, headers);
   }
   if (req.method === "GET" && url.pathname === "/auth/dropbox/start") {
     if (!configReady()) return send(res, 503, { ok: false, error: "DROPBOX_CONFIGURATION_MISSING", required: ["DROPBOX_APP_KEY", "DROPBOX_REDIRECT_URI"] }, headers);
@@ -99,7 +100,9 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(302, { location: APP_ORIGIN + "/WEB3.1/crypy-academy/academia.html?dropbox=connected", "cache-control": "no-store" }); return res.end();
   }
   if (req.method === "POST" && url.pathname === "/api/dropbox/upload") {
-    if (!SYNC_KEY || !safeEqual((req.headers.authorization || "").replace(/^Bearer\s+/i, ""), SYNC_KEY)) return send(res, 401, { ok: false, error: "UNAUTHORIZED" }, headers);
+    if (!syncReady()) return send(res, 503, { ok: false, error: "SYNC_KEY_NOT_CONFIGURED" }, headers);
+    const bearer = (req.headers.authorization || "").match(/^Bearer\s+(.+)$/i);
+    if (!bearer || !safeEqual(bearer[1].trim(), SYNC_KEY)) return send(res, 401, { ok: false, error: "UNAUTHORIZED" }, headers);
     const body = await readBody(req);
     const target = String(body.path || "");
     if (!target.startsWith("/MEMORY-BOOST/") || target.includes("..") || target.length > 400) return send(res, 400, { ok: false, error: "PATH_NOT_ALLOWED" }, headers);
@@ -109,7 +112,10 @@ const server = http.createServer(async (req, res) => {
     const upload = await fetch("https://content.dropboxapi.com/2/files/upload", { method: "POST", headers: { authorization: "Bearer " + token.access_token, "content-type": "application/octet-stream", "dropbox-api-arg": JSON.stringify({ path: target, mode: "add", autorename: false, mute: true }) }, body: Buffer.from(body.content, "utf8") });
     const result = await upload.json();
     if (!upload.ok) return send(res, 502, { ok: false, error: "DROPBOX_UPLOAD_FAILED", status: upload.status }, headers);
-    return send(res, 200, { ok: true, path: result.path_display, id: result.id, size: result.size }, headers);
+    const verify = await fetch("https://api.dropboxapi.com/2/files/get_metadata", { method: "POST", headers: { authorization: "Bearer " + token.access_token, "content-type": "application/json" }, body: JSON.stringify({ path: result.id, include_media_info: false, include_deleted: false }) });
+    const verified = await verify.json();
+    if (!verify.ok || verified.id !== result.id || Number(verified.size) !== Number(result.size)) return send(res, 502, { ok: false, error: "DROPBOX_UPLOAD_VERIFY_FAILED" }, headers);
+    return send(res, 200, { ok: true, verified: true, path: verified.path_display, id: verified.id, size: verified.size }, headers);
   }
   return send(res, 404, { ok: false, error: "NOT_FOUND" }, headers);
 });
