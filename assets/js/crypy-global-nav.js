@@ -56,7 +56,7 @@
     {label:"MUSEU DIGITAL", groups:["museu-digital"]},
     {label:"MARKETPLACE", groups:["art-figure-marketplace","marketing"]},
     {label:"CRYPY-GAMES", groups:["crypy-games-desafios"]},
-    {label:"CRYPYCUT", groups:["social-crypykut"]},
+    {label:"CRYPYCUT", groups:["social-crypykut","crypy-shots"]},
     {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
     {label:"WHITE PAPER", groups:["crypy-coin","white-paper"]},
     {label:"CONTATO", groups:["contato"]}
@@ -304,7 +304,7 @@
         if (isWorldClock) return String(page.path||"").toLowerCase()!=="relogio-mundial.html";
         return false;
       }
-      pages=indexedPages.filter(function(page){return officialMenuPaths.indexOf(String(page.path||""))!==-1;});
+      pages=indexedPages.filter(function(page){return !hiddenByMenuRule(page) && categories.some(function(category){return category.groups.indexOf(String(page.group||"").toLowerCase())!==-1 || category.groups.indexOf(String(page.path||"").split("/")[0].toLowerCase())!==-1;});});
       render();
     }).catch(function(){
       count.textContent="Não foi possível carregar o índice de páginas.";
