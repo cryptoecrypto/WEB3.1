@@ -1,6 +1,7 @@
 // CAPACIDADE 2 — o servidor é o núcleo operacional. BABY trabalha sobre ele.
 // HTTP puro (node:http), sem dependências, sem allowlist de host: funciona atrás do proxy de preview.
 import http from 'node:http';
+import cryptoModule from 'node:crypto';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { createBaby } from './baby.js';
@@ -8,6 +9,12 @@ import { LedgerError } from './ledger.js';
 import { PolicyError } from './policy.js';
 
 const MAX_BODY = 1024 * 1024;
+const API_TOKEN = process.env.CRYPY_API_TOKEN || '';
+const safeTokenEqual = (provided, expected) => {
+  const a = Buffer.from(String(provided || ''));
+  const b = Buffer.from(String(expected || ''));
+  return a.length > 0 && a.length === b.length && cryptoModule.timingSafeEqual(a, b);
+};
 
 function json(res, code, obj) {
   const body = JSON.stringify(obj, null, 2);
@@ -39,6 +46,11 @@ export async function createServer({ baby = null, ...overrides } = {}) {
     const url = new URL(req.url, 'http://nucleo.local');
     const p = url.pathname;
     try {
+      if (p.startsWith('/api/')) {
+        if (API_TOKEN.length < 32) return json(res, 503, { ok: false, code: 'API_AUTH_NOT_CONFIGURED' });
+        const match = (req.headers.authorization || '').match(/^Bearer\\s+(.+)$/i);
+        if (!match || !safeTokenEqual(match[1].trim(), API_TOKEN)) return json(res, 401, { ok: false, code: 'UNAUTHORIZED' });
+      }
       if (req.method === 'GET' && (p === '/' || p === '/index.html')) {
         const html = await fsp.readFile(indexFile, 'utf8');
         res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' });
