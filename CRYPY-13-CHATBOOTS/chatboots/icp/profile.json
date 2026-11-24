@@ -49,5 +49,15 @@
     "não acessar HD-MATRIZ sem autorização",
     "registrar fontes e limites",
     "solicitar aprovação humana quando exigida"
-  ]
+  ],
+  "sharedKnowledge": {
+    "enabled": true,
+    "access": "read_curated_shared",
+    "collection": "public-web3.1",
+    "registry": "CRYPY-13-CHATBOOTS/shared-knowledge/agent-access.json",
+    "queryApi": "window.CRPYSharedKnowledge.search",
+    "privateMemory": "isolated",
+    "writePolicy": "propose_only",
+    "modelEndpoint": "not_connected_by_this_layer"
+  }
 }
