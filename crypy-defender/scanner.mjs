@@ -87,8 +87,9 @@ if (process.argv[1] && import.meta.url === new URL('file://' + path.resolve(proc
     const result = await scanTree(root, { clamav: useClamav });
     const json = JSON.stringify(result, null, 2) + '\n';
     if (report) await fs.writeFile(path.resolve(report), json, { mode: 0o600 });
-    process.stdout.write(json);
-    const infected = result.findings.length > 0 || result.clamav.status === 'infected' || result.clamav.status === 'error';
+    process.stdout.write(JSON.stringify({ engine: result.engine, engineVersion: result.engineVersion, summary: result.summary, clamav: result.clamav, findings: result.findings, skipped: result.skipped }, null, 2) + '\\n');
+    const criticalFinding = result.findings.some(item => item.severity === 'critical');
+    const infected = criticalFinding || result.clamav.status === 'infected' || result.clamav.status === 'error';
     if (strict && infected) process.exitCode = 2;
     if (useClamav && !result.clamav.available) process.exitCode = 3;
   } catch (error) { process.stderr.write('CRYPY-DEFENDER error: ' + error.message + '\n'); process.exitCode = 1; }
