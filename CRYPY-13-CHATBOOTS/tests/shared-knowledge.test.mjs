@@ -14,7 +14,7 @@ test("nenhum endpoint generativo é declarado conectado por esta camada",()=>{
  for(const a of access.agents)assert.equal(a.modelEndpoint,"not_connected_by_this_layer");
 });
 test("índice do BABY só marca texto público para ingestão",async()=>{
- const idx=JSON.parse(await readFile(new URL("../../../assets/data/crypy-file-index.json",import.meta.url),"utf8"));
+ const idx=JSON.parse(await readFile(new URL("../../assets/data/crypy-file-index.json",import.meta.url),"utf8"));
  assert.equal(idx.files.length,idx.total);
  assert.ok(idx.publicTextFiles>0);
  for(const f of idx.files.filter(x=>x.indexable)){assert.equal(f.access,"público");assert.equal(f.protected,false);assert.equal(f.sensitive,false);}
