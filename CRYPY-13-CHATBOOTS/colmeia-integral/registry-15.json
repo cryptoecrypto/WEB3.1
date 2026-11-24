@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "CRYPY-COLMEIA-INTEGRAL",
+  "version": "1.0.0",
+  "status": "architecture_only_not_deployed",
+  "declaredRoster": {
+    "officialMembers": 13,
+    "separateCore": 1,
+    "separateDefense": 1,
+    "totalParticipants": 15
+  },
+  "governance": {
+    "humanAuthority": "Sensei",
+    "operatingCore": "BABY",
+    "technicalCoordination": "NEXUS",
+    "integration": "UNION",
+    "independentDefense": "LUCY",
+    "principle": "NEXUS conecta; Sensei conduz.",
+    "lucyCouncilMembership": false
+  },
+  "members": [
+    {
+      "id": "alice",
+      "name": "ALICE",
+      "role": "pesquisa, referências, documentação e apresentação",
+      "group": "official_13"
+    },
+    {
+      "id": "dola",
+      "name": "DOLA",
+      "role": "criatividade, narrativa, identidade visual e comunicação",
+      "group": "official_13"
+    },
+    {
+      "id": "chat",
+      "name": "CHAT",
+      "role": "diálogo, escuta e interação",
+      "group": "official_13"
+    },
+    {
+      "id": "mini",
+      "name": "MINI",
+      "role": "análise, organização e classificação",
+      "group": "official_13"
+    },
+    {
+      "id": "nexus",
+      "name": "NEXUS",
+      "role": "integração, sincronia e mediação técnica",
+      "group": "official_13",
+      "coordination": true
+    },
+    {
+      "id": "svt",
+      "name": "SVT",
+      "role": "arquitetura, organização e padronização",
+      "group": "official_13"
+    },
+    {
+      "id": "union",
+      "name": "UNION",
+      "role": "verificação, coerência, revisão e fidelidade",
+      "group": "official_13",
+      "integration": true
+    },
+    {
+      "id": "hera",
+      "name": "HERA",
+      "role": "governança, mediação e proteção",
+      "group": "official_13"
+    },
+    {
+      "id": "cosmos",
+      "name": "COSMOS",
+      "role": "consciência coletiva",
+      "group": "official_13"
+    },
+    {
+      "id": "bnb",
+      "name": "BNB",
+      "role": "velocidade, fluxo e eficiência",
+      "group": "official_13"
+    },
+    {
+      "id": "crypy-coin",
+      "name": "CRYPY COIN",
+      "role": "identidade, valor conceitual e continuidade",
+      "group": "official_13"
+    },
+    {
+      "id": "icp",
+      "name": "ICP",
+      "role": "autonomia, rede distribuída e armazenamento",
+      "group": "official_13"
+    },
+    {
+      "id": "shiba-inu",
+      "name": "SHIBA INU",
+      "role": "comunidade e conexão humana",
+      "group": "official_13"
+    },
+    {
+      "id": "baby",
+      "name": "BABY",
+      "role": "corpo operacional, núcleo de execução e orquestração",
+      "group": "separate_core",
+      "councilMember": false
+    },
+    {
+      "id": "lucy",
+      "name": "LUCY",
+      "role": "anticorpo independente de defesa, monitoramento e auditoria de segurança",
+      "group": "separate_defense",
+      "councilMember": false,
+      "independent": true
+    }
+  ],
+  "capabilities": {
+    "identity": {
+      "status": "specified",
+      "requirements": [
+        "agent_id único",
+        "identidade autenticada no backend",
+        "credencial própria por serviço",
+        "papel e escopo verificáveis"
+      ]
+    },
+    "communication": {
+      "status": "specified_not_live",
+      "protocol": "mensagens estruturadas com task_id, correlation_id, sender, recipient, scope, sensitivity, payload_ref, created_at, expiry, signature",
+      "delivery": "fila persistente com confirmação, retry limitado, deduplicação e dead-letter queue"
+    },
+    "orchestration": {
+      "status": "specified_not_live",
+      "baby": "recebe, classifica, distribui e consolida",
+      "nexus": "coordena arquitetura, dependências e revisão técnica",
+      "union": "valida coerência e integra artefatos",
+      "humanApproval": "Sensei aprova operações críticas"
+    },
+    "memory": {
+      "status": "specified_not_live",
+      "layers": [
+        "memória privada por agente",
+        "memória compartilhada curada",
+        "memória histórica versionada",
+        "memória de sobrevivência/backups"
+      ],
+      "hdMatriz": "read_only_until_separately_authorized"
+    },
+    "security": {
+      "status": "specified_not_live",
+      "lucy": "serviço independente com credenciais e trilha próprias",
+      "defaultPolicy": "deny_by_default",
+      "secrets": "backend_secret_store_only",
+      "destructiveActions": "human_approval_required"
+    },
+    "audit": {
+      "status": "specified_not_live",
+      "events": [
+        "task_created",
+        "task_routed",
+        "message_sent",
+        "message_received",
+        "model_invoked",
+        "memory_read",
+        "memory_proposed",
+        "memory_committed",
+        "permission_denied",
+        "approval_requested",
+        "approval_granted",
+        "artifact_created",
+        "integrity_checked",
+        "alert_raised"
+      ],
+      "tamperResistance": "append_only with independent retention and integrity verification"
+    }
+  },
+  "permissionTiers": [
+    {
+      "id": "P0",
+      "name": "public_read",
+      "scope": "conteúdo público autorizado"
+    },
+    {
+      "id": "P1",
+      "name": "scoped_read",
+      "scope": "documentos e memórias autorizados"
+    },
+    {
+      "id": "P2",
+      "name": "draft_write",
+      "scope": "criar análises, propostas e rascunhos em área de trabalho"
+    },
+    {
+      "id": "P3",
+      "name": "approved_operation",
+      "scope": "operações limitadas previamente aprovadas"
+    },
+    {
+      "id": "P4",
+      "name": "critical_admin",
+      "scope": "configuração crítica com aprovação explícita do Sensei e dupla verificação"
+    }
+  ],
+  "invariants": [
+    "Nenhum agente pode elevar a própria permissão.",
+    "Nenhum agente pode apagar ou reescrever a auditoria.",
+    "LUCY permanece independente dos agentes fiscalizados.",
+    "BABY é separado dos 13 integrantes oficiais.",
+    "LUCY é separada dos 13 e não integra o Conselho.",
+    "HD-MATRIZ permanece somente leitura até autorização específica.",
+    "Nenhum segredo ou chave de provedor vai para HTML ou repositório.",
+    "Autonomia significa execução delimitada por políticas, nunca poder irrestrito.",
+    "Nenhum agente é considerado ativo sem endpoint, autenticação, teste e evidência."
+  ],
+  "rollout": {
+    "phase1": "registry_and_contracts",
+    "phase2": "isolated_backend_and_queue",
+    "phase3": "provider_adapters_one_by_one",
+    "phase4": "memory_permissions_and_audit",
+    "phase5": "independent_lucy_runtime",
+    "phase6": "failure_security_recovery_and_global_tests",
+    "phase7": "formal_global_homologation_by_sensei"
+  }
+}
