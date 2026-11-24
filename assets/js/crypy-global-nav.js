@@ -84,7 +84,7 @@
     for (var i = 0; i < categories.length; i++) {
       if (categories[i].groups.indexOf(group) !== -1 || categories[i].groups.indexOf(pathGroup) !== -1) return categories[i];
     }
-    return categories[0];
+    return null;
   }
   function hideLegacyMenus() {
     var signatures = [
@@ -141,6 +141,9 @@
     var skin = node("style", {id:"crypy-global-rgb-skin"});
     skin.textContent = [
       ":root{--crypy-rgb-green:#00ff88;--crypy-rgb-blue:#269cff;--crypy-rgb-red:#ff3a58;--crypy-rgb-gold:#ffd35a}",
+      "html,body{margin:0!important;padding:0!important;border:0!important}",
+      "#fusion-top,.modulo,.modulo-corpo,.modulo-titulo,#nexus-banner{border:0!important;box-shadow:none!important;outline:0!important}",
+      ".modulo,.modulo-corpo{padding:0!important;margin:0!important;background:transparent!important}",
       "::selection{background:rgba(0,255,136,.28);color:#fff}",
       "a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--crypy-rgb-green)!important;outline-offset:3px}",
       "button:not(#crypy-global-nav-toggle),[role=button]{transition:box-shadow .2s ease,border-color .2s ease,filter .2s ease}",
@@ -240,7 +243,7 @@
       }
       if (query) {
         categories.forEach(function(category){
-          var subset = matches.filter(function(page){return categoryFor(page).label===category.label;});
+          var subset = matches.filter(function(page){var assigned=categoryFor(page);return assigned && assigned.label===category.label;});
           if (!subset.length) return;
           var section = node("section",{className:"crypy-nav-group","aria-label":category.label});
           section.appendChild(node("div",{className:"crypy-nav-group-title"},category.label+" · "+subset.length+" páginas"));
@@ -254,7 +257,7 @@
         var back = node("button",{className:"crypy-nav-back",type:"button"},"← TODAS AS CATEGORIAS");
         back.addEventListener("click",function(){selected=null;render();});
         list.appendChild(back);
-        var subset = matches.filter(function(page){return categoryFor(page).label===selected;});
+        var subset = matches.filter(function(page){var assigned=categoryFor(page);return assigned && assigned.label===selected;});
         list.appendChild(node("div",{className:"crypy-nav-group-title"},selected+" · "+subset.length+" páginas"));
         subset.sort(function(a,b){return a.label.localeCompare(b.label,"pt-BR")||a.path.localeCompare(b.path,"pt-BR");});
         subset.forEach(function(page){addPageLink(list,page);});
@@ -262,7 +265,7 @@
       }
       var grid = node("div",{className:"crypy-nav-categories"});
       categories.forEach(function(category){
-        var total = matches.filter(function(page){return categoryFor(page).label===category.label;}).length;
+        var total = matches.filter(function(page){var assigned=categoryFor(page);return assigned && assigned.label===category.label;}).length;
         var button = node("button",{className:"crypy-nav-category",type:"button"});
         button.appendChild(node("span",{},category.label));
         button.appendChild(node("small",{},String(total)));
@@ -291,6 +294,16 @@
         var pathSegments=String(page.path||"").split("/").map(normalized);
         var hiddenPathSegments=["memory-boost","momory-boost","padrao","pluguin","sincronizacao"];
         if (hiddenGroups.indexOf(group)!==-1 || pathSegments.some(function(segment){return hiddenPathSegments.indexOf(segment)!==-1;})) return true;
+        var rawPath=String(page.path||"").toLowerCase();
+        // Páginas operacionais/conta nunca entram no menu público.
+        var restrictedPathRules=[
+          /(^|\/)auto[-_ ]?config(?:\/|$|[-_])/,
+          /(^|\/)(?:admin|administracao|painel-admin|dashboard-admin)(?:\/|$)/,
+          /(^|\/)(?:login|signin|cadastro|registro)(?:\/|$)/,
+          /(^|\/)(?:conta|account|perfil-privado|configuracoes|settings)(?:\/|$)/,
+          /(^|\/)(?:seguranca|security|senha|password|wallet|carteira|notificacoes|notifications)(?:\/|$)/
+        ];
+        if (restrictedPathRules.some(function(rule){return rule.test(rawPath);})) return true;
         var searchable=normalized(String(page.path||"")+" "+String(page.label||""));
         var technicalRules=[
           /(^|[^a-z0-9])hd([^a-z0-9]|$)/,
@@ -304,7 +317,10 @@
         if (isWorldClock) return String(page.path||"").toLowerCase()!=="relogio-mundial.html";
         return false;
       }
-      pages=indexedPages.filter(function(page){return !hiddenByMenuRule(page) && categories.some(function(category){return category.groups.indexOf(String(page.group||"").toLowerCase())!==-1 || category.groups.indexOf(String(page.path||"").split("/")[0].toLowerCase())!==-1;});});
+      pages=indexedPages.filter(function(page){
+        if (hiddenByMenuRule(page)) return false;
+        return categoryFor(page) !== null;
+      });
       render();
     }).catch(function(){
       count.textContent="Não foi possível carregar o índice de páginas.";
