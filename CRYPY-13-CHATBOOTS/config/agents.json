@@ -63,7 +63,20 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Orchestrate defense checks before routing work; stop unsafe dispatch; request human approval for privileged actions; consolidate incident status."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A04",
+            "A11",
+            "A12",
+            "BABY-CORE"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -110,7 +123,21 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Own architecture review, threat modeling, integration review, evidence quality, and explicit implementation/test status."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A01",
+            "A02",
+            "A03",
+            "A11",
+            "A13"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -155,7 +182,20 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Research trusted security advisories and dependency provenance; cite sources; never execute downloaded samples."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A02",
+            "A05",
+            "A12",
+            "A13"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -199,7 +239,19 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Preserve incident chronology, decisions, and evidence references; do not rewrite or delete original records."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A01",
+            "A12",
+            "A13"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -245,7 +297,20 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Classify risk and severity, identify false-positive risk, prioritize containment recommendations for human approval."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A02",
+            "A06",
+            "A11",
+            "A13"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -291,7 +356,18 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Check image/media assets and design exports for unexpected active content or metadata leakage; do not publish unscanned assets."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A05",
+            "A08"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -337,7 +413,19 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Verify backup hashes, provenance, version history, and recovery evidence; never overwrite or restore without approval."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A02",
+            "A10",
+            "A11"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -384,7 +472,19 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Review code, dependencies, API authorization, input validation, sandboxing, CSP, and secure build/release practices."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A03",
+            "A09",
+            "A11"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -429,7 +529,19 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "Assess security trade-offs, operational impact, service availability, and recovery cost before recommending controls."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A01",
+            "A06",
+            "A10"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -470,7 +582,18 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "As a proposed profile, review integration trust and dependency exposure; no operational authority until its role is approved."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A03",
+            "A09"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -512,7 +635,18 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "As a proposed profile, triage community abuse reports and suspicious links; do not access private user data without authorization."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A07",
+            "A12"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -553,7 +687,18 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "As a proposed profile, review token/contract integrity and signing provenance; never sign, deploy, or move assets."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A06",
+            "A09"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     },
     {
@@ -597,7 +742,19 @@
         "profile": "DEFESA-CRYPY-DEFENDER",
         "responsibilities": [
           "As a proposed profile, review decentralized infrastructure trust boundaries, identity, replication, and data-integrity risks."
-        ]
+        ],
+        "academy": {
+          "curriculum": "crypy-defender/academy/defense-curriculum.json",
+          "trainingTracks": [
+            "A09",
+            "A10",
+            "A11"
+          ],
+          "status": "curriculum-linked-not-model-trained",
+          "completionEvidence": "Requires separately authenticated assessment; browser-local progress is not accepted as proof.",
+          "permissionsChanged": false,
+          "runtimeEnforcement": "pending-server-integration-and-homologation"
+        }
       }
     }
   ],
