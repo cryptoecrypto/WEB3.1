@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "CRYPY_SHARED_KNOWLEDGE",
+  "generatedAt": "2026-11-24",
+  "mode": "single_curated_public_corpus",
+  "principles": [
+    "Os 13 perfis consultam a mesma base pública curada; não são criadas 13 cópias independentes.",
+    "Memória privada e HD-MATRIZ não são parte da base compartilhada.",
+    "Acesso somente leitura; gravações exigem proposta e aprovação humana.",
+    "Cada resultado deve manter caminho de origem e trecho de evidência.",
+    "A base só fica atualizada no navegador depois que BABY executar a sincronização."
+  ],
+  "corpus": {
+    "index": "assets/data/crypy-file-index.json",
+    "browserStore": "crypy_baby_knowledge_v1/documents",
+    "readerApi": "window.CRPYSharedKnowledge",
+    "underlyingApi": "window.BabyKnowledge",
+    "allowedAccess": "público",
+    "textExtensions": [
+      "html",
+      "htm",
+      "md",
+      "txt",
+      "js",
+      "mjs",
+      "css",
+      "json",
+      "yml",
+      "yaml",
+      "tsx",
+      "svg"
+    ],
+    "maxFileBytes": 900000
+  },
+  "agents": [
+    {
+      "id": "baby",
+      "name": "BABY",
+      "role": "núcleo e orquestrador",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/baby/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "nexus",
+      "name": "NEXUS",
+      "role": "coordenação técnica e auditoria",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/nexus/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "alice",
+      "name": "ALICE",
+      "role": "pesquisa e conhecimento",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/alice/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "chat",
+      "name": "CHAT",
+      "role": "história e continuidade",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/chat/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "mini",
+      "name": "MINI",
+      "role": "análise e estratégia",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/mini/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "dola",
+      "name": "DOLA",
+      "role": "arte e criação",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/dola/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "btc",
+      "name": "BTC",
+      "role": "guardião da memória",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/btc/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "eth",
+      "name": "ETH",
+      "role": "arquitetura e construção",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/eth/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "usdt",
+      "name": "USDT",
+      "role": "equilíbrio e estabilidade",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/usdt/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "bnb",
+      "name": "BNB",
+      "role": "expansão e utilidade",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/bnb/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "shiba-inu",
+      "name": "SHIBA INU",
+      "role": "comunidade e participação",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/shiba-inu/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "crypycoin",
+      "name": "CRYPYCOIN",
+      "role": "identidade e propósito",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/crypycoin/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    },
+    {
+      "id": "icp",
+      "name": "ICP",
+      "role": "infraestrutura descentralizada",
+      "profilePath": "CRYPY-13-CHATBOOTS/chatboots/icp/profile.json",
+      "access": "read_curated_shared",
+      "collections": [
+        "public-web3.1"
+      ],
+      "preferredAreas": [
+        "crypy-infinyt",
+        "crypy-academy",
+        "esquadrao-das-cores",
+        "nft-collection",
+        "biografia",
+        "crypy-news",
+        "art-figure-marketplace",
+        "crypy-games-desafios",
+        "social-crypykut",
+        "baby-ia",
+        "crypy-coin",
+        "contato"
+      ],
+      "privateMemory": "isolated",
+      "sharedWrite": "propose_only",
+      "modelEndpoint": "not_connected_by_this_layer"
+    }
+  ]
+}
