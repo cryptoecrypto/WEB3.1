@@ -19,3 +19,17 @@ test("índice do BABY só marca texto público para ingestão",async()=>{
  assert.ok(idx.publicTextFiles>0);
  for(const f of idx.files.filter(x=>x.indexable)){assert.equal(f.access,"público");assert.equal(f.protected,false);assert.equal(f.sensitive,false);}
 });
+
+test("cada um dos 13 arquivos profile.json declara o contrato compartilhado",async()=>{
+ for(const a of access.agents){
+  const p=JSON.parse(await readFile(new URL("../"+a.profilePath.replace("CRYPY-13-CHATBOOTS/",""),import.meta.url),"utf8"));
+  assert.equal(p.sharedKnowledge.enabled,true,a.id);
+  assert.equal(p.sharedKnowledge.access,"read_curated_shared",a.id);
+  assert.equal(p.sharedKnowledge.privateMemory,"isolated",a.id);
+ }
+});
+test("página principal do BABY carrega sincronizador e adaptador compartilhado",async()=>{
+ const html=await readFile(new URL("../../baby-ia/chatboot-baby-ia.html",import.meta.url),"utf8");
+ assert.match(html,/baby-knowledge-sync\.js/);
+ assert.match(html,/crypy-shared-knowledge\.js/);
+});
