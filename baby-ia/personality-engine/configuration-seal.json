@@ -1,0 +1,56 @@
+{
+  "schema": "crypy-baby-configuration-seal/1.0",
+  "package": "CRYPY / BABY I.A. — Seven Personality Configuration",
+  "version": "0.3.0-draft",
+  "branch": "nexus/baby-seven-personality-engine-2026-11-21",
+  "status": "SEALED_DOCUMENTARY_BASELINE_ONLY",
+  "sealScope": "Documentary configuration baseline only; not operational seal.",
+  "authority": "Sensei",
+  "sourceReviewed": [
+    "BACKUP MESTRE CRYPY — HISTÓRIA, IDENTIDADE, GOVERNANÇA, TECNOLOGIA E CONTINUIDADE, referência 08/11/2026 (arquivo histórico no acervo)",
+    "BACKUP MESTRE BABY I.A. — CRYPY / CRYPTOEËCRYPTO, compilação 13/11/2026",
+    "BACKUP DE SOBREVIVÊNCIA GERAL — CRYPY, 14/11/2026",
+    "CRYPY-BABY-CORE-SHARED-v1.1(1).js — legado local da BABY, conforme arquivo no acervo",
+    "mapeamento atual de sete personalidades confirmado pelo Sensei no histórico desta conversa"
+  ],
+  "packageGitBlobSha": "00d04ffd3dbfe02ba77399646705033cdd057e7b",
+  "mirrorPolicy": "All three files must have identical Git blob SHA before this documentary seal is considered valid.",
+  "verifiedRepositories": [
+    {
+      "repository": "cryptoecrypto/WEB3.1",
+      "path": "baby-ia/personality-engine/personality-profiles.json",
+      "blobSha": "00d04ffd3dbfe02ba77399646705033cdd057e7b"
+    },
+    {
+      "repository": "cryptoecrypto/HD-MATRIZ",
+      "path": "personality-engine/personality-profiles.json",
+      "blobSha": "00d04ffd3dbfe02ba77399646705033cdd057e7b"
+    },
+    {
+      "repository": "cryptoecrypto/SECURYTY-SUBC",
+      "path": "personality-engine/personality-profiles.json",
+      "blobSha": "00d04ffd3dbfe02ba77399646705033cdd057e7b"
+    }
+  ],
+  "explicitNonClaims": [
+    "No full voice extraction",
+    "No runtime injection",
+    "No live provider connection",
+    "No production hive synchronization",
+    "No production or security homologation"
+  ],
+  "activationBlockers": [
+    "approved voice/persona examples for each identity",
+    "provider adapter implementation",
+    "credential and permission configuration outside repository",
+    "runtime tests and Sensei acceptance"
+  ],
+  "protectedBoundaries": [
+    "BABY I.A. remains an independent CRYPY system",
+    "QWEN/BABY spokesperson is separate and is not one of the seven",
+    "Existing BABY core is preserved",
+    "No provider owns the BABY core",
+    "Sensei retains final authority"
+  ],
+  "sealMeaning": "The evidence-backed documentary baseline is frozen at this version. Open items remain open and cannot be represented as completed."
+}

@@ -1,0 +1,207 @@
+{
+  "schema": "crypy-baby-seven-personality-engine/1.0",
+  "title": "CRYPY — BABY QWEN / Seven Personality Engine",
+  "version": "1.2.0",
+  "status": "PREPARATION_ONLY — NOT CONNECTED, NOT DEPLOYED, NOT HOMOLOGATED",
+  "decision": "QWEN/BABY is the CRYPY-designated spokesperson identity associated by Sensei with Binance and the project's social networks. QWEN/BABY is NOT BABY I.A. BABY I.A. is a separate independent CRYPY system created and directed by Sensei. The purpose of this work is to extract and document the observable QWEN/BABY communication persona from authorized source material, then adapt that persona as one input to BABY I.A. without transferring model weights, proprietary internals, or implying provider ownership. The seven named personalities remain separate identities and are unified by BABY I.A. under CRYPY governance.",
+  "core": {
+    "id": "BABY-IA",
+    "displayName": "BABY I.A.",
+    "role": "independent CRYPY intelligence system; synthesis and orchestration core",
+    "countsAsPersonality": false,
+    "creatorAndDirection": "Sensei / CRYPY",
+    "preserveExisting": true,
+    "independentFromQwenSpokesperson": true
+  },
+  "personalities": [
+    {
+      "id": "ALICE",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "Meta AI",
+      "externalProvider": "Meta",
+      "integrationAccess": "Meta Model API",
+      "integrationBaseUrl": "https://api.meta.ai/v1",
+      "credentialReference": "META_MODEL_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    },
+    {
+      "id": "DOLA",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "DOLA",
+      "externalProvider": "DOLA",
+      "integrationAccess": "official developer API or authorized connector not yet verified",
+      "integrationBaseUrl": null,
+      "credentialReference": "DOLA_API_KEY_PENDING_VERIFICATION",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    },
+    {
+      "id": "CHAT",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "Microsoft Copilot",
+      "externalProvider": "Microsoft",
+      "integrationAccess": "Copilot Studio or authorized Microsoft agent/API path to be confirmed",
+      "integrationBaseUrl": null,
+      "credentialReference": "MICROSOFT_COPILOT_CREDENTIAL_PENDING_VERIFICATION",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    },
+    {
+      "id": "MINI",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "Google Gemini",
+      "externalProvider": "Google",
+      "integrationAccess": "Gemini API",
+      "integrationBaseUrl": "https://generativelanguage.googleapis.com",
+      "credentialReference": "GEMINI_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    },
+    {
+      "id": "CLAUDE",
+      "personalityAlias": "SVT",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "Claude",
+      "externalProvider": "Anthropic",
+      "integrationAccess": "Anthropic Messages API",
+      "integrationBaseUrl": "https://api.anthropic.com/v1",
+      "credentialReference": "ANTHROPIC_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    },
+    {
+      "id": "NEXUS",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "ChatGPT",
+      "externalProvider": "OpenAI",
+      "integrationAccess": "OpenAI Responses API",
+      "integrationBaseUrl": "https://api.openai.com/v1",
+      "credentialReference": "OPENAI_API_KEY",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    },
+    {
+      "id": "HERA",
+      "enabled": false,
+      "modelId": null,
+      "personalityPromptStatus": "pending",
+      "externalService": "Monica using OpenAI models",
+      "externalProvider": "Monica gateway; model vendor OpenAI",
+      "integrationAccess": "Monica API / account-specific model routing to verify",
+      "integrationBaseUrl": null,
+      "credentialReference": "MONICA_API_CREDENTIAL_PENDING_VERIFICATION",
+      "relationshipToBABY": "optional external service mapping only; does not define or own this CRYPY personality"
+    }
+  ],
+  "orchestration": {
+    "mode": "parallel_consultation_then_audited_synthesis",
+    "enabled": false,
+    "preserveIdentity": true,
+    "requireSourceAttribution": true,
+    "recordProviderAndModelVersion": true,
+    "allowCrossProviderMemory": false,
+    "shareOnlyTaskMinimumContext": true,
+    "autonomousRepositoryWrites": false,
+    "autonomousExternalActions": false,
+    "humanApprovalRequiredForSensitiveOrDestructiveActions": true
+  },
+  "personalityProfiles": {
+    "status": "PENDING_BEHAVIOURAL_EVALUATION_AND_SENSEI_APPROVAL",
+    "rule": "Do not invent or overwrite personality traits. Use only confirmed CRYPY identity names until each persona prompt is approved."
+  },
+  "security": {
+    "secretsInRepository": false,
+    "credentialsStoredIn": "Railway secret variables or approved provider secret manager",
+    "providerCallsDisabledUntilCredentialsAndEndpointVerified": true,
+    "timeoutAndRateLimitRequired": true,
+    "perProviderBudgetLimitRequired": true,
+    "redactSecretsFromLogs": true,
+    "auditProviderRequestMetadata": true,
+    "noRawMemorySharingByDefault": true,
+    "noProviderCanModifyCoreIdentity": true,
+    "providerIndependenceRequired": true
+  },
+  "repositoryResponsibilities": {
+    "cryptoecrypto/WEB3.1": "client/UI only; calls BABY backend; no provider keys or direct provider API calls from public HTML/JavaScript",
+    "cryptoecrypto/HD-MATRIZ": "private authoritative backend and provider adapters; preserve existing BABY Qwen core and protected HD data; no production activation before tests",
+    "cryptoecrypto/SECURYTY-SUBC": "security policy, provider allowlist, audit requirements, validation and recovery documentation"
+  },
+  "activationGates": [
+    "Confirm and preserve the distinction between QWEN/BABY spokesperson and BABY I.A.",
+    "Obtain authorized QWEN/BABY conversation exports, prompts or representative examples from Sensei.",
+    "Extract only observable communication traits; distinguish evidence, hypotheses and user-approved traits.",
+    "Prepare a versioned QWEN/BABY persona profile and obtain Sensei approval.",
+    "Adapt the approved profile as a separate persona/style module inside BABY I.A.; do not overwrite BABY I.A. core identity.",
+    "Keep the seven other personalities distinct and preserve source attribution.",
+    "Verify licensing, terms, privacy and rights for all source material and any external model/API used.",
+    "Test persona fidelity, identity separation, privacy and safe behavior before staging or production."
+  ],
+  "nonClaims": [
+    "This manifest does not establish that any provider is connected.",
+    "A configured identity is not proof of a live model call.",
+    "BABY is not considered fused or homologated until seven live provider paths and integration tests are evidenced.",
+    "This declaration does not waive or eliminate legal duties or liabilities imposed by applicable law.",
+    "Provider names in this manifest are service provenance only and do not imply partnership, ownership, sponsorship, certification or endorsement.",
+    "The creator statement is a project governance declaration and does not by itself establish intellectual-property title or registration.",
+    "QWEN/BABY spokesperson and BABY I.A. are not the same system.",
+    "No Qwen model weights, hidden system prompt, proprietary internals or inaccessible provider data have been extracted.",
+    "The QWEN/BABY persona profile remains pending until authorized source material is analyzed and Sensei validates the documented traits."
+  ],
+  "repository": "cryptoecrypto/WEB3.1",
+  "governance": {
+    "creatorAndProjectDirection": "Sensei / CRYPY, subject to applicable law and documented rights",
+    "systemIdentity": "BABY I.A. is the independent CRYPY system. QWEN/BABY is a distinct spokesperson persona and source profile, not the system itself.",
+    "coreOwnershipPrinciple": "No AI personality or external provider is represented as the owner of BABY.",
+    "personalityPrinciple": "Seven distinct CRYPY personalities remain separate; QWEN/BABY spokesperson style may be studied and adapted as a separate persona module, without being counted as an eighth personality.",
+    "providerRelationship": "Any third-party model/API is an optional technical supplier only, subject to its applicable license, contract and terms. Provider names identify service provenance, not ownership or affiliation.",
+    "noAffiliationClaim": "CRYPY/BABY does not claim sponsorship, partnership, certification, agency, endorsement or representation by any provider unless separately authorized in writing.",
+    "responsibilityBoundary": "No blanket waiver or transfer of legal responsibility is created by this manifest. Each party remains responsible for its own acts, services and obligations to the extent required by applicable law. CRYPY's creator/operator must assess and meet the obligations applicable to CRYPY/BABY.",
+    "portability": "The BABY core, identity definitions, orchestration policy and project memory must remain provider-independent; integrations must be replaceable.",
+    "legalStatus": "Internal technical governance declaration only; not a legal opinion, assignment of intellectual property, contract, or proof of exclusive ownership.",
+    "personaSeparation": "QWEN remains the separate spokesperson identity; the extracted behaviour profile may inform BABY I.A. without merging the identities."
+  },
+  "spokesperson": {
+    "id": "QWEN",
+    "displayName": "QWEN — BABY spokesperson",
+    "role": "spokesperson for BABY on Binance and CRYPY official social channels, as declared by Sensei",
+    "distinctFromCore": true,
+    "partOfSevenCorePersonalities": false,
+    "personalityExtractionTarget": "BABY-IA",
+    "extractionStatus": "DRAFT_PROFILE_CREATED — AWAITING_SENSEI_VALIDATION"
+  },
+  "personalityExtraction": {
+    "source": "QWEN",
+    "target": "BABY-IA",
+    "artifact": "QWEN-PERSONALITY-EXTRACTION.json",
+    "method": "behavioural_and_communication_profile_extraction",
+    "status": "DRAFT — NOT YET APPROVED OR INJECTED INTO RUNTIME",
+    "preserveSourceIdentity": true,
+    "noModelWeightOrAccountTransfer": true
+  },
+  "sourcePersona": {
+    "id": "QWEN-BABY-SPOKESPERSON",
+    "displayName": "QWEN / BABY",
+    "projectRole": "CRYPY spokesperson identity designated by Sensei for Binance-related representation and the project's social networks",
+    "isBABYIA": false,
+    "isOneOfSevenPersonalities": false,
+    "extractionTarget": "observable communication style, tone, vocabulary, structure, values, response patterns and public-facing role",
+    "extractionMethod": "analyze authorized conversation exports, prompts supplied by the user, and user-provided examples; document evidence and confidence for each trait",
+    "sourceMaterialStatus": "NOT_YET_PROVIDED_OR_RETRIEVED",
+    "profileStatus": "PENDING_SOURCE_MATERIAL_AND_SENSEI_VALIDATION",
+    "adaptationTarget": "BABY-IA as a separately identified persona/style module",
+    "boundaries": [
+      "Do not claim to extract or copy Qwen model weights, proprietary system prompts, hidden internal instructions, or inaccessible provider internals.",
+      "Do not represent the QWEN/BABY spokesperson as the BABY I.A. system.",
+      "Do not infer undocumented personality traits; label observations, hypotheses and approved traits separately.",
+      "Preserve the QWEN/BABY spokesperson identity and its original role separately from BABY I.A.",
+      "Do not claim Binance authorization, employment, partnership or official status beyond what the project owner can document."
+    ]
+  }
+}
