@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "integrationMode": "global-central-source-pinned",
+  "centralRepository": "cryptoecrypto/CRYPY-DEFENDER",
+  "centralCommit": "5b847ce47e9e1c4e4ed0a47e80b52e0f6d805411",
+  "centralPullRequest": "https://github.com/cryptoecrypto/CRYPY-DEFENDER/pull/1",
+  "localDefenderPath": "crypy-defender/",
+  "localFilesPolicy": "retain-until-central-parity-tests-pass-and-owner-approves-removal",
+  "runtimeEnforcement": "not-deployed",
+  "productionStatus": "not-homologated",
+  "requiredNextSteps": [
+    "validate access to private central reusable workflows",
+    "migrate scanner and curriculum source to the central repository",
+    "pin a signed central release in this repository",
+    "run repository-specific CI and security tests",
+    "integrate host, application, upload, terminal, and storage controls separately"
+  ],
+  "repo": "WEB3.1"
+}
