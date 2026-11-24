@@ -10,7 +10,7 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
   let previousApiToken;
   before(async () => {
     previousApiToken = process.env.CRYPY_API_TOKEN;
-    process.env.CRYPY_API_TOKEN = 'test-api-token';
+    process.env.CRYPY_API_TOKEN = 'test-api-token-for-tests-minimum-32-bytes';
     f = await fixture();
     const created = await createServer({ baby: f.baby });
     server = created.server;
@@ -26,7 +26,7 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
   });
 
   const get = async (p) => {
-    const res = await fetch(base + p, { headers: p.startsWith('/api/') ? { authorization: 'Bearer test-api-token' } : {} });
+    const res = await fetch(base + p, { headers: p.startsWith('/api/') ? { authorization: 'Bearer test-api-token-for-tests-minimum-32-bytes' } : {} });
     const type = res.headers.get('content-type') || '';
     return { status: res.status, body: type.includes('json') ? await res.json() : await res.text() };
   };
