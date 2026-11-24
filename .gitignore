@@ -1,0 +1,37 @@
+# CRYPY — SECURITY BASELINE
+# Aplicar na raiz de cada repositório.
+# Este arquivo impede que novos arquivos correspondentes sejam adicionados ao Git.
+# Não remove arquivos que já estejam versionados.
+
+# Variáveis de ambiente e segredos
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.key
+*.pem
+secrets/
+
+# Backups e arquivos temporários sensíveis
+*.secret
+*.credentials
+*.bak
+*.log
+
+# Chaves e certificados
+*.p12
+*.pfx
+*.jks
+
+# Dependências e builds
+node_modules/
+dist/
+build/
+.next/
+
+# Arquivos de sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/
