@@ -8,7 +8,7 @@
   window.__CRYPY_GLOBAL_RUNTIME__ = true;
 
   var scriptUrl = document.currentScript && document.currentScript.src;
-  var siteRoot = new URL("../", scriptUrl || document.baseURI);
+  var siteRoot = new URL("../../", scriptUrl || document.baseURI);
   var listeners = [];
   var clockLink = null;
 
