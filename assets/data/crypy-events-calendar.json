@@ -114,6 +114,14 @@
       "category": "celebracao",
       "baby": "Estamos encerrando mais um ciclo. Obrigado por construir com a Colmeia CRYPY. Que venha um novo ano de boas ideias!",
       "icon": "🎆"
+    },
+    {
+      "id": "dia-pais",
+      "date": "AUG-2SUN",
+      "title": "Dia dos Pais",
+      "category": "familia",
+      "baby": "Feliz Dia dos Pais! Hoje celebramos o cuidado, a presença e as diferentes formas de paternidade.",
+      "icon": "💙"
     }
   ],
   "movableEvents": [
