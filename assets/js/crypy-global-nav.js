@@ -240,7 +240,22 @@
     var pages = [];
     var selected = null;
     function addPageLink(container,page) {
-      var link = node("a",{className:"crypy-nav-link",href:new URL(page.path,siteRoot).href,target:"_self",role:"listitem"});
+      var destination = new URL(page.path,siteRoot).href;
+      var link = node("a",{className:"crypy-nav-link",href:destination,target:"_self",role:"listitem"});
+      var homeFrame = document.getElementById("page-frame");
+      if (homeFrame) {
+        link.addEventListener("click",function(event){
+          event.preventDefault();
+          homeFrame.src = destination;
+          homeFrame.title = "CRYPY · WEB3.1 — " + page.label;
+          var openPage = document.getElementById("open-page");
+          if (openPage) openPage.href = destination;
+          var status = document.getElementById("page-status");
+          if (status) status.textContent = "Área selecionada: " + page.label;
+          if (window.history && window.history.replaceState) window.history.replaceState(null,"","#"+encodeURIComponent(page.path));
+          open(false);
+        });
+      }
       link.appendChild(node("strong",{},page.label));
       link.appendChild(node("small",{},page.path));
       container.appendChild(link);
@@ -344,6 +359,10 @@
       list.appendChild(node("div",{className:"crypy-nav-empty"},"Verifique a publicação de assets/data/crypy-page-index.json."));
     });
   }
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount,{once:true});
-  else mount();
+  var embeddedInHome = false;
+  try { embeddedInHome = window.parent !== window && !!window.parent.document.getElementById("page-frame"); } catch (error) { embeddedInHome = false; }
+  if (!embeddedInHome) {
+    if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount,{once:true});
+    else mount();
+  }
 })();
