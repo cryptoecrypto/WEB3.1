@@ -5,7 +5,7 @@
   window.__CRYPY_GLOBAL_NAV__ = true;
   var scriptUrl = document.currentScript && document.currentScript.src;
   if (!scriptUrl) return;
-  var siteRoot = new URL("../", scriptUrl);
+  var siteRoot = new URL("../../", scriptUrl);
   if (!document.querySelector('script[data-crypy-global-runtime="true"]')) {
     var runtime = document.createElement("script");
     runtime.src = new URL("assets/js/crypy-global-runtime.js", siteRoot).href;
