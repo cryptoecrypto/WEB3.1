@@ -58,7 +58,7 @@
     },
     {
       "path": "baby-ia/auto-config.html",
-      "label": "Auto Config",
+      "label": "Configuração administrativa privada",
       "group": "baby-ia"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "path": "baby-ia/esquadrao-auto-config.html",
-      "label": "Esquadrao Auto Config",
+      "label": "Governança do Esquadrão — acesso privado",
       "group": "baby-ia"
     },
     {
