@@ -4,7 +4,7 @@
 if(window.__CRYPY_13_AGENTS_UI__)return;window.__CRYPY_13_AGENTS_UI__=true;
 var current=document.currentScript,rootUrl=new URL("../../",current&&current.src?current.src:document.baseURI);
 var configUrl=new URL("assets/data/crypy-agents-13.json",rootUrl);
-var legacySelectors=["#crypy-baby-global-root","#crypy-baby-global-panel","#crypy-baby-global-toggle","#fab","#chatBox","#chatHead","#chatMsgs","#barra","#colmeia-console","#crypy-chatbot","#chatbot","#chatbot-widget","#chat-widget",".chatbot",".chatbot-widget",".chatbot-container",".chat-widget",".baby-chat-widget",".chat-fab",".chat-panel",".chat-launcher"];
+var legacySelectors=["#crypy-baby-global-root","#crypy-baby-global-panel","#topo","#status","#msgs","#espelho","#crypy-baby-global-toggle","#fab","#chatBox","#chatHead","#chatMsgs","#barra","#colmeia-console","#crypy-chatbot","#chatbot","#chatbot-widget","#chat-widget",".chatbot",".chatbot-widget",".chatbot-container",".chat-widget",".baby-chat-widget",".chat-fab",".chat-panel",".chat-launcher"];
 function hideLegacy(){
  legacySelectors.forEach(function(sel){try{document.querySelectorAll(sel).forEach(function(el){if(el.id==="crypy-13-agent-root")return;el.hidden=true;el.setAttribute("aria-hidden","true");el.setAttribute("data-crypy-legacy-hidden","true");el.style.setProperty("display","none","important");});}catch(_){}});
  document.querySelectorAll('iframe[src*="chatboot-baby-ia"],iframe[title*="chat" i],iframe[aria-label*="chat" i]').forEach(function(el){el.hidden=true;el.setAttribute("aria-hidden","true");el.setAttribute("data-crypy-legacy-hidden","true");el.style.setProperty("display","none","important");});
