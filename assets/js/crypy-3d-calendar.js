@@ -95,7 +95,7 @@
    var monthEvents=events.filter(function(e){return e.date.slice(0,7)===view.getFullYear()+"-"+String(view.getMonth()+1).padStart(2,"0");});
    upcoming.replaceChildren(node("h4",{},"PRÓXIMAS DATAS"));
    if(!monthEvents.length)upcoming.appendChild(node("p",{},"Nenhuma data comemorativa cadastrada neste mês."));
-   monthEvents.slice(0,5).forEach(function(e){var b=node("button",{type:"button"},node("span",{},e.icon+" "+e.title));var dateLabel=node("span",{},e.date.slice(8,10)+"/"+e.date.slice(5,7));b.appendChild(dateLabel);b.addEventListener("click",function(){var p=e.date.split("-");view=new Date(Number(p[0]),Number(p[1])-1,1);showSelected(new Date(Number(p[0]),Number(p[1])-1,Number(p[2])));});upcoming.appendChild(b);});
+   monthEvents.slice(0,5).forEach(function(e){var b=node("button",{type:"button"});b.appendChild(node("span",{},e.icon+" "+e.title));var dateLabel=node("span",{},e.date.slice(8,10)+"/"+e.date.slice(5,7));b.appendChild(dateLabel);b.addEventListener("click",function(){var p=e.date.split("-");view=new Date(Number(p[0]),Number(p[1])-1,1);showSelected(new Date(Number(p[0]),Number(p[1])-1,Number(p[2])));});upcoming.appendChild(b);});
   }
   function move(delta){view=new Date(view.getFullYear(),view.getMonth()+delta,1);if(view.getFullYear()!==now.getFullYear()){events=buildEvents(config,view.getFullYear());now=new Date();}render();}
   prev.addEventListener("click",function(){move(-1);});next.addEventListener("click",function(){move(1);});
