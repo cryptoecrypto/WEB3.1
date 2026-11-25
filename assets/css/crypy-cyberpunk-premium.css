@@ -110,3 +110,39 @@ footer{
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* AJUSTE DE LEITURA E MOLDURAS — menos espaço desperdiçado, sem cortar conteúdo */
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+body{
+  font-size:clamp(17px,1.12vw,19px)!important;
+  line-height:1.55!important;
+}
+p,li,.team-card,.hive-card,.sub,.note,.status{
+  font-size:1.04em;
+  line-height:1.58;
+  overflow-wrap:anywhere;
+}
+.wrap{
+  width:min(1400px,calc(100% - 24px))!important;
+  max-width:1400px!important;
+}
+.hero,.team-card,.hive-card,.token-band,.panel,.chartbox,.coin-card,.viewer{
+  max-width:100%;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.hero{padding:clamp(16px,2.4vw,30px)!important}
+.team-card,.hive-card{padding:clamp(14px,1.8vw,22px)!important}
+img,video,canvas,iframe{max-width:100%}
+table{max-width:100%;display:block;overflow-x:auto}
+@media(max-width:760px){
+  body{font-size:17px!important}
+  .wrap{width:calc(100% - 16px)!important}
+  .hero,.team-card,.hive-card,.token-band,.panel,.chartbox,.coin-card{
+    border-radius:12px!important;
+    padding:14px!important;
+  }
+  h1{font-size:clamp(1.65rem,7vw,2.35rem)!important}
+  h2{font-size:clamp(1.35rem,5.5vw,1.9rem)!important}
+}
