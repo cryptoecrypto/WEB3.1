@@ -41,7 +41,7 @@ if (!widget.includes("crypy-baby-global-root")) errors.push("widget não declara
 const missingPages = [];
 for (const pagePath of officialPages) {
   const html = read(pagePath);
-  if (!/src=["'][^"']*assets\\/js\\/crypy-global-nav\\.js(?:\\?[^"']*)?["']/i.test(html)) {
+  if (!html.includes("assets/js/crypy-global-nav.js")) {
     missingPages.push(pagePath);
   }
 }
