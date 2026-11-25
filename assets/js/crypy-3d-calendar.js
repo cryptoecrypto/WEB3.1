@@ -16,7 +16,7 @@
  function fromKey(value,year){var p=value.split("-");return new Date(year,Number(p[0])-1,Number(p[1]));}
  function nthWeekday(year,month,weekday,n){var d=new Date(year,month,1);var shift=(weekday-d.getDay()+7)%7;return new Date(year,month,1+shift+(n-1)*7);}
  function buildEvents(config,year){
-  var list=(config.fixedEvents||[]).map(function(e){var d;if(e.date.indexOf("MAY-")===0)d=nthWeekday(year,4,0,2);else d=fromKey(e.date,year);return Object.assign({},e,{date:key(d)});});
+  var list=(config.fixedEvents||[]).map(function(e){var d;if(e.date.indexOf("MAY-")===0)d=nthWeekday(year,4,0,2);else if(e.date.indexOf("AUG-")===0)d=nthWeekday(year,7,0,2);else d=fromKey(e.date,year);return Object.assign({},e,{date:key(d)});});
   var pascoa=easter(year);
   (config.movableEvents||[]).forEach(function(e){var d=new Date(pascoa);d.setDate(d.getDate()+Number(e.offset));list.push(Object.assign({},e,{date:key(d)}));});
   return list.sort(function(a,b){return a.date.localeCompare(b.date);});
@@ -102,6 +102,19 @@
   toggle.addEventListener("click",function(){var open=host.getAttribute("data-open")!=="true";host.setAttribute("data-open",String(open));toggle.setAttribute("aria-expanded",String(open));});
   head.querySelector("button").addEventListener("click",function(){host.setAttribute("data-open","false");toggle.setAttribute("aria-expanded","false");});
   showSelected(now);
+  var midnightTimer=null;
+  function scheduleMidnight(){
+   if(midnightTimer)window.clearTimeout(midnightTimer);
+   var current=new Date(),nextDay=new Date(current.getFullYear(),current.getMonth(),current.getDate()+1,0,0,2,0);
+   midnightTimer=window.setTimeout(function(){
+    var oldToday=key(now);now=new Date();
+    events=buildEvents(config,now.getFullYear());
+    if(view.getFullYear()===Number(oldToday.slice(0,4))&&view.getMonth()===Number(oldToday.slice(5,7))-1)view=new Date(now.getFullYear(),now.getMonth(),1);
+    if(selected===oldToday){selected=key(now);showSelected(now);}else render();
+    scheduleMidnight();
+   },Math.max(1000,nextDay.getTime()-current.getTime()));
+  }
+  scheduleMidnight();
  }
  fetch(dataUrl.href,{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(mount).catch(function(){mount({fixedEvents:[],movableEvents:[]});});
 })();
