@@ -21,6 +21,14 @@
     dynamicDesign.async = true;
     (document.head || document.documentElement).appendChild(dynamicDesign);
   }
+  // Calendário 3D compartilhado: datas especiais e avisos editoriais pré-programados do BABY.
+  if (!document.querySelector('script[data-crypy-3d-calendar="true"]')) {
+    var calendarScript = document.createElement("script");
+    calendarScript.src = new URL("assets/js/crypy-3d-calendar.js", siteRoot).href;
+    calendarScript.dataset.crypy3dCalendar = "true";
+    calendarScript.async = true;
+    (document.head || document.documentElement).appendChild(calendarScript);
+  }
   // O quadro de mercado é carregado somente na Home, sem alterar o HTML principal.
   var currentPath = window.location.pathname.toLowerCase();
   var homeRootPath = new URL("./", siteRoot).pathname.toLowerCase();
