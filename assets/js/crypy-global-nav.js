@@ -6,7 +6,7 @@
   var scriptUrl = document.currentScript && document.currentScript.src;
   if (!scriptUrl) return;
   var siteRoot = new URL("../../", scriptUrl);
-  if (!document.querySelector('script[data-crypy-global-runtime="true"]')) {
+  if (window.top === window.self && !document.querySelector('script[data-crypy-global-runtime="true"]')) {
     var runtime = document.createElement("script");
     runtime.src = new URL("assets/js/crypy-global-runtime.js", siteRoot).href;
     runtime.defer = true;
@@ -22,7 +22,7 @@
     (document.head || document.documentElement).appendChild(dynamicDesign);
   }
   // Calendário 3D compartilhado: datas especiais e avisos editoriais pré-programados do BABY.
-  if (!document.querySelector('script[data-crypy-3d-calendar="true"]')) {
+  if (window.top === window.self && !document.querySelector('script[data-crypy-3d-calendar="true"]')) {
     var calendarScript = document.createElement("script");
     calendarScript.src = new URL("assets/js/crypy-3d-calendar.js", siteRoot).href;
     calendarScript.dataset.crypy3dCalendar = "true";
