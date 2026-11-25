@@ -1,63 +1,9 @@
-import { chromium } from "playwright";
-
-const base = "http://127.0.0.1:4173/";
-const pages = [
-  "crypy-infinyt/portal.html",
-  "crypy-academy/academia.html",
-  "esquadrao-das-cores/esquadrao.html",
-  "nft-collection/galeria.html",
-  "biografia/historia.html",
-  "crypy-news/index.html",
-  "crypy-news/museu.html",
-  "art-figure-marketplace/marketplace.html",
-  "crypy-games-desafios/crypy-games-desafios.html",
-  "social-crypykut/comunidade.html",
-  "baby-ia/centro.html",
-  "crypy-coin/white-paper.html",
-  "contato/contato-oficial.html"
-];
-
-const browser = await chromium.launch({ headless: true });
-const failures = [];
-try {
-  const page = await browser.newPage({ viewport: { width: 1365, height: 900 } });
-  page.setDefaultTimeout(12000);
-  for (const path of pages) {
-    try {
-      const response = await page.goto(base + path, { waitUntil: "domcontentloaded" });
-      if (!response || !response.ok()) throw new Error("HTTP " + (response && response.status()));
-      await page.waitForSelector("#crypy-global-navigation", { state: "attached" });
-      await page.waitForSelector("#crypy-baby-global-root", { state: "attached" });
-
-      const menuButton = page.locator("#crypy-global-nav-toggle");
-      await menuButton.click();
-      if (await menuButton.getAttribute("aria-expanded") !== "true") throw new Error("menu global não abriu");
-      await menuButton.click();
-
-      const babyButton = page.locator("#crypy-baby-global-toggle");
-      await babyButton.click();
-      const panel = page.locator("#crypy-baby-global-panel");
-      if (await panel.getAttribute("data-open") !== "true") throw new Error("painel BABY não abriu");
-
-      await page.waitForFunction(() => {
-        const frame = document.querySelector("#crypy-baby-global-frame");
-        if (!frame) return false;
-        try {
-          return frame.contentWindow.location.pathname.endsWith("/chatboot-baby-ia.html");
-        } catch (_) { return false; }
-      });
-      const frameUrl = await page.locator("#crypy-baby-global-frame").getAttribute("src");
-      if (!frameUrl || !new URL(frameUrl).pathname.endsWith("/chatboot-baby-ia.html")) {
-        throw new Error("iframe não aponta para a página canônica do BABY");
-      }
-      console.log("OK — " + path + " | menu e chatbot global | " + frameUrl);
-    } catch (error) {
-      failures.push(path + " — " + (error?.message || String(error)));
-      console.error("FALHA — " + path + " — " + (error?.message || String(error)));
-    }
-  }
-} finally {
-  await browser.close();
-}
-if (failures.length) process.exitCode = 1;
-else console.log("OK — teste real em Chromium concluído nas 13 páginas oficiais.");
+import {chromium} from "playwright";
+const base="http://127.0.0.1:4173/",pages=[["crypy-infinyt/portal.html","COSMOS"],["crypy-academy/academia.html","ALICE"],["esquadrao-das-cores/esquadrao.html","DOLA"],["nft-collection/galeria.html","CRYPY COIN"],["biografia/historia.html","CHAT"],["crypy-news/index.html","BNB"],["crypy-news/museu.html","SVT"],["art-figure-marketplace/marketplace.html","ICP"],["crypy-games-desafios/crypy-games-desafios.html","SHIBA INU"],["social-crypykut/comunidade.html","MINI"],["baby-ia/centro.html","NEXUS"],["crypy-coin/white-paper.html","UNION"],["contato/contato-oficial.html","HERA"]];
+const browser=await chromium.launch({headless:true}),failures=[];
+try{const page=await browser.newPage({viewport:{width:1365,height:900}});page.setDefaultTimeout(12000);
+for(const [route,name] of pages){try{const response=await page.goto(base+route,{waitUntil:"domcontentloaded"});if(!response?.ok())throw new Error("HTTP "+response?.status());await page.waitForSelector("#crypy-global-navigation",{state:"attached"});await page.waitForSelector("#crypy-13-agent-root",{state:"attached"});await page.locator("#crypy-agent-launch").click();await page.waitForFunction(()=>document.querySelector("#crypy-13-agent-root")?.getAttribute("data-open")==="true");if(!(await page.locator("#crypy-agent-panel").innerText()).includes(name))throw new Error("agente esperado: "+name);
+for(const sel of ["#crypy-baby-global-root","#fab","#chatBox","#barra"]){const old=page.locator(sel);if(await old.count()){const display=await old.first().evaluate(el=>getComputedStyle(el).display);if(display!=="none")throw new Error("widget antigo visível: "+sel);}}
+console.log("OK — "+route+" → "+name);}catch(e){failures.push(route+" — "+(e?.message||String(e)));console.error("FALHA — "+route+" — "+(e?.message||String(e)));}}
+try{const response=await page.goto(base+"chatboot-baby-ia.html",{waitUntil:"domcontentloaded"});if(!response?.ok())throw new Error("página canônica indisponível");await page.waitForSelector("#crypy-13-agent-root",{state:"attached"});await page.waitForFunction(()=>{const e=document.querySelector("#fab");return !e||getComputedStyle(e).display==="none";});console.log("OK — página canônica do BABY encaminhada à nova interface.");}catch(e){failures.push("chatboot-baby-ia.html — "+(e?.message||String(e)));console.error("FALHA — página canônica — "+(e?.message||String(e)));}}
+finally{await browser.close();}if(failures.length)process.exitCode=1;else console.log("OK — 13 páginas + página canônica em Chromium.");
