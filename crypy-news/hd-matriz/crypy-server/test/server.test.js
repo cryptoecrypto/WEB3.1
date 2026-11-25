@@ -31,7 +31,7 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
     return { status: res.status, body: type.includes('json') ? await res.json() : await res.text() };
   };
   const post = async (p, obj) => {
-    const res = await fetch(base + p, { method: 'POST', headers: { 'content-type': 'application/json', authorization: 'Bearer test-api-token' }, body: JSON.stringify(obj) });
+    const res = await fetch(base + p, { method: 'POST', headers: { 'content-type': 'application/json', authorization: 'Bearer test-api-token-for-tests-minimum-32-bytes' }, body: JSON.stringify(obj) });
     return { status: res.status, body: await res.json() };
   };
 
