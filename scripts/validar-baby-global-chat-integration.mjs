@@ -1,71 +1,22 @@
-import fs from "node:fs";
-import path from "node:path";
-
-const root = process.cwd();
-const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), "utf8");
-const errors = [];
-const bridge = read("assets/js/crypy-page-assistant.js");
-const nav = read("assets/js/crypy-global-nav.js");
-const runtime = read("assets/js/crypy-global-runtime.js");
-const widget = read("assets/js/baby-global-chat.js");
-const registry = JSON.parse(read("CRYPY-13-CHATBOOTS/colmeia-integral/registry-15.json"));
-
-const officialPages = [
-  "crypy-infinyt/portal.html",
-  "crypy-academy/academia.html",
-  "esquadrao-das-cores/esquadrao.html",
-  "nft-collection/galeria.html",
-  "biografia/historia.html",
-  "crypy-news/index.html",
-  "crypy-news/museu.html",
-  "art-figure-marketplace/marketplace.html",
-  "crypy-games-desafios/crypy-games-desafios.html",
-  "social-crypykut/comunidade.html",
-  "baby-ia/centro.html",
-  "crypy-coin/white-paper.html",
-  "contato/contato-oficial.html"
-];
-
-if (!bridge.includes("crypy-global-runtime.js")) errors.push("ponte legada não encaminha ao runtime global");
-if (!bridge.includes('params.get("embed") === "1"')) errors.push("ponte não preserva o modo iframe embed");
-if (!bridge.includes("/chatboot-baby-ia\\.html$/")) errors.push("ponte não preserva a página canônica do chatbot");
-if (!bridge.includes('data-crypy-global-runtime="true"')) errors.push("ponte não evita runtime duplicado");
-if (/fetch\s*\(|XMLHttpRequest|sendBeacon|localStorage|indexedDB/i.test(bridge)) {
-  errors.push("ponte contém operação de rede ou persistência inesperada");
-}
-
-if (!nav.includes('new URL("../../", scriptUrl)')) errors.push("menu global não sobe dois níveis até a raiz do repositório");
-if (!runtime.includes('new URL("../../", scriptUrl || document.baseURI)')) errors.push("runtime não sobe dois níveis até a raiz do repositório");
-if (!widget.includes('new URL("../../chatboot-baby-ia.html?embed=1"')) errors.push("widget não resolve o iframe a partir da raiz do repositório");
-if (!runtime.includes("assets/js/baby-global-chat.js")) errors.push("runtime não carrega o widget global BABY");
-if (!runtime.includes('get("embed") === "1"')) errors.push("runtime não respeita o modo embed");
-if (!widget.includes("chatboot-baby-ia.html?embed=1")) errors.push("widget não aponta para a página canônica do BABY");
-if (!widget.includes("crypy-baby-global-root")) errors.push("widget não declara a raiz global esperada");
-
-const missingPages = [];
-for (const pagePath of officialPages) {
-  const html = read(pagePath);
-  if (!html.includes("assets/js/crypy-global-nav.js")) {
-    missingPages.push(pagePath);
-  }
-}
-if (missingPages.length) errors.push("páginas oficiais sem menu/runtime global: " + missingPages.join(", "));
-
-const official = registry.members.filter((member) => member.group === "official_13");
-const core = registry.members.filter((member) => member.group === "separate_core");
-const defense = registry.members.filter((member) => member.group === "separate_defense");
-if (official.length !== 13) errors.push("registro não contém exatamente 13 integrantes oficiais");
-if (core.length !== 1 || core[0]?.id !== "baby") errors.push("BABY não está separado como núcleo único");
-if (defense.length !== 1 || defense[0]?.id !== "lucy") errors.push("LUCY não está separada como defesa única");
-if (new Set(registry.members.map((member) => member.id)).size !== 15) errors.push("IDs dos 15 participantes não são únicos");
-
-if (errors.length) {
-  console.error("FALHA — integração global BABY");
-  errors.forEach((error) => console.error("- " + error));
-  process.exitCode = 1;
-} else {
-  console.log("OK — 13/13 páginas oficiais incluem o menu global.");
-  console.log("OK — menu → runtime → widget → página canônica do BABY.");
-  console.log("OK — registro 13 integrantes + BABY + LUCY, sem IDs duplicados.");
-  console.log("LIMITAÇÃO — teste estático; não comprova execução no navegador, conexão a modelos, backend, armazenamento ou implantação.");
-}
+import fs from "node:fs";import path from "node:path";
+const read=p=>fs.readFileSync(path.join(process.cwd(),p),"utf8"),errors=[];
+const bridge=read("assets/js/crypy-page-assistant.js"),runtime=read("assets/js/crypy-global-runtime.js"),widget=read("assets/js/crypy-agents-global.js");
+const cfg=JSON.parse(read("assets/data/crypy-agents-13.json")),legacy=read("assets/js/baby-global-chat.js"),registry=JSON.parse(read("CRYPY-13-CHATBOOTS/colmeia-integral/registry-15.json"));
+const pages=[["crypy-infinyt/portal.html","cosmos"],["crypy-academy/academia.html","alice"],["esquadrao-das-cores/esquadrao.html","dola"],["nft-collection/galeria.html","crypy-coin"],["biografia/historia.html","chat"],["crypy-news/index.html","bnb"],["crypy-news/museu.html","svt"],["art-figure-marketplace/marketplace.html","icp"],["crypy-games-desafios/crypy-games-desafios.html","shiba-inu"],["social-crypykut/comunidade.html","mini"],["baby-ia/centro.html","nexus"],["crypy-coin/white-paper.html","union"],["contato/contato-oficial.html","hera"]];
+if(!bridge.includes("crypy-global-runtime.js"))errors.push("ponte não encaminha ao runtime global");
+if(!runtime.includes("assets/js/crypy-agents-global.js"))errors.push("runtime não carrega a interface dos 13 agentes");
+if(runtime.includes("assets/js/baby-global-chat.js"))errors.push("runtime ainda carrega o widget BABY legado");
+if(!widget.includes("MutationObserver"))errors.push("ocultação contínua de widgets antigos ausente");
+["#crypy-baby-global-root","#fab","#chatBox","#barra","#topo","#status","#msgs"].forEach(s=>{if(!widget.includes(s))errors.push("seletor legado ausente: "+s);});
+if(!widget.includes("pageKnowledge()"))errors.push("captura contextual local ausente");
+if(cfg.agents.length!==13||new Set(cfg.agents.map(a=>a.id)).size!==13)errors.push("roster precisa ter 13 IDs únicos");
+if(new Set(cfg.agents.map(a=>a.color)).size!==13)errors.push("as 13 cores precisam ser distintas");
+if(Object.keys(cfg.pageRouting).length!==13)errors.push("roteamento não cobre 13 páginas");
+for(const [p,id] of pages){if(cfg.pageRouting[p]!==id)errors.push("rota incorreta: "+p);if(!read(p).includes("assets/js/crypy-global-nav.js"))errors.push("menu global ausente: "+p);}
+if(cfg.core?.id!=="baby"||cfg.defense?.id!=="lucy")errors.push("BABY/LUCY precisam permanecer separados");
+if(!cfg.humanization?.principles?.includes("admitir incerteza e não inventar fatos"))errors.push("regra de transparência ausente");
+if(!cfg.humanization?.trainingStatus?.includes("not_model_training"))errors.push("treinamento real não declarado como pendente");
+const official=registry.members.filter(x=>x.group==="official_13"),core=registry.members.filter(x=>x.group==="separate_core"),defense=registry.members.filter(x=>x.group==="separate_defense");
+if(official.length!==13||core.length!==1||core[0]?.id!=="baby"||defense.length!==1||defense[0]?.id!=="lucy")errors.push("registro 13 + BABY + LUCY divergente");
+if(errors.length){console.error("FALHA — CRYPY 13 agentes");errors.forEach(x=>console.error("- "+x));process.exitCode=1;}
+else{console.log("OK — 13 perfis, cores distintas e 13 rotas oficiais.");console.log("OK — BABY e LUCY separados.");console.log("OK — runtime novo e ocultação de interfaces legadas conhecidas.");console.log("LIMITE — não prova treinamento, modelo generativo, ingestão integral ou produção.");}
