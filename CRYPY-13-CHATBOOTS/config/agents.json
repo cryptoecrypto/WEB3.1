@@ -57,6 +57,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -97,6 +104,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -135,6 +149,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -172,6 +193,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -211,6 +239,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -250,6 +285,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -289,6 +331,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -329,6 +378,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -367,6 +423,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -401,6 +464,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -436,6 +506,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -470,6 +547,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     },
     {
@@ -507,6 +591,13 @@
         "agentsSdk": "especialista-com-guardrails",
         "metagpt": "etapas-e-artefatos",
         "gMemory": "memória-em-três-níveis"
+      },
+      "sharedKnowledge": {
+        "enabled": true,
+        "access": "read_curated_shared",
+        "privateMemory": "isolated",
+        "sharedWrite": "propose_only",
+        "modelEndpoint": "not_connected_by_this_layer"
       }
     }
   ],
@@ -550,5 +641,18 @@
       "testes",
       "estado de aprovação"
     ]
+  },
+  "sharedKnowledge": {
+    "enabled": true,
+    "mode": "single_curated_public_corpus",
+    "registry": "shared-knowledge/agent-access.json",
+    "fileIndex": "../../assets/data/crypy-file-index.json",
+    "queryApi": "window.CRPYSharedKnowledge.search(agentId, query, limit)",
+    "access": "read_curated_shared",
+    "privateMemory": "isolated",
+    "sharedWrite": "propose_only",
+    "modelEndpointsConnected": 0,
+    "syncOwner": "BABY",
+    "syncTrigger": "manual_user_initiated_browser_sync"
   }
 }
