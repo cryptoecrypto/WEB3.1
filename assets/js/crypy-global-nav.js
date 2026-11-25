@@ -354,7 +354,7 @@
         ];
         if (technicalRules.some(function(rule){return rule.test(searchable);})) return true;
         var isWorldClock=/relogio[-_ ]mundial/.test(searchable);
-        if (isWorldClock) return String(page.path||"").toLowerCase()!=="relogio-mundial.html";
+        if (isWorldClock) return true;
         return false;
       }
       pages=indexedPages.filter(function(page){
