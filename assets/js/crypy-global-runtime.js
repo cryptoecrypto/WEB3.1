@@ -70,23 +70,20 @@
     listeners.slice().forEach(function (fn) { try { fn(data); } catch (_) {} });
   }
 
-  function loadBabyChat() {
-    var path = String(location.pathname || "").toLowerCase();
-    var isBabyChat = /\/chatboot-baby-ia\.html$/.test(path);
-    if (isBabyChat || new URLSearchParams(location.search).get("embed") === "1") return;
-    if (document.querySelector('script[data-crypy-baby-chat="true"]')) return;
-    var chat = document.createElement("script");
-    chat.src = new URL("assets/js/baby-global-chat.js", siteRoot).href;
-    chat.defer = true;
-    chat.dataset.crypyBabyChat = "true";
-    (document.head || document.documentElement).appendChild(chat);
+  function loadAgentAssistant() {
+    if (document.querySelector('script[data-crypy-agents-ui="true"]')) return;
+    var assistant = document.createElement("script");
+    assistant.src = new URL("assets/js/crypy-agents-global.js", siteRoot).href;
+    assistant.defer = true;
+    assistant.dataset.crypyAgentsUi = "true";
+    (document.head || document.documentElement).appendChild(assistant);
   }
 
   function boot() {
     mountClock();
     tick();
     window.setInterval(tick, 1000);
-    loadBabyChat();
+    loadAgentAssistant();
   }
 
   if (document.readyState === "loading") {
