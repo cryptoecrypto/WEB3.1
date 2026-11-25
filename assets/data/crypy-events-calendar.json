@@ -1,0 +1,158 @@
+{
+  "version": "1.0.0",
+  "timezone": "browser_local_date",
+  "description": "Calendário editorial anual da Colmeia CRYPY. Avisos do BABY são mensagens pré-programadas, não notícias em tempo real.",
+  "fixedEvents": [
+    {
+      "id": "ano-novo",
+      "date": "01-01",
+      "title": "Ano Novo",
+      "category": "celebracao",
+      "baby": "Feliz Ano Novo! Que este novo ciclo traga saúde, criatividade e construções seguras para toda a Colmeia CRYPY.",
+      "icon": "✨"
+    },
+    {
+      "id": "dia-mulher",
+      "date": "03-08",
+      "title": "Dia Internacional da Mulher",
+      "category": "comemoracao",
+      "baby": "Hoje celebramos as mulheres, suas conquistas, ideias e contribuições para o mundo.",
+      "icon": "🌷"
+    },
+    {
+      "id": "tiradentes",
+      "date": "04-21",
+      "title": "Tiradentes",
+      "category": "brasil",
+      "baby": "Hoje é feriado nacional no Brasil. Um momento para lembrar a história e refletir sobre liberdade e cidadania.",
+      "icon": "🇧🇷"
+    },
+    {
+      "id": "dia-trabalho",
+      "date": "05-01",
+      "title": "Dia do Trabalho",
+      "category": "comemoracao",
+      "baby": "Feliz Dia do Trabalho! Nosso reconhecimento a quem transforma ideias em realizações.",
+      "icon": "🛠️"
+    },
+    {
+      "id": "dia-maes",
+      "date": "MAY-2SUN",
+      "title": "Dia das Mães",
+      "category": "familia",
+      "baby": "Feliz Dia das Mães! Hoje celebramos o carinho, o cuidado e as diferentes formas de maternar.",
+      "icon": "💐"
+    },
+    {
+      "id": "dia-namorados",
+      "date": "06-12",
+      "title": "Dia dos Namorados",
+      "category": "comemoracao",
+      "baby": "Um dia para celebrar o afeto, o respeito e as conexões que fazem bem.",
+      "icon": "💚"
+    },
+    {
+      "id": "independencia",
+      "date": "09-07",
+      "title": "Independência do Brasil",
+      "category": "brasil",
+      "baby": "Hoje celebramos a Independência do Brasil. Viva a história e a diversidade do nosso país!",
+      "icon": "🇧🇷"
+    },
+    {
+      "id": "criancas",
+      "date": "10-12",
+      "title": "Dia das Crianças",
+      "category": "familia",
+      "baby": "Feliz Dia das Crianças! Que nunca faltem curiosidade, imaginação e espaço para aprender brincando.",
+      "icon": "🧸"
+    },
+    {
+      "id": "finados",
+      "date": "11-02",
+      "title": "Finados",
+      "category": "memoria",
+      "baby": "Um dia de lembrança e respeito por quem permanece vivo em nossa memória.",
+      "icon": "🕯️"
+    },
+    {
+      "id": "republica",
+      "date": "11-15",
+      "title": "Proclamação da República",
+      "category": "brasil",
+      "baby": "Hoje lembramos a Proclamação da República no Brasil e a importância da vida cidadã.",
+      "icon": "🇧🇷"
+    },
+    {
+      "id": "consciencia-negra",
+      "date": "11-20",
+      "title": "Dia da Consciência Negra",
+      "category": "comemoracao",
+      "baby": "Hoje é dia de reconhecer a história, a cultura e as contribuições da população negra, e reafirmar o compromisso com igualdade e respeito.",
+      "icon": "✊🏿"
+    },
+    {
+      "id": "natal",
+      "date": "12-25",
+      "title": "Natal",
+      "category": "celebracao",
+      "baby": "Feliz Natal, Sensei e Colmeia CRYPY! Que a paz, a união, a esperança e a generosidade estejam presentes em cada coração. Um abraço luminoso do BABY!",
+      "icon": "🎄"
+    },
+    {
+      "id": "vespera-natal",
+      "date": "12-24",
+      "title": "Véspera de Natal",
+      "category": "celebracao",
+      "baby": "A magia do Natal está chegando! O BABY deseja uma noite de carinho, união e bons momentos para toda a Colmeia.",
+      "icon": "⭐"
+    },
+    {
+      "id": "reveillon",
+      "date": "12-31",
+      "title": "Véspera de Ano Novo",
+      "category": "celebracao",
+      "baby": "Estamos encerrando mais um ciclo. Obrigado por construir com a Colmeia CRYPY. Que venha um novo ano de boas ideias!",
+      "icon": "🎆"
+    }
+  ],
+  "movableEvents": [
+    {
+      "id": "carnaval",
+      "offset": -47,
+      "title": "Carnaval",
+      "category": "brasil",
+      "baby": "É tempo de Carnaval! Celebre com alegria, respeito e responsabilidade.",
+      "icon": "🎭"
+    },
+    {
+      "id": "sexta-santa",
+      "offset": -2,
+      "title": "Sexta-feira Santa",
+      "category": "data-religiosa",
+      "baby": "Nesta Sexta-feira Santa, o BABY deseja um dia de reflexão, respeito e serenidade a quem observa a data.",
+      "icon": "🕊️"
+    },
+    {
+      "id": "pascoa",
+      "offset": 0,
+      "title": "Páscoa",
+      "category": "data-religiosa",
+      "baby": "Feliz Páscoa, Sensei e Colmeia CRYPY! Que este dia renove a esperança, a união e a alegria. O BABY envia um abraço especial e deseja uma Páscoa iluminada!",
+      "icon": "🐣"
+    },
+    {
+      "id": "corpus-christi",
+      "offset": 60,
+      "title": "Corpus Christi",
+      "category": "data-religiosa",
+      "baby": "Nesta data de Corpus Christi, o BABY deseja paz e respeito a todas as pessoas que celebram.",
+      "icon": "🕊️"
+    }
+  ],
+  "rules": {
+    "annual": "Datas fixas e móveis são calculadas para cada ano.",
+    "content": "Mensagens comemorativas pré-programadas; não são notícias verificadas nem mensagens geradas por um agente em tempo real.",
+    "noAutonomousClaims": true
+  }
+}
