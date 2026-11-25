@@ -90,7 +90,7 @@
    "body[data-crypy-daily-effect=glass] :where(.card,.panel,.tile,.module,article){backdrop-filter:blur(10px)}",
    "body[data-crypy-daily-effect=edge] :where(.card,.panel,.tile,.module,article){border-left:3px solid var(--crypy-daily-accent)}",
    "body[data-crypy-daily-effect=grid]{background-image:linear-gradient(color-mix(in srgb,var(--crypy-daily-accent) 5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--crypy-daily-accent) 5%,transparent) 1px,transparent 1px);background-size:32px 32px}",
-   "body[data-crypy-daily-layout=ORBITAL] :where(.grid,.grid2,.grid3,.stats,.gal,.steps,.theme-grid,.levels){gap:var(--crypy-daily-gap)}",
+   ":where(.grid,.grid2,.grid3,.stats,.gal,.steps,.theme-grid,.levels){gap:var(--crypy-daily-gap)}",
    "body[data-crypy-daily-layout=GEOMETRICO] :where(.card,.panel,.tile,.module,article){border-style:solid;border-width:1px}",
    "@keyframes crypyIridescentPulse{0%,100%{filter:saturate(1)}50%{filter:saturate(1.22)}}",
    "@keyframes crypyPrismGlow{0%,100%{box-shadow:0 0 0 1px color-mix(in srgb,var(--crypy-daily-accent) 22%,transparent),0 8px 24px color-mix(in srgb,var(--crypy-daily-accent2) 10%,transparent)}50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--crypy-daily-accent2) 55%,transparent),0 0 26px color-mix(in srgb,var(--crypy-daily-accent3) 22%,transparent)}}",
