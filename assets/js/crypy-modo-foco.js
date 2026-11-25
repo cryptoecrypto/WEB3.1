@@ -5,6 +5,7 @@
   'use strict';
   try {
     if (new URLSearchParams(window.location.search).get('modo') === 'normal') return;
+    if (window.parent !== window && new URLSearchParams(window.parent.location.search).get('modo') === 'normal') return;
   } catch (_) {}
   const STYLE_ID = 'crypy-modo-foco-style';
   const css = [
