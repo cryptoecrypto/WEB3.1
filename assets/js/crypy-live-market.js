@@ -149,10 +149,6 @@
       target: "_blank",
       rel: "noopener noreferrer"
     }, "Ver fonte"));
-    foot.appendChild(document.createTextNode(" · "));
-    foot.appendChild(node("a", {
-      href: "./relogio-mundial.html"
-    }, "RELÓGIO MUNDIAL"));
     foot.appendChild(document.createTextNode(". O relógio usa o horário do dispositivo; a data/hora da cotação vem do provedor. CRYPYCOIN não aparece na tabela: ainda não foi emitida e não possui cotação de mercado."));
 
     section.appendChild(style);
