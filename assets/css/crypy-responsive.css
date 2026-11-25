@@ -1,0 +1,52 @@
+/* CRYPY WEB3.1 — camada de leitura responsiva para mobile e desktop.
+   Apenas apresentação: não altera conteúdo, rotas, dados ou módulos. */
+:root{--crypy-read-width: min(100% - 32px, 1120px)}
+html{width:100%;max-width:100%;overflow-x:clip;scroll-padding-top:76px}
+body{width:100%;max-width:100%;overflow-x:clip;font-size:clamp(15px,1.05vw,17px);line-height:1.68;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+p,li,dd,dt,blockquote{line-height:1.72;overflow-wrap:anywhere}
+h1{font-size:clamp(1.9rem,4.8vw,3.8rem);line-height:1.08;overflow-wrap:anywhere}
+h2{font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.2}
+h3{font-size:clamp(1.08rem,2vw,1.35rem);line-height:1.25}
+img,video,canvas,svg,iframe{max-width:100%}
+img,video{height:auto}
+pre,code{max-width:100%;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%;border-collapse:collapse}
+th,td{overflow-wrap:anywhere;word-break:normal}
+button,a,input,select,textarea{font:inherit}
+button,a,[role=button],input,select,textarea{touch-action:manipulation}
+a,button{ -webkit-tap-highlight-color:rgba(0,255,136,.18)}
+:focus-visible{outline:2px solid #00ff88!important;outline-offset:3px}
+main,.wrap,.container,.academy-wrap{min-width:0}
+section,article,aside,header,footer,main,div{min-width:0}
+@media(min-width:1100px){
+  body{line-height:1.72}
+  main.wrap,.wrap{max-width:1160px}
+  .chapter,.tile,.card,.panel{padding:clamp(18px,2vw,26px)}
+}
+@media(max-width:760px){
+  body{font-size:16px;line-height:1.68}
+  main,.wrap,.container,.academy-wrap{width:100%;max-width:100%;padding-left:16px;padding-right:16px}
+  h1{font-size:clamp(1.8rem,8vw,2.65rem);line-height:1.08;letter-spacing:-.025em}
+  h2{font-size:clamp(1.25rem,5.5vw,1.65rem)}
+  p,li{font-size:1rem}
+  .hero{padding:22px 16px 26px;border-radius:16px}
+  .subtitle,.intro,.lead{font-size:1rem;line-height:1.65}
+  .chapter,.tile,.card,.panel,.stat,.theme{padding:15px;border-radius:13px}
+  .grid,.grid2,.grid3,.stats,.gal,.steps,.theme-grid,.levels{grid-template-columns:minmax(0,1fr)!important}
+  .top,.academy-top{gap:10px;align-items:flex-start}
+  nav:not(#crypy-global-navigation nav){max-width:100%;flex-wrap:wrap}
+  button,.btn,.btn2,.cta,input,select,textarea{min-height:44px}
+  table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th,td{min-width:105px;padding:9px 10px}
+  .viewer{height:calc(100dvh - 210px);min-height:65dvh}
+}
+@media(max-width:420px){
+  main,.wrap,.container,.academy-wrap{padding-left:12px;padding-right:12px}
+  .hero{padding:19px 13px 22px}
+  .chapter,.tile,.card,.panel{padding:13px}
+  .tag{font-size:.72rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
