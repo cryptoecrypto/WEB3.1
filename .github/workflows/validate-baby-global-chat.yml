@@ -23,5 +23,20 @@ jobs:
           node-version: 20
       - name: Check bridge syntax
         run: node --check assets/js/crypy-page-assistant.js
-      - name: Validate global chat integration
+      - name: Validate static integration
         run: node scripts/validar-baby-global-chat-integration.mjs
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start local site for browser test
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/crypy-http.log 2>&1 &
+          for attempt in $(seq 1 20); do
+            if curl --silent --fail http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/crypy-http.log
+          exit 1
+      - name: Test global menu and BABY chat in Chromium
+        run: node scripts/testar-baby-global-chat-browser.mjs
