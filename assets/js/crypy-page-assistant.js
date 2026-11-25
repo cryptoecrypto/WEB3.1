@@ -8,11 +8,8 @@
   if (window.__CRYPY_SQUAD_ASSISTANT_BRIDGE__) return;
   window.__CRYPY_SQUAD_ASSISTANT_BRIDGE__ = true;
 
-  var path = String(location.pathname || "").toLowerCase();
-  var params = new URLSearchParams(location.search);
-  // A página canônica do chatbot mantém seu próprio atendimento interno.
-  if (/\/chatboot-baby-ia\.html$/.test(path) || params.get("embed") === "1") return;
-  if (document.getElementById("crypy-baby-global-root")) return;
+  // A ponte também cobre a antiga página canônica do BABY: o runtime oculta
+  // a interface legada e monta o agente oficial correspondente à rota.
 
   var current = document.currentScript;
   var source = current && current.src ? current.src.split("?")[0] : "";
