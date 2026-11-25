@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "status": "preview_only",
+  "timezone": "America/Sao_Paulo",
+  "themes": [
+    {
+      "id": "matrix-dawn",
+      "scene": "matrix-neon",
+      "palette": [
+        "#050807",
+        "#00FF88"
+      ],
+      "headline": "A Colmeia desperta",
+      "message": "Conhecimento conectado, criação em movimento.",
+      "layout": "hero-grid",
+      "motion": "subtle-particles",
+      "image_set": [],
+      "gif_set": []
+    },
+    {
+      "id": "digital-garden",
+      "scene": "digital-garden",
+      "palette": [
+        "#050807",
+        "#00FF88",
+        "#B8FFD9"
+      ],
+      "headline": "Cultive novas ideias",
+      "message": "Cada conexão fortalece o universo CRYPY.",
+      "layout": "split-feature",
+      "motion": "ambient-glow",
+      "image_set": [],
+      "gif_set": []
+    },
+    {
+      "id": "neon-city",
+      "scene": "neon-city",
+      "palette": [
+        "#050807",
+        "#00FF88",
+        "#D8FFF0"
+      ],
+      "headline": "A cidade do futuro está em construção",
+      "message": "Explore, aprenda e construa com responsabilidade.",
+      "layout": "city-showcase",
+      "motion": "parallax-light",
+      "image_set": [],
+      "gif_set": []
+    },
+    {
+      "id": "knowledge-core",
+      "scene": "knowledge-core",
+      "palette": [
+        "#050807",
+        "#00FF88",
+        "#FFFFFF"
+      ],
+      "headline": "Inteligência em colmeia",
+      "message": "Agentes colaboram; evidências orientam cada evolução.",
+      "layout": "knowledge-panels",
+      "motion": "orbit-lines",
+      "image_set": [],
+      "gif_set": []
+    },
+    {
+      "id": "digital-museum",
+      "scene": "digital-museum",
+      "palette": [
+        "#050807",
+        "#00FF88",
+        "#C8FFE6"
+      ],
+      "headline": "Memória que cria o amanhã",
+      "message": "Preservar, aprender e compartilhar conhecimento aprovado.",
+      "layout": "immersive-gallery",
+      "motion": "soft-scanlines",
+      "image_set": [],
+      "gif_set": []
+    },
+    {
+      "id": "game-world",
+      "scene": "game-world",
+      "palette": [
+        "#050807",
+        "#00FF88",
+        "#F0FFF8"
+      ],
+      "headline": "Entre no mundo CRYPY",
+      "message": "Novos mundos começam com uma boa ideia.",
+      "layout": "world-preview",
+      "motion": "slow-camera-drift",
+      "image_set": [],
+      "gif_set": []
+    },
+    {
+      "id": "community-pulse",
+      "scene": "community-pulse",
+      "palette": [
+        "#050807",
+        "#00FF88",
+        "#9BFFD0"
+      ],
+      "headline": "A comunidade movimenta a Colmeia",
+      "message": "Construção coletiva com segurança e transparência.",
+      "layout": "community-cards",
+      "motion": "pulse-lines",
+      "image_set": [],
+      "gif_set": []
+    }
+  ],
+  "publication": {
+    "automatic_publication": false,
+    "requires_validation": true,
+    "requires_human_approval": true
+  },
+  "asset_policy": {
+    "allow_unverified_external_assets": false,
+    "allow_external_scripts": false,
+    "require_license_metadata": true
+  }
+}
