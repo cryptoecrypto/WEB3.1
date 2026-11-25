@@ -10,7 +10,6 @@
   var scriptUrl = document.currentScript && document.currentScript.src;
   var siteRoot = new URL("../../", scriptUrl || document.baseURI);
   var listeners = [];
-  var clockLink = null;
 
   function snapshot(date) {
     var now = date instanceof Date ? date : new Date();
@@ -44,27 +43,8 @@
     }
   };
 
-  function mountClock() {
-    if (!document.body || document.getElementById("crypy-global-clock")) return;
-    clockLink = document.createElement("a");
-    clockLink.id = "crypy-global-clock";
-    clockLink.href = new URL("relogio-mundial.html", siteRoot).href;
-    clockLink.title = "Relógio mundial CRYPY — horário calculado pelo relógio deste dispositivo";
-    clockLink.setAttribute("aria-label", "Abrir relógio mundial CRYPY");
-    clockLink.style.cssText = [
-      "position:fixed", "left:12px", "bottom:12px", "z-index:2147483001",
-      "display:block", "max-width:calc(100vw - 92px)", "overflow:hidden",
-      "padding:8px 11px", "border:1px solid #00ff88", "border-radius:999px",
-      "background:rgba(2,12,7,.94)", "color:#00ff88", "font:700 10px/1.2 Consolas,monospace",
-      "letter-spacing:.04em", "text-decoration:none", "white-space:nowrap",
-      "text-overflow:ellipsis", "box-shadow:0 0 14px rgba(0,255,136,.22)"
-    ].join(";");
-    document.body.appendChild(clockLink);
-  }
-
   function tick() {
     var data = snapshot();
-    if (clockLink) clockLink.textContent = "UTC " + data.utc + " · " + data.timeZone + " " + data.local;
     window.dispatchEvent(new CustomEvent("crypy:clock:tick", { detail: data }));
     window.dispatchEvent(new CustomEvent("baby-clock:tick", { detail: data }));
     listeners.slice().forEach(function (fn) { try { fn(data); } catch (_) {} });
@@ -83,7 +63,6 @@
   }
 
   function boot() {
-    mountClock();
     tick();
     window.setInterval(tick, 1000);
     loadBabyChat();
