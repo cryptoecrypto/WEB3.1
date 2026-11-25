@@ -29,6 +29,20 @@ iframe{display:block;width:100%;height:100%;border:0;background:#020805}
 .note{font-size:11px;color:var(--muted);padding:0 3px}
 footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;color:#789684;font-size:10px;letter-spacing:.08em}
 @media(max-width:640px){.viewer{height:calc(100vh - 240px);min-height:58vh}button,.open-link{padding:8px 10px}.status{width:100%;margin:0}}
+
+.official-menus{border:1px solid #16472b;border-radius:14px;background:linear-gradient(145deg,#07130b,#020805);padding:16px;box-shadow:0 0 22px #00ff8810}
+.official-menus h2{margin:0 0 5px;color:var(--green);font-size:clamp(16px,2vw,21px);letter-spacing:.08em}
+.official-menus .menu-intro{margin:0 0 13px;color:var(--muted);font-size:12px}
+.official-menu-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.official-menu-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:64px;text-align:left;padding:11px 12px;border-radius:10px;background:linear-gradient(135deg,#0a1b10,#06100a);border:1px solid #1b5835;color:#eafff2;gap:4px}
+.official-menu-card strong{font-size:12px;letter-spacing:.04em;color:var(--green)}
+.official-menu-card small{font-size:10px;line-height:1.35;color:#a4c4af;font-weight:400}
+.official-menu-card:hover{border-color:var(--green);background:#0b2516;box-shadow:0 0 14px #00ff8822}
+.official-menu-card[aria-pressed=true]{border-color:var(--green);background:#0b301c;box-shadow:inset 0 0 0 1px #00ff8855,0 0 14px #00ff8822}
+@media(max-width:900px){.official-menu-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.official-menus{padding:12px}.official-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.official-menu-card{min-height:58px;padding:9px}.official-menu-card strong{font-size:11px}}
+@media(max-width:360px){.official-menu-grid{grid-template-columns:1fr}}
+
 </style>
 
 <link rel="stylesheet" href="./assets/css/crypy-cyberpunk-premium.css">
@@ -58,6 +72,26 @@ footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;colo
  <section class="viewer" aria-label="Visualização da página selecionada">
   <iframe id="page-frame" src="index-original.html" title="HOME original da CRYPY" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
  </section>
+
+ <section class="official-menus" aria-labelledby="official-menu-title">
+  <h2 id="official-menu-title">13 MENUS OFICIAIS DA COLMEIA</h2>
+  <p class="menu-intro">Acesse cada área e use sua pasta para acrescentar novas páginas sem misturar os conteúdos.</p>
+  <div class="official-menu-grid" aria-label="Os treze menus oficiais">
+   <button class="official-menu-card" type="button" data-page="crypy-infinyt/portal.html" data-label="CRYPY INFINYT" aria-pressed="false"><strong>01 · CRYPY INFINYT</strong><small>Portal principal</small></button>
+   <button class="official-menu-card" type="button" data-page="nft-collection/galeria.html" data-label="NFT-COLLECTION" aria-pressed="false"><strong>02 · NFT-COLLECTION</strong><small>Galeria e coleções</small></button>
+   <button class="official-menu-card" type="button" data-page="esquadrao-das-cores/esquadrao.html" data-label="ESQUADRÃO DAS CORES" aria-pressed="false"><strong>03 · ESQUADRÃO DAS CORES</strong><small>Integrantes e funções</small></button>
+   <button class="official-menu-card" type="button" data-page="crypy-academy/academia.html" data-label="CRYPY ACADEMY-WEB3.1" aria-pressed="false"><strong>04 · CRYPY ACADEMY-WEB3.1</strong><small>Academia e cursos</small></button>
+   <button class="official-menu-card" type="button" data-page="biografia/historia.html" data-label="BIOGRAFIA" aria-pressed="false"><strong>05 · BIOGRAFIA</strong><small>História do ecossistema</small></button>
+   <button class="official-menu-card" type="button" data-page="crypy-news/index.html" data-label="CRYPY-NEWS" aria-pressed="false"><strong>06 · CRYPY-NEWS</strong><small>Notícias e atualizações</small></button>
+   <button class="official-menu-card" type="button" data-page="crypy-news/museu.html" data-label="MUSEU DIGITAL" aria-pressed="false"><strong>07 · MUSEU DIGITAL</strong><small>Acervo e memória visual</small></button>
+   <button class="official-menu-card" type="button" data-page="art-figure-marketplace/marketplace.html" data-label="ART-FIGURE / MARKETPLACE" aria-pressed="false"><strong>08 · ART-FIGURE / MARKETPLACE</strong><small>Arte e marketplace</small></button>
+   <button class="official-menu-card" type="button" data-page="crypy-games-desafios/crypy-games-desafios.html" data-label="CRYPY GAMES-DESAFIO" aria-pressed="false"><strong>09 · CRYPY GAMES-DESAFIO</strong><small>Jogos e desafios</small></button>
+   <button class="official-menu-card" type="button" data-page="social-crypykut/comunidade.html" data-label="SOCIAL-CRYPYKUT" aria-pressed="false"><strong>10 · SOCIAL-CRYPYKUT</strong><small>Comunidade</small></button>
+   <button class="official-menu-card" type="button" data-page="baby-ia/centro.html" data-label="BABY I.A." aria-pressed="false"><strong>11 · BABY I.A.</strong><small>Central de inteligência</small></button>
+   <button class="official-menu-card" type="button" data-page="crypy-coin/white-paper.html" data-label="WHITE PAPER" aria-pressed="false"><strong>12 · WHITE PAPER</strong><small>Documento do ecossistema</small></button>
+   <button class="official-menu-card" type="button" data-page="contato/contato-oficial.html" data-label="CONTATO" aria-pressed="false"><strong>13 · CONTATO</strong><small>Canais oficiais</small></button>
+  </div>
+ </section>
  <div class="note">As páginas são carregadas diretamente dos seus próprios arquivos. O portal não copia nem reescreve o conteúdo interno delas. A INDEX 7 está vazia no repositório neste momento; ela permanece intacta.</div>
 </main>
 <footer>CRYPTOEËCRYPTO · CRYPY WEB3.1 · PORTAL DE NAVEGAÇÃO · ESTRUTURA ORIGINAL PRESERVADA</footer>
@@ -71,7 +105,7 @@ footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;colo
   frame.src=file;
   open.href=file;
   buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-  const label=button?button.textContent.trim():file;
+  const label=button?(button.dataset.label||button.textContent.trim()):file;
   status.textContent='Exibindo '+label;
   frame.title='Página CRYPY: '+label;
   if(location.hash!=='#'+encodeURIComponent(file)) history.replaceState(null,'','#'+encodeURIComponent(file));
