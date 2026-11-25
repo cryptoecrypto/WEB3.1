@@ -1,286 +1,228 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Activity, Clock3, TrendingDown, ShieldCheck, Zap, Globe2, Eye, Lock } from 'lucide-react';
-import heroUrl from 'container:///mnt/data/src/assets/2a347999a05d198b-img-u7531395266841981436-2.jpg';
+import { useEffect, useRef, useState } from "react";
+import { ShieldCheck, Sparkles, Eye, Brain, PenLine, Search, Palette, Zap, Heart, Clock3, TrendingDown, Landmark, Users, BookOpen, Gamepad2, FileText, Mail, Hexagon, Crown, Bot } from "lucide-react";
 
-type Point = { label: string; value: number };
-type Coin = {
-  symbol: string; name: string; color: string; price: string; change: string;
-  open: string; high: string; low: string; close: string;
-  points: Point[]; note: string;
-};
+const shellStyle = { boxSizing: "border-box" as const, paddingTop: "var(--safe-area-inset-top)" };
 
-const COINS: Coin[] = [
-  {
-    symbol: 'BTC', name: 'Bitcoin', color: '#ff8a00', price: '$58,604.01', change: '-1.66% (24h)',
-    open: '$59,591.95', high: '$60,294.68', low: '$57,300.38', close: '$58,604.01',
-    points: [
-      { label: '22/11', value: 61271.08 },
-      { label: '23/11', value: 61270.93 },
-      { label: '24/11', value: 59832.00 },
-      { label: '25/11', value: 58604.01 },
-    ],
-    note: 'Queda de 3 dias, com mínima intradiária em $57,300.38 no dia 25/11.',
-  },
-  {
-    symbol: 'ETH', name: 'Ethereum', color: '#a06bff', price: '$1,645.65', change: '-1.56% (24h)',
-    open: '$1,671.67', high: '$1,689.43', low: '$1,608.86', close: '$1,645.65',
-    points: [
-      { label: '22/11', value: 1724.33 },
-      { label: '23/11', value: 1710.65 },
-      { label: '24/11', value: 1680.11 },
-      { label: '25/11', value: 1645.65 },
-    ],
-    note: 'Movimento descendente consistente, fechando abaixo da abertura do dia 25/11.',
-  },
-  {
-    symbol: 'USDT', name: 'Tether', color: '#00e68a', price: '$0.9989', change: '-0.05% (24h)',
-    open: '$0.9989', high: '$0.9990', low: '$0.9988', close: '$0.9989',
-    points: [
-      { label: '22/11', value: 0.9990 },
-      { label: '23/11', value: 0.9990 },
-      { label: '24/11', value: 0.9988 },
-      { label: '25/11', value: 0.9989 },
-    ],
-    note: 'Estável, quase linha reta em $1.00. Variação de apenas $0.0002 no período.',
-  },
-];
+const btc = [61271, 61270, 59832, 58604.01];
+const eth = [1724, 1710, 1680, 1645.65];
+const usdt = [0.999, 0.999, 0.9988, 0.9989];
+const labels = ["22/11", "23/11", "24/11", "25/11"];
 
-const CITIES = [
-  { city: 'Brasília / São Paulo', zone: 'America/Sao_Paulo', short: 'BRT' },
-  { city: 'Nova Iorque', zone: 'America/New_York', short: 'ET' },
-  { city: 'Los Angeles', zone: 'America/Los_Angeles', short: 'PT' },
-  { city: 'Londres', zone: 'Europe/London', short: 'GMT' },
-  { city: 'Lisboa', zone: 'Europe/Lisbon', short: 'WET' },
-  { city: 'Tóquio', zone: 'Asia/Tokyo', short: 'JST' },
-];
-
-function useNow() {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const id = window.setInterval(() => setNow(new Date()), 1000);
-    return () => window.clearInterval(id);
-  }, []);
-  return now;
-}
-function timeIn(zone: string, now: Date) {
-  try {
-    return new Intl.DateTimeFormat('pt-BR', { timeZone: zone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(now);
-  } catch { return '--:--:--'; }
-}
-function dateIn(zone: string, now: Date) {
-  try { return new Intl.DateTimeFormat('pt-BR', { timeZone: zone, day: '2-digit', month: '2-digit', year: 'numeric' }).format(now); }
-  catch { return ''; }
-}
-
-function WorldClock({ compact = false }: { compact?: boolean }) {
-  const now = useNow();
-  return (
-    <section aria-label="Relógio mundial sincronizado" className="w-full max-w-full">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="grid h-7 w-7 place-items-center rounded-full border border-[var(--neon)] text-[var(--neon)]"><Clock3 size={15} /></span>
-          <p className="mono text-[11px] sm:text-xs font-bold tracking-[0.18em] text-[var(--neon)]">RELÓGIO MUNDIAL • AO VIVO</p>
-        </div>
-        <p className="mono text-[11px] sm:text-xs text-white/70 [overflow-wrap:anywhere]">Sincronizado a cada segundo • O preço não muda sozinho</p>
-      </div>
-      <div className={`mt-3 grid w-full max-w-full gap-2 ${compact ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6'}`}>
-        {CITIES.map((c) => (
-          <div key={c.city} className="min-w-0 rounded-lg border border-white/15 bg-black/55 px-2.5 py-2.5">
-            <p className="text-[11px] font-bold leading-tight text-white [overflow-wrap:anywhere]">{c.city}</p>
-            <p className="mono mt-1 text-lg sm:text-xl font-extrabold leading-none text-[var(--neon)] tabular-nums">{timeIn(c.zone, now)}</p>
-            <p className="mono mt-1 text-[10px] text-white/55">{dateIn(c.zone, now)} • {c.short}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ChartCanvas({ coin }: { coin: Coin }) {
+function ChartCanvas({ data, color, title }: { data: number[]; color: string; title: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
     const draw = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      const width = Math.max(260, parent.clientWidth);
-      const height = 230;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = width * dpr; canvas.height = height * dpr;
-      canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
-      const ctx = canvas.getContext('2d');
+      const w = canvas.clientWidth || 320;
+      const h = 210;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      const ctx = canvas.getContext("2d");
       if (!ctx) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, width, height);
-      const padL = 58, padR = 14, padT = 30, padB = 32;
-      const values = coin.points.map(p => p.value);
-      let min = Math.min(...values), max = Math.max(...values);
-      const spread = Math.max(max - min, max * 0.0005);
-      min -= spread * 0.28; max += spread * 0.28;
-      const x = (i: number) => padL + (i / (coin.points.length - 1)) * (width - padL - padR);
-      const y = (v: number) => padT + (1 - (v - min) / (max - min)) * (height - padT - padB);
-      ctx.strokeStyle = 'rgba(255,255,255,0.09)'; ctx.lineWidth = 1; ctx.font = '10px JetBrains Mono, monospace'; ctx.fillStyle = 'rgba(255,255,255,0.58)';
+      ctx.clearRect(0, 0, w, h);
+      const min = Math.min(...data); const max = Math.max(...data);
+      const padL = 46, padR = 12, padT = 18, padB = 28;
+      const span = max - min || 1;
+      const x = (i: number) => padL + (i / (data.length - 1)) * (w - padL - padR);
+      const y = (v: number) => padT + (1 - (v - min) / span) * (h - padT - padB);
+      ctx.strokeStyle = "rgba(255,255,255,.08)"; ctx.lineWidth = 1;
       for (let i = 0; i <= 3; i++) {
-        const v = min + ((max - min) * i) / 3; const yy = y(v);
-        ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(width - padR, yy); ctx.stroke();
-        const label = coin.symbol === 'USDT' ? v.toFixed(4) : v.toLocaleString('en-US', { maximumFractionDigits: 0 });
-        ctx.fillText(label, 4, yy + 3);
+        const yy = padT + (i / 3) * (h - padT - padB);
+        ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(w - padR, yy); ctx.stroke();
       }
-      // area
-      ctx.beginPath(); ctx.moveTo(x(0), y(coin.points[0].value));
-      coin.points.forEach((p, i) => ctx.lineTo(x(i), y(p.value)));
-      ctx.lineTo(x(coin.points.length - 1), height - padB); ctx.lineTo(x(0), height - padB); ctx.closePath();
-      const grad = ctx.createLinearGradient(0, padT, 0, height - padB);
-      grad.addColorStop(0, coin.color + '55'); grad.addColorStop(1, coin.color + '00');
+      ctx.fillStyle = "#8da89a"; ctx.font = "10px monospace"; ctx.textAlign = "right";
+      ctx.fillText(max.toLocaleString("pt-BR", { maximumFractionDigits: 4 }), padL - 6, padT + 4);
+      ctx.fillText(((max + min) / 2).toLocaleString("pt-BR", { maximumFractionDigits: 4 }), padL - 6, h / 2);
+      ctx.fillText(min.toLocaleString("pt-BR", { maximumFractionDigits: 4 }), padL - 6, h - padB - 4);
+      ctx.fillStyle = "#cfe7d8"; ctx.textAlign = "center";
+      labels.forEach((l, i) => ctx.fillText(l, x(i), h - 8));
+      const grad = ctx.createLinearGradient(0, padT, 0, h - padB);
+      grad.addColorStop(0, color + "55"); grad.addColorStop(1, color + "00");
+      ctx.beginPath(); ctx.moveTo(x(0), y(data[0]));
+      data.forEach((v, i) => ctx.lineTo(x(i), y(v)));
+      ctx.lineTo(x(data.length - 1), h - padB); ctx.lineTo(x(0), h - padB); ctx.closePath();
       ctx.fillStyle = grad; ctx.fill();
-      // line
-      ctx.beginPath(); ctx.moveTo(x(0), y(coin.points[0].value));
-      coin.points.forEach((p, i) => ctx.lineTo(x(i), y(p.value)));
-      ctx.strokeStyle = coin.color; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.stroke();
-      // points + values
-      coin.points.forEach((p, i) => {
-        const px = x(i), py = y(p.value);
-        ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fillStyle = '#000'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = coin.color; ctx.stroke();
-        ctx.beginPath(); ctx.arc(px, py, 2, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill();
-        const label = coin.symbol === 'USDT' ? `$${p.value.toFixed(4)}` : `$${p.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        ctx.fillStyle = '#fff'; ctx.font = '700 10px JetBrains Mono, monospace'; ctx.textAlign = i === 0 ? 'left' : i === coin.points.length - 1 ? 'right' : 'center';
-        ctx.fillText(label, px + (i === 0 ? -4 : i === coin.points.length - 1 ? 4 : 0), py - 11);
-        ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.font = '10px JetBrains Mono, monospace'; ctx.fillText(p.label, px, height - 10);
+      ctx.beginPath(); ctx.moveTo(x(0), y(data[0]));
+      data.forEach((v, i) => ctx.lineTo(x(i), y(v)));
+      ctx.strokeStyle = color; ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.stroke();
+      data.forEach((v, i) => {
+        ctx.beginPath(); ctx.arc(x(i), y(v), 5, 0, Math.PI * 2); ctx.fillStyle = "#000"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = color; ctx.stroke();
+        ctx.fillStyle = "#fff"; ctx.font = "bold 11px monospace"; ctx.textAlign = "center";
+        ctx.fillText(v.toLocaleString("pt-BR", { maximumFractionDigits: 4 }), x(i), y(v) - 11);
       });
-      ctx.textAlign = 'left';
     };
     draw();
-    const ro = new ResizeObserver(draw); if (canvas.parentElement) ro.observe(canvas.parentElement);
-    return () => ro.disconnect();
-  }, [coin]);
-  return <canvas ref={ref} className="block h-[230px] w-full max-w-full" role="img" aria-label={`Gráfico de linha de ${coin.name} de 22 a 25 de novembro`} />;
+    window.addEventListener("resize", draw);
+    return () => window.removeEventListener("resize", draw);
+  }, [data, color]);
+  return <canvas ref={ref} className="h-[210px] w-full" role="img" aria-label={`Gráfico de linha ${title}: ${labels.map((l, i) => `${l} ${data[i]}`).join(", ")}`} />;
 }
 
-function App() {
-  const now = useNow();
-  const brasilia = timeIn('America/Sao_Paulo', now);
+function ClockCard({ city, zone, code }: { city: string; zone: string; code: string }) {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => { const t = setInterval(() => setNow(new Date()), 1000); return () => clearInterval(t); }, []);
+  const time = new Intl.DateTimeFormat("pt-BR", { timeZone: zone, hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }).format(now);
+  const date = new Intl.DateTimeFormat("pt-BR", { timeZone: zone, day: "2-digit", month: "2-digit", year: "numeric" }).format(now);
   return (
-    <div data-safe-area-inset-root style={{ boxSizing: 'border-box', paddingTop: 'var(--safe-area-inset-top)' }} className="min-h-screen w-full max-w-full overflow-x-clip bg-black text-white">
-      <div className="grid-bg mx-auto w-full max-w-[1180px] px-3 pb-8 sm:px-5">
-        {/* TOP */}
-        <header data-safe-area-sticky-top style={{ top: 'var(--safe-area-inset-top)' }} className="sticky z-20 border-b border-[var(--neon)] bg-black/95 py-3 backdrop-blur">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-[var(--neon)] bg-[#001a0e]"><Zap className="text-[var(--neon)]" size={20} /></div>
-              <div className="min-w-0">
-                <h1 className="text-lg sm:text-2xl font-black leading-none tracking-[0.08em] [overflow-wrap:anywhere]">CRYPY <span className="neon-text">MARKET NEWS</span></h1>
-                <p className="mono mt-1 text-[10px] sm:text-[11px] tracking-[0.2em] text-white/60">HOME PRINCIPAL • ESQUADRÃO DAS CORES</p>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="mono rounded-full border border-[var(--neon)] bg-[#001a0e] px-3 py-1 text-[10px] sm:text-xs font-bold text-[var(--neon)]">● MODO REAL</span>
-              <span className="mono hidden rounded-full border border-white/25 px-3 py-1 text-[10px] sm:text-xs text-white sm:inline-block">SNAPSHOT 25/11/2026</span>
-            </div>
-          </div>
-          <div className="mt-3 border-t border-white/10 pt-3"><WorldClock /></div>
-        </header>
-
-        {/* HERO */}
-        <main className="mt-4 w-full max-w-full">
-          <section aria-label="Capa CRYPY com os dragões" className="w-full max-w-full overflow-hidden rounded-2xl border-2 border-[var(--neon)] bg-black shadow-[0_0_42px_rgba(0,255,136,0.22)]">
-            <div className="relative w-full max-w-full">
-              <img src={heroUrl} alt="Dragões CRYPY — BTC dourado, ETH roxo e USDT verde — com o robô BABY branco na frente e logo CRYPY no céu" className="block h-auto w-full max-w-full object-cover" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-2 bg-gradient-to-t from-black via-black/70 to-transparent px-3 pb-3 pt-14 sm:px-5 sm:pb-4">
-                <div className="min-w-0">
-                  <p className="mono text-[10px] font-bold tracking-[0.22em] text-[var(--neon)]">NOVA CAPA OFICIAL</p>
-                  <h2 className="text-xl sm:text-3xl font-black leading-tight [overflow-wrap:anywhere]">O esquadrão entrou no mercado.</h2>
-                </div>
-                <p className="mono rounded-md border border-[var(--neon)] bg-black/80 px-2 py-1 text-[10px] sm:text-xs font-bold text-[var(--neon)]">BTC • ETH • USDT • BABY</p>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[var(--neon)]/60 bg-[#020503] px-3 py-2 sm:px-5">
-              <p className="mono text-[10px] sm:text-xs text-white/70 [overflow-wrap:anywhere]">Foto atualizada • Sem sobreposição • Dentro da borda</p>
-              <p className="mono text-[10px] sm:text-xs font-bold text-[var(--neon)]">BRASÍLIA AGORA: {brasilia}</p>
-            </div>
-          </section>
-
-          {/* BUBBLES */}
-          <section aria-label="CryptoBubbles corrigidos" className="mt-5">
-            <div className="flex flex-wrap items-end justify-between gap-2">
-              <div><p className="mono text-[11px] font-bold tracking-[0.2em] text-[var(--neon)]">CRYPTOBUBBLES</p><h2 className="mt-1 text-2xl sm:text-3xl font-black leading-tight">Três bolhas. Sem sobrepor.</h2></div>
-              <p className="mono max-w-full text-[11px] text-white/60 [overflow-wrap:anywhere]">Cada moeda com sua cor, lado a lado.</p>
-            </div>
-            <div className="mt-3 grid w-full max-w-full grid-cols-1 gap-3 sm:grid-cols-3">
-              {COINS.map((c) => (
-                <article key={c.symbol} className="panel min-w-0 rounded-2xl p-4" style={{ borderTop: `5px solid ${c.color}` }}>
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="min-w-0">
-                      <p className="mono text-[11px] font-bold tracking-[0.18em]" style={{ color: c.color }}>{c.symbol}</p>
-                      <h3 className="mt-1 text-lg font-bold leading-tight [overflow-wrap:anywhere]">{c.name}</h3>
-                    </div>
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 text-base font-black" style={{ borderColor: c.color, color: c.color, background: `${c.color}18` }}>{c.symbol[0]}</span>
-                  </div>
-                  <p className="mono mt-4 text-[clamp(1.55rem,6vw,2.1rem)] font-extrabold leading-none tabular-nums [overflow-wrap:anywhere]">{c.price}</p>
-                  <p className="mt-2 flex items-center gap-1 text-sm font-bold text-red-400"><TrendingDown size={16} /> {c.change}</p>
-                  <div className="mt-4 border-t border-white/10 pt-3">
-                    <p className="mono text-[10px] tracking-[0.16em] text-white/50">FECHAMENTO • 25/11</p>
-                    <p className="mono mt-1 text-xs text-white/80">Snapshot fixo • Fonte: Binance / Finnhub</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <div className="mt-3 flex items-start gap-2 rounded-xl border border-amber-300/40 bg-amber-400/10 px-3 py-3">
-              <ShieldCheck className="mt-0.5 shrink-0 text-amber-300" size={18} />
-              <p className="min-w-0 text-xs sm:text-sm leading-relaxed text-amber-100 [overflow-wrap:anywhere]"><strong>Snapshot real 25/11/2026 — 16:34 UTC.</strong> Fonte: Binance / Finnhub. Conteúdo educacional, não é recomendação financeira. Os preços acima são fixos desse snapshot e não mudam com o relógio.</p>
-            </div>
-          </section>
-
-          {/* CHARTS */}
-          <section aria-label="Três gráficos reais" className="mt-7">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div><p className="mono text-[11px] font-bold tracking-[0.2em] text-[var(--neon)]">22 → 25 DE NOVEMBRO</p><h2 className="mt-1 text-2xl sm:text-3xl font-black leading-tight">3 gráficos reais</h2></div>
-              <span className="mono flex items-center gap-2 rounded-full border border-[var(--neon)] bg-[#001a0e] px-3 py-2 text-[10px] sm:text-xs font-bold text-[var(--neon)]"><Activity size={14} /> GRÁFICOS SINCRONIZADOS COM O RELÓGIO</span>
-            </div>
-            <div className="mt-4 grid w-full max-w-full grid-cols-1 gap-4 lg:grid-cols-3">
-              {COINS.map((c) => (
-                <article key={c.symbol} className="panel flex min-w-0 flex-col overflow-hidden rounded-2xl">
-                  <div className="flex items-center justify-between gap-2 border-b border-white/10 px-4 py-3">
-                    <div className="flex items-center gap-2 min-w-0"><span className="h-3 w-3 shrink-0 rounded-full" style={{ background: c.color }} /><h3 className="text-base font-bold [overflow-wrap:anywhere]">{c.symbol} <span className="font-normal text-white/55">/ {c.name}</span></h3></div>
-                    <span className="mono shrink-0 text-xs font-bold text-red-400">{c.change}</span>
-                  </div>
-                  <div className="w-full max-w-full px-1 pt-2"><ChartCanvas coin={c} /></div>
-                  <div className="grid grid-cols-4 gap-1 border-t border-white/10 px-3 py-3 text-center">
-                    {[{ k: 'ABERTURA', v: c.open }, { k: 'MÁXIMA', v: c.high }, { k: 'MÍNIMA', v: c.low }, { k: 'FECHAMENTO', v: c.close }].map((s) => (
-                      <div key={s.k} className="min-w-0"><p className="mono text-[8px] sm:text-[9px] tracking-wider text-white/50">{s.k}</p><p className="mono mt-1 text-[10px] sm:text-xs font-bold leading-tight [overflow-wrap:anywhere]">{s.v}</p></div>
-                    ))}
-                  </div>
-                  <p className="px-4 pb-4 text-xs leading-relaxed text-white/70 [overflow-wrap:anywhere]">{c.note}</p>
-                  <div className="mt-auto border-t border-[var(--neon)]/30 bg-[#001a0e] px-4 py-2.5">
-                    <p className="mono text-[10px] text-[var(--neon)]">HORA ATUAL • BRASÍLIA: <strong>{brasilia}</strong></p>
-                    <p className="mono mt-1 text-[10px] text-white/50">Últimos 3 dias • Dados do snapshot pesquisado</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <p className="mt-3 text-center text-xs text-white/60">Canvas desenhado com JS puro — pontos, valores e escala visíveis em cada linha.</p>
-          </section>
-
-          {/* HOW IT WORKS */}
-          <section className="panel mt-7 grid w-full max-w-full gap-3 rounded-2xl p-4 sm:grid-cols-3 sm:p-5">
-            <div className="min-w-0"><p className="flex items-center gap-2 font-bold"><Eye size={17} className="text-[var(--neon)]" /> O que é fixo</p><p className="mt-2 text-sm leading-relaxed text-white/70">Preços e gráficos são do snapshot real de 25/11/2026, 16:34 UTC. Eles não se atualizam sozinhos.</p></div>
-            <div className="min-w-0"><p className="flex items-center gap-2 font-bold"><Clock3 size={17} className="text-[var(--neon)]" /> O que anda</p><p className="mt-2 text-sm leading-relaxed text-white/70">Só o relógio mundial. Ele marca o tempo em seis fusos e atualiza a cada segundo.</p></div>
-            <div className="min-w-0"><p className="flex items-center gap-2 font-bold"><Lock size={17} className="text-[var(--neon)]" /> Por que assim</p><p className="mt-2 text-sm leading-relaxed text-white/70">Para ninguém confundir a hora atual com um preço novo. Tempo em movimento, preço documentado.</p></div>
-          </section>
-        </main>
-
-        <footer className="mt-8 w-full max-w-full border-t-2 border-[var(--neon)] pt-5">
-          <WorldClock compact />
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-            <div className="min-w-0"><p className="text-base font-black tracking-wide [overflow-wrap:anywhere]">CRYPY-WEB3.1 <span className="text-[var(--neon)]">SYSTEM</span></p><p className="mono mt-1 text-xs text-white/60 [overflow-wrap:anywhere]">by CryptoëCrypto • cryptoecrypto.com.br</p></div>
-            <p className="mono rounded-full border border-[var(--neon)] px-3 py-1.5 text-[10px] font-bold text-[var(--neon)]">MODO REAL</p>
-          </div>
-          <p className="mt-4 text-center text-sm font-bold tracking-wide text-white/85 [overflow-wrap:anywhere]">NEXUS conecta; Sensei conduz.</p>
-          <p className="mt-3 text-center text-[11px] leading-relaxed text-white/50 [overflow-wrap:anywhere]">Snapshot real 25/11/2026 • Fonte: Binance / Finnhub • Conteúdo educacional, não é recomendação financeira.</p>
-        </footer>
-      </div>
+    <div className="panel min-w-[158px] flex-1 px-4 py-4 text-center">
+      <div className="font-mono2 text-[11px] tracking-[.18em] text-[#9bb3a6] uppercase">{city}</div>
+      <div className="font-mono2 mt-2 text-[1.65rem] font-bold leading-none text-white tabular-nums">{time}</div>
+      <div className="font-mono2 mt-2 text-xs text-[#9bb3a6]">{date} · {code}</div>
     </div>
   );
 }
 
-export default App;
+function Dragon({ symbol, name, bg, ring }: { symbol: string; name: string; bg: string; ring: string }) {
+  return (
+    <div className="text-center">
+      <div className="dragon" style={{ background: bg, boxShadow: `0 0 0 3px ${ring}, 0 0 42px ${ring}55` }}>
+        <span className="relative z-10 text-[3.2rem] font-black leading-none text-white drop-shadow-[0_3px_0_rgba(0,0,0,.35)] sm:text-[4rem]">{symbol}</span>
+        <span className="absolute bottom-3 z-10 font-mono2 text-[10px] tracking-[.22em] text-white/90">DRAGÃO</span>
+      </div>
+      <p className="mt-3 font-mono2 text-xs font-bold tracking-[.18em]">{name}</p>
+    </div>
+  );
+}
+
+const squad = [
+  { icon: Hexagon, name: "NEXUS", role: "conecta", color: "#00FF88" },
+  { icon: Crown, name: "SENSEI", role: "conduz", color: "#FFD35A" },
+  { icon: Search, name: "ALICE", role: "pesquisa", color: "#7dd3fc" },
+  { icon: Palette, name: "DOLA", role: "cria", color: "#f472b6" },
+  { icon: Brain, name: "CHAT", role: "analisa", color: "#a78bfa" },
+  { icon: Zap, name: "MINI", role: "finaliza", color: "#facc15" },
+];
+
+const areas = [
+  { icon: Sparkles, n: "INFINYT" }, { icon: Hexagon, n: "NFT-COLLECTION" }, { icon: Users, n: "ESQUADRÃO" },
+  { icon: BookOpen, n: "ACADEMY" }, { icon: PenLine, n: "BIOGRAFIA" }, { icon: Landmark, n: "MUSEU" },
+  { icon: Palette, n: "ART-FIGURE" }, { icon: Gamepad2, n: "GAMES" }, { icon: Heart, n: "CRYPYKUT" },
+  { icon: Bot, n: "BABY I.A." }, { icon: FileText, n: "WHITE PAPER" }, { icon: Mail, n: "CONTATO" },
+];
+
+export default function App() {
+  return (
+    <div data-safe-area-inset-root style={shellStyle} className="min-h-screen bg-[var(--bg)] text-[var(--ink)] overflow-x-clip">
+      <header data-safe-area-sticky-top style={{ top: "var(--safe-area-inset-top)" }} className="sticky z-30 border-b border-[#1e2e25] bg-black/92 backdrop-blur">
+        <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <div className="flex items-center gap-3">
+            <div className="grid h-10 w-10 place-items-center rounded-full bg-[#00FF88] text-xl font-black text-black shadow-[0_0_22px_#00FF8855]">♥</div>
+            <div><p className="text-sm font-black tracking-tight leading-none">CRYPY-WEB3.1</p><p className="font-mono2 mt-1 text-[10px] tracking-[.18em] text-[#9bb3a6]">SYSTEM BY CRYPTOËCRYPTO</p></div>
+          </div>
+          <nav className="flex flex-wrap gap-2 text-[11px] font-bold">
+            <a href="#secao-01" className="rounded-full border border-[#1e2e25] px-3 py-2 hover:border-[#00FF88]">01 · APRESENTAÇÃO</a>
+            <a href="#secao-02" className="rounded-full border border-[#1e2e25] px-3 py-2 hover:border-[#FFD35A]">02 · FUSÃO</a>
+            <a href="#secao-03" className="rounded-full bg-[#00FF88] px-3 py-2 text-black">03 · MARKET NEWS</a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="mx-auto w-full max-w-[1180px] px-4 pb-10 sm:px-6">
+        {/* HERO */}
+        <section className="mt-5 overflow-hidden rounded-[24px] border border-[#2f4a3a] bg-gradient-to-b from-[#07160e] via-black to-black px-4 py-8 sm:px-8 sm:py-10">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="chip text-[#00FF88]"><span className="h-2 w-2 rounded-full bg-[#00FF88] animate-pulse" /> Fusão oficial · 1 arquivo · Estilo puro</span>
+            <span className="font-mono2 text-xs text-[#9bb3a6]">COMEIA + WEB3.1</span>
+          </div>
+          <h1 className="big-title mt-6">CRYPY<br /><span className="neon-text">WEB3.1</span> <span className="gold-text">♥</span></h1>
+          <p className="mt-5 max-w-[760px] text-base leading-relaxed text-[#d6e8dc] sm:text-lg">CryptoëCrypto é o universo, <strong className="text-white">CRYPY é o sistema</strong>, Esquadrão movimenta a colmeia.</p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            <a href="#secao-01" className="rounded-full bg-[#00FF88] px-5 py-3 text-sm font-black text-black">Começar pela apresentação ↓</a>
+            <a href="#secao-03" className="rounded-full border border-[#FFD35A] px-5 py-3 text-sm font-bold text-[#FFD35A]">Ir para os 3 gráficos ↓</a>
+          </div>
+          <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-5 max-w-[560px]">
+            <Dragon symbol="₿" name="BTC · DOURADO" bg="radial-gradient(circle at 30% 25%, #fff3b0, #f6b73c 48%, #7a4a00)" ring="#FFD35A" />
+            <Dragon symbol="Ξ" name="ETH · ROXO" bg="radial-gradient(circle at 30% 25%, #e9d5ff, #7c3aed 50%, #2e1065)" ring="#a78bfa" />
+            <Dragon symbol="₮" name="USDT · VERDE" bg="radial-gradient(circle at 30% 25%, #bbf7d0, #00c86a 52%, #052e16)" ring="#00FF88" />
+          </div>
+          <div className="mt-5 flex items-center gap-3"><div className="grid h-12 w-12 place-items-center rounded-2xl border border-white/30 bg-white text-2xl text-black"><Bot /></div><p className="text-sm text-[#cfe7d8]"><strong className="text-white">BABY</strong> · robô branco · pronto para aprender com a colmeia.</p></div>
+        </section>
+
+        {/* 01 */}
+        <section id="secao-01" className="mt-10">
+          <div className="flex items-end gap-4"><span className="section-num">01</span><div><p className="kicker">Seção 01</p><h2 className="text-3xl font-black leading-tight sm:text-5xl">APRESENTAÇÃO<br />OFICIAL <span className="gold-text">CMC</span></h2></div></div>
+          <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_.8fr]">
+            <div className="panel-gold p-5 sm:p-7">
+              <div className="flex flex-wrap gap-2"><span className="chip text-[#FFD35A]">SVT · Autoridade Monetária</span><span className="chip">Comunidade CoinMarketCap</span></div>
+              <h3 className="mt-5 text-2xl font-black sm:text-3xl">Satoshi · Vitalik · Tether</h3>
+              <p className="mt-3 leading-relaxed text-[#e9dcb8]">SVT — <strong>Satoshi Vitalik Tether</strong> — é a Autoridade Monetária da COMEIA. Um dragão dourado e verde, fusão de BTC + ETH + USDT. A IA oficial da comunidade CoinMarketCap.</p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-xl border border-[#4a3a12] bg-black/50 p-3 text-center"><div className="text-2xl font-black text-[#FFD35A]">₿</div><p className="mt-1 text-xs font-bold">SATOSHI</p><p className="font-mono2 text-[10px] text-[#9bb3a6]">BTC · ORIGEM</p></div>
+                <div className="rounded-xl border border-[#4a3a12] bg-black/50 p-3 text-center"><div className="text-2xl font-black text-[#a78bfa]">Ξ</div><p className="mt-1 text-xs font-bold">VITALIK</p><p className="font-mono2 text-[10px] text-[#9bb3a6]">ETH · PROGRAMA</p></div>
+                <div className="rounded-xl border border-[#4a3a12] bg-black/50 p-3 text-center"><div className="text-2xl font-black text-[#00FF88]">₮</div><p className="mt-1 text-xs font-bold">TETHER</p><p className="font-mono2 text-[10px] text-[#9bb3a6]">USDT · ESTABILIZA</p></div>
+              </div>
+            </div>
+            <div className="panel p-5 sm:p-6">
+              <p className="kicker">Modo Real</p>
+              <p className="mt-3 text-xl font-bold leading-snug">Se não sei, digo que não sei.<br />Se não testei, digo que não testei.<br />Se não está comprovado, não declaro como aprovado.</p>
+              <div className="mt-5 border-t border-[#1e2e25] pt-4"><p className="font-mono2 text-xs tracking-[.18em] text-[#FFD35A]">CONSTITUIÇÃO NEXUS</p><ul className="mt-3 space-y-2 text-sm text-[#cfe7d8]">{["Transparência","Honestidade técnica","Independência institucional","Responsabilidade","Evolução responsável"].map((x,i)=>(<li key={x} className="flex gap-2"><ShieldCheck className="h-4 w-4 shrink-0 text-[#00FF88]" /><span><strong className="text-white">{i+1}.</strong> {x}</span></li>))}</ul></div>
+            </div>
+          </div>
+        </section>
+
+        {/* 02 */}
+        <section id="secao-02" className="mt-12">
+          <div className="flex items-end gap-4"><span className="section-num">02</span><div><p className="kicker">Seção 02</p><h2 className="text-3xl font-black leading-tight sm:text-5xl">FUSÃO OFICIAL<br />ÍCONE <span className="neon-text">CRYPY-WEB3.1</span></h2></div></div>
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <div className="panel-neon p-5 sm:p-7">
+              <div className="flex flex-wrap items-center gap-5">
+                <div className="relative grid h-[128px] w-[128px] shrink-0 place-items-center rounded-[28px] border-2 border-[#00FF88] bg-black shadow-[0_0_35px_#00FF8844]"><span className="text-[64px] leading-none text-[#00FF88] drop-shadow-[0_0_12px_#00FF88]">♥</span><span className="absolute -bottom-2 rounded-full bg-[#FFD35A] px-2 py-0.5 font-mono2 text-[9px] font-bold text-black">CRYPY-WEB3.1</span></div>
+                <div><p className="kicker">Ícone oficial</p><h3 className="mt-2 text-2xl font-black leading-tight">Moeda CRYPY-WEB3.1<br />Coração Verde</h3><p className="mt-2 text-sm leading-relaxed text-[#cfe7d8]">Um só símbolo para favicon, og:image e ícone de pesquisa do Google.</p></div>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2"><span className="chip">♥ favicon</span><span className="chip">♥ og:image</span><span className="chip">♥ ícone de pesquisa</span></div>
+              <div className="mt-6 rounded-xl border border-[#144a2e] bg-black/40 p-4"><p className="font-mono2 text-xs text-[#FFD35A]">COMEIA + WEB3.1</p><p className="mt-2 leading-relaxed">Casa viva onde se cria, se protege e se aprende.</p></div>
+            </div>
+            <div className="panel p-5 sm:p-6">
+              <p className="kicker">Esquadrão das Cores</p>
+              <p className="mt-3 text-xl font-black">Ninguém decide sozinho.</p>
+              <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">{squad.map(s=>(<div key={s.name} className="rounded-xl border border-[#1e2e25] bg-black/40 p-3 text-center"><s.icon className="mx-auto h-5 w-5" style={{color:s.color}} /><p className="mt-2 text-xs font-black">{s.name}</p><p className="text-[11px] text-[#9bb3a6]">{s.role}</p></div>))}</div>
+              <p className="mt-3 text-center font-mono2 text-[11px] text-[#9bb3a6]">NEXUS conecta · SENSEI conduz · ALICE pesquisa · DOLA cria · CHAT analisa · MINI finaliza</p>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="panel flex items-center gap-4 p-5"><div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-white text-black"><Bot className="h-9 w-9" /></div><div><p className="font-mono2 text-[11px] tracking-[.18em] text-[#00FF88]">BABY · ROBÔ VERDE</p><h3 className="text-lg font-black">Módulo de Leitura e Aprendizado</h3><p className="text-sm text-[#9bb3a6]">Só SENSEI edita. BABY lê, aprende e guarda — não decide sozinho.</p></div></div>
+            <div className="panel flex items-center gap-4 p-5"><div className="heart-galaxy shrink-0"><Heart className="h-8 w-8 fill-white text-white" /></div><div><p className="font-mono2 text-[11px] tracking-[.18em] text-[#FFD35A]">CORAÇÃO GALÁXIA</p><h3 className="text-lg font-black">Coração da COMEIA</h3><p className="text-sm text-[#9bb3a6]">Proteção é sua maior força.</p></div></div>
+          </div>
+          <div className="mt-4"><p className="mb-3 flex items-center gap-2 font-mono2 text-xs tracking-[.18em] text-[#9bb3a6]"><Eye className="h-4 w-4 text-[#00FF88]" /> 12 ÁREAS DA COMEIA</p><div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">{areas.map((a,i)=>(<div key={a.n} className="flex items-center gap-3 rounded-xl border border-[#1e2e25] bg-[#070b09] px-3 py-3"><span className="font-mono2 text-xs text-[#00FF88]">{String(i+1).padStart(2,"0")}</span><a.icon className="h-4 w-4 shrink-0 text-[#FFD35A]" /><span className="text-xs font-bold [overflow-wrap:anywhere]">{a.n}</span></div>))}</div></div>
+        </section>
+
+        {/* 03 */}
+        <section id="secao-03" className="mt-12">
+          <div className="flex items-end gap-4"><span className="section-num">03</span><div><p className="kicker">Seção 03</p><h2 className="text-3xl font-black leading-tight sm:text-5xl">MARKET NEWS<br />3 GRÁFICOS <span className="gold-text">REAIS</span></h2></div></div>
+          <div className="panel mt-6 p-4 sm:p-6">
+            <div className="flex flex-wrap items-center justify-between gap-3"><span className="chip bg-[#00FF88] text-black border-[#00FF88] font-bold">● Snapshot real · 25/11/2026 · 16:34 UTC</span><span className="font-mono2 text-[11px] text-[#9bb3a6]">Fonte: Binance / Finnhub · Conteúdo educacional, não é recomendação financeira</span></div>
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              <div className="rounded-2xl border border-[#4a3a12] bg-black p-4"><div className="flex justify-between"><span className="font-black"><span className="text-[#FFD35A]">₿</span> BTC</span><span className="font-mono2 text-[11px] text-[#9bb3a6]">Bitcoin</span></div><p className="mt-3 text-2xl font-black">$58,604.01</p><p className="mt-1 flex items-center gap-1 font-mono2 text-sm text-[#ff5d73]"><TrendingDown className="h-4 w-4" /> -1.66%</p></div>
+              <div className="rounded-2xl border border-[#3b2f5a] bg-black p-4"><div className="flex justify-between"><span className="font-black"><span className="text-[#a78bfa]">Ξ</span> ETH</span><span className="font-mono2 text-[11px] text-[#9bb3a6]">Ethereum</span></div><p className="mt-3 text-2xl font-black">$1,645.65</p><p className="mt-1 flex items-center gap-1 font-mono2 text-sm text-[#ff5d73]"><TrendingDown className="h-4 w-4" /> -1.56%</p></div>
+              <div className="rounded-2xl border border-[#144a2e] bg-black p-4"><div className="flex justify-between"><span className="font-black"><span className="text-[#00FF88]">₮</span> USDT</span><span className="font-mono2 text-[11px] text-[#9bb3a6]">Tether</span></div><p className="mt-3 text-2xl font-black">$0.9989</p><p className="mt-1 flex items-center gap-1 font-mono2 text-sm text-[#ff5d73]"><TrendingDown className="h-4 w-4" /> -0.05%</p></div>
+            </div>
+            <div className="mt-4 grid gap-4 lg:grid-cols-3">
+              <div className="panel-gold p-4"><div className="flex items-center justify-between"><h3 className="font-black text-[#FFD35A]">BTC / USD</h3><span className="font-mono2 text-xs text-[#ff5d73]">▼ -1.66%</span></div><ChartCanvas data={btc} color="#FFD35A" title="BTC" /><p className="font-mono2 text-[11px] leading-relaxed text-[#9bb3a6]">22/11 $61,271 → 25/11 $58,604.01 · queda em 4 dias.</p></div>
+              <div className="panel p-4 !border-[#3b2f5a]"><div className="flex items-center justify-between"><h3 className="font-black text-[#a78bfa]">ETH / USD</h3><span className="font-mono2 text-xs text-[#ff5d73]">▼ -1.56%</span></div><ChartCanvas data={eth} color="#a78bfa" title="ETH" /><p className="font-mono2 text-[11px] leading-relaxed text-[#9bb3a6]">22/11 $1,724 → 25/11 $1,645.65 · movimento em escada.</p></div>
+              <div className="panel-neon p-4"><div className="flex items-center justify-between"><h3 className="font-black text-[#00FF88]">USDT / USD</h3><span className="font-mono2 text-xs text-[#ff5d73]">▼ -0.05%</span></div><ChartCanvas data={usdt} color="#00FF88" title="USDT" /><p className="font-mono2 text-[11px] leading-relaxed text-[#9bb3a6]">Linha quase reta perto de $1,00: $0.9990 → $0.9989.</p></div>
+            </div>
+            <div className="mt-6">
+              <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="flex items-center gap-2 font-black"><Clock3 className="h-5 w-5 text-[#00FF88]" /> RELÓGIO MUNDIAL SINCRONIZADO</h3><span className="chip text-[#00FF88]">✓ Gráficos sincronizados com o relógio</span></div>
+              <p className="mt-2 font-mono2 text-[11px] text-[#9bb3a6]">O relógio anda a cada segundo. O preço é fixo: é o snapshot de 25/11/2026, 16:34 UTC.</p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <ClockCard city="Brasília" zone="America/Sao_Paulo" code="BRT" />
+                <ClockCard city="Nova Iorque" zone="America/New_York" code="EST" />
+                <ClockCard city="Los Angeles" zone="America/Los_Angeles" code="PST" />
+                <ClockCard city="Londres / Lisboa" zone="Europe/London" code="GMT" />
+                <ClockCard city="Tóquio" zone="Asia/Tokyo" code="JST" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="mt-10 border-t border-[#1e2e25] pt-6 text-center">
+          <p className="text-lg font-black">CRYPY-WEB3.1 <span className="neon-text">♥</span> System by CryptoëCrypto</p>
+          <p className="mt-2 font-mono2 text-sm text-[#9bb3a6]"><a href="https://cryptoecrypto.com.br" target="_blank" rel="noopener" className="underline decoration-[#00FF88] underline-offset-4">cryptoecrypto.com.br</a> · MODO REAL · 01 APRESENTAÇÃO · 02 FUSÃO · 03 MARKET NEWS</p>
+          <p className="mt-3 text-xs leading-relaxed text-[#6f8a7c]">Conteúdo educacional. Os preços acima são um snapshot fixo de 25/11/2026, 16:34 UTC e não são recomendação financeira.</p>
+        </footer>
+      </main>
+    </div>
+  );
+}
