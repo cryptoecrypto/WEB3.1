@@ -5,6 +5,7 @@ const root = process.cwd();
 const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), "utf8");
 const errors = [];
 const bridge = read("assets/js/crypy-page-assistant.js");
+const nav = read("assets/js/crypy-global-nav.js");
 const runtime = read("assets/js/crypy-global-runtime.js");
 const widget = read("assets/js/baby-global-chat.js");
 const registry = JSON.parse(read("CRYPY-13-CHATBOOTS/colmeia-integral/registry-15.json"));
@@ -33,6 +34,9 @@ if (/fetch\s*\(|XMLHttpRequest|sendBeacon|localStorage|indexedDB/i.test(bridge))
   errors.push("ponte contém operação de rede ou persistência inesperada");
 }
 
+if (!nav.includes('new URL("../", scriptUrl)')) errors.push("menu global calcula incorretamente a raiz do projeto WEB3.1");
+if (!runtime.includes('new URL("../", scriptUrl || document.baseURI)')) errors.push("runtime calcula incorretamente a raiz do projeto WEB3.1");
+if (!widget.includes('new URL("../chatboot-baby-ia.html?embed=1"')) errors.push("widget calcula incorretamente o caminho do iframe BABY");
 if (!runtime.includes("assets/js/baby-global-chat.js")) errors.push("runtime não carrega o widget global BABY");
 if (!runtime.includes('get("embed") === "1"')) errors.push("runtime não respeita o modo embed");
 if (!widget.includes("chatboot-baby-ia.html?embed=1")) errors.push("widget não aponta para a página canônica do BABY");
