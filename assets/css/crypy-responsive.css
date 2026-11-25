@@ -50,3 +50,18 @@ section,article,aside,header,footer,main,div{min-width:0}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+/* Menu principal da HOME: faixa compacta e navegável no celular. */
+.main-nav{display:flex;align-items:center;gap:7px;min-width:0;flex:1}
+.main-nav a{white-space:nowrap}
+.toolbar{min-width:0;align-items:center}
+@media(max-width:760px){
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px}
+  .main-nav{order:0;flex:1 1 100%;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding:4px 2px 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .main-nav a{flex:0 0 auto;scroll-snap-align:start;font-size:12px;padding:10px 12px}
+  #open-page,.open-link{flex:1 1 auto;text-align:center;justify-content:center}
+  .status{flex:1 1 100%;margin:0}
+  .viewer{height:calc(100dvh - 235px);min-height:62dvh;max-height:none}
+}
+@media(min-width:761px){
+  .main-nav{flex-wrap:wrap}
+}
