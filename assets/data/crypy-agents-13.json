@@ -310,5 +310,19 @@
     "source": "visible_page_content_plus_curated_profile",
     "maxCharacters": 9000,
     "claim": "O contexto local da página pode ser lido durante a sessão; isso não equivale a ingestão completa do site nem a treinamento de modelo."
+  },
+  "folderRouting": {
+    "crypy-infinyt": "cosmos",
+    "crypy-academy": "alice",
+    "esquadrao-das-cores": "dola",
+    "nft-collection": "crypy-coin",
+    "biografia": "chat",
+    "crypy-news": "bnb",
+    "art-figure-marketplace": "icp",
+    "crypy-games-desafios": "shiba-inu",
+    "social-crypykut": "mini",
+    "baby-ia": "nexus",
+    "crypy-coin": "crypy-coin",
+    "contato": "hera"
   }
 }
