@@ -16,7 +16,7 @@ function currentAgent(cfg){
  var entries=Object.entries(cfg.pageRouting||{});
  for(var i=0;i<entries.length;i++){var target=new URL(entries[i][0],rootUrl).pathname.toLowerCase();if(path===target)return cfg.agents.find(function(a){return a.id===entries[i][1];});}
  var p=path.split("/").filter(Boolean);
- for(var j=0;j<cfg.agents.length;j++){var a=cfg.agents[j];if(a.page&&path.indexOf(a.page.toLowerCase())>=0)return a;}
+ for(var j=0;j<p.length;j++){var mapped=(cfg.folderRouting||{})[p[j]];if(mapped){var folderAgent=cfg.agents.find(function(a){return a.id===mapped;});if(folderAgent)return folderAgent;}}
  return cfg.agents.find(function(a){return a.id==="nexus";})||cfg.agents[0];
 }
 function node(tag,cls,txt){var el=document.createElement(tag);if(cls)el.className=cls;if(txt!==undefined)el.textContent=txt;return el;}
