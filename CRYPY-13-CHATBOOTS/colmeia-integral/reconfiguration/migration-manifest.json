@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "CRYPY-CHATBOT-RECONFIGURATION",
+  "status": "planning_only_no_runtime_changes",
+  "sourceSnapshot": {
+    "repository": "cryptoecrypto/HD-MATRIZ",
+    "branch": "main",
+    "catalogPath": "crypy-server-bridge/config/agents.json",
+    "catalogBlobSha": "43151fea9254780fb653cb9677e40e6c712cefb9",
+    "orchestratorPath": "crypy-server-bridge/src/orchestrator.js",
+    "orchestratorBlobSha": "98fbc5d9cc0c7a6a5ed61be597cfc9bdb8e7e736",
+    "orchestratorTestPath": "crypy-server-bridge/test/orchestrator.test.js",
+    "smokeTestPath": "crypy-server-bridge/scripts/smoke-10-agents.mjs",
+    "modelRuntimePath": "crypy-server-bridge/src/model-runtime.js"
+  },
+  "legacyRoster": {
+    "declaredCount": 13,
+    "ids": [
+      "baby",
+      "nexus",
+      "alice",
+      "chat",
+      "mini",
+      "dola",
+      "btc",
+      "eth",
+      "usdt",
+      "bnb",
+      "shiba-inu",
+      "crypycoin",
+      "icp"
+    ],
+    "existingProfileIds": [
+      "alice",
+      "baby",
+      "bnb",
+      "btc",
+      "chat",
+      "crypycoin",
+      "dola",
+      "eth",
+      "icp",
+      "mini",
+      "nexus",
+      "shiba-inu",
+      "usdt"
+    ]
+  },
+  "targetRosterRef": "../registry-15.json",
+  "migration": {
+    "keepOfficial": [
+      "alice",
+      "dola",
+      "chat",
+      "mini",
+      "nexus",
+      "bnb",
+      "icp",
+      "shiba-inu"
+    ],
+    "canonicalIdAlias": {
+      "legacyId": "crypycoin",
+      "canonicalId": "crypy-coin",
+      "status": "compatibility_adapter_required_before_id_switch",
+      "legacyProfilePath": "chatboots/crypycoin/profile.json"
+    },
+    "createProfiles": [
+      "svt",
+      "union",
+      "hera",
+      "cosmos"
+    ],
+    "separateOperatingCore": {
+      "id": "baby",
+      "existingProfilePath": "chatboots/baby/profile.json",
+      "includeInOfficial13": false
+    },
+    "preserveLegacyNonCouncil": [
+      {
+        "id": "btc",
+        "profilePath": "chatboots/btc/profile.json",
+        "routing": "disabled_until_separately_authorized"
+      },
+      {
+        "id": "eth",
+        "profilePath": "chatboots/eth/profile.json",
+        "routing": "disabled_until_separately_authorized"
+      },
+      {
+        "id": "usdt",
+        "profilePath": "chatboots/usdt/profile.json",
+        "routing": "disabled_until_separately_authorized"
+      }
+    ],
+    "independentDefense": {
+      "id": "lucy",
+      "includeInOfficial13": false,
+      "includeInBabyAgentsConfig": false,
+      "runtimeIndependent": true,
+      "credentialsIndependent": true,
+      "auditIndependent": true,
+      "repositoryPresenceInSourceSnapshot": false,
+      "status": "separate_runtime_not_verified"
+    }
+  },
+  "invariants": {
+    "officialCount": 13,
+    "totalParticipants": 15,
+    "babySeparate": true,
+    "lucySeparate": true,
+    "hdMatriz": "read_only_no_writes",
+    "deployment": "prohibited_in_this_phase",
+    "merge": "prohibited_in_this_phase",
+    "productionVariables": "unchanged",
+    "secretsInRepository": false
+  },
+  "runtimeFacts": {
+    "orchestratorRequiresExactly13Profiles": true,
+    "validatesProfileIdMatchesCatalogId": true,
+    "sharedDefaultProviderFallbackSupported": true,
+    "perAgentOverridesSupported": true,
+    "verificationStateProcessLocal": true,
+    "currentSmokeTestCount": 10
+  },
+  "testExecution": {
+    "contractValidator": "planned_in_this_branch",
+    "backendUnitSuite": "not_run_source_repo_not_modified",
+    "liveProviderCalls": "not_run_no_costly_calls_authorized",
+    "globalHomologation": "pending"
+  }
+}
