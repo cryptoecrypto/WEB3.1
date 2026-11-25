@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#020805">
 <meta name="description" content="CRYPY-WEB3.1 — o universo digital conectado da CRYPY.">
-<title>CRYPY-WEB3.1</title>
+<title>CRYPY · WEB3.1</title>
 <style>
 :root{color-scheme:dark;--bg:#020805;--panel:#07130b;--line:#16472b;--green:#00ff88;--text:#eafff2;--muted:#9ab8a6}
 *{box-sizing:border-box}
@@ -20,41 +20,49 @@ h1{font-size:clamp(18px,3vw,25px);margin:0;letter-spacing:.08em;color:var(--gree
 main{width:100%;max-width:1600px;margin:0 auto;padding:14px clamp(10px,2vw,24px) 20px;display:flex;flex-direction:column;gap:12px;flex:1}
 .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 nav{display:flex;gap:7px;flex-wrap:wrap;flex:1}
-button,.open-link{appearance:none;border:1px solid var(--line);background:#07130b;color:var(--text);border-radius:9px;padding:9px 12px;font-weight:700;font-size:12px;cursor:pointer;text-decoration:none}
-button:hover,.open-link:hover{border-color:var(--green);color:var(--green)}
+button,.open-link,.main-nav a{appearance:none;border:1px solid var(--line);background:#07130b;color:var(--text);border-radius:9px;padding:9px 12px;font-weight:700;font-size:12px;cursor:pointer;text-decoration:none}
+.main-nav a{display:inline-flex;align-items:center;border:1px solid var(--line);background:#07130b;color:var(--text);border-radius:9px;padding:9px 12px;font-weight:700;font-size:12px;text-decoration:none}
+button:hover,.open-link:hover,.main-nav a:hover{border-color:var(--green);color:var(--green)}
+.main-nav a[aria-current="page"]{background:#06351f;border-color:var(--green);color:var(--green);box-shadow:0 0 12px #00ff8822}
 button[aria-pressed=true]{background:#06351f;border-color:var(--green);color:var(--green);box-shadow:0 0 12px #00ff8822}
 .status{color:var(--muted);font-size:11px;margin-left:auto}
 .viewer{position:relative;min-height:65vh;height:calc(100vh - 190px);max-height:1100px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;box-shadow:0 0 24px #00ff8810}
 iframe{display:block;width:100%;height:100%;border:0;background:#020805}
 .note{font-size:11px;color:var(--muted);padding:0 3px}
 footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;color:#789684;font-size:10px;letter-spacing:.08em}
-@media(max-width:640px){.viewer{height:calc(100vh - 240px);min-height:58vh}button,.open-link{padding:8px 10px}.status{width:100%;margin:0}}
+@media(max-width:640px){.viewer{height:calc(100vh - 240px);min-height:58vh}button,.open-link,.main-nav a{padding:8px 10px}.status{width:100%;margin:0}}
 </style>
 </head>
 <body>
 <header>
  <div class="brand">
   <div class="mark" aria-hidden="true"><span>V</span></div>
-  <div><h1>CRYPY-WEB3.1</h1><div class="sub">UM UNIVERSO DIGITAL CONECTADO · CRIAÇÃO, CONHECIMENTO E EXPERIÊNCIAS</div></div>
+  <div><h1>CRYPY · WEB3.1</h1><div class="sub">UM UNIVERSO DIGITAL CONECTADO · CRIAÇÃO, CONHECIMENTO E EXPERIÊNCIAS</div></div>
  </div>
 </header>
 <main>
  <div class="toolbar">
-  <nav aria-label="Navegação pelas áreas da CRYPY">
-   <button type="button" data-page="index-original.html" aria-pressed="true">INÍCIO</button>
-   <button type="button" data-page="index2.html" aria-pressed="false">ÁREA 02</button>
-   <button type="button" data-page="index3.html" aria-pressed="false">ÁREA 03</button>
-   <button type="button" data-page="index4.html" aria-pressed="false">ÁREA 04</button>
-   <button type="button" data-page="index5.html" aria-pressed="false">ÁREA 05</button>
-   <button type="button" data-page="index6.html" aria-pressed="false">ÁREA 06</button>
-   <button type="button" data-page="index7.html" aria-pressed="false">ÁREA 07</button>
-   <button type="button" data-page="index8.html" aria-pressed="false">ÁREA 08</button>
+  <nav class="main-nav" aria-label="Navegação pelas 13 categorias oficiais da CRYPY-WEB3.1">
+   <a href="crypy-infinyt/portal.html" data-page="crypy-infinyt/portal.html" aria-current="page">CRYPY-INFINIT</a>
+   <a href="crypy-academy/academia.html" data-page="crypy-academy/academia.html">CRYPY-ACADEMY</a>
+   <a href="esquadrao-das-cores/esquadrao.html" data-page="esquadrao-das-cores/esquadrao.html">ESQUADRÃO DAS CORES</a>
+   <a href="nft-collection/galeria.html" data-page="nft-collection/galeria.html">NFT-COLLECTION</a>
+   <a href="biografia/historia.html" data-page="biografia/historia.html">BIOGRAFIA</a>
+   <a href="crypy-news/index.html" data-page="crypy-news/index.html">CRYPY-NEWS</a>
+   <a href="crypy-news/museu.html" data-page="crypy-news/museu.html">MUSEU DIGITAL</a>
+   <a href="art-figure-marketplace/marketplace.html" data-page="art-figure-marketplace/marketplace.html">MARKETPLACE</a>
+   <a href="crypy-games-desafios/crypy-games-desafios.html" data-page="crypy-games-desafios/crypy-games-desafios.html">CRYPY-GAMES</a>
+   <a href="social-crypykut/comunidade.html" data-page="social-crypykut/comunidade.html">CRYPYCUT</a>
+   <a href="baby-ia/centro.html" data-page="baby-ia/centro.html">BABY I.A.</a>
+   <a href="crypy-coin/white-paper.html" data-page="crypy-coin/white-paper.html">WHITE PAPER</a>
+   <a href="contato/contato-oficial.html" data-page="contato/contato-oficial.html">CONTATO</a>
   </nav>
-  <a class="open-link" id="open-page" href="index-original.html" target="_blank" rel="noopener">ABRIR EM NOVA ABA ↗</a>
+  <a class="open-link" id="open-page" href="crypy-infinyt/portal.html" target="_blank" rel="noopener">ABRIR EM NOVA ABA ↗</a>
+  <a class="open-link" href="index-original.html" target="_blank" rel="noopener">HOME ORIGINAL ↗</a>
   <span class="status" id="page-status" aria-live="polite">Você está no início</span>
  </div>
  <section class="viewer" aria-label="Conteúdo da área selecionada">
-  <iframe id="page-frame" src="index-original.html" title="Início CRYPY-WEB3.1" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+  <iframe id="page-frame" src="crypy-infinyt/portal.html" title="CRYPY-WEB3.1 — CRYPY-INFINIT" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
  </section>
  <div class="note">Explore as áreas conectadas da CRYPY-WEB3.1. Cada conteúdo mantém seu próprio arquivo e identidade.</div>
 </main>
@@ -64,21 +72,29 @@ footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;colo
  const frame=document.getElementById('page-frame');
  const open=document.getElementById('open-page');
  const status=document.getElementById('page-status');
- const buttons=Array.from(document.querySelectorAll('button[data-page]'));
- function selectPage(file,button){
+ const links=Array.from(document.querySelectorAll('a[data-page]'));
+ function selectPage(file,link){
   frame.src=file;
   open.href=file;
-  buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-  const label=button?button.textContent.trim():file;
+  links.forEach(item=>{
+   if(item===link) item.setAttribute('aria-current','page');
+   else item.removeAttribute('aria-current');
+  });
+  const label=link?link.textContent.trim():file;
   status.textContent='Área selecionada: '+label;
   frame.title='CRYPY-WEB3.1 — '+label;
   if(location.hash!=='#'+encodeURIComponent(file)) history.replaceState(null,'','#'+encodeURIComponent(file));
  }
- buttons.forEach(button=>button.addEventListener('click',()=>selectPage(button.dataset.page,button)));
+ links.forEach(link=>link.addEventListener('click',event=>{
+  event.preventDefault();
+  selectPage(link.dataset.page,link);
+ }));
  const requested=decodeURIComponent(location.hash.slice(1));
- if(requested && buttons.some(button=>button.dataset.page===requested)){
-  const button=buttons.find(item=>item.dataset.page===requested);
-  selectPage(requested,button);
+ if(requested && links.some(link=>link.dataset.page===requested)){
+  const link=links.find(item=>item.dataset.page===requested);
+  selectPage(requested,link);
+ } else if(links.length){
+  selectPage(links[0].dataset.page,links[0]);
  }
 })();
 </script>
