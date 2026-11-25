@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #000000;
+  --surface: #050806;
+  --surface-2: #0a120c;
+  --neon: #00ff88;
+  --neon-dim: #00c86a;
+  --text: #ffffff;
+  --muted: #9be8bd;
+  --line: #00ff88;
+  --btc: #ff8a00;
+  --eth: #a06bff;
+  --usdt: #00e68a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --surface: #050806;
+    --surface-2: #0a120c;
+    --text: #ffffff;
+    --muted: #9be8bd;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+img { max-width: 100%; }
+.neon-text { color: var(--neon); text-shadow: 0 0 18px rgba(0,255,136,.55); }
+.panel { background: var(--surface); border: 1px solid rgba(0,255,136,.65); box-shadow: 0 0 0 1px rgba(0,255,136,.12), 0 0 28px rgba(0,255,136,.08); }
+.grid-bg {
+  background-image: linear-gradient(rgba(0,255,136,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
