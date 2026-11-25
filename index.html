@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#020805">
-<meta name="description" content="CRYPY — Portal Mestre: porta de entrada para as oito páginas originais da Colmeia WEB3.1.">
-<title>CRYPY — PORTAL MESTRE</title>
+<meta name="description" content="CRYPY-WEB3.1 — o universo digital conectado da CRYPY.">
+<title>CRYPY-WEB3.1</title>
 <style>
 :root{color-scheme:dark;--bg:#020805;--panel:#07130b;--line:#16472b;--green:#00ff88;--text:#eafff2;--muted:#9ab8a6}
 *{box-sizing:border-box}
@@ -35,30 +35,30 @@ footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;colo
 <header>
  <div class="brand">
   <div class="mark" aria-hidden="true"><span>V</span></div>
-  <div><h1>CRYPY · PORTAL MESTRE</h1><div class="sub">UMA PORTA DE ENTRADA · OITO INDEX INDEPENDENTES · CONTEÚDO ORIGINAL PRESERVADO</div></div>
+  <div><h1>CRYPY-WEB3.1</h1><div class="sub">UM UNIVERSO DIGITAL CONECTADO · CRIAÇÃO, CONHECIMENTO E EXPERIÊNCIAS</div></div>
  </div>
 </header>
 <main>
  <div class="toolbar">
-  <nav aria-label="Navegação entre as oito páginas">
-   <button type="button" data-page="index-original.html" aria-pressed="true">HOME ORIGINAL</button>
-   <button type="button" data-page="index2.html" aria-pressed="false">INDEX 2</button>
-   <button type="button" data-page="index3.html" aria-pressed="false">INDEX 3</button>
-   <button type="button" data-page="index4.html" aria-pressed="false">INDEX 4</button>
-   <button type="button" data-page="index5.html" aria-pressed="false">INDEX 5</button>
-   <button type="button" data-page="index6.html" aria-pressed="false">INDEX 6</button>
-   <button type="button" data-page="index7.html" aria-pressed="false">INDEX 7</button>
-   <button type="button" data-page="index8.html" aria-pressed="false">INDEX 8</button>
+  <nav aria-label="Navegação pelas áreas da CRYPY">
+   <button type="button" data-page="index-original.html" aria-pressed="true">INÍCIO</button>
+   <button type="button" data-page="index2.html" aria-pressed="false">ÁREA 02</button>
+   <button type="button" data-page="index3.html" aria-pressed="false">ÁREA 03</button>
+   <button type="button" data-page="index4.html" aria-pressed="false">ÁREA 04</button>
+   <button type="button" data-page="index5.html" aria-pressed="false">ÁREA 05</button>
+   <button type="button" data-page="index6.html" aria-pressed="false">ÁREA 06</button>
+   <button type="button" data-page="index7.html" aria-pressed="false">ÁREA 07</button>
+   <button type="button" data-page="index8.html" aria-pressed="false">ÁREA 08</button>
   </nav>
-  <a class="open-link" id="open-page" href="index-original.html" target="_blank" rel="noopener">Abrir página em nova aba ↗</a>
-  <span class="status" id="page-status" aria-live="polite">Exibindo HOME ORIGINAL</span>
+  <a class="open-link" id="open-page" href="index-original.html" target="_blank" rel="noopener">ABRIR EM NOVA ABA ↗</a>
+  <span class="status" id="page-status" aria-live="polite">Você está no início</span>
  </div>
- <section class="viewer" aria-label="Visualização da página selecionada">
-  <iframe id="page-frame" src="index-original.html" title="HOME original da CRYPY" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+ <section class="viewer" aria-label="Conteúdo da área selecionada">
+  <iframe id="page-frame" src="index-original.html" title="Início CRYPY-WEB3.1" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
  </section>
- <div class="note">As páginas são carregadas diretamente dos seus próprios arquivos. O portal não copia nem reescreve o conteúdo interno delas. A INDEX 7 está vazia no repositório neste momento; ela permanece intacta.</div>
+ <div class="note">Explore as áreas conectadas da CRYPY-WEB3.1. Cada conteúdo mantém seu próprio arquivo e identidade.</div>
 </main>
-<footer>CRYPTOEËCRYPTO · CRYPY WEB3.1 · PORTAL DE NAVEGAÇÃO · ESTRUTURA ORIGINAL PRESERVADA</footer>
+<footer>CRYPTOEËCRYPTO · CRYPY-WEB3.1 · UM ECOSSISTEMA EM CONSTRUÇÃO</footer>
 <script>
 (function(){
  const frame=document.getElementById('page-frame');
@@ -70,8 +70,8 @@ footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;colo
   open.href=file;
   buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
   const label=button?button.textContent.trim():file;
-  status.textContent='Exibindo '+label;
-  frame.title='Página CRYPY: '+label;
+  status.textContent='Área selecionada: '+label;
+  frame.title='CRYPY-WEB3.1 — '+label;
   if(location.hash!=='#'+encodeURIComponent(file)) history.replaceState(null,'','#'+encodeURIComponent(file));
  }
  buttons.forEach(button=>button.addEventListener('click',()=>selectPage(button.dataset.page,button)));
