@@ -120,20 +120,53 @@
   }
 
   function applySingleClockPolicy() {
-    var path = window.location.pathname.toLowerCase();
-    var canonicalPath = new URL("relogio-mundial.html", siteRoot).pathname.toLowerCase();
-    var isCanonicalClock = path === canonicalPath;
-    var styleId = "crypy-single-clock-policy";
+    // Política única: manter apenas o relógio mundial global da Colmeia.
+    // Esconde relógios duplicados por IDs/classes/data-attributes conhecidos,
+    // inclusive widgets que sejam montados depois do carregamento inicial.
+    var styleId = "crypy-single-world-clock-policy";
     if (!document.getElementById(styleId)) {
-      var clockStyle = document.createElement("style");
-      clockStyle.id = styleId;
-      clockStyle.textContent = "body.crypy-duplicate-world-clock > header,body.crypy-duplicate-world-clock > main,body.crypy-duplicate-world-clock > section.panel,body.crypy-duplicate-world-clock > footer{display:none!important} body.crypy-main-world-clock #grid{display:none!important} #crypy-live-market #crypy-market-utc-time{display:none!important}";
+      var clockStyle = node("style", { id: styleId });
+      clockStyle.textContent = [
+        "body :is([id*='relogio' i],[class*='relogio' i],[id*='clock' i],[class*='clock' i],[id*='utc' i],[class*='utc' i],[data-clock],[data-clock-widget],[data-time-display]):not(#crypy-global-clock):not(#crypy-global-navigation):not(#crypy-baby-global-root){display:none!important;visibility:hidden!important}",
+        "body #crypy-market-utc-time{display:none!important;visibility:hidden!important}",
+        "body #crypy-global-clock{display:block!important;visibility:visible!important}"
+      ].join("\n");
       (document.head || document.documentElement).appendChild(clockStyle);
     }
-    if (path.indexOf("relogio-mundial.html") !== -1 && !isCanonicalClock) document.body.classList.add("crypy-duplicate-world-clock");
-    if (isCanonicalClock) document.body.classList.add("crypy-main-world-clock");
-    var utcClock = document.getElementById("crypy-market-utc-time");
-    if (utcClock && utcClock.parentElement) utcClock.parentElement.style.display = "none";
+
+    function suppressDuplicateClocks(root) {
+      if (!root || !root.querySelectorAll) return;
+      var selector = "[id*='relogio' i],[class*='relogio' i],[id*='clock' i],[class*='clock' i],[id*='utc' i],[class*='utc' i],[data-clock],[data-clock-widget],[data-time-display],#crypy-market-utc-time";
+      var nodes = [];
+      if (root.nodeType === 1 && root.matches && root.matches(selector)) nodes.push(root);
+      Array.prototype.push.apply(nodes, root.querySelectorAll(selector));
+      nodes.forEach(function (item) {
+        if (item.id === "crypy-global-clock" || item.closest("#crypy-global-navigation,#crypy-baby-global-root")) return;
+        if (/^(SCRIPT|STYLE|LINK)$/.test(item.tagName)) return;
+        item.setAttribute("data-crypy-clock-hidden", "true");
+        item.style.setProperty("display", "none", "important");
+        item.style.setProperty("visibility", "hidden", "important");
+      });
+    }
+
+    suppressDuplicateClocks(document);
+    if (!window.__CRYPY_SINGLE_CLOCK_OBSERVER__ && document.documentElement) {
+      window.__CRYPY_SINGLE_CLOCK_OBSERVER__ = true;
+      var observer = new MutationObserver(function (records) {
+        records.forEach(function (record) {
+          Array.prototype.forEach.call(record.addedNodes, function (added) {
+            if (added.nodeType === 1) suppressDuplicateClocks(added);
+          });
+        });
+      });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+    }
+
+    var clockLink = document.getElementById("crypy-global-clock");
+    if (clockLink) {
+      clockLink.setAttribute("aria-label", "Relógio Mundial CRYPY — único relógio global");
+      clockLink.title = "Relógio Mundial CRYPY — único relógio global da Colmeia";
+    }
   }
 
   function applyGlobalRgbSkin() {

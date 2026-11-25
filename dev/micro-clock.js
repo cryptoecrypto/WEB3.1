@@ -10,7 +10,7 @@
   window.__CRYPY_HOME_NAV_LOADER__ = true;
 
   var navUrl = new URL("../assets/js/crypy-global-nav.js", current.src);
-  navUrl.searchParams.set("v", "20261121-market-bubbles-fix-1");
+  navUrl.searchParams.set("v", "20261125-single-world-clock-1");
   var existing = Array.prototype.some.call(document.scripts, function (script) {
     return script.src === navUrl.href;
   });
