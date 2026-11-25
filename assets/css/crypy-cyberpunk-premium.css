@@ -1,0 +1,112 @@
+/* CRYPY CYBERPUNK PREMIUM — camada visual compartilhada.
+   Mantém o conteúdo e os componentes originais; altera apenas apresentação. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root{
+  --crypy-neon:#00ff9d;
+  --crypy-cyan:#00e5ff;
+  --crypy-pink:#ff2bd6;
+  --crypy-bg:#05070d;
+  --crypy-panel:rgba(8,15,25,.84);
+  --crypy-line:rgba(0,255,157,.28);
+}
+html{background:var(--crypy-bg)}
+body{
+  background-color:var(--crypy-bg)!important;
+  background-image:
+    radial-gradient(ellipse at 12% 8%,rgba(0,229,255,.13),transparent 34%),
+    radial-gradient(ellipse at 88% 18%,rgba(255,43,214,.10),transparent 30%),
+    radial-gradient(ellipse at 50% 92%,rgba(0,255,157,.10),transparent 42%),
+    linear-gradient(rgba(0,229,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,.045) 1px,transparent 1px),
+    linear-gradient(180deg,#05070d 0%,#07101a 55%,#04070c 100%)!important;
+  background-size:auto,auto,auto,42px 42px,42px 42px,auto!important;
+  background-attachment:fixed!important;
+  color:#eafcf6;
+  font-family:'Rajdhani','Segoe UI',Arial,sans-serif!important;
+  font-size:17px;
+}
+h1,h2,h3,h4,.brand strong,.head-tag,.kicker,.section-kicker,.token-label,
+.main-nav a,.btn,.hive-card b,.team-card h3,.music-head,.meta{
+  font-family:'Orbitron','Rajdhani',sans-serif!important;
+  letter-spacing:.045em;
+}
+p,li,.team-card,.hive-card,.sub,.note,.status{font-family:'Rajdhani','Segoe UI',Arial,sans-serif}
+a{transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease}
+header,header.site-head{
+  background:linear-gradient(100deg,rgba(4,13,22,.94),rgba(6,10,20,.86))!important;
+  border-bottom:1px solid rgba(0,255,157,.38)!important;
+  box-shadow:0 10px 38px rgba(0,0,0,.35),0 1px 22px rgba(0,255,157,.08);
+  backdrop-filter:blur(18px);
+}
+.main-nav a,nav button,button,.open-link,.btn{
+  border:1px solid rgba(0,255,157,.36)!important;
+  background:linear-gradient(135deg,rgba(7,29,34,.92),rgba(12,12,28,.92))!important;
+  color:#eafff7!important;
+  border-radius:10px!important;
+  box-shadow:inset 0 0 16px rgba(0,229,255,.035),0 5px 18px rgba(0,0,0,.2);
+  text-shadow:0 0 10px rgba(0,255,157,.14);
+}
+.main-nav a:hover,nav button:hover,button:hover,.open-link:hover,.btn:hover{
+  border-color:var(--crypy-cyan)!important;
+  color:var(--crypy-neon)!important;
+  box-shadow:0 0 18px rgba(0,229,255,.17),inset 0 0 18px rgba(0,255,157,.08);
+  transform:translateY(-2px);
+}
+.brand-mark,.mark{
+  border-color:var(--crypy-neon)!important;
+  box-shadow:0 0 22px rgba(0,255,157,.24),0 0 44px rgba(0,229,255,.10)!important;
+}
+.hero{
+  border:1px solid rgba(0,255,157,.20);
+  border-radius:24px;
+  background:linear-gradient(120deg,rgba(7,19,31,.83),rgba(9,11,24,.65))!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.30),inset 0 0 44px rgba(0,229,255,.045);
+  overflow:hidden;
+}
+.hero h1,.hero h2,.section-head h2{
+  text-shadow:0 0 22px rgba(0,255,157,.22),0 0 42px rgba(0,229,255,.10);
+}
+.team-grid,.hive-grid{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr))!important;
+  gap:18px!important;
+}
+.team-card,.hive-card,.token-band,.panel,.chartbox,.coin-card,.viewer{
+  background:linear-gradient(145deg,rgba(10,23,34,.90),rgba(8,12,23,.88))!important;
+  border:1px solid rgba(0,255,157,.22)!important;
+  border-radius:18px!important;
+  box-shadow:0 16px 42px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.035);
+}
+.team-card,.hive-card{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.team-card:hover,.hive-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,229,255,.58)!important;
+  box-shadow:0 20px 48px rgba(0,0,0,.34),0 0 24px rgba(0,255,157,.10);
+}
+.section{padding-top:clamp(28px,5vw,64px);padding-bottom:clamp(28px,5vw,64px)}
+.section-head{margin-bottom:22px}
+.token-band{padding:clamp(18px,3vw,30px)!important}
+footer{
+  background:rgba(3,8,15,.90)!important;
+  border-top:1px solid rgba(0,255,157,.28)!important;
+  color:#9ebbb8!important;
+}
+#matrixCanvas{opacity:.20!important}
+#page-frame,#viewer{background:#05070d!important}
+#workspace{background:transparent!important}
+#catalog{background:linear-gradient(145deg,rgba(8,20,28,.92),rgba(8,12,24,.88))!important;border-color:rgba(0,255,157,.25)!important}
+#status,.status,.meta{color:#9ad9ca!important}
+#crypy-music{border:1px solid rgba(0,255,157,.35)!important;background:rgba(5,12,20,.96)!important;box-shadow:0 0 24px rgba(0,255,157,.12)}
+/* Market News */
+.panel,.chartbox{padding:clamp(14px,2vw,22px)}
+.coin-card,.chartbox{backdrop-filter:blur(14px)}
+/* Responsividade */
+@media(max-width:760px){
+  body{font-size:16px}
+  .team-grid,.hive-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))!important}
+  .hero{border-radius:16px}
+  .main-nav{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
