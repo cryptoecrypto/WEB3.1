@@ -76,6 +76,7 @@
   var note=node("div",{className:"crypy-cal-note"},"Avisos editoriais pré-programados do BABY. Não são notícias em tempo real.");
   panel.append(head,monthRow,grid,detail,upcoming,note);host.append(style,toggle,panel);document.body.appendChild(host);
   function eventFor(date){return events.find(function(e){return e.date===key(date);});}
+  function updateToggleAnnouncement(){var todayEvent=eventFor(now);toggle.textContent=todayEvent?(todayEvent.icon+" BABY AVISA · "+todayEvent.title):"🗓️ CALENDÁRIO 3D";toggle.title=todayEvent?"Recado especial do BABY para "+todayEvent.title:"Abrir calendário da Colmeia CRYPY";}
   function showSelected(date){
    selected=key(date);var event=eventFor(date);detail.replaceChildren();
    if(event){detail.append(node("div",{className:"baby-tag"},"✦ RECADO DO BABY"),node("h4",{},event.icon+" "+event.title),node("p",{},event.baby));}
@@ -101,6 +102,7 @@
   prev.addEventListener("click",function(){move(-1);});next.addEventListener("click",function(){move(1);});
   toggle.addEventListener("click",function(){var open=host.getAttribute("data-open")!=="true";host.setAttribute("data-open",String(open));toggle.setAttribute("aria-expanded",String(open));});
   head.querySelector("button").addEventListener("click",function(){host.setAttribute("data-open","false");toggle.setAttribute("aria-expanded","false");});
+  updateToggleAnnouncement();
   showSelected(now);
   var midnightTimer=null;
   function scheduleMidnight(){
@@ -109,6 +111,7 @@
    midnightTimer=window.setTimeout(function(){
     var oldToday=key(now);now=new Date();
     events=buildEvents(config,now.getFullYear());
+    updateToggleAnnouncement();
     if(view.getFullYear()===Number(oldToday.slice(0,4))&&view.getMonth()===Number(oldToday.slice(5,7))-1)view=new Date(now.getFullYear(),now.getMonth(),1);
     if(selected===oldToday){selected=key(now);showSelected(now);}else render();
     scheduleMidnight();
