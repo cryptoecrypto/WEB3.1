@@ -21,7 +21,6 @@
     ["NFT Darkness", "nft-darkness.html", "Coleção Darkness"],
     ["HD BABY IA", "hd-baby-ia.html", "Página HD BABY IA"],
     ["HD Memory", "hd-memory.html", "Memória e consulta"],
-    ["Relógio Mundial", "relogio-mundial.html", "Ferramenta de horário"],
     ["Memory Boost · Agente", "memory-boost/baby-ia-agente.html", "Agente BABY"],
     ["Memory Boost · Conectado", "memory-boost/baby-ia-conectado.html", "BABY conectado"],
     ["Memory Boost · HD BABY", "memory-boost/hd-baby-ia.html", "Cópia HD BABY"],
@@ -29,7 +28,6 @@
     ["Memory Boost · Health", "memory-boost/health.html", "Painel Health"],
     ["Memory Boost · Plugins", "memory-boost/pluguin.html", "Central de plugins"],
     ["Memory Boost · Tutorial", "memory-boost/pluguins-tuto.html", "Tutorial de plugins"],
-    ["Memory Boost · Relógio", "memory-boost/relogio-mundial.html", "Relógio Memory Boost"],
     ["Atalho · CRYPY Home", "../index.html", "Voltar à página inicial"]
   ];
 
