@@ -21,9 +21,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Check bridge syntax
-        run: node --check assets/js/crypy-page-assistant.js
-      - name: Validate static integration
+      - name: Check assistant syntax
+        run: |
+          node --check assets/js/crypy-page-assistant.js
+          node --check assets/js/crypy-global-runtime.js
+          node --check assets/js/crypy-agents-global.js
+      - name: Validate 13-agent profiles and migration contract
         run: node scripts/validar-baby-global-chat-integration.mjs
       - name: Install Playwright
         run: |
