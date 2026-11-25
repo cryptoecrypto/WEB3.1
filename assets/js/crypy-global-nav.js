@@ -130,7 +130,7 @@
         "body :is([id*='relogio' i],[class*='relogio' i],[id*='clock' i],[class*='clock' i],[id*='utc' i],[class*='utc' i],[data-clock],[data-clock-widget],[data-time-display]):not(#crypy-global-clock):not(#crypy-global-navigation):not(#crypy-baby-global-root){display:none!important;visibility:hidden!important}",
         "body #crypy-market-utc-time{display:none!important;visibility:hidden!important}",
         "body #crypy-global-clock{display:block!important;visibility:visible!important}"
-      ].join("\\n");
+      ].join("\n");
       (document.head || document.documentElement).appendChild(clockStyle);
     }
 
