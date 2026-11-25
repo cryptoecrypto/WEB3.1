@@ -31,6 +31,31 @@ iframe{display:block;width:100%;height:100%;border:0;background:#020805}
 .note{font-size:11px;color:var(--muted);padding:0 3px}
 footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;color:#789684;font-size:10px;letter-spacing:.08em}
 @media(max-width:640px){.viewer{height:calc(100vh - 240px);min-height:58vh}button,.open-link,.main-nav a{padding:8px 10px}.status{width:100%;margin:0}}
+
+/* MENU LATERAL — índices existentes + HTMLs recém-enviados */
+main{display:grid;grid-template-columns:230px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);align-items:start}
+.sidebar{grid-column:1;grid-row:1 / span 2;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;min-width:0;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-shadow:0 0 20px #00ff8810}
+.side-group+.side-group{margin-top:16px;padding-top:13px;border-top:1px solid var(--line)}
+.side-title{margin:0 0 9px;color:var(--green);font-size:10px;letter-spacing:.15em;font-weight:900}
+.side-nav{display:grid;grid-template-columns:1fr;gap:6px;flex:none}
+.side-nav a{display:flex;align-items:center;min-height:36px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#07130b;color:var(--text);font-size:11px;font-weight:800;text-decoration:none;overflow-wrap:anywhere}
+.side-nav a:hover,.side-nav a:focus-visible,.side-nav a[aria-current="page"]{border-color:var(--green);background:#06351f;color:var(--green);outline:none;box-shadow:0 0 12px #00ff8822}
+.toolbar{grid-column:2;grid-row:1;min-width:0}
+.viewer{grid-column:2;grid-row:2;min-width:0}
+@media(max-width:820px){
+ main{grid-template-columns:1fr;grid-template-rows:auto auto minmax(58vh,1fr)}
+ .sidebar{position:static;grid-column:1;grid-row:1;max-height:none;overflow:visible}
+ .side-group+.side-group{margin-top:12px;padding-top:10px}
+ .side-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .side-nav a{justify-content:center;text-align:center;padding:8px 5px;font-size:10px}
+ .toolbar{grid-column:1;grid-row:2}
+ .viewer{grid-column:1;grid-row:3}
+}
+@media(max-width:520px){
+ .side-nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sidebar{padding:10px}
+}
+
 </style>
 <link rel="stylesheet" href="assets/css/crypy-responsive.css">
 </head>
@@ -42,6 +67,32 @@ footer{border-top:1px solid var(--line);padding:10px 16px;text-align:center;colo
  </div>
 </header>
 <main>
+
+ <aside class="sidebar" aria-label="Menu lateral de páginas">
+  <section class="side-group">
+   <h2 class="side-title">PÁGINAS PRINCIPAIS</h2>
+   <nav class="side-nav" aria-label="Oito páginas principais">
+    <a href="crypy-infinyt/portal.html" data-page="crypy-infinyt/portal.html">Portal</a>
+    <a href="index-original.html" data-page="index-original.html">Cores</a>
+    <a href="index2.html" data-page="index2.html">Fusão</a>
+    <a href="index3.html" data-page="index3.html">Sistema</a>
+    <a href="index4.html" data-page="index4.html">Ecossistema</a>
+    <a href="index5.html" data-page="index5.html">Matrix</a>
+    <a href="index6.html" data-page="index6.html">Colmeia</a>
+    <a href="index8.html" data-page="index8.html">Infinyt</a>
+   </nav>
+  </section>
+  <section class="side-group">
+   <h2 class="side-title">NOVOS HTML</h2>
+   <nav class="side-nav" aria-label="Páginas HTML recém-enviadas">
+    <a href="crypy-infinyt/crypy-infinity.html" data-page="crypy-infinyt/crypy-infinity.html">Quarteto</a>
+    <a href="esquadrao-das-cores/web-comeia.html" data-page="esquadrao-das-cores/web-comeia.html">Colmeia Web</a>
+    <a href="nft-collection/NFT-CRYPY-COLORS/nft-colors-deluxe.html" data-page="nft-collection/NFT-CRYPY-COLORS/nft-colors-deluxe.html">NFT Deluxe</a>
+    <a href="nft-collection/NFT-CRYPY-COLLECTION/nft-colors-collection.html" data-page="nft-collection/NFT-CRYPY-COLLECTION/nft-colors-collection.html">NFT Coleção</a>
+   </nav>
+  </section>
+ </aside>
+
  <div class="toolbar">
   <nav class="main-nav" aria-label="Navegação pelas 13 categorias oficiais da CRYPY-WEB3.1">
    <a href="crypy-infinyt/portal.html" data-page="crypy-infinyt/portal.html" aria-current="page">CRYPY-INFINIT</a>
