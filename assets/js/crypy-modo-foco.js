@@ -17,7 +17,7 @@
     'body.crypy-modo-foco .viewer{height:100vh!important;min-height:100vh!important;max-height:none!important;border:0!important;border-radius:0!important}',
     'body.crypy-modo-foco #page-frame{width:100%!important;height:100vh!important;min-height:100vh!important}',
     'body.crypy-modo-foco .toolbar,body.crypy-modo-foco .note{display:none!important}',
-    'body.crypy-modo-foco #matrixCanvas,body.crypy-modo-foco body:before,body.crypy-modo-foco body:after{display:none!important;opacity:0!important}',
+    'body.crypy-modo-foco #matrixCanvas,body.crypy-modo-foco:before,body.crypy-modo-foco:after{display:none!important;opacity:0!important}',
     'body.crypy-modo-foco .wrap{width:100%!important;max-width:none!important;margin:0!important;padding-left:12px!important;padding-right:12px!important}',
     'body.crypy-modo-foco .hero,body.crypy-modo-foco main>section:first-child{margin-top:0!important}'
   ].join('\n');
