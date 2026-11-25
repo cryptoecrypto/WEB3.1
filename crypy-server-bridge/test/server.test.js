@@ -8,6 +8,7 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
   let f, server, base;
 
   before(async () => {
+    process.env.CRYPY_API_TOKEN = 'test-api-token-with-at-least-32-characters';
     f = await fixture();
     const created = await createServer({ baby: f.baby });
     server = created.server;
@@ -17,16 +18,17 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
 
   after(async () => {
     await new Promise((resolve) => server.close(resolve));
+    delete process.env.CRYPY_API_TOKEN;
     await f.cleanup();
   });
 
   const get = async (p) => {
-    const res = await fetch(base + p);
+    const res = await fetch(base + p, { headers: { authorization: 'Bearer test-api-token-with-at-least-32-characters' } });
     const type = res.headers.get('content-type') || '';
     return { status: res.status, body: type.includes('json') ? await res.json() : await res.text() };
   };
   const post = async (p, obj) => {
-    const res = await fetch(base + p, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(obj) });
+    const res = await fetch(base + p, { method: 'POST', headers: { 'content-type': 'application/json', authorization: 'Bearer test-api-token-with-at-least-32-characters' }, body: JSON.stringify(obj) });
     return { status: res.status, body: await res.json() };
   };
 
@@ -40,6 +42,11 @@ describe('C2 / núcleo HTTP: o servidor responde de verdade', () => {
     const r = await get('/');
     assert.equal(r.status, 200);
     assert.match(r.body, /<html|<!doctype/i);
+  });
+
+  it('bloqueia rotas API sem credencial válida', async () => {
+    const res = await fetch(base + '/api/status');
+    assert.equal(res.status, 401);
   });
 
   it('GET /api/status traz as cinco capacidades e a saúde ao vivo', async () => {

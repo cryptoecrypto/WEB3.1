@@ -47,7 +47,7 @@ export async function createServer({ baby = null, ...overrides } = {}) {
       res.setHeader('access-control-allow-origin', origin);
       res.setHeader('vary', 'Origin');
       res.setHeader('access-control-allow-methods', 'GET, POST, OPTIONS');
-      res.setHeader('access-control-allow-headers', 'Content-Type');
+      res.setHeader('access-control-allow-headers', 'Content-Type, Authorization');
       res.setHeader('access-control-max-age', '600');
     }
     if (req.method === 'OPTIONS') {
@@ -60,7 +60,7 @@ export async function createServer({ baby = null, ...overrides } = {}) {
     // /health permanece público para health-check do host. Toda a API exige token.
     if (p.startsWith('/api/')) {
       const expected = process.env.CRYPY_API_TOKEN || '';
-      if (!expected) return json(res, 503, { ok: false, code: 'API_TOKEN_NOT_CONFIGURED', reason: 'API bloqueada: configure CRYPY_API_TOKEN no ambiente do servidor.' });
+      if (Buffer.byteLength(expected) < 32) return json(res, 503, { ok: false, code: 'API_TOKEN_NOT_CONFIGURED', reason: 'API bloqueada: configure CRYPY_API_TOKEN com pelo menos 32 bytes no ambiente do servidor.' });
       const supplied = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
       const a = Buffer.from(supplied);
       const e = Buffer.from(expected);
