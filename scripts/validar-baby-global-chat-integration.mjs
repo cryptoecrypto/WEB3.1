@@ -2,19 +2,50 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const bridgePath = path.join(root, "assets/js/crypy-page-assistant.js");
-const registryPath = path.join(root, "CRYPY-13-CHATBOOTS/colmeia-integral/registry-15.json");
+const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), "utf8");
 const errors = [];
-const bridge = fs.readFileSync(bridgePath, "utf8");
-const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
+const bridge = read("assets/js/crypy-page-assistant.js");
+const runtime = read("assets/js/crypy-global-runtime.js");
+const widget = read("assets/js/baby-global-chat.js");
+const registry = JSON.parse(read("CRYPY-13-CHATBOOTS/colmeia-integral/registry-15.json"));
 
-if (!bridge.includes("crypy-global-runtime.js")) errors.push("ponte não carrega o runtime global");
+const officialPages = [
+  "crypy-infinyt/portal.html",
+  "crypy-academy/academia.html",
+  "esquadrao-das-cores/esquadrao.html",
+  "nft-collection/galeria.html",
+  "biografia/historia.html",
+  "crypy-news/index.html",
+  "crypy-news/museu.html",
+  "art-figure-marketplace/marketplace.html",
+  "crypy-games-desafios/crypy-games-desafios.html",
+  "social-crypykut/comunidade.html",
+  "baby-ia/centro.html",
+  "crypy-coin/white-paper.html",
+  "contato/contato-oficial.html"
+];
+
+if (!bridge.includes("crypy-global-runtime.js")) errors.push("ponte legada não encaminha ao runtime global");
 if (!bridge.includes('params.get("embed") === "1"')) errors.push("ponte não preserva o modo iframe embed");
 if (!bridge.includes("/chatboot-baby-ia\\.html$/")) errors.push("ponte não preserva a página canônica do chatbot");
 if (!bridge.includes('data-crypy-global-runtime="true"')) errors.push("ponte não evita runtime duplicado");
-if (/fetch\\s*\\(|XMLHttpRequest|sendBeacon|localStorage|indexedDB/i.test(bridge)) {
+if (/fetch\s*\(|XMLHttpRequest|sendBeacon|localStorage|indexedDB/i.test(bridge)) {
   errors.push("ponte contém operação de rede ou persistência inesperada");
 }
+
+if (!runtime.includes("assets/js/baby-global-chat.js")) errors.push("runtime não carrega o widget global BABY");
+if (!runtime.includes('get("embed") === "1"')) errors.push("runtime não respeita o modo embed");
+if (!widget.includes("chatboot-baby-ia.html?embed=1")) errors.push("widget não aponta para a página canônica do BABY");
+if (!widget.includes("crypy-baby-global-root")) errors.push("widget não declara a raiz global esperada");
+
+const missingPages = [];
+for (const pagePath of officialPages) {
+  const html = read(pagePath);
+  if (!/src=["'][^"']*assets\\/js\\/crypy-global-nav\\.js(?:\\?[^"']*)?["']/i.test(html)) {
+    missingPages.push(pagePath);
+  }
+}
+if (missingPages.length) errors.push("páginas oficiais sem menu/runtime global: " + missingPages.join(", "));
 
 const official = registry.members.filter((member) => member.group === "official_13");
 const core = registry.members.filter((member) => member.group === "separate_core");
@@ -29,6 +60,8 @@ if (errors.length) {
   errors.forEach((error) => console.error("- " + error));
   process.exitCode = 1;
 } else {
-  console.log("OK — ponte global, embed, prevenção de duplicidade e registro 13 + BABY + LUCY.");
-  console.log("LIMITAÇÃO — este teste não comprova conexão com modelos, backend, armazenamento ou implantação.");
+  console.log("OK — 13/13 páginas oficiais incluem o menu global.");
+  console.log("OK — menu → runtime → widget → página canônica do BABY.");
+  console.log("OK — registro 13 integrantes + BABY + LUCY, sem IDs duplicados.");
+  console.log("LIMITAÇÃO — teste estático; não comprova execução no navegador, conexão a modelos, backend, armazenamento ou implantação.");
 }
