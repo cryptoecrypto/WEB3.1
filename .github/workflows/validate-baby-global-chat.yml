@@ -1,0 +1,27 @@
+name: Validate BABY global chat integration
+
+on:
+  push:
+    branches:
+      - feature/baby-global-chat-integration-20261125
+  pull_request:
+    branches:
+      - feature/chatbot-reconfiguration-audit-20261124
+
+permissions:
+  contents: read
+
+jobs:
+  validate-global-chat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check bridge syntax
+        run: node --check assets/js/crypy-page-assistant.js
+      - name: Validate global chat integration
+        run: node scripts/validar-baby-global-chat-integration.mjs
