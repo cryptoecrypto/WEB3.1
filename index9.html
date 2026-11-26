@@ -136,22 +136,35 @@ main{display:grid;grid-template-columns:230px minmax(0,1fr);grid-template-rows:a
  const frame=document.getElementById('page-frame');
  const open=document.getElementById('open-page');
  const status=document.getElementById('page-status');
- // OCULTAÇÃO TEMPORÁRIA DO CHATBOT FLUTUANTE: mantém o ChatBoot e seu acesso direto.
- frame.addEventListener('load',function(){
+ // OCULTAÇÃO TEMPORÁRIA DO CHATBOT FLUTUANTE: observa também widgets inseridos após o carregamento.
+ function hideFloatingChat(){
   try{
    const doc=frame.contentDocument;
    if(!doc) return;
+   const hide=()=>{
+    const root=doc.getElementById('crypy-baby-global-root');
+    if(root){root.style.setProperty('display','none','important');root.setAttribute('aria-hidden','true');}
+    doc.querySelectorAll('#crypy-baby-global-toggle,#crypy-baby-global-panel').forEach(el=>el.style.setProperty('display','none','important'));
+   };
    let style=doc.getElementById('crypy-hide-floating-chat');
    if(!style){
     style=doc.createElement('style');
     style.id='crypy-hide-floating-chat';
-    style.textContent='#crypy-baby-global-root{display:none!important}';
+    style.textContent='#crypy-baby-global-root,#crypy-baby-global-toggle,#crypy-baby-global-panel{display:none!important;visibility:hidden!important;pointer-events:none!important}';
     (doc.head||doc.documentElement).appendChild(style);
+   }
+   hide();
+   if(!doc.__crypyHideChatObserver && doc.documentElement){
+    const observer=new MutationObserver(hide);
+    observer.observe(doc.documentElement,{childList:true,subtree:true});
+    doc.__crypyHideChatObserver=observer;
    }
   }catch(error){
    console.warn('Não foi possível ocultar o widget flutuante nesta página.',error);
   }
- });
+ }
+ frame.addEventListener('load',hideFloatingChat);
+ hideFloatingChat();
  const links=Array.from(document.querySelectorAll('a[data-page]'));
  function selectPage(file,link){
   frame.src=file;
