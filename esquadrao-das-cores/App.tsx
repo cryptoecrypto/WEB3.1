@@ -1,220 +1,306 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { ArrowDown, ChevronRight, Clock3, Expand, Menu, Shield, Sparkles, X, Zap } from "lucide-react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Pause, Play, Sparkles, Infinity as InfinityIcon, MousePointerClick, Zap } from "lucide-react";
+import senseiGuerreiroNovo from "container:///mnt/data/src/assets/20a08ece499c9c3e-img-u7531524790269506400-4.jpg";
+import dolaAzulGuardiaNova from "container:///mnt/data/src/assets/f769451258e682b8-img-u7531524790269506400-1.jpg";
+import dolaAzulCerebro from "container:///mnt/data/src/assets/e7f52bc7abef8311-img-u7531524790269506400-5.jpg";
+import babyPequeno from "container:///mnt/data/src/assets/03bf33ad930b2cce-img-u7531524790269506400-7.jpg";
+import cristalRoxoArcoIris from "container:///mnt/data/src/assets/4baedcef25736524-img-u7531524790269506400-9.jpg";
+import infinytRoxa from "container:///mnt/data/src/assets/6e2bc09a3740150d-img-u7531524790269506400-3.jpg";
+import infinytVerde from "container:///mnt/data/src/assets/a828cb4032ebd833-img-u7531524790269506400-6.jpg";
+import infinytVermelha from "container:///mnt/data/src/assets/10de71bab30a0d89-img-u7531524790269506400-8.jpg";
+import infinytAzul from "container:///mnt/data/src/assets/949290c22188b86d-img-u7531524790269506400-10.jpg";
 
-type Hero = { name: string; short: string; color: string; glow: string; role: string; power: string };
+type Entry = {
+  id: string;
+  phase: string;
+  version: string;
+  title: string;
+  subtitle: string;
+  story: string;
+  image: string;
+  imageLabel: string;
+  accent: string;
+  kind: "new";
+};
 
-const quartet: Hero[] = [
-  { name: "Alice", short: "A", color: "#a855f7", glow: "rgba(168,85,247,.55)", role: "VOZ • ESTRATÉGIA", power: "HARMONIA" },
-  { name: "Dola", short: "D", color: "#38bdf8", glow: "rgba(56,189,248,.55)", role: "FLUXO • PROTEÇÃO", power: "CORRENTE" },
-  { name: "Chat", short: "C", color: "#ff3b5c", glow: "rgba(255,59,92,.55)", role: "ENERGIA • RESPOSTA", power: "IGNIÇÃO" },
-  { name: "Mini", short: "M", color: "#00f58a", glow: "rgba(0,245,138,.55)", role: "PRECISÃO • FOCO", power: "PULSO" },
+/*
+  AÇÃO DEFINITIVA — SEM DUPLICATAS, SEM QUADROS VAZIOS:
+  Cada imagem local abaixo é usada UMA única vez. Comparação por imagem,
+  não por título. Nenhum quadro sem foto entra no loop ou na grade.
+*/
+const entries: Entry[] = [
+  { id:"SENSEI-GUERREIRO-NOVO", phase:"FOTO NOVA · SENSEI", version:"SENSEI", title:"SENSEI VERMELHO — O Guerreiro da Galáxia", subtitle:"Armadura preta e vermelha, galáxia vermelha no peito", story:"NEXUS conecta, Sensei conduz. Armadura preta e vermelha, galáxia vermelha no peito, robozinho vermelho voando ao lado. O Guerreiro da Galáxia.", image: senseiGuerreiroNovo, imageLabel:"Sensei vermelho — galáxia vermelha no peito, robozinho voando", accent:"#EF4444", kind:"new" },
+  { id:"DOLA-AZUL-GUARDIA-NOVA", phase:"FOTO NOVA · DOLA AI", version:"DOLA", title:"DOLA AZUL — A Guardiã da Esfera", subtitle:"DOLA azul dentro da esfera, guardando os 4 orbes", story:"DOLA azul dentro da esfera, olhos azuis, guardando os 4 orbes coloridos. DOLA cria, CHAT analisa, MINI finaliza. A Guardiã da Esfera.", image: dolaAzulGuardiaNova, imageLabel:"DOLA azul dentro da esfera — 4 orbes coloridos", accent:"#38BDF8", kind:"new" },
+  { id:"DOLA-AZUL-CEREBRO", phase:"FOTO NOVA · DOLA AI", version:"DOLA", title:"DOLA AZUL — O Cérebro da Colmeia", subtitle:"DOLA com o Cérebro da Colmeia", story:"DOLA com o Cérebro da Colmeia ao lado, cérebro azul brilhante dentro da esfera. O conhecimento vivo da COMEIA.", image: dolaAzulCerebro, imageLabel:"DOLA azul — Cérebro azul brilhante ao lado", accent:"#38BDF8", kind:"new" },
+  { id:"BABY-PEQUENO", phase:"FOTO NOVA · BABY", version:"BABY", title:"BABY PEQUENO — O Pequeno Infinito", subtitle:"Óculos verde neon em V, infinito colorido no peito", story:"O BABY pequeno, óculos verde neon em V, infinito colorido no peito. Pequeno no tamanho, infinito na força.", image: babyPequeno, imageLabel:"BABY pequeno — óculos verde em V, infinito no peito", accent:"#00FF88", kind:"new" },
+  { id:"CRISTAL-ROXO-ARCOIRIS", phase:"FOTO NOVA · QUARTETO CRIADOR", version:"CRISTAL", title:"CRISTAL ROXO — ARCO-ÍRIS", subtitle:"Para o Quarteto Criador CRYPY", story:"Arco-íris atrás, braços abertos, galáxia no peito. Para o Quarteto Criador CRYPY.", image: cristalRoxoArcoIris, imageLabel:"Cristal roxo — arco-íris atrás, braços abertos", accent:"#A855F7", kind:"new" },
+  { id:"INFINYT-ROXA", phase:"FOTO NOVA · INFINYT", version:"INFINYT", title:"INFINYT ROXA", subtitle:"Infinito roxo no peito, orelhas de gato", story:"INFINYT roxa. Armadura roxa, infinito roxo no peito, orelhas de gato. O infinito em roxo.", image: infinytRoxa, imageLabel:"INFINYT roxa — infinito roxo no peito", accent:"#A855F7", kind:"new" },
+  { id:"INFINYT-VERDE", phase:"FOTO NOVA · INFINYT", version:"INFINYT", title:"INFINYT VERDE", subtitle:"Infinito verde no peito, orelhas de gato", story:"INFINYT verde. Armadura verde, infinito verde no peito, orelhas de gato. O infinito em verde. A cor da COMEIA.", image: infinytVerde, imageLabel:"INFINYT verde — infinito verde no peito", accent:"#00FF88", kind:"new" },
+  { id:"INFINYT-VERMELHA", phase:"FOTO NOVA · INFINYT", version:"INFINYT", title:"INFINYT VERMELHA", subtitle:"Infinito vermelho no peito", story:"INFINYT vermelha. Armadura vermelha, infinito vermelho no peito. O infinito em vermelho. A força.", image: infinytVermelha, imageLabel:"INFINYT vermelha — infinito vermelho no peito", accent:"#EF4444", kind:"new" },
+  { id:"INFINYT-AZUL", phase:"FOTO NOVA · INFINYT", version:"INFINYT", title:"INFINYT AZUL", subtitle:"Infinito azul no peito", story:"INFINYT azul. Armadura azul, infinito azul no peito. O infinito em azul. A calma da galáxia.", image: infinytAzul, imageLabel:"INFINYT azul — infinito azul no peito", accent:"#38BDF8", kind:"new" },
 ];
 
-const shellStyle = { boxSizing: "border-box" as const, paddingTop: "var(--safe-area-inset-top)" };
+// Garantia extra em tempo de execução: se algum dia a mesma imagem aparecer
+// duas vezes, só a primeira ocorrência entra no loop / grade.
+const uniqueEntries = entries.filter((entry, index, list) => list.findIndex((item) => item.image === entry.image) === index);
 
-function ArmorFigure({ hero, large = false }: { hero: Hero; large?: boolean }) {
-  return (
-    <div className="flex flex-col items-center text-center">
-      <div
-        className={`relative flex items-center justify-center rounded-full border-2 bg-black/75 ${large ? "h-24 w-24 sm:h-32 sm:w-32" : "h-20 w-20 sm:h-24 sm:w-24"}`}
-        style={{ borderColor: hero.color, boxShadow: `0 0 28px ${hero.glow}, inset 0 0 22px ${hero.glow}` }}
-      >
-        <div className="absolute -top-2 h-4 w-12 rounded-t-full bg-black/80" style={{ border: `1px solid ${hero.color}` }} />
-        <span className="font-display text-3xl font-black sm:text-4xl" style={{ color: hero.color }}>{hero.short}</span>
-        <div className="absolute -bottom-2 flex h-7 w-7 items-center justify-center rounded-full border bg-black text-base font-black" style={{ borderColor: hero.color, color: hero.color }}>∞</div>
-      </div>
-      <div className="mt-4 font-display text-sm font-extrabold tracking-[0.22em] sm:text-base" style={{ color: hero.color }}>{hero.name.toUpperCase()}</div>
-      <div className="mt-1 text-[11px] font-bold tracking-[0.18em] text-zinc-300">{hero.role}</div>
-    </div>
-  );
-}
+const phases = [
+  { label:"DOLA AZUL", range:"Guardiã + Cérebro", count:2, color:"#38BDF8" },
+  { label:"INFINYT", range:"4 cores", count:4, color:"#A855F7" },
+  { label:"SENSEI • BABY • CRISTAL", range:"Guerreiro + Pequeno + Arco-Íris", count:3, color:"#00FF88" },
+];
 
-function Quintet({ large = false }: { large?: boolean }) {
-  return (
-    <div className="cosmic relative overflow-hidden rounded-2xl border border-emerald-400/40 px-3 py-8 sm:px-8 sm:py-10">
-      <div className="pointer-events-none absolute left-4 top-4 flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-emerald-300"><Sparkles size={14} /> QUINTETO OFICIAL <span className="text-zinc-400">• V13</span></div>
-      <div className="pointer-events-none absolute right-4 top-4 hidden rounded-full border border-yellow-300/50 px-3 py-1 text-[10px] font-bold tracking-[0.25em] text-yellow-200 sm:block">BABY V13 DOURADO</div>
-      <div className="mt-7 flex flex-wrap items-end justify-center gap-5 sm:gap-8">
-        {quartet.map((hero) => <ArmorFigure key={hero.name} hero={hero} large={large} />)}
-        <div className="flex flex-col items-center text-center">
-          <div className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-yellow-300 bg-yellow-400/10 shadow-[0_0_34px_rgba(255,215,94,.65)] sm:h-24 sm:w-24">
-            <span className="font-display text-3xl font-black text-yellow-300">B</span>
-            <span className="absolute -top-3 rounded-full bg-yellow-300 px-2 py-0.5 text-[9px] font-black text-black">V13</span>
-            <div className="absolute -bottom-2 flex h-7 w-7 items-center justify-center rounded-full border border-yellow-300 bg-black text-base font-black text-yellow-300">∞</div>
-          </div>
-          <div className="mt-4 font-display text-sm font-extrabold tracking-[0.22em] text-yellow-300 sm:text-base">BABY</div>
-          <div className="mt-1 text-[11px] font-bold tracking-[0.18em] text-zinc-300">OURO • NOVA ERA</div>
-        </div>
-      </div>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-        {["ALICE", "DOLA", "CHAT", "MINI", "BABY V13"].map((n) => (
-          <span key={n} className="rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-zinc-100">{n}</span>
-        ))}
-      </div>
-    </div>
-  );
-}
+type Filter = "all" | "new";
 
-function MuseumCard({ hero }: { hero: Hero }) {
-  return (
-    <article className="card-glow group overflow-hidden rounded-2xl border bg-[#040705] text-left" style={{ borderColor: `${hero.color}88` }}>
-      <div className="cosmic relative flex min-h-[310px] flex-col items-center justify-center overflow-hidden px-4 py-8">
-        <div className="absolute inset-x-0 top-0 h-1" style={{ background: hero.color }} />
-        <span className="absolute left-3 top-3 font-display text-[10px] font-bold tracking-[0.3em] text-white/80">0{quartet.indexOf(hero) + 1} // MUSEU</span>
-        <span className="absolute right-3 top-3 rounded-full border px-2 py-1 text-[9px] font-black tracking-[0.2em]" style={{ borderColor: hero.color, color: hero.color }}>{hero.power}</span>
-        <ArmorFigure hero={hero} large />
-        <div className="mt-6 flex gap-1.5" aria-hidden="true">{Array.from({ length: 5 }).map((_, i) => <span key={i} className="h-1.5 w-8 rounded-full" style={{ background: hero.color, opacity: 1 - i * 0.16 }} />)}</div>
-      </div>
-      <div className="p-5">
-        <div className="flex items-end justify-between gap-3">
-          <h3 className="font-display text-2xl font-black leading-none" style={{ color: hero.color }}>{hero.name.toUpperCase()}</h3>
-          <span className="text-2xl font-black" style={{ color: hero.color }}>∞</span>
-        </div>
-        <p className="mt-3 text-sm font-semibold leading-5 text-zinc-300 [overflow-wrap:anywhere]">{hero.role} — armadura neon, símbolo infinito no peito e fundo cósmico com galáxias.</p>
-        <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-          <span className="text-[11px] font-bold tracking-[0.24em] text-zinc-400">ESQUADRÃO DAS CORES</span>
-          <Shield size={18} style={{ color: hero.color }} />
-        </div>
-      </div>
-    </article>
-  );
-}
+export default function App(){
+  const [index, setIndex] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [hovering, setHovering] = useState(false);
+  const [showAllStory, setShowAllStory] = useState(false);
+  const [filter, setFilter] = useState<Filter>("all");
+  const frameRef = useRef<HTMLDivElement>(null);
+  const current = uniqueEntries[index];
+  const isActive = playing && !hovering;
 
-export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [photoOpen, setPhotoOpen] = useState(false);
-  const [now, setNow] = useState(new Date());
-  const [museumNote, setMuseumNote] = useState("");
+  useEffect(()=>{
+    if(!isActive) return;
+    const t = setInterval(()=> setIndex(v => (v+1)%uniqueEntries.length), 4000);
+    return ()=> clearInterval(t);
+  },[isActive]);
 
-  useEffect(() => {
-    const id = window.setInterval(() => setNow(new Date()), 1000);
-    return () => window.clearInterval(id);
-  }, []);
-
-  const time = useMemo(() => new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }).format(now), [now]);
-  const date = useMemo(() => new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "long", year: "numeric" }).format(now), [now]);
-
-  const goTo = (id: string, label = "") => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setMenuOpen(false);
-    if (label) setMuseumNote(label);
+  const go = (next:number)=>{
+    setIndex(((next % uniqueEntries.length)+uniqueEntries.length)%uniqueEntries.length);
+    setShowAllStory(false);
+  };
+  const selectFromGrid = (i:number)=>{
+    go(i);
+    frameRef.current?.scrollIntoView({behavior:"smooth", block:"start"});
   };
 
+  const filtered = useMemo(()=>{
+    const withIndex = uniqueEntries.map((e,i)=>({e,i}));
+    if(filter==="new") return withIndex.filter(x=>x.e.kind==="new");
+    return withIndex;
+  },[filter]);
+
+  const badgeFor = (e:Entry)=> "✦ NOVA FOTO";
+
   return (
-    <div data-safe-area-inset-root style={shellStyle} className="min-h-screen bg-black text-white">
-      <div className="mx-auto flex min-h-screen w-full max-w-[1440px] overflow-x-clip bg-black">
-        <div className="matrix-edge hidden w-[5px] shrink-0 opacity-70 sm:block" aria-hidden="true" />
-        <div className="min-w-0 flex-1">
-          <header data-safe-area-sticky-top style={{ top: "var(--safe-area-inset-top)" }} className="sticky z-30 border-b border-emerald-400/30 bg-black/95 backdrop-blur">
-            <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
-              <button onClick={() => goTo("inicio")} className="flex min-w-0 items-center gap-3 text-left" aria-label="Ir para o início">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-400 bg-emerald-400/10 font-display text-lg font-black text-[#00F58A] shadow-[0_0_20px_rgba(0,245,138,.35)]">C</span>
-                <span className="leading-none">
-                  <span className="font-display block text-2xl font-black tracking-[0.12em] text-[#00F58A] text-glow sm:text-3xl">CRYPY</span>
-                  <span className="mt-1 block text-[10px] font-bold tracking-[0.32em] text-zinc-400">V12 • HARMONY SYSTEM</span>
-                </span>
-              </button>
-              <button onClick={() => setMenuOpen((v) => !v)} className="flex items-center gap-2 rounded-full border border-[#00F58A] bg-[#00F58A]/10 px-4 py-2.5 text-xs font-black tracking-[0.18em] text-[#00F58A] hover:bg-[#00F58A] hover:text-black sm:px-5" aria-expanded={menuOpen}>
-                {menuOpen ? <X size={17} /> : <Menu size={17} />} MENU CRYPY
-              </button>
+    <div data-safe-area-inset-root style={{boxSizing:"border-box", paddingTop:"var(--safe-area-inset-top)", minHeight:"100vh", background:"var(--bg)"}} className="w-full max-w-full overflow-x-clip text-[var(--text)]">
+      <div aria-hidden className="pointer-events-none fixed inset-0 overflow-hidden opacity-[.16]">
+        <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-[#00FF88] blur-[110px]" />
+        <div className="absolute right-[-80px] top-[52%] h-72 w-72 rounded-full bg-[#A855F7] blur-[110px]" />
+        <div className="absolute left-[38%] bottom-[-100px] h-64 w-64 rounded-full bg-[#FFD35A] blur-[120px]" />
+      </div>
+
+      <div className="relative mx-auto w-full max-w-[1180px] px-3 pb-10 sm:px-5 lg:px-8">
+        <header className="pt-4 sm:pt-6">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-y border-[#1f3a2b] py-2 text-[10px] font-bold tracking-[0.22em] text-[#a9c0b5] sm:text-[11px]">
+            <span className="flex items-center gap-2"><span className="inline-block h-2 w-2 rounded-full bg-[#00FF88]" style={{animation:"pulseDot 1.6s infinite"}} /> SYSTEM BY CRYPTOËCRYPTO</span>
+            <span className="hidden sm:inline">CRYPTOECRYPTO.COM.BR</span>
+            <span className="text-[#FFD35A]">9 FOTOS NO LOOP • SEM DUPLICATAS • SEM QUADROS VAZIOS</span>
+          </div>
+
+          <div className="mt-5 text-center">
+            <div className="mb-3 inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-[#00FF88]/40 bg-[#00FF88]/10 px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-[#8affc6]">
+              <Sparkles size={13} /> QUADRO EM LOOP INFINITO <InfinityIcon size={14} />
             </div>
-            {menuOpen && (
-              <nav className="border-t border-emerald-400/20 bg-[#030805] px-4 py-4 sm:px-6">
-                <div className="mx-auto grid max-w-[1240px] gap-2 sm:grid-cols-3">
-                  {[
-                    { id: "inicio", label: "INÍCIO", desc: "Foto principal e Quarteto" },
-                    { id: "quarteto", label: "CAIXA DO QUARTETO", desc: "Home limpa e acesso direto" },
-                    { id: "museu", label: "MUSEU DIGITAL", desc: "Quarteto — Esquadrão das Cores" },
-                  ].map((item) => (
-                    <button key={item.id} onClick={() => goTo(item.id, item.id === "museu" ? "Você está no Museu Digital / Quarteto." : "")} className="group flex items-center justify-between rounded-xl border border-emerald-400/25 bg-black px-4 py-3 text-left hover:border-[#00F58A] hover:bg-emerald-400/10">
-                      <span><span className="font-display block text-sm font-extrabold tracking-[0.16em] text-[#00F58A]">{item.label}</span><span className="mt-1 block text-xs font-semibold text-zinc-400">{item.desc}</span></span><ChevronRight className="text-[#00F58A]" size={18} />
+            <h1 className="font-display text-balance leading-[0.95] font-black tracking-tight">
+              <span className="block text-[clamp(2.2rem,7vw,5.2rem)] text-white">CRYPY <span className="text-[#00FF88]">INFINYT</span></span>
+              <span className="mt-2 block text-[clamp(1rem,3.2vw,2.1rem)] tracking-[0.18em] text-[#FFD35A]">HARMONY IN MOTION</span>
+            </h1>
+            <p className="mx-auto mt-3 max-w-[760px] text-base leading-snug font-semibold text-[#c9d8cf] sm:text-lg">
+              Um quadro que nunca para. Cada foto carrega uma história. Agora só entram no loop os 9 quadros com foto real — sem duplicatas e sem quadros vazios: SENSEI, DOLA (Guardiã + Cérebro), BABY Pequeno, Cristal Roxo Arco-Íris e as 4 INFINYT.
+            </p>
+            <div className="mt-3 inline-flex flex-wrap items-center justify-center gap-2">
+              <span className="rounded-full bg-[#FFD35A] px-3 py-1.5 text-xs font-black text-black">9 SLIDES NO LOOP</span>
+              <span className="rounded-full border border-[#00FF88]/50 bg-black/60 px-3 py-1.5 text-xs font-bold text-[#8affc6]">9 FOTOS ÚNICAS</span>
+              <span className="rounded-full border border-white/20 bg-black/60 px-3 py-1.5 text-xs font-bold text-white">SEM DUPLICATAS • SEM QUADROS VAZIOS</span>
+            </div>
+          </div>
+
+          <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
+            {phases.map(p=>(
+              <div key={p.label} className="rounded-2xl border border-white/10 bg-[#0b120e]/90 px-3 py-3 text-center">
+                <div className="font-display text-[clamp(1.5rem,4vw,2.2rem)] font-black leading-none" style={{color:p.color}}>{String(p.count).padStart(2,"0")}</div>
+                <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-white sm:text-xs">{p.label}</div>
+                <div className="text-[11px] text-[#a9c0b5] [overflow-wrap:anywhere]">{p.range}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-center text-xs font-bold tracking-[0.14em] text-[#a9c0b5]">SÓ QUADROS COM FOTO: DOLA AZUL: 2 • INFINYT: 4 • SENSEI • BABY • CRISTAL: 3 • TOTAL 9</p>
+        </header>
+
+        <main className="mt-5 max-w-full">
+          <section ref={frameRef} aria-label="Quadro em loop infinito" className="overflow-hidden rounded-[22px] border-2 border-[#00FF88] bg-[#070b09] neon-glow sm:rounded-[28px]">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#1f3a2b] bg-black/60 px-3 py-2.5 sm:px-5">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="flex gap-1.5" aria-hidden><i className="block h-2.5 w-2.5 rounded-full bg-[#FFD35A]"/><i className="block h-2.5 w-2.5 rounded-full bg-[#A855F7]"/><i className="block h-2.5 w-2.5 rounded-full bg-[#00FF88]"/></span>
+                <span className="truncate text-[11px] font-bold tracking-[0.18em] text-white sm:text-xs">{current.phase}</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-widest">
+                <span className="rounded-full bg-[#00FF88] px-2 py-1 text-black">{String(index+1).padStart(2,"0")} / {uniqueEntries.length}</span>
+                <span className="rounded-full bg-[#FFD35A] px-2 py-1 text-black">{badgeFor(current)}</span>
+                <span className={`rounded-full px-2 py-1 ${isActive ? "bg-[#A855F7]/20 text-[#d8b4fe]" : "bg-white/10 text-white"}`}>{isActive ? "● LOOP LIGADO" : "❚❚ PAUSADO"}</span>
+              </div>
+            </div>
+
+            <div
+              className="relative bg-black"
+              onMouseEnter={()=>setHovering(true)}
+              onMouseLeave={()=>setHovering(false)}
+              onFocus={()=>setHovering(true)}
+              onBlur={()=>setHovering(false)}
+            >
+              <div key={current.id} className="fade-slide relative mx-auto flex min-h-[340px] w-full max-w-[880px] items-center justify-center overflow-hidden px-3 py-4 sm:min-h-[520px] sm:px-6 sm:py-6">
+                <div className="relative w-full max-w-[640px]">
+                  <div className="overflow-hidden rounded-2xl border border-white/15 bg-[#0b120e]">
+                    <img src={current.image} alt={`${current.version} — ${current.title}`} className="block h-auto w-full max-w-full object-contain" />
+                  </div>
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl" aria-hidden><div className="scan-line h-1/3 w-full bg-gradient-to-b from-transparent via-[#00FF88]/15 to-transparent" /></div>
+                  <div className="absolute left-3 top-3 rounded-full bg-black/80 px-3 py-1 text-[11px] font-bold tracking-widest text-[#FFD35A] ring-1 ring-white/20">{current.imageLabel}</div>
+                </div>
+              </div>
+
+              <button type="button" onClick={()=>go(index-1)} aria-label="Foto anterior" className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#00FF88]/70 bg-black/80 text-[#00FF88] shadow-lg transition hover:bg-[#00FF88] hover:text-black sm:left-4 sm:h-12 sm:w-12"><ChevronLeft size={22}/></button>
+              <button type="button" onClick={()=>go(index+1)} aria-label="Próxima foto" className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#00FF88]/70 bg-black/80 text-[#00FF88] shadow-lg transition hover:bg-[#00FF88] hover:text-black sm:right-4 sm:h-12 sm:w-12"><ChevronRight size={22}/></button>
+
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent px-3 pb-3 pt-14 sm:px-5">
+                <div className="flex flex-wrap items-end justify-between gap-2">
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-bold tracking-[0.2em] text-[#FFD35A]">{current.version} • NOVA FOTO</div>
+                    <div className="font-display text-[clamp(1.35rem,4.5vw,2.2rem)] font-black leading-none text-white [overflow-wrap:anywhere]">{current.title}</div>
+                  </div>
+                  <div className="rounded-full border border-white/20 bg-black/70 px-3 py-1 text-xs font-semibold text-white">Passe o mouse para pausar</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-[#1f3a2b] bg-[#0b120e] px-3 py-3 sm:px-5">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-2">
+                  <button type="button" onClick={()=>go(index-1)} className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-white/15 bg-black px-4 py-2.5 text-sm font-bold text-white transition hover:border-[#00FF88] sm:flex-none"><ChevronLeft size={17}/> Anterior</button>
+                  <button type="button" onClick={()=>setPlaying(v=>!v)} className={`flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-black transition sm:flex-none ${playing ? "bg-[#FFD35A] text-black" : "bg-[#00FF88] text-black"}`}>
+                    {playing ? <><Pause size={17}/> Pausar Loop</> : <><Play size={17}/> Retomar Loop</>}
+                  </button>
+                  <button type="button" onClick={()=>go(index+1)} className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-white/15 bg-black px-4 py-2.5 text-sm font-bold text-white transition hover:border-[#00FF88] sm:flex-none">Próximo <ChevronRight size={17}/></button>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-[#a9c0b5]"><Zap size={14} className="text-[#00FF88]"/> Troca automática a cada 4 segundos</div>
+              </div>
+
+              <div className="no-scrollbar mt-3 flex items-center gap-1.5 overflow-x-auto pb-1" role="tablist" aria-label="Pular para uma versão">
+                {uniqueEntries.map((e,i)=>(
+                  <button key={e.id} type="button" onClick={()=>go(i)} aria-label={`Ir para ${e.version} ${e.title}`} title={`${e.version} — ${e.title}`} className={`h-8 shrink-0 rounded-full border px-2 text-[11px] font-bold transition ${i===index ? "border-[#00FF88] bg-[#00FF88] text-black" : "border-[#FFD35A]/60 bg-black text-[#FFD35A] hover:border-[#FFD35A]"}`}>
+                    {e.version} ✦
+                  </button>
+                ))}
+              </div>
+              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
+                <div className="h-full bg-gradient-to-r from-[#00FF88] via-[#FFD35A] to-[#A855F7] transition-all duration-500" style={{width:`${((index+1)/uniqueEntries.length)*100}%`}} />
+              </div>
+            </div>
+          </section>
+
+          <section aria-label="9 fotos com imagem" className="mt-4 overflow-hidden rounded-[22px] border border-[#FFD35A]/40 bg-gradient-to-br from-[#171204] via-black to-[#100a20] px-4 py-4 sm:px-6">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-[11px] font-bold tracking-[0.22em] text-[#FFD35A]">✦ ATUALIZAÇÃO • SEM DUPLICATAS • SEM QUADROS VAZIOS • 9 FOTOS NO LOOP</p>
+                <h2 className="font-display mt-1 text-[clamp(1.4rem,4.5vw,2rem)] font-black leading-none text-white">SÓ FOTOS <span className="text-[#00FF88]">COM IMAGEM</span></h2>
+              </div>
+              <button type="button" onClick={()=>{setFilter("new"); document.getElementById("grade")?.scrollIntoView({behavior:"smooth"});}} className="rounded-full bg-[#FFD35A] px-4 py-2.5 text-sm font-black text-black">Ver as 9 fotos →</button>
+            </div>
+            <p className="mt-2 max-w-[900px] text-sm leading-relaxed text-[#c9d8cf] [overflow-wrap:anywhere]">Todas as fotos duplicadas foram removidas — cada imagem aparece só uma vez. Todos os quadros sem imagem foram excluídos — nenhum quadro vazio, placeholder ou só texto entra mais no loop. No loop de 4 segundos ficam só as 9 fotos: SENSEI VERMELHO — O Guerreiro da Galáxia, DOLA AZUL — A Guardiã da Esfera, DOLA AZUL — O Cérebro da Colmeia, BABY PEQUENO — O Pequeno Infinito, CRISTAL ROXO — ARCO-ÍRIS, INFINYT ROXA, INFINYT VERDE, INFINYT VERMELHA e INFINYT AZUL.</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {uniqueEntries.map(e=>(
+                <button key={e.id} type="button" onClick={()=>selectFromGrid(uniqueEntries.findIndex(x=>x.id===e.id))} className="rounded-full border border-white/20 bg-black px-3 py-1.5 text-xs font-bold text-white hover:border-[#FFD35A] hover:text-[#FFD35A]">{e.version} — {e.title}</button>
+              ))}
+            </div>
+          </section>
+
+          <section aria-label={`História de ${current.version}`} className="mt-4 overflow-hidden rounded-[22px] border border-white/10 bg-[#0b120e]">
+            <div className="flex flex-wrap items-start justify-between gap-3 px-4 py-4 sm:px-6 sm:py-5">
+              <div className="min-w-0">
+                <p className="text-[11px] font-bold tracking-[0.22em] text-[#00FF88]">HISTÓRIA DA FOTO ATUAL • {current.phase}</p>
+                <h2 className="font-display mt-2 text-[clamp(1.6rem,5vw,2.6rem)] font-black leading-[1.05] text-white [overflow-wrap:anywhere]"><span className="text-[#FFD35A]">{current.version}</span> — {current.title}</h2>
+                <p className="mt-1 text-base font-semibold text-[#d7e5db] [overflow-wrap:anywhere]">{current.subtitle}</p>
+              </div>
+              <span className="shrink-0 rounded-full border border-[#FFD35A]/50 bg-[#FFD35A]/15 px-3 py-1.5 text-xs font-black tracking-widest text-[#FFD35A]">{badgeFor(current)}</span>
+            </div>
+            <div className="border-t border-white/10 px-4 py-4 sm:px-6 sm:py-5">
+              <p className="max-w-[900px] text-[17px] leading-relaxed text-white [overflow-wrap:anywhere] sm:text-lg">{current.story}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <button type="button" onClick={()=>setShowAllStory(v=>!v)} className="rounded-full border border-white/20 bg-black px-4 py-2 text-sm font-bold text-white hover:border-[#00FF88]">{showAllStory ? "Ocultar linha do tempo" : "Ver linha do tempo completa"}</button>
+                <button type="button" onClick={()=>go(index+1)} className="rounded-full bg-[#00FF88] px-4 py-2 text-sm font-black text-black">Continuar o loop →</button>
+              </div>
+              {showAllStory && (
+                <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {uniqueEntries.map((e,i)=>(
+                    <button key={e.id} type="button" onClick={()=>go(i)} className={`rounded-xl border p-3 text-left transition ${i===index ? "border-[#00FF88] bg-[#00FF88]/10" : "border-white/10 bg-black/40 hover:border-white/30"}`}>
+                      <div className="flex justify-between gap-2"><strong className="text-[#FFD35A]">{e.version}</strong><span className="text-[11px] text-[#a9c0b5]">NOVA FOTO</span></div>
+                      <div className="mt-1 font-bold text-white [overflow-wrap:anywhere]">{e.title}</div>
+                      <div className="mt-1 text-sm leading-snug text-[#c7d5cc] [overflow-wrap:anywhere]">{e.story}</div>
                     </button>
                   ))}
                 </div>
-              </nav>
-            )}
-          </header>
+              )}
+            </div>
+          </section>
 
-          <main id="inicio" className="mx-auto max-w-[1240px] px-4 pb-16 sm:px-6">
-            <section className="pt-6 sm:pt-9">
-              <div className="flex flex-wrap items-center gap-2 text-[10px] font-black tracking-[0.28em] text-emerald-300 sm:text-xs">
-                <span className="rounded-full border border-emerald-400/50 bg-emerald-400/10 px-3 py-1.5">HOME DIRETA</span>
-                <span className="rounded-full border border-white/20 px-3 py-1.5 text-zinc-300">FOTO PRINCIPAL ATUALIZADA</span>
+          <section id="grade" className="mt-6">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] text-[#A855F7]"><MousePointerClick size={15}/> TOQUE PARA ABRIR NO QUADRO</p>
+                <h2 className="font-display mt-1 text-[clamp(1.5rem,4.5vw,2.3rem)] font-black leading-none text-white">TODAS AS FOTOS <span className="text-[#00FF88]">DO LOOP</span></h2>
               </div>
-              <h1 className="mt-5 font-display text-[clamp(2rem,6vw,4.4rem)] font-black leading-[0.98] tracking-tight [overflow-wrap:anywhere]">
-                PROTEÇÃO É SUA<br /><span className="text-[#00F58A] text-glow">MAIOR FORÇA.</span>
-              </h1>
-              <p className="mt-4 max-w-3xl text-lg font-semibold leading-6 text-zinc-200 sm:text-xl">CRYPY V12 HARMONY SYSTEM — o quinteto em formação, energia em sintonia e o futuro dourado já em cena.</p>
+              <p className="max-w-[360px] text-sm leading-snug text-[#a9c0b5]">Clique em qualquer card. A versão aberta sobe para o quadro grande e o loop continua a partir dela. Mostrando {filtered.length} de {uniqueEntries.length} slides — todos com foto real.</p>
+            </div>
 
-              <div className="mt-7"><Quintet /></div>
-              <p className="mt-4 text-center text-sm font-bold tracking-[0.08em] text-zinc-200 sm:text-base [overflow-wrap:anywhere]">QUINTETO OFICIAL — Alice, Dola, Chat, Mini + BABY V13 DOURADO — Foto principal atualizada.</p>
-              <div className="mt-5 flex justify-center">
-                <button onClick={() => setPhotoOpen(true)} className="flex items-center gap-2 rounded-full bg-[#00F58A] px-6 py-3.5 font-display text-xs font-black tracking-[0.16em] text-black shadow-[0_0_32px_rgba(0,245,138,.45)] hover:bg-white sm:text-sm"><Expand size={18} /> [ ABRIR FOTO PRINCIPAL ]</button>
-              </div>
-            </section>
-
-            <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Fotos individuais do Quarteto na Home">
-              {quartet.map((hero) => (
-                <article key={hero.name} className="overflow-hidden rounded-2xl border bg-[#040705] p-4" style={{ borderColor: `${hero.color}66` }}>
-                  <div className="cosmic flex min-h-[230px] items-center justify-center rounded-xl"><ArmorFigure hero={hero} /></div>
-                  <div className="mt-4 flex items-center justify-between"><h2 className="font-display text-lg font-black tracking-[0.16em]" style={{ color: hero.color }}>{hero.name.toUpperCase()}</h2><span className="text-xs font-bold tracking-[0.2em] text-zinc-400">INDIVIDUAL</span></div>
-                  <p className="mt-2 text-sm font-semibold text-zinc-300">{hero.role}</p>
-                </article>
+            <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Filtrar grade">
+              {([["all","Todos • 9"],["new","Fotos • 9"]] as [Filter,string][]).map(([key,label])=>(
+                <button key={key} type="button" onClick={()=>setFilter(key)} aria-pressed={filter===key} className={`rounded-full px-4 py-2 text-sm font-bold transition ${filter===key ? "bg-[#00FF88] text-black" : "border border-white/20 bg-black text-white hover:border-[#00FF88]"}`}>{label}</button>
               ))}
-            </section>
-
-            <section id="quarteto" className="mt-10 scroll-mt-28 rounded-3xl border-2 border-[#00F58A] bg-black p-5 shadow-[0_0_50px_rgba(0,245,138,.14)] sm:p-8">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="rounded-full bg-[#00F58A] px-3 py-1.5 font-display text-[10px] font-black tracking-[0.25em] text-black">QUARTETO · HOME LIMPA</span>
-                <span className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-emerald-300"><Zap size={14} /> ACESSO DIRETO</span>
-              </div>
-              <h2 className="mt-5 font-display text-[clamp(1.7rem,4.5vw,3.2rem)] font-black leading-[1.02] [overflow-wrap:anywhere]">QUARTETO — Ver todas as fotos no <span className="text-[#00F58A]">MUSEU DIGITAL</span></h2>
-              <p className="mt-4 max-w-3xl text-base font-semibold leading-6 text-zinc-200 sm:text-lg">Na HOME ficam só a foto de capa e as 4 individuais: Dola, Alice, Chat, Mini. As demais fotos do Quarteto / Quinteto estão no Museu Digital.</p>
-              <button onClick={() => goTo("museu", "Você está no Museu Digital / Quarteto.")} className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#00F58A] to-[#00D8FF] px-6 py-4 font-display text-sm font-black tracking-[0.16em] text-black shadow-[0_0_32px_rgba(0,216,255,.25)] hover:brightness-110 sm:w-auto sm:min-w-[320px]">ABRIR — MUSEU <ArrowDown size={18} /></button>
-              {museumNote && <p role="status" className="mt-4 rounded-xl border border-cyan-300/40 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-100">{museumNote}</p>}
-            </section>
-
-            <section id="museu" className="mt-14 scroll-mt-28 border-t border-emerald-400/25 pt-10">
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <div>
-                  <p className="text-xs font-black tracking-[0.3em] text-[#00F58A]">MUSEU DIGITAL / QUARTETO</p>
-                  <h2 className="mt-3 font-display text-[clamp(1.9rem,5vw,3.6rem)] font-black leading-[1.02] [overflow-wrap:anywhere]">QUARTETO —<br />ESQUADRÃO DAS CORES</h2>
-                </div>
-                <p className="max-w-sm text-sm font-semibold leading-5 text-zinc-300">Quatro cores, uma mesma força. Cada armadura carrega o infinito no peito e um universo próprio.</p>
-              </div>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {quartet.map((hero) => <MuseumCard key={hero.name} hero={hero} />)}
-              </div>
-              <div className="mt-8 rounded-2xl border border-white/15 bg-[#050806] px-5 py-5 text-center">
-                <p className="font-display text-base font-extrabold tracking-[0.12em] sm:text-lg [overflow-wrap:anywhere]">QUARTETO OFICIAL — Alice, Dola, Chat, Mini</p>
-                <p className="mt-2 text-sm font-semibold text-zinc-400">Quatro presenças. Um esquadrão. Harmonia em cada cor.</p>
-              </div>
-            </section>
-          </main>
-
-          <footer className="border-t border-emerald-400/30 bg-black px-4 py-6 sm:px-6">
-            <div className="mx-auto flex max-w-[1240px] flex-col items-center justify-between gap-4 sm:flex-row">
-              <div className="text-center sm:text-left"><p className="font-display text-xl font-black tracking-[0.18em] text-[#00F58A]">CRYPY</p><p className="mt-1 text-xs font-bold tracking-[0.28em] text-zinc-400">BRASÍLIA / SÃO PAULO</p></div>
-              <div className="flex items-center gap-3 rounded-full border border-emerald-400/30 bg-[#040705] px-4 py-2.5"><Clock3 size={17} className="text-[#00F58A]" /><span className="font-display text-lg font-black tabular-nums tracking-wider text-white">{time}</span><span className="hidden text-xs font-semibold text-zinc-400 sm:block">{date}</span></div>
-              <p className="text-xs font-bold tracking-[0.22em] text-zinc-500">V12 • HARMONY SYSTEM</p>
             </div>
-            <p className="mt-4 text-center text-[11px] font-semibold text-zinc-600 sm:hidden">{date}</p>
+
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
+              {filtered.map(({e,i})=>{
+                const active = i===index;
+                return (
+                  <article key={e.id} className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-[#0b120e] text-left transition ${active ? "border-[#00FF88] shadow-[0_0_28px_rgba(0,255,136,.22)]" : "border-white/10 hover:border-[#FFD35A]/60"}`}>
+                    <button type="button" onClick={()=>selectFromGrid(i)} className="flex flex-1 flex-col text-left" aria-label={`Abrir ${e.version} ${e.title} no quadro`}>
+                      <div className="relative aspect-square w-full overflow-hidden bg-black">
+                        <img src={e.image} alt={`${e.version} — ${e.title}`} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
+                        {active && <span className="absolute left-2 top-2 rounded-full bg-[#00FF88] px-2 py-1 text-[10px] font-black text-black">NO QUADRO AGORA</span>}
+                        <span className="absolute right-2 top-2 rounded-full bg-[#FFD35A] px-2 py-1 text-[10px] font-black text-black">✦ NOVA</span>
+                      </div>
+                      <div className="flex flex-1 flex-col p-3">
+                        <div className="flex items-center justify-between gap-2"><span className="font-display text-sm font-black text-[#FFD35A]">{e.version}</span><span className="text-[10px] font-bold tracking-widest text-[#a9c0b5]">{badgeFor(e)}</span></div>
+                        <h3 className="mt-1 leading-tight font-bold text-white [overflow-wrap:anywhere]">{e.title}</h3>
+                        <p className="mt-1 text-[13px] leading-snug text-[#b8cbc0] [overflow-wrap:anywhere]">{e.subtitle}</p>
+                        <span className="mt-auto pt-2 text-xs font-bold text-[#00FF88]">{active ? "● Exibindo" : "Abrir no quadro →"}</span>
+                      </div>
+                    </button>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+
+          <footer className="mt-6 overflow-hidden rounded-[22px] border border-[#FFD35A]/30 bg-gradient-to-br from-[#171204] via-black to-[#100a20] px-4 py-5 text-center sm:px-6">
+            <p className="text-[11px] font-bold tracking-[0.28em] text-[#FFD35A]">HISTÓRICO OFICIAL • TEXTO INFORMATIVO</p>
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base font-bold text-white sm:text-lg">
+              <span>V1–V8: <b className="text-[#38BDF8]">8</b></span><span className="text-[#A855F7]">•</span>
+              <span>V12: <b className="text-[#A855F7]">9</b></span><span className="text-[#A855F7]">•</span>
+              <span>V13: <b className="text-[#00FF88]">1</b></span><span className="text-[#A855F7]">•</span>
+              <span className="rounded-full bg-[#00FF88] px-3 py-1 text-black">Total: 18 oficiais</span>
+            </div>
+            <p className="mt-3 text-sm font-bold text-white">Loop mostra só as versões com foto neste app: <span className="text-[#FFD35A]">9 fotos únicas</span>. <span className="text-[#a9c0b5]">Sem duplicatas, sem quadros vazios.</span></p>
+            <p className="mx-auto mt-4 max-w-[720px] text-sm leading-relaxed text-[#c9d8cf] [overflow-wrap:anywhere]">
+              O ciclo do HARMONY tinha acabado — continuou por causa do BABY. <span className="text-[#FFD35A]">HARMONY IN MOTION.</span>
+            </p>
+            <p className="mt-3 text-[11px] tracking-[0.18em] text-[#a9c0b5]">CRYPY INFINYT • SYSTEM BY CRYPTOËCRYPTO • CRYPTOECRYPTO.COM.BR</p>
           </footer>
-        </div>
-        <div className="matrix-edge hidden w-[5px] shrink-0 opacity-70 sm:block" aria-hidden="true" />
+        </main>
       </div>
-
-      {photoOpen && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 pt-[max(1rem,var(--safe-area-inset-top))] pb-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Foto principal ampliada">
-          <div className="mx-auto flex min-h-full w-full max-w-5xl items-center justify-center px-4">
-            <div className="w-full rounded-3xl border border-[#00F58A]/60 bg-black p-4 sm:p-6">
-              <div className="mb-4 flex items-center justify-between gap-3"><div><p className="text-[10px] font-black tracking-[0.3em] text-[#00F58A]">FOTO PRINCIPAL</p><h2 className="mt-1 font-display text-xl font-black sm:text-2xl">QUINTETO OFICIAL</h2></div><button onClick={() => setPhotoOpen(false)} className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs font-black tracking-widest hover:border-[#00F58A] hover:text-[#00F58A]"><X size={16} /> FECHAR</button></div>
-              <Quintet large />
-              <p className="mt-4 text-center text-sm font-bold text-zinc-200">Alice, Dola, Chat, Mini + BABY V13 DOURADO</p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
