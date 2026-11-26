@@ -121,7 +121,7 @@ async function updateAsset(a){
   json(API+'/api/v3/klines?symbol='+a.symbol+'&interval='+interval+'&limit='+config.candleLimit)
  ]);
  const price=Number(ticker.lastPrice),change=Number(ticker.priceChangePercent);
- $('price-'+a.id).textContent=fmt(price,a.digits)+(a.id==='USDT'?' R
+ $('price-'+a.id).textContent=fmt(price,a.digits)+(a.id==='USDT'?' R$':' USDT');checkPriceAlerts(a.id,price);
  const ch=$('change-'+a.id);ch.textContent=(change>=0?'+':'')+fmt(change,2)+'% · 24h';ch.className='change '+(change>=0?'up':'down');
  $('high-'+a.id).textContent=fmt(ticker.highPrice,a.digits);
  $('low-'+a.id).textContent=fmt(ticker.lowPrice,a.digits);
