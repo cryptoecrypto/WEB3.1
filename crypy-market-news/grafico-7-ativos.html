@@ -53,7 +53,7 @@ const fmt=(v,d=2)=>Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,max
 let interval='15m',busy=false;
 function setStatus(kind,msg){$('connectionDot').className='dot '+kind;$('connectionText').textContent=msg}
 function draw(id,rows){
- const c=$('chart-'+id);if(!c||!rows?.length)return;
+ const c=$('chart-'+id);if(!c||!rows?.length)return;c.dataset.rows=JSON.stringify(rows);
  const rect=c.getBoundingClientRect(),w=Math.max(260,rect.width),h=Math.max(150,rect.height),ratio=window.devicePixelRatio||1;
  c.width=Math.round(w*ratio);c.height=Math.round(h*ratio);
  const x=c.getContext('2d');x.scale(ratio,ratio);x.clearRect(0,0,w,h);
