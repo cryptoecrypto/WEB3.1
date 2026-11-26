@@ -55,8 +55,8 @@
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
   var officialMenuPaths = ["crypy-infinyt/portal.html","crypy-academy/academia.html","esquadrao-das-cores/esquadrao.html","nft-collection/galeria.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","social-crypykut/comunidade.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
   var categories = [
-    {label:"CRYPY-INFINIT", groups:["crypy-infinyt"]},
-    {label:"CRYPY-ACADEMY", groups:["crypy-academy","web3.1"]},
+    {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
+    {label:"CRYPY ACADEMY-WEB3.1", groups:["crypy-academy","web3.1"]},
     {label:"ESQUADRÃO DAS CORES", groups:["esquadrao-das-cores"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
     {label:"BIOGRAFIA", groups:["biografia"]},
@@ -64,7 +64,7 @@
     {label:"MUSEU DIGITAL", groups:["museu-digital"]},
     {label:"MARKETPLACE", groups:["art-figure-marketplace","marketing"]},
     {label:"CRYPY-GAMES", groups:["crypy-games-desafios"]},
-    {label:"CRYPYCUT", groups:["social-crypykut","crypy-shots"]},
+    {label:"CRYPY-SOCIAL", groups:["social-crypykut","crypy-shots"]},
     {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
     {label:"WHITE PAPER", groups:["crypy-coin","white-paper"]},
     {label:"CONTATO", groups:["contato"]}
@@ -173,7 +173,7 @@
       "#crypy-global-navigation *{box-sizing:border-box}",
       "#crypy-global-nav-toggle{pointer-events:auto;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;border:0;border-bottom:1px solid #17613a;border-radius:0;padding:10px 22px;background:linear-gradient(100deg,#020805f5,#06190df5 55%,#020805f5);color:#00ff88;font-weight:950;font-size:13px;letter-spacing:.14em;box-shadow:0 8px 24px #0008;cursor:pointer;text-align:left}",
       "#crypy-global-nav-toggle:focus-visible,#crypy-global-navigation a:focus-visible,#crypy-global-navigation button:focus-visible,#crypy-global-navigation input:focus-visible{outline:2px solid #fff;outline-offset:3px}",
-      "#crypy-global-nav-panel{pointer-events:auto;display:none;position:fixed;top:62px;left:3vw;right:3vw;width:auto;max-width:1280px;margin:auto;max-height:calc(100dvh - 76px);overflow:hidden;border:1px solid #00ff88;border-radius:18px;background:linear-gradient(145deg,#030a05,#06150b 60%,#020805);box-shadow:0 24px 80px #000e,0 0 30px #00ff8828}",
+      "#crypy-global-nav-panel{pointer-events:auto;display:none;position:fixed;top:62px;left:3vw;right:3vw;width:auto;max-width:1280px;margin:auto;max-height:calc(100dvh - 76px);overflow:hidden;border:1px solid #00ff88;border-radius:18px;background:linear-gradient(145deg,#030a05,#06150b 60%,#020805);box-shadow:0 24px 80px #000e,0 0 30px #00ff8828;perspective:1400px;transform-style:preserve-3d}",
       "#crypy-global-nav-panel[data-open=true]{display:flex;flex-direction:column}",
       ".crypy-nav-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;border-bottom:1px solid #17462b;background:linear-gradient(100deg,#092014,#030a05)}",
       ".crypy-nav-title{font-size:14px;font-weight:900;letter-spacing:.12em;color:#00ff88}",
@@ -183,9 +183,9 @@
       ".crypy-nav-search input{width:100%;padding:11px 12px;border:1px solid #276542;border-radius:10px;background:#07170e;color:#eafff3;font-size:14px}",
       ".crypy-nav-count{font-size:11px;color:#a5cbb4;margin-top:7px}",
       ".crypy-nav-list{overflow:auto;padding:18px;overscroll-behavior:contain}",
-      ".crypy-nav-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}",
-      ".crypy-nav-category{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:66px;text-align:left;padding:14px 16px;border:1px solid #17613a;border-radius:13px;background:linear-gradient(135deg,#07170e,#041009);color:#eafff3;font-size:13px;font-weight:850;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease}",
-      ".crypy-nav-category:hover{transform:translateY(-2px);background:#0b2114;border-color:#00ff88;color:#00ff88}",
+      ".crypy-nav-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:1200px}",
+      ".crypy-nav-category{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:66px;text-align:left;padding:14px 16px;border:1px solid #17613a;border-radius:13px;background:linear-gradient(135deg,#07170e,#041009);color:#eafff3;font-size:13px;font-weight:850;cursor:pointer;transform-style:preserve-3d;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;box-shadow:0 8px 18px #0007}",
+      ".crypy-nav-category:hover{transform:perspective(700px) rotateX(-3deg) rotateY(3deg) translateY(-3px) translateZ(10px);background:#0b2114;border-color:#00ff88;color:#00ff88;box-shadow:0 16px 28px #0009,0 0 22px #00ff8833}",
       ".crypy-nav-category small{color:#9bbda8;font-size:10px;white-space:nowrap}",
       ".crypy-nav-back{margin:0 0 10px;padding:8px 11px;border:1px solid #17613a;border-radius:8px;background:#07170e;color:#baffd8;font-weight:700;cursor:pointer}",
       ".crypy-nav-group{margin:5px 0 12px;border:1px solid #17462b;border-radius:12px;overflow:hidden;background:#041009}",
@@ -195,6 +195,12 @@
       ".crypy-nav-link strong{font-size:13px;font-weight:650}",
       ".crypy-nav-link small{font-size:10px;color:#9bbda8;overflow-wrap:anywhere}",
       ".crypy-nav-empty{padding:18px 12px;color:#a5cbb4;font-size:13px}",
+      ".crypy-nav-index-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}",
+      ".crypy-nav-index{display:flex;flex-direction:column;gap:5px;padding:13px;border:1px solid #17613a;border-radius:12px;background:linear-gradient(145deg,#07170e,#041009);color:#eafff3;text-decoration:none;transform-style:preserve-3d;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}",
+      ".crypy-nav-index:hover{transform:perspective(700px) rotateX(-2deg) rotateY(2deg) translateZ(8px);border-color:#00ff88;box-shadow:0 12px 24px #0009,0 0 18px #00ff8833}",
+      ".crypy-nav-index strong{color:#00ff88;font-size:12px}",
+      ".crypy-nav-index small{color:#9bbda8;font-size:10px}",
+      ".crypy-nav-index.is-empty{opacity:.48;border-style:dashed;pointer-events:none}",
       ".crypy-nav-detail{max-width:900px;margin:0 auto}",
       ".crypy-nav-detail .crypy-nav-group-title{margin:10px 0 12px;border-radius:10px}",
       ".crypy-nav-brand{display:flex;align-items:center;gap:12px}",
@@ -208,14 +214,14 @@
     var toggle = node("button",{id:"crypy-global-nav-toggle",type:"button","aria-expanded":"false","aria-controls":"crypy-global-nav-panel"});
     toggle.appendChild(node("span",{},"☰"));
     toggle.appendChild(node("span",{},"MENU CRYPY"));
-    toggle.appendChild(node("span",{},"13 ÁREAS · COLMEIA"));
+    toggle.appendChild(node("span",{},"13 TEMAS + 9 ÍNDICES"));
     var panel = node("section",{id:"crypy-global-nav-panel","data-open":"false","aria-label":"Menu global CRYPY"});
     var head = node("div",{className:"crypy-nav-head"});
     var headBrand = node("div",{className:"crypy-nav-brand"});
     headBrand.appendChild(node("div",{className:"crypy-nav-symbol"},"V"));
     var headText = node("div",{});
     headText.appendChild(node("div",{className:"crypy-nav-title"},"COLMEIA CRYPY"));
-    headText.appendChild(node("div",{className:"crypy-nav-subtitle"},"13 categorias oficiais · navegação unificada"));
+    headText.appendChild(node("div",{className:"crypy-nav-subtitle"},"INFINYT · COLMEIA · BABY I.A. · ESQUADRÃO · 9 ÍNDICES"));
     headBrand.appendChild(headText);
     var closeButton = node("button",{className:"crypy-nav-close",type:"button","aria-label":"Fechar menu"},"×");
     head.appendChild(headBrand);
@@ -273,7 +279,7 @@
       var matches = pages.filter(function(page){
         return !query || (page.label+" "+page.path+" "+page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = "Exibindo "+matches.length+" de "+pages.length+" destinos oficiais · 13 categorias";
+      count.textContent = "13 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div",{className:"crypy-nav-empty"},"Nenhuma página encontrada. Tente outro termo."));
@@ -295,6 +301,31 @@
         var back = node("button",{className:"crypy-nav-back",type:"button"},"← TODAS AS CATEGORIAS");
         back.addEventListener("click",function(){selected=null;render();});
         list.appendChild(back);
+        if (selected === "ÍNDICES DA COLMEIA") {
+          var indexes = [
+            {file:"index.html",name:"PORTAL",desc:"Entrada principal"},
+            {file:"index2.html",name:"RESERVA 02",desc:"Arquivo vazio",empty:true},
+            {file:"index3.html",name:"RESERVA 03",desc:"Arquivo vazio",empty:true},
+            {file:"index4.html",name:"RESERVA 04",desc:"Arquivo vazio",empty:true},
+            {file:"index5.html",name:"MATRIX",desc:"Home Matrix"},
+            {file:"index6.html",name:"COLMEIA",desc:"Sistema"},
+            {file:"index7.html",name:"NOTÍCIAS",desc:"Atalho editorial"},
+            {file:"index8.html",name:"INFINYT",desc:"Home Infinyt"},
+            {file:"index9.html",name:"CATÁLOGO",desc:"Catálogo de páginas"}
+          ];
+          var indexWrap = node("div",{className:"crypy-nav-detail"});
+          indexWrap.appendChild(node("div",{className:"crypy-nav-group-title"},"9 ÍNDICES · PORTAS DA COLMEIA"));
+          var indexGrid = node("div",{className:"crypy-nav-index-grid"});
+          indexes.forEach(function(item){
+            var card = node(item.empty?"div":"a",{className:"crypy-nav-index"+(item.empty?" is-empty":""),href:item.empty?"#":new URL(item.file,siteRoot).href});
+            card.appendChild(node("strong",{},item.name));
+            card.appendChild(node("small",{},item.desc));
+            indexGrid.appendChild(card);
+          });
+          indexWrap.appendChild(indexGrid);
+          list.appendChild(indexWrap);
+          return;
+        }
         var detail = node("div",{className:"crypy-nav-detail"});
         var subset = matches.filter(function(page){var assigned=categoryFor(page);return assigned && assigned.label===selected;});
         detail.appendChild(node("div",{className:"crypy-nav-group-title"},selected+" · "+subset.length+" páginas"));
@@ -312,6 +343,11 @@
         button.addEventListener("click",function(){selected=category.label;render();});
         grid.appendChild(button);
       });
+      var indexButton = node("button",{className:"crypy-nav-category",type:"button"});
+      indexButton.appendChild(node("span",{},"9 ÍNDICES DA COLMEIA"));
+      indexButton.appendChild(node("small",{},"9"));
+      indexButton.addEventListener("click",function(){selected="ÍNDICES DA COLMEIA";render();});
+      grid.appendChild(indexButton);
       list.appendChild(grid);
     }
     search.addEventListener("input",function(){selected=null;render();});
