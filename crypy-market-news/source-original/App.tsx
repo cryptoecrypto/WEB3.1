@@ -1,0 +1,352 @@
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import bgUrl from "container:///mnt/data/src/assets/96cbd1d1fb21c21b-img-u7531738462682835161-1.jpg";
+
+type Kline = { time: number; open: number; high: number; low: number; close: number; volume: number };
+type Coin = { symbol: string; label: string; base: number; change: number };
+type SimOrder = { id?: string; symbol: string; side: "Compra" | "Venda"; type: string; price: number; qty: number; total: number; created: string };
+type ApiRecord = { id: string; value: SimOrder };
+
+const COINS: Coin[] = [
+  { symbol: "BTC/USDT", label: "Bitcoin", base: 60115.77, change: 2.41 },
+  { symbol: "ETH/USDT", label: "Ethereum", base: 3428.18, change: 1.18 },
+  { symbol: "USDT/BRL", label: "Tether", base: 5.48, change: -0.12 },
+  { symbol: "BNB/USDT", label: "BNB", base: 598.24, change: 3.04 },
+  { symbol: "SOL/USDT", label: "Solana", base: 172.86, change: -1.72 },
+];
+const TIMEFRAMES = ["1s", "15m", "1H", "4H", "1D", "1S"] as const;
+const BINANCE_TICKER_BTC_URL = "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT";
+const BINANCE_KLINES_BTC_1H_URL = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=80";
+function binanceSymbol(symbol: string) { return symbol.replace("/", ""); }
+function binanceInterval(tf: string) { return tf === "1H" ? "1h" : tf === "4H" ? "4h" : tf === "1D" ? "1d" : tf === "1S" ? "1w" : tf; }
+function tickerUrl(symbol: string) { return symbol === "BTC/USDT" ? BINANCE_TICKER_BTC_URL : `https://api.binance.com/api/v3/ticker/24hr?symbol=${binanceSymbol(symbol)}`; }
+function klinesUrl(symbol: string, tf: string) { return symbol === "BTC/USDT" && tf === "1H" ? BINANCE_KLINES_BTC_1H_URL : `https://api.binance.com/api/v3/klines?symbol=${binanceSymbol(symbol)}&interval=${binanceInterval(tf)}&limit=80`; }
+
+function hashSeed(text: string) {
+  let h = 2166136261;
+  for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return Math.abs(h) || 1;
+}
+function mulberry(seed: number) {
+  let a = seed;
+  return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+function makeKlines(symbol: string, tf: string, base: number) {
+  const rnd = mulberry(hashSeed(symbol + tf + "crypy"));
+  const out: Kline[] = [];
+  let price = base * 0.92;
+  const now = Date.now();
+  const step = tf === "1s" ? 1000 : tf === "15m" ? 15 * 60000 : tf === "1H" ? 3600000 : tf === "4H" ? 4 * 3600000 : tf === "1D" ? 86400000 : 7 * 86400000;
+  const vol = tf === "1s" ? 0.006 : tf === "1D" || tf === "1S" ? 0.035 : 0.014;
+  for (let i = 0; i < 80; i++) {
+    const open = price;
+    const drift = (rnd() - 0.485) * vol;
+    const close = open * (1 + drift);
+    const high = Math.max(open, close) * (1 + rnd() * vol * 0.45);
+    const low = Math.min(open, close) * (1 - rnd() * vol * 0.45);
+    out.push({ time: now - (79 - i) * step, open, high, low, close, volume: 18 + rnd() * 190 });
+    price = close;
+  }
+  return out;
+}
+function fmt(n: number, digits = 2) { return n.toLocaleString("pt-BR", { minimumFractionDigits: digits, maximumFractionDigits: digits }); }
+function fmtPrice(symbol: string, n: number) { return symbol.includes("BRL") ? fmt(n, 4) : n >= 1000 ? fmt(n, 2) : fmt(n, 4); }
+function ma(data: Kline[], period: number, index: number) {
+  if (index < period - 1) return null;
+  let s = 0; for (let i = index - period + 1; i <= index; i++) s += data[i].close; return s / period;
+}
+async function api(action: string, args: Record<string, unknown>) {
+  const res = await fetch("actions", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ action, args }) });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || json.error) throw new Error(json.error || `Falha na operação (${res.status})`);
+  return json.data;
+}
+
+export default function App() {
+  const [symbol, setSymbol] = useState("BTC/USDT");
+  const coin = COINS.find((c) => c.symbol === symbol) || COINS[0];
+  const [tf, setTf] = useState<(typeof TIMEFRAMES)[number]>("1H");
+  const [klines, setKlines] = useState<Kline[]>(() => makeKlines("BTC/USDT", "1H", 60115.77));
+  const [live, setLive] = useState(60115.77);
+  const [tickerStats, setTickerStats] = useState<{ high: number; low: number; change: number; vol: number } | null>(null);
+  const [coinTickers, setCoinTickers] = useState<Record<string, { price: number; change: number }>>({});
+  const [refreshKey, setRefreshKey] = useState(0);
+  const [bookTick, setBookTick] = useState(0);
+  const [dataNote, setDataNote] = useState("Carregando dados reais da Binance…");
+  const [chartType, setChartType] = useState<"Candles" | "Linha" | "Barras">("Candles");
+  const [upColor, setUpColor] = useState("#0ECB81");
+  const [downColor, setDownColor] = useState("#F6465D");
+  const [showMA, setShowMA] = useState({ ma7: true, ma25: true, ma99: false });
+  const [visible, setVisible] = useState(42);
+  const [offset, setOffset] = useState(0);
+  const [cross, setCross] = useState<{ x: number; y: number; index: number } | null>(null);
+  const [orderTab, setOrderTab] = useState<"Limite" | "Market" | "Stop Limit">("Limite");
+  const [side, setSide] = useState<"Compra" | "Venda">("Compra");
+  const [priceInput, setPriceInput] = useState("60115.77");
+  const [qty, setQty] = useState("0.0100");
+  const [orders, setOrders] = useState<ApiRecord[]>([]);
+  const [loadingOrders, setLoadingOrders] = useState(true);
+  const [orderMsg, setOrderMsg] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [storageError, setStorageError] = useState("");
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ x: number; offset: number } | null>(null);
+
+  const loadOrders = useCallback(async () => {
+    try { const data = await api("records.list", { collection: "simulated_orders" }) as { records: ApiRecord[] }; setOrders(data.records || []); setStorageError(""); }
+    catch { setStorageError("A lista de ordens simuladas não pôde ser carregada agora. Suas ordens salvas permanecem no servidor."); }
+    finally { setLoadingOrders(false); }
+  }, []);
+  useEffect(() => { loadOrders(); }, [loadOrders]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loadKlines = async () => {
+      try {
+        const res = await fetch(klinesUrl(symbol, tf));
+        if (!res.ok) throw new Error(`Binance klines ${res.status}`);
+        const json = await res.json() as unknown[][];
+        const parsed: Kline[] = json.map((row) => ({ time: Number(row[0]), open: Number(row[1]), high: Number(row[2]), low: Number(row[3]), close: Number(row[4]), volume: Number(row[5]) })).filter((k) => Number.isFinite(k.close));
+        if (!cancelled && parsed.length) { setKlines(parsed); setLive(parsed[parsed.length - 1].close); setPriceInput(parsed[parsed.length - 1].close.toFixed(2)); setDataNote("Dados reais: Binance API pública."); }
+        else if (!cancelled) throw new Error("Sem candles");
+      } catch {
+        if (cancelled) return;
+        const next = makeKlines(symbol, tf, coin.base);
+        setKlines(next); setLive(next[next.length - 1].close); setPriceInput(next[next.length - 1].close.toFixed(2)); setDataNote("Binance indisponível agora — exibindo valores de referência (fallback 60115.77 para BTC).");
+      }
+      if (!cancelled) { setOffset(0); setVisible(42); setCross(null); }
+    };
+    loadKlines();
+    return () => { cancelled = true; };
+  }, [symbol, tf, coin.base, refreshKey]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loadTicker = async () => {
+      try {
+        const res = await fetch(tickerUrl(symbol));
+        if (!res.ok) throw new Error(`Binance ticker ${res.status}`);
+        const j = await res.json() as { lastPrice: string; highPrice: string; lowPrice: string; priceChangePercent: string; volume: string };
+        if (cancelled) return;
+        const p = Number(j.lastPrice);
+        if (Number.isFinite(p) && p > 0) { setLive(p); setPriceInput((old) => old); }
+        setTickerStats({ high: Number(j.highPrice), low: Number(j.lowPrice), change: Number(j.priceChangePercent), vol: Number(j.volume) });
+        setDataNote("Dados reais: Binance API pública.");
+      } catch { if (!cancelled) setTickerStats((old) => old); }
+    };
+    loadTicker();
+    const id = window.setInterval(loadTicker, 5000);
+    return () => { cancelled = true; window.clearInterval(id); };
+  }, [symbol, refreshKey]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loadCoins = async () => {
+      const entries = await Promise.all(COINS.map(async (c) => {
+        try { const res = await fetch(tickerUrl(c.symbol)); if (!res.ok) throw new Error("ticker"); const j = await res.json() as { lastPrice: string; priceChangePercent: string }; return [c.symbol, { price: Number(j.lastPrice), change: Number(j.priceChangePercent) }] as const; }
+        catch { return [c.symbol, { price: c.base, change: c.change }] as const; }
+      }));
+      if (!cancelled) setCoinTickers(Object.fromEntries(entries));
+    };
+    loadCoins();
+    const id = window.setInterval(loadCoins, 5000);
+    return () => { cancelled = true; window.clearInterval(id); };
+  }, []);
+
+  useEffect(() => {
+    const id = window.setInterval(() => { setBookTick((t) => t + 1); }, 2000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    setKlines((old) => { if (!old.length) return old; const copy = [...old]; const last = { ...copy[copy.length - 1], close: live, high: Math.max(copy[copy.length - 1].high, live), low: Math.min(copy[copy.length - 1].low, live), volume: copy[copy.length - 1].volume + 1.2 }; copy[copy.length - 1] = last; return copy; });
+  }, [live]);
+
+  const stats = useMemo(() => {
+    if (tickerStats && Number.isFinite(tickerStats.high) && Number.isFinite(tickerStats.low)) return tickerStats;
+    if (!klines.length) return { high: live, low: live, change: 0, vol: 0 };
+    const high = Math.max(...klines.map((k) => k.high)); const low = Math.min(...klines.map((k) => k.low));
+    const first = klines[0].open; const vol = klines.reduce((a, k) => a + k.volume, 0);
+    return { high, low, change: ((live - first) / first) * 100, vol };
+  }, [klines, live, tickerStats]);
+
+  const book = useMemo(() => {
+    const jitter = (i: number) => 1 + (((bookTick * 7 + i * 13) % 9) - 4) * 0.06;
+    const asks = Array.from({ length: 8 }, (_, i) => { const p = live * (1 + (i + 1) * 0.00042); const q = (0.08 + ((i * 37) % 10) * 0.11) * jitter(i); return { p, q, t: p * q }; });
+    const bids = Array.from({ length: 8 }, (_, i) => { const p = live * (1 - (i + 1) * 0.00042); const q = (0.09 + ((i * 53) % 10) * 0.1) * jitter(i + 3); return { p, q, t: p * q }; });
+    return { asks: [...asks].reverse(), bids };
+  }, [live, bookTick]);
+
+  const visibleKlines = useMemo(() => {
+    const end = klines.length - offset;
+    const start = Math.max(0, end - visible);
+    return { slice: klines.slice(start, end), start };
+  }, [klines, visible, offset]);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current; const wrap = wrapRef.current; if (!canvas || !wrap) return;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = wrap.clientWidth; const h = Math.max(330, Math.min(520, wrap.clientHeight || 430));
+    canvas.width = w * dpr; canvas.height = h * dpr; canvas.style.width = `${w}px`; canvas.style.height = `${h}px`;
+    const ctx = canvas.getContext("2d"); if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+    const data = visibleKlines.slice; if (!data.length) return;
+    const volH = h * 0.18; const chartH = h - volH - 28;
+    const highs = data.map((k) => k.high); const lows = data.map((k) => k.low);
+    const max = Math.max(...highs); const min = Math.min(...lows); const pad = (max - min) * 0.08 || 1;
+    const top = max + pad; const bottom = Math.max(0, min - pad);
+    const y = (v: number) => 12 + ((top - v) / (top - bottom)) * (chartH - 24);
+    const stepX = w / data.length; const x = (i: number) => i * stepX + stepX / 2;
+    ctx.strokeStyle = "rgba(255,255,255,.08)"; ctx.fillStyle = "#8aa79a"; ctx.font = "11px system-ui"; ctx.textAlign = "right";
+    for (let i = 0; i <= 4; i++) { const yy = 12 + (i / 4) * (chartH - 24); ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(w, yy); ctx.stroke(); const val = top - ((top - bottom) * i) / 4; ctx.fillText(fmtPrice(symbol, val), w - 6, yy - 4); }
+    data.forEach((k, i) => {
+      const up = k.close >= k.open; const color = up ? upColor : downColor;
+      const cx = x(i); const bw = Math.max(2, Math.min(22, stepX * 0.62));
+      if (chartType === "Linha") {
+        if (i > 0) { ctx.strokeStyle = upColor; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x(i - 1), y(data[i - 1].close)); ctx.lineTo(cx, y(k.close)); ctx.stroke(); }
+        return;
+      }
+      ctx.strokeStyle = color; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(cx, y(k.high)); ctx.lineTo(cx, y(k.low)); ctx.stroke();
+      if (chartType === "Candles") { ctx.fillStyle = color; const yy = y(Math.max(k.open, k.close)); const hh = Math.max(1, Math.abs(y(k.open) - y(k.close))); ctx.fillRect(cx - bw / 2, yy, bw, hh); }
+      else { ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx - bw / 2, y(k.open)); ctx.lineTo(cx, y(k.open)); ctx.moveTo(cx, y(k.close)); ctx.lineTo(cx + bw / 2, y(k.close)); ctx.stroke(); }
+      const maxVol = Math.max(1, ...data.map((d) => d.volume));
+      const vy = h - volH + (1 - k.volume / maxVol) * (volH - 20);
+      ctx.fillStyle = up ? upColor : downColor; ctx.globalAlpha = 0.72; ctx.fillRect(cx - bw / 2, vy, bw, h - vy - 8); ctx.globalAlpha = 1;
+    });
+    const drawMA = (period: number, color: string, enabled: boolean) => {
+      if (!enabled || chartType === "Linha") return; ctx.strokeStyle = color; ctx.lineWidth = 1.6; ctx.beginPath(); let started = false;
+      data.forEach((_, i) => { const global = visibleKlines.start + i; const v = ma(klines, period, global); if (v == null) return; const yy = y(v); if (!started) { ctx.moveTo(x(i), yy); started = true; } else ctx.lineTo(x(i), yy); });
+      ctx.stroke();
+    };
+    drawMA(7, "#f0b90b", showMA.ma7); drawMA(25, "#b06bff", showMA.ma25); drawMA(99, "#4da3ff", showMA.ma99);
+    if (cross) {
+      const i = cross.index; if (i >= 0 && i < data.length) {
+        ctx.strokeStyle = "rgba(255,255,255,.45)"; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(x(i), 0); ctx.lineTo(x(i), h); ctx.moveTo(0, cross.y); ctx.lineTo(w, cross.y); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = "#00ff88"; ctx.fillRect(w - 92, Math.max(0, cross.y - 11), 86, 22); ctx.fillStyle = "#03120a"; ctx.textAlign = "center"; ctx.font = "bold 11px system-ui"; ctx.fillText(fmtPrice(symbol, data[i].close), w - 49, cross.y + 4);
+      }
+    }
+  }, [visibleKlines, klines, chartType, upColor, downColor, showMA, cross, symbol]);
+
+  useEffect(() => { draw(); const onResize = () => draw(); window.addEventListener("resize", onResize); return () => window.removeEventListener("resize", onResize); }, [draw]);
+  useEffect(() => { const t = window.setTimeout(draw, 30); return () => window.clearTimeout(t); }, [draw]);
+
+  const onMouse = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect(); const x = e.clientX - rect.left; const yPos = e.clientY - rect.top;
+    const idx = Math.max(0, Math.min(visibleKlines.slice.length - 1, Math.floor(x / (rect.width / Math.max(1, visibleKlines.slice.length)))));
+    setCross({ x, y: yPos, index: idx });
+  };
+  const onWheel = (e: React.WheelEvent) => { e.preventDefault(); setVisible((v) => Math.max(12, Math.min(80, v + (e.deltaY > 0 ? 4 : -4)))); };
+  const startDrag = (e: React.MouseEvent) => { dragRef.current = { x: e.clientX, offset }; };
+  const onDrag = (e: React.MouseEvent) => { if (!dragRef.current) return; const dx = e.clientX - dragRef.current.x; const move = Math.round(dx / 18); setOffset(Math.max(0, Math.min(Math.max(0, klines.length - visible), dragRef.current.offset - move))); };
+  const hoverKline = cross && visibleKlines.slice[cross.index] ? visibleKlines.slice[cross.index] : klines[klines.length - 1];
+
+  const priceNum = Number(priceInput.replace(",", ".")) || live;
+  const qtyNum = Number(qty.replace(",", ".")) || 0;
+  const totalNum = priceNum * qtyNum;
+
+  const submitOrder = async () => {
+    if (qtyNum <= 0 || priceNum <= 0) { setOrderMsg("Informe preço e quantia válidos para registrar a simulação."); return; }
+    const value: SimOrder = { symbol, side, type: orderTab, price: orderTab === "Market" ? live : priceNum, qty: qtyNum, total: (orderTab === "Market" ? live : priceNum) * qtyNum, created: new Date().toLocaleString("pt-BR") };
+    setBusy(true); setOrderMsg(""); setStorageError("");
+    const key = `sim-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    try { await api("records.create", { collection: "simulated_orders", value, idempotency_key: key }); await loadOrders(); setOrderMsg("Ordem simulada registrada — sem dinheiro real."); }
+    catch (e) { setStorageError(e instanceof Error ? e.message : "Não foi possível salvar a ordem simulada."); }
+    finally { setBusy(false); }
+  };
+  const cancelOrder = async (id: string) => {
+    setBusy(true); try { await api("records.delete", { collection: "simulated_orders", id }); await loadOrders(); setOrderMsg("Ordem simulada removida."); } catch (e) { setStorageError(e instanceof Error ? e.message : "Não foi possível remover a ordem."); } finally { setBusy(false); }
+  };
+
+  return (
+    <div data-safe-area-inset-root style={{ boxSizing: "border-box", paddingTop: "var(--safe-area-inset-top)", minHeight: "100vh", background: "#050807" }} className="overflow-x-clip">
+      <div className="fixed inset-0 -z-0" aria-hidden="true"><img src={bgUrl} alt="" className="h-full w-full object-cover" /><div className="absolute inset-0 bg-black/85" /></div>
+      <div className="relative z-10 mx-auto w-full max-w-[1500px] px-2 pb-4 sm:px-3">
+        <header data-safe-area-sticky-top style={{ top: "var(--safe-area-inset-top)" }} className="sticky z-20 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-white/10 bg-[#050807]/95 py-3 backdrop-blur">
+          <div><div className="text-xl font-black tracking-[0.12em] text-[#00ff88] sm:text-2xl">CRYPY <span className="text-white">NEWS</span></div><div className="mini text-[#a9bfb4]">Mercado • Simulação visual</div></div>
+          <div className="flex flex-1 flex-wrap items-end gap-x-5 gap-y-1">
+            <div><div className="mini text-[#a9bfb4]">{symbol} • ao vivo</div><div className="num text-2xl font-black sm:text-3xl">${fmtPrice(symbol, live)}</div></div>
+            <Stat label="Var 24h" value={`${stats.change >= 0 ? "+" : ""}${fmt(stats.change)}%`} color={stats.change >= 0 ? "#00ff88" : "#f6465d"} />
+            <Stat label="Máx 24h" value={fmtPrice(symbol, stats.high)} />
+            <Stat label="Mín 24h" value={fmtPrice(symbol, stats.low)} />
+            <Stat label="Volume 24h" value={fmt(stats.vol, 0)} />
+          </div>
+          <div className="rounded-full border border-[#00ff88]/40 bg-[#00ff88]/10 px-3 py-1 text-xs font-bold text-[#00ff88]">SIMULAÇÃO • SEM DINHEIRO REAL</div>
+        </header>
+
+        <main className="mt-3 grid grid-cols-1 gap-3 lg:grid-cols-[220px_minmax(0,1fr)_220px]">
+          <section className="panel order-2 lg:order-1" aria-label="Livro de ordens">
+            <div className="flex items-center justify-between border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Livro de Ordens</h2><span className="mini text-[#a9bfb4]">{symbol}</span></div>
+            <div className="grid grid-cols-3 px-3 py-2 text-[11px] text-[#a9bfb4]"><span>Preço</span><span className="text-right">Quantia</span><span className="text-right">Total</span></div>
+            <div>{book.asks.map((r, i) => <Row key={i} {...r} color="#f6465d" symbol={symbol} />)}</div>
+            <div className="border-y border-white/10 px-3 py-3 text-center"><div className="mini text-[#a9bfb4]">Preço atual</div><div className="num text-2xl font-black text-[#00ff88]">{fmtPrice(symbol, live)}</div></div>
+            <div>{book.bids.map((r, i) => <Row key={i} {...r} color="#0ecb81" symbol={symbol} />)}</div>
+            <p className="px-3 py-2 text-[11px] leading-4 text-[#a9bfb4]">Ordens ilustrativas geradas a partir do preço exibido. Atualização automática a cada 2 segundos.</p>
+          </section>
+
+          <section className="panel order-1 lg:order-2 min-w-0">
+            <div className="flex flex-wrap items-center gap-2 border-b border-white/10 px-3 py-2">
+              <div className="mr-auto flex flex-wrap gap-1">{TIMEFRAMES.map((t) => <button key={t} onClick={() => setTf(t)} className={`rounded px-2.5 py-1 text-xs font-bold ${tf === t ? "bg-[#00ff88] text-black" : "bg-white/5 text-white"}`}>{t}</button>)}</div>
+              <div className="flex flex-wrap gap-1">{(["Candles", "Linha", "Barras"] as const).map((s) => <button key={s} onClick={() => setChartType(s)} className={`rounded px-2 py-1 text-xs font-bold ${chartType === s ? "bg-white text-black" : "bg-white/5"}`}>{s}</button>)}</div>
+              <button onClick={() => { setVisible(42); setOffset(0); setRefreshKey((k) => k + 1); }} className="rounded bg-white/10 px-2 py-1 text-xs font-bold">Atualizar Agora</button>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-white/10 px-3 py-2 text-xs">
+              <label className="flex items-center gap-1.5">Alta <input aria-label="Cor da vela de alta" type="color" value={upColor} onChange={(e) => setUpColor(e.target.value)} className="h-6 w-8" /></label>
+              <label className="flex items-center gap-1.5">Baixa <input aria-label="Cor da vela de baixa" type="color" value={downColor} onChange={(e) => setDownColor(e.target.value)} className="h-6 w-8" /></label>
+              <label className="flex items-center gap-1"><input type="checkbox" checked={showMA.ma7} onChange={(e) => setShowMA({ ...showMA, ma7: e.target.checked })} /> <span className="text-[#f0b90b]">MA(7)</span></label>
+              <label className="flex items-center gap-1"><input type="checkbox" checked={showMA.ma25} onChange={(e) => setShowMA({ ...showMA, ma25: e.target.checked })} /> <span className="text-[#b06bff]">MA(25)</span></label>
+              <label className="flex items-center gap-1"><input type="checkbox" checked={showMA.ma99} onChange={(e) => setShowMA({ ...showMA, ma99: e.target.checked })} /> <span className="text-[#4da3ff]">MA(99)</span></label>
+              <div className="ml-auto flex items-center gap-1">Zoom <button aria-label="Aproximar" onClick={() => setVisible((v) => Math.max(12, v - 6))} className="h-7 w-7 rounded bg-white/10 text-lg font-black">+</button><button aria-label="Afastar" onClick={() => setVisible((v) => Math.min(80, v + 6))} className="h-7 w-7 rounded bg-white/10 text-lg font-black">−</button></div>
+            </div>
+            <div ref={wrapRef} className="relative h-[430px] w-full cursor-crosshair touch-none sm:h-[470px]">
+              <canvas ref={canvasRef} onMouseMove={onMouse} onMouseLeave={() => setCross(null)} onWheel={onWheel} onMouseDown={startDrag} onMouseMoveCapture={onDrag} onMouseUp={() => dragRef.current = null} className="block h-full w-full" />
+              <div className="pointer-events-none absolute left-3 top-3 max-w-[calc(100%-24px)] rounded bg-black/70 px-3 py-2 text-[11px] leading-4">
+                <span className="font-bold text-[#00ff88]">{symbol} • {tf}</span> <span className="text-white/80">O {fmtPrice(symbol, hoverKline.open)} • H {fmtPrice(symbol, hoverKline.high)} • L {fmtPrice(symbol, hoverKline.low)} • C {fmtPrice(symbol, hoverKline.close)}</span><br />
+                <span className="text-[#a9bfb4]">{new Date(hoverKline.time).toLocaleString("pt-BR")} • Vol {fmt(hoverKline.volume, 1)}</span>
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-between gap-2 border-t border-white/10 px-3 py-2 text-[11px] text-[#a9bfb4]"><span>Arraste para mover • Scroll para zoom • Passe o mouse para o crosshair</span><span className="num">Exibindo {visibleKlines.slice.length} velas</span></div>
+          </section>
+
+          <aside className="panel order-3" aria-label="Lista de moedas">
+            <div className="border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Mercados</h2><p className="mini text-[#a9bfb4]">Toque para trocar o símbolo</p></div>
+            {COINS.map((c) => { const active = c.symbol === symbol; const tick = coinTickers[c.symbol]; const price = c.symbol === symbol ? live : (tick?.price ?? c.base); const change = c.symbol === symbol && tickerStats ? tickerStats.change : (tick?.change ?? c.change); return <button key={c.symbol} onClick={() => setSymbol(c.symbol)} className={`flex w-full items-center justify-between gap-2 px-3 py-3 text-left ${active ? "bg-[#00ff88]/10" : "hover:bg-white/5"}`}><span><span className="block text-sm font-bold">{c.symbol}</span><span className="mini text-[#a9bfb4]">{c.label}</span></span><span className="text-right"><span className="num block text-sm font-bold">{fmtPrice(c.symbol, price)}</span><span className={`text-xs font-bold ${change >= 0 ? "text-[#00ff88]" : "text-[#f6465d]"}`}>{change >= 0 ? "+" : ""}{fmt(change)}%</span></span></button>; })}
+            <div className="border-t border-white/10 px-3 py-3 text-[11px] leading-4 text-[#a9bfb4]">{dataNote} Nenhuma operação real é executada.</div>
+          </aside>
+        </main>
+
+        <section className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+          <div className="panel">
+            <div className="border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Painel de Ordem • Simulação</h2><p className="text-[11px] font-bold text-[#f0b90b]">SIMULAÇÃO — SEM DINHEIRO REAL • MODO REAL: sem mainnet, sem liquidez real</p></div>
+            <div className="flex gap-1 px-3 pt-3">{(["Limite", "Market", "Stop Limit"] as const).map((t) => <button key={t} onClick={() => setOrderTab(t)} className={`rounded-t px-3 py-2 text-xs font-bold ${orderTab === t ? "bg-white/10 text-[#00ff88]" : "text-[#a9bfb4]"}`}>{t}</button>)}</div>
+            <div className="grid gap-3 px-3 pb-3 sm:grid-cols-3">
+              <label className="block text-xs text-[#a9bfb4]">Preço<label className="sr-only">Preço</label><input aria-label="Preço da ordem" disabled={orderTab === "Market"} type="number" min="0" step="0.01" value={priceInput} onChange={(e) => setPriceInput(e.target.value)} className="mt-1 w-full rounded border border-white/15 bg-black/40 px-2 py-2 text-sm" /></label>
+              <label className="block text-xs text-[#a9bfb4]">Quantia<input aria-label="Quantia da ordem" type="number" min="0" step="0.0001" value={qty} onChange={(e) => setQty(e.target.value)} className="mt-1 w-full rounded border border-white/15 bg-black/40 px-2 py-2 text-sm" /></label>
+              <label className="block text-xs text-[#a9bfb4]">Total <span className="num mt-1 block rounded border border-white/10 bg-white/5 px-2 py-2 text-sm text-white">{fmt(totalNum, 2)} USDT</span></label>
+            </div>
+            <div className="flex gap-2 px-3 pb-2"><button onClick={() => { setSide("Compra"); }} className={`flex-1 rounded py-2 text-xs font-bold ${side === "Compra" ? "bg-[#0ecb81] text-black" : "bg-white/10"}`}>Comprar</button><button onClick={() => { setSide("Venda"); }} className={`flex-1 rounded py-2 text-xs font-bold ${side === "Venda" ? "bg-[#f6465d] text-white" : "bg-white/10"}`}>Vender</button></div>
+            <button disabled={busy} onClick={submitOrder} className={`mx-3 mb-3 w-[calc(100%-24px)] rounded py-3 text-sm font-black ${side === "Compra" ? "bg-[#0ecb81] text-black" : "bg-[#f6465d] text-white"} disabled:opacity-50`}>{busy ? "Registrando…" : `Registrar ${side} simulada`}</button>
+            {orderMsg && <div role="status" className="mx-3 mb-3 rounded border border-[#00ff88]/40 bg-[#00ff88]/10 px-3 py-2 text-xs font-bold text-[#00ff88]">{orderMsg}</div>}
+            {storageError && <div role="alert" className="mx-3 mb-3 rounded border border-[#f6465d]/40 bg-[#f6465d]/10 px-3 py-2 text-xs text-white">{storageError}</div>}
+          </div>
+
+          <div className="panel">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Minhas Ordens Simuladas</h2><button onClick={loadOrders} className="rounded bg-white/10 px-2 py-1 text-xs font-bold">Recarregar</button></div>
+            <div className="max-h-[280px] overflow-y-auto scroll-thin">
+              {loadingOrders ? <p className="px-3 py-5 text-sm text-[#a9bfb4]">Carregando ordens salvas…</p> : orders.length === 0 ? <p className="px-3 py-5 text-sm text-[#a9bfb4]">Nenhuma ordem simulada registrada ainda. Use o painel ao lado para criar a primeira.</p> : orders.slice().reverse().map((o) => <div key={o.id} className="flex flex-wrap items-center gap-2 border-b border-white/5 px-3 py-2 text-xs"><span className={`rounded px-2 py-1 font-black ${o.value.side === "Compra" ? "bg-[#0ecb81]/15 text-[#0ecb81]" : "bg-[#f6465d]/15 text-[#f6465d]"}`}>{o.value.side}</span><span className="font-bold">{o.value.symbol}</span><span className="text-[#a9bfb4]">{o.value.type}</span><span className="num ml-auto">Preço {fmtPrice(o.value.symbol, o.value.price)}</span><span className="num">Qtd {fmt(o.value.qty, 4)}</span><span className="num font-bold">Total {fmt(o.value.total, 2)}</span><button disabled={busy} onClick={() => cancelOrder(o.id)} className="rounded bg-white/10 px-2 py-1 font-bold disabled:opacity-50">Remover</button><span className="w-full text-[11px] text-[#a9bfb4]">{o.value.created}</span></div>)}
+            </div>
+            <p className="px-3 py-2 text-[11px] leading-4 text-[#a9bfb4]">As ordens desta lista são salvas apenas como simulação. Não há execução, liquidação ou movimentação de dinheiro real.</p>
+          </div>
+        </section>
+
+        <footer className="mt-4 border-t border-white/10 px-1 py-4 text-center text-[11px] leading-5 text-[#a9bfb4]">
+          <p className="text-sm font-bold text-white">CRYPY NEWS — System by CryptoëCrypto</p>
+          <p>Dados: Binance API pública • MODO REAL: testnet only, no mainnet, no real liquidity • Sem promessa de lucro</p>
+          <p>Esta página não executa trades reais. Ordens são apenas simulação salva localmente no painel.</p>
+        </footer>
+      </div>
+    </div>
+  );
+}
+
+function Stat({ label, value, color }: { label: string; value: string; color?: string }) { return <div><div className="mini text-[#a9bfb4]">{label}</div><div className="num text-sm font-bold" style={{ color: color || "#fff" }}>{value}</div></div>; }
+function Row({ p, q, t, color, symbol }: { p: number; q: number; t: number; color: string; symbol: string }) { return <div className="grid grid-cols-3 px-3 py-1 text-xs"><span className="num font-bold" style={{ color }}>{fmtPrice(symbol, p)}</span><span className="num text-right">{fmt(q, 4)}</span><span className="num text-right text-[#a9bfb4]">{fmt(t, 2)}</span></div>; }
