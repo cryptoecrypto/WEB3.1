@@ -34,18 +34,18 @@ for (const page of manifest.pages || []) {
 }
 
 const officialCategories = [
-  "CRYPY-INFINIT",
-  "CRYPY-ACADEMY",
-  "ESQUADRÃO DAS CORES",
+  "CRYPY INFINYT",
   "NFT-COLLECTION",
+  "ESQUADRÃO DAS CORES",
+  "CRYPY ACADEMY-WEB3.1",
   "BIOGRAFIA",
-  "CRYPY-NEWS",
+  "CRYPY NEWS",
   "MUSEU DIGITAL",
-  "MARKETPLACE",
-  "CRYPY-GAMES",
-  "CRYPYCUT",
+  "ART-FIGURE / MARKETPLACE",
+  "CRYPY GAMES-DESAFIO",
+  "CRYPY-SOCIAL",
   "BABY I.A.",
-  "WHITE PAPER",
+  "WHITE PAPER / CRYPY COIN",
   "CONTATO"
 ];
 
@@ -64,14 +64,13 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-const homeNav = home.match(/<nav\b[^>]*class=["']main-nav["'][^>]*>([\s\S]*?)<\/nav>/i);
-const homeLabels = homeNav
-  ? Array.from(homeNav[1].matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi))
-      .map(match => match[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim())
-  : [];
-if (!homeNav || homeLabels.length !== officialCategories.length ||
-    homeLabels.some((label, index) => label !== officialCategories[index])) {
-  errors.push("HOME principal não contém as 13 categorias oficiais na ordem aprovada");
+const themeCount = (home.match(/TEMA \\d{2}/g) || []).length;
+const indexCount = (home.match(/INDEX \\d{2}/g) || []).length;
+if (themeCount !== 13 || indexCount !== 9) {
+  errors.push("HOME principal deve conter 13 temas oficiais e 9 índices");
+}
+if (!home.includes("crypy-global-runtime.js") || !home.includes("crypy-dynamic-design.js")) {
+  errors.push("HOME não está conectada ao runtime BABY e ao design dinâmico global");
 }
 if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte de compatibilidade das páginas legadas não carrega o menu global");
 if (!fs.existsSync(navPath)) errors.push("menu global ausente");
