@@ -64,8 +64,8 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-const themeCount = (home.match(/TEMA \\d{2}/g) || []).length;
-const indexCount = (home.match(/INDEX \\d{2}/g) || []).length;
+const themeCount = (home.match(/TEMA \d{2}/g) || []).length;
+const indexCount = (home.match(/INDEX \d{2}/g) || []).length;
 if (themeCount !== 13 || indexCount !== 9) {
   errors.push("HOME principal deve conter 13 temas oficiais e 9 índices");
 }
