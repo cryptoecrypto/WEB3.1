@@ -3,7 +3,7 @@
   "generated_at": "2026-11-26T11:00:00-03:00",
   "source_branch": "main",
   "source_html_total": 608,
-  "total": 267,
+  "total": 269,
   "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
   "pages": [
     {
@@ -69,6 +69,16 @@
     {
       "path": "crypy-academy/cursos.html",
       "label": "Cursos",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/mapa-cursos.html",
+      "label": "Mapa de Cursos",
+      "group": "crypy-academy"
+    },
+    {
+      "path": "crypy-academy/trilhas-completas.html",
+      "label": "Matriz Completa — Cursos e Níveis",
       "group": "crypy-academy"
     },
     {
