@@ -176,35 +176,4 @@ renderSavedSettings();writeControls();assets.forEach(a=>viewState[a.id]={bars:Ma
 })();
 </script>
 </body>
-</html>:' USDT');checkPriceAlerts(a.id,price);
- const ch=$('change-'+a.id);ch.textContent=(change>=0?'+':'')+fmt(change,2)+'% · 24h';ch.className='change '+(change>=0?'up':'down');
- $('high-'+a.id).textContent=fmt(ticker.highPrice,a.digits);
- $('low-'+a.id).textContent=fmt(ticker.lowPrice,a.digits);
- $('volume-'+a.id).textContent=Number(ticker.volume).toLocaleString('pt-BR',{maximumFractionDigits:0})+' '+a.id;
- draw(a.id,klines);
-}
-async function refresh(){
- if(busy)return;busy=true;$('refresh').disabled=true;$('refresh').textContent='Atualizando…';
- let ok=0,fail=0;
- await Promise.all(assets.map(async a=>{try{await updateAsset(a);ok++}catch(e){fail++;const el=$('change-'+a.id);el.textContent='Falha ao obter dados · '+e.message;el.className='change error'}}));
- $('lastUpdate').textContent=new Date().toLocaleTimeString('pt-BR');
- setStatus(ok===assets.length?'ok':ok?'':'bad',ok===assets.length?'Binance conectada · 7/7 ativos':ok+' de 7 ativos atualizados'+(fail?' · verifique conexão/API':''));
- $('refresh').disabled=false;$('refresh').textContent='↻ Atualizar agora';busy=false;
-}
-function renderSavedSettings(){try{const saved=localStorage.getItem('crypyMarketChartSettingsV2');if(saved){config={...config,...JSON.parse(saved)};writeControls();}}catch(e){$('clockSyncStatus').textContent='Não foi possível carregar configurações salvas neste navegador.'}}
-function applySettings(){readControls();if(refreshTimer)clearInterval(refreshTimer);if(config.refreshRate>0)refreshTimer=setInterval(refresh,config.refreshRate);refresh();}
-$('interval').addEventListener('change',e=>{interval=e.target.value;refresh()});
-$('refresh').addEventListener('click',refresh);
-$('layout').addEventListener('change',e=>{document.querySelectorAll('.card').forEach(c=>c.classList.remove('focus'));if(e.target.value==='focus')document.querySelector('.card[data-id="BTC"]').classList.add('focus');setTimeout(()=>assets.forEach(a=>{const c=$('chart-'+a.id);if(c&&c.dataset.rows){try{draw(a.id,JSON.parse(c.dataset.rows))}catch(_){}}}),80)});
-Object.values(settingIds).forEach(id=>{const el=$(id);if(el)el.addEventListener('change',()=>{readControls();applySettings()})});
-$('saveSettings').addEventListener('click',()=>{readControls();try{localStorage.setItem('crypyMarketChartSettingsV2',JSON.stringify(config));$('clockSyncStatus').textContent='✓ Configurações salvas neste navegador. Para usar em outro dispositivo, configure e salve nele também.';applySettings()}catch(e){$('clockSyncStatus').textContent='Falha ao salvar: armazenamento local indisponível.'}});
-$('loadSettings').addEventListener('click',()=>{renderSavedSettings();applySettings()});
-$('resetSettings').addEventListener('click',()=>{config={chartType:'candles',candleLimit:150,timezone:'America/Sao_Paulo',refreshRate:30000,bullColor:'#00e887',bearColor:'#ff647c',showVolume:true,showGrid:true,showCrosshair:true,showSMA:false,showEMA:false,showMA7:false,showMA25:false,showMA99:false,showBollinger:false};writeControls();applySettings()});
-$('syncClock').addEventListener('click',()=>{const tz=config.timezone;const api=window.BABYWorldClock||window.BABY_CLOCK_API;const value=api&&api.getTime?api.getTime(tz):null;if(value){$('clockSyncStatus').innerHTML='✓ Sincronizado com BABYWorldClock: <b>'+value.label+' · '+value.time+' · '+value.date+'</b> ('+value.timeZone+').';config.timezone=tz;assets.forEach(a=>{const c=$('chart-'+a.id);if(c&&c.dataset.rows)draw(a.id,JSON.parse(c.dataset.rows))});}else{$('clockSyncStatus').textContent='Relógio da Colmeia não carregou nesta página. O gráfico continua usando horário do dispositivo.'}});
-const clockApi=window.BABYWorldClock||window.BABY_CLOCK_API;if(clockApi&&clockApi.subscribe){clockUnsubscribe=clockApi.subscribe(values=>{const v=values&&values.br;if(v)$('clockSyncStatus').textContent='Relógio Colmeia ao vivo · Paraná/Brasília '+v.time+' · '+v.date+' · fuso '+v.timeZone;});}
-window.addEventListener('resize',()=>{clearTimeout(window.__crypyResize);window.__crypyResize=setTimeout(()=>assets.forEach(a=>{const c=$('chart-'+a.id);if(c&&c.dataset.rows)draw(a.id,JSON.parse(c.dataset.rows))}),250)});
-renderSavedSettings();writeControls();applySettings();
-})();
-</script>
-</body>
 </html>
