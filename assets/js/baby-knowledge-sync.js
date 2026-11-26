@@ -1,4 +1,4 @@
-/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.4
+/* CRYPY / BABY — INDEXADOR DE CONHECIMENTO v1.5
  * Percorre todos os caminhos HTML/HTM do índice oficial e somente materiais públicos e didáticos aprovados; memórias, manifestos e configuração privada ficam fora.
  * Extrai texto visível e metadados, mantém o conteúdo integral (sem corte de caracteres)
  * e grava no IndexedDB deste navegador. Recuperação textual; não treina rede neural.
@@ -32,6 +32,7 @@
     "crypy-academy/cursos/fontes/GUIA-PLUGINS-CRYPY.txt",
     "crypy-academy/cursos/fontes/GUIA-SEGURANCA-DIGITAL-CRYPY.md",
     "crypy-academy/cursos/GRADE-CURRICULAR-CRYPY-ACADEMY-001.md",
+    "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md",
     "crypy-academy/cursos/POLITICA-CERTIFICADO-PARTICIPACAO-001.md",
     "crypy-academy/cursos/catalogo-cursos.json",
     "web3.1/auto-config-baby.txt",
