@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#050807;
+  --surface:#0b1510;
+  --surface2:#111f18;
+  --line:#1f3328;
+  --text:#f2fff7;
+  --muted:#9db5a8;
+  --green:#00ff88;
+  --red:#f6465d;
+  --yellow:#f0b90b;
+  --purple:#a55cff;
+  --blue:#3b82f6;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#050807; --surface:#0b1510; --surface2:#111f18; }
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Space Grotesk",system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.card{background:rgba(8,18,13,.88);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(6px)}
+.chip{border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:#0e1d15;color:#dcefe4;font-size:12px}
+.chip.active{background:var(--green);color:#03220f;border-color:var(--green);font-weight:800}
+.field{width:100%;background:#07100b;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:white;outline:none}
+.field:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,255,136,.14)}
+label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+::-webkit-scrollbar{height:8px;width:8px}
+::-webkit-scrollbar-thumb{background:#254133;border-radius:99px}
