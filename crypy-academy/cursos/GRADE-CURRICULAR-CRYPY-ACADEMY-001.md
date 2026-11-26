@@ -577,3 +577,16 @@ A trilha de Programação e Terminais contempla Windows CMD, PowerShell, Windows
 **Regra de ouro:** primeiro inspecionar, depois compreender, testar em ambiente isolado e somente então executar. Comandos destrutivos ou privilegiados exigem revisão e autorização explícitas.
 
 **Fim da grade — CRYPY ACADEMY WEB3.1 v1.0**
+
+
+## 5. Matriz ampliada — 26 especialidades do Sensei
+
+A formação ampliada passa a registrar 26 especialidades, cada uma com progressão pelos quatro níveis. A matriz nominal e os critérios estão no documento `FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md`, incluído na ingestão fixa do BABY.
+
+**Níveis oficiais:**
+- **Iniciante:** fundamentos, conceitos, vocabulário e primeiros exercícios.
+- **Médio:** aplicação prática, ferramentas, fluxos reais e diagnóstico.
+- **Avançado:** projetos completos, arquitetura, auditoria, testes e validação.
+- **CryptoëCrypto — Sênior / PHD:** pesquisa independente, arquitetura original, inovação, defesa e ensino avançado. É uma classificação pedagógica interna, não grau acadêmico ou doutorado reconhecido.
+
+A matriz ampliada não substitui os sete agrupamentos editoriais existentes: ela os detalha em 26 especialidades para planejamento de cursos e indexação de conhecimento.
