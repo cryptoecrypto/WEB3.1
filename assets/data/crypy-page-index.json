@@ -1,56 +1,11 @@
 {
   "version": "3.1",
-  "generated_at": "2026-11-25T18:00:00-03:00",
+  "generated_at": "2026-11-26T11:00:00-03:00",
   "source_branch": "main",
   "source_html_total": 608,
-  "total": 266,
+  "total": 267,
   "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
   "pages": [
-    {
-      "path": "CRYPY-SHOTS/01-feed-para-voce.html",
-      "label": "01 Feed Para Voce",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/02-seguindo.html",
-      "label": "02 Seguindo",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/03-ao-vivo.html",
-      "label": "03 Ao Vivo",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/04-descobrir.html",
-      "label": "04 Descobrir",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/05-publicar.html",
-      "label": "05 Publicar",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/06-meu-perfil.html",
-      "label": "06 Meu Perfil",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/07-nft-shorts.html",
-      "label": "07 Nft Shorts",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/08-config-shots.html",
-      "label": "08 Config Shots",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "CRYPY-SHOTS/crypyshots.html",
-      "label": "Crypyshots",
-      "group": "social-crypykut"
-    },
     {
       "path": "art-figure-marketplace/marketplace.html",
       "label": "Marketplace",
@@ -132,8 +87,13 @@
       "group": "crypy-coin"
     },
     {
-      "path": "crypy-games-desafios/CRYPY-DUNGEONS/Masmorra dos Três Pilares.html",
-      "label": "Masmorra Dos TrêS Pilares",
+      "path": "crypy-games-desafios/arena.html",
+      "label": "Arena",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/batalha-esquadrao.html",
+      "label": "Batalha Esquadrao",
       "group": "crypy-games-desafios"
     },
     {
@@ -152,6 +112,21 @@
       "group": "crypy-games-desafios"
     },
     {
+      "path": "crypy-games-desafios/crypy-dungeons/Masmorra dos Três Pilares.html",
+      "label": "Masmorra Dos TrêS Pilares",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-DUNGEONS/Masmorra dos Três Pilares.html",
+      "label": "Masmorra Dos TrêS Pilares",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/crypy-games-desafios.html",
+      "label": "Crypy Games Desafios",
+      "group": "crypy-games-desafios"
+    },
+    {
       "path": "crypy-games-desafios/CRYPY-LAND/baby-ia.html",
       "label": "Baby Ia",
       "group": "crypy-games-desafios"
@@ -159,6 +134,46 @@
     {
       "path": "crypy-games-desafios/CRYPY-LAND/crypy-land.html",
       "label": "Crypy Land",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-DEFENDER-GLOBAL.html",
+      "label": "CRYPY Defender Global",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-FINAL.html",
+      "label": "CRYPY LAND 3D Final",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-GAME.html",
+      "label": "CRYPY LAND 3D Game",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-FINAL-SALVO.html",
+      "label": "CRYPY LAND Final Salvo",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO-CCG.html",
+      "label": "CRYPY LAND Game NFT Terreno CCG",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO.html",
+      "label": "CRYPY LAND Game NFT Terreno",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-MODELO-BASE-SALVO.html",
+      "label": "CRYPY LAND Modelo Base Salvo",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-REAL-100-TERRENOS.html",
+      "label": "CRYPY LAND Real 100 Terrenos",
       "group": "crypy-games-desafios"
     },
     {
@@ -212,26 +227,6 @@
       "group": "crypy-games-desafios"
     },
     {
-      "path": "crypy-games-desafios/arena.html",
-      "label": "Arena",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/batalha-esquadrao.html",
-      "label": "Batalha Esquadrao",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/crypy-dungeons/Masmorra dos Três Pilares.html",
-      "label": "Masmorra Dos TrêS Pilares",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/crypy-games-desafios.html",
-      "label": "Crypy Games Desafios",
-      "group": "crypy-games-desafios"
-    },
-    {
       "path": "crypy-games-desafios/crypy-pac-crypyman.html",
       "label": "Crypy Pac Crypyman",
       "group": "crypy-games-desafios"
@@ -247,9 +242,19 @@
       "group": "crypy-games-desafios"
     },
     {
+      "path": "crypy-infinyt/crypy-infinity.html",
+      "label": "CRYPY Infinity",
+      "group": "crypy-infinyt"
+    },
+    {
       "path": "crypy-infinyt/portal.html",
       "label": "Portal",
       "group": "crypy-infinyt"
+    },
+    {
+      "path": "crypy-market-news/grafico-real.html",
+      "label": "Gráfico Real · Binance",
+      "group": "crypy-news"
     },
     {
       "path": "crypy-news/index.html",
@@ -260,6 +265,51 @@
       "path": "crypy-news/museu.html",
       "label": "Museu",
       "group": "crypy-news"
+    },
+    {
+      "path": "CRYPY-SHOTS/01-feed-para-voce.html",
+      "label": "01 Feed Para Voce",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/02-seguindo.html",
+      "label": "02 Seguindo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/03-ao-vivo.html",
+      "label": "03 Ao Vivo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/04-descobrir.html",
+      "label": "04 Descobrir",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/05-publicar.html",
+      "label": "05 Publicar",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/06-meu-perfil.html",
+      "label": "06 Meu Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/07-nft-shorts.html",
+      "label": "07 Nft Shorts",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/08-config-shots.html",
+      "label": "08 Config Shots",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "CRYPY-SHOTS/crypyshots.html",
+      "label": "Crypyshots",
+      "group": "social-crypykut"
     },
     {
       "path": "esquadrao-das-cores/esquadrao-das-cores.html",
@@ -277,13 +327,58 @@
       "group": "esquadrao-das-cores"
     },
     {
+      "path": "esquadrao-das-cores/web-comeia.html",
+      "label": "Web Colmeia",
+      "group": "esquadrao-das-cores"
+    },
+    {
       "path": "marketing/marketing.html",
       "label": "Marketing",
       "group": "art-figure-marketplace"
     },
     {
+      "path": "nft-collection/collection-crypy-nft.html",
+      "label": "Collection Crypy Nft",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/crypy-collection-crypypasta.html",
+      "label": "Crypy Collection Crypypasta",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/crypy-genesis.html",
+      "label": "Crypy Genesis",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/crypy-nft-edition.html",
+      "label": "Crypy Nft Edition",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/galeria.html",
+      "label": "Galeria",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/nft-colection-edition.html",
+      "label": "Nft Colection Edition",
+      "group": "nft-collection"
+    },
+    {
       "path": "nft-collection/NFT-CRYPY-CARDS/nft-crypy-cards.html",
       "label": "Nft Crypy Cards",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/crypy-nft-edition.html",
+      "label": "Crypy Nft Edition",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/index.html",
+      "label": "Index",
       "group": "nft-collection"
     },
     {
@@ -322,13 +417,13 @@
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/crypy-nft-edition.html",
-      "label": "Crypy Nft Edition",
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/index.html",
+      "label": "Index",
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/NFT-CRYPY-COIN-GENESIS/index.html",
-      "label": "Index",
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/nft-colors-collection.html",
+      "label": "NFT Colors Collection",
       "group": "nft-collection"
     },
     {
@@ -367,13 +462,18 @@
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/NFT-CRYPY-COLLECTION/index.html",
-      "label": "Index",
+      "path": "nft-collection/NFT-CRYPY-COLORS/nft-colors-deluxe.html",
+      "label": "NFT Colors Deluxe",
       "group": "nft-collection"
     },
     {
       "path": "nft-collection/NFT-CRYPY-DARKNESS/nft-crypy-darkness.html",
       "label": "Nft Crypy Darkness",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-GAME/index.html",
+      "label": "Index",
       "group": "nft-collection"
     },
     {
@@ -412,7 +512,12 @@
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/NFT-CRYPY-GAME/index.html",
+      "path": "nft-collection/nft-darkness.html",
+      "label": "Nft Darkness",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/index.html",
       "label": "Index",
       "group": "nft-collection"
     },
@@ -452,7 +557,12 @@
       "group": "nft-collection"
     },
     {
-      "path": "nft-collection/NFT-ESQUADRAO-DAS-CORES/index.html",
+      "path": "nft-collection/nft-genesis.html",
+      "label": "Nft Genesis",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-SENSEI-WEB3.1/index.html",
       "label": "Index",
       "group": "nft-collection"
     },
@@ -489,51 +599,6 @@
     {
       "path": "nft-collection/NFT-SENSEI-WEB3.1/PAGINA-07/index.html",
       "label": "Index",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/NFT-SENSEI-WEB3.1/index.html",
-      "label": "Index",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/collection-crypy-nft.html",
-      "label": "Collection Crypy Nft",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/crypy-collection-crypypasta.html",
-      "label": "Crypy Collection Crypypasta",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/crypy-genesis.html",
-      "label": "Crypy Genesis",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/crypy-nft-edition.html",
-      "label": "Crypy Nft Edition",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/galeria.html",
-      "label": "Galeria",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/nft-colection-edition.html",
-      "label": "Nft Colection Edition",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/nft-darkness.html",
-      "label": "Nft Darkness",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/nft-genesis.html",
-      "label": "Nft Genesis",
       "group": "nft-collection"
     },
     {
@@ -694,6 +759,66 @@
     {
       "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-16-sair-da-conta.html",
       "label": "Sair Da Conta",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/amigos.html",
+      "label": "Amigos",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/comunidade-editorial-preservada-2026-11-20.html",
+      "label": "Comunidade Editorial Preservada 2026 11 20",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/comunidade.html",
+      "label": "Comunidade",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/comunidades.html",
+      "label": "Comunidades",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/01-feed-para-voce.html",
+      "label": "01 Feed Para Voce",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/02-seguindo.html",
+      "label": "02 Seguindo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/03-ao-vivo.html",
+      "label": "03 Ao Vivo",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/04-descobrir.html",
+      "label": "04 Descobrir",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/05-publicar.html",
+      "label": "05 Publicar",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/06-meu-perfil.html",
+      "label": "06 Meu Perfil",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/07-nft-shorts.html",
+      "label": "07 Nft Shorts",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/08-config-shots.html",
+      "label": "08 Config Shots",
       "group": "social-crypykut"
     },
     {
@@ -1177,66 +1302,6 @@
       "group": "social-crypykut"
     },
     {
-      "path": "social-crypykut/amigos.html",
-      "label": "Amigos",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/comunidade-editorial-preservada-2026-11-20.html",
-      "label": "Comunidade Editorial Preservada 2026 11 20",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/comunidade.html",
-      "label": "Comunidade",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/comunidades.html",
-      "label": "Comunidades",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/01-feed-para-voce.html",
-      "label": "01 Feed Para Voce",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/02-seguindo.html",
-      "label": "02 Seguindo",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/03-ao-vivo.html",
-      "label": "03 Ao Vivo",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/04-descobrir.html",
-      "label": "04 Descobrir",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/05-publicar.html",
-      "label": "05 Publicar",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/06-meu-perfil.html",
-      "label": "06 Meu Perfil",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/07-nft-shorts.html",
-      "label": "07 Nft Shorts",
-      "group": "social-crypykut"
-    },
-    {
-      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/08-config-shots.html",
-      "label": "08 Config Shots",
-      "group": "social-crypykut"
-    },
-    {
       "path": "social-crypykut/depoimentos.html",
       "label": "Depoimentos",
       "group": "social-crypykut"
@@ -1275,66 +1340,6 @@
       "path": "social-crypykut/shots.html",
       "label": "Shots",
       "group": "social-crypykut"
-    },
-    {
-      "path": "crypy-infinyt/crypy-infinity.html",
-      "label": "CRYPY Infinity",
-      "group": "crypy-infinyt"
-    },
-    {
-      "path": "esquadrao-das-cores/web-comeia.html",
-      "label": "Web Colmeia",
-      "group": "esquadrao-das-cores"
-    },
-    {
-      "path": "nft-collection/NFT-CRYPY-COLORS/nft-colors-deluxe.html",
-      "label": "NFT Colors Deluxe",
-      "group": "nft-collection"
-    },
-    {
-      "path": "nft-collection/NFT-CRYPY-COLLECTION/nft-colors-collection.html",
-      "label": "NFT Colors Collection",
-      "group": "nft-collection"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-DEFENDER-GLOBAL.html",
-      "label": "CRYPY Defender Global",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-FINAL.html",
-      "label": "CRYPY LAND 3D Final",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-GAME.html",
-      "label": "CRYPY LAND 3D Game",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-FINAL-SALVO.html",
-      "label": "CRYPY LAND Final Salvo",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO-CCG.html",
-      "label": "CRYPY LAND Game NFT Terreno CCG",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO.html",
-      "label": "CRYPY LAND Game NFT Terreno",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-MODELO-BASE-SALVO.html",
-      "label": "CRYPY LAND Modelo Base Salvo",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-REAL-100-TERRENOS.html",
-      "label": "CRYPY LAND Real 100 Terrenos",
-      "group": "crypy-games-desafios"
     }
   ]
 }
