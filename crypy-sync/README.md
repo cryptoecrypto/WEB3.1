@@ -4,7 +4,7 @@
 
 - `cryptoecrypto/WEB3.1`: cliente público e interface. Nunca recebe tokens, credenciais, dados privados, memória persistente ou evidências do HD-MATRIZ.
 - `cryptoecrypto/HD-MATRIZ`: núcleo privado e autoridade do backend, armazenamento persistente, auditoria e runtime BABY.
-- `cryptoecrypto/SECURYTY-SUBC`: camada de revisão de segurança e testes. Espelha apenas código de segurança explicitamente autorizado; não recebe estado privado.
+- `cryptoecrypto/CRYPY-SECURITY`: camada de revisão de segurança e testes. Espelha apenas código de segurança explicitamente autorizado; não recebe estado privado.
 
 ## Regras de sincronização
 
