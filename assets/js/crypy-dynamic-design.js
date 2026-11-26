@@ -39,7 +39,7 @@
   close.addEventListener("click",function(){box.setAttribute("data-open","false");});
  }
  function apply(config){
-  var now=new Date(),month=now.getMonth()+1,day=dayNumber(now);
+  var now=new Date(),parts=saoPauloParts(now),month=Number(parts.month),day=dayNumber(now);
   var themes=config.monthlyThemes&&config.monthlyThemes.length?config.monthlyThemes:fallback.monthlyThemes;
   var skins=config.dailySkins&&config.dailySkins.length?config.dailySkins:fallback.dailySkins;
   var messages=config.dailyMessages&&config.dailyMessages.length?config.dailyMessages:fallback.dailyMessages;
