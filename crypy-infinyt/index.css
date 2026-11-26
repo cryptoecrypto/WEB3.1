@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#030805;
+  --surface:#07130c;
+  --surface-2:#0b1e13;
+  --neon:#00FF88;
+  --gold:#FFD35A;
+  --ink:#E8FFF1;
+  --muted:#9BC7AE;
+  --line:rgba(0,255,136,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#030805; --surface:#07130c; --surface-2:#0b1e13; --ink:#E8FFF1; --muted:#9BC7AE; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Rajdhani',system-ui,-apple-system,sans-serif}
+.font-display{font-family:'Orbitron',system-ui,sans-serif}
+.neon-text{color:var(--neon);text-shadow:0 0 18px rgba(0,255,136,.55)}
+.gold-text{color:var(--gold)}
+.frame-glow{box-shadow:0 0 0 1px rgba(0,255,136,.45),0 0 55px rgba(0,255,136,.18),0 30px 80px rgba(0,0,0,.7)}
+.thumb-active{outline:3px solid var(--neon);box-shadow:0 0 22px rgba(0,255,136,.55)}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(0,255,136,.45)}100%{box-shadow:0 0 0 12px rgba(0,255,136,0)}}
+.live-dot{animation:pulse-ring 1.6s infinite}
+@keyframes fadeIn{from{opacity:.25;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+.fade-in{animation:fadeIn .45s ease both}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#123a26;border-radius:99px}
+::-webkit-scrollbar-track{background:#04100a}
