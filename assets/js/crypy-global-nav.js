@@ -53,7 +53,7 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["crypy-infinyt/portal.html","crypy-academy/academia.html","esquadrao-das-cores/esquadrao.html","nft-collection/galeria.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","social-crypykut/comunidade.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
+  var officialMenuPaths = ["crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
   var categories = [
     {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
@@ -99,7 +99,7 @@
     var signatures = [
       "CRYPY INFINYT","CRYPY-INFINIT","NFT-COLLECTION","ESQUADRÃO DAS CORES",
       "CRYPY ACADEMY","CRYPY-ACADEMY","BIOGRAFIA","CRYPY-NEWS",
-      "MUSEU DIGITAL","MARKETPLACE","CRYPY-GAMES","CRYPYCUT",
+      "MUSEU DIGITAL","MARKETPLACE","CRYPY-GAMES","CRYPYCUT","CRYPY-SOCIAL",
       "CRYPY-COIN","WHITE PAPER","CONTATO"
     ];
     var selector = [
