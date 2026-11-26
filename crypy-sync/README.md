@@ -23,3 +23,20 @@ A sincronização cross-repo automatizada requer o segredo GitHub Actions `CRYPY
 ## Contrato do cliente WEB3.1
 
 O cliente utiliza HTTPS para `https://baby-site-auth-production.up.railway.app`, envia `Authorization: Bearer <token>` e mantém o token apenas em `sessionStorage`. O servidor compara o token em tempo constante e só emite CORS para origens explicitamente autorizadas. O token não pode ser embutido no HTML/JavaScript público.
+
+
+## Contrato compartilhado: Resiliência e Colmeia
+
+A autoridade do runtime, da memória privada, do diário de aprendizado e do treinamento é o repositório privado `cryptoecrypto/HD-MATRIZ`. O código interno de governança, os perfis, os resultados de treinamento, as credenciais e os diários em `/data` **não são replicados** para os repositórios públicos.
+
+Rotas autenticadas disponíveis no backend BABY:
+- `GET /api/resilience/status` — indicadores operacionais por identidade.
+- `GET /api/governance/proposals` — propostas e decisões humanas.
+- `POST /api/governance/proposals` — registrar uma proposta.
+- `POST /api/governance/proposals/:id/decision` — decisão humana com segredo separado.
+- `GET /api/colmeia/training/status` — currículo e prontidão dos motores.
+- `POST /api/colmeia/training/run` — executar o ciclo manual intensivo.
+
+As propostas aprovadas não executam alterações estruturais. Somente lições operacionais aprovadas entram como contexto consultivo das chamadas futuras. A execução de treinamento requer 13 motores conectados e pode gerar até 153 chamadas ao provedor. Resultados permanecem privados no volume persistente do Railway.
+
+O workflow de sincronização distribui apenas o contrato/documentação e os arquivos explicitamente permitidos. Ele nunca copia segredos, memória privada, perfis, backups ou resultados de treinamento.
