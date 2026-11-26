@@ -12,15 +12,16 @@
   dailySkins:[{name:"NEON",accent:"#00ff88",accent2:"#269cff",accent3:"#ff3a58",effect:"glow"}],
   dailyMessages:[{phrase:"NEXUS conecta; Sensei conduz.",idea:"Melhore uma área autorizada com cuidado.",tip:"Registre e teste cada alteração."}]
  };
- function dayNumber(date){var d=new Date(date.getFullYear(),date.getMonth(),date.getDate());return Math.floor(d.getTime()/86400000);}
+ function saoPauloParts(date){var parts=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Sao_Paulo",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(date),out={};parts.forEach(function(p){out[p.type]=p.value;});return out;}
+ function dayNumber(date){var p=saoPauloParts(date);return Math.floor(Date.UTC(Number(p.year),Number(p.month)-1,Number(p.day))/86400000);}
  function pick(list,index){return list[((index%list.length)+list.length)%list.length];}
  function dailySeed(date){
-  var stamp=date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0"),hash=2166136261;
+  var p=saoPauloParts(date),stamp=p.year+"-"+p.month+"-"+p.day,hash=2166136261;
   for(var i=0;i<stamp.length;i++){hash^=stamp.charCodeAt(i);hash=Math.imul(hash,16777619);}
   return hash>>>0;
  }
  function seededIndex(seed,length,salt){var value=(seed^Math.imul((salt+1),0x9e3779b1))>>>0;value^=value>>>16;value=Math.imul(value,0x7feb352d);value^=value>>>15;return (value>>>0)%length;}
- function nextLocalMidnight(){var now=new Date(),next=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,0,0,1,0);return Math.max(1000,next.getTime()-now.getTime());}
+ function nextLocalMidnight(){var now=new Date(),p=saoPauloParts(now),seconds=Number(p.hour)*3600+Number(p.minute)*60+Number(p.second),milliseconds=now.getMilliseconds();return Math.max(1000,(86400-seconds)*1000-milliseconds+25);}
  function ensureWidget(message,theme,skin){
   var previous=document.getElementById("crypy-daily-idea");if(previous)previous.remove();
   var box=document.createElement("aside");box.id="crypy-daily-idea";
