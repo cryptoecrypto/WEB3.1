@@ -1,9 +1,9 @@
 {
-  "version": "3.0",
-  "generated_at": "2026-11-24T10:46:00-03:00",
+  "version": "3.1",
+  "generated_at": "2026-11-25T18:00:00-03:00",
   "source_branch": "main",
-  "source_html_total": 587,
-  "total": 254,
+  "source_html_total": 608,
+  "total": 266,
   "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
   "pages": [
     {
@@ -1275,6 +1275,66 @@
       "path": "social-crypykut/shots.html",
       "label": "Shots",
       "group": "social-crypykut"
+    },
+    {
+      "path": "crypy-infinyt/crypy-infinity.html",
+      "label": "CRYPY Infinity",
+      "group": "crypy-infinyt"
+    },
+    {
+      "path": "esquadrao-das-cores/web-comeia.html",
+      "label": "Web Colmeia",
+      "group": "esquadrao-das-cores"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-COLORS/nft-colors-deluxe.html",
+      "label": "NFT Colors Deluxe",
+      "group": "nft-collection"
+    },
+    {
+      "path": "nft-collection/NFT-CRYPY-COLLECTION/nft-colors-collection.html",
+      "label": "NFT Colors Collection",
+      "group": "nft-collection"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-DEFENDER-GLOBAL.html",
+      "label": "CRYPY Defender Global",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-FINAL.html",
+      "label": "CRYPY LAND 3D Final",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-GAME.html",
+      "label": "CRYPY LAND 3D Game",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-FINAL-SALVO.html",
+      "label": "CRYPY LAND Final Salvo",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO-CCG.html",
+      "label": "CRYPY LAND Game NFT Terreno CCG",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO.html",
+      "label": "CRYPY LAND Game NFT Terreno",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-MODELO-BASE-SALVO.html",
+      "label": "CRYPY LAND Modelo Base Salvo",
+      "group": "crypy-games-desafios"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-REAL-100-TERRENOS.html",
+      "label": "CRYPY LAND Real 100 Terrenos",
+      "group": "crypy-games-desafios"
     }
   ]
 }
