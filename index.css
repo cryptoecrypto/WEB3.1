@@ -1,43 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root{
-  --bg:#000000;
-  --surface:#020805;
-  --surface-2:#04120a;
-  --line:#123c26;
+  --bg:#030805;
+  --surface:#07130c;
+  --surface-2:#0b1e13;
   --neon:#00FF88;
-  --neon-dim:#7dffb8;
   --gold:#FFD35A;
-  --gold-dark:#b98a1e;
-  --text:#eafff3;
-  --muted:#9db8a9;
-  --danger:#ff5d73;
+  --ink:#E8FFF1;
+  --muted:#9BC7AE;
+  --line:rgba(0,255,136,.28);
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#000; --surface:#020805; --text:#eafff3; }
+  :root{ --bg:#030805; --surface:#07130c; --surface-2:#0b1e13; --ink:#E8FFF1; --muted:#9BC7AE; }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Rajdhani',system-ui,sans-serif;overflow-x:clip}
-.font-display{font-family:'Orbitron',sans-serif}
-.font-mono2{font-family:'JetBrains Mono',monospace}
-.matrix-col{font-family:'JetBrains Mono',monospace;color:#00ff88;opacity:.55;line-height:1.05;word-break:break-all;overflow-wrap:anywhere}
-.gold-text{background:linear-gradient(180deg,#fff3b0,#FFD35A 52%,#a97e12);-webkit-background-clip:text;background-clip:text;color:transparent}
-.neon-text{color:var(--neon);text-shadow:0 0 22px rgba(0,255,136,.55)}
-.card{background:linear-gradient(180deg,#04120a,#020805);border:1px solid var(--line)}
-.card:hover{border-color:#00ff88;box-shadow:0 0 0 1px rgba(0,255,136,.25),0 18px 50px rgba(0,255,136,.08)}
-.btn-gold{background:var(--gold);color:#140f00;font-weight:800}
-.btn-gold:hover{background:#ffe07a}
-.btn-ghost{border:1px solid #00ff88;color:var(--neon)}
-.btn-ghost:hover{background:rgba(0,255,136,.12)}
-.chip{border:1px solid #234a33;background:#02120a;color:#bff5d3}
-@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-@keyframes spinSlow{to{transform:rotate(360deg)}}
-.floaty{animation:floaty 5s ease-in-out infinite}
-.spin-slow{animation:spinSlow 18s linear infinite}
-.blink{animation:blink 1.2s steps(2) infinite}
-.no-scrollbar::-webkit-scrollbar{display:none}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Rajdhani',system-ui,-apple-system,sans-serif}
+.font-display{font-family:'Orbitron',system-ui,sans-serif}
+.neon-text{color:var(--neon);text-shadow:0 0 18px rgba(0,255,136,.55)}
+.gold-text{color:var(--gold)}
+.frame-glow{box-shadow:0 0 0 1px rgba(0,255,136,.45),0 0 55px rgba(0,255,136,.18),0 30px 80px rgba(0,0,0,.7)}
+.thumb-active{outline:3px solid var(--neon);box-shadow:0 0 22px rgba(0,255,136,.55)}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(0,255,136,.45)}100%{box-shadow:0 0 0 12px rgba(0,255,136,0)}}
+.live-dot{animation:pulse-ring 1.6s infinite}
+@keyframes fadeIn{from{opacity:.25;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+.fade-in{animation:fadeIn .45s ease both}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#123a26;border-radius:99px}
+::-webkit-scrollbar-track{background:#04100a}
