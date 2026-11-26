@@ -117,4 +117,5 @@ function prev(){if(current.s>0)current.s--; else if(current.p>0){current.p--; cu
 function next(){if(current.s<2)current.s++; else if(current.p<30){current.p++; current.s=0} renderMenu(); renderPage()}
 document.getElementById('busca').addEventListener('input',e=>{let q=e.target.value.toLowerCase(); if(q.length>2){let found=null; pages.forEach((p,pi)=>p[1].forEach((s,si)=>{if(s.toLowerCase().includes(q)&&!found)found={p:pi,s:si}})); if(found){current=found; renderMenu(); renderPage();}}});
 renderMenu(); renderPage();
-</script></body></html>
+</script><script defer src="../../assets/js/crypy-global-nav.js"></script>
+</body></html>
