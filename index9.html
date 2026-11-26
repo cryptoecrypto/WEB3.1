@@ -136,6 +136,22 @@ main{display:grid;grid-template-columns:230px minmax(0,1fr);grid-template-rows:a
  const frame=document.getElementById('page-frame');
  const open=document.getElementById('open-page');
  const status=document.getElementById('page-status');
+ // OCULTAÇÃO TEMPORÁRIA DO CHATBOT FLUTUANTE: mantém o ChatBoot e seu acesso direto.
+ frame.addEventListener('load',function(){
+  try{
+   const doc=frame.contentDocument;
+   if(!doc) return;
+   let style=doc.getElementById('crypy-hide-floating-chat');
+   if(!style){
+    style=doc.createElement('style');
+    style.id='crypy-hide-floating-chat';
+    style.textContent='#crypy-baby-global-root{display:none!important}';
+    (doc.head||doc.documentElement).appendChild(style);
+   }
+  }catch(error){
+   console.warn('Não foi possível ocultar o widget flutuante nesta página.',error);
+  }
+ });
  const links=Array.from(document.querySelectorAll('a[data-page]'));
  function selectPage(file,link){
   frame.src=file;
