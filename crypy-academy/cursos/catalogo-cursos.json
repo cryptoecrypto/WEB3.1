@@ -2,8 +2,8 @@
   "schemaVersion": "1.0",
   "title": "CRYPY ACADEMY · FORTALEZA DO ENSINO WEB3.1",
   "creator": "Sensei",
-  "date": "2026-11-20",
-  "status": "CURRICULO E PLATAFORMA DIDATICA EM PREPARACAO",
+  "date": "2026-11-26",
+  "status": "MATRIZ CURRICULAR 26 ESPECIALIDADES REGISTRADA; PRODUÇÃO E MINISTRAÇÃO DAS AULAS PENDENTES",
   "levels": [
     {
       "id": "iniciante",
@@ -576,5 +576,342 @@
     "cybersecurity": "Testes de segurança somente em ativos próprios ou com autorização explícita e escopo definido.",
     "web3": "Somente testnets e carteiras descartáveis nos exercícios; nunca inserir segredos em páginas, chats, repositórios ou formulários.",
     "ai": "Não enviar dados pessoais, segredos ou conteúdo confidencial a serviços externos sem autorização e análise de privacidade."
-  }
+  },
+  "version": "1.1",
+  "levelFramework": [
+    {
+      "id": "iniciante",
+      "name": "INICIANTE",
+      "focus": "Fundamentos, vocabulário, princípios e primeiros exercícios guiados."
+    },
+    {
+      "id": "medio",
+      "name": "MÉDIO",
+      "focus": "Aplicação prática, ferramentas, fluxos e diagnóstico."
+    },
+    {
+      "id": "avancado",
+      "name": "AVANÇADO",
+      "focus": "Projeto integrado, arquitetura, auditoria e validação."
+    },
+    {
+      "id": "cryptoecrypto-senior-phd",
+      "name": "CRYPTOËCRYPTO — SÊNIOR / PHD",
+      "focus": "Pesquisa independente, arquitetura original, inovação e ensino avançado; classificação didática interna, não grau acadêmico externo."
+    }
+  ],
+  "specializations": [
+    {
+      "id": "crypy-course-01",
+      "title": "Engenharia de Web Design e Experiência Digital",
+      "alias": "Web Design",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-02",
+      "title": "Web3, Protocolos Descentralizados e Arquitetura On-chain",
+      "alias": "Web3",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-03",
+      "title": "Cibersegurança, Criptografia Aplicada e Zero Trust",
+      "alias": "Cibersegurança",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-04",
+      "title": "Engenharia de Código para Inteligência Artificial",
+      "alias": "Código I.A.",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-05",
+      "title": "Arquitetura Interna do BABY I.A. e Sistemas Resilientes",
+      "alias": "Código BABY",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-06",
+      "title": "Fundamentos Binários, Arquitetura de Computadores e Sistemas",
+      "alias": "Código Binário",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-07",
+      "title": "Criptoativos, Economia Digital e Gestão de Risco",
+      "alias": "Criptoativos",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-08",
+      "title": "NFTs, Jogos Web3 e Economias de Jogos",
+      "alias": "NFT-Games",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-09",
+      "title": "Programação Completa e Engenharia de Software",
+      "alias": "Programação",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-10",
+      "title": "Física Quântica, Computação Quântica e Interfaces com IA",
+      "alias": "Física Quântica + I.A.",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-11",
+      "title": "Tecnologia da Informação, Cloud e Sistemas Distribuídos",
+      "alias": "T.I.",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-12",
+      "title": "História das Criptomoedas e Evolução do Dinheiro Digital",
+      "alias": "História Crypto",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-13",
+      "title": "Bitcoin: Protocolo, Economia, Segurança e Escalabilidade",
+      "alias": "BTC",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-14",
+      "title": "Ethereum: EVM, Solidity, DeFi e Camadas de Escala",
+      "alias": "ETH",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-15",
+      "title": "USDT e Stablecoins: Reservas, Paridade e Risco",
+      "alias": "USDT",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-16",
+      "title": "Internet Computer (ICP): Canisters e Computação On-chain",
+      "alias": "ICP",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-17",
+      "title": "Shiba Inu: Ecossistema, Tokenomics e Análise Crítica",
+      "alias": "SHIB",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-18",
+      "title": "BNB Chain: Infraestrutura, Ecossistema e Segurança",
+      "alias": "BNB",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-19",
+      "title": "Método Científico, Pesquisa Avançada e Escrita Doutoral",
+      "alias": "Pesquisa",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-20",
+      "title": "Edição Profissional de Imagens em HTML e Canvas — Photoshop Workflow",
+      "alias": "Imagem / HTML / Photoshop",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-21",
+      "title": "Produção e Edição Multimídia — Imagem, Áudio e Vídeo",
+      "alias": "Multimídia",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-22",
+      "title": "Criação de GIFs Animados e Motion Design para Web",
+      "alias": "GIF Animado",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-23",
+      "title": "Criação de Vídeos por Inteligência Artificial",
+      "alias": "Vídeo por IA",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-24",
+      "title": "Ingestão Segura de Arquivos de Imagem, Áudio e Vídeo",
+      "alias": "Arquivos Multimídia",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-25",
+      "title": "PowerShell, CMD e Automação Governada da Colmeia CRYPY",
+      "alias": "Administração / Automação BABY",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    },
+    {
+      "id": "crypy-course-26",
+      "title": "Terminal de Engenharia Autônoma, MCP e Melhoria Contínua",
+      "alias": "Engenharia de Agentes / DevSecOps",
+      "levels": [
+        "iniciante",
+        "medio",
+        "avancado",
+        "cryptoecrypto-senior-phd"
+      ],
+      "curriculumSource": "crypy-academy/cursos/FORMACAO-COMPLETA-26-CURSOS-CRYPY-001.md"
+    }
+  ]
 }
