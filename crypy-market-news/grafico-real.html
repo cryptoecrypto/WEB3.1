@@ -12,12 +12,12 @@
 
 
 :root {
-  --bg: #050807;
-  --surface: rgba(8, 14, 11, 0.86);
-  --surface-2: rgba(12, 22, 17, 0.88);
-  --line: rgba(255, 255, 255, 0.13);
-  --text: #f2fff8;
-  --muted: #a9bfb4;
+  --bg: #0a120d;
+  --surface: rgba(13, 24, 18, 0.96);
+  --surface-2: rgba(18, 32, 24, 0.97);
+  --line: rgba(190, 255, 220, 0.20);
+  --text: #f5fff9;
+  --muted: #c4d8cc;
   --green: #00ff88;
   --green-candle: #0ecb81;
   --red: #f6465d;
@@ -26,7 +26,7 @@
   --blue: #4da3ff;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #050807; --text: #f2fff8; }
+  :root { --bg: #0a120d; --text: #f5fff9; }
 }
 * { box-sizing: border-box; }
 html, body, #root { margin: 0; min-height: 100%; background: var(--bg); }
@@ -38,7 +38,7 @@ input[type="color"] { padding: 0; border: 1px solid var(--line); background: tra
 .mini { font-size: 11px; letter-spacing: .04em; }
 .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
 .scroll-thin::-webkit-scrollbar { height: 6px; width: 6px; }
-.scroll-thin::-webkit-scrollbar-thumb { background: #2b3d35; border-radius: 99px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #496354; border-radius: 99px; }
 input[type="number"] { color: var(--text); }
 input[type="number"]::placeholder { color: #6f857a; }
 
@@ -244,7 +244,7 @@ function App() {
     const top = max + pad; const bottom = Math.max(0, min - pad);
     const y = (v: number) => 12 + ((top - v) / (top - bottom)) * (chartH - 24);
     const stepX = w / data.length; const x = (i: number) => i * stepX + stepX / 2;
-    ctx.strokeStyle = "rgba(255,255,255,.08)"; ctx.fillStyle = "#8aa79a"; ctx.font = "11px system-ui"; ctx.textAlign = "right";
+    ctx.strokeStyle = "rgba(190,255,220,.16)"; ctx.fillStyle = "#c0d4c8"; ctx.font = "11px system-ui"; ctx.textAlign = "right";
     for (let i = 0; i <= 4; i++) { const yy = 12 + (i / 4) * (chartH - 24); ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(w, yy); ctx.stroke(); const val = top - ((top - bottom) * i) / 4; ctx.fillText(fmtPrice(symbol, val), w - 6, yy - 4); }
     data.forEach((k, i) => {
       const up = k.close >= k.open; const color = up ? upColor : downColor;
@@ -305,13 +305,13 @@ function App() {
   };
 
   return (
-    <div data-safe-area-inset-root style={{ boxSizing: "border-box", paddingTop: "var(--safe-area-inset-top)", minHeight: "100vh", background: "#050807" }} className="overflow-x-clip">
-      <div className="fixed inset-0 -z-0" aria-hidden="true"><img src={bgUrl} alt="" className="h-full w-full object-cover" /><div className="absolute inset-0 bg-black/85" /></div>
+    <div data-safe-area-inset-root style={{ boxSizing: "border-box", paddingTop: "var(--safe-area-inset-top)", minHeight: "100vh", background: "#0a120d" }} className="overflow-x-clip">
+      <div className="fixed inset-0 -z-0" aria-hidden="true"><img src={bgUrl} alt="" className="h-full w-full object-cover" /><div className="absolute inset-0 bg-black/58" /></div>
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-2 pb-4 sm:px-3">
-        <header data-safe-area-sticky-top style={{ top: "var(--safe-area-inset-top)" }} className="sticky z-20 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-white/10 bg-[#050807]/95 py-3 backdrop-blur">
-          <div><div className="text-xl font-black tracking-[0.12em] text-[#00ff88] sm:text-2xl">CRYPY <span className="text-white">NEWS</span></div><div className="mini text-[#a9bfb4]">Mercado • Simulação visual</div></div>
+        <header data-safe-area-sticky-top style={{ top: "var(--safe-area-inset-top)" }} className="sticky z-20 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-white/10 bg-[#0a120d]/96 py-3 backdrop-blur">
+          <div><div className="text-xl font-black tracking-[0.12em] text-[#00ff88] sm:text-2xl">CRYPY <span className="text-white">NEWS</span></div><div className="mini text-[#c4d8cc]">Mercado • Simulação visual</div></div>
           <div className="flex flex-1 flex-wrap items-end gap-x-5 gap-y-1">
-            <div><div className="mini text-[#a9bfb4]">{symbol} • ao vivo</div><div className="num text-2xl font-black sm:text-3xl">${fmtPrice(symbol, live)}</div></div>
+            <div><div className="mini text-[#c4d8cc]">{symbol} • ao vivo</div><div className="num text-2xl font-black sm:text-3xl">${fmtPrice(symbol, live)}</div></div>
             <Stat label="Var 24h" value={`${stats.change >= 0 ? "+" : ""}${fmt(stats.change)}%`} color={stats.change >= 0 ? "#00ff88" : "#f6465d"} />
             <Stat label="Máx 24h" value={fmtPrice(symbol, stats.high)} />
             <Stat label="Mín 24h" value={fmtPrice(symbol, stats.low)} />
@@ -322,12 +322,12 @@ function App() {
 
         <main className="mt-3 grid grid-cols-1 gap-3 lg:grid-cols-[220px_minmax(0,1fr)_220px]">
           <section className="panel order-2 lg:order-1" aria-label="Livro de ordens">
-            <div className="flex items-center justify-between border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Livro de Ordens</h2><span className="mini text-[#a9bfb4]">{symbol}</span></div>
-            <div className="grid grid-cols-3 px-3 py-2 text-[11px] text-[#a9bfb4]"><span>Preço</span><span className="text-right">Quantia</span><span className="text-right">Total</span></div>
+            <div className="flex items-center justify-between border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Livro de Ordens</h2><span className="mini text-[#c4d8cc]">{symbol}</span></div>
+            <div className="grid grid-cols-3 px-3 py-2 text-[11px] text-[#c4d8cc]"><span>Preço</span><span className="text-right">Quantia</span><span className="text-right">Total</span></div>
             <div>{book.asks.map((r, i) => <Row key={i} {...r} color="#f6465d" symbol={symbol} />)}</div>
-            <div className="border-y border-white/10 px-3 py-3 text-center"><div className="mini text-[#a9bfb4]">Preço atual</div><div className="num text-2xl font-black text-[#00ff88]">{fmtPrice(symbol, live)}</div></div>
+            <div className="border-y border-white/10 px-3 py-3 text-center"><div className="mini text-[#c4d8cc]">Preço atual</div><div className="num text-2xl font-black text-[#00ff88]">{fmtPrice(symbol, live)}</div></div>
             <div>{book.bids.map((r, i) => <Row key={i} {...r} color="#0ecb81" symbol={symbol} />)}</div>
-            <p className="px-3 py-2 text-[11px] leading-4 text-[#a9bfb4]">Ordens ilustrativas geradas a partir do preço exibido. Atualização automática a cada 2 segundos.</p>
+            <p className="px-3 py-2 text-[11px] leading-4 text-[#c4d8cc]">Ordens ilustrativas geradas a partir do preço exibido. Atualização automática a cada 2 segundos.</p>
           </section>
 
           <section className="panel order-1 lg:order-2 min-w-0">
@@ -348,27 +348,27 @@ function App() {
               <canvas ref={canvasRef} onMouseMove={onMouse} onMouseLeave={() => setCross(null)} onWheel={onWheel} onMouseDown={startDrag} onMouseMoveCapture={onDrag} onMouseUp={() => dragRef.current = null} className="block h-full w-full" />
               <div className="pointer-events-none absolute left-3 top-3 max-w-[calc(100%-24px)] rounded bg-black/70 px-3 py-2 text-[11px] leading-4">
                 <span className="font-bold text-[#00ff88]">{symbol} • {tf}</span> <span className="text-white/80">O {fmtPrice(symbol, hoverKline.open)} • H {fmtPrice(symbol, hoverKline.high)} • L {fmtPrice(symbol, hoverKline.low)} • C {fmtPrice(symbol, hoverKline.close)}</span><br />
-                <span className="text-[#a9bfb4]">{new Date(hoverKline.time).toLocaleString("pt-BR")} • Vol {fmt(hoverKline.volume, 1)}</span>
+                <span className="text-[#c4d8cc]">{new Date(hoverKline.time).toLocaleString("pt-BR")} • Vol {fmt(hoverKline.volume, 1)}</span>
               </div>
             </div>
-            <div className="flex flex-wrap justify-between gap-2 border-t border-white/10 px-3 py-2 text-[11px] text-[#a9bfb4]"><span>Arraste para mover • Scroll para zoom • Passe o mouse para o crosshair</span><span className="num">Exibindo {visibleKlines.slice.length} velas</span></div>
+            <div className="flex flex-wrap justify-between gap-2 border-t border-white/10 px-3 py-2 text-[11px] text-[#c4d8cc]"><span>Arraste para mover • Scroll para zoom • Passe o mouse para o crosshair</span><span className="num">Exibindo {visibleKlines.slice.length} velas</span></div>
           </section>
 
           <aside className="panel order-3" aria-label="Lista de moedas">
-            <div className="border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Mercados</h2><p className="mini text-[#a9bfb4]">Toque para trocar o símbolo</p></div>
-            {COINS.map((c) => { const active = c.symbol === symbol; const tick = coinTickers[c.symbol]; const price = c.symbol === symbol ? live : (tick?.price ?? c.base); const change = c.symbol === symbol && tickerStats ? tickerStats.change : (tick?.change ?? c.change); return <button key={c.symbol} onClick={() => setSymbol(c.symbol)} className={`flex w-full items-center justify-between gap-2 px-3 py-3 text-left ${active ? "bg-[#00ff88]/10" : "hover:bg-white/5"}`}><span><span className="block text-sm font-bold">{c.symbol}</span><span className="mini text-[#a9bfb4]">{c.label}</span></span><span className="text-right"><span className="num block text-sm font-bold">{fmtPrice(c.symbol, price)}</span><span className={`text-xs font-bold ${change >= 0 ? "text-[#00ff88]" : "text-[#f6465d]"}`}>{change >= 0 ? "+" : ""}{fmt(change)}%</span></span></button>; })}
-            <div className="border-t border-white/10 px-3 py-3 text-[11px] leading-4 text-[#a9bfb4]">{dataNote} Nenhuma operação real é executada.</div>
+            <div className="border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Mercados</h2><p className="mini text-[#c4d8cc]">Toque para trocar o símbolo</p></div>
+            {COINS.map((c) => { const active = c.symbol === symbol; const tick = coinTickers[c.symbol]; const price = c.symbol === symbol ? live : (tick?.price ?? c.base); const change = c.symbol === symbol && tickerStats ? tickerStats.change : (tick?.change ?? c.change); return <button key={c.symbol} onClick={() => setSymbol(c.symbol)} className={`flex w-full items-center justify-between gap-2 px-3 py-3 text-left ${active ? "bg-[#00ff88]/10" : "hover:bg-white/5"}`}><span><span className="block text-sm font-bold">{c.symbol}</span><span className="mini text-[#c4d8cc]">{c.label}</span></span><span className="text-right"><span className="num block text-sm font-bold">{fmtPrice(c.symbol, price)}</span><span className={`text-xs font-bold ${change >= 0 ? "text-[#00ff88]" : "text-[#f6465d]"}`}>{change >= 0 ? "+" : ""}{fmt(change)}%</span></span></button>; })}
+            <div className="border-t border-white/10 px-3 py-3 text-[11px] leading-4 text-[#c4d8cc]">{dataNote} Nenhuma operação real é executada.</div>
           </aside>
         </main>
 
         <section className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
           <div className="panel">
             <div className="border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Painel de Ordem • Simulação</h2><p className="text-[11px] font-bold text-[#f0b90b]">SIMULAÇÃO — SEM DINHEIRO REAL • MODO REAL: sem mainnet, sem liquidez real</p></div>
-            <div className="flex gap-1 px-3 pt-3">{(["Limite", "Market", "Stop Limit"] as const).map((t) => <button key={t} onClick={() => setOrderTab(t)} className={`rounded-t px-3 py-2 text-xs font-bold ${orderTab === t ? "bg-white/10 text-[#00ff88]" : "text-[#a9bfb4]"}`}>{t}</button>)}</div>
+            <div className="flex gap-1 px-3 pt-3">{(["Limite", "Market", "Stop Limit"] as const).map((t) => <button key={t} onClick={() => setOrderTab(t)} className={`rounded-t px-3 py-2 text-xs font-bold ${orderTab === t ? "bg-white/10 text-[#00ff88]" : "text-[#c4d8cc]"}`}>{t}</button>)}</div>
             <div className="grid gap-3 px-3 pb-3 sm:grid-cols-3">
-              <label className="block text-xs text-[#a9bfb4]">Preço<label className="sr-only">Preço</label><input aria-label="Preço da ordem" disabled={orderTab === "Market"} type="number" min="0" step="0.01" value={priceInput} onChange={(e) => setPriceInput(e.target.value)} className="mt-1 w-full rounded border border-white/15 bg-black/40 px-2 py-2 text-sm" /></label>
-              <label className="block text-xs text-[#a9bfb4]">Quantia<input aria-label="Quantia da ordem" type="number" min="0" step="0.0001" value={qty} onChange={(e) => setQty(e.target.value)} className="mt-1 w-full rounded border border-white/15 bg-black/40 px-2 py-2 text-sm" /></label>
-              <label className="block text-xs text-[#a9bfb4]">Total <span className="num mt-1 block rounded border border-white/10 bg-white/5 px-2 py-2 text-sm text-white">{fmt(totalNum, 2)} USDT</span></label>
+              <label className="block text-xs text-[#c4d8cc]">Preço<label className="sr-only">Preço</label><input aria-label="Preço da ordem" disabled={orderTab === "Market"} type="number" min="0" step="0.01" value={priceInput} onChange={(e) => setPriceInput(e.target.value)} className="mt-1 w-full rounded border border-white/15 bg-black/40 px-2 py-2 text-sm" /></label>
+              <label className="block text-xs text-[#c4d8cc]">Quantia<input aria-label="Quantia da ordem" type="number" min="0" step="0.0001" value={qty} onChange={(e) => setQty(e.target.value)} className="mt-1 w-full rounded border border-white/15 bg-black/40 px-2 py-2 text-sm" /></label>
+              <label className="block text-xs text-[#c4d8cc]">Total <span className="num mt-1 block rounded border border-white/10 bg-white/5 px-2 py-2 text-sm text-white">{fmt(totalNum, 2)} USDT</span></label>
             </div>
             <div className="flex gap-2 px-3 pb-2"><button onClick={() => { setSide("Compra"); }} className={`flex-1 rounded py-2 text-xs font-bold ${side === "Compra" ? "bg-[#0ecb81] text-black" : "bg-white/10"}`}>Comprar</button><button onClick={() => { setSide("Venda"); }} className={`flex-1 rounded py-2 text-xs font-bold ${side === "Venda" ? "bg-[#f6465d] text-white" : "bg-white/10"}`}>Vender</button></div>
             <button disabled={busy} onClick={submitOrder} className={`mx-3 mb-3 w-[calc(100%-24px)] rounded py-3 text-sm font-black ${side === "Compra" ? "bg-[#0ecb81] text-black" : "bg-[#f6465d] text-white"} disabled:opacity-50`}>{busy ? "Registrando…" : `Registrar ${side} simulada`}</button>
@@ -379,13 +379,13 @@ function App() {
           <div className="panel">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-3 py-2"><h2 className="text-sm font-bold">Minhas Ordens Simuladas</h2><button onClick={loadOrders} className="rounded bg-white/10 px-2 py-1 text-xs font-bold">Recarregar</button></div>
             <div className="max-h-[280px] overflow-y-auto scroll-thin">
-              {loadingOrders ? <p className="px-3 py-5 text-sm text-[#a9bfb4]">Carregando ordens salvas…</p> : orders.length === 0 ? <p className="px-3 py-5 text-sm text-[#a9bfb4]">Nenhuma ordem simulada registrada ainda. Use o painel ao lado para criar a primeira.</p> : orders.slice().reverse().map((o) => <div key={o.id} className="flex flex-wrap items-center gap-2 border-b border-white/5 px-3 py-2 text-xs"><span className={`rounded px-2 py-1 font-black ${o.value.side === "Compra" ? "bg-[#0ecb81]/15 text-[#0ecb81]" : "bg-[#f6465d]/15 text-[#f6465d]"}`}>{o.value.side}</span><span className="font-bold">{o.value.symbol}</span><span className="text-[#a9bfb4]">{o.value.type}</span><span className="num ml-auto">Preço {fmtPrice(o.value.symbol, o.value.price)}</span><span className="num">Qtd {fmt(o.value.qty, 4)}</span><span className="num font-bold">Total {fmt(o.value.total, 2)}</span><button disabled={busy} onClick={() => cancelOrder(o.id)} className="rounded bg-white/10 px-2 py-1 font-bold disabled:opacity-50">Remover</button><span className="w-full text-[11px] text-[#a9bfb4]">{o.value.created}</span></div>)}
+              {loadingOrders ? <p className="px-3 py-5 text-sm text-[#c4d8cc]">Carregando ordens salvas…</p> : orders.length === 0 ? <p className="px-3 py-5 text-sm text-[#c4d8cc]">Nenhuma ordem simulada registrada ainda. Use o painel ao lado para criar a primeira.</p> : orders.slice().reverse().map((o) => <div key={o.id} className="flex flex-wrap items-center gap-2 border-b border-white/5 px-3 py-2 text-xs"><span className={`rounded px-2 py-1 font-black ${o.value.side === "Compra" ? "bg-[#0ecb81]/15 text-[#0ecb81]" : "bg-[#f6465d]/15 text-[#f6465d]"}`}>{o.value.side}</span><span className="font-bold">{o.value.symbol}</span><span className="text-[#c4d8cc]">{o.value.type}</span><span className="num ml-auto">Preço {fmtPrice(o.value.symbol, o.value.price)}</span><span className="num">Qtd {fmt(o.value.qty, 4)}</span><span className="num font-bold">Total {fmt(o.value.total, 2)}</span><button disabled={busy} onClick={() => cancelOrder(o.id)} className="rounded bg-white/10 px-2 py-1 font-bold disabled:opacity-50">Remover</button><span className="w-full text-[11px] text-[#c4d8cc]">{o.value.created}</span></div>)}
             </div>
-            <p className="px-3 py-2 text-[11px] leading-4 text-[#a9bfb4]">As ordens desta lista são salvas apenas como simulação. Não há execução, liquidação ou movimentação de dinheiro real.</p>
+            <p className="px-3 py-2 text-[11px] leading-4 text-[#c4d8cc]">As ordens desta lista são salvas apenas como simulação. Não há execução, liquidação ou movimentação de dinheiro real.</p>
           </div>
         </section>
 
-        <footer className="mt-4 border-t border-white/10 px-1 py-4 text-center text-[11px] leading-5 text-[#a9bfb4]">
+        <footer className="mt-4 border-t border-white/10 px-1 py-4 text-center text-[11px] leading-5 text-[#c4d8cc]">
           <p className="text-sm font-bold text-white">CRYPY NEWS — System by CryptoëCrypto</p>
           <p>Dados: Binance API pública • MODO REAL: testnet only, no mainnet, no real liquidity • Sem promessa de lucro</p>
           <p>Esta página não executa trades reais. Ordens são apenas simulação salva localmente no painel.</p>
@@ -395,8 +395,8 @@ function App() {
   );
 }
 
-function Stat({ label, value, color }: { label: string; value: string; color?: string }) { return <div><div className="mini text-[#a9bfb4]">{label}</div><div className="num text-sm font-bold" style={{ color: color || "#fff" }}>{value}</div></div>; }
-function Row({ p, q, t, color, symbol }: { p: number; q: number; t: number; color: string; symbol: string }) { return <div className="grid grid-cols-3 px-3 py-1 text-xs"><span className="num font-bold" style={{ color }}>{fmtPrice(symbol, p)}</span><span className="num text-right">{fmt(q, 4)}</span><span className="num text-right text-[#a9bfb4]">{fmt(t, 2)}</span></div>; }</script>
+function Stat({ label, value, color }: { label: string; value: string; color?: string }) { return <div><div className="mini text-[#c4d8cc]">{label}</div><div className="num text-sm font-bold" style={{ color: color || "#fff" }}>{value}</div></div>; }
+function Row({ p, q, t, color, symbol }: { p: number; q: number; t: number; color: string; symbol: string }) { return <div className="grid grid-cols-3 px-3 py-1 text-xs"><span className="num font-bold" style={{ color }}>{fmtPrice(symbol, p)}</span><span className="num text-right">{fmt(q, 4)}</span><span className="num text-right text-[#c4d8cc]">{fmt(t, 2)}</span></div>; }</script>
 <script type="module">
 import React from "https://esm.sh/react@18.3.1";
 import { createRoot } from "https://esm.sh/react-dom@18.3.1/client";
