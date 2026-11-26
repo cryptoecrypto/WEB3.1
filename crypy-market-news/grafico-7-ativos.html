@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050b08">
+<title>CRYPY NEWS — Central de Gráficos Reais</title>
+<style>
+:root{color-scheme:dark;--bg:#050b08;--panel:#0b1711;--panel2:#102219;--line:#214b35;--green:#00ff88;--text:#effff5;--muted:#9ab5a5;--red:#ff647c;--gold:#f4ce65}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(ellipse at 50% -20%,#123b25 0,transparent 55%),var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{padding:20px}.wrap{max-width:1500px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:5px 0 18px}.brand{display:flex;align-items:center;gap:13px}.mark{width:43px;height:43px;border:1px solid var(--green);transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 20px #00ff8840}.mark span{transform:rotate(-45deg);font-weight:900;color:var(--green);font-size:19px}.eyebrow{color:var(--green);font-size:10px;letter-spacing:3px;font-weight:800}.brand h1{font-size:clamp(20px,3vw,29px);margin:2px 0 0;letter-spacing:1px}.brand p{margin:2px 0;color:var(--muted);font-size:12px}.status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px currentColor}.dot.ok{background:var(--green)}.dot.bad{background:var(--red)}
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 0}.toolbar label{color:var(--muted);font-size:12px}.toolbar select,.toolbar button,.card button{background:#102219;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}.toolbar button.primary{background:#063c24;border-color:var(--green);color:var(--green);font-weight:750}.toolbar button:hover,.card button:hover{border-color:var(--green)}.toolbar .spacer{flex:1}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 15px}.chip{background:#0b1711;border:1px solid var(--line);border-radius:9px;padding:8px 11px;color:var(--muted);font-size:11px}.chip b{color:var(--text);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(145deg,#0d1b13f2,#08110cf5);border:1px solid var(--line);border-radius:13px;overflow:hidden;min-width:0;box-shadow:0 8px 28px #0005}.card.focus{grid-column:1/-1}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px 10px;border-bottom:1px solid #1b3928}.coin{display:flex;align-items:center;gap:10px;min-width:0}.coin-icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#11291c;color:var(--green);font-weight:850;border:1px solid #28553a}.coin h2{font-size:15px;margin:0}.coin small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}.price{text-align:right;white-space:nowrap}.price strong{font-size:17px;font-variant-numeric:tabular-nums}.change{font-size:11px;font-weight:750}.up{color:var(--green)}.down{color:var(--red)}.chart-wrap{height:210px;padding:8px 10px 0;position:relative}.chart{width:100%;height:100%;display:block}.chart-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:7px 14px 13px;color:var(--muted);font-size:10px}.chart-meta b{color:#d9f7e5;font-weight:650}.empty{height:210px;display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted);background:repeating-linear-gradient(135deg,#0b1711,#0b1711 12px,#0d1c14 12px,#0d1c14 24px)}.empty strong{display:block;color:var(--gold);font-size:16px;margin-bottom:5px}.empty .symbol{font-size:27px;color:var(--green);font-weight:900;margin-bottom:9px}.foot{border-top:1px solid var(--line);margin-top:18px;padding:14px 2px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.foot b{color:var(--green)}.error{color:var(--red)}.hidden{display:none!important}
+@media(min-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.card.focus{grid-column:span 2;grid-row:span 2}.card.focus .chart-wrap{height:430px}.card.focus .empty{height:430px}}
+@media(max-width:680px){body{padding:12px}.grid{grid-template-columns:1fr}.card.focus{grid-column:auto}.card.focus .chart-wrap{height:230px}.card.focus .empty{height:230px}.toolbar{gap:7px}.toolbar select,.toolbar button{padding:8px 9px;font-size:12px}.brand p{max-width:230px}.price strong{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="mark"><span>V</span></div><div><div class="eyebrow">CRYPTOEËCRYPTO · WEB3.1</div><h1>CRYPY NEWS <span style="color:var(--green)">/ MERCADO REAL</span></h1><p>Central configurável de 7 gráficos · dados públicos de mercado</p></div></div>
+ <div class="status"><i class="dot" id="connectionDot"></i><span id="connectionText">Conectando à Binance…</span></div>
+</header>
+<section class="toolbar" aria-label="Configurações dos gráficos">
+ <label for="interval">PERÍODO</label><select id="interval"><option value="1m">1 minuto</option><option value="5m">5 minutos</option><option value="15m" selected>15 minutos</option><option value="1h">1 hora</option><option value="4h">4 horas</option><option value="1d">1 dia</option><option value="1w">1 semana</option></select>
+ <label for="layout">VISUAL</label><select id="layout"><option value="all">Todos os gráficos</option><option value="focus">Foco no primeiro</option></select>
+ <button class="primary" id="refresh">↻ Atualizar agora</button><span class="spacer"></span><span class="status">AUTO <b style="color:var(--green)">30s</b></span>
+</section>
+<div class="summary"><span class="chip">FONTE <b>Binance Public API</b></span><span class="chip">MOEDA DE REFERÊNCIA <b>USDT / BRL conforme par</b></span><span class="chip">ATUALIZAÇÃO <b id="lastUpdate">Aguardando dados…</b></span><span class="chip">MERCADO <b>Spot</b></span></div>
+<main class="grid" id="charts">
+ <article class="card" data-id="BTC"><div class="card-head"><div class="coin"><div class="coin-icon">₿</div><div><h2>Bitcoin</h2><small>BTC / USDT</small></div></div><div class="price"><strong id="price-BTC">—</strong><div class="change" id="change-BTC">Carregando</div></div></div><div class="chart-wrap"><canvas class="chart" id="chart-BTC"></canvas></div><div class="chart-meta"><span>Máx. 24h <b id="high-BTC">—</b></span><span>Mín. 24h <b id="low-BTC">—</b></span><span>Volume <b id="volume-BTC">—</b></span></div></article>
+ <article class="card" data-id="ETH"><div class="card-head"><div class="coin"><div class="coin-icon">Ξ</div><div><h2>Ethereum</h2><small>ETH / USDT</small></div></div><div class="price"><strong id="price-ETH">—</strong><div class="change" id="change-ETH">Carregando</div></div></div><div class="chart-wrap"><canvas class="chart" id="chart-ETH"></canvas></div><div class="chart-meta"><span>Máx. 24h <b id="high-ETH">—</b></span><span>Mín. 24h <b id="low-ETH">—</b></span><span>Volume <b id="volume-ETH">—</b></span></div></article>
+ <article class="card" data-id="USDT"><div class="card-head"><div class="coin"><div class="coin-icon">₮</div><div><h2>Tether</h2><small>USDT / BRL</small></div></div><div class="price"><strong id="price-USDT">—</strong><div class="change" id="change-USDT">Carregando</div></div></div><div class="chart-wrap"><canvas class="chart" id="chart-USDT"></canvas></div><div class="chart-meta"><span>Máx. 24h <b id="high-USDT">—</b></span><span>Mín. 24h <b id="low-USDT">—</b></span><span>Volume <b id="volume-USDT">—</b></span></div></article>
+ <article class="card" data-id="ICP"><div class="card-head"><div class="coin"><div class="coin-icon">∞</div><div><h2>Internet Computer</h2><small>ICP / USDT</small></div></div><div class="price"><strong id="price-ICP">—</strong><div class="change" id="change-ICP">Carregando</div></div></div><div class="chart-wrap"><canvas class="chart" id="chart-ICP"></canvas></div><div class="chart-meta"><span>Máx. 24h <b id="high-ICP">—</b></span><span>Mín. 24h <b id="low-ICP">—</b></span><span>Volume <b id="volume-ICP">—</b></span></div></article>
+ <article class="card" data-id="SHIB"><div class="card-head"><div class="coin"><div class="coin-icon">SH</div><div><h2>Shiba Inu</h2><small>SHIB / USDT</small></div></div><div class="price"><strong id="price-SHIB">—</strong><div class="change" id="change-SHIB">Carregando</div></div></div><div class="chart-wrap"><canvas class="chart" id="chart-SHIB"></canvas></div><div class="chart-meta"><span>Máx. 24h <b id="high-SHIB">—</b></span><span>Mín. 24h <b id="low-SHIB">—</b></span><span>Volume <b id="volume-SHIB">—</b></span></div></article>
+ <article class="card" data-id="BNB"><div class="card-head"><div class="coin"><div class="coin-icon">◆</div><div><h2>BNB</h2><small>BNB / USDT</small></div></div><div class="price"><strong id="price-BNB">—</strong><div class="change" id="change-BNB">Carregando</div></div></div><div class="chart-wrap"><canvas class="chart" id="chart-BNB"></canvas></div><div class="chart-meta"><span>Máx. 24h <b id="high-BNB">—</b></span><span>Mín. 24h <b id="low-BNB">—</b></span><span>Volume <b id="volume-BNB">—</b></span></div></article>
+ <article class="card" data-id="CRYPY"><div class="card-head"><div class="coin"><div class="coin-icon">V</div><div><h2>CRYPY COIN</h2><small>ATIVO DO ECOSSISTEMA · RESERVADO</small></div></div><div class="price"><strong id="price-CRYPY">—</strong><div class="change" style="color:var(--gold)">Sem cotação pública</div></div></div><div class="empty"><div><div class="symbol">◇ CRYPY</div><strong>Gráfico reservado para CRYPY COIN</strong><span>Será conectado somente a uma fonte oficial quando houver emissão, mercado e dados verificáveis.<br>Não exibe preço fictício nem simula cotação real.</span></div></div><div class="chart-meta"><span>Status <b>Aguardando fonte oficial</b></span><span>Tipo <b>Utilidade do ecossistema</b></span></div></article>
+</main>
+<footer class="foot"><span><b>CRYPY · NEXUS</b> — dados públicos para acompanhamento informativo.</span><span>Os gráficos refletem o mercado Spot da Binance. Não são recomendação de investimento.</span></footer>
+</div>
+<script>
+(()=>{
+'use strict';
+const API='https://data-api.binance.vision';
+const assets=[
+ {id:'BTC',symbol:'BTCUSDT',digits:2},{id:'ETH',symbol:'ETHUSDT',digits:2},
+ {id:'USDT',symbol:'USDTBRL',digits:4},{id:'ICP',symbol:'ICPUSDT',digits:3},
+ {id:'SHIB',symbol:'SHIBUSDT',digits:8},{id:'BNB',symbol:'BNBUSDT',digits:2}
+];
+const $=id=>document.getElementById(id);
+const fmt=(v,d=2)=>Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+let interval='15m',busy=false;
+function setStatus(kind,msg){$('connectionDot').className='dot '+kind;$('connectionText').textContent=msg}
+function draw(id,rows){
+ const c=$('chart-'+id);if(!c||!rows?.length)return;
+ const rect=c.getBoundingClientRect(),w=Math.max(260,rect.width),h=Math.max(150,rect.height),ratio=window.devicePixelRatio||1;
+ c.width=Math.round(w*ratio);c.height=Math.round(h*ratio);
+ const x=c.getContext('2d');x.scale(ratio,ratio);x.clearRect(0,0,w,h);
+ const pad={l:8,r:58,t:12,b:18},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+ const vals=rows.flatMap(r=>[r[2],r[3]]).map(Number),lo=Math.min(...vals),hi=Math.max(...vals),span=(hi-lo)||hi*.01||1;
+ const y=v=>pad.t+(hi-v)/span*ch,step=cw/rows.length,candle=Math.max(2,Math.min(8,step*.62));
+ x.font='10px system-ui';x.textAlign='right';x.textBaseline='middle';
+ for(let i=0;i<=4;i++){let yy=pad.t+ch*i/4,val=hi-span*i/4;x.strokeStyle='rgba(150,210,175,.13)';x.lineWidth=1;x.beginPath();x.moveTo(pad.l,yy);x.lineTo(w-pad.r+5,yy);x.stroke();x.fillStyle='#8eaa99';x.fillText(fmt(val,assets.find(a=>a.id===id)?.digits||2),w-5,yy)}
+ rows.forEach((r,i)=>{const open=+r[1],high=+r[2],low=+r[3],close=+r[4],cx=pad.l+i*step+step/2,up=close>=open,col=up?'#00e887':'#ff647c';x.strokeStyle=col;x.fillStyle=col;x.lineWidth=1;x.beginPath();x.moveTo(cx,y(high));x.lineTo(cx,y(low));x.stroke();let top=y(Math.max(open,close)),bottom=y(Math.min(open,close)),bh=Math.max(1,bottom-top);x.fillRect(cx-candle/2,top,candle,bh)});
+ x.fillStyle='#91aa9a';x.textAlign='left';x.fillText('Binance · '+interval,pad.l,h-7);
+}
+async function json(url){const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+async function updateAsset(a){
+ const [ticker,klines]=await Promise.all([
+  json(API+'/api/v3/ticker/24hr?symbol='+a.symbol),
+  json(API+'/api/v3/klines?symbol='+a.symbol+'&interval='+interval+'&limit=90')
+ ]);
+ const price=Number(ticker.lastPrice),change=Number(ticker.priceChangePercent);
+ $('price-'+a.id).textContent=fmt(price,a.digits)+(a.id==='USDT'?' R$':' USDT');
+ const ch=$('change-'+a.id);ch.textContent=(change>=0?'+':'')+fmt(change,2)+'% · 24h';ch.className='change '+(change>=0?'up':'down');
+ $('high-'+a.id).textContent=fmt(ticker.highPrice,a.digits);
+ $('low-'+a.id).textContent=fmt(ticker.lowPrice,a.digits);
+ $('volume-'+a.id).textContent=Number(ticker.volume).toLocaleString('pt-BR',{maximumFractionDigits:0})+' '+a.id;
+ draw(a.id,klines);
+}
+async function refresh(){
+ if(busy)return;busy=true;$('refresh').disabled=true;$('refresh').textContent='Atualizando…';
+ let ok=0,fail=0;
+ await Promise.all(assets.map(async a=>{try{await updateAsset(a);ok++}catch(e){fail++;const el=$('change-'+a.id);el.textContent='Falha ao obter dados · '+e.message;el.className='change error'}}));
+ $('lastUpdate').textContent=new Date().toLocaleTimeString('pt-BR');
+ setStatus(ok===assets.length?'ok':ok?'':'bad',ok===assets.length?'Binance conectada · 6/6 ativos':ok+' de 6 ativos atualizados'+(fail?' · verifique conexão/API':''));
+ $('refresh').disabled=false;$('refresh').textContent='↻ Atualizar agora';busy=false;
+}
+$('interval').addEventListener('change',e=>{interval=e.target.value;refresh()});
+$('refresh').addEventListener('click',refresh);
+$('layout').addEventListener('change',e=>{document.querySelectorAll('.card').forEach(c=>c.classList.remove('focus'));if(e.target.value==='focus')document.querySelector('.card[data-id="BTC"]').classList.add('focus');setTimeout(()=>assets.forEach(a=>{const c=$('chart-'+a.id);if(c&&c.dataset.rows){try{draw(a.id,JSON.parse(c.dataset.rows))}catch(_){}}}),80)});
+const originalDraw=draw;
+window.addEventListener('resize',()=>{clearTimeout(window.__crypyResize);window.__crypyResize=setTimeout(()=>refresh(),250)});
+refresh();setInterval(refresh,30000);
+})();
+</script>
+</body>
+</html>
