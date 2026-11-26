@@ -136,6 +136,7 @@ function applySettings(){readControls();if(refreshTimer)clearInterval(refreshTim
 $('interval').addEventListener('change',e=>{interval=e.target.value;refresh()});
 $('refresh').addEventListener('click',refresh);
 $('layout').addEventListener('change',e=>{document.querySelectorAll('.card').forEach(c=>c.classList.remove('focus'));if(e.target.value==='focus')document.querySelector('.card[data-id="BTC"]').classList.add('focus');setTimeout(()=>assets.forEach(a=>{const c=$('chart-'+a.id);if(c&&c.dataset.rows){try{draw(a.id,JSON.parse(c.dataset.rows))}catch(_){}}}),80)});
+Object.values(settingIds).forEach(id=>{const el=$(id);if(el)el.addEventListener('change',()=>{readControls();applySettings()})});
 $('saveSettings').addEventListener('click',()=>{readControls();try{localStorage.setItem('crypyMarketChartSettingsV2',JSON.stringify(config));$('clockSyncStatus').textContent='✓ Configurações salvas neste navegador. Para usar em outro dispositivo, configure e salve nele também.';applySettings()}catch(e){$('clockSyncStatus').textContent='Falha ao salvar: armazenamento local indisponível.'}});
 $('loadSettings').addEventListener('click',()=>{renderSavedSettings();applySettings()});
 $('resetSettings').addEventListener('click',()=>{config={chartType:'candles',candleLimit:90,timezone:'America/Sao_Paulo',refreshRate:30000,bullColor:'#00e887',bearColor:'#ff647c',showVolume:true,showGrid:true,showCrosshair:true,showSMA:false,showEMA:false,showBollinger:false};writeControls();applySettings()});
