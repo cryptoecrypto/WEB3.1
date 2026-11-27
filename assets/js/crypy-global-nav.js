@@ -1,4 +1,4 @@
-/* CRYPY WEB3.1 — Menu único da Colmeia: 13 categorias oficiais. */
+/* CRYPY WEB3.1 — Menu único da Colmeia: 14 categorias oficiais. */
 (function () {
   "use strict";
   if (window.__CRYPY_GLOBAL_NAV__) return;
@@ -281,7 +281,7 @@
       var matches = pages.filter(function(page){
         return !query || (page.label+" "+page.path+" "+page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = 14 temas oficiais · 9 índices · +matches.length+" destinos nesta busca";
+      count.textContent = "14 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div",{className:"crypy-nav-empty"},"Nenhuma página encontrada. Tente outro termo."));
