@@ -47,7 +47,15 @@
   <button class="tab" data-tab="publish" aria-selected="false">＋ Publicar</button>
   <button class="tab" data-tab="profile" aria-selected="false">◎ Meu Perfil</button>
   <button class="tab" data-tab="nft" aria-selected="false">♾ NFT</button>
-  <button class="tab" data-tab="settings" aria-selected="false">⚙ Configurações</button>
+  <button class="tab" data-tab="assistir" aria-selected="false">▷ Assistir</button>
+  <button class="tab" data-tab="shorts" aria-selected="false">▣ Shorts</button>
+  <button class="tab" data-tab="highlights" aria-selected="false">★ Destaques</button>
+  <button class="tab" data-tab="formula" aria-selected="false">∑ Fórmula CRYPY</button>
+  <button class="tab" data-tab="agent" aria-selected="false">🛡 Agente I.A.</button>
+  <button class="tab" data-tab="rules" aria-selected="false">📜 Regras</button>
+  <button class="tab" data-tab="login" aria-selected="false">🔐 Entrar</button>
+  <button class="tab" data-tab="guide" aria-selected="false">📖 Guia</button>
+  <button class="tab" data-tab="algorithm-test" aria-selected="false">🧪 Testar algoritmo</button>
  </nav>
 </header>
 
@@ -136,6 +144,100 @@
     <article class="tile"><b>Armazenamento</b><p>Interações de demonstração ficam no navegador. Arquivos de vídeo não são enviados nem persistidos.</p></article>
    </div>
   </section>
+  <section class="view" data-view="assistir" hidden>
+   <h2>Assistir · Vídeos e conteúdos longos</h2>
+   <p class="muted small">Área inspirada no módulo de vídeos longos da aplicação-fonte. Os títulos abaixo são referências editoriais; os arquivos de vídeo originais não acompanham o pacote.</p>
+   <div class="tilegrid">
+    <article class="tile"><b>Esquadrão das Cores · Especial</b><p>Vídeo longo de referência do universo CRYPY. Mídia ainda não conectada.</p></article>
+    <article class="tile"><b>Bastidores CRYPYKUT</b><p>Espaço editorial para conteúdos de bastidores. Sem vídeo publicado nesta versão.</p></article>
+    <article class="tile"><b>Música e cultura CRYPY</b><p>Playlist e apresentações exigem arquivos licenciados e hospedagem de mídia.</p></article>
+    <article class="tile"><b>CRYPY LAND · Passeio</b><p>Conteúdo de apresentação do mundo CRYPY LAND. Sem reprodução remota nesta versão.</p></article>
+   </div>
+  </section>
+
+  <section class="view" data-view="shorts" hidden>
+   <h2>Shorts · Vídeos verticais</h2><p class="muted small">Referências de conteúdo identificadas no código-fonte. Os contadores antigos foram removidos porque não são métricas verificadas.</p>
+   <div class="feed" id="shorts-list"></div>
+  </section>
+
+  <section class="view" data-view="highlights" hidden>
+   <h2>Destaques salvos</h2><p class="muted small">Itens salvos apenas no navegador atual.</p><div class="feed" id="highlights-list"></div>
+  </section>
+
+  <section class="view" data-view="formula" hidden>
+   <h2>Fórmula CRYPY · Proposta registrada no código-fonte</h2>
+   <div class="notice">A fórmula abaixo foi encontrada no App.tsx do LUCY-DEFENDER. É uma regra de pontuação em estudo, não um sistema homologado de recompensas, dinheiro ou CRYPY COIN.</div>
+   <div class="tile"><b>PONTOS</b><p>(assistiu × 10) + (reassistiu × 8) + (compartilhou × 7) + (comentou × 5) + (curtiu × 3) + (seguiu × 6) − (pulou × 5) − (denúncias × 20) − (bloqueios × 50) + bônus.</p></div>
+   <div class="tile" style="margin-top:10px"><b>Faixas registradas</b><p>Abaixo de 100: “Lote 50” · abaixo de 500: “Lote 500” · abaixo de 5.000: “Lote 5.000” · a partir daí: “Para Você geral”. Os nomes e limites precisam de aprovação antes de uso.</p></div>
+   <p class="muted small" style="margin-top:10px">Não há conversão para moeda, saldo ou token. Denúncias e bloqueios não devem ser usados como punição automática sem revisão humana.</p>
+  </section>
+
+  <section class="view" data-view="agent" hidden>
+   <h2>Agente I.A. · Moderação</h2>
+   <div class="notice">O código-fonte contém um protótipo heurístico por palavras-chave. Ele não analisa de fato áudio, imagens ou o vídeo completo. Não é um agente de IA operacional e não pode aprovar/rejeitar publicações em produção.</div>
+   <div class="tilegrid">
+    <article class="tile"><b>Conteúdo adulto e ilegal</b><p>Categoria de risco prevista na regra-fonte.</p></article>
+    <article class="tile"><b>Violência e discurso de ódio</b><p>Categoria de risco prevista na regra-fonte.</p></article>
+    <article class="tile"><b>Spam e golpes</b><p>Categoria de risco prevista na regra-fonte.</p></article>
+    <article class="tile"><b>Direitos de terceiros</b><p>Categoria de risco prevista na regra-fonte.</p></article>
+   </div>
+   <p class="muted small" style="margin-top:12px">Os níveis Leve (50), Médio (70) e Rigoroso (85) aparecem no código como limiares heurísticos. Não estão homologados. Revisão humana, recurso e trilha de auditoria são necessários.</p>
+  </section>
+
+  <section class="view" data-view="rules" hidden>
+   <h2>Regras CRYPY-SHOTS · Minuta</h2>
+   <div class="notice">Minuta documental para revisão. Não representa aprovação jurídica, publicação de Termos de Uso ou implementação de moderação.</div>
+   <div class="tilegrid">
+    <article class="tile"><b>Conta e convivência</b><p>Respeito entre participantes; não compartilhar credenciais; sem bots, spam, golpes, contas falsas ou assédio.</p></article>
+    <article class="tile"><b>Conteúdo e direitos</b><p>Publique material próprio ou autorizado. Respeite direitos autorais de música, vídeo, imagens, marcas e pessoas.</p></article>
+    <article class="tile"><b>Privacidade e imagem</b><p>Não exponha telefone, endereço, documentos, senhas ou dados sensíveis. Obtenha consentimento para imagens de terceiros.</p></article>
+    <article class="tile"><b>Denúncias e revisão</b><p>Remoções, suspensões e banimentos exigem política publicada, registro, proporcionalidade e revisão humana.</p></article>
+   </div>
+   <p class="muted small" style="margin-top:12px">A minuta de regras e direitos de imagem está documentada também em CRYPY-SOCIAL/02-CRYPY-SHOTS no LUCY-DEFENDER.</p>
+  </section>
+
+  <section class="view" data-view="login" hidden>
+   <h2>Entrar · Autenticação ainda não habilitada</h2>
+   <div class="notice">O App.tsx de referência apresenta cadastro local e botões Google/Microsoft, mas a confirmação desses provedores é feita por digitação de email, não por OAuth real. Também usa um hash simples calculado no cliente. Por segurança, esta versão não coleta senha nem simula login.</div>
+   <div class="tilegrid">
+    <article class="tile"><b>Login local</b><p>Depende de backend seguro, hash de senha no servidor, sessões protegidas, recuperação de conta e controles antiabuso.</p></article>
+    <article class="tile"><b>Google / Microsoft</b><p>Dependem de OAuth/OIDC real, PKCE, aplicações registradas, URLs de retorno e validação de tokens no servidor.</p></article>
+   </div>
+  </section>
+
+  <section class="view" data-view="guide" hidden>
+   <h2>Guia rápido</h2>
+   <ol class="muted small" style="padding-left:20px;line-height:2">
+    <li>Use Para Você e Descobrir para explorar os temas.</li>
+    <li>Use Seguir tema e Curtir para testar preferências locais.</li>
+    <li>Use Publicar para selecionar um vídeo e conferir a prévia no navegador.</li>
+    <li>Use Destaques para guardar itens nesta sessão/navegador.</li>
+    <li>Use Fórmula CRYPY e Testar algoritmo apenas para estudo, sem recompensa financeira.</li>
+    <li>Não compartilhe dados pessoais, senhas, chaves privadas ou frases-semente.</li>
+   </ol>
+   <div class="notice">A página é um frontend estático. Publicação global, conta, feed compartilhado, chat, lives, upload na nuvem, moderação audiovisual e NFTs dependem de serviços externos ainda não homologados.</div>
+  </section>
+
+  <section class="view" data-view="algorithm-test" hidden>
+   <h2>Laboratório · Simular fórmula</h2>
+   <p class="muted small">Calculadora local com os pesos encontrados no código-fonte. Não envia dados e não distribui pontos reais.</p>
+   <div class="formgrid" id="algorithm-form">
+    <div class="tilegrid">
+     <div class="field"><label for="a-watched">Vídeos assistidos até o fim ×10</label><input id="a-watched" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-rewatch">Reassistidas ×8</label><input id="a-rewatch" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-share">Compartilhamentos ×7</label><input id="a-share" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-commented">Comentários ×5</label><input id="a-commented" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-liked">Curtidas ×3</label><input id="a-liked" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-followed">Novos seguidores ×6</label><input id="a-followed" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-skipped">Saltos rápidos −5</label><input id="a-skipped" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-reports">Denúncias −20</label><input id="a-reports" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-blocks">Bloqueios −50</label><input id="a-blocks" type="number" min="0" value="0"></div>
+     <div class="field"><label for="a-bonus">Bônus</label><input id="a-bonus" type="number" min="0" value="0"></div>
+    </div>
+    <button class="btn primary" type="button" id="run-algorithm">Calcular simulação</button>
+    <div class="tile" id="algorithm-result" aria-live="polite"><b>Resultado</b><p>Preencha os campos e calcule.</p></div>
+   </div>
+  </section>
  </main>
 
  <aside class="panel rightcol">
@@ -168,12 +270,12 @@ const tabs=[...document.querySelectorAll("[data-tab]")];
 const go=(name)=>{
  views.forEach(v=>v.hidden=v.dataset.view!==name);
  tabs.forEach(t=>t.setAttribute("aria-selected",String(t.dataset.tab===name)));
- if(name==="following")renderFollowing();
+ if(name==="following")renderFollowing();if(name==="shorts")renderShorts();if(name==="highlights")renderHighlights();
 };
 tabs.forEach(t=>t.addEventListener("click",()=>go(t.dataset.tab)));
 document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
 const storageKey="crypy-shots-local-v1";
-let state={likes:[],follows:[],name:"Sensei",bio:""};
+let state={likes:[],follows:[],saved:[],name:"Sensei",bio:""};
 try{const saved=JSON.parse(localStorage.getItem(storageKey)||"{}");state={...state,...saved};}catch(e){}
 const seed=[
 {id:"seed-web3",title:"WEB3 em pequenos passos",description:"Tema editorial de referência: blockchain, carteiras e aplicações descentralizadas.",tag:"web3",tagLabel:"WEB3",demo:true},
@@ -183,7 +285,7 @@ const seed=[
 {id:"seed-engineering",title:"Engenharia digital",description:"Tema editorial de referência: arquitetura e construção de sistemas.",tag:"engenharia",tagLabel:"ENGENHARIA DIGITAL",demo:true}
 ];
 let posts=[...seed],activeFilter="todos",previewUrl=null;
-function persist(){try{localStorage.setItem(storageKey,JSON.stringify({likes:state.likes,follows:state.follows,name:state.name,bio:state.bio}));}catch(e){}}
+function persist(){try{localStorage.setItem(storageKey,JSON.stringify({likes:state.likes,follows:state.follows,saved:state.saved,name:state.name,bio:state.bio}));}catch(e){}}
 function makeCard(item){
  const card=document.createElement("article");card.className="shot";
  const media=document.createElement("div");media.className="media";
@@ -196,11 +298,13 @@ function makeCard(item){
  const actions=document.createElement("div");actions.className="shot-actions";
  const like=document.createElement("button");like.textContent=(state.likes.includes(item.id)?"♥ Curtido":"♡ Curtir");like.classList.toggle("on",state.likes.includes(item.id));like.addEventListener("click",()=>{state.likes=state.likes.includes(item.id)?state.likes.filter(x=>x!==item.id):[...state.likes,item.id];persist();renderFeed();});
  const follow=document.createElement("button");follow.textContent=(state.follows.includes(item.id)?"✓ Seguindo":"＋ Seguir tema");follow.classList.toggle("on",state.follows.includes(item.id));follow.addEventListener("click",()=>{state.follows=state.follows.includes(item.id)?state.follows.filter(x=>x!==item.id):[...state.follows,item.id];persist();renderFeed();});
- actions.append(like,follow);body.append(h,p,tag,actions);card.append(media,body);return card;
+ const save=document.createElement("button");save.textContent=state.saved.includes(item.id)?"★ Salvo":"☆ Salvar";save.classList.toggle("on",state.saved.includes(item.id));save.addEventListener("click",()=>{state.saved=state.saved.includes(item.id)?state.saved.filter(x=>x!==item.id):[...state.saved,item.id];persist();renderFeed();renderHighlights();});actions.append(like,follow,save);body.append(h,p,tag,actions);card.append(media,body);return card;
 }
 function filteredPosts(){const q=(document.getElementById("search").value||"").trim().toLocaleLowerCase("pt-BR");return posts.filter(p=>(activeFilter==="todos"||p.tag===activeFilter)&&(!q||(p.title+" "+p.description+" "+(p.tagLabel||"")).toLocaleLowerCase("pt-BR").includes(q)));}
 function renderFeed(){const root=document.getElementById("feed-list");root.replaceChildren();const items=filteredPosts();if(!items.length){const e=document.createElement("div");e.className="empty";e.textContent="Nenhum conteúdo corresponde à busca.";root.append(e);return;}items.forEach(item=>root.append(makeCard(item)));}
 function renderFollowing(){const root=document.getElementById("following-list");root.replaceChildren();const items=posts.filter(p=>state.follows.includes(p.id));if(!items.length){const e=document.createElement("div");e.className="empty";e.textContent="Você ainda não segue nenhum tema. Use “Seguir tema” no feed.";root.append(e);return;}items.forEach(item=>root.append(makeCard(item)));}
+function renderShorts(){const root=document.getElementById("shorts-list");root.replaceChildren();posts.slice(0,3).forEach(item=>root.append(makeCard(item)));}
+function renderHighlights(){const root=document.getElementById("highlights-list");root.replaceChildren();const items=posts.filter(p=>state.saved.includes(p.id));if(!items.length){const e=document.createElement("div");e.className="empty";e.textContent="Nenhum destaque salvo ainda. Use “Salvar” em um cartão do feed.";root.append(e);return;}items.forEach(item=>root.append(makeCard(item)));}
 document.getElementById("search").addEventListener("input",renderFeed);
 document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));renderFeed();}));
 const fileInput=document.getElementById("video-file"),videoPreview=document.getElementById("video-preview");
@@ -209,6 +313,7 @@ document.getElementById("publish-form").addEventListener("submit",e=>{e.preventD
 document.getElementById("profile-form").addEventListener("submit",e=>{e.preventDefault();state.name=document.getElementById("display-name").value.trim()||"Perfil local";state.bio=document.getElementById("bio").value.trim();persist();document.getElementById("profile-name").textContent=state.name;document.getElementById("avatar").textContent=state.name.slice(0,1).toUpperCase();});
 document.getElementById("display-name").value=state.name||"Sensei";document.getElementById("bio").value=state.bio||"";document.getElementById("profile-name").textContent=state.name||"Sensei";document.getElementById("avatar").textContent=(state.name||"S").slice(0,1).toUpperCase();
 renderFeed();
+document.getElementById("run-algorithm").addEventListener("click",()=>{const n=id=>Math.max(0,Number(document.getElementById("a-"+id).value)||0);const points=n("watched")*10+n("rewatch")*8+n("share")*7+n("commented")*5+n("liked")*3+n("followed")*6-n("skipped")*5-n("reports")*20-n("blocks")*50+n("bonus");const batch=points<100?"Lote 50":points<500?"Lote 500":points<5000?"Lote 5.000":"Para Você geral";const box=document.getElementById("algorithm-result");box.replaceChildren();const b=document.createElement("b");b.textContent="Resultado da simulação: "+points+" pontos";const p=document.createElement("p");p.textContent="Faixa prevista no código-fonte: "+batch+". Nenhum ponto foi gravado ou convertido em moeda.";box.append(b,p);});
 })();
 </script>
 </body>
