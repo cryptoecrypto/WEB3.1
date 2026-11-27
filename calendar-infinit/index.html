@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#050b09">
-  <meta name="description" content="CRYPY Calendar Infinity — calendário e memória visual da Colmeia CRYPY.">
+  <meta name="description" content="CRYPY Calendar Infinity — calendário e galeria aleatória infinita com imagens públicas da Colmeia CRYPY.">
   <title>CRYPY Calendar Infinity</title>
   <link rel="stylesheet" href="./assets/css/calendar-infinit.css">
   <script defer src="./assets/js/image-collector.js"></script>
@@ -24,30 +24,43 @@
     <section class="intro">
       <p class="eyebrow">COLMEIA CRYPY · MEMÓRIA VISUAL VIVA</p>
       <h1>O infinito <span>guarda cada momento.</span></h1>
-      <p class="intro-copy">As imagens públicas do repositório percorrem a Colmeia em duas faixas contínuas. O calendário mantém as datas e as memórias selecionadas.</p>
+      <p class="intro-copy">Todas as imagens públicas elegíveis do repositório entram na galeria em ordem aleatória. As duas faixas percorrem a coleção continuamente; o calendário registra memórias locais.</p>
     </section>
 
     <section class="gallery-panel" aria-label="Galeria infinita de imagens da Colmeia">
       <div class="gallery-toolbar">
-        <div><strong>GALERIA INFINITA</strong><small id="image-count">Buscando imagens públicas do repositório…</small></div>
+        <div><strong>GALERIA INFINITA · TODAS AS IMAGENS PÚBLICAS</strong><small id="image-count">Buscando imagens públicas do repositório…</small></div>
         <div class="gallery-controls">
-          <button id="pause-gallery" class="control-button" type="button" aria-pressed="false">Ⅱ PAUSAR</button>
+          <button id="pause-gallery" class="control-button" type="button" aria-pressed="false">Ⅱ PAUSAR TUDO</button>
           <label class="speed-control">VELOCIDADE
             <select id="gallery-speed" aria-label="Velocidade da galeria">
               <option value="90">LENTA</option><option value="58" selected>NORMAL</option><option value="32">RÁPIDA</option>
             </select>
           </label>
+          <label class="speed-control">MÓDULO
+            <select id="gallery-filter" aria-label="Filtrar imagens por módulo">
+              <option value="TODOS">TODOS</option><option value="CRYPY">CRYPY</option><option value="ESQUADRÃO">ESQUADRÃO</option><option value="NFTs">NFTs</option><option value="MUSEU">MUSEU</option><option value="COLMEIA">COLMEIA</option><option value="COSMOS">COSMOS</option>
+            </select>
+          </label>
+          <button id="tilt-toggle" class="control-button" type="button" aria-pressed="true">TILT 3D: LIGADO</button>
         </div>
       </div>
+
+      <div class="orbit-heading"><span>CARROSSEL 3D · AMOSTRA ALEATÓRIA DA COLEÇÃO</span><small id="orbit-count">AGUARDANDO IMAGENS</small></div>
+      <div class="orbit-stage" aria-label="Carrossel 3D de imagens">
+        <div id="image-orbit" class="image-orbit"></div>
+      </div>
+      <p class="orbit-hint">O anel 3D gira continuamente. A galeria abaixo contém a coleção completa elegível.</p>
+
       <div class="gallery-lane"><div id="gallery-track-a" class="gallery-track move-left"></div></div>
       <div class="gallery-lane"><div id="gallery-track-b" class="gallery-track move-right"></div></div>
-      <p id="gallery-message" class="gallery-message" role="status">A galeria vai carregar imagens de arquivos públicos. Pastas privadas e backups são excluídos.</p>
+      <p id="gallery-message" class="gallery-message" role="status">A galeria vai carregar imagens públicas. Pastas privadas, HDs protegidos, backups e segredos são excluídos.</p>
     </section>
 
     <section class="calendar-layout" aria-label="Calendário e memórias">
-      <div class="calendar-card">
+      <div class="calendar-card" id="calendar-card">
         <div class="calendar-heading">
-          <div><p class="eyebrow">CALENDÁRIO DA COLMEIA</p><h2 id="month-title">MÊS 2026</h2></div>
+          <div><p class="eyebrow">CALENDÁRIO 3D DA COLMEIA</p><h2 id="month-title">MÊS 2026</h2></div>
           <div class="month-controls">
             <button id="prev-month" type="button" aria-label="Mês anterior">‹</button>
             <button id="today-month" type="button">HOJE</button>
