@@ -23,8 +23,8 @@
 - Não cadastrar usuários reais até concluir configuração e testes.
 
 ## URLs
-- Home pública: `/WEB3.1/social-crypykut/`
-- Área após login: `/WEB3.1/social-crypykut/rede.html`
+- Home pública: `/WEB3.1/CRYPY-SOCIAL/CRYPYKUT/`
+- Área após login: `/WEB3.1/CRYPY-SOCIAL/CRYPYKUT/rede.html`
 - Callback OAuth: usar a URL da Home/área indicada na configuração do Supabase e manter a rota `rede.html` na lista permitida.
 
 
