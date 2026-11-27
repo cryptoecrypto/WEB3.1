@@ -276,10 +276,14 @@
       container.appendChild(link);
     }
     function render() {
-      var query = search.value.trim().toLocaleLowerCase("pt-BR");
+      var query = search.value.trim();
+      function normalizeKeyword(value) {
+        return String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
+      }
+      var normalizedQuery = normalizeKeyword(query);
       var keywordAliases = {
         "CRYPY INFINYT":"universo infinito cosmos metaverso ecossistema visao portal",
-        "NFT-COLLECTION":"nft token tokens colecao colecoes colecionavel colecionaveis arte digital",
+        "NFT-COLLECTION":"nft token tokens colecao colecoes colecionavel colecionaveis arte digital opensea",
         "ESQUADRÃO DAS CORES":"esquadrao cores integrantes inteligencias agentes nexus btc eth usdt baby alice dola mini chat lucy",
         "CRYPY ACADEMY-WEB3.1":"academia curso cursos ensino educacao aprender estudo web3 tecnologia formacao",
         "BIOGRAFIA":"biografia historia origem trajetoria sensei fundador memoria",
@@ -289,7 +293,7 @@
         "CRYPY GAMES-DESAFIO":"games game jogos desafios arena jogar personagens",
         "CRYPY-SOCIAL":"social crypykut comunidade amigos recados mensagens fotos shots perfil",
         "BABY I.A.":"baby ia inteligencia artificial chatbot agente conhecimento memoria sincronizacao",
-        "WHITE PAPER / CRYPY COIN":"white paper coin moeda cripto utilidade token governanca fundamentos",
+        "WHITE PAPER / CRYPY COIN":"white paper coin moeda cripto utilidade token governanca fundamentos bitcoin btc ethereum eth usdt carteira",
         "CONTATO":"contato suporte email fale comunicacao redes sociais"
       };
       var matches = pages.filter(function(page){
@@ -297,7 +301,7 @@
         var category = categoryFor(page);
         var aliases = category && keywordAliases[category.label] ? keywordAliases[category.label] : "";
         var searchable = [page.label,page.path,page.group,aliases].join(" ").toLocaleLowerCase("pt-BR");
-        return searchable.includes(query);
+        return normalizeKeyword(searchable).includes(normalizedQuery);
       });
       count.textContent = "13 temas oficiais · 6 índices + mapa · "+matches.length+" destinos nesta busca";
       list.replaceChildren();
