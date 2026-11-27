@@ -127,7 +127,7 @@ footer{text-align:center;color:#668a73;font-size:10px;padding:14px}
  bar.innerHTML='<strong style="color:#00ff88">CRYPYKUT · ÁREA AUTENTICADA</strong><span id="ck-user-state">Verificando sessão…</span><button id="ck-logout" type="button" style="border:1px solid #00ff88;border-radius:8px;background:#092014;color:#00ff88;padding:7px 12px;cursor:pointer">Sair</button>';
  document.body.insertBefore(bar,document.body.firstChild);
  const state=bar.querySelector("#ck-user-state"),logout=bar.querySelector("#ck-logout");
- if(!configured){state.textContent="Backend não configurado";logout.disabled=true;document.body.insertAdjacentHTML("afterbegin",'<div style="padding:12px;background:#301b08;color:#ffe0a6;text-align:center">Configure Supabase em supabase-config.js antes de ativar a área autenticada. <a style="color:#00ff88" href="./index.html">Voltar ao acesso</a></div>');return;}
+ if(!configured){state.textContent="Backend não configurado";logout.disabled=true;const shell=document.querySelector(".shell");if(shell)shell.hidden=true;document.body.insertAdjacentHTML("afterbegin",'<div style="padding:12px;background:#301b08;color:#ffe0a6;text-align:center">Configure Supabase em supabase-config.js antes de ativar a área autenticada. <a style="color:#00ff88" href="./index.html">Voltar ao acesso</a></div>');return;}
  const client=window.supabase.createClient(cfg.url,cfg.anonKey);
  client.auth.getSession().then(({data,error})=>{
   if(error||!data.session){location.replace("./index.html");return;}
