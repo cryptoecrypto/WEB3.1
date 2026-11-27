@@ -77,7 +77,7 @@ Esta é a fonte de referência mais extensa encontrada:
 - quatro imagens em `CRYPY-SOCIAL/02-CRYPY-SHOTS/`;
 - cópias de App.tsx/CSS e snapshots em `CRYPY-SOCIAL/04-SOCIAL-CRYPYKUT/`, `06-WEB3.1-SNAPSHOT/`, `07-CROSS-REPO/` e `08-BRANCH-VARIANTS/`.
 
-A pasta documental adicional criada anteriormente em `CRYPY-SOCIAL/02-CRYPY-SHOTS/docs/` permanece na branch de revisão da LUCY; esta PR não altera nem remove os originais de LUCY.
+A pasta documental adicional criada anteriormente em `CRYPY-SOCIAL/02-CRYPY-SHOTS/docs/` permanece na branch de revisão da LUCY; esta PR não altera nem remove os originais de LUCY. O inventário `reports/hash-inventory/CRYPY-SHOTS.json` no LUCY registra os 320 arquivos da árvore do repositório-fonte, `truncated=false`, SHA do relatório `69479b5cb382a21f0fdf44f3cd04a63c15ddf147`.
 
 ## 3. Funcionalidades recuperadas do App.tsx ampliado da LUCY
 
@@ -163,7 +163,7 @@ Funções disponíveis localmente:
 Funções explicitamente desativadas/não conectadas:
 - conta/login, OAuth, publicação pública, upload para nuvem, feed compartilhado, chat global, lives, análise audiovisual automática, emissão NFT e recompensas.
 
-A página usa a imagem já existente e pública em WEB3.1. As quatro imagens adicionais encontradas na pasta privada da LUCY não foram copiadas para WEB3.1 nesta etapa, pois ainda precisam de inspeção visual e confirmação de publicação/licença. Os arquivos-fonte originais permanecem intactos.
+A página usa a imagem já existente e pública em WEB3.1. As quatro imagens adicionais encontradas na pasta privada da LUCY não foram copiadas para WEB3.1 nesta etapa, pois ainda precisam de inspeção visual e confirmação de publicação/licença. Os arquivos-fonte originais permanecem intactos. O script social já compartilhado injeta um botão BABY com respostas predefinidas locais; isso não é modelo de IA conectado, chat global ou serviço em tempo real.
 
 ## 6. Menu CRYPY-SOCIAL e portal
 
