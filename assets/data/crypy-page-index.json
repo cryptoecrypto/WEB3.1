@@ -1,7 +1,7 @@
 {
   "version": "3.1",
   "generated_at": "2026-11-26T11:00:00-03:00",
-  "source_branch": "main",
+  "source_branch": "feature/crypy-shots-final-social-20261126",
   "source_html_total": 608,
   "total": 269,
   "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
@@ -1348,8 +1348,8 @@
     },
     {
       "path": "social-crypykut/shots.html",
-      "label": "Shots",
-      "group": "social-crypykut"
+      "label": "CRYPY-SHOTS · Site Final",
+      "group": "crypy-shots"
     }
   ]
 }
