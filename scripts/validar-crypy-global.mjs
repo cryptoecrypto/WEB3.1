@@ -123,7 +123,7 @@ const serviceEntrypoints = [
 const syncWorkflowPath = path.join(root, ".github", "workflows", "crypy-home-full-sync-safe.yml");
 if (fs.existsSync(syncWorkflowPath)) {
   const syncWorkflow = fs.readFileSync(syncWorkflowPath, "utf8");
-  if (/sincronizar-crypy-global\\.mjs\\s+--apply/.test(syncWorkflow)) {
+  if (/sincronizar-crypy-global\.mjs\s+--apply/.test(syncWorkflow)) {
     errors.push("workflow de auditoria não pode executar sincronização global com --apply");
   }
 }
