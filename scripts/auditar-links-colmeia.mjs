@@ -152,6 +152,7 @@ for (const [file, content] of pageFiles) {
 
   for (const match of content.matchAll(/<form\b[^>]*>/gi)) {
     const a = attrs(match[0]);
+    if (a.action) checkTarget(file, a.action, idsByFile, false);
     if (!a.action && !a.onsubmit && !a.id && !a["data-action"]) {
       warnings.push(file + ": formulário sem action, id ou handler declarados");
       report.controlsNeedingReview++;
@@ -160,6 +161,8 @@ for (const [file, content] of pageFiles) {
 
   for (const match of content.matchAll(/<button\b[^>]*>/gi)) {
     const a = attrs(match[0]);
+    if (a["data-href"]) checkTarget(file, a["data-href"], idsByFile);
+    if (a["data-url"]) checkTarget(file, a["data-url"], idsByFile);
     const type = (a.type || "submit").toLowerCase();
     if (type === "button" && !a.onclick && !a["data-action"] && !a["aria-controls"] && !a["data-target"] && !a.id) {
       warnings.push(file + ": botão sem ação/identificador declarados");
