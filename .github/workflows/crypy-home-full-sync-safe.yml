@@ -20,6 +20,7 @@ jobs:
         run: |
           node --check scripts/sincronizar-crypy-global.mjs
           node --check scripts/validar-crypy-global.mjs
+          node --check scripts/auditar-links-colmeia.mjs
           node --check scripts/validar-baby-chat-inline.mjs
           node --check assets/js/crypy-global-nav.js
           node --check assets/js/crypy-global-runtime.js
@@ -35,6 +36,8 @@ jobs:
         run: node scripts/validar-baby-chat-inline.mjs
       - name: Validar índice, menu e integração BABY
         run: node scripts/validar-crypy-global.mjs
+      - name: Auditar links, âncoras, recursos e controles das páginas catalogadas
+        run: node scripts/auditar-links-colmeia.mjs
       - name: Empacotar alterações para aplicação controlada
         if: always()
         run: |
