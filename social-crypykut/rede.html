@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020403">
+<meta name="description" content="Portal unificado CRYPYKUT, CRYPY-SHOTS e CRYPY-LAND.">
+<title>CRYPY SOCIAL HUB · CRYPYKUT</title>
+<style>
+:root{color-scheme:dark;--bg:#020403;--panel:#09130e;--panel2:#0d1b13;--line:#1b4930;--green:#00ff88;--ink:#eafff2;--muted:#9bb9a7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#07351d 0,transparent 55%),var(--bg);color:var(--ink);font:14px/1.5 system-ui,Arial,sans-serif}
+button,input,a{font:inherit}button{cursor:pointer}
+.shell{max-width:1700px;margin:auto;padding:14px}
+header{border:1px solid var(--line);background:#050a07;border-radius:18px;padding:15px;margin-bottom:12px;box-shadow:0 0 35px #00ff880b}
+.brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border-radius:13px;background:var(--green);color:#001b0d;display:grid;place-items:center;font-weight:1000;font-size:22px;box-shadow:0 0 22px #00ff8844}
+h1{font-size:clamp(19px,3vw,28px);letter-spacing:.12em;margin:0}.brand small{display:block;color:var(--muted);font:10px ui-monospace,monospace;letter-spacing:.14em;margin-top:3px}
+.stats{display:flex;gap:7px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:11px}.pill b{color:var(--green)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.tab{border:1px solid var(--line);background:var(--panel2);color:var(--ink);border-radius:12px;padding:11px 12px;font-weight:900;text-align:left}
+.tab span{display:block;color:var(--muted);font-size:10px;font-weight:500;margin-top:2px}
+.tab.active{border-color:var(--green);background:#062817;box-shadow:inset 0 0 0 1px #00ff8833}
+.layout{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:12px;align-items:start}
+aside,.viewer{border:1px solid var(--line);background:var(--panel);border-radius:16px;overflow:hidden}
+.sidehead{padding:12px;border-bottom:1px solid var(--line);background:#07100b}
+.sidehead h2{font-size:13px;margin:0 0 8px;color:var(--green);letter-spacing:.1em}
+#search{width:100%;padding:10px 12px;border-radius:9px;border:1px solid #28583b;background:#020805;color:var(--ink);outline:none}
+#search:focus{border-color:var(--green);box-shadow:0 0 0 2px #00ff8822}
+#groups{max-height:calc(100vh - 235px);overflow:auto;padding:8px}
+details.group{border:1px solid #173b27;border-radius:10px;margin:6px 0;overflow:hidden}
+details.group summary{cursor:pointer;list-style:none;padding:10px;background:#0b1b12;font-size:11px;font-weight:900;color:#dfffea}
+details.group summary::-webkit-details-marker{display:none}
+details.group summary:after{content:"＋";float:right;color:var(--green)}
+details.group[open] summary:after{content:"−"}
+.group-links{padding:5px;display:grid;gap:3px}
+.page-link{display:block;width:100%;border:0;border-radius:7px;background:transparent;color:#b8d5c3;text-align:left;padding:7px 9px;font-size:11px}
+.page-link:hover,.page-link.active{background:#10351f;color:#fff}
+.page-link.active{box-shadow:inset 3px 0 var(--green)}
+.viewer{min-width:0}
+.viewerbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#07100b;border-bottom:1px solid var(--line);flex-wrap:wrap}
+#currentTitle{font-size:12px;font-weight:800;color:var(--green);overflow-wrap:anywhere}
+.actions{display:flex;gap:6px}
+.action{border:1px solid #28583b;border-radius:8px;padding:7px 10px;background:#0b1b12;color:var(--ink);font-size:11px;text-decoration:none}
+.action:hover{border-color:var(--green)}
+iframe{display:block;width:100%;height:calc(100vh - 175px);min-height:620px;border:0;background:#fff}
+.note{margin:10px 0 0;padding:10px 12px;border:1px solid #4b3b1a;background:#211b0b;border-radius:10px;color:#eadcae;font-size:11px}
+.empty{padding:18px;color:var(--muted);font-size:12px}
+footer{text-align:center;color:#668a73;font-size:10px;padding:14px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}#groups{max-height:320px}.tabs{grid-template-columns:1fr}.tab{text-align:left}iframe{height:70vh;min-height:520px}}
+@media(max-width:520px){.shell{padding:7px}.brandrow{align-items:flex-start}.stats{width:100%}.viewerbar{align-items:flex-start}iframe{min-height:480px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header>
+ <div class="brandrow">
+  <div class="brand"><div class="mark">C</div><div><h1>CRYPY SOCIAL HUB</h1><small>CRYPYKUT · CRYPY-SHOTS · CRYPY-LAND</small></div></div>
+  <div class="stats"><span class="pill">MÓDULOS <b>03</b></span><span class="pill">PÁGINAS NO CATÁLOGO <b id="count">—</b></span><span class="pill">WEB3.1 <b>COLMEIA</b></span></div>
+ </div>
+ <nav class="tabs" aria-label="Módulos principais">
+  <button class="tab active" data-module="crypykut">◉ CRYPYKUT<span>Rede social, perfil e comunidades</span></button>
+  <button class="tab" data-module="shots">▶ CRYPY-SHOTS<span>Vídeos curtos e publicação</span></button>
+  <button class="tab" data-module="land">🌆 CRYPY-LAND<span>Cidade, terrenos e experiências de jogo</span></button>
+ </nav>
+</header>
+<div class="layout">
+ <aside>
+  <div class="sidehead"><h2>MAPA COMPLETO DO ECOSSISTEMA</h2><input id="search" type="search" placeholder="Buscar página ou assunto..." aria-label="Buscar página"></div>
+  <div id="groups"><div class="empty">Carregando catálogo...</div></div>
+ </aside>
+ <section class="viewer">
+  <div class="viewerbar"><div id="currentTitle">CRYPYKUT · Início</div><div class="actions"><a class="action" id="openNew" href="./comunidade.html" target="_blank" rel="noopener">Abrir em nova aba ↗</a></div></div>
+  <iframe id="contentFrame" src="./comunidade.html" title="Conteúdo do portal CRYPY Social" allow="fullscreen; autoplay; clipboard-read; clipboard-write"></iframe>
+ </section>
+</div>
+<div class="note">MODO REAL: este portal unifica a navegação e preserva os módulos existentes. Login real, feed entre usuários, mensagens globais, uploads na nuvem, multiplayer e sincronização dependem de backend e integrações próprias; o portal não os ativa automaticamente.</div>
+<footer>CRYPY · NEXUS conecta; Sensei conduz · Arquivos originais preservados</footer>
+</div>
+<script>
+(function(){
+ "use strict";
+ const frame=document.getElementById("contentFrame"),groupsEl=document.getElementById("groups"),search=document.getElementById("search"),titleEl=document.getElementById("currentTitle"),openNew=document.getElementById("openNew"),countEl=document.getElementById("count");
+ let entries=[],activeModule="crypykut",activeUrl="./comunidade.html";
+ const moduleLabels={crypykut:"CRYPYKUT",shots:"CRYPY-SHOTS",land:"CRYPY-LAND"};
+ function choose(item,button){
+  activeModule=item.module;activeUrl=item.url;frame.src=item.url;titleEl.textContent=moduleLabels[item.module]+" · "+item.title;openNew.href=item.url;
+  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.module===activeModule));
+  document.querySelectorAll(".page-link").forEach(b=>b.classList.toggle("active",b===button));
+  try{localStorage.setItem("crypy-social-hub-last",item.url)}catch(e){}
+ }
+ function render(){
+  const q=search.value.trim().toLocaleLowerCase("pt-BR");
+  const filtered=entries.filter(e=>(!q||(e.title+" "+e.group+" "+e.path).toLocaleLowerCase("pt-BR").includes(q)));
+  const buckets=new Map();filtered.forEach(e=>{if(!buckets.has(e.group))buckets.set(e.group,[]);buckets.get(e.group).push(e)});
+  groupsEl.innerHTML="";
+  if(!filtered.length){groupsEl.innerHTML='<div class="empty">Nenhuma página encontrada.</div>';return}
+  for(const [group,items] of buckets){
+   const details=document.createElement("details");details.className="group";details.open=!!q||group.startsWith(moduleLabels[activeModule]);
+   const summary=document.createElement("summary");summary.textContent=group+" · "+items.length;details.appendChild(summary);
+   const links=document.createElement("div");links.className="group-links";
+   items.forEach(item=>{const b=document.createElement("button");b.type="button";b.className="page-link";b.textContent=item.title;b.addEventListener("click",()=>choose(item,b));links.appendChild(b)});
+   details.appendChild(links);groupsEl.appendChild(details);
+  }
+ }
+ document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
+  const module=b.dataset.module;const first=entries.find(e=>e.module===module);if(first){choose(first,null);render()}
+ }));
+ search.addEventListener("input",render);
+ fetch("./portal-manifest.json").then(r=>{if(!r.ok)throw new Error("Catálogo indisponível");return r.json()}).then(data=>{
+  entries=data.entries||[];countEl.textContent=String(entries.length);render();
+  const last=(()=>{try{return localStorage.getItem("crypy-social-hub-last")}catch(e){return null}})();
+  const saved=entries.find(e=>e.url===last);
+  if(saved)choose(saved,null);
+ }).catch(()=>{groupsEl.innerHTML='<div class="empty">Não foi possível carregar o catálogo. Abra uma das três áreas pelos botões acima.</div>'});
+ frame.addEventListener("load",()=>{});
+})();
+</script>
+<script src="./supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+ "use strict";
+ const cfg=window.CRYPYKUT_SUPABASE_CONFIG||{};
+ const configured=!!(cfg.url&&cfg.anonKey&&window.supabase&&window.supabase.createClient);
+ const bar=document.createElement("div");
+ bar.style.cssText="position:sticky;top:0;z-index:99999;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;background:#031008;border-bottom:1px solid #00ff88;color:#eafff2;font:12px system-ui";
+ bar.innerHTML='<strong style="color:#00ff88">CRYPYKUT · ÁREA AUTENTICADA</strong><span id="ck-user-state">Verificando sessão…</span><button id="ck-logout" type="button" style="border:1px solid #00ff88;border-radius:8px;background:#092014;color:#00ff88;padding:7px 12px;cursor:pointer">Sair</button>';
+ document.body.insertBefore(bar,document.body.firstChild);
+ const state=bar.querySelector("#ck-user-state"),logout=bar.querySelector("#ck-logout");
+ if(!configured){state.textContent="Backend não configurado";logout.disabled=true;document.body.insertAdjacentHTML("afterbegin",'<div style="padding:12px;background:#301b08;color:#ffe0a6;text-align:center">Configure Supabase em supabase-config.js antes de ativar a área autenticada. <a style="color:#00ff88" href="./index.html">Voltar ao acesso</a></div>');return;}
+ const client=window.supabase.createClient(cfg.url,cfg.anonKey);
+ client.auth.getSession().then(({data,error})=>{
+  if(error||!data.session){location.replace("./index.html");return;}
+  state.textContent=data.session.user.email||"Conta autenticada";
+ });
+ client.auth.onAuthStateChange((event,session)=>{if(event==="SIGNED_OUT"||!session)location.replace("./index.html");});
+ logout.addEventListener("click",async()=>{logout.disabled=true;const {error}=await client.auth.signOut();if(error){state.textContent="Falha ao sair: "+error.message;logout.disabled=false;}});
+})();
+</script>
+</body>
+</html>
