@@ -22,7 +22,11 @@ function resolveLocal(fromFile, raw) {
   if (!value || isExternal(value)) return null;
   const withoutQuery = value.split("?")[0];
   const withoutHash = withoutQuery.split("#")[0];
-  let target = withoutHash ? path.resolve(root, path.dirname(fromFile), withoutHash) : path.resolve(root, fromFile);
+  const rootRelative = withoutHash.startsWith("/");
+  let target = withoutHash
+    ? (rootRelative ? path.resolve(root, withoutHash.replace(/^\\/+/, "")) : path.resolve(root, path.dirname(fromFile), withoutHash))
+    : path.resolve(root, fromFile);
+  if (rootRelative) warnings.push(fromFile + ": URL iniciada por / pode ignorar a base /WEB3.1 no GitHub Pages: " + value);
   if (!target.startsWith(root + path.sep) && target !== root) return { unsafe: true, value };
   if (fs.existsSync(target) && fs.statSync(target).isDirectory()) target = path.join(target, "index.html");
   return { absolute: target, relative: path.relative(root, target).split(path.sep).join("/"), value };
@@ -133,6 +137,17 @@ for (const [file, content] of pageFiles) {
     if ((tag.toLowerCase().startsWith("<script") || tag.toLowerCase().startsWith("<img") || tag.toLowerCase().startsWith("<iframe")) && ("src" in a) && !a.src.trim()) {
       errors.push(file + ": recurso com src vazio");
     }
+  }
+
+  for (const match of content.matchAll(/\bsrcset\s*=\s*(["\'])(.*?)\1/gi)) {
+    for (const candidate of match[2].split(",")) {
+      const raw = candidate.trim().split(/\s+/)[0];
+      if (raw) checkTarget(file, raw, idsByFile, false);
+    }
+  }
+  for (const match of content.matchAll(/url\(\s*["\']?([^)"\']+)["\']?\s*\)/gi)) {
+    const raw = match[1].trim();
+    if (raw && !raw.startsWith("#")) checkTarget(file, raw, idsByFile, false);
   }
 
   for (const match of content.matchAll(/<form\b[^>]*>/gi)) {
