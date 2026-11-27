@@ -307,8 +307,8 @@
           var indexes = [
             {file:"index.html",name:"PORTAL",desc:"Entrada principal"},
             {file:"index2.html",name:"RESERVA 02",desc:"Arquivo vazio",empty:true},
-            {file:"index3.html",name:"RESERVA 03",desc:"Arquivo vazio",empty:true},
-            {file:"index4.html",name:"RESERVA 04",desc:"Arquivo vazio",empty:true},
+            {file:"lucy-pdf.pdf",name:"LUCY",desc:"Documento PDF · arquivo oficial"},
+            {file:"blog.html",name:"BLOG",desc:"Blog da Colmeia CRYPY"},
             {file:"index5.html",name:"MATRIX",desc:"Home Matrix"},
             {file:"index6.html",name:"COLMEIA",desc:"Sistema"},
             {file:"index7.html",name:"NOTÍCIAS",desc:"Atalho editorial"},
