@@ -278,7 +278,7 @@
     function render() {
       var query = search.value.trim();
       function normalizeKeyword(value) {
-        return String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
+        return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
       }
       var normalizedQuery = normalizeKeyword(query);
       var keywordAliases = {
