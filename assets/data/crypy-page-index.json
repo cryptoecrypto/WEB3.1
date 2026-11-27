@@ -1,9 +1,9 @@
 {
   "version": "3.1",
-  "generated_at": "2026-11-26T11:00:00-03:00",
+  "generated_at": "2026-11-27",
   "source_branch": "main",
   "source_html_total": 608,
-  "total": 269,
+  "total": 270,
   "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
   "pages": [
     {
@@ -124,11 +124,6 @@
     {
       "path": "crypy-games-desafios/CRYPY-DUNGEONS/dungeon-crypy.html",
       "label": "Dungeon Crypy",
-      "group": "crypy-games-desafios"
-    },
-    {
-      "path": "crypy-games-desafios/CRYPY-DUNGEONS/Masmorra dos Três Pilares.html",
-      "label": "Masmorra Dos TrêS Pilares",
       "group": "crypy-games-desafios"
     },
     {
@@ -1354,6 +1349,11 @@
     {
       "path": "social-crypykut/shots.html",
       "label": "Shots",
+      "group": "social-crypykut"
+    },
+    {
+      "path": "social-crypykut/index.html",
+      "label": "CRYPYKUT · Entrar",
       "group": "social-crypykut"
     }
   ]

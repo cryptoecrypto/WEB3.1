@@ -53,7 +53,7 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html","blog.html"];
+  var officialMenuPaths = ["social-crypykut/index.html","crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html","blog.html"];
   var categories = [
     {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
@@ -64,7 +64,7 @@
     {label:"MUSEU DIGITAL", groups:["museu-digital"]},
     {label:"ART-FIGURE / MARKETPLACE", groups:["art-figure-marketplace","marketing"]},
     {label:"CRYPY GAMES-DESAFIO", groups:["crypy-games-desafios"]},
-    {label:"CRYPY-SOCIAL", groups:["social-crypykut","crypy-shots"]},
+    {label:"CRYPYKUT", groups:["social-crypykut"]},
     {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
     {label:"WHITE PAPER / CRYPY COIN", groups:["crypy-coin","white-paper"]},
     {label:"CONTATO", groups:["contato"]},
@@ -373,6 +373,7 @@
         var hiddenPathSegments=["memory-boost","momory-boost","padrao","pluguin","sincronizacao"];
         if (hiddenGroups.indexOf(group)!==-1 || pathSegments.some(function(segment){return hiddenPathSegments.indexOf(segment)!==-1;})) return true;
         var rawPath=String(page.path||"").toLowerCase();
+        if (group === "social-crypykut" && rawPath !== "social-crypykut/index.html") return true;
         if (rawPath.indexOf("crypy-13-chatboots/") === 0) return true;
         // Páginas operacionais/conta nunca entram no menu público.
         var restrictedPathRules=[
