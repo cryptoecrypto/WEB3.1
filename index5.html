@@ -52,13 +52,13 @@ h2{font-size:clamp(24px,4vw,38px);line-height:1.06;margin:7px 0 0;letter-spacing
 .team-card b{display:block;font-size:13px;color:#edfff4}
 .team-card small{display:block;color:#8fb5a0;font-size:10px;margin-top:4px;line-height:1.35}
 .team-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--accent,var(--green));box-shadow:0 0 10px var(--accent,var(--green))}
-.hive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.hive-card{display:flex;gap:13px;align-items:flex-start;padding:16px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(5,24,13,.95),rgba(2,9,5,.92));text-decoration:none;min-height:122px;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-.hive-card:hover,.hive-card:focus-visible{transform:translateY(-3px);border-color:var(--green);box-shadow:0 8px 28px #00ff8818;outline:none}
-.hive-icon{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border:1px solid #1f6540;border-radius:12px;background:#03160a;font-size:21px}
-.hive-card b{display:block;font-size:13px;letter-spacing:.025em}
-.hive-card p{margin:5px 0 0;color:#9bb4a4;font-size:11px;line-height:1.4}
-.arrow{display:block;color:var(--green);font-size:10px;font-weight:900;letter-spacing:.1em;margin-top:9px}
+.
+.
+.
+.
+.
+.
+
 .token-band{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #00ff8844;border-radius:16px;padding:21px;background:linear-gradient(105deg,#052515,#04130b 60%,#0b1c12);margin:2px 0 44px}
 .token-band strong{display:block;font-size:18px}
 .token-band p{margin:5px 0 0;color:#9eb8a8;font-size:12px}
@@ -68,8 +68,8 @@ footer .foot-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap
 footer a{color:var(--green);text-decoration:none}
 @keyframes pulse{50%{opacity:.35;box-shadow:0 0 2px var(--green)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-@media(max-width:900px){.hero{grid-template-columns:1fr;gap:10px;padding-top:36px}.hero-art{max-width:760px;margin:auto}.team-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.wrap{width:min(100% - 22px,1240px)}.brand-row{padding:10px 0}.head-tag{font-size:9px}.main-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding-bottom:10px}.main-nav a{min-height:38px;font-size:9px}.hero{padding:28px 0 25px;min-height:0}.hero-art img{max-height:340px;object-fit:contain}.section{padding:26px 0 34px}.section-head{display:block}.section-head p{margin-top:10px}.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hive-grid{grid-template-columns:1fr}.hive-card{min-height:94px}.token-band{align-items:flex-start;flex-direction:column}.hero-actions .btn{flex:1}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:10px;padding-top:36px}.hero-art{max-width:760px;margin:auto}.team-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.}
+@media(max-width:620px){.wrap{width:min(100% - 22px,1240px)}.brand-row{padding:10px 0}.head-tag{font-size:9px}.main-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding-bottom:10px}.main-nav a{min-height:38px;font-size:9px}.hero{padding:28px 0 25px;min-height:0}.hero-art img{max-height:340px;object-fit:contain}.section{padding:26px 0 34px}.section-head{display:block}.section-head p{margin-top:10px}.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}...token-band{align-items:flex-start;flex-direction:column}.hero-actions .btn{flex:1}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -121,26 +121,7 @@ footer a{color:var(--green);text-decoration:none}
    <article class="team-card" style="--accent:#ffd35a"><b><i class="team-dot"></i>SENSEI</b><small>Criador e autoridade final</small></article>
   </div>
  </section>
- <section class="wrap section" id="colmeia" aria-labelledby="hive-title">
-  <div class="section-head">
-   <div><div class="section-kicker">NAVEGAÇÃO PRINCIPAL</div><h2 id="hive-title">12 portas. Uma colmeia.</h2></div>
-   <p>Cada atalho abre diretamente sua área principal. Os menus internos das páginas continuam disponíveis para chegar aos conteúdos relacionados.</p>
-  </div>
-  <div class="hive-grid">
-   <a class="hive-card" href="./crypy-infinyt/portal.html"><span class="hive-icon">🌐</span><span><b>CRYPY INFINYT</b><p>Universo, visão e arquitetura do ecossistema.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./nft-collection/galeria.html"><span class="hive-icon">💎</span><span><b>NFT-COLLECTION</b><p>Galeria, coleções e identidade digital.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./esquadrao-das-cores/esquadrao.html"><span class="hive-icon">🛡</span><span><b>ESQUADRÃO DAS CORES</b><p>Integrantes, funções e harmonia.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-academy/academia.html"><span class="hive-icon">🎓</span><span><b>CRYPY ACADEMY</b><p>Aprendizado, tecnologia e formação WEB3.1.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./biografia/historia.html"><span class="hive-icon">📜</span><span><b>BIOGRAFIA</b><p>Origem, trajetória e memória do projeto.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-news/museu.html"><span class="hive-icon">🏛</span><span><b>MUSEU DIGITAL</b><p>Acervo, curadoria e preservação criativa.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./art-figure-marketplace/marketplace.html"><span class="hive-icon">🖼</span><span><b>ART-FIGURE / MARKETPLACE</b><p>Arte, figuras e experiências de mercado.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-games-desafios/crypy-games-desafios.html"><span class="hive-icon">🎮</span><span><b>CRYPY GAMES</b><p>Jogos, desafios e experimentação.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./social-crypykut/comunidade.html"><span class="hive-icon">💬</span><span><b>SOCIAL-CRYPYKUT</b><p>Comunidade, conversas e criação compartilhada.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./baby-ia/centro.html"><span class="hive-icon">🤖</span><span><b>BABY I.A.</b><p>Centro de conhecimento e evolução do BABY.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./crypy-coin/white-paper.html"><span class="hive-icon">🪙</span><span><b>WHITE PAPER</b><p>Fundamentos, utilidade e governança da CRYPY COIN.</p><span class="arrow">ENTRAR ↗</span></span></a>
-   <a class="hive-card" href="./contato/contato-oficial.html"><span class="hive-icon">✉</span><span><b>CONTATO</b><p>Canais oficiais e conexão com o projeto.</p><span class="arrow">ENTRAR ↗</span></span></a>
-  </div>
- </section>
+ 
  <section class="wrap token-band">
   <div><div class="token-label">UTILIDADE ANTES DA ECONOMIA</div><strong>CRYPY COIN · conceito em desenvolvimento</strong><p>O contrato CRYPY COIN foi implantado na BNB Smart Chain Mainnet, com emissão inicial de 12.000.000 CRYPY. A auditoria independente e a utilidade no ecossistema continuam em desenvolvimento.</p></div>
   <a class="btn secondary" href="./crypy-coin/white-paper.html">LER WHITE PAPER</a>
