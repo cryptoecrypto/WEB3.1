@@ -1,14 +1,21 @@
 {
   "version": "1.0.0",
   "generatedFrom": "main",
-  "sourceTreeSha": "bd55fc968335104c7a6c91cbb9649a28a10c0c6b",
+  "sourceTreeSha": "55f7fe4e16b966b7a989854aa6fd6693849e7ca9",
   "counts": {
     "crypykut": 147,
-    "shots": 9,
+    "shots": 10,
     "land": 20,
-    "total": 176
+    "total": 177
   },
   "entries": [
+    {
+      "path": "social-crypykut/shots.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Site Final",
+      "title": "CRYPY-SHOTS · Site Final",
+      "url": "./shots.html"
+    },
     {
       "path": "CRYPY-SHOTS/01-feed-para-voce.html",
       "module": "shots",
