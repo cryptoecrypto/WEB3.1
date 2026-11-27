@@ -52,9 +52,9 @@ function isProtected(file) {
   return file==="index.html"||protectedNames.has(base)||protectedPaths.some(pattern=>pattern.test(file));
 }
 function isSensitive(file) {
-  const base=path.posix.basename(file).toLowerCase();
-  return /(memoria|memory|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(base)
-    || /(^|\/)\.env(?:\.|$)/i.test(file);
+  const normalized=file.toLowerCase();
+  return /(memoria|memory|momory[-_]?boost|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(normalized)
+    || /(^|\\/)\\.env(?:\\.|$)/i.test(normalized);
 }
 function extension(file) {
   const ext=path.posix.extname(file).replace(/^\./,"").toLowerCase();
