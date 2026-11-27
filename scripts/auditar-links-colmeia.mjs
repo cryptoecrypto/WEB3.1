@@ -59,14 +59,21 @@ function checkTarget(from, raw, idsByFile, checkFragment = true) {
     if (checkFragment) {
       const hash = String(raw).match(/#(.+)$/);
       if (hash) {
-        const anchor = decodeURIComponent(hash[1]);
-        let ids = idsByFile.get(resolved.relative);
-        if (!ids) {
-          try { ids = getIds(fs.readFileSync(target, "utf8")); idsByFile.set(resolved.relative, ids); }
-          catch { ids = null; }
+        let anchor;
+        try { anchor = decodeURIComponent(hash[1]); }
+        catch {
+          errors.push(from + ": fragmento de URL com codificação inválida: " + raw);
+          anchor = null;
         }
-        if (ids && !ids.has(anchor)) errors.push(from + ": âncora #" + anchor + " não existe em " + resolved.relative);
-        report.checkedFragments++;
+        if (anchor !== null) {
+          let ids = idsByFile.get(resolved.relative);
+          if (!ids) {
+            try { ids = getIds(fs.readFileSync(target, "utf8")); idsByFile.set(resolved.relative, ids); }
+            catch { ids = null; }
+          }
+          if (ids && !ids.has(anchor)) errors.push(from + ": âncora #" + anchor + " não existe em " + resolved.relative);
+          report.checkedFragments++;
+        }
       }
     }
   } else {
