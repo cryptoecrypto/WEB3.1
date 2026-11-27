@@ -120,6 +120,13 @@ const serviceEntrypoints = [
   "crypy-server-bridge/public/index.html",
   "crypy-news/hd-matriz/crypy-server-bridge/public/index.html"
 ];
+const syncWorkflowPath = path.join(root, ".github", "workflows", "crypy-home-full-sync-safe.yml");
+if (fs.existsSync(syncWorkflowPath)) {
+  const syncWorkflow = fs.readFileSync(syncWorkflowPath, "utf8");
+  if (/sincronizar-crypy-global\\.mjs\\s+--apply/.test(syncWorkflow)) {
+    errors.push("workflow de auditoria não pode executar sincronização global com --apply");
+  }
+}
 for (const file of serviceEntrypoints) {
   if (seen.has(file)) errors.push("entrada operacional do servidor não deve aparecer no índice público: " + file);
 }
