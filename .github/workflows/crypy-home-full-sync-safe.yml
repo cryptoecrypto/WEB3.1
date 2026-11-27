@@ -1,7 +1,7 @@
 name: CRYPY — sincronização e auditoria global segura
 on:
   push:
-    branches: [main]
+    branches: [main, "crypy-indexes-home-menu-2026-11"]
   pull_request:
     branches: [main]
   workflow_dispatch:
