@@ -53,7 +53,7 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
+  var officialMenuPaths = ["crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html","blog.html"];
   var categories = [
     {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
@@ -67,7 +67,8 @@
     {label:"CRYPY-SOCIAL", groups:["social-crypykut","crypy-shots"]},
     {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
     {label:"WHITE PAPER / CRYPY COIN", groups:["crypy-coin","white-paper"]},
-    {label:"CONTATO", groups:["contato"]}
+    {label:"CONTATO", groups:["contato"]},
+    {label:"BLOG", groups:["blog"]}
   ];;
 
   function node(tag, attrs, value) {
@@ -280,7 +281,7 @@
       var matches = pages.filter(function(page){
         return !query || (page.label+" "+page.path+" "+page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = "13 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
+      count.textContent = 14 temas oficiais · 9 índices · +matches.length+" destinos nesta busca";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div",{className:"crypy-nav-empty"},"Nenhuma página encontrada. Tente outro termo."));
