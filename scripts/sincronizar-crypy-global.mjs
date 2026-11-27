@@ -113,8 +113,8 @@ for(const file of files) {
   const absolute=path.join(root,file);
   const html=fs.readFileSync(absolute,"utf8");
   if(!/<(?:!doctype\s+html|html\b|body\b)/i.test(html)||html.includes("\u0000")){invalid++;continue;}
+  if(isProtected(file) || isSensitive(file)){preserved++;continue;}
   pages.push({path:file,label:label(file),group:file.includes("/")?file.split("/")[0]:"RAIZ"});
-  if(isProtected(file)){preserved++;continue;}
 
   const directory=path.posix.dirname(file);
   let source=path.posix.relative(directory==="."?"":directory,navAsset);
