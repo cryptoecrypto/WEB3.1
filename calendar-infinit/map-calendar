@@ -1,0 +1,14 @@
+calendar-infinit/
+├── README.md
+├── index.html
+├── assets/
+│   ├── css/
+│   │   └── calendar-infinit.css
+│   ├── js/
+│   │   ├── calendar-infinit.js
+│   │   ├── image-collector.js
+│   │   └── infinite-gallery.js
+│   └── data/
+│       └── image-index.json
+└── tests/
+    └── validation.md
