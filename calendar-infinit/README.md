@@ -1,29 +1,34 @@
 # CRYPY Calendar Infinity
 
-Módulo independente do calendário visual da Colmeia CRYPY.
+Módulo independente que reúne o calendário, as memórias locais, os controles visuais dos dois HTMLs de referência, o carrossel 3D e a galeria infinita.
 
-## Abrir
+## Ponto de entrada
 
-O ponto de entrada é `index.html`. Não exige compilação React nem altera os arquivos originais do calendário 3D.
+Abra `index.html`. O módulo não substitui `App.tsx`, `index.css`, `map-calendar` nem os dois HTMLs originais.
 
-## Componentes
+## Galeria de imagens
 
-- `assets/css/calendar-infinit.css`: visual responsivo e recorte padronizado das miniaturas.
-- `assets/js/image-collector.js`: consulta a árvore pública do repositório `cryptoecrypto/WEB3.1` e inventaria arquivos de imagem.
-- `assets/js/infinite-gallery.js`: duas faixas em sentidos opostos, com pausa e velocidade.
-- `assets/js/calendar-infinit.js`: calendário mensal e memórias locais no navegador.
-- `assets/data/image-index.json`: contrato/documentação do inventário dinâmico.
+- Inventaria arquivos de imagem públicos do repositório `cryptoecrypto/WEB3.1`, branch `main`.
+- Formatos: AVIF, BMP, GIF, JPEG, PNG, SVG e WebP.
+- Embaralha a coleção a cada carregamento e a cada alteração de filtro.
+- As duas faixas exibem a coleção elegível completa e repetem continuamente, em sentidos opostos.
+- O carrossel 3D usa uma amostra aleatória de até 24 imagens; as duas faixas são a galeria completa.
+- Filtros por módulo são inferidos pelo nome do caminho/arquivo; a classificação é aproximada, não metadado oficial.
+- Exclui diretórios privados/protegidos, HDs ocultos, backups, segredos, `.git`, dependências e `.github`.
+- Se a árvore Git vier truncada, tenta inventário recursivo pela API Contents. Limites da API, diretórios com mais de 1.000 itens ou indisponibilidade da API podem impedir garantia absoluta de cobertura.
 
-## Inventário e segurança
+O contador representa arquivos de imagem inventariados, não garante que cada arquivo seja uma fotografia nem que todos os links raw estejam disponíveis. Arquivos que falham ao carregar permanecem identificáveis como indisponíveis; originais não são alterados.
 
-A coleta usa a árvore Git pública da branch `main`, não a varredura de páginas HTML. Considera AVIF, BMP, GIF, JPEG, PNG, SVG e WebP. Exclui diretórios privados/protegidos, HDs ocultos, backups, segredos, `.git` e dependências. O código verifica o indicador `truncated` da API e avisa quando a resposta não representa a árvore completa.
+## Calendário e segurança
 
-O contador indica arquivos de imagem encontrados pela API, não garante que todos sejam fotografias nem que todos possam ser carregados no navegador. O acesso depende da disponibilidade da API pública do GitHub, limites de requisição e entrega de imagens raw.
-
-## Memórias
-
-Os eventos criados nesta versão são armazenados em `localStorage` no navegador utilizado. Não existe sincronização com Dropbox, backend ou outros dispositivos nesta implementação.
+- Calendário mensal, navegação de meses, seleção de dia e registro de memórias.
+- Eventos armazenados apenas em `localStorage` do navegador atual; não há sincronização Dropbox/backend.
+- Texto do evento é renderizado como texto, não como HTML, para evitar injeção de código.
 
 ## Preservação
 
-Os arquivos React existentes `App.tsx` e `index.css` e o arquivo `map-calendar` foram preservados. Este módulo usa um `index.html` próprio e seus próprios arquivos em `assets/`.
+Os dois arquivos enviados pelo usuário permanecem intactos:
+- `Crypy-Calendar-Infinity-3D-PURO.html`
+- `Crypy-Calendar-Infinity-PURO.html`
+
+Os arquivos React existentes e `map-calendar` também são preservados.
