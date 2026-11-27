@@ -30,7 +30,7 @@
   }
   function makeTile(item){
     const figure=document.createElement("figure");figure.className="photo-tile";
-    const img=document.createElement("img");img.loading="eager";img.decoding="async";img.src=item.url;img.alt="Imagem pública da Colmeia: "+item.path;
+    const img=document.createElement("img");img.loading="lazy";img.decoding="async";img.src=item.url;img.alt="Imagem pública da Colmeia: "+item.path;
     img.addEventListener("error",()=>{figure.classList.add("image-unavailable");img.alt="Imagem indisponível";},{once:true});
     const caption=document.createElement("figcaption");caption.textContent=item.path.split("/").pop();
     figure.append(img,caption);return figure;
@@ -97,11 +97,12 @@
   window.CrpyImageCollector.collect().then(result=>{
     allImages=result.images||[];
     count.textContent=allImages.length+" imagens públicas inventariadas";
-    status.textContent=result.truncated?"INVENTÁRIO PARCIAL":"INVENTÁRIO CARREGADO";
+    status.textContent=result.truncated?"INVENTÁRIO PARCIAL":result.fallback?"INVENTÁRIO RECURSIVO":"INVENTÁRIO COMPLETO";
     if(!allImages.length){message.textContent="Nenhum arquivo de imagem público elegível foi localizado.";return;}
     render();
     if(result.truncated)message.textContent="ATENÇÃO: a API informou inventário truncado; a lista pode não conter todas as imagens. "+message.textContent;
-    else message.textContent="Inventário completo pela API pública do GitHub. "+message.textContent;
+    else if(result.fallback)message.textContent="Inventário recuperado por consulta recursiva de pastas; diretórios com mais de 1.000 itens podem exigir verificação adicional. "+message.textContent;
+    else message.textContent="Inventário completo pela árvore Git pública (sem sinalização de truncamento). "+message.textContent;
   }).catch(error=>{
     status.textContent="INVENTÁRIO INDISPONÍVEL";count.textContent="Não foi possível contar as imagens";
     message.textContent=error.message+" Nenhuma imagem ou arquivo original foi alterado.";
