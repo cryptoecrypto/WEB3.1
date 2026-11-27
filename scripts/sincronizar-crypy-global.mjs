@@ -54,7 +54,7 @@ function isProtected(file) {
 function isSensitive(file) {
   const normalized=file.toLowerCase();
   return /(memoria|memory|momory[-_]?boost|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(normalized)
-    || /(^|\\/)\\.env(?:\\.|$)/i.test(normalized);
+    || /(^|\/)\.env(?:\.|$)/i.test(normalized);
 }
 function extension(file) {
   const ext=path.posix.extname(file).replace(/^\./,"").toLowerCase();
