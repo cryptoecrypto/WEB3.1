@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020805">
+<meta name="description" content="CRYPY NEWS — mercado integrado: preços públicos, visualização 3D, conteúdo educativo e memória local BABY.">
+<title>CRYPY NEWS — Mercado Integrado</title>
+<link rel="stylesheet" href="../assets/css/crypy-responsive.css">
+<style>
+:root{color-scheme:dark;--bg:#020805;--panel:#07130d;--panel2:#0a1b11;--line:#16462b;--g:#00ff88;--muted:#91b49d;--gold:#ffd35a;--red:#ff627c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -5%,#07391f 0,transparent 42%),var(--bg);color:#edfff4;font:15px/1.55 Inter,Segoe UI,Arial,sans-serif}
+a{color:var(--g);text-decoration:none}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}
+main{width:min(1240px,calc(100% - 28px));margin:auto;padding:78px 0 42px}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.2em;color:var(--g)}h1{font-size:clamp(38px,7vw,76px);line-height:.94;letter-spacing:-.05em;margin:10px 0}h1 span,.green{color:var(--g)}h2{font-size:clamp(24px,4vw,38px);line-height:1.05;margin:5px 0 12px}h3{margin:0 0 8px}p{color:#b8d2c2}.muted{color:var(--muted)}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:end;margin-bottom:28px}.hero-note,.panel,.card{border:1px solid var(--line);border-radius:17px;background:linear-gradient(150deg,#0a1b11,#040b07);box-shadow:0 14px 45px #0005}.hero-note{padding:18px}.hero-note strong{color:var(--g)}.section{margin:26px 0;padding:20px;border:1px solid #123b25;border-radius:20px;background:#030a06d9}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:15px}.status{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:#10271a;border:1px solid var(--line);font-size:11px;font-weight:800;color:var(--g)}.status.offline{background:#2b1b0d;color:#ffce78;border-color:#66451c}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #267349;border-radius:10px;padding:10px 14px;background:#081b10;color:#dffff0;font-weight:800;font-size:12px}.btn.primary{background:var(--g);color:#001b0d;border-color:var(--g)}.btn.gold{border-color:#7a6121;color:var(--gold)}.btn.danger{border-color:#793044;color:#ff9aab}.btn:disabled{opacity:.45;cursor:not-allowed}.market-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.coin{padding:14px;border:1px solid var(--line);border-radius:13px;background:#07150c;min-width:0}.coin.active{border-color:var(--g);box-shadow:0 0 0 1px #00ff8860,0 0 22px #00ff8819}.coin-top{display:flex;justify-content:space-between;gap:8px}.coin-symbol{font-weight:950;letter-spacing:.05em}.coin-name,.tiny{font-size:11px;color:var(--muted)}.price{font-size:clamp(18px,3vw,25px);font-weight:900;overflow-wrap:anywhere;margin:9px 0 2px}.up{color:var(--g)}.down{color:var(--red)}.coin button{width:100%;margin-top:10px}.special{border-style:dashed;border-color:#8c7027;background:#211a08}.special .price{color:var(--gold)}.viz-wrap{position:relative;border:1px solid #173b29;border-radius:16px;overflow:hidden;background:radial-gradient(circle at 50% 0,#0c2c1b,#020604 70%)}canvas{display:block;width:100%}#market3d{height:350px;touch-action:none;cursor:grab}#history{height:150px;margin-top:8px}.viz-overlay{position:absolute;top:12px;left:12px;display:flex;gap:5px;flex-wrap:wrap}.viz-overlay button{padding:6px 9px;border:1px solid #ffffff38;border-radius:999px;background:#000b;color:white;font-size:11px;font-weight:800}.viz-overlay button[aria-pressed=true]{background:var(--g);color:#001b0d;border-color:var(--g)}.viz-hint{position:absolute;right:12px;bottom:12px;padding:6px 10px;border-radius:99px;background:#000b;color:#a9c8b5;font-size:10px}.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.history-box,.memory-box{padding:15px;border:1px solid var(--line);border-radius:14px;background:#07140c}.ticker{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);padding:10px 0;margin:18px 0}.ticker-track{display:flex;gap:28px;width:max-content;animation:scroll 32s linear infinite}.ticker-track span{font-size:12px;color:var(--muted)}.ticker-track b{color:var(--g)}@keyframes scroll{to{transform:translateX(-50%)}}.news-filters{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 15px}.filter{border:1px solid var(--line);border-radius:99px;background:#07150c;color:var(--muted);padding:7px 12px;font-size:11px;font-weight:900}.filter.active{background:var(--g);color:#001b0d;border-color:var(--g)}.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.news-card{padding:15px;border:1px solid var(--line);border-radius:14px;background:#07140c}.news-card h3{font-size:17px;line-height:1.25}.news-card p{font-size:13px;margin:8px 0}.news-card .tags{font-size:10px;color:var(--g);letter-spacing:.08em;font-weight:900}.news-card button{margin-top:8px}.memory-list{max-height:270px;overflow:auto;padding:0;list-style:none}.memory-list li{padding:9px 0;border-bottom:1px solid #153a25;font-size:12px}.progress{height:8px;border-radius:99px;background:#102318;overflow:hidden;margin:8px 0}.progress span{display:block;height:100%;background:var(--g);width:0}.log{max-height:180px;overflow:auto;list-style:none;padding:0}.log li{font-size:11px;padding:6px 0;border-bottom:1px solid #102d1c;color:#b8d2c2}.log time{color:var(--g);margin-right:8px}.archive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.archive-item{padding:12px;border:1px solid var(--line);border-radius:12px;background:#07140c;min-width:0}.archive-item b{display:block;color:#edfff4;font-size:12px}.archive-item code{display:block;overflow-wrap:anywhere;color:#a7c8b3;font-size:10px;margin:5px 0}.archive-item small{color:var(--muted);font-size:10px}.notice{padding:12px 14px;border:1px solid #6a5422;border-radius:12px;background:#211a08;color:#ffe7a6;font-size:12px;line-height:1.5}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.links a{padding:10px 13px;border:1px solid var(--line);border-radius:10px;font-size:12px;font-weight:800}.footer{text-align:center;border-top:1px solid var(--line);padding:22px 10px;color:#789784;font-size:11px}.back{display:inline-block;margin-top:22px;padding:10px 14px;border:1px solid var(--g);border-radius:10px}
+@media(max-width:760px){main{padding-top:72px}.hero,.two-col{grid-template-columns:1fr}.market-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.news-grid,.archive{grid-template-columns:1fr}#market3d{height:290px}.section{padding:14px}.hero-note{padding:14px}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+<div><div class="eyebrow">CRYPTOEËCRYPTO · WEB3.1 · CENTRAL DE MERCADO</div><h1>CRYPY NEWS<br><span>MARKET INTEGRADO</span></h1><p>Uma única página reúne o painel 3D, cotações públicas, leitura educativa, memória local do BABY e o inventário documental dos módulos de mercado.</p><div class="actions"><span id="connection" class="status offline"><i class="dot"></i> AGUARDANDO BINANCE</span><span class="status">BRASÍLIA <b id="clock">--:--:--</b></span></div></div>
+<aside class="hero-note"><div class="eyebrow">EDIÇÃO DO DIA</div><h2 id="edition">--/--/----</h2><p>Próxima virada em <strong id="countdown">--:--:--</strong></p><p class="tiny">Os textos educativos desta página são editoriais locais. Não são notícias de última hora nem recomendações de investimento.</p><div class="actions"><button class="btn primary" id="refresh">ATUALIZAR MERCADO</button><button class="btn" id="autoToggle" aria-pressed="true">AUTOMAÇÃO: LIGADA</button></div></aside>
+</header>
+<div class="ticker"><div id="ticker" class="ticker-track"><span>CRYPY NEWS · conectando aos dados públicos da Binance…</span><span>CRYPY NEWS · conectando aos dados públicos da Binance…</span></div></div>
+<section class="section" id="mercado">
+<div class="section-head"><div><div class="eyebrow">01 · PAINEL DE PREÇOS</div><h2>Mercado em um olhar</h2><p class="tiny">Ativos públicos em USDT. Os valores iniciais são referências do protótipo; só serão tratados como atuais após resposta válida da API.</p></div><div class="tiny">Atualização: <b id="updated">ainda não realizada</b> · ciclo <b id="cycle">60s</b></div></div>
+<div id="coinCards" class="market-grid"></div>
+<div class="notice" style="margin-top:12px">CRYPYCOIN permanece reservada ao projeto: <b>sem cotação pública, sem listagem e sem preço de mercado nesta página.</b> A exibição “0,0000” é apenas marcador de ausência de cotação, não valor negociável.</div>
+</section>
+<section class="section">
+<div class="section-head"><div><div class="eyebrow">02 · VISUALIZAÇÃO 3D</div><h2>Pilares do mercado</h2><p class="tiny">Arraste para girar · role para zoom · selecione um ativo para focar.</p></div><span class="status" id="selectedLabel">SELECIONADO: BTC</span></div>
+<div class="viz-wrap"><canvas id="market3d" role="img" aria-label="Visualização tridimensional dos preços dos ativos."></canvas><div class="viz-overlay" id="coinSelectors"></div><div class="viz-hint" id="vizHint">Arraste · Zoom · Toque</div></div>
+<div class="two-col" style="margin-top:13px">
+<div class="history-box"><div class="eyebrow">HISTÓRICO BINANCE · 1H</div><h3 id="historyTitle">BTC/USDT — aguardando dados</h3><canvas id="history" role="img" aria-label="Histórico horário recebido da Binance"></canvas><p id="historyNote" class="tiny">O histórico só aparece após resposta válida da API. Nenhuma série fictícia será desenhada.</p></div>
+<div class="history-box"><div class="eyebrow">CONTROLES</div><h3>Atualização e leitura</h3><p class="tiny" id="statusText">Aguardando primeira consulta à Binance.</p><div class="actions"><button class="btn primary" id="refresh2">ATUALIZAR AGORA</button><button class="btn" id="pauseRotate">PAUSAR ROTAÇÃO</button></div><p class="tiny" style="margin-top:12px">Fonte de preços: API pública Binance. Se a rede ou a API estiver indisponível, o painel mantém os últimos dados recebidos e sinaliza o estado offline.</p></div>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><div><div class="eyebrow">03 · CRYPY NEWS / EDUCAÇÃO</div><h2>Leitura de mercado</h2><p class="tiny">Seis textos editoriais preservados do módulo CRYPY-MARKET2.</p></div><span class="status" id="newsCount">6 conteúdos</span></div>
+<div id="filters" class="news-filters"></div><div id="newsCards" class="news-grid"></div>
+</section>
+<section class="section">
+<div class="section-head"><div><div class="eyebrow">04 · BABY / MEMÓRIA DE LEITURA</div><h2>Aprendizado local</h2><span class="status">NAVEGADOR ATUAL</span></div></div>
+<div class="two-col">
+<div class="memory-box"><h3>O caderno de leitura do BABY</h3><p class="tiny">Ao absorver um texto, o título e os metadados ficam guardados no armazenamento local deste navegador. Isso não treina o modelo de IA nem sincroniza com servidor ou Dropbox.</p><div class="progress"><span id="progress"></span></div><p class="tiny"><b id="memoryLevel">0%</b> · <span id="memoryCount">0</span> de 6 leituras registradas</p><div class="actions"><button class="btn primary" id="absorbAll">ABSORVER TODAS</button><button class="btn danger" id="clearMemory">LIMPAR CADERNO LOCAL</button></div><p id="babyMsg" class="tiny" aria-live="polite">BABY pronto para registrar uma leitura.</p></div>
+<div class="memory-box"><h3>Memórias registradas</h3><ul id="memoryList" class="memory-list"><li>Nenhuma leitura absorvida ainda.</li></ul></div>
+</div>
+<div class="history-box" style="margin-top:12px"><div class="eyebrow">LOG DE AUTOMAÇÃO</div><ul id="log" class="log"></ul></div>
+</section>
+<section class="section">
+<div class="section-head"><div><div class="eyebrow">05 · INVENTÁRIO DOCUMENTAL</div><h2>Materiais registrados no módulo 3</h2><p class="tiny">Os sete registros abaixo foram extraídos do painel de materiais de crypy-market3.</p></div><span class="status">7 REGISTROS</span></div>
+<div id="archive" class="archive"></div>
+<div class="notice" style="margin-top:12px">Nota de integridade: os sete nomes e tamanhos constavam no painel de origem, mas os arquivos correspondentes não foram encontrados no repositório WEB3.1 durante esta consolidação. Por isso, são apresentados como inventário documental, sem links de abertura ou download inventados. Os diretórios-fonte foram preservados.</div>
+</section>
+<section class="section">
+<div class="eyebrow">06 · PÁGINAS ORIGINAIS PRESERVADAS</div><h2>Gráficos anteriores</h2><p class="tiny">As páginas anteriores continuam separadas e intactas. Esta nova página funciona como central unificada, não como substituição dos gráficos originais.</p>
+<div class="links"><a href="../crypy-market-news/grafico-real.html">ABRIR GRÁFICO REAL ORIGINAL</a><a href="../crypy-market-news/grafico-7-ativos.html">ABRIR GRÁFICO 7 ATIVOS</a><a href="./index.html">VOLTAR À CENTRAL CRYPY NEWS</a></div>
+</section>
+<a class="back" href="../index.html">← VOLTAR À HOME CRYPY</a>
+</main>
+<footer class="footer">CRYPY NEWS · MERCADO INTEGRADO · Dados de mercado: Binance · Conteúdo educativo, não é recomendação de investimento.<br>CRYPYCOIN sem cotação pública. BABY: memória local demonstrativa, sem treinamento de modelo.</footer>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const assets=[
+{symbol:"BTC",name:"Bitcoin",price:61359,change:.73,high:62100,low:60600,color:"#F7931A",pair:"BTCUSDT",decimals:2},
+{symbol:"ETH",name:"Ethereum",price:1718,change:.83,high:1740,low:1695,color:"#8A9CFF",pair:"ETHUSDT",decimals:2},
+{symbol:"USDT",name:"Tether",price:.9991,change:.01,high:1.0002,low:.9980,color:"#26A17B",pair:null,decimals:4},
+{symbol:"BNB",name:"BNB",price:560.30,change:.36,high:567,low:553,color:"#F0B90B",pair:"BNBUSDT",decimals:2},
+{symbol:"ICP",name:"Internet Computer",price:2.005,change:.80,high:2.04,low:1.97,color:"#29ABE2",pair:"ICPUSDT",decimals:3},
+{symbol:"SHIB",name:"Shiba Inu",price:.00000365,change:.55,high:.00000372,low:.00000358,color:"#FF8A3D",pair:"SHIBUSDT",decimals:8}
+];
+const articles=[
+{id:"n1",source:"EDITORIAL LOCAL",title:"Como ler uma variação de 24 horas sem confundir preço com tendência",summary:"Um guia prático para entender o que muda em um dia, o que é apenas ruído de curto prazo e por que um único número nunca conta a história completa do mercado.",tags:["BTC","ETH","BNB"]},
+{id:"n2",source:"EDITORIAL LOCAL",title:"Stablecoins na rotina: o que observar antes de usar uma moeda pareada ao dólar",summary:"Entenda liquidez, transparência, custódia e uso cotidiano. O foco aqui é educação financeira, não indicação de compra ou venda.",tags:["USDT"]},
+{id:"n3",source:"EDITORIAL LOCAL",title:"Redes e taxas: por que a mesma transferência pode custar valores diferentes",summary:"Congestionamento, tipo de rede e momento da transação influenciam o custo. Aprenda a comparar antes de confirmar qualquer operação.",tags:["ETH","BNB","ICP"]},
+{id:"n4",source:"EDITORIAL LOCAL",title:"Memecoins e volatilidade: como separar comunidade, narrativa e risco",summary:"Projetos movidos por comunidade podem oscilar muito rápido. Este texto explica perguntas básicas de checagem antes de qualquer decisão.",tags:["SHIB"]},
+{id:"n5",source:"EDITORIAL LOCAL",title:"Segurança primeiro: chaves, golpes comuns e hábitos que protegem sua carteira",summary:"Frases-semente, links falsos e promessas de retorno garantido estão entre os sinais mais repetidos. Veja uma lista de cuidados essenciais.",tags:["BTC","ETH"]},
+{id:"n6",source:"EDITORIAL LOCAL",title:"CRYPYCOIN: o que significa um token ainda em construção",summary:"Um projeto em construção pode ter documento, testes e comunidade antes de qualquer listagem pública. Até lá, não existe cotação oficial para acompanhar.",tags:["CRYPYCOIN"]}
+];
+const materials=[
+["01","BABY-APRENDIZADO","baby-aprendizado-inject.html","3.905 bytes","3,81 KB"],
+["02","HOME-MATRIX-INDEX5","home-matrix-index5.html","16.366 bytes","15,98 KB"],
+["03","COMEIA-WEB31","comeia-web31.html","3.120.867 bytes","2,98 MB"],
+["04","HOME-MATRIX-CRYPY","home-matrix-crypy.html","343.875 bytes","335,81 KB"],
+["05","BACKUP-ANTES-FUSAO","backup-antes-fusao.html","13.342.095 bytes","12,72 MB"],
+["06","CRYPY-WEB31-PURO","CRYPY-WEB31-HTML-PURO-SEM-MENSAGEM.html","6.358.338 bytes","6,06 MB"],
+["07","FUSAO-V4-CORRIGIDA","FUSAO-V4-CORRIGIDA-ABRE-NA-HORA.html","13.345.049 bytes","12,73 MB"]
+];
+let selected="BTC",online=false,auto=true,rotating=true,angle=.35,zoom=1,lastUpdate=null,seconds=60,history=[],edition="",lastEdition="",filter="TODAS",headline="n1",logs=[],memory=[];
+const memoryKey="crypy-news-baby-reading-v1";
+const fmt=(n,d=2)=>Number(n).toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const price=t=>"$ "+fmt(t.price,t.decimals);
+const timeBR=()=>new Intl.DateTimeFormat("pt-BR",{timeZone:"America/Sao_Paulo",hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+const dateBR=()=>new Intl.DateTimeFormat("pt-BR",{timeZone:"America/Sao_Paulo",day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date());
+function log(message){logs.unshift({time:timeBR(),message});logs=logs.slice(0,10);$("log").innerHTML="";logs.forEach(x=>{const li=document.createElement("li"),tm=document.createElement("time");tm.textContent=x.time;li.append(tm,document.createTextNode(x.message));$("log").append(li);});}
+function renderCards(){
+const wrap=$("coinCards");wrap.innerHTML="";
+assets.forEach(t=>{const card=document.createElement("article");card.className="coin"+(selected===t.symbol?" active":"");const top=document.createElement("div");top.className="coin-top";const sym=document.createElement("span");sym.className="coin-symbol";sym.textContent=t.symbol;const name=document.createElement("span");name.className="coin-name";name.textContent=t.name;top.append(sym,name);const p=document.createElement("div");p.className="price";p.textContent=price(t);const ch=document.createElement("div");ch.className=t.change>=0?"up":"down";ch.textContent=(t.change>=0?"+":"")+fmt(t.change,2)+"% · 24H";const hi=document.createElement("div");hi.className="tiny";hi.textContent="MÁX. "+fmt(t.high,t.decimals)+" · MÍN. "+fmt(t.low,t.decimals);const b=document.createElement("button");b.className="btn";b.textContent=selected===t.symbol?"ATIVO SELECIONADO":"VER NO GRÁFICO";b.addEventListener("click",()=>selectAsset(t.symbol));card.append(top,p,ch,hi,b);wrap.append(card);});
+const ticker=assets.map(t=>"<span><b>"+t.symbol+"</b> "+price(t)+" <span class='"+(t.change>=0?"up":"down")+"'>"+(t.change>=0?"+":"")+fmt(t.change,2)+"%</span></span>").join("");
+$("ticker").innerHTML=ticker+ticker;
+}
+function renderSelectors(){const w=$("coinSelectors");w.innerHTML="";assets.forEach(t=>{const b=document.createElement("button");b.textContent=t.symbol;b.setAttribute("aria-pressed",String(selected===t.symbol));b.addEventListener("click",()=>selectAsset(t.symbol));w.append(b);});$("selectedLabel").textContent="SELECIONADO: "+selected;}
+function selectAsset(symbol){selected=symbol;renderCards();renderSelectors();loadHistory();draw3d();}
+function renderNews(){
+const filters=["TODAS","BTC","ETH","USDT","BNB","ICP","SHIB","CRYPYCOIN"],fw=$("filters");fw.innerHTML="";
+filters.forEach(f=>{const b=document.createElement("button");b.className="filter"+(filter===f?" active":"");b.textContent=f;b.addEventListener("click",()=>{filter=f;renderNews();});fw.append(b);});
+const rows=filter==="TODAS"?articles:articles.filter(n=>n.tags.includes(filter));$("newsCount").textContent=rows.length+" conteúdos";const nw=$("newsCards");nw.innerHTML="";
+rows.forEach(n=>{const a=document.createElement("article");a.className="news-card";const tag=document.createElement("div");tag.className="tags";tag.textContent=n.source+" · "+n.tags.join(" / ");const h=document.createElement("h3");h.textContent=n.title;const p=document.createElement("p");p.textContent=n.summary;const b=document.createElement("button");b.className="btn"+(headline===n.id?" primary":"");b.textContent=headline===n.id?"DESTAQUE DO DIA":"MARCAR DESTAQUE";b.addEventListener("click",()=>{headline=n.id;renderNews();log("Destaque editorial alterado: "+n.title);});const learn=document.createElement("button");learn.className="btn";learn.textContent=memory.some(m=>m.id===n.id)?"JÁ ABSORVIDO":"BABY ABSORVER";learn.disabled=memory.some(m=>m.id===n.id);learn.addEventListener("click",()=>absorb(n));a.append(tag,h,p,b,learn);nw.append(a);});
+}
+function loadMemory(){try{const raw=localStorage.getItem(memoryKey);const parsed=raw?JSON.parse(raw):[];memory=Array.isArray(parsed)?parsed:[];}catch{memory=[];}}
+function saveMemory(){try{localStorage.setItem(memoryKey,JSON.stringify(memory));return true;}catch{return false;}}
+function renderMemory(){
+$("memoryList").innerHTML="";if(!memory.length){const li=document.createElement("li");li.textContent="Nenhuma leitura absorvida ainda."; $("memoryList").append(li);}
+memory.forEach(m=>{const li=document.createElement("li");li.textContent=m.title+" · "+m.date+" · "+m.time;$("memoryList").append(li);});
+const level=Math.min(100,Math.round(memory.length/articles.length*100));$("progress").style.width=level+"%";$("memoryLevel").textContent=level+"%";$("memoryCount").textContent=memory.length;
+}
+function absorb(n){if(memory.some(m=>m.id===n.id))return;memory.push({id:n.id,title:n.title,date:edition,time:new Date().toLocaleString("pt-BR")});if(!saveMemory()){$("babyMsg").textContent="Armazenamento local indisponível; nenhuma memória foi confirmada.";memory.pop();return;}renderMemory();renderNews();$("babyMsg").textContent="Leitura registrada no caderno local do BABY: "+n.title;log("BABY registrou leitura: "+n.title);}
+function absorbAll(){let added=0;articles.forEach(n=>{if(!memory.some(m=>m.id===n.id)){memory.push({id:n.id,title:n.title,date:edition,time:new Date().toLocaleString("pt-BR")});added++;}});if(!saveMemory()){$("babyMsg").textContent="Armazenamento local indisponível; não foi possível salvar.";loadMemory();return;}renderMemory();renderNews();$("babyMsg").textContent=added?added+" leitura(s) registradas no caderno local.":"BABY já registrou todas as leituras.";log("BABY registrou "+added+" leitura(s).");}
+function clearMemory(){if(!confirm("Limpar somente o caderno local de leituras do BABY neste navegador?"))return;memory=[];saveMemory();renderMemory();renderNews();$("babyMsg").textContent="Caderno local limpo.";log("Caderno local do BABY limpo.");}
+function renderArchive(){const w=$("archive");materials.forEach(m=>{const d=document.createElement("article");d.className="archive-item";const b=document.createElement("b");b.textContent=m[0]+" · "+m[1];const c=document.createElement("code");c.textContent=m[2];const sm=document.createElement("small");sm.textContent=m[3]+" · "+m[4]+" · referência do painel de origem";d.append(b,c,sm);w.append(d);});}
+async function refreshPrices(){
+$("statusText").textContent="Consultando a API pública da Binance…";$("connection").className="status offline";$("connection").innerHTML='<i class="dot"></i> CONSULTANDO BINANCE';
+const symbols=assets.filter(t=>t.pair).map(t=>t.pair),url="https://api.binance.com/api/v3/ticker/24hr?symbols="+encodeURIComponent(JSON.stringify(symbols));
+try{const res=await fetch(url,{cache:"no-store"});if(!res.ok)throw new Error("HTTP "+res.status);const data=await res.json();if(!Array.isArray(data)||!data.length)throw new Error("Resposta sem cotações");
+data.forEach(r=>{const t=assets.find(x=>x.pair===r.symbol);if(!t)return;const p=Number(r.lastPrice),c=Number(r.priceChangePercent),h=Number(r.highPrice),l=Number(r.lowPrice);if(Number.isFinite(p)&&p>0)t.price=p;if(Number.isFinite(c))t.change=c;if(Number.isFinite(h))t.high=h;if(Number.isFinite(l))t.low=l;});
+online=true;lastUpdate=timeBR();$("updated").textContent=lastUpdate+" Brasília";$("connection").className="status";$("connection").innerHTML='<i class="dot"></i> DADOS RECEBIDOS DA BINANCE';$("statusText").textContent="Consulta concluída. Os preços exibidos vieram da resposta pública da Binance.";log("Cotações recebidas da Binance.");renderCards();draw3d();await loadHistory();
+}catch(e){online=false;$("connection").className="status offline";$("connection").innerHTML='<i class="dot"></i> API INDISPONÍVEL · ÚLTIMOS DADOS';$("statusText").textContent="Não foi possível atualizar: "+String(e&&e.message||e)+". Os valores de referência permanecem identificados como dados iniciais.";log("Falha ao consultar Binance; mantidas as referências/últimas cotações.");}
+}
+async function loadHistory(){
+const t=assets.find(x=>x.symbol===selected);$("historyTitle").textContent=t.symbol+"/USDT — histórico 1H";history=[];
+if(!t.pair){$("historyNote").textContent="USDT é exibido como referência de paridade; não há série de candles configurada neste painel.";drawHistory();return;}
+try{const url="https://api.binance.com/api/v3/klines?symbol="+t.pair+"&interval=1h&limit=60";const res=await fetch(url,{cache:"no-store"});if(!res.ok)throw new Error("HTTP "+res.status);const data=await res.json();history=Array.isArray(data)?data.map(x=>Number(x[4])).filter(Number.isFinite):[];if(history.length<10)throw new Error("Histórico insuficiente");$("historyNote").textContent="60 candles horários recebidos da API pública Binance (ou menos, se a API retornar menos pontos).";}catch(e){history=[];$("historyNote").textContent="Histórico indisponível no momento. Nenhuma linha sintética será desenhada.";}
+drawHistory();
+}
+function drawHistory(){const c=$("history"),ctx=c.getContext("2d"),w=c.clientWidth,h=c.clientHeight,d=Math.min(2,devicePixelRatio||1);c.width=w*d;c.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);ctx.strokeStyle="#163b28";for(let i=1;i<4;i++){ctx.beginPath();ctx.moveTo(8,h*i/4);ctx.lineTo(w-8,h*i/4);ctx.stroke();}if(history.length<2){ctx.fillStyle="#91b49d";ctx.font="12px sans-serif";ctx.fillText("Sem candles confirmados",12,h/2);return;}const min=Math.min(...history),max=Math.max(...history),pts=history.map((v,i)=>({x:12+i/(history.length-1)*(w-24),y:h-14-(v-min)/(max-min||1)*(h-30)}));ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle="#00ff88";ctx.lineWidth=2;ctx.stroke();ctx.lineTo(pts[pts.length-1].x,h-8);ctx.lineTo(pts[0].x,h-8);ctx.closePath();ctx.fillStyle="rgba(0,255,136,.10)";ctx.fill();}
+let hits=[];
+function draw3d(){
+const c=$("market3d"),ctx=c.getContext("2d"),w=c.clientWidth,h=c.clientHeight,d=Math.min(2,devicePixelRatio||1);c.width=w*d;c.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);
+const vals=assets.map(t=>Math.log10(Math.max(t.price,1e-10))),min=Math.min(...vals),max=Math.max(...vals),cx=w/2,base=h*.78;ctx.strokeStyle="rgba(0,255,136,.14)";ctx.lineWidth=1;
+for(let i=-4;i<=4;i++){ctx.beginPath();ctx.moveTo(cx+i*48,base-10);ctx.lineTo(cx+i*70,base+32);ctx.stroke();ctx.beginPath();ctx.moveTo(cx+i*48,base-10);ctx.lineTo(cx+i*48,base-190);ctx.stroke();}
+hits=[];const items=assets.map((t,i)=>{const a=angle+i*Math.PI*2/assets.length;return {t,x:cx+Math.cos(a)*Math.min(w*.31,250)*zoom,y:base-Math.abs(Math.sin(a))*h*.10,depth:Math.sin(a)};}).sort((a,b)=>a.depth-b.depth);
+items.forEach(it=>{const norm=(Math.log10(Math.max(it.t.price,1e-10))-min)/(max-min||1),bh=(38+norm*145)*zoom,bw=Math.max(30,Math.min(56,w/10))*zoom,dep=13*zoom,x=it.x-bw/2,y=it.y-bh;const shade=(col,amt)=>col;ctx.fillStyle=it.t.color;ctx.globalAlpha=.88;ctx.fillRect(x,y,bw,bh);ctx.globalAlpha=.65;ctx.fillStyle="#dffff0";ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+dep,y-dep);ctx.lineTo(x+bw+dep,y-dep);ctx.lineTo(x+bw,y);ctx.closePath();ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=selected===it.t.symbol?"#fff":"rgba(255,255,255,.25)";ctx.lineWidth=selected===it.t.symbol?2:1;ctx.strokeRect(x,y,bw,bh);ctx.fillStyle="#effff5";ctx.font="bold 11px sans-serif";ctx.textAlign="center";ctx.fillText(it.t.symbol,it.x,y-19);ctx.fillStyle=it.t.color;ctx.fillText(price(it.t),it.x,y-6);hits.push({x:x-8,y:y-25,w:bw+dep+16,h:bh+40,symbol:it.t.symbol});});
+}
+let drag=null;
+$("market3d").addEventListener("pointerdown",e=>{drag={x:e.clientX,angle:angle};$("market3d").setPointerCapture(e.pointerId);});
+$("market3d").addEventListener("pointermove",e=>{if(!drag)return;angle=drag.angle+(e.clientX-drag.x)*.008;draw3d();});
+["pointerup","pointercancel"].forEach(ev=>$("market3d").addEventListener(ev,()=>{drag=null;}));
+$("market3d").addEventListener("click",e=>{const r=$("market3d").getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,h=hits.find(v=>x>=v.x&&x<=v.x+v.w&&y>=v.y&&y<=v.y+v.h);if(h)selectAsset(h.symbol);});
+$("market3d").addEventListener("wheel",e=>{e.preventDefault();zoom=Math.max(.72,Math.min(1.45,zoom+(e.deltaY<0?.08:-.08)));draw3d();},{passive:false});
+$("refresh").addEventListener("click",refreshPrices);$("refresh2").addEventListener("click",refreshPrices);
+$("autoToggle").addEventListener("click",()=>{auto=!auto;$("autoToggle").textContent="AUTOMAÇÃO: "+(auto?"LIGADA":"PAUSADA");$("autoToggle").setAttribute("aria-pressed",String(auto));$("babyMsg").textContent=auto?"Atualização automática ligada.":"Atualização automática pausada.";log("Automação "+(auto?"ligada":"pausada")+".");});
+$("pauseRotate").addEventListener("click",()=>{rotating=!rotating;$("pauseRotate").textContent=rotating?"PAUSAR ROTAÇÃO":"RETOMAR ROTAÇÃO";});
+$("absorbAll").addEventListener("click",absorbAll);$("clearMemory").addEventListener("click",clearMemory);
+function selectAssetOnResize(){draw3d();drawHistory();}
+function tick(){const now=dateBR();$("clock").textContent=timeBR();$("edition").textContent=now;if(now!==lastEdition){lastEdition=now;edition=now;headline="n1";log("Nova edição local iniciada: "+now);}const parts=timeBR().split(":").map(Number),sec=parts[0]*3600+parts[1]*60+parts[2],left=86400-sec;$("countdown").textContent=[Math.floor(left/3600),Math.floor(left%3600/60),left%60].map(n=>String(n).padStart(2,"0")).join(":");if(rotating){angle+=.0025;draw3d();}if(auto){seconds--;if(seconds<=0){seconds=60;refreshPrices();}}$("cycle").textContent=seconds+"s";}
+window.addEventListener("resize",selectAssetOnResize);
+edition=dateBR();lastEdition=edition;loadMemory();renderMemory();renderCards();renderSelectors();renderNews();renderArchive();log("Página integrada carregada; aguardando consulta real da Binance.");tick();setInterval(tick,1000);refreshPrices();
+})();
+</script>
+<script defer src="../assets/js/crypy-global-nav.js"></script>
+</body>
+</html>
