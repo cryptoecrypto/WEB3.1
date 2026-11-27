@@ -65,15 +65,27 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
 }
 
 const themeCount = (home.match(/TEMA \d{2}/g) || []).length;
-const indexCount = (home.match(/INDEX \d{2}/g) || []).length;
-if (themeCount !== 13 || indexCount !== 9) {
-  errors.push("HOME principal deve conter 13 temas oficiais e 9 índices");
+const indexCardCount = (home.match(/class="tile" href="\.\/(?:index\.html|index5\.html|Index6\.html|index7\.html|index8\.html|index9\.html)"/g) || []).length;
+if (themeCount !== 13 || indexCardCount !== 6 || !home.includes('href="./mapa-colmeia.html"')) {
+  errors.push("HOME principal deve conter 13 temas oficiais, 6 índices ativos e o mapa da Colmeia");
 }
 if (!home.includes("crypy-global-runtime.js") || !home.includes("crypy-dynamic-design.js")) {
   errors.push("HOME não está conectada ao runtime BABY e ao design dinâmico global");
 }
 if (!loader.includes("../assets/js/crypy-global-nav.js")) errors.push("ponte de compatibilidade das páginas legadas não carrega o menu global");
 if (!fs.existsSync(navPath)) errors.push("menu global ausente");
+if (!nav.includes("keywordAliases")) errors.push("busca do menu global sem aliases por palavras-chave");
+if (!nav.includes("Index6.html")) errors.push("INDEX 06 não está conectada com a capitalização correta");
+const gamesMenuPath = path.join(root, "crypy-games-desafios", "crypy-games-desafios.html");
+if (fs.existsSync(gamesMenuPath)) {
+  const gamesMenu = fs.readFileSync(gamesMenuPath, "utf8");
+  if (/href=["']#["']/.test(gamesMenu)) errors.push("menu de CRYPY GAMES contém links sem destino");
+  if (!gamesMenu.includes("../crypy-news/index.html")) errors.push("menu de CRYPY GAMES não aponta para CRYPY NEWS");
+}
+const index6Path = path.join(root, "Index6.html");
+if (fs.existsSync(index6Path) && !fs.readFileSync(index6Path, "utf8").includes("assets/js/crypy-global-nav.js")) {
+  errors.push("INDEX 06 não carrega o menu global");
+}
 
 const serviceEntrypoints = [
   "crypy-server-bridge/public/index.html",
