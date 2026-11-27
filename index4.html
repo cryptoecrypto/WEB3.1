@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRYPY NFT HUB - METAVERSE 3D</title>
+<style>
+*{box-sizing:border-box} 
+body{margin:0;color:#fff;font-family:Arial,sans-serif;min-height:100vh;overflow-x:hidden;background:#05010f;background-image:radial-gradient(800px 400px at 20% 0%,#7c3aed55,transparent),radial-gradient(700px 400px at 90% 20%,#00f0ff33,transparent),radial-gradient(600px 500px at 50% 100%,#ff00e533,transparent);padding:0}
+.stars{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 130px 90px,#a855f7,transparent),radial-gradient(1px 1px at 70px 160px,#00f0ff,transparent);background-size:200px 200px;opacity:.6}
+/* TOPO 3D */
+.topo{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.75);backdrop-filter:blur(16px);border-bottom:2px solid #a855f7;padding:14px 16px;display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;box-shadow:0 10px 40px rgba(168,85,247,.35)}
+.topo a{background:#fff;color:#000;padding:11px 20px;border-radius:999px;font-weight:900;text-decoration:none;box-shadow:0 6px 0 #a855f7;transition:.15s}
+.topo a:active{transform:translateY(4px);box-shadow:0 2px 0 #a855f7}
+.topo span{font-size:12px;color:#facc15;font-weight:800;letter-spacing:1px}
+/* HERO */
+.hero{text-align:center;padding:52px 16px 10px;perspective:1000px}
+.hero-pill{display:inline-block;background:linear-gradient(90deg,#7c3aed,#00f0ff);padding:7px 16px;border-radius:999px;font-weight:900;font-size:12px;letter-spacing:2px;transform:rotateX(10deg);box-shadow:0 10px 30px rgba(0,240,255,.4)}
+.hero h1{font-size:clamp(38px,7vw,72px);margin:14px 0 6px;line-height:.9;text-shadow:0 0 30px #a855f7,0 6px 0 #000;letter-spacing:-1px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#facc15,#ff2d95,#00f0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#c4b5fd;max-width:680px;margin:10px auto 18px;line-height:1.6}
+.hero-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:10px 18px;border-radius:14px;font-weight:800;font-size:13px}
+.stat b{color:#facc15;font-size:18px;display:block}
+/* GRID 3D */
+.scene{max-width:1180px;margin:28px auto;padding:0 16px 30px;perspective:1400px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:26px;transform-style:preserve-3d}
+.card{perspective:900px}
+.card-inner{position:relative;background:linear-gradient(160deg,#1a0b2e 0%,#0f0f2a 55%,#05010f 100%);border:2px solid var(--c);border-radius:22px;padding:20px;min-height:340px;display:flex;flex-direction:column;transform-style:preserve-3d;transform:rotateX(6deg) rotateY(-6deg);transition:transform .35s,box-shadow .35s;box-shadow:0 20px 40px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05) inset,0 0 35px color-mix(in srgb,var(--c) 35%,transparent);overflow:hidden}
+.card:hover .card-inner{transform:rotateX(0deg) rotateY(0deg) translateY(-12px) scale(1.02);box-shadow:0 30px 60px rgba(0,0,0,.7),0 0 50px var(--c)}
+.holo{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.18) 45%,transparent 60%);transform:translateX(-120%);transition:.6s;pointer-events:none}
+.card:hover .holo{transform:translateX(120%)}
+.top-row{display:flex;justify-content:space-between;align-items:center;transform:translateZ(30px)}
+.badge{background:var(--c);color:#000;padding:6px 11px;border-radius:999px;font-weight:900;font-size:11px}
+.live{font-size:11px;font-weight:900;color:#22ff88;display:flex;gap:6px;align-items:center}
+.live i{width:8px;height:8px;background:#22ff88;border-radius:50%;display:block;box-shadow:0 0 10px #22ff88;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.emoji3d{font-size:64px;text-align:center;margin:18px 0 6px;transform:translateZ(50px) rotateX(-8deg);filter:drop-shadow(0 12px 12px rgba(0,0,0,.6));animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateZ(50px) translateY(-10px) rotate(-3deg)}}
+.card h2{font-size:19px;margin:8px 0 4px;text-align:center;transform:translateZ(35px);line-height:1.2}
+.card p{color:#bbb;font-size:13px;text-align:center;margin:4px 0 10px;transform:translateZ(25px)}
+.card code{display:block;background:#000;padding:9px;border-radius:10px;font-size:11px;word-break:break-all;color:#00f0ff;text-align:center;transform:translateZ(20px)}
+.actions{margin-top:auto;display:flex;flex-direction:column;gap:10px;transform:translateZ(30px)}
+.btn-enter{display:block;text-align:center;background:linear-gradient(90deg,var(--c),#2563eb);color:#fff;text-decoration:none;padding:14px;border-radius:12px;font-weight:900;box-shadow:0 8px 0 rgba(0,0,0,.4)}
+.btn-enter:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.4)}
+.btn-ghost{display:block;text-align:center;background:#fff;color:#000;text-decoration:none;padding:10px;border-radius:10px;font-weight:800;font-size:13px}
+.floor{height:14px;margin:16px 20px 0;background:radial-gradient(ellipse at center,var(--c) 0%,transparent 70%);opacity:.7;filter:blur(2px);transform:rotateX(70deg)}
+.aviso{max-width:1180px;margin:0 auto 30px;padding:18px;border-radius:18px;background:rgba(250,204,21,.08);border:1px solid #facc15;font-size:13px;line-height:1.6}
+#marca{position:fixed;bottom:12px;right:12px;z-index:999;background:rgba(0,0,0,.85);color:#facc15;padding:8px 14px;border-radius:999px;font:700 11px Arial;border:1px solid #facc15;box-shadow:0 0 20px rgba(250,204,21,.4)}
+@media(max-width:600px){.card-inner{transform:none}.hero h1{font-size:42px}}
+</style></head>
+<body>
+<div class="stars"></div>
+<div class="topo"><a href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR PRO MENU NFT</a><a href="PORTAL-NFT-HUB-7-LINKS.html">🏠 MENU</a><span>🟣 METAVERSE 3D • 8 MUNDOS • SÓ SENSEI EDITA 🔒</span></div>
+<div class="hero">
+  <span class="hero-pill">✦ CRYPY • WEB3 • METAVERSE ✦</span>
+  <h1>CRYPY NFT <em>HUB 3D</em></h1>
+  <p>Entre em 8 mundos. Cada caixa é um portal. Toque em <b>ENTRAR NO METAVERSE</b> e explore a coleção.</p>
+  <div class="hero-stats"><div class="stat"><b>08</b>MUNDOS</div><div class="stat"><b>100%</b>3D</div><div class="stat"><b>WEB3.1</b>SENSEI</div></div>
+</div>
+<div class="scene"><div class="grid">
+<article class="card" style="--c:#ff2d95" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 01 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🃏</div>
+    <h2>NFT-CRYPY-CARDS</h2>
+    <p>Cards colecionáveis CRYPY</p>
+    <code>nft-exhibition-overview.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="nft-exhibition-overview.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#facc15" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 02 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🪙</div>
+    <h2>NFT-CRYPY-COIN-GENESIS</h2>
+    <p>Coin Genesis - Moeda Genesis</p>
+    <code>nft-genesis.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="nft-genesis.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#a855f7" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 03 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">💎</div>
+    <h2>NFT-CRYPY-COLLECTION</h2>
+    <p>Coleção NFT principal</p>
+    <code>CRYPY-NFT_COLLECTION.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="CRYPY-NFT_COLLECTION.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#00f0ff" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 04 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🌈</div>
+    <h2>NFT-CRYPY-COLORS</h2>
+    <p>Coleção Colors - Cores</p>
+    <code>CRYPY_COLLECTION_DARKNESS.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="CRYPY_COLLECTION_DARKNESS.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#7c3aed" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 05 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🌑</div>
+    <h2>NFT-CRYPY-DARKNESS</h2>
+    <p>Coleção Darkness</p>
+    <code>crypypasta-darkness.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="crypypasta-darkness.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#22ff88" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 06 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🎮</div>
+    <h2>NFT-CRYPY-GAME</h2>
+    <p>Game CRYPY</p>
+    <code>CRYPY-NFT_CRYPYPASTA.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="CRYPY-NFT_CRYPYPASTA.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#ff6b00" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 07 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🦸</div>
+    <h2>NFT-ESQUADRAO-DAS-CORES</h2>
+    <p>Esquadrão das Cores</p>
+    <code>nft-exhibition.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="nft-exhibition.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+
+<article class="card" style="--c:#ff00e5" data-tilt>
+  <div class="card-inner">
+    <div class="holo"></div>
+    <div class="top-row"><span class="badge">CAIXA 08 / 08</span><span class="live"><i></i>LIVE</span></div>
+    <div class="emoji3d">🥷</div>
+    <h2>NFT-SENSEI-WEB3.1</h2>
+    <p>Sensei Web3.1</p>
+    <code>nft-sensei-web3.1.html</code>
+    <div class="actions">
+      <a class="btn-enter" href="nft-sensei-web3.1.html" target="_blank">ENTRAR NO METAVERSE ↗</a>
+      <a class="btn-ghost" href="PORTAL-NFT-HUB-7-LINKS.html">⬅ VOLTAR</a>
+    </div>
+    <div class="floor"></div>
+  </div>
+</article>
+</div></div>
+<div class="aviso"><b>⚠️ COMO FAZER FUNCIONAR:</b> Coloque este arquivo <code>PORTAL-NFT-HUB-7-LINKS.html</code> <b>NA MESMA PASTA</b> que os 8 arquivos no GitHub / computador. Passe o mouse / toque no card pra ver o efeito 3D.</div>
+<div id="marca">🔒 CRYPY © SENSEI - PROIBIDO REPLICAR</div>
+<script>
+document.addEventListener('contextmenu', e=>{e.preventDefault(); alert('🔒 Bloqueado - Só o SENSEI edita!');});
+document.addEventListener('keydown', e=>{ if((e.ctrlKey||e.metaKey) && ['c','x','v','s','u','p','a'].includes(e.key.toLowerCase())){e.preventDefault(); alert('🔒 Copiar bloqueado - CRYPY SENSEI');} });
+// Tilt 3D com mouse
+document.querySelectorAll('[data-tilt]').forEach(card=>{
+  const inner=card.querySelector('.card-inner');
+  card.addEventListener('mousemove', e=>{
+    const r=card.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5; const y=(e.clientY-r.top)/r.height-.5;
+    inner.style.transform=`rotateY(${x*18}deg) rotateX(${-y*18}deg) translateY(-10px) scale(1.02)`;
+  });
+  card.addEventListener('mouseleave', ()=>{inner.style.transform='';});
+});
+window.modoSensei=function(){ var s=prompt('🔒 Senha do SENSEI:'); if(s==='SENSEI'){alert('✅ Modo SENSEI liberado');} else{alert('❌ Acesso negado');} };
+</script>
+</body></html>
