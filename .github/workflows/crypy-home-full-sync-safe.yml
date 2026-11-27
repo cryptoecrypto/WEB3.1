@@ -24,11 +24,16 @@ jobs:
           node --check scripts/auditar-links-colmeia.mjs
           node --check scripts/validar-baby-chat-inline.mjs
           node --check assets/js/crypy-global-nav.js
+          node --check assets/js/crypy-dynamic-design.js
+          node --check assets/js/crypy-daily-boards.js
+          node --check scripts/validar-crypy-design.mjs
           node --check assets/js/crypy-global-runtime.js
           node --check assets/js/baby-global-chat.js
           node --check assets/js/baby-research.js
           node --check assets/js/baby-knowledge-sync.js
           node --check dev/micro-clock.js
+      - name: Validar ciclo visual diário e mural do BABY
+        run: node scripts/validar-crypy-design.mjs
       - name: Testar núcleo BABY, permissões e pesquisa externa
         run: node --test crypy-server-bridge/test/ CRYPY-13-CHATBOOTS/tests/
       - name: Simular sincronização global sem alterar arquivos
