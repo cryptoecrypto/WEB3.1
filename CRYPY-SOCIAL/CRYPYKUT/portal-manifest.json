@@ -1,0 +1,1245 @@
+{
+  "version": "1.0.0",
+  "generatedFrom": "main",
+  "sourceTreeSha": "bd55fc968335104c7a6c91cbb9649a28a10c0c6b",
+  "counts": {
+    "crypykut": 147,
+    "shots": 9,
+    "land": 20,
+    "total": 176
+  },
+  "entries": [
+    {
+      "path": "CRYPY-SHOTS/01-feed-para-voce.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "01 Feed Para Voce",
+      "url": "../../CRYPY-SHOTS/01-feed-para-voce.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/02-seguindo.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "02 Seguindo",
+      "url": "../../CRYPY-SHOTS/02-seguindo.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/03-ao-vivo.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "03 Ao Vivo",
+      "url": "../../CRYPY-SHOTS/03-ao-vivo.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/04-descobrir.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "04 Descobrir",
+      "url": "../../CRYPY-SHOTS/04-descobrir.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/05-publicar.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "05 Publicar",
+      "url": "../../CRYPY-SHOTS/05-publicar.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/06-meu-perfil.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "06 Meu Perfil",
+      "url": "../../CRYPY-SHOTS/06-meu-perfil.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/07-nft-shorts.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "07 Nft Shorts",
+      "url": "../../CRYPY-SHOTS/07-nft-shorts.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/08-config-shots.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "08 Config Shots",
+      "url": "../../CRYPY-SHOTS/08-config-shots.html"
+    },
+    {
+      "path": "CRYPY-SHOTS/crypyshots.html",
+      "module": "shots",
+      "group": "CRYPY-SHOTS • Vídeos",
+      "title": "Crypyshots",
+      "url": "../../CRYPY-SHOTS/crypyshots.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-DEFENDER-GLOBAL.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY DEFENDER GLOBAL",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-DEFENDER-GLOBAL.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-FINAL.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND 3D FINAL",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-FINAL.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-GAME.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND 3D GAME",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-GAME.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-FINAL-SALVO.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND FINAL SALVO",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-FINAL-SALVO.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO-CCG.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND GAME NFT TERRENO CCG",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO-CCG.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND GAME NFT TERRENO",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-MODELO-BASE-SALVO.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND MODELO BASE SALVO",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-MODELO-BASE-SALVO.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-REAL-100-TERRENOS.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "CRYPY LAND REAL 100 TERRENOS",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-REAL-100-TERRENOS.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/crypy-land-3d-vivo.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "Crypy Land 3d Vivo",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/crypy-land-3d-vivo.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/crypy-land-cidade-viva.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "Crypy Land Cidade Viva",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/crypy-land-cidade-viva.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/crypy-land.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "Crypy Land",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/crypy-land.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/mapa-colmeia.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Jogos e experiências 3D",
+      "title": "Mapa Colmeia",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/mapa-colmeia.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/collection-crypy-nft.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Collection Crypy Nft",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/collection-crypy-nft.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-collection-crypypasta.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Crypy Collection Crypypasta",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-collection-crypypasta.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-genesis.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Crypy Genesis",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-genesis.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-nft-edition.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Crypy Nft Edition",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/crypy-nft-edition.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/galeria.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Galeria",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/galeria.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/nft-colection-edition.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Nft Colection Edition",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/nft-colection-edition.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/nft-darkness.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Nft Darkness",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/nft-darkness.html"
+    },
+    {
+      "path": "crypy-games-desafios/CRYPY-LAND/nft-collection/nft-genesis.html",
+      "module": "land",
+      "group": "CRYPY-LAND • Galeria e NFTs",
+      "title": "Nft Genesis",
+      "url": "../../crypy-games-desafios/CRYPY-LAND/nft-collection/nft-genesis.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-01-depoimentos-recebidos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Depoimentos Recebidos",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-01-depoimentos-recebidos.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-02-depoimentos-enviados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Depoimentos Enviados",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-02-depoimentos-enviados.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-03-escrever-depoimento.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Escrever Depoimento",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-03-escrever-depoimento.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-04-aprovar-depoimento.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Aprovar Depoimento",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-04-aprovar-depoimento.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-05-depoimentos-em-destaque.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Depoimentos Em Destaque",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-05-depoimentos-em-destaque.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-06-meus-fas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Meus Fas",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-06-meus-fas.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-07-meus-idolos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Meus Idolos",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-07-meus-idolos.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-08-virar-fa.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Virar Fa",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-08-virar-fa.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-09-avaliacoes.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Avaliacoes",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-09-avaliacoes.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-10-testemunhos-em-video.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Testemunhos Em Video",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-10-testemunhos-em-video.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-11-depoimentos-de-aniversario.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Depoimentos De Aniversario",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-11-depoimentos-de-aniversario.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-12-depoimentos-arquivados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Depoimentos Arquivados",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-12-depoimentos-arquivados.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-13-denunciar-depoimento.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Denunciar Depoimento",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-13-denunciar-depoimento.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-14-selos-de-fa.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Selos De Fa",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-14-selos-de-fa.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-15-ranking-de-fas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "Ranking De Fas",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-15-ranking-de-fas.html"
+    },
+    {
+      "path": "social-crypykut/07-DEPOIMENTOS-FAS/pagina-16-histórico-de-fas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Depoimentos e fãs",
+      "title": "HistóRico De Fas",
+      "url": "../../social-crypykut/07-DEPOIMENTOS-FAS/pagina-16-histórico-de-fas.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-01-configuracoes-da-conta.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Configuracoes Da Conta",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-01-configuracoes-da-conta.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-02-login-local.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Login Local",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-02-login-local.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-03-login-com-google.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Login Com Google",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-03-login-com-google.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-04-login-com-microsoft.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Login Com Microsoft",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-04-login-com-microsoft.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-05-senha-e-seguranca.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Senha E Seguranca",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-05-senha-e-seguranca.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-06-e-mail-e-telefone.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "E Mail E Telefone",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-06-e-mail-e-telefone.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-07-notificacoes-por-e-mail.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Notificacoes Por E Mail",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-07-notificacoes-por-e-mail.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-08-tema-claro-escuro.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Tema Claro Escuro",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-08-tema-claro-escuro.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-09-idioma.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Idioma",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-09-idioma.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-10-aplicativos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Aplicativos",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-10-aplicativos.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-11-jogos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Jogos",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-11-jogos.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-12-crypy-coins.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Crypy Coins",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-12-crypy-coins.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-13-minhas-nfts.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Minhas Nfts",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-13-minhas-nfts.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-14-virar-nft.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Virar Nft",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-14-virar-nft.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-15-carteira-crypy.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Carteira Crypy",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-15-carteira-crypy.html"
+    },
+    {
+      "path": "social-crypykut/08-CONTA-APPS-NFT/pagina-16-sair-da-conta.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Conta, apps e NFTs",
+      "title": "Sair Da Conta",
+      "url": "../../social-crypykut/08-CONTA-APPS-NFT/pagina-16-sair-da-conta.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-01-pagina-inicial.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Pagina Inicial",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-01-pagina-inicial.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-02-atualizacoes-dos-amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Atualizacoes Dos Amigos",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-02-atualizacoes-dos-amigos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-03-meu-scrapbook.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Meu Scrapbook",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-03-meu-scrapbook.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-04-atividades-recentes.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Atividades Recentes",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-04-atividades-recentes.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-05-notificacoes.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Notificacoes",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-05-notificacoes.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-06-mensagens-nao-lidas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Mensagens Nao Lidas",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-06-mensagens-nao-lidas.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-07-aniversarios-de-hoje.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Aniversarios De Hoje",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-07-aniversarios-de-hoje.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-08-amigos-online-agora.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Amigos Online Agora",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-08-amigos-online-agora.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-09-sugestoes-de-amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Sugestoes De Amigos",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-09-sugestoes-de-amigos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-10-pessoas-que-visitaram.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Pessoas Que Visitaram",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-10-pessoas-que-visitaram.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-11-destaques-da-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Destaques Da Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-11-destaques-da-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-12-enquetes-da-semana.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Enquetes Da Semana",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-12-enquetes-da-semana.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-13-eventos-próximos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Eventos PróXimos",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-13-eventos-próximos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-14-aplicativos-em-destaque.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Aplicativos Em Destaque",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-14-aplicativos-em-destaque.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-15-novidades-crypy.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Novidades Crypy",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-15-novidades-crypy.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/01-HOME/pagina-16-ajuda-rapida.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Início",
+      "title": "Ajuda Rapida",
+      "url": "../../social-crypykut/CRYPYKUT/01-HOME/pagina-16-ajuda-rapida.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-01-meu-perfil.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Meu Perfil",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-01-meu-perfil.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-02-editar-perfil.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Editar Perfil",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-02-editar-perfil.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-03-editar-foto.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Editar Foto",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-03-editar-foto.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-04-sobre-mim.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Sobre Mim",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-04-sobre-mim.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-05-interesses.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Interesses",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-05-interesses.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-06-musica-e-filmes.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Musica E Filmes",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-06-musica-e-filmes.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-07-livros-favoritos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Livros Favoritos",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-07-livros-favoritos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-08-esportes.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Esportes",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-08-esportes.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-09-profissao-e-escola.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Profissao E Escola",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-09-profissao-e-escola.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-10-onde-moro.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Onde Moro",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-10-onde-moro.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-11-contato.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Contato",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-11-contato.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-12-privacidade-do-perfil.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Privacidade Do Perfil",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-12-privacidade-do-perfil.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-13-badges-e-selos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Badges E Selos",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-13-badges-e-selos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-14-meu-album.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Meu Album",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-14-meu-album.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-15-meu-video.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "Meu Video",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-15-meu-video.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/02-PERFIL/pagina-16-histórico.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Perfil",
+      "title": "HistóRico",
+      "url": "../../social-crypykut/CRYPYKUT/02-PERFIL/pagina-16-histórico.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-01-meus-amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Meus Amigos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-01-meus-amigos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-02-buscar-amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Buscar Amigos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-02-buscar-amigos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-03-convites-recebidos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Convites Recebidos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-03-convites-recebidos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-04-convites-enviados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Convites Enviados",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-04-convites-enviados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-05-amigos-em-comum.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Amigos Em Comum",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-05-amigos-em-comum.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-06-melhores-amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Melhores Amigos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-06-melhores-amigos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-07-fas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Fas",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-07-fas.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-08-idolos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Idolos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-08-idolos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-09-amigos-por-cidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Amigos Por Cidade",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-09-amigos-por-cidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-10-amigos-por-escola.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Amigos Por Escola",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-10-amigos-por-escola.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-11-amigos-por-trabalho.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Amigos Por Trabalho",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-11-amigos-por-trabalho.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-12-bloqueados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Bloqueados",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-12-bloqueados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-13-listas-de-amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Listas De Amigos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-13-listas-de-amigos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-14-importar-contatos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Importar Contatos",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-14-importar-contatos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-15-convidar-por-e-mail.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Convidar Por E Mail",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-15-convidar-por-e-mail.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/03-AMIGOS/pagina-16-sugerir-amigo.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Amigos",
+      "title": "Sugerir Amigo",
+      "url": "../../social-crypykut/CRYPYKUT/03-AMIGOS/pagina-16-sugerir-amigo.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-01-recados-recebidos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Recebidos",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-01-recados-recebidos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-02-recados-enviados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Enviados",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-02-recados-enviados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-03-escrever-recado.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Escrever Recado",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-03-escrever-recado.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-04-recados-favoritos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Favoritos",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-04-recados-favoritos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-05-recados-com-foto.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Com Foto",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-05-recados-com-foto.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-06-recados-com-video.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Com Video",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-06-recados-com-video.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-07-recados-de-aniversario.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados De Aniversario",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-07-recados-de-aniversario.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-08-responder-recado.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Responder Recado",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-08-responder-recado.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-09-excluir-recados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Excluir Recados",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-09-excluir-recados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-10-recados-arquivados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Arquivados",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-10-recados-arquivados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-11-recados-em-grupo.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Em Grupo",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-11-recados-em-grupo.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-12-recados-da-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Recados Da Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-12-recados-da-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-13-notificar-por-e-mail.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Notificar Por E Mail",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-13-notificar-por-e-mail.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-14-rascunhos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Rascunhos",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-14-rascunhos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-15-lixeira-de-recados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Lixeira De Recados",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-15-lixeira-de-recados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/04-RECADOS/pagina-16-regras-de-recados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Recados",
+      "title": "Regras De Recados",
+      "url": "../../social-crypykut/CRYPYKUT/04-RECADOS/pagina-16-regras-de-recados.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-01-minhas-comunidades.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Minhas Comunidades",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-01-minhas-comunidades.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-02-buscar-comunidades.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Buscar Comunidades",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-02-buscar-comunidades.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-03-criar-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Criar Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-03-criar-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-04-comunidade-esquadrao-das-cores.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidade Esquadrao Das Cores",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-04-comunidade-esquadrao-das-cores.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-05-comunidade-nft-crypy.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidade Nft Crypy",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-05-comunidade-nft-crypy.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-06-comunidade-sensei-web3.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidade Sensei Web3",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-06-comunidade-sensei-web3.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-07-comunidade-dola-ai.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidade Dola Ai",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-07-comunidade-dola-ai.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-08-comunidade-crypy-games.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidade Crypy Games",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-08-comunidade-crypy-games.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-09-comunidade-crypy-eternity.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidade Crypy Eternity",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-09-comunidade-crypy-eternity.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-10-tópicos-da-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "TóPicos Da Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-10-tópicos-da-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-11-enquetes-da-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Enquetes Da Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-11-enquetes-da-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-12-membros-da-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Membros Da Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-12-membros-da-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-13-moderadores.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Moderadores",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-13-moderadores.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-14-denunciar-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Denunciar Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-14-denunciar-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-15-comunidades-populares.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Comunidades Populares",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-15-comunidades-populares.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-16-sair-de-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Comunidades",
+      "title": "Sair De Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/05-COMUNIDADES/pagina-16-sair-de-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-01-minhas-fotos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Minhas Fotos",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-01-minhas-fotos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-02-albuns.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Albuns",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-02-albuns.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-03-enviar-foto.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Enviar Foto",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-03-enviar-foto.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-04-fotos-marcadas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Fotos Marcadas",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-04-fotos-marcadas.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-05-fotos-curtidas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Fotos Curtidas",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-05-fotos-curtidas.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-06-fotos-comentadas.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Fotos Comentadas",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-06-fotos-comentadas.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-07-meus-videos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Meus Videos",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-07-meus-videos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-08-enviar-video.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Enviar Video",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-08-enviar-video.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-09-videos-curtidos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Videos Curtidos",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-09-videos-curtidos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-10-videos-da-comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Videos Da Comunidade",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-10-videos-da-comunidade.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-11-capa-do-perfil.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Capa Do Perfil",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-11-capa-do-perfil.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-12-fotos-de-capa.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Fotos De Capa",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-12-fotos-de-capa.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-13-privacidade-de-fotos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Privacidade De Fotos",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-13-privacidade-de-fotos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-14-denunciar-foto.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Denunciar Foto",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-14-denunciar-foto.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-15-download-de-fotos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Download De Fotos",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-15-download-de-fotos.html"
+    },
+    {
+      "path": "social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-16-lixeira-de-fotos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Fotos e vídeos",
+      "title": "Lixeira De Fotos",
+      "url": "../../social-crypykut/CRYPYKUT/06-FOTOS-VIDEOS/pagina-16-lixeira-de-fotos.html"
+    },
+    {
+      "path": "social-crypykut/amigos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Amigos",
+      "url": "../../social-crypykut/amigos.html"
+    },
+    {
+      "path": "social-crypykut/comunidade.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Comunidade",
+      "url": "../../social-crypykut/comunidade.html"
+    },
+    {
+      "path": "social-crypykut/comunidades.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Comunidades",
+      "url": "../../social-crypykut/comunidades.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/01-feed-para-voce.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "01 Feed Para Voce",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/01-feed-para-voce.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/02-seguindo.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "02 Seguindo",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/02-seguindo.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/03-ao-vivo.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "03 Ao Vivo",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/03-ao-vivo.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/04-descobrir.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "04 Descobrir",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/04-descobrir.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/05-publicar.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "05 Publicar",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/05-publicar.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/06-meu-perfil.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "06 Meu Perfil",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/06-meu-perfil.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/07-nft-shorts.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "07 Nft Shorts",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/07-nft-shorts.html"
+    },
+    {
+      "path": "social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/08-config-shots.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • SHOTS (páginas complementares)",
+      "title": "08 Config Shots",
+      "url": "../../social-crypykut/crypykut-crypy-shots/CRYPY-SHOTS/08-config-shots.html"
+    },
+    {
+      "path": "social-crypykut/depoimentos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Depoimentos",
+      "url": "../../social-crypykut/depoimentos.html"
+    },
+    {
+      "path": "social-crypykut/fotos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Fotos",
+      "url": "../../social-crypykut/fotos.html"
+    },
+    {
+      "path": "social-crypykut/jogos.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Jogos",
+      "url": "../../social-crypykut/jogos.html"
+    },
+    {
+      "path": "social-crypykut/mensagens.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Mensagens",
+      "url": "../../social-crypykut/mensagens.html"
+    },
+    {
+      "path": "social-crypykut/perfil.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Perfil",
+      "url": "../../social-crypykut/perfil.html"
+    },
+    {
+      "path": "social-crypykut/reals.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Reals",
+      "url": "../../social-crypykut/reals.html"
+    },
+    {
+      "path": "social-crypykut/recados.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Recados",
+      "url": "../../social-crypykut/recados.html"
+    },
+    {
+      "path": "social-crypykut/shots.html",
+      "module": "crypykut",
+      "group": "CRYPYKUT • Central social",
+      "title": "Shots",
+      "url": "../../social-crypykut/shots.html"
+    }
+  ]
+}
