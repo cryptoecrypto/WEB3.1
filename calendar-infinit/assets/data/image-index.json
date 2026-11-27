@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "repository": "cryptoecrypto/WEB3.1",
+  "branch": "main",
+  "generatedAt": null,
+  "mode": "runtime-github-tree-inventory",
+  "entries": [],
+  "note": "O inventário é consultado em tempo de execução pela API pública do GitHub. Pastas privadas, HDs protegidos e backups são excluídos."
+}

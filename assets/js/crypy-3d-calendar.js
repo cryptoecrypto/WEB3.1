@@ -33,6 +33,13 @@
   #crypy-3d-calendar button{font:inherit;cursor:pointer}
   #crypy-calendar-toggle{display:flex;align-items:center;gap:9px;padding:11px 16px;border:1px solid #56e8c1;border-radius:15px;background:linear-gradient(135deg,#061a18ed,#071329f5);color:#dffff6;font-weight:900;letter-spacing:.04em;box-shadow:0 12px 30px #0009,0 0 22px #36e8d455;transform:perspective(500px) rotateX(4deg);transition:transform .25s,box-shadow .25s}
   #crypy-calendar-toggle:hover{transform:perspective(500px) rotateX(0) translateY(-3px);box-shadow:0 16px 38px #000b,0 0 28px #36e8d477}
+  #crypy-calendar-panel{display:none;position:absolute;isolation:isolate;overflow:hidden;background:rgba(3,12,10,.76);}
+  #crypy-calendar-panel>*:not(.crypy-cal-infinity){position:relative;z-index:1}
+  .crypy-cal-infinity{position:absolute;inset:0;z-index:0;overflow:hidden;opacity:.25;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .crypy-cal-infinity-track{display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,76px);grid-auto-columns:104px;gap:7px;width:max-content;height:100%;align-content:center;transform:perspective(700px) rotateY(-8deg);animation:crypyInfinityDrift 100s linear infinite}
+  .crypy-cal-photo{width:104px;height:76px;overflow:hidden;border:1px solid rgba(0,255,136,.45);border-radius:9px;box-shadow:0 0 14px rgba(0,255,136,.14)}
+  .crypy-cal-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.78) brightness(.72)}
+  @keyframes crypyInfinityDrift{from{transform:perspective(700px) rotateY(-8deg) translateX(0)}to{transform:perspective(700px) rotateY(-8deg) translateX(-50%)}}
   #crypy-calendar-panel{display:none;position:absolute;right:0;bottom:58px;width:min(390px,calc(100vw - 24px));max-height:min(78vh,720px);overflow:auto;padding:16px;border:1px solid #45eac0;border-radius:20px;background:linear-gradient(145deg,#061411f7,#071326f8 58%,#120d25f7);box-shadow:0 24px 70px #000e,0 0 35px #39e8c033;backdrop-filter:blur(18px);transform:perspective(1100px) rotateY(-2deg);transform-origin:bottom right}
   #crypy-3d-calendar[data-open=true] #crypy-calendar-panel{display:block;animation:crypyCalendarIn .35s ease-out}
   @keyframes crypyCalendarIn{from{opacity:0;transform:perspective(1100px) rotateY(-9deg) translateY(16px)}to{opacity:1;transform:perspective(1100px) rotateY(-2deg) translateY(0)}}
@@ -59,7 +66,7 @@
   .crypy-cal-upcoming button{display:flex;justify-content:space-between;gap:8px;width:100%;padding:8px 9px;margin:5px 0;border:1px solid #1c4b41;border-radius:9px;background:#081b1b;color:#eafff7;text-align:left}
   .crypy-cal-note{margin-top:10px;color:#8eaaa3;font-size:10px}
   @media(max-width:600px){#crypy-3d-calendar{right:10px;bottom:10px}#crypy-calendar-toggle{padding:10px 12px;font-size:11px}#crypy-calendar-panel{right:0;bottom:54px;width:min(370px,calc(100vw - 20px));max-height:74vh;padding:12px}.crypy-cal-day{min-height:35px}}
-  @media(prefers-reduced-motion:reduce){#crypy-calendar-toggle,#crypy-calendar-panel,.crypy-cal-day{transition:none!important;animation:none!important;transform:none!important}}
+  @media(prefers-reduced-motion:reduce){#crypy-calendar-toggle,#crypy-calendar-panel,.crypy-cal-day,.crypy-cal-infinity-track{transition:none!important;animation:none!important;transform:none!important}}
   `;
   var toggle=node("button",{id:"crypy-calendar-toggle",type:"button","aria-expanded":"false","aria-controls":"crypy-calendar-panel"},"🗓️ CALENDÁRIO 3D");
   var panel=node("section",{id:"crypy-calendar-panel","aria-label":"Calendário mensal"});
@@ -74,7 +81,61 @@
   var detail=node("div",{className:"crypy-cal-event","aria-live":"polite"});
   var upcoming=node("div",{className:"crypy-cal-upcoming"});
   var note=node("div",{className:"crypy-cal-note"},"Avisos editoriais pré-programados do BABY. Não são notícias em tempo real.");
-  panel.append(head,monthRow,grid,detail,upcoming,note);host.append(style,toggle,panel);document.body.appendChild(host);
+  var gallery=node("div",{className:"crypy-cal-infinity","aria-hidden":"true"});
+  var galleryTrack=node("div",{className:"crypy-cal-infinity-track"});
+  gallery.appendChild(galleryTrack);
+  panel.append(gallery,head,monthRow,grid,detail,upcoming,note);host.append(style,toggle,panel);document.body.appendChild(host);
+  loadColmeiaPhotos(galleryTrack,root);
+  function loadColmeiaPhotos(track,siteRoot){
+   var blocked=/(^|\\/)(hd-oculto|hd-matriz|backup|backups|private|privado|secrets?|\.git)(\\/|$)/i;
+   var imageExt=/\\.(?:avif|bmp|gif|jpe?g|png|webp)(?:[?#].*)?$/i;
+   var pageExt=/\\.html?(?:[?#].*)?$/i;
+   var starts=["index.html","crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/arena.html","social-crypykut/comunidade.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html"];
+   var seenPages=new Set(),seenImages=new Set(),queue=starts.map(function(p){return new URL(p,siteRoot).href;});
+   function safeUrl(value,base){
+    try{var u=new URL(value,base);if(u.origin!==location.origin||blocked.test(u.pathname))return null;return u;}catch(_){return null;}
+   }
+   function addImage(value,base){
+    var u=safeUrl(value,base);if(!u||!imageExt.test(u.href)||seenImages.has(u.href))return;
+    seenImages.add(u.href);return u.href;
+   }
+   function collect(doc,pageUrl){
+    var found=[];
+    doc.querySelectorAll("img").forEach(function(img){
+     var candidates=[img.getAttribute("src"),img.getAttribute("data-src"),img.getAttribute("data-lazy-src")];
+     (img.getAttribute("srcset")||"").split(",").forEach(function(s){candidates.push(s.trim().split(/\\s+/)[0]);});
+     candidates.forEach(function(v){var u=v&&addImage(v,pageUrl);if(u)found.push(u);});
+    });
+    doc.querySelectorAll("picture source[srcset]").forEach(function(source){(source.getAttribute("srcset")||"").split(",").forEach(function(s){var u=addImage(s.trim().split(/\\s+/)[0],pageUrl);if(u)found.push(u);});});
+    doc.querySelectorAll('meta[property="og:image"],meta[name="twitter:image"]').forEach(function(m){var u=addImage(m.content,pageUrl);if(u)found.push(u);});
+    doc.querySelectorAll("[style]").forEach(function(el){var css=el.getAttribute("style")||"",re=/url\\((?:["']?)(.*?)(?:["']?)\\)/g,m;while((m=re.exec(css))){var u=addImage(m[1],pageUrl);if(u)found.push(u);}});
+    doc.querySelectorAll("a[href]").forEach(function(a){
+     var u=safeUrl(a.getAttribute("href"),pageUrl);if(u&&pageExt.test(u.href)&&!seenPages.has(u.href)&&queue.length<700)queue.push(u.href);
+    });
+    return found;
+   }
+   function makeTile(src,index){
+    var tile=node("div",{className:"crypy-cal-photo","aria-hidden":"true"});
+    var img=node("img",{loading:"lazy",decoding:"async",alt:"",src:src});
+    tile.appendChild(img);return tile;
+   }
+   function paint(){
+    var urls=Array.from(seenImages);if(!urls.length)return;
+    var fragment=document.createDocumentFragment();
+    urls.forEach(function(src,i){fragment.appendChild(makeTile(src,i));});
+    urls.forEach(function(src,i){fragment.appendChild(makeTile(src,i));});
+    track.replaceChildren(fragment);
+    track.style.setProperty("--crypy-photo-count",String(urls.length));
+    gallery.setAttribute("data-count",String(urls.length));
+   }
+   function crawl(){
+    if(!queue.length){paint();return;}
+    var batch=queue.splice(0,8).filter(function(url){if(seenPages.has(url))return false;seenPages.add(url);return true;});
+    if(!batch.length){crawl();return;}
+    Promise.all(batch.map(function(url){return fetch(url,{credentials:"same-origin",cache:"force-cache"}).then(function(r){if(!r.ok)throw new Error("page");return r.text();}).then(function(html){var doc=new DOMParser().parseFromString(html,"text/html");collect(doc,url);}).catch(function(){});})).then(function(){paint();if(queue.length&&seenPages.size<700)window.setTimeout(crawl,80);});
+   }
+   crawl();
+  }
   function eventFor(date){return events.find(function(e){return e.date===key(date);});}
   function updateToggleAnnouncement(){var todayEvent=eventFor(now);toggle.textContent=todayEvent?(todayEvent.icon+" BABY AVISA · "+todayEvent.title):"🗓️ CALENDÁRIO 3D";toggle.title=todayEvent?"Recado especial do BABY para "+todayEvent.title:"Abrir calendário da Colmeia CRYPY";}
   function showSelected(date){
