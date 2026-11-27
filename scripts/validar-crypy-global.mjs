@@ -93,8 +93,8 @@ if (fs.existsSync(arenaPath) && !fs.readFileSync(arenaPath, "utf8").includes("as
 const infinytPath = path.join(root, "index8.html");
 if (fs.existsSync(infinytPath)) {
   const infinyt = fs.readFileSync(infinytPath, "utf8");
-  const teamGrid = (infinyt.match(/<div class="team-grid">([\\s\\S]*?)<\\/div>/) || [])[1] || "";
-  const linkedTeamCards = (teamGrid.match(/<a class="team-card" href="\\.\\/esquadrao-das-cores\\/esquadrao\\.html"/g) || []).length;
+  const teamGrid = (infinyt.match(/<div class="team-grid">([\s\S]*?)<\/div>/) || [])[1] || "";
+  const linkedTeamCards = (teamGrid.match(/<a class="team-card" href="\.\/esquadrao-das-cores\/esquadrao\.html"/g) || []).length;
   if (linkedTeamCards !== 10) errors.push("os 10 cartões do Esquadrão na INDEX 08 devem abrir a página oficial do Esquadrão");
 }
 const officialMenuPaths = [
