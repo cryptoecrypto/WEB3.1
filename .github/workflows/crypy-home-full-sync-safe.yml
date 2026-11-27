@@ -38,7 +38,9 @@ jobs:
       - name: Validar índice, menu e integração BABY
         run: node scripts/validar-crypy-global.mjs
       - name: Auditar links, âncoras, recursos e controles das páginas catalogadas
-        run: node scripts/auditar-links-colmeia.mjs
+        run: |
+          set -o pipefail
+          node scripts/auditar-links-colmeia.mjs 2>&1 | tee /tmp/crypy-link-audit.txt
       - name: Empacotar alterações para aplicação controlada
         if: always()
         run: |
@@ -57,6 +59,7 @@ jobs:
             mkdir -p /tmp/crypy-global-sync/files/assets/data
             cp assets/data/crypy-file-index.json /tmp/crypy-global-sync/files/assets/data/
           fi
+          if [ -f /tmp/crypy-link-audit.txt ]; then cp /tmp/crypy-link-audit.txt /tmp/crypy-global-sync/CRYPY-LINK-AUDIT.txt; fi
           printf 'Run: %s\nCommit base: %s\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" > /tmp/crypy-global-sync/INFO.txt
       - uses: actions/upload-artifact@v4
         if: always()
