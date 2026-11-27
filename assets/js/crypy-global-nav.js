@@ -373,7 +373,7 @@
         var hiddenPathSegments=["memory-boost","momory-boost","padrao","pluguin","sincronizacao"];
         if (hiddenGroups.indexOf(group)!==-1 || pathSegments.some(function(segment){return hiddenPathSegments.indexOf(segment)!==-1;})) return true;
         var rawPath=String(page.path||"").toLowerCase();
-        if (group === "social-crypykut" && rawPath !== "CRYPY-SOCIAL/CRYPYKUT/index.html") return true;
+        if (group === "social-crypykut" && rawPath !== "crypy-social/crypykut/index.html") return true;
         if (rawPath.indexOf("crypy-13-chatboots/") === 0) return true;
         // Páginas operacionais/conta nunca entram no menu público.
         var restrictedPathRules=[
