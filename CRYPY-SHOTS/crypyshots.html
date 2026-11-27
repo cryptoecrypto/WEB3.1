@@ -10,6 +10,6 @@
 
 <div class="search">🔍 Pesquisar no CRYPY-SHOTS: leão, cyberpunk, neon...</div>
 <div class="arrows"><button onclick="prev()">▲</button><button onclick="next()">▼</button></div>
-<nav class="nav"><div class="on"><b>▶️</b>Shots</div><div><b>🎮</b>Jogos</div><div style="font-size:28px;color:#00ff88">⊕</div><div><b>💬</b>Mensagens</div><div><b>👤</b>Perfil</div></nav>
+
 <script>let reels=[...document.querySelectorAll('.reel')],i=0;function show(n){i=(n+reels.length)%reels.length;reels.forEach((r,k)=>r.classList.toggle('active',k===i))}function next(){show(i+1)}function prev(){show(i-1)}document.querySelectorAll('.lk').forEach(el=>{el.parentElement.onclick=()=>{let v=parseFloat(el.textContent);el.textContent=(v+0.1).toFixed(1)+' mil';el.parentElement.querySelector('.ic').textContent='💚';alert('Você curtiu no CRYPY-SHOTS! +1 Crypy Coin 🪙')}});let s=0;document.addEventListener('touchstart',e=>s=e.touches[0].clientY);document.addEventListener('touchend',e=>{let d=e.changedTouches[0].clientY-s;if(d<-40)next();if(d>40)prev()});document.addEventListener('keydown',e=>{if(e.key==='ArrowDown')next();if(e.key==='ArrowUp')prev()});</script>
 </body></html>
