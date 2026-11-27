@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050b09">
+  <meta name="description" content="CRYPY Calendar Infinity — calendário e galeria aleatória infinita com imagens públicas da Colmeia CRYPY.">
+  <title>CRYPY Calendar Infinity</title>
+  <link rel="stylesheet" href="./assets/css/calendar-infinit.css">
+  <script defer src="./assets/js/image-collector.js"></script>
+  <script defer src="./assets/js/infinite-gallery.js"></script>
+  <script defer src="./assets/js/calendar-infinit.js"></script>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="./" aria-label="CRYPY Calendar Infinity, início">
+      <span class="brand-mark" aria-hidden="true">∞</span>
+      <span><strong>CRYPY <i>CALENDAR</i> INFINITY</strong><small>O TEMPO ENCONTRA A MEMÓRIA</small></span>
+    </a>
+    <div class="head-status"><span class="live-dot"></span><span id="gallery-status">PREPARANDO GALERIA…</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">COLMEIA CRYPY · MEMÓRIA VISUAL VIVA</p>
+      <h1>O infinito <span>guarda cada momento.</span></h1>
+      <p class="intro-copy">Todas as imagens públicas elegíveis do repositório entram na galeria em ordem aleatória. As duas faixas percorrem a coleção continuamente; o calendário registra memórias locais.</p>
+    </section>
+
+    <section class="gallery-panel" aria-label="Galeria infinita de imagens da Colmeia">
+      <div class="gallery-toolbar">
+        <div><strong>GALERIA INFINITA · TODAS AS IMAGENS PÚBLICAS</strong><small id="image-count">Buscando imagens públicas do repositório…</small></div>
+        <div class="gallery-controls">
+          <button id="pause-gallery" class="control-button" type="button" aria-pressed="false">Ⅱ PAUSAR TUDO</button>
+          <label class="speed-control">VELOCIDADE
+            <select id="gallery-speed" aria-label="Velocidade da galeria">
+              <option value="90">LENTA</option><option value="58" selected>NORMAL</option><option value="32">RÁPIDA</option>
+            </select>
+          </label>
+          <label class="speed-control">MÓDULO
+            <select id="gallery-filter" aria-label="Filtrar imagens por módulo">
+              <option value="TODOS">TODOS</option><option value="CRYPY">CRYPY</option><option value="ESQUADRÃO">ESQUADRÃO</option><option value="NFTs">NFTs</option><option value="MUSEU">MUSEU</option><option value="COLMEIA">COLMEIA</option><option value="COSMOS">COSMOS</option>
+            </select>
+          </label>
+          <button id="tilt-toggle" class="control-button" type="button" aria-pressed="true">TILT 3D: LIGADO</button>
+        </div>
+      </div>
+
+      <div class="orbit-heading"><span>CARROSSEL 3D · AMOSTRA ALEATÓRIA DA COLEÇÃO</span><small id="orbit-count">AGUARDANDO IMAGENS</small></div>
+      <div class="orbit-stage" aria-label="Carrossel 3D de imagens">
+        <div id="image-orbit" class="image-orbit"></div>
+      </div>
+      <p class="orbit-hint">O anel 3D gira continuamente. A galeria abaixo contém a coleção completa elegível.</p>
+
+      <div class="gallery-lane"><div id="gallery-track-a" class="gallery-track move-left"></div></div>
+      <div class="gallery-lane"><div id="gallery-track-b" class="gallery-track move-right"></div></div>
+      <p id="gallery-message" class="gallery-message" role="status">A galeria vai carregar imagens públicas. Pastas privadas, HDs protegidos, backups e segredos são excluídos.</p>
+    </section>
+
+    <section class="calendar-layout" aria-label="Calendário e memórias">
+      <div class="calendar-card" id="calendar-card">
+        <div class="calendar-heading">
+          <div><p class="eyebrow">CALENDÁRIO 3D DA COLMEIA</p><h2 id="month-title">MÊS 2026</h2></div>
+          <div class="month-controls">
+            <button id="prev-month" type="button" aria-label="Mês anterior">‹</button>
+            <button id="today-month" type="button">HOJE</button>
+            <button id="next-month" type="button" aria-label="Próximo mês">›</button>
+          </div>
+        </div>
+        <div class="calendar-grid weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+        <div id="calendar-days" class="calendar-grid" role="grid" aria-label="Dias do mês"></div>
+        <div class="legend"><span><i class="legend-today"></i> Hoje</span><span><i class="legend-event"></i> Dia com memória</span></div>
+      </div>
+
+      <aside class="memory-card">
+        <p class="eyebrow">MEMÓRIA SELECIONADA</p>
+        <h2 id="selected-date">Selecione um dia</h2>
+        <label for="event-title">Registrar uma memória</label>
+        <textarea id="event-title" rows="3" maxlength="180" placeholder="Escreva um evento ou lembrança desta data…"></textarea>
+        <div class="memory-actions"><small id="char-count">0/180</small><button id="save-event" type="button">SALVAR MEMÓRIA</button></div>
+        <p id="memory-feedback" class="feedback" role="status">As memórias desta versão são guardadas localmente neste navegador.</p>
+        <h3>MEMÓRIAS DO DIA</h3>
+        <ul id="event-list" class="event-list"></ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer><strong>CRYPY CALENDAR INFINITY</strong><span>Memória visual viva da Colmeia · módulo independente</span></footer>
+</body>
+</html>
