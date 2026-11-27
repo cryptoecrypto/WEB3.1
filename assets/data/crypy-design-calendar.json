@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "status": "configuracao_visual_documentada",
+  "version": "1.1.0",
+  "status": "configuracao_visual_diaria_documentada",
   "monthlyThemes": [
     {
       "month": 1,
@@ -249,11 +249,217 @@
     }
   ],
   "governance": {
-    "monthlyChange": "automatic_visual_theme_only",
-    "dailyChange": "automatic_visual_skin_and_daily_message",
-    "contentMutation": "requires_explicit_approval",
-    "sourceFiles": "read_only_by_default",
-    "reducedMotion": "required",
-    "timezone": "browser_local_date"
-  }
+    "visualOnly": true,
+    "dailyChange": "A paleta, o acabamento dos cartões e o espaçamento visual mudam uma vez por dia, às 00:00 no fuso America/Sao_Paulo.",
+    "informationInvariant": "Não alterar textos, dados, destinos, ordem semântica, formulários, arquivos ou conteúdo editorial durante a rotação visual.",
+    "selection": "Determinística por data de São Paulo: todos os visitantes recebem o mesmo conjunto visual no mesmo dia, sem alternar a cada recarga.",
+    "clockSource": "Relógio do dispositivo; não é uma confirmação de horário por servidor.",
+    "fallback": "Se a configuração não carregar, aplicar a paleta segura de fallback sem bloquear a página.",
+    "accessibility": "Respeitar prefers-reduced-motion, foco visível, leitura em telas pequenas e contraste adequado."
+  },
+  "timezone": "America/Sao_Paulo",
+  "dailyPalettes": [
+    {
+      "name": "IRIDESCENTE",
+      "accent": "#55f5c7",
+      "accent2": "#5b9dff",
+      "accent3": "#ff75cf",
+      "glow": "#55f5c7"
+    },
+    {
+      "name": "PRISMA SOLAR",
+      "accent": "#ffd166",
+      "accent2": "#ff5b6e",
+      "accent3": "#6cf5ff",
+      "glow": "#ffd166"
+    },
+    {
+      "name": "AURORA RGB",
+      "accent": "#00ff88",
+      "accent2": "#269cff",
+      "accent3": "#ff3a58",
+      "glow": "#00ff88"
+    },
+    {
+      "name": "GALÁXIA",
+      "accent": "#bd75ff",
+      "accent2": "#42e8ff",
+      "accent3": "#ffcf70",
+      "glow": "#bd75ff"
+    },
+    {
+      "name": "CRISTAL",
+      "accent": "#a7f4ff",
+      "accent2": "#8da9ff",
+      "accent3": "#ffffff",
+      "glow": "#a7f4ff"
+    },
+    {
+      "name": "NEON TROPICAL",
+      "accent": "#35f2a1",
+      "accent2": "#ff62c7",
+      "accent3": "#ffe66d",
+      "glow": "#35f2a1"
+    },
+    {
+      "name": "FUSÃO",
+      "accent": "#ff456b",
+      "accent2": "#26e0d0",
+      "accent3": "#b58cff",
+      "glow": "#ff456b"
+    },
+    {
+      "name": "OCEANO ELÉTRICO",
+      "accent": "#39d8ff",
+      "accent2": "#287cff",
+      "accent3": "#70ffd0",
+      "glow": "#39d8ff"
+    },
+    {
+      "name": "RUBI",
+      "accent": "#ff456b",
+      "accent2": "#ff9b55",
+      "accent3": "#ffd166",
+      "glow": "#ff456b"
+    },
+    {
+      "name": "ESMERALDA",
+      "accent": "#00ff88",
+      "accent2": "#48e5b5",
+      "accent3": "#d4ff73",
+      "glow": "#00ff88"
+    },
+    {
+      "name": "SAFIRA",
+      "accent": "#399cff",
+      "accent2": "#57e4ff",
+      "accent3": "#a3c7ff",
+      "glow": "#399cff"
+    },
+    {
+      "name": "AMETISTA",
+      "accent": "#bd75ff",
+      "accent2": "#ff78d2",
+      "accent3": "#8b8dff",
+      "glow": "#bd75ff"
+    },
+    {
+      "name": "SOL",
+      "accent": "#ffc247",
+      "accent2": "#ff7a42",
+      "accent3": "#fff0a6",
+      "glow": "#ffc247"
+    },
+    {
+      "name": "TURQUESA",
+      "accent": "#26e0d0",
+      "accent2": "#42aaff",
+      "accent3": "#b1fff5",
+      "glow": "#26e0d0"
+    },
+    {
+      "name": "ARCO-ÍRIS",
+      "accent": "#ff5bce",
+      "accent2": "#56d9ff",
+      "accent3": "#8dff9e",
+      "glow": "#ff5bce"
+    },
+    {
+      "name": "OBSIDIANA",
+      "accent": "#e7e9f5",
+      "accent2": "#a78bfa",
+      "accent3": "#52e8d4",
+      "glow": "#a78bfa"
+    },
+    {
+      "name": "CORAL",
+      "accent": "#ff7b72",
+      "accent2": "#ffc078",
+      "accent3": "#7ce7d8",
+      "glow": "#ff7b72"
+    },
+    {
+      "name": "ÁRTICO",
+      "accent": "#d4f4ff",
+      "accent2": "#69c8ff",
+      "accent3": "#a5ffe0",
+      "glow": "#69c8ff"
+    },
+    {
+      "name": "FLORESTA",
+      "accent": "#9be564",
+      "accent2": "#20c997",
+      "accent3": "#f7dc6f",
+      "glow": "#20c997"
+    },
+    {
+      "name": "INFRAVERMELHO",
+      "accent": "#ff3158",
+      "accent2": "#ff8c42",
+      "accent3": "#ffe66d",
+      "glow": "#ff3158"
+    }
+  ],
+  "dailyLayouts": [
+    {
+      "name": "ORBITAL",
+      "radius": "22px",
+      "gap": "18px",
+      "style": "soft"
+    },
+    {
+      "name": "CRISTAL",
+      "radius": "8px",
+      "gap": "12px",
+      "style": "crisp"
+    },
+    {
+      "name": "FLUIDO",
+      "radius": "28px",
+      "gap": "16px",
+      "style": "soft"
+    },
+    {
+      "name": "GEOMETRICO",
+      "radius": "4px",
+      "gap": "11px",
+      "style": "crisp"
+    },
+    {
+      "name": "COLMEIA",
+      "radius": "15px",
+      "gap": "14px",
+      "style": "balanced"
+    },
+    {
+      "name": "HOLOGRAFICO",
+      "radius": "18px",
+      "gap": "20px",
+      "style": "glass"
+    },
+    {
+      "name": "EDITORIAL",
+      "radius": "10px",
+      "gap": "24px",
+      "style": "editorial"
+    },
+    {
+      "name": "MONOLITH",
+      "radius": "2px",
+      "gap": "10px",
+      "style": "minimal"
+    },
+    {
+      "name": "PRISMATICO",
+      "radius": "30px",
+      "gap": "13px",
+      "style": "prism"
+    },
+    {
+      "name": "GLASS",
+      "radius": "20px",
+      "gap": "16px",
+      "style": "glass"
+    }
+  ]
 }
