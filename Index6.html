@@ -96,4 +96,5 @@ slice.forEach((d,i)=>{let cx=x(i),bw=Math.max(4,(cv.width-80)/slice.length*0.6);
 [[7,'ma7','#ffcc00'],[25,'ma25','#b07bff'],[99,'ma99','#00c2ff']].forEach(([n,id,col])=>{if(!document.getElementById(id).checked)return;let m=ma(n);ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();slice.forEach((d,i)=>{let gi=data.length-slice.length+i;if(m[gi]==null)return;let yy=y(m[gi]);if(i==0||m[gi-1]==null)ctx.moveTo(x(i),yy);else ctx.lineTo(x(i),yy)});ctx.stroke()});
 let m7=ma(7),m25=ma(25),m99=ma(99);document.getElementById('ma7v').textContent=fmt(m7[m7.length-1]||0);document.getElementById('ma25v').textContent=fmt(m25[m25.length-1]||0);document.getElementById('ma99v').textContent=m99[m99.length-1]?fmt(m99[m99.length-1]):'—';document.getElementById('vol2').textContent=fmt(data.reduce((a,b)=>a+b.vol,0));document.getElementById('maxV').textContent=fmt(max);document.getElementById('minV').textContent=fmt(min)}
 setInterval(()=>{document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR')},1000);gerar();
-</script></body></html>
+</script><script defer src="./assets/js/crypy-global-nav.js"></script>
+</body></html>
