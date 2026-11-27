@@ -53,7 +53,7 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["social-crypykut/index.html","crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html","blog.html"];
+  var officialMenuPaths = ["CRYPY-SOCIAL/CRYPYKUT/index.html","crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html","blog.html"];
   var categories = [
     {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
@@ -373,7 +373,7 @@
         var hiddenPathSegments=["memory-boost","momory-boost","padrao","pluguin","sincronizacao"];
         if (hiddenGroups.indexOf(group)!==-1 || pathSegments.some(function(segment){return hiddenPathSegments.indexOf(segment)!==-1;})) return true;
         var rawPath=String(page.path||"").toLowerCase();
-        if (group === "social-crypykut" && rawPath !== "social-crypykut/index.html") return true;
+        if (group === "social-crypykut" && rawPath !== "CRYPY-SOCIAL/CRYPYKUT/index.html") return true;
         if (rawPath.indexOf("crypy-13-chatboots/") === 0) return true;
         // Páginas operacionais/conta nunca entram no menu público.
         var restrictedPathRules=[
