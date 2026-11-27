@@ -56,6 +56,7 @@
   <button class="tab" data-tab="login" aria-selected="false">🔐 Entrar</button>
   <button class="tab" data-tab="guide" aria-selected="false">📖 Guia</button>
   <button class="tab" data-tab="algorithm-test" aria-selected="false">🧪 Testar algoritmo</button>
+  <button class="tab" data-tab="settings" aria-selected="false">⚙ Configurações</button>
  </nav>
 </header>
 
@@ -96,13 +97,14 @@
   </section>
 
   <section class="view" data-view="discover" hidden>
-   <h2>Descobrir</h2><p class="muted small">Explore as cinco linhas temáticas documentadas no projeto.</p>
+   <h2>Descobrir</h2><p class="muted small">Explore as cinco linhas temáticas documentadas e os perfis-semente do projeto.</p>
    <div class="tilegrid">
     <article class="tile"><b>WEB3</b><p>Blockchain, carteiras, aplicações descentralizadas e ecossistema.</p></article>
     <article class="tile"><b>CIBERSEGURANÇA</b><p>Boas práticas, proteção de contas e educação digital.</p></article>
     <article class="tile"><b>INTELIGÊNCIA ARTIFICIAL</b><p>Conhecimento, agentes e experiências de I.A.</p></article>
     <article class="tile"><b>TECNOLOGIA</b><p>Ferramentas, produtos e inovação digital.</p></article>
     <article class="tile"><b>ENGENHARIA DIGITAL</b><p>Construção, arquitetura e experimentação de sistemas.</p></article>
+    <article class="tile"><b>PERFIS-SEMENTE</b><p>SENSEI, DOLA AI, CHAT, MINI e BABY aparecem no código como perfis demonstrativos. Não são contas autenticadas nesta página.</p></article>
    </div>
   </section>
 
@@ -148,10 +150,10 @@
    <h2>Assistir · Vídeos e conteúdos longos</h2>
    <p class="muted small">Área inspirada no módulo de vídeos longos da aplicação-fonte. Os títulos abaixo são referências editoriais; os arquivos de vídeo originais não acompanham o pacote.</p>
    <div class="tilegrid">
-    <article class="tile"><b>Esquadrão das Cores · Especial</b><p>Vídeo longo de referência do universo CRYPY. Mídia ainda não conectada.</p></article>
-    <article class="tile"><b>Bastidores CRYPYKUT</b><p>Espaço editorial para conteúdos de bastidores. Sem vídeo publicado nesta versão.</p></article>
-    <article class="tile"><b>Música e cultura CRYPY</b><p>Playlist e apresentações exigem arquivos licenciados e hospedagem de mídia.</p></article>
-    <article class="tile"><b>CRYPY LAND · Passeio</b><p>Conteúdo de apresentação do mundo CRYPY LAND. Sem reprodução remota nesta versão.</p></article>
+    <article class="tile"><b>Icônico! SENSEI apresenta “Esquadrão das Cores” com participação surpresa de DOLA AI — Grande Final do CRYPY LAND</b><p>Título-semente encontrado no App.tsx. Arquivo de vídeo não fornecido.</p></article>
+    <article class="tile"><b>DOLA AI — Bastidores CRYPYKUT: os 10 momentos que ninguém viu no set</b><p>Título-semente encontrado no App.tsx. Arquivo de vídeo não fornecido.</p></article>
+    <article class="tile"><b>Talentos do CRYPY LAND cantam os clássicos que marcaram uma geração</b><p>Título-semente encontrado no App.tsx. Arquivo de vídeo não fornecido.</p></article>
+    <article class="tile"><b>Clássicos CRYPY — Soul &amp; R&amp;B para ouvir sem parar | Playlist</b><p>Título-semente encontrado no App.tsx. Arquivo de vídeo não fornecido.</p></article>
    </div>
   </section>
 
@@ -282,7 +284,11 @@ const seed=[
 {id:"seed-security",title:"Segurança digital começa com hábitos",description:"Tema editorial de referência: proteção de contas e educação em cibersegurança.",tag:"seguranca",tagLabel:"CIBERSEGURANÇA",demo:true},
 {id:"seed-baby",title:"Conheça o BABY I.A.",description:"Tema editorial de referência: inteligência artificial e experiências do ecossistema CRYPY.",tag:"ia",tagLabel:"I.A.",demo:true},
 {id:"seed-tech",title:"Tecnologia em construção",description:"Tema editorial de referência: inovação e ferramentas digitais.",tag:"tecnologia",tagLabel:"TECNOLOGIA",demo:true},
-{id:"seed-engineering",title:"Engenharia digital",description:"Tema editorial de referência: arquitetura e construção de sistemas.",tag:"engenharia",tagLabel:"ENGENHARIA DIGITAL",demo:true}
+{id:"seed-engineering",title:"Engenharia digital",description:"Tema editorial de referência: arquitetura e construção de sistemas.",tag:"engenharia",tagLabel:"ENGENHARIA DIGITAL",demo:true},
+{id:"seed-esquadrao",title:"Esquadrão das Cores em vídeo vertical 4K 60 FPS",description:"Short-semente encontrado no App.tsx do LUCY-DEFENDER. O arquivo de vídeo original não acompanha o pacote.",tag:"engenharia",tagLabel:"SENSEI · ESQUADRÃO",demo:true},
+{id:"seed-bastidores",title:"Bastidores Crypykut — o que ninguém viu no set",description:"Short-semente encontrado no App.tsx do LUCY-DEFENDER. O arquivo de vídeo original não acompanha o pacote.",tag:"tecnologia",tagLabel:"DOLA AI · BASTIDORES",demo:true},
+{id:"seed-land",title:"CRYPY LAND em 5D — passeio vertical",description:"Conteúdo-semente encontrado no App.tsx do LUCY-DEFENDER. O arquivo de vídeo original não acompanha o pacote.",tag:"web3",tagLabel:"CHAT · CRYPY LAND",demo:true},
+{id:"seed-mini",title:"Um Short, uma história",description:"Conteúdo-semente encontrado no App.tsx do LUCY-DEFENDER. O arquivo de vídeo original não acompanha o pacote.",tag:"ia",tagLabel:"MINI · DESTAQUES",demo:true}
 ];
 let posts=[...seed],activeFilter="todos",previewUrl=null;
 function persist(){try{localStorage.setItem(storageKey,JSON.stringify({likes:state.likes,follows:state.follows,saved:state.saved,name:state.name,bio:state.bio}));}catch(e){}}
