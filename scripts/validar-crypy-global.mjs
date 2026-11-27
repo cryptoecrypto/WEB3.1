@@ -65,7 +65,7 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
 }
 
 const themeCount = (home.match(/TEMA \d{2}/g) || []).length;
-const indexCount = (home.match(/INDEX \d{2}/g) || []).length;
+const indexCount = (home.match(/<span class="number">INDEX \d{2}<\/span>/g) || []).length;
 if (themeCount !== 13 || indexCount !== 9) {
   errors.push("HOME principal deve conter 13 temas oficiais e 9 índices");
 }
