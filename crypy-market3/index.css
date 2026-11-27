@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #000000;
+  --surface: #070d0a;
+  --surface-2: #0c1510;
+  --neon: #00f58a;
+  --yellow: #ffc24d;
+  --text: #eafff4;
+  --muted: #8fb0a0;
+  --line: #1d3327;
+  --red: #ff5d73;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body {
+  font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+}
+.mono {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+::selection { background: var(--neon); color: #000; }
+input:focus, button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
+canvas { display: block; }

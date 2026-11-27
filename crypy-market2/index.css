@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#070712;
+  --surface:#0e0e1d;
+  --surface-2:#141428;
+  --line:#24244a;
+  --text:#eef6f1;
+  --muted:#9aa3b8;
+  --neon:#00ff88;
+  --yellow:#ffd400;
+  --red:#ff5470;
+  --safe-area-inset-top:0px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#070712; --surface:#0e0e1d; --text:#eef6f1; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Chakra Petch',system-ui,sans-serif}
+button{font-family:inherit}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.ticker{animation:tick 22s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.baby-bob{animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.absorbing{animation:absorb 0.7s ease-in-out infinite}
+@keyframes absorb{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.08);filter:brightness(1.35)}}
+.pulse-dot{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.scan{position:relative;overflow:hidden}
+.scan:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(0,255,136,.14),transparent);transform:translateX(-100%);animation:scan 3.2s linear infinite;pointer-events:none}
+@keyframes scan{to{transform:translateX(100%)}}
+::selection{background:var(--neon);color:#06110b}
