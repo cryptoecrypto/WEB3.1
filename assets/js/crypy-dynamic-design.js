@@ -10,6 +10,8 @@
  var fallback={
   monthlyThemes:[{month:1,name:"MATRIX",background:"#020805",panel:"#071810",accent:"#00ff88",accent2:"#269cff",accent3:"#ff3a58",glow:"#00ff88"}],
   dailySkins:[{name:"NEON",accent:"#00ff88",accent2:"#269cff",accent3:"#ff3a58",effect:"glow"}],
+  dailyPalettes:[{name:"AURORA RGB",accent:"#00ff88",accent2:"#269cff",accent3:"#ff3a58",glow:"#00ff88"}],
+  dailyLayouts:[{name:"COLMEIA",radius:"15px",gap:"14px"}],
   dailyMessages:[{phrase:"NEXUS conecta; Sensei conduz.",idea:"Melhore uma área autorizada com cuidado.",tip:"Registre e teste cada alteração."}]
  };
  function saoPauloParts(date){var parts=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Sao_Paulo",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(date),out={};parts.forEach(function(p){out[p.type]=p.value;});return out;}
@@ -45,22 +47,15 @@
   var messages=config.dailyMessages&&config.dailyMessages.length?config.dailyMessages:fallback.dailyMessages;
   var theme=themes.find(function(x){return x.month===month;})||themes[0];
   var seed=dailySeed(now),skin=pick(skins,seededIndex(seed,skins.length,1)),message=pick(messages,seededIndex(seed,messages.length,2));
-  var palettes=[
-   {name:"IRIDESCENTE",accent:"#55f5c7",accent2:"#5b9dff",accent3:"#ff75cf",glow:"#55f5c7"},
-   {name:"PRISMA SOLAR",accent:"#ffd166",accent2:"#ff5b6e",accent3:"#6cf5ff",glow:"#ffd166"},
-   {name:"AURORA RGB",accent:"#00ff88",accent2:"#269cff",accent3:"#ff3a58",glow:"#00ff88"},
-   {name:"GALÁXIA",accent:"#bd75ff",accent2:"#42e8ff",accent3:"#ffcf70",glow:"#bd75ff"},
-   {name:"CRISTAL",accent:"#a7f4ff",accent2:"#8da9ff",accent3:"#ffffff",glow:"#a7f4ff"},
-   {name:"NEON TROPICAL",accent:"#35f2a1",accent2:"#ff62c7",accent3:"#ffe66d",glow:"#35f2a1"},
-   {name:"FUSÃO",accent:"#ff456b",accent2:"#26e0d0",accent3:"#b58cff",glow:"#ff456b"},
-   {name:"OCEANO ELÉTRICO",accent:"#39d8ff",accent2:"#287cff",accent3:"#70ffd0",glow:"#39d8ff"}
-  ];
+  var palettes=config.dailyPalettes&&config.dailyPalettes.length?config.dailyPalettes:fallback.dailyPalettes;
   var palette=pick(palettes,seededIndex(seed,palettes.length,3));
   var layouts=[
    {name:"ORBITAL",radius:"22px",gap:"18px"},{name:"CRISTAL",radius:"8px",gap:"12px"},
    {name:"FLUIDO",radius:"28px",gap:"16px"},{name:"GEOMETRICO",radius:"4px",gap:"11px"},
    {name:"COLMEIA",radius:"15px",gap:"14px"}
   ],layout=pick(layouts,seededIndex(seed,layouts.length,4));
+  var layouts=config.dailyLayouts&&config.dailyLayouts.length?config.dailyLayouts:fallback.dailyLayouts;
+  var layout=pick(layouts,seededIndex(seed,layouts.length,4));
   var rootEl=document.documentElement;
   rootEl.style.setProperty("--crypy-theme-bg",theme.background);
   rootEl.style.setProperty("--crypy-theme-panel",theme.panel);
@@ -92,6 +87,13 @@
    "body[data-crypy-daily-effect=edge] :where(.card,.panel,.tile,.module,article){border-left:3px solid var(--crypy-daily-accent)}",
    "body[data-crypy-daily-effect=grid]{background-image:linear-gradient(color-mix(in srgb,var(--crypy-daily-accent) 5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--crypy-daily-accent) 5%,transparent) 1px,transparent 1px);background-size:32px 32px}",
    ":where(.grid,.grid2,.grid3,.stats,.gal,.steps,.theme-grid,.levels){gap:var(--crypy-daily-gap)}",
+   "body[data-crypy-daily-effect=holo] :where(.card,.panel,.tile,.module,article){background-image:linear-gradient(135deg,color-mix(in srgb,var(--crypy-daily-accent) 12%,transparent),transparent 48%,color-mix(in srgb,var(--crypy-daily-accent3) 10%,transparent))}",
+   "body[data-crypy-daily-effect=wave] :where(.card,.panel,.tile,.module,article){background-image:linear-gradient(110deg,transparent 20%,color-mix(in srgb,var(--crypy-daily-accent2) 9%,transparent) 50%,transparent 80%);background-size:220% 100%;animation:crypyDailyWave 12s ease-in-out infinite}",
+   "@keyframes crypyDailyWave{0%,100%{background-position:100% 0}50%{background-position:0 0}}",
+   "body[data-crypy-daily-layout=EDITORIAL] :where(.grid,.grid2,.grid3,.stats,.gal,.steps,.theme-grid,.levels){align-items:start}",
+   "body[data-crypy-daily-layout=MONOLITH] :where(.card,.panel,.tile,.module,.hive-card,.team-card,.lesson,.track-card,.feature-card,.chapter,.stat,.theme,.product-card,.game-card,.nft-card,.menu-card,.box,.caixa,article){box-shadow:0 0 0 1px color-mix(in srgb,var(--crypy-daily-accent) 24%,transparent)}",
+   "body[data-crypy-daily-layout=GLASS] :where(.card,.panel,.tile,.module,.hive-card,.team-card,.lesson,.track-card,.feature-card,.chapter,.stat,.theme,.product-card,.game-card,.nft-card,.menu-card,.box,.caixa,article){backdrop-filter:blur(14px)}",
+   "body[data-crypy-daily-layout=PRISMATICO] :where(.card,.panel,.tile,.module,.hive-card,.team-card,.lesson,.track-card,.feature-card,.chapter,.stat,.theme,.product-card,.game-card,.nft-card,.menu-card,.box,.caixa,article){border-radius:30px}",
    "body[data-crypy-daily-layout=GEOMETRICO] :where(.card,.panel,.tile,.module,article){border-style:solid;border-width:1px}",
    "@keyframes crypyIridescentPulse{0%,100%{filter:saturate(1)}50%{filter:saturate(1.22)}}",
    "@keyframes crypyPrismGlow{0%,100%{box-shadow:0 0 0 1px color-mix(in srgb,var(--crypy-daily-accent) 22%,transparent),0 8px 24px color-mix(in srgb,var(--crypy-daily-accent2) 10%,transparent)}50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--crypy-daily-accent2) 55%,transparent),0 0 26px color-mix(in srgb,var(--crypy-daily-accent3) 22%,transparent)}}",
