@@ -23,8 +23,9 @@ function resolveLocal(fromFile, raw) {
   const withoutQuery = value.split("?")[0];
   const withoutHash = withoutQuery.split("#")[0];
   const rootRelative = withoutHash.startsWith("/");
+  const sitePath = rootRelative ? withoutHash.replace(/^\\/WEB3\\.1\\/?/i, "").replace(/^\\/+/, "") : withoutHash;
   let target = withoutHash
-    ? (rootRelative ? path.resolve(root, withoutHash.replace(/^\/+/, "")) : path.resolve(root, path.dirname(fromFile), withoutHash))
+    ? (rootRelative ? path.resolve(root, sitePath) : path.resolve(root, path.dirname(fromFile), withoutHash))
     : path.resolve(root, fromFile);
   if (rootRelative) warnings.push(fromFile + ": URL iniciada por / pode ignorar a base /WEB3.1 no GitHub Pages: " + value);
   if (!target.startsWith(root + path.sep) && target !== root) return { unsafe: true, value };
