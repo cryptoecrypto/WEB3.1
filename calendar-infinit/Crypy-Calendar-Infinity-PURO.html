@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRYPY CALENDAR INFINITY • HTML Puro</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#070712;color:#f2f2ff;font-family:Arial,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}button{font:inherit;cursor:pointer}
+.wrap{max-width:1100px;margin:0 auto;padding:16px;position:relative;z-index:2}
+.top{text-align:center;padding:18px 0 8px}.top h1{font-family:Impact,sans-serif;font-size:clamp(2rem,7vw,3.4rem);margin:0;letter-spacing:.02em}
+.top h1 span{color:#00ff88}.top p{color:#b9b9d6;margin:8px 0 0}
+.badge{display:inline-block;border:1px solid #00ff88;color:#00ff88;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:.15em}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.controls button,.controls select{background:#111122;color:#fff;border:1px solid #2a2a4a;border-radius:999px;padding:9px 14px;font-size:12px;font-weight:700}
+.controls button.on{background:#00ff88;color:#000;border-color:#00ff88}
+.loopzone{position:relative;overflow:hidden;border:1px solid #2a2a4a;border-radius:20px;background:#0a0a1a;padding:10px 0;margin:10px 0}
+.track{display:flex;gap:10px;width:max-content;animation:scrollL 40s linear infinite;padding:0 5px}
+.track.rev{animation-name:scrollR}
+.track.paused{animation-play-state:paused}
+@keyframes scrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.card{flex:0 0 150px;height:104px;border-radius:14px;border:1px solid rgba(0,255,136,.45);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;background:linear-gradient(145deg,#1b1b35,#111122)}
+.card b{font-size:12px}.card span{font-size:10px;color:#b9b9d6}.card i{position:absolute;top:6px;right:8px;font-style:normal;font-size:26px}
+.cal{background:rgba(10,10,26,.88);backdrop-filter:blur(8px);border:1px solid #2a2a4a;border-radius:24px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.calhead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.calhead h2{font-family:Impact,sans-serif;font-size:clamp(1.8rem,6vw,2.8rem);margin:0;text-transform:uppercase}
+.calhead h2 span{color:#00ff88}
+.navbtn{background:#111122;border:1px solid #2a2a4a;color:#fff;border-radius:999px;padding:9px 14px;font-weight:700;font-size:13px}
+.navbtn.green{background:#00ff88;color:#000;border-color:#00ff88}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:14px 0 6px;text-align:center;color:#b9b9d6;font-size:12px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{min-height:62px;background:#111122;border:1px solid #2a2a4a;border-radius:14px;padding:8px;text-align:left;color:#fff;position:relative;transition:.15s}
+.day:hover{transform:translateY(-3px);border-color:#00ff88;box-shadow:0 8px 24px rgba(0,255,136,.25)}
+.day.today{background:#00ff88;color:#000;border-color:#00ff88;font-weight:800}
+.day.sel{outline:2px solid #7b5cff}
+.day .dot{position:absolute;bottom:6px;left:8px;width:8px;height:8px;border-radius:50%;background:#00ff88}
+.day.today .dot{background:#000}
+.day .ev{font-size:9px;line-height:1.2;margin-top:4px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.panel{margin-top:14px;background:#111122;border:1px solid #2a2a4a;border-radius:18px;padding:14px}
+.panel input{width:100%;background:#070712;border:1px solid #2a2a4a;color:#fff;border-radius:12px;padding:11px;margin:8px 0}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.row button{border-radius:999px;padding:9px 14px;font-weight:700;font-size:12px;border:1px solid #2a2a4a;background:#070712;color:#fff}
+.row button.save{background:#00ff88;color:#000;border-color:#00ff88}
+.evitem{display:flex;justify-content:space-between;gap:8px;background:#070712;border:1px solid #2a2a4a;border-radius:12px;padding:9px 10px;margin-top:6px;font-size:13px}
+.evitem button{background:#ff5c7a;color:#fff;border:0;border-radius:999px;padding:4px 10px;font-size:11px}
+.foot{text-align:center;color:#b9b9d6;font-size:12px;padding:18px 0;line-height:1.6}
+@media(max-width:600px){.day{min-height:52px;font-size:12px}.card{flex-basis:120px;height:90px}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}}
+</style></head><body>
+<div class="wrap">
+<div class="top"><span class="badge">CRYPY CALENDAR INFINITY • HTML PURO • ARQUIVO ÚNICO</span>
+<h1>O TEMPO ENCONTRA <span>A MEMÓRIA</span></h1>
+<p>Calendário na frente • Fotos da Colmeia em loop infinito atrás • Tudo padronizado • <b id="countTop" style="color:#00ff88">30 fotos no loop</b></p></div>
+
+<div class="controls">
+<button id="btnPause" onclick="toggleLoop()">⏸ PAUSAR LOOP</button>
+<button onclick="setSpeed('lenta')" id="spL">VELOCIDADE: LENTA</button>
+<button onclick="setSpeed('normal')" id="spN" class="on">NORMAL</button>
+<button onclick="setSpeed('rapida')" id="spR">RÁPIDA</button>
+<select id="filtro" onchange="aplicarFiltro()"><option value="TODOS">FILTRAR: TODOS OS MÓDULOS</option><option>CRYPY</option><option>ESQUADRÃO</option><option>NFTs</option><option>MUSEU</option><option>COLMEIA</option><option>COSMOS</option></select>
+</div>
+
+<div class="loopzone"><div class="track" id="track1"></div></div>
+
+<div class="cal">
+<div class="calhead"><div><div style="color:#00ff88;font-size:11px;font-weight:800;letter-spacing:.25em">● CALENDÁRIO • MEMÓRIA VISUAL VIVA</div><h2 id="tituloMes">NOVEMBRO <span>2026</span></h2><div id="subMes" style="color:#b9b9d6;font-size:13px">27 • DIA ATUAL</div></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="navbtn" onclick="mudar(-1)">◀ Mês anterior</button><button class="navbtn green" onclick="irHoje()">HOJE</button><button class="navbtn" onclick="mudar(1)">Próximo mês ▶</button></div></div>
+<div class="week"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>
+<div class="grid" id="grade"></div>
+<div class="panel"><b id="diaTitulo">27/11/2026 — Sexta-feira</b><p style="color:#b9b9d6;font-size:12px;margin:4px 0">Clique num dia, escreva o evento e salve. Tudo fica salvo neste navegador.</p>
+<input id="novoEvento" placeholder="Ex.: Revisão da Colmeia, lançamento, live...">
+<div class="row"><button class="save" onclick="salvarEvento()">＋ SALVAR EVENTO</button><button onclick="limparDia()">Limpar este dia</button></div>
+<div id="listaEventos"></div></div>
+</div>
+
+<div class="loopzone"><div class="track rev" id="track2"></div></div>
+<div class="foot">CRYPY CALENDAR INFINITY • Memória visual viva da Colmeia • Nenhuma página original alterada<br>Cartões ilustrativos padronizados — cada cartão pode ser trocado pela foto real do módulo sem mudar o tamanho do loop.<br>Arquivo único, sem pasta, sem dependência externa. Abre direto no navegador.</div>
+</div>
+
+<script>
+const FOTOS=[
+["CRYPY","O coração da Colmeia","💚","CRYPY"],["ESQUADRÃO","Cores com função","🎨","ESQUADRÃO"],["NFTs","Darkness • Coleção","🌑","NFTs"],["MUSEU","Memória em exposição","🏛️","MUSEU"],["BIOGRAFIA","A história do criador","📖","CRYPY"],["BABY I.A.","Nasceu 16/11/2026","👁️","COLMEIA"],["LUCY","Intuição em órbita","🌙","COLMEIA"],["DOLA","Cria o visível","✦","COLMEIA"],["ALICE","Pesquisa tudo","⌕","COLMEIA"],["CHAT","Analisa com calma","◐","COLMEIA"],["MINI","Finaliza leve","✓","COLMEIA"],["SENSEI","Decide o caminho","◈","COLMEIA"],["DRAGÕES","Criaturas do cosmos","🐉","COSMOS"],["NEXUS","Conexões vivas","⬢","COSMOS"],["COLMEIA","Sistema em harmonia","⬣","COLMEIA"],["CRYPY NEWS","Bastidor vira notícia","📰","CRYPY"],["CRYPY LAND","Território vivo","🗺️","CRYPY"],["ACADEMY","4 aulas","🎓","CRYPY"],["GAMES","Jogo + coleção","🎮","CRYPY"],["CCG","1 quadrilhão","🪙","CRYPY"],["WALLET","Treasury","👛","CRYPY"],["WHITE PAPER","WP-CCG-001","📄","CRYPY"],["MANIFESTO","Ninguém decide só","📜","COLMEIA"],["COSMOS","11 placas","🌌","COSMOS"],["HARMONY","Equilíbrio","♡","COSMOS"],["PALETA","Cor com função","◐","ESQUADRÃO"],["NÚCLEO","Centro do cosmos","◈","COSMOS"],["SEMENTE","A origem","●","COSMOS"],["NEXUS 2","Rotas e mistérios","🌀","COSMOS"],["LEGADO","Continua construindo","♾️","CRYPY"]];
+let filtroAtual="TODOS";
+function listaFiltrada(){return filtroAtual==="TODOS"?FOTOS:FOTOS.filter(f=>f[3]===filtroAtual)}
+function montarTrack(id){const el=document.getElementById(id);const lista=listaFiltrada();const cards=lista.map(f=>`<div class="card"><i>${f[2]}</i><b>${f[0]}</b><span>${f[1]}</span></div>`).join("");el.innerHTML=cards+cards;document.getElementById("countTop").textContent=lista.length+" fotos no loop";}
+function aplicarFiltro(){filtroAtual=document.getElementById("filtro").value;montarTrack("track1");montarTrack("track2");}
+function toggleLoop(){const t1=document.getElementById("track1"),t2=document.getElementById("track2");const p=t1.classList.toggle("paused");t2.classList.toggle("paused",p);document.getElementById("btnPause").textContent=p?"▶ RETOMAR LOOP":"⏸ PAUSAR LOOP";}
+function setSpeed(s){const d=s==="lenta"?"80s":s==="rapida"?"18s":"40s";document.getElementById("track1").style.animationDuration=d;document.getElementById("track2").style.animationDuration=d;["spL","spN","spR"].forEach(id=>document.getElementById(id).classList.remove("on"));document.getElementById(s==="lenta"?"spL":s==="rapida"?"spR":"spN").classList.add("on");}
+let ano=2026,mes=10;let sel={d:27,m:10,y:2026};
+let eventos=JSON.parse(localStorage.getItem("crypy_calendar_infinity_puro")||"{}");
+if(!eventos["2026-11-16"])eventos["2026-11-16"]=["Nascimento da BABY I.A."];
+if(!eventos["2026-11-27"])eventos["2026-11-27"]=["Edição CRYPY-NEWS MARKET"];
+if(!eventos["2026-11-28"])eventos["2026-11-28"]=["Revisão da Colmeia"];
+function salvarLS(){localStorage.setItem("crypy_calendar_infinity_puro",JSON.stringify(eventos));}
+function chave(y,m,d){return y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");}
+function renderCal(){const nomes=["JANEIRO","FEVEREIRO","MARÇO","ABRIL","MAIO","JUNHO","JULHO","AGOSTO","SETEMBRO","OUTUBRO","NOVEMBRO","DEZEMBRO"];document.getElementById("tituloMes").innerHTML=nomes[mes]+" <span>"+ano+"</span>";const hoje=new Date();const ehHoje=(ano===hoje.getFullYear()&&mes===hoje.getMonth());document.getElementById("subMes").textContent=ehHoje?hoje.getDate()+" • DIA ATUAL":"Calendário CRYPY";const primeiro=new Date(ano,mes,1).getDay();const total=new Date(ano,mes+1,0).getDate();let h="";for(let i=0;i<primeiro;i++)h+="<div></div>";for(let d=1;d<=total;d++){const k=chave(ano,mes,d);const ev=eventos[k]||[];const isHoje=ehHoje&&d===hoje.getDate();const isSel=(sel.d===d&&sel.m===mes&&sel.y===ano);h+=`<button class="day ${isHoje?"today":""} ${isSel?"sel":""}" onclick="selecionar(${d})">${d}${ev.length?`<span class="dot"></span><div class="ev">${ev[0]}</div>`:""}</button>`;}document.getElementById("grade").innerHTML=h;renderDia();}
+function selecionar(d){sel={d,m:mes,y:ano};renderCal();}
+function renderDia(){const k=chave(sel.y,sel.m,sel.d);const dt=new Date(sel.y,sel.m,sel.d);document.getElementById("diaTitulo").textContent=dt.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric",weekday:"long"})+" — "+(sel.d+"/"+(sel.m+1)+"/"+sel.y);const ev=eventos[k]||[];document.getElementById("listaEventos").innerHTML=ev.length?ev.map((e,i)=>`<div class="evitem"><span>● ${e}</span><button onclick="apagarEvento(${i})">Apagar</button></div>`).join(""):`<p style="color:#b9b9d6;font-size:13px;margin-top:8px">Nenhum evento neste dia.</p>`;}
+function salvarEvento(){const v=document.getElementById("novoEvento").value.trim();if(!v)return;const k=chave(sel.y,sel.m,sel.d);if(!eventos[k])eventos[k]=[];eventos[k].push(v);salvarLS();document.getElementById("novoEvento").value="";renderCal();}
+function apagarEvento(i){const k=chave(sel.y,sel.m,sel.d);eventos[k].splice(i,1);if(!eventos[k].length)delete eventos[k];salvarLS();renderCal();}
+function limparDia(){const k=chave(sel.y,sel.m,sel.d);delete eventos[k];salvarLS();renderCal();}
+function mudar(n){mes+=n;if(mes<0){mes=11;ano--}if(mes>11){mes=0;ano++}renderCal();}
+function irHoje(){const h=new Date();ano=h.getFullYear();mes=h.getMonth();sel={d:h.getDate(),m:mes,y:ano};renderCal();}
+document.getElementById("novoEvento").addEventListener("keydown",e=>{if(e.key==="Enter")salvarEvento();});
+montarTrack("track1");montarTrack("track2");renderCal();
+</script></body></html>
