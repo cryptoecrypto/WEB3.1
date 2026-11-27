@@ -86,6 +86,28 @@ const index6Path = path.join(root, "Index6.html");
 if (fs.existsSync(index6Path) && !fs.readFileSync(index6Path, "utf8").includes("assets/js/crypy-global-nav.js")) {
   errors.push("INDEX 06 não carrega o menu global");
 }
+const arenaPath = path.join(root, "crypy-games-desafios", "arena.html");
+if (fs.existsSync(arenaPath) && !fs.readFileSync(arenaPath, "utf8").includes("assets/js/crypy-global-nav.js")) {
+  errors.push("Arena CRYPY GAMES não carrega o menu global");
+}
+const officialMenuPaths = [
+  "crypy-infinyt/portal.html",
+  "nft-collection/galeria.html",
+  "esquadrao-das-cores/esquadrao.html",
+  "crypy-academy/academia.html",
+  "biografia/historia.html",
+  "crypy-news/index.html",
+  "crypy-news/museu.html",
+  "art-figure-marketplace/marketplace.html",
+  "crypy-games-desafios/crypy-games-desafios.html",
+  "crypy-games-desafios/CRYPY-LAND/crypy-land.html",
+  "baby-ia/centro.html",
+  "crypy-coin/white-paper.html",
+  "contato/contato-oficial.html"
+];
+for (const target of officialMenuPaths) {
+  if (!fs.existsSync(path.resolve(root, target))) errors.push("destino oficial ausente: " + target);
+}
 
 const serviceEntrypoints = [
   "crypy-server-bridge/public/index.html",
