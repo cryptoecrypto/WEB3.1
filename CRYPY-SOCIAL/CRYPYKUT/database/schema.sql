@@ -86,6 +86,29 @@ alter table public.community_members enable row level security;
 alter table public.testimonials enable row level security;
 alter table public.messages enable row level security;
 
+create or replace function public.handle_new_crypy_user()
+returns trigger language plpgsql security definer set search_path=public
+as $
+begin
+  insert into public.profiles(id,display_name)
+  values (
+    new.id,
+    coalesce(
+      nullif(new.raw_user_meta_data->>'full_name',''),
+      nullif(new.raw_user_meta_data->>'name',''),
+      nullif(split_part(coalesce(new.email,''),'@',1),''),
+      'Novo membro'
+    )
+  )
+  on conflict(id) do nothing;
+  return new;
+end;
+$;
+drop trigger if exists on_crypy_user_created on auth.users;
+create trigger on_crypy_user_created
+after insert on auth.users
+for each row execute function public.handle_new_crypy_user();
+
 create policy "profiles_visible_by_privacy" on public.profiles for select using(public.can_view_profile(id,visibility));
 create policy "profiles_insert_self" on public.profiles for insert with check(id=auth.uid());
 create policy "profiles_update_self" on public.profiles for update using(id=auth.uid()) with check(id=auth.uid());
