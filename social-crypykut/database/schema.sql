@@ -50,16 +50,19 @@ create table if not exists public.messages (
 create or replace function public.is_blocked_pair(a uuid,b uuid)
 returns boolean language sql stable security definer set search_path=public
 as $$ select exists(select 1 from public.blocks x where (x.blocker_id=a and x.blocked_id=b) or (x.blocker_id=b and x.blocked_id=a)); $$;
+create or replace function public.has_known_connection(a uuid,b uuid)
+returns boolean language sql stable security definer set search_path=public
+as $ select exists(select 1 from public.friendships f where f.status='accepted' and ((f.requester_id=a and f.addressee_id=b) or (f.requester_id=b and f.addressee_id=a))); $;
 create or replace function public.are_friends(a uuid,b uuid)
 returns boolean language sql stable security definer set search_path=public
-as $$ select exists(select 1 from public.friendships f where f.status='accepted' and ((f.requester_id=a and f.addressee_id=b) or (f.requester_id=b and f.addressee_id=a))); $$;
+as $ select exists(select 1 from public.friendships f where f.status='accepted' and f.trust_level in ('friend','trusted') and ((f.requester_id=a and f.addressee_id=b) or (f.requester_id=b and f.addressee_id=a))); $;
 create or replace function public.has_trusted_friendship(a uuid,b uuid)
 returns boolean language sql stable security definer set search_path=public
 as $$ select exists(select 1 from public.friendships f where f.status='accepted' and f.trust_level='trusted' and ((f.requester_id=a and f.addressee_id=b) or (f.requester_id=b and f.addressee_id=a))); $$;
 create or replace function public.can_view_profile(owner_id uuid,level text)
 returns boolean language sql stable security definer set search_path=public
 as $$ select auth.uid()=owner_id or (not public.is_blocked_pair(auth.uid(),owner_id) and
- (level='public' or (level in ('basic','friends') and public.are_friends(auth.uid(),owner_id)) or (level='trusted' and public.has_trusted_friendship(auth.uid(),owner_id)))); $$;
+ (level='public' or (level='basic' and public.has_known_connection(auth.uid(),owner_id)) or (level='friends' and public.are_friends(auth.uid(),owner_id)) or (level='trusted' and public.has_trusted_friendship(auth.uid(),owner_id)))); $$;
 create or replace function public.can_view_post(owner_id uuid,level text)
 returns boolean language sql stable security definer set search_path=public
 as $$ select auth.uid()=owner_id or (not public.is_blocked_pair(auth.uid(),owner_id) and (level='public' or (level='friends' and public.are_friends(auth.uid(),owner_id)))); $$;
