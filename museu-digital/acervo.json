@@ -1,17 +1,37 @@
 {
-  "version": "1.0",
+  "version": "1.2",
   "generated_at": "2026-11-27",
   "source_repository": "cryptoecrypto/WEB3.1",
   "source_branch": "main",
-  "scope": "Todos os arquivos rasterizados versionados encontrados na árvore recursiva do repositório no momento da geração. Cópias em caminhos distintos são preservadas como registros distintos.",
-  "total": 90,
+  "scope": "Todos os arquivos de imagem PNG, JPG, JPEG, WebP, GIF, AVIF e SVG versionados encontrados na árvore recursiva do repositório. Cópias em caminhos distintos são preservadas como registros distintos.",
+  "total": 92,
   "policy": {
     "preserve_source_files": true,
     "delete_duplicates": false,
     "display_mode": "random_without_repetition_per_cycle",
-    "fit": "contain"
+    "fit": "contain",
+    "automatic_discovery": true,
+    "scan_scope": "repository"
   },
   "images": [
+    {
+      "id": "assets/images/crypy-cosmos.svg",
+      "title": "Crypy Cosmos",
+      "collection": "IDENTIDADE VISUAL",
+      "path": "assets/images/crypy-cosmos.svg",
+      "src": "../assets/images/crypy-cosmos.svg",
+      "format": "svg",
+      "bytes": 2220
+    },
+    {
+      "id": "assets/images/crypy-team-dragon-home.svg",
+      "title": "Crypy Team Dragon Home",
+      "collection": "IDENTIDADE VISUAL",
+      "path": "assets/images/crypy-team-dragon-home.svg",
+      "src": "../assets/images/crypy-team-dragon-home.svg",
+      "format": "svg",
+      "bytes": 7062
+    },
     {
       "id": "assets/images/fundo-oficial.svg.png",
       "title": "fundo oficial.svg",
