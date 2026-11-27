@@ -215,7 +215,7 @@
     var toggle = node("button",{id:"crypy-global-nav-toggle",type:"button","aria-expanded":"false","aria-controls":"crypy-global-nav-panel"});
     toggle.appendChild(node("span",{},"☰"));
     toggle.appendChild(node("span",{},"MENU CRYPY"));
-    toggle.appendChild(node("span",{},"13 TEMAS + 9 ÍNDICES"));
+    toggle.appendChild(node("span",{},"13 TEMAS + 6 ÍNDICES + MAPA"));
     var panel = node("section",{id:"crypy-global-nav-panel","data-open":"false","aria-label":"Menu global CRYPY"});
     var head = node("div",{className:"crypy-nav-head"});
     var headBrand = node("div",{className:"crypy-nav-brand"});
@@ -299,7 +299,7 @@
         var searchable = [page.label,page.path,page.group,aliases].join(" ").toLocaleLowerCase("pt-BR");
         return searchable.includes(query);
       });
-      count.textContent = "13 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
+      count.textContent = "13 temas oficiais · 6 índices + mapa · "+matches.length+" destinos nesta busca";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div",{className:"crypy-nav-empty"},"Nenhuma página encontrada. Tente outro termo."));
