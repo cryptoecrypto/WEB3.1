@@ -9,7 +9,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const OUTPUT = path.join(ROOT, "museu-digital", "acervo.json");
-const EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"]);
+const EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif", ".svg"]);
 const SKIP = new Set([".git", "node_modules", "_site", "dist", "build", ".next", ".cache"]);
 const LABELS = {
   "assets": "IDENTIDADE VISUAL",
@@ -63,7 +63,7 @@ const manifest = {
   generated_at: new Date().toISOString(),
   source_repository: process.env.GITHUB_REPOSITORY || "cryptoecrypto/WEB3.1",
   source_revision: process.env.GITHUB_SHA || "local",
-  scope: "Imagens rasterizadas PNG, JPG, JPEG, WebP, GIF e AVIF presentes no repositório no momento da publicação.",
+  scope: "Imagens PNG, JPG, JPEG, WebP, GIF, AVIF e SVG presentes no repositório no momento da publicação.",
   total: images.length,
   policy: {
     automatic_discovery: true,
