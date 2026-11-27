@@ -21,6 +21,14 @@
     dynamicDesign.async = true;
     (document.head || document.documentElement).appendChild(dynamicDesign);
   }
+  // Mural diário do BABY: três quadros editoriais compartilhados entre as páginas que usam o menu global.
+  if (!document.querySelector('script[data-crypy-daily-boards="true"]')) {
+    var dailyBoards = document.createElement("script");
+    dailyBoards.src = new URL("assets/js/crypy-daily-boards.js", siteRoot).href;
+    dailyBoards.dataset.crypyDailyBoards = "true";
+    dailyBoards.async = true;
+    (document.head || document.documentElement).appendChild(dailyBoards);
+  }
   // Calendário 3D compartilhado: datas especiais e avisos editoriais pré-programados do BABY.
   if (window.top === window.self && !document.querySelector('script[data-crypy-3d-calendar="true"]')) {
     var calendarScript = document.createElement("script");
