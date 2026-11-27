@@ -41,7 +41,7 @@
     const fragment=document.createDocumentFragment();
     ordered.forEach(item=>fragment.appendChild(makeTile(item)));
     track.appendChild(fragment);
-    const copy=track.cloneNode(true);copy.removeAttribute("id");copy.className="gallery-track gallery-copy "+(reverse?"move-right":"move-left");copy.setAttribute("aria-hidden","true");
+    const copy=track.cloneNode(true);copy.removeAttribute("id");copy.className="gallery-track gallery-copy";copy.setAttribute("aria-hidden","true");
     copy.querySelectorAll("img").forEach(img=>{img.alt="";});
     track.appendChild(copy);
   }
