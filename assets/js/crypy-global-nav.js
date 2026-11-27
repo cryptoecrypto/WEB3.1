@@ -305,17 +305,14 @@
         if (selected === "ÍNDICES DA COLMEIA") {
           var indexes = [
             {file:"index.html",name:"PORTAL",desc:"Entrada principal"},
-            {file:"index2.html",name:"RESERVA 02",desc:"Arquivo vazio",empty:true},
-            {file:"index3.html",name:"RESERVA 03",desc:"Arquivo vazio",empty:true},
-            {file:"index4.html",name:"RESERVA 04",desc:"Arquivo vazio",empty:true},
             {file:"index5.html",name:"MATRIX",desc:"Home Matrix"},
-            {file:"index6.html",name:"COLMEIA",desc:"Sistema"},
+            {file:"mapa-colmeia.html",name:"COLMEIA",desc:"Mapa de páginas"},
             {file:"index7.html",name:"NOTÍCIAS",desc:"Atalho editorial"},
             {file:"index8.html",name:"INFINYT",desc:"Home Infinyt"},
             {file:"index9.html",name:"CATÁLOGO",desc:"Catálogo de páginas"}
           ];
           var indexWrap = node("div",{className:"crypy-nav-detail"});
-          indexWrap.appendChild(node("div",{className:"crypy-nav-group-title"},"9 ÍNDICES · PORTAS DA COLMEIA"));
+          indexWrap.appendChild(node("div",{className:"crypy-nav-group-title"},"6 ACESSOS VERIFICADOS · PORTAS DA COLMEIA"));
           var indexGrid = node("div",{className:"crypy-nav-index-grid"});
           indexes.forEach(function(item){
             var card = node(item.empty?"div":"a",{className:"crypy-nav-index"+(item.empty?" is-empty":""),href:item.empty?"#":new URL(item.file,siteRoot).href});
