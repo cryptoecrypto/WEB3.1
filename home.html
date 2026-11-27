@@ -52,6 +52,21 @@ footer{border-top:1px solid var(--line);padding:18px 22px;text-align:center;colo
 @media(max-width:600px){.head-inner{padding:13px 15px}.head-tools{width:100%;justify-content:space-between}main{padding:22px 14px 36px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{min-height:122px;padding:13px;border-radius:13px}.tile h4{font-size:12px}.symbol{width:30px;height:30px}.intro{align-items:stretch}.search{width:100%}}
 @media(max-width:360px){.grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* CRYPY Calendar Infinity — caixa flutuante da HOME */
+.crypy-calendar-float{position:fixed;right:18px;bottom:18px;z-index:80;width:min(440px,calc(100vw - 28px));height:min(430px,62vh);min-height:280px;color:#edfff4;font-family:Inter,Segoe UI,Arial,sans-serif}
+.crypy-calendar-window{display:flex;flex-direction:column;width:100%;height:100%;overflow:hidden;border:1px solid rgba(0,255,136,.72);border-radius:17px;background:rgba(2,10,6,.97);box-shadow:0 18px 60px rgba(0,0,0,.62),0 0 28px rgba(0,255,136,.2);backdrop-filter:blur(16px)}
+.crypy-calendar-bar{display:flex;align-items:center;gap:10px;min-height:54px;padding:9px 11px;border-bottom:1px solid rgba(0,255,136,.3);background:linear-gradient(100deg,#071b10,#031008)}
+.crypy-calendar-icon{display:grid;place-items:center;width:34px;height:34px;flex:none;border:1px solid #00ff88;border-radius:10px;color:#00ff88;font-size:24px;box-shadow:0 0 15px rgba(0,255,136,.18)}
+.crypy-calendar-label{min-width:0;flex:1}.crypy-calendar-label strong{display:block;color:#00ff88;font-size:11px;letter-spacing:.12em}.crypy-calendar-label small{display:block;color:#9bb9a7;font-size:9px;letter-spacing:.08em}
+.crypy-calendar-action{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(0,255,136,.35);border-radius:8px;background:#06170d;color:#caffdf;text-decoration:none;font-size:16px;cursor:pointer}
+.crypy-calendar-body{flex:1;min-height:0;background:#050b09}.crypy-calendar-body iframe{display:block;width:100%;height:100%;border:0;background:#050b09}
+.crypy-calendar-float.is-collapsed{height:auto;min-height:0}.crypy-calendar-float.is-collapsed .crypy-calendar-body{display:none}
+.crypy-calendar-launcher{position:fixed;right:18px;bottom:18px;z-index:81;display:flex;align-items:center;gap:9px;padding:12px 16px;border:1px solid #00ff88;border-radius:999px;background:#03140b;color:#00ff88;font-weight:900;font-size:11px;letter-spacing:.1em;box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 20px rgba(0,255,136,.2);cursor:pointer}
+.crypy-calendar-launcher[hidden]{display:none}
+@media(max-width:600px){.crypy-calendar-float{right:10px;bottom:10px;width:calc(100vw - 20px);height:min(58vh,440px);min-height:260px}.crypy-calendar-bar{min-height:49px}.crypy-calendar-launcher{right:12px;bottom:12px}}
+@media(prefers-reduced-motion:reduce){.crypy-calendar-window,.crypy-calendar-launcher{scroll-behavior:auto;transition:none}}
+
 </style>
 </head>
 <body>
@@ -107,6 +122,24 @@ footer{border-top:1px solid var(--line);padding:18px 22px;text-align:center;colo
  </section>
 </main>
 <footer>CRYPTOEËCRYPTO · CRYPY WEB3.1 · NEXUS CONECTA; SENSEI CONDUZ</footer>
+
+<!-- Caixa flutuante CRYPY Calendar Infinity: módulo independente, sem alterar o menu. -->
+<section class="crypy-calendar-float" id="crypy-calendar-float" aria-label="CRYPY Calendar Infinity">
+ <div class="crypy-calendar-window">
+  <div class="crypy-calendar-bar">
+   <span class="crypy-calendar-icon" aria-hidden="true">∞</span>
+   <span class="crypy-calendar-label"><strong>CRYPY CALENDAR INFINITY</strong><small>MEMÓRIA VISUAL VIVA DA COLMEIA</small></span>
+   <a class="crypy-calendar-action" href="./calendar-infinit/index.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir Calendar Infinity em tela cheia">↗</a>
+   <button class="crypy-calendar-action" id="crypy-calendar-minimize" type="button" aria-label="Recolher calendário" aria-expanded="true">−</button>
+   <button class="crypy-calendar-action" id="crypy-calendar-close" type="button" aria-label="Fechar caixa flutuante">×</button>
+  </div>
+  <div class="crypy-calendar-body" id="crypy-calendar-body">
+   <iframe src="./calendar-infinit/index.html" title="Calendário e galeria infinita CRYPY" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+ </div>
+</section>
+<button class="crypy-calendar-launcher" id="crypy-calendar-reopen" type="button" hidden><span aria-hidden="true">∞</span> CALENDAR INFINITY</button>
+
 <script>
 (function(){
  const palettes=[
@@ -180,5 +213,25 @@ footer{border-top:1px solid var(--line);padding:18px 22px;text-align:center;colo
 </script>
 <script defer src="assets/js/crypy-global-runtime.js"></script>
 <script defer src="assets/js/crypy-dynamic-design.js"></script>
+
+<script>
+(function(){
+ const panel=document.getElementById("crypy-calendar-float");
+ const minimize=document.getElementById("crypy-calendar-minimize");
+ const close=document.getElementById("crypy-calendar-close");
+ const reopen=document.getElementById("crypy-calendar-reopen");
+ const body=document.getElementById("crypy-calendar-body");
+ if(!panel||!minimize||!close||!reopen||!body)return;
+ minimize.addEventListener("click",function(){
+  const collapsed=panel.classList.toggle("is-collapsed");
+  minimize.setAttribute("aria-expanded",String(!collapsed));
+  minimize.setAttribute("aria-label",collapsed?"Expandir calendário":"Recolher calendário");
+  minimize.textContent=collapsed?"+":"−";
+ });
+ close.addEventListener("click",function(){panel.hidden=true;reopen.hidden=false;reopen.focus();});
+ reopen.addEventListener("click",function(){panel.hidden=false;reopen.hidden=true;});
+})();
+</script>
+
 </body>
 </html>
