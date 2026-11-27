@@ -1,5 +1,5 @@
--- CRYPYKUT — esquema inicial. Executar apenas no projeto Supabase correto.
--- RLS habilitado. Revisar políticas antes de abrir cadastro público.
+-- CRYPYKUT — esquema inicial Supabase.
+-- Execute uma vez no projeto correto e revise as políticas antes de abrir cadastro público.
 
 create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
@@ -8,11 +8,10 @@ create table if not exists public.profiles (
   city text,
   country text,
   bio text,
-  visibility text not null default 'basic' check (visibility in ('public','basic','friends','private')),
+  visibility text not null default 'basic' check (visibility in ('public','basic','friends','trusted','private')),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
-
 create table if not exists public.friendships (
   id bigint generated always as identity primary key,
   requester_id uuid not null references auth.users(id) on delete cascade,
@@ -23,7 +22,6 @@ create table if not exists public.friendships (
   unique (requester_id, addressee_id),
   check (requester_id <> addressee_id)
 );
-
 create table if not exists public.blocks (
   blocker_id uuid not null references auth.users(id) on delete cascade,
   blocked_id uuid not null references auth.users(id) on delete cascade,
@@ -31,7 +29,6 @@ create table if not exists public.blocks (
   primary key (blocker_id, blocked_id),
   check (blocker_id <> blocked_id)
 );
-
 create table if not exists public.posts (
   id bigint generated always as identity primary key,
   author_id uuid not null references auth.users(id) on delete cascade,
@@ -40,7 +37,6 @@ create table if not exists public.posts (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
-
 create table if not exists public.communities (
   id bigint generated always as identity primary key,
   creator_id uuid not null references auth.users(id) on delete cascade,
@@ -49,16 +45,14 @@ create table if not exists public.communities (
   visibility text not null default 'public' check (visibility in ('public','private')),
   created_at timestamptz not null default now()
 );
-
 create table if not exists public.community_members (
   community_id bigint not null references public.communities(id) on delete cascade,
   user_id uuid not null references auth.users(id) on delete cascade,
   role text not null default 'member' check (role in ('creator','moderator','member')),
-  status text not null default 'active' check (status in ('pending','active','removed')),
+  status text not null default 'pending' check (status in ('pending','active','removed')),
   joined_at timestamptz not null default now(),
   primary key (community_id, user_id)
 );
-
 create table if not exists public.testimonials (
   id bigint generated always as identity primary key,
   author_id uuid not null references auth.users(id) on delete cascade,
@@ -68,7 +62,6 @@ create table if not exists public.testimonials (
   created_at timestamptz not null default now(),
   check (author_id <> recipient_id)
 );
-
 create table if not exists public.messages (
   id bigint generated always as identity primary key,
   sender_id uuid not null references auth.users(id) on delete cascade,
@@ -80,6 +73,83 @@ create table if not exists public.messages (
   check (sender_id <> recipient_id)
 );
 
+-- Funções SECURITY DEFINER evitam recursão de RLS ao consultar relações/membros.
+create or replace function public.is_blocked_pair(a uuid, b uuid)
+returns boolean language sql stable security definer set search_path = public
+as $$ select exists (
+  select 1 from public.blocks x
+  where (x.blocker_id = a and x.blocked_id = b)
+     or (x.blocker_id = b and x.blocked_id = a)
+); $$;
+
+create or replace function public.are_friends(a uuid, b uuid)
+returns boolean language sql stable security definer set search_path = public
+as $$ select exists (
+  select 1 from public.friendships f
+  where f.status = 'accepted'
+    and ((f.requester_id = a and f.addressee_id = b)
+      or (f.requester_id = b and f.addressee_id = a))
+); $$;
+
+create or replace function public.has_trusted_friendship(a uuid, b uuid)
+returns boolean language sql stable security definer set search_path = public
+as $$ select exists (
+  select 1 from public.friendships f
+  where f.status = 'accepted' and f.trust_level = 'trusted'
+    and ((f.requester_id = a and f.addressee_id = b)
+      or (f.requester_id = b and f.addressee_id = a))
+); $$;
+
+create or replace function public.can_view_profile(owner_id uuid, visibility_level text)
+returns boolean language sql stable security definer set search_path = public
+as $$ select
+  auth.uid() = owner_id
+  or (
+    not public.is_blocked_pair(auth.uid(), owner_id)
+    and (
+      visibility_level = 'public'
+      or (visibility_level = 'basic' and public.are_friends(auth.uid(), owner_id))
+      or (visibility_level = 'friends' and public.are_friends(auth.uid(), owner_id))
+      or (visibility_level = 'trusted' and public.has_trusted_friendship(auth.uid(), owner_id))
+    )
+  ); $$;
+
+create or replace function public.can_view_post(owner_id uuid, visibility_level text)
+returns boolean language sql stable security definer set search_path = public
+as $$ select auth.uid() = owner_id
+  or (
+    not public.is_blocked_pair(auth.uid(), owner_id)
+    and (
+      visibility_level = 'public'
+      or (visibility_level = 'friends' and public.are_friends(auth.uid(), owner_id))
+    )
+  ); $$;
+
+create or replace function public.is_community_member(target_id bigint)
+returns boolean language sql stable security definer set search_path = public
+as $$ select exists (
+  select 1 from public.community_members m
+  where m.community_id = target_id and m.user_id = auth.uid()
+    and m.status = 'active'
+); $$;
+
+create or replace function public.is_community_admin(target_id bigint)
+returns boolean language sql stable security definer set search_path = public
+as $$ select exists (
+  select 1 from public.communities c where c.id = target_id and c.creator_id = auth.uid()
+) or exists (
+  select 1 from public.community_members m
+  where m.community_id = target_id and m.user_id = auth.uid()
+    and m.status = 'active' and m.role in ('creator','moderator')
+); $$;
+
+create or replace function public.can_view_community(target_id bigint, community_visibility text, owner_id uuid)
+returns boolean language sql stable security definer set search_path = public
+as $$ select
+  owner_id = auth.uid()
+  or (not public.is_blocked_pair(auth.uid(), owner_id)
+      and (community_visibility = 'public' or public.is_community_member(target_id))); $$;
+
 alter table public.profiles enable row level security;
 alter table public.friendships enable row level security;
 alter table public.blocks enable row level security;
@@ -89,15 +159,13 @@ alter table public.community_members enable row level security;
 alter table public.testimonials enable row level security;
 alter table public.messages enable row level security;
 
--- Perfil: o próprio usuário pode editar; leitura pública limitada ao cadastro visível.
-create policy "profiles_select_visible" on public.profiles for select
-using (visibility = 'public' or id = auth.uid());
+create policy "profiles_select_by_visibility" on public.profiles for select
+using (public.can_view_profile(id, visibility));
 create policy "profiles_insert_self" on public.profiles for insert
 with check (id = auth.uid());
 create policy "profiles_update_self" on public.profiles for update
 using (id = auth.uid()) with check (id = auth.uid());
 
--- Relações: somente participantes podem ler/alterar sua relação.
 create policy "friendships_participants_select" on public.friendships for select
 using (requester_id = auth.uid() or addressee_id = auth.uid());
 create policy "friendships_request_self" on public.friendships for insert
@@ -109,8 +177,8 @@ with check (requester_id = auth.uid() or addressee_id = auth.uid());
 create policy "blocks_owner_all" on public.blocks for all
 using (blocker_id = auth.uid()) with check (blocker_id = auth.uid());
 
-create policy "posts_select_public_or_owner" on public.posts for select
-using (visibility = 'public' or author_id = auth.uid());
+create policy "posts_select_by_visibility" on public.posts for select
+using (public.can_view_post(author_id, visibility));
 create policy "posts_owner_insert" on public.posts for insert
 with check (author_id = auth.uid());
 create policy "posts_owner_update" on public.posts for update
@@ -118,25 +186,26 @@ using (author_id = auth.uid()) with check (author_id = auth.uid());
 create policy "posts_owner_delete" on public.posts for delete
 using (author_id = auth.uid());
 
-create policy "communities_public_or_creator_select" on public.communities for select
-using (visibility = 'public' or creator_id = auth.uid());
+create policy "communities_select_by_visibility" on public.communities for select
+using (public.can_view_community(id, visibility, creator_id));
 create policy "communities_creator_insert" on public.communities for insert
 with check (creator_id = auth.uid());
 create policy "communities_creator_update" on public.communities for update
 using (creator_id = auth.uid()) with check (creator_id = auth.uid());
 
-create policy "community_members_self_or_same_group_select" on public.community_members for select
-using (user_id = auth.uid() or exists (
-  select 1 from public.community_members mine
-  where mine.community_id = community_members.community_id and mine.user_id = auth.uid()
-));
-create policy "community_members_self_insert" on public.community_members for insert
-with check (user_id = auth.uid());
-create policy "community_members_self_or_creator_update" on public.community_members for update
-using (user_id = auth.uid() or exists (
-  select 1 from public.communities c
-  where c.id = community_members.community_id and c.creator_id = auth.uid()
-));
+create policy "community_members_select_related" on public.community_members for select
+using (user_id = auth.uid() or public.is_community_member(community_id) or public.is_community_admin(community_id));
+create policy "community_members_join_self" on public.community_members for insert
+with check (
+  user_id = auth.uid()
+  and (
+    status = 'pending'
+    or exists (select 1 from public.communities c where c.id = community_id and c.visibility = 'public')
+  )
+);
+create policy "community_members_moderator_update" on public.community_members for update
+using (public.is_community_admin(community_id))
+with check (public.is_community_admin(community_id));
 
 create policy "testimonials_participants_select" on public.testimonials for select
 using (author_id = auth.uid() or recipient_id = auth.uid());
@@ -146,8 +215,11 @@ create policy "testimonials_recipient_moderate" on public.testimonials for updat
 using (recipient_id = auth.uid()) with check (recipient_id = auth.uid());
 
 create policy "messages_participants_select" on public.messages for select
-using (sender_id = auth.uid() or recipient_id = auth.uid());
+using (
+  (sender_id = auth.uid() or recipient_id = auth.uid())
+  and not public.is_blocked_pair(sender_id, recipient_id)
+);
 create policy "messages_sender_insert" on public.messages for insert
-with check (sender_id = auth.uid());
+with check (sender_id = auth.uid() and not public.is_blocked_pair(sender_id, recipient_id));
 create policy "messages_recipient_update" on public.messages for update
 using (recipient_id = auth.uid()) with check (recipient_id = auth.uid());
