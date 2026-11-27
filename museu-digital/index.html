@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020805">
+<meta name="description" content="Museu Digital CRYPY — acervo visual da Colmeia em exposição aleatória, sem repetição até completar cada rodada.">
+<title>MUSEU DIGITAL | COLMEIA CRYPY</title>
+<style>
+:root{color-scheme:dark;--bg:#020805;--panel:#07130c;--line:#17452b;--green:#00ff88;--gold:#ffd35a;--muted:#a8c3b1}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#0b3b22 0,transparent 55%),var(--bg);color:#edfff4;font:15px/1.55 Inter,Segoe UI,Arial,sans-serif}
+a{color:var(--green);text-decoration:none}.shell{width:min(1400px,calc(100% - 28px));margin:auto}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 0;border-bottom:1px solid var(--line)}.brand{font-weight:900;letter-spacing:.16em;font-size:12px}.top a:last-child{font-size:12px}
+.hero{padding:32px 0 20px}.eyebrow{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.25em}.hero h1{font-size:clamp(34px,6vw,64px);line-height:.98;margin:10px 0}.hero p{color:var(--muted);max-width:760px;margin:0}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:22px 0}.toolbar button,.toolbar select{border:1px solid var(--line);background:#07150c;color:#eafff1;border-radius:999px;padding:10px 15px;font:700 12px inherit;cursor:pointer}.toolbar button.primary{background:var(--green);color:#001b0d;border-color:var(--green)}.toolbar button:focus-visible,.toolbar select:focus-visible,.tile:focus-visible{outline:2px solid var(--gold);outline-offset:3px}.status{margin-left:auto;color:var(--muted);font-size:12px}
+.stage{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(230px,.5fr);gap:18px;align-items:stretch}.screen{min-height:350px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #315d3d;border-radius:16px;background:linear-gradient(145deg,#0b1c11,#020503);box-shadow:0 22px 65px #0009}.screen img{display:block;width:100%;height:clamp(300px,55vw,660px);object-fit:contain;padding:12px;transition:opacity .25s}.screen .caption{position:absolute;inset:auto 0 0;padding:48px 20px 18px;background:linear-gradient(transparent,#020805ee);pointer-events:none}.caption strong{display:block;font-size:clamp(18px,3vw,27px)}.caption small{color:#b7d7c3}.side{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:20px;display:flex;flex-direction:column;justify-content:space-between}.side h2{font-size:12px;letter-spacing:.16em;color:var(--green);margin:0 0 12px}.side .big{font-size:clamp(35px,5vw,54px);font-weight:900;line-height:1}.side p{color:var(--muted);font-size:13px}.side .note{padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:#b9d9c5}
+.gallery-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:34px 0 14px}.gallery-head h2{margin:0;font-size:20px}.gallery-head p{margin:0;color:var(--muted);font-size:12px}.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding-bottom:50px}.tile{min-width:0;text-align:left;padding:8px;border:1px solid var(--line);border-radius:12px;background:#07130c;color:#edfff4;cursor:pointer;transition:border-color .2s,transform .2s}.tile:hover{border-color:var(--green);transform:translateY(-2px)}.tile img{width:100%;height:140px;object-fit:contain;background:#020805;border-radius:7px;display:block}.tile strong{display:block;font-size:12px;margin:8px 2px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tile small{display:block;color:var(--muted);font-size:10px;margin:0 2px 2px}.empty{padding:35px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+footer{padding:20px 0 35px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+@media(max-width:760px){.stage{grid-template-columns:1fr}.side{min-height:190px}.status{width:100%;margin:2px 0 0}.gallery{grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:9px}.tile img{height:118px}.top{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><a class="brand" href="../index.html">CRYPTOEËCRYPTO · COLMEIA</a><a href="../index.html">← VOLTAR À WEB3.1</a></header>
+<main>
+<section class="hero"><div class="eyebrow">ACERVO VISUAL · EXPOSIÇÃO ALEATÓRIA</div><h1>MUSEU DIGITAL<br><span style="color:var(--green)">COLMEIA CRYPY</span></h1><p>As imagens são apresentadas em ordem aleatória, sem repetição durante cada rodada. O acervo original permanece nos seus diretórios de origem; o Museu apenas referencia e exibe os arquivos.</p></section>
+<div class="toolbar" aria-label="Controles do Museu">
+<button id="toggle" class="primary" type="button">Ⅱ Pausar</button><button id="next" type="button">Próxima imagem ↗</button><button id="shuffle" type="button">⤨ Nova ordem</button>
+<select id="filter" aria-label="Filtrar coleção"><option value="TODAS">Todas as coleções</option></select>
+<span id="status" class="status" role="status" aria-live="polite">Carregando acervo…</span>
+</div>
+<section class="stage" aria-label="Exposição principal">
+<div class="screen"><img id="featured" alt="Imagem em exposição" /><div class="caption"><strong id="title">Preparando exposição…</strong><small id="collection"></small></div></div>
+<aside class="side"><div><h2>ACERVO DA COLMEIA</h2><div id="total" class="big">—</div><p>arquivos de imagem catalogados no repositório. A exibição automática percorre a coleção inteira antes de iniciar outra rodada.</p></div><div class="note">MODO LIMPO · IMAGEM INTEIRA · SEM CORTES · ORDEM ALEATÓRIA</div></aside>
+</section>
+<section class="gallery-head"><div><h2>Galeria completa</h2><p id="gallery-count">Todas as imagens disponíveis no inventário.</p></div></section>
+<div id="gallery" class="gallery" aria-label="Todas as imagens do acervo"></div>
+</main>
+<footer>CRYPY · MUSEU DIGITAL · Catálogo gerado a partir dos arquivos de imagem versionados (raster e vetoriais). Imagens originais não são movidas, renomeadas ou apagadas.</footer>
+</div>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+let items=[],order=[],position=0,playing=true,timer=null,activeFilter="TODAS";
+const shuffle=a=>{const out=a.slice();for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;};
+function filtered(){return items.filter(x=>activeFilter==="TODAS"||x.collection===activeFilter);}
+function setCurrent(item){$("featured").src=item.src;$("featured").alt=item.title;$("title").textContent=item.title;$("collection").textContent=item.collection+" · "+item.format.toUpperCase();$("status").textContent=(position+1)+" / "+order.length+" nesta rodada";}
+function startOrder(avoidId){const pool=filtered();order=shuffle(pool);if(order.length>1&&order[0].id===avoidId){const swap=1+Math.floor(Math.random()*(order.length-1));[order[0],order[swap]]=[order[swap],order[0]];}position=0;if(order.length)setCurrent(order[0]);renderGallery();}
+function next(){if(!order.length)return;if(position+1<order.length){position++;setCurrent(order[position]);return;}const previous=order[position]?.id;startOrder(previous);}
+function renderGallery(){const root=$("gallery");root.replaceChildren();const list=filtered();$("gallery-count").textContent=list.length+" imagens nesta seleção.";if(!list.length){root.innerHTML='<div class="empty">Nenhuma imagem nesta coleção.</div>';return;}list.forEach(item=>{const b=document.createElement("button");b.type="button";b.className="tile";b.setAttribute("aria-label","Exibir "+item.title);const im=document.createElement("img");im.src=item.src;im.alt=item.title;im.loading="lazy";im.decoding="async";im.onerror=()=>{im.style.visibility="hidden";};const strong=document.createElement("strong");strong.textContent=item.title;const small=document.createElement("small");small.textContent=item.collection;b.append(im,strong,small);b.addEventListener("click",()=>{const idx=order.findIndex(x=>x.id===item.id);if(idx>=0){position=idx;setCurrent(item);}else{order=[item,...shuffle(filtered().filter(x=>x.id!==item.id))];position=0;setCurrent(item);} });root.append(b);});}
+function play(){if(timer)clearInterval(timer);timer=setInterval(()=>{if(playing)next();},6000);}
+$("toggle").addEventListener("click",()=>{playing=!playing;$("toggle").textContent=playing?"Ⅱ Pausar":"▶ Continuar";});
+$("next").addEventListener("click",next);
+$("shuffle").addEventListener("click",()=>startOrder(order[position]?.id));
+$("filter").addEventListener("change",e=>{activeFilter=e.target.value;startOrder(null);});
+$("featured").addEventListener("error",()=>{$("title").textContent="Imagem indisponível";$("collection").textContent="O arquivo permanece registrado no inventário.";});
+fetch("./acervo.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(data=>{
+items=Array.isArray(data.images)?data.images:[];
+$("total").textContent=items.length;
+const collections=[...new Set(items.map(x=>x.collection))].sort((a,b)=>a.localeCompare(b,"pt-BR"));
+collections.forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;$("filter").append(o);});
+startOrder(null);play();
+}).catch(err=>{$("status").textContent="Falha ao carregar acervo: "+err.message;$("gallery").innerHTML='<div class="empty">Não foi possível abrir o inventário de imagens.</div>';});
+})();
+</script>
+</body>
+</html>

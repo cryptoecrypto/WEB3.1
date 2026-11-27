@@ -1,0 +1,846 @@
+{
+  "version": "1.2",
+  "generated_at": "2026-11-27",
+  "source_repository": "cryptoecrypto/WEB3.1",
+  "source_branch": "main",
+  "scope": "Todos os arquivos de imagem PNG, JPG, JPEG, WebP, GIF, AVIF e SVG versionados encontrados na árvore recursiva do repositório. Cópias em caminhos distintos são preservadas como registros distintos.",
+  "total": 92,
+  "policy": {
+    "preserve_source_files": true,
+    "delete_duplicates": false,
+    "display_mode": "random_without_repetition_per_cycle",
+    "fit": "contain",
+    "automatic_discovery": true,
+    "scan_scope": "repository"
+  },
+  "images": [
+    {
+      "id": "assets/images/crypy-cosmos.svg",
+      "title": "Crypy Cosmos",
+      "collection": "IDENTIDADE VISUAL",
+      "path": "assets/images/crypy-cosmos.svg",
+      "src": "../assets/images/crypy-cosmos.svg",
+      "format": "svg",
+      "bytes": 2220
+    },
+    {
+      "id": "assets/images/crypy-team-dragon-home.svg",
+      "title": "Crypy Team Dragon Home",
+      "collection": "IDENTIDADE VISUAL",
+      "path": "assets/images/crypy-team-dragon-home.svg",
+      "src": "../assets/images/crypy-team-dragon-home.svg",
+      "format": "svg",
+      "bytes": 7062
+    },
+    {
+      "id": "assets/images/fundo-oficial.svg.png",
+      "title": "fundo oficial.svg",
+      "collection": "IDENTIDADE VISUAL",
+      "path": "assets/images/fundo-oficial.svg.png",
+      "src": "../assets/images/fundo-oficial.svg.png",
+      "format": "png",
+      "bytes": 1551016
+    },
+    {
+      "id": "assets/WEB3.1.png",
+      "title": "WEB3.1",
+      "collection": "IDENTIDADE VISUAL",
+      "path": "assets/WEB3.1.png",
+      "src": "../assets/WEB3.1.png",
+      "format": "png",
+      "bytes": 338577
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_galaxy_fixed_20261116_054840.png",
+      "title": "Meta AI galaxy fixed 20261116 054840",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_galaxy_fixed_20261116_054840.png",
+      "src": "../baby-ia/padrao/Meta_AI_galaxy_fixed_20261116_054840.png",
+      "format": "png",
+      "bytes": 319289
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Azul_20261116_054433.png",
+      "title": "Meta AI layer Azul 20261116 054433",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Azul_20261116_054433.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Azul_20261116_054433.png",
+      "format": "png",
+      "bytes": 157933
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Ciano_Teal_20261116_054709.png",
+      "title": "Meta AI layer Ciano Teal 20261116 054709",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Ciano_Teal_20261116_054709.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Ciano_Teal_20261116_054709.png",
+      "format": "png",
+      "bytes": 30470
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Laranja_Amarelo_20261116_054732.png",
+      "title": "Meta AI layer Laranja Amarelo 20261116 054732",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Laranja_Amarelo_20261116_054732.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Laranja_Amarelo_20261116_054732.png",
+      "format": "png",
+      "bytes": 16911
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Magenta_Rosa_20261116_054609.png",
+      "title": "Meta AI layer Magenta Rosa 20261116 054609",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Magenta_Rosa_20261116_054609.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Magenta_Rosa_20261116_054609.png",
+      "format": "png",
+      "bytes": 56504
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Roxo_Violeta_20261116_054539.png",
+      "title": "Meta AI layer Roxo Violeta 20261116 054539",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Roxo_Violeta_20261116_054539.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Roxo_Violeta_20261116_054539.png",
+      "format": "png",
+      "bytes": 66970
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Verde_20261116_054642.png",
+      "title": "Meta AI layer Verde 20261116 054642",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Verde_20261116_054642.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Verde_20261116_054642.png",
+      "format": "png",
+      "bytes": 33268
+    },
+    {
+      "id": "baby-ia/padrao/Meta_AI_layer_Vermelho_20261116_054506.png",
+      "title": "Meta AI layer Vermelho 20261116 054506",
+      "collection": "BABY I.A.",
+      "path": "baby-ia/padrao/Meta_AI_layer_Vermelho_20261116_054506.png",
+      "src": "../baby-ia/padrao/Meta_AI_layer_Vermelho_20261116_054506.png",
+      "format": "png",
+      "bytes": 63939
+    },
+    {
+      "id": "crypy-coin/assets/4f46e9a907763aca-Gemini_Generated_Image_mosbvkmosbvkmosb.jpg",
+      "title": "Gemini Generated Image mosbvkmosbvkmosb",
+      "collection": "CRYPY COIN",
+      "path": "crypy-coin/assets/4f46e9a907763aca-Gemini_Generated_Image_mosbvkmosbvkmosb.jpg",
+      "src": "../crypy-coin/assets/4f46e9a907763aca-Gemini_Generated_Image_mosbvkmosbvkmosb.jpg",
+      "format": "jpg",
+      "bytes": 696817
+    },
+    {
+      "id": "crypy-market-news/assets/4a32728dd8ec4b3e99f3a6e06269698c[1].jpg",
+      "title": "4a32728dd8ec4b3e99f3a6e06269698c[1]",
+      "collection": "CRYPY NEWS",
+      "path": "crypy-market-news/assets/4a32728dd8ec4b3e99f3a6e06269698c[1].jpg",
+      "src": "../crypy-market-news/assets/4a32728dd8ec4b3e99f3a6e06269698c[1].jpg",
+      "format": "jpg",
+      "bytes": 1650079
+    },
+    {
+      "id": "crypy-market-news/assets/96cbd1d1fb21c21b-img-u7531738462682835161-1.jpg",
+      "title": "u7531738462682835161 1",
+      "collection": "CRYPY NEWS",
+      "path": "crypy-market-news/assets/96cbd1d1fb21c21b-img-u7531738462682835161-1.jpg",
+      "src": "../crypy-market-news/assets/96cbd1d1fb21c21b-img-u7531738462682835161-1.jpg",
+      "format": "jpg",
+      "bytes": 2146127
+    },
+    {
+      "id": "CRYPY-SHOTS/assets/c79087ae85000514-Gemini_Generated_Image_v40fuav40fuav40f.jpg",
+      "title": "Gemini Generated Image v40fuav40fuav40f",
+      "collection": "CRYPY SHOTS",
+      "path": "CRYPY-SHOTS/assets/c79087ae85000514-Gemini_Generated_Image_v40fuav40fuav40f.jpg",
+      "src": "../CRYPY-SHOTS/assets/c79087ae85000514-Gemini_Generated_Image_v40fuav40fuav40f.jpg",
+      "format": "jpg",
+      "bytes": 469545
+    },
+    {
+      "id": "esquadrao-das-cores/assets/03bf33ad930b2cce-img-u7531524790269506400-7.jpg",
+      "title": "u7531524790269506400 7",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/03bf33ad930b2cce-img-u7531524790269506400-7.jpg",
+      "src": "../esquadrao-das-cores/assets/03bf33ad930b2cce-img-u7531524790269506400-7.jpg",
+      "format": "jpg",
+      "bytes": 59818
+    },
+    {
+      "id": "esquadrao-das-cores/assets/08b835846e040b39-img-u7531517723222656013-4.jpg",
+      "title": "u7531517723222656013 4",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/08b835846e040b39-img-u7531517723222656013-4.jpg",
+      "src": "../esquadrao-das-cores/assets/08b835846e040b39-img-u7531517723222656013-4.jpg",
+      "format": "jpg",
+      "bytes": 4100250
+    },
+    {
+      "id": "esquadrao-das-cores/assets/0af1e7e35357c453-img-u7531523000844266824-10.jpg",
+      "title": "u7531523000844266824 10",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/0af1e7e35357c453-img-u7531523000844266824-10.jpg",
+      "src": "../esquadrao-das-cores/assets/0af1e7e35357c453-img-u7531523000844266824-10.jpg",
+      "format": "jpg",
+      "bytes": 214507
+    },
+    {
+      "id": "esquadrao-das-cores/assets/0d36c5deefe946b2-img-u7531518352482651956-6.jpg",
+      "title": "u7531518352482651956 6",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/0d36c5deefe946b2-img-u7531518352482651956-6.jpg",
+      "src": "../esquadrao-das-cores/assets/0d36c5deefe946b2-img-u7531518352482651956-6.jpg",
+      "format": "jpg",
+      "bytes": 1523023
+    },
+    {
+      "id": "esquadrao-das-cores/assets/0de225e492a11d2b-img-u7531518352482651956-1.jpg",
+      "title": "u7531518352482651956 1",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/0de225e492a11d2b-img-u7531518352482651956-1.jpg",
+      "src": "../esquadrao-das-cores/assets/0de225e492a11d2b-img-u7531518352482651956-1.jpg",
+      "format": "jpg",
+      "bytes": 234845
+    },
+    {
+      "id": "esquadrao-das-cores/assets/0fb23842845a43cd-img-u7531518972809160002-7.jpg",
+      "title": "u7531518972809160002 7",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/0fb23842845a43cd-img-u7531518972809160002-7.jpg",
+      "src": "../esquadrao-das-cores/assets/0fb23842845a43cd-img-u7531518972809160002-7.jpg",
+      "format": "jpg",
+      "bytes": 965698
+    },
+    {
+      "id": "esquadrao-das-cores/assets/10de71bab30a0d89-img-u7531524790269506400-8.jpg",
+      "title": "u7531524790269506400 8",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/10de71bab30a0d89-img-u7531524790269506400-8.jpg",
+      "src": "../esquadrao-das-cores/assets/10de71bab30a0d89-img-u7531524790269506400-8.jpg",
+      "format": "jpg",
+      "bytes": 108939
+    },
+    {
+      "id": "esquadrao-das-cores/assets/11a871c1cb8784e9-img-u7531518352482651956-2.jpg",
+      "title": "u7531518352482651956 2",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/11a871c1cb8784e9-img-u7531518352482651956-2.jpg",
+      "src": "../esquadrao-das-cores/assets/11a871c1cb8784e9-img-u7531518352482651956-2.jpg",
+      "format": "jpg",
+      "bytes": 342085
+    },
+    {
+      "id": "esquadrao-das-cores/assets/13a69429f8b7726b-img-u7531517723222656013-8.jpg",
+      "title": "u7531517723222656013 8",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/13a69429f8b7726b-img-u7531517723222656013-8.jpg",
+      "src": "../esquadrao-das-cores/assets/13a69429f8b7726b-img-u7531517723222656013-8.jpg",
+      "format": "jpg",
+      "bytes": 214320
+    },
+    {
+      "id": "esquadrao-das-cores/assets/18c71772308a8413-img-u7531523000844266824-5.jpg",
+      "title": "u7531523000844266824 5",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/18c71772308a8413-img-u7531523000844266824-5.jpg",
+      "src": "../esquadrao-das-cores/assets/18c71772308a8413-img-u7531523000844266824-5.jpg",
+      "format": "jpg",
+      "bytes": 394533
+    },
+    {
+      "id": "esquadrao-das-cores/assets/19c28d9ef7d16dc6-img-u7531517723222656013-2.jpg",
+      "title": "u7531517723222656013 2",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/19c28d9ef7d16dc6-img-u7531517723222656013-2.jpg",
+      "src": "../esquadrao-das-cores/assets/19c28d9ef7d16dc6-img-u7531517723222656013-2.jpg",
+      "format": "jpg",
+      "bytes": 431562
+    },
+    {
+      "id": "esquadrao-das-cores/assets/20a08ece499c9c3e-img-u7531524790269506400-4.jpg",
+      "title": "u7531524790269506400 4",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/20a08ece499c9c3e-img-u7531524790269506400-4.jpg",
+      "src": "../esquadrao-das-cores/assets/20a08ece499c9c3e-img-u7531524790269506400-4.jpg",
+      "format": "jpg",
+      "bytes": 3435074
+    },
+    {
+      "id": "esquadrao-das-cores/assets/241ec18ba7683fb9-img-u7531518972809160002-3.jpg",
+      "title": "u7531518972809160002 3",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/241ec18ba7683fb9-img-u7531518972809160002-3.jpg",
+      "src": "../esquadrao-das-cores/assets/241ec18ba7683fb9-img-u7531518972809160002-3.jpg",
+      "format": "jpg",
+      "bytes": 211717
+    },
+    {
+      "id": "esquadrao-das-cores/assets/2564617e78b9af1c-img-u7531523000844266824-6.jpg",
+      "title": "u7531523000844266824 6",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/2564617e78b9af1c-img-u7531523000844266824-6.jpg",
+      "src": "../esquadrao-das-cores/assets/2564617e78b9af1c-img-u7531523000844266824-6.jpg",
+      "format": "jpg",
+      "bytes": 221593
+    },
+    {
+      "id": "esquadrao-das-cores/assets/28c62eac910202e8-img-u7531518972809160002-6.jpg",
+      "title": "u7531518972809160002 6",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/28c62eac910202e8-img-u7531518972809160002-6.jpg",
+      "src": "../esquadrao-das-cores/assets/28c62eac910202e8-img-u7531518972809160002-6.jpg",
+      "format": "jpg",
+      "bytes": 256359
+    },
+    {
+      "id": "esquadrao-das-cores/assets/2e07985226520cfa-img-u7531518972809160002-8.jpg",
+      "title": "u7531518972809160002 8",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/2e07985226520cfa-img-u7531518972809160002-8.jpg",
+      "src": "../esquadrao-das-cores/assets/2e07985226520cfa-img-u7531518972809160002-8.jpg",
+      "format": "jpg",
+      "bytes": 204858
+    },
+    {
+      "id": "esquadrao-das-cores/assets/49b447ffec72f620-img-u7531518352482651956-5.png",
+      "title": "u7531518352482651956 5",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/49b447ffec72f620-img-u7531518352482651956-5.png",
+      "src": "../esquadrao-das-cores/assets/49b447ffec72f620-img-u7531518352482651956-5.png",
+      "format": "png",
+      "bytes": 1076690
+    },
+    {
+      "id": "esquadrao-das-cores/assets/4baedcef25736524-img-u7531524790269506400-9.jpg",
+      "title": "u7531524790269506400 9",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/4baedcef25736524-img-u7531524790269506400-9.jpg",
+      "src": "../esquadrao-das-cores/assets/4baedcef25736524-img-u7531524790269506400-9.jpg",
+      "format": "jpg",
+      "bytes": 3229212
+    },
+    {
+      "id": "esquadrao-das-cores/assets/4cb8c4bc69a54c70-img-u7531518352482651956-7.jpg",
+      "title": "u7531518352482651956 7",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/4cb8c4bc69a54c70-img-u7531518352482651956-7.jpg",
+      "src": "../esquadrao-das-cores/assets/4cb8c4bc69a54c70-img-u7531518352482651956-7.jpg",
+      "format": "jpg",
+      "bytes": 187399
+    },
+    {
+      "id": "esquadrao-das-cores/assets/4dfa01da86aad71c-img-u7531518352482651956-10.jpg",
+      "title": "u7531518352482651956 10",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/4dfa01da86aad71c-img-u7531518352482651956-10.jpg",
+      "src": "../esquadrao-das-cores/assets/4dfa01da86aad71c-img-u7531518352482651956-10.jpg",
+      "format": "jpg",
+      "bytes": 176353
+    },
+    {
+      "id": "esquadrao-das-cores/assets/697d688e042ed2ca-img-u7531518972809160002-4.jpg",
+      "title": "u7531518972809160002 4",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/697d688e042ed2ca-img-u7531518972809160002-4.jpg",
+      "src": "../esquadrao-das-cores/assets/697d688e042ed2ca-img-u7531518972809160002-4.jpg",
+      "format": "jpg",
+      "bytes": 344267
+    },
+    {
+      "id": "esquadrao-das-cores/assets/6e2bc09a3740150d-img-u7531524790269506400-3.jpg",
+      "title": "u7531524790269506400 3",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/6e2bc09a3740150d-img-u7531524790269506400-3.jpg",
+      "src": "../esquadrao-das-cores/assets/6e2bc09a3740150d-img-u7531524790269506400-3.jpg",
+      "format": "jpg",
+      "bytes": 116103
+    },
+    {
+      "id": "esquadrao-das-cores/assets/6e48c706d723a687-img-u7531523000844266824-1.png",
+      "title": "u7531523000844266824 1",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/6e48c706d723a687-img-u7531523000844266824-1.png",
+      "src": "../esquadrao-das-cores/assets/6e48c706d723a687-img-u7531523000844266824-1.png",
+      "format": "png",
+      "bytes": 772634
+    },
+    {
+      "id": "esquadrao-das-cores/assets/8092646b882f239e-img-u7531518352482651956-4.jpg",
+      "title": "u7531518352482651956 4",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/8092646b882f239e-img-u7531518352482651956-4.jpg",
+      "src": "../esquadrao-das-cores/assets/8092646b882f239e-img-u7531518352482651956-4.jpg",
+      "format": "jpg",
+      "bytes": 210433
+    },
+    {
+      "id": "esquadrao-das-cores/assets/850a7bb11311721e-img-u7531517723222656013-5.jpg",
+      "title": "u7531517723222656013 5",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/850a7bb11311721e-img-u7531517723222656013-5.jpg",
+      "src": "../esquadrao-das-cores/assets/850a7bb11311721e-img-u7531517723222656013-5.jpg",
+      "format": "jpg",
+      "bytes": 340120
+    },
+    {
+      "id": "esquadrao-das-cores/assets/90c1bb96f13b71aa-img-u7531523000844266824-4.jpg",
+      "title": "u7531523000844266824 4",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/90c1bb96f13b71aa-img-u7531523000844266824-4.jpg",
+      "src": "../esquadrao-das-cores/assets/90c1bb96f13b71aa-img-u7531523000844266824-4.jpg",
+      "format": "jpg",
+      "bytes": 122801
+    },
+    {
+      "id": "esquadrao-das-cores/assets/934ec2d07ee168e2-img-u7531523000844266824-3.jpg",
+      "title": "u7531523000844266824 3",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/934ec2d07ee168e2-img-u7531523000844266824-3.jpg",
+      "src": "../esquadrao-das-cores/assets/934ec2d07ee168e2-img-u7531523000844266824-3.jpg",
+      "format": "jpg",
+      "bytes": 600004
+    },
+    {
+      "id": "esquadrao-das-cores/assets/949290c22188b86d-img-u7531524790269506400-10.jpg",
+      "title": "u7531524790269506400 10",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/949290c22188b86d-img-u7531524790269506400-10.jpg",
+      "src": "../esquadrao-das-cores/assets/949290c22188b86d-img-u7531524790269506400-10.jpg",
+      "format": "jpg",
+      "bytes": 101251
+    },
+    {
+      "id": "esquadrao-das-cores/assets/98bc54881f73ab0c-img-u7531524790269506400-2.jpg",
+      "title": "u7531524790269506400 2",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/98bc54881f73ab0c-img-u7531524790269506400-2.jpg",
+      "src": "../esquadrao-das-cores/assets/98bc54881f73ab0c-img-u7531524790269506400-2.jpg",
+      "format": "jpg",
+      "bytes": 3420708
+    },
+    {
+      "id": "esquadrao-das-cores/assets/a34221cf1fce8502-img-u7531523000844266824-2.jpg",
+      "title": "u7531523000844266824 2",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/a34221cf1fce8502-img-u7531523000844266824-2.jpg",
+      "src": "../esquadrao-das-cores/assets/a34221cf1fce8502-img-u7531523000844266824-2.jpg",
+      "format": "jpg",
+      "bytes": 215501
+    },
+    {
+      "id": "esquadrao-das-cores/assets/a5e769f041f48817-img-u7531517723222656013-6.png",
+      "title": "u7531517723222656013 6",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/a5e769f041f48817-img-u7531517723222656013-6.png",
+      "src": "../esquadrao-das-cores/assets/a5e769f041f48817-img-u7531517723222656013-6.png",
+      "format": "png",
+      "bytes": 52494
+    },
+    {
+      "id": "esquadrao-das-cores/assets/a828cb4032ebd833-img-u7531524790269506400-6.jpg",
+      "title": "u7531524790269506400 6",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/a828cb4032ebd833-img-u7531524790269506400-6.jpg",
+      "src": "../esquadrao-das-cores/assets/a828cb4032ebd833-img-u7531524790269506400-6.jpg",
+      "format": "jpg",
+      "bytes": 116552
+    },
+    {
+      "id": "esquadrao-das-cores/assets/b44171af3c288daa-img-u7531517723222656013-3.jpg",
+      "title": "u7531517723222656013 3",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/b44171af3c288daa-img-u7531517723222656013-3.jpg",
+      "src": "../esquadrao-das-cores/assets/b44171af3c288daa-img-u7531517723222656013-3.jpg",
+      "format": "jpg",
+      "bytes": 184359
+    },
+    {
+      "id": "esquadrao-das-cores/assets/b4aaf4622f32bc82-img-u7531518972809160002-2.jpg",
+      "title": "u7531518972809160002 2",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/b4aaf4622f32bc82-img-u7531518972809160002-2.jpg",
+      "src": "../esquadrao-das-cores/assets/b4aaf4622f32bc82-img-u7531518972809160002-2.jpg",
+      "format": "jpg",
+      "bytes": 796978
+    },
+    {
+      "id": "esquadrao-das-cores/assets/bf4fed013ec27f54-img-u7531517723222656013-7.jpg",
+      "title": "u7531517723222656013 7",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/bf4fed013ec27f54-img-u7531517723222656013-7.jpg",
+      "src": "../esquadrao-das-cores/assets/bf4fed013ec27f54-img-u7531517723222656013-7.jpg",
+      "format": "jpg",
+      "bytes": 607279
+    },
+    {
+      "id": "esquadrao-das-cores/assets/c3e1037ba403a4a6-img-u7531518352482651956-9.jpg",
+      "title": "u7531518352482651956 9",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/c3e1037ba403a4a6-img-u7531518352482651956-9.jpg",
+      "src": "../esquadrao-das-cores/assets/c3e1037ba403a4a6-img-u7531518352482651956-9.jpg",
+      "format": "jpg",
+      "bytes": 1393333
+    },
+    {
+      "id": "esquadrao-das-cores/assets/c6711b9f32f47820-img-u7531523000844266824-7.jpg",
+      "title": "u7531523000844266824 7",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/c6711b9f32f47820-img-u7531523000844266824-7.jpg",
+      "src": "../esquadrao-das-cores/assets/c6711b9f32f47820-img-u7531523000844266824-7.jpg",
+      "format": "jpg",
+      "bytes": 394997
+    },
+    {
+      "id": "esquadrao-das-cores/assets/ccab7d2f7f8bb048-img-u7531518972809160002-5.png",
+      "title": "u7531518972809160002 5",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/ccab7d2f7f8bb048-img-u7531518972809160002-5.png",
+      "src": "../esquadrao-das-cores/assets/ccab7d2f7f8bb048-img-u7531518972809160002-5.png",
+      "format": "png",
+      "bytes": 1339477
+    },
+    {
+      "id": "esquadrao-das-cores/assets/ccdfb1f7aef0b69d-img-u7531523000844266824-8.jpg",
+      "title": "u7531523000844266824 8",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/ccdfb1f7aef0b69d-img-u7531523000844266824-8.jpg",
+      "src": "../esquadrao-das-cores/assets/ccdfb1f7aef0b69d-img-u7531523000844266824-8.jpg",
+      "format": "jpg",
+      "bytes": 2959056
+    },
+    {
+      "id": "esquadrao-das-cores/assets/cdcf9f8492f53c4b-img-u7531517723222656013-9.jpg",
+      "title": "u7531517723222656013 9",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/cdcf9f8492f53c4b-img-u7531517723222656013-9.jpg",
+      "src": "../esquadrao-das-cores/assets/cdcf9f8492f53c4b-img-u7531517723222656013-9.jpg",
+      "format": "jpg",
+      "bytes": 511214
+    },
+    {
+      "id": "esquadrao-das-cores/assets/d33347c125c986e8-img-u7531517723222656013-1.jpg",
+      "title": "u7531517723222656013 1",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/d33347c125c986e8-img-u7531517723222656013-1.jpg",
+      "src": "../esquadrao-das-cores/assets/d33347c125c986e8-img-u7531517723222656013-1.jpg",
+      "format": "jpg",
+      "bytes": 2161011
+    },
+    {
+      "id": "esquadrao-das-cores/assets/d6d1db196c334e6e-img-u7531518352482651956-8.jpg",
+      "title": "u7531518352482651956 8",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/d6d1db196c334e6e-img-u7531518352482651956-8.jpg",
+      "src": "../esquadrao-das-cores/assets/d6d1db196c334e6e-img-u7531518352482651956-8.jpg",
+      "format": "jpg",
+      "bytes": 174784
+    },
+    {
+      "id": "esquadrao-das-cores/assets/d959f64b976ea8b7-img-u7531518352482651956-3.jpg",
+      "title": "u7531518352482651956 3",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/d959f64b976ea8b7-img-u7531518352482651956-3.jpg",
+      "src": "../esquadrao-das-cores/assets/d959f64b976ea8b7-img-u7531518352482651956-3.jpg",
+      "format": "jpg",
+      "bytes": 133170
+    },
+    {
+      "id": "esquadrao-das-cores/assets/e0dd531a4993f512-img-u7531518972809160002-1.png",
+      "title": "u7531518972809160002 1",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/e0dd531a4993f512-img-u7531518972809160002-1.png",
+      "src": "../esquadrao-das-cores/assets/e0dd531a4993f512-img-u7531518972809160002-1.png",
+      "format": "png",
+      "bytes": 323967
+    },
+    {
+      "id": "esquadrao-das-cores/assets/e7f52bc7abef8311-img-u7531524790269506400-5.jpg",
+      "title": "u7531524790269506400 5",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/e7f52bc7abef8311-img-u7531524790269506400-5.jpg",
+      "src": "../esquadrao-das-cores/assets/e7f52bc7abef8311-img-u7531524790269506400-5.jpg",
+      "format": "jpg",
+      "bytes": 2596465
+    },
+    {
+      "id": "esquadrao-das-cores/assets/f769451258e682b8-img-u7531524790269506400-1.jpg",
+      "title": "u7531524790269506400 1",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/f769451258e682b8-img-u7531524790269506400-1.jpg",
+      "src": "../esquadrao-das-cores/assets/f769451258e682b8-img-u7531524790269506400-1.jpg",
+      "format": "jpg",
+      "bytes": 2715205
+    },
+    {
+      "id": "esquadrao-das-cores/assets/fde6d10fffc48e3b-img-u7531523000844266824-9.png",
+      "title": "u7531523000844266824 9",
+      "collection": "ESQUADRÃO DAS CORES",
+      "path": "esquadrao-das-cores/assets/fde6d10fffc48e3b-img-u7531523000844266824-9.png",
+      "src": "../esquadrao-das-cores/assets/fde6d10fffc48e3b-img-u7531523000844266824-9.png",
+      "format": "png",
+      "bytes": 1076690
+    },
+    {
+      "id": "museu-digital/assets/25971ff14b091062-image_20261127_173236.webp",
+      "title": "image 20261127 173236",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/25971ff14b091062-image_20261127_173236.webp",
+      "src": "../museu-digital/assets/25971ff14b091062-image_20261127_173236.webp",
+      "format": "webp",
+      "bytes": 467988
+    },
+    {
+      "id": "museu-digital/assets/3223deaf379819b1-img-u7532173449733445874-2.webp",
+      "title": "u7532173449733445874 2",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/3223deaf379819b1-img-u7532173449733445874-2.webp",
+      "src": "../museu-digital/assets/3223deaf379819b1-img-u7532173449733445874-2.webp",
+      "format": "webp",
+      "bytes": 158699
+    },
+    {
+      "id": "museu-digital/assets/3494c23e16c11cc1-img-u7532173449733445874-4.webp",
+      "title": "u7532173449733445874 4",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/3494c23e16c11cc1-img-u7532173449733445874-4.webp",
+      "src": "../museu-digital/assets/3494c23e16c11cc1-img-u7532173449733445874-4.webp",
+      "format": "webp",
+      "bytes": 90316
+    },
+    {
+      "id": "museu-digital/assets/3dc2fd3355b24ab1-img-u7532173449733445874-5.webp",
+      "title": "u7532173449733445874 5",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/3dc2fd3355b24ab1-img-u7532173449733445874-5.webp",
+      "src": "../museu-digital/assets/3dc2fd3355b24ab1-img-u7532173449733445874-5.webp",
+      "format": "webp",
+      "bytes": 150500
+    },
+    {
+      "id": "museu-digital/assets/594d45b67ce280c8-img-u7532173449733445874-1.webp",
+      "title": "u7532173449733445874 1",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/594d45b67ce280c8-img-u7532173449733445874-1.webp",
+      "src": "../museu-digital/assets/594d45b67ce280c8-img-u7532173449733445874-1.webp",
+      "format": "webp",
+      "bytes": 165996
+    },
+    {
+      "id": "museu-digital/assets/78ee6af5772c8d70-image_20261127_173324.webp",
+      "title": "image 20261127 173324",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/78ee6af5772c8d70-image_20261127_173324.webp",
+      "src": "../museu-digital/assets/78ee6af5772c8d70-image_20261127_173324.webp",
+      "format": "webp",
+      "bytes": 220284
+    },
+    {
+      "id": "museu-digital/assets/af0f3471f1375517-img-u7532173449733445874-7.webp",
+      "title": "u7532173449733445874 7",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/af0f3471f1375517-img-u7532173449733445874-7.webp",
+      "src": "../museu-digital/assets/af0f3471f1375517-img-u7532173449733445874-7.webp",
+      "format": "webp",
+      "bytes": 142249
+    },
+    {
+      "id": "museu-digital/assets/b088746ac45cb92a-img-u7532193603611642147-1.jpg",
+      "title": "u7532193603611642147 1",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/b088746ac45cb92a-img-u7532193603611642147-1.jpg",
+      "src": "../museu-digital/assets/b088746ac45cb92a-img-u7532193603611642147-1.jpg",
+      "format": "jpg",
+      "bytes": 1825658
+    },
+    {
+      "id": "museu-digital/assets/b721bbeee47a9a1e-img-u7532173449733445874-6.webp",
+      "title": "u7532173449733445874 6",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/b721bbeee47a9a1e-img-u7532173449733445874-6.webp",
+      "src": "../museu-digital/assets/b721bbeee47a9a1e-img-u7532173449733445874-6.webp",
+      "format": "webp",
+      "bytes": 142588
+    },
+    {
+      "id": "museu-digital/assets/d8ebef10ef29e586-img-u7532173449733445874-3.webp",
+      "title": "u7532173449733445874 3",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/d8ebef10ef29e586-img-u7532173449733445874-3.webp",
+      "src": "../museu-digital/assets/d8ebef10ef29e586-img-u7532173449733445874-3.webp",
+      "format": "webp",
+      "bytes": 159682
+    },
+    {
+      "id": "museu-digital/assets/efc51a6c94ae5995-img-u7532174009095742433-1.webp",
+      "title": "u7532174009095742433 1",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/efc51a6c94ae5995-img-u7532174009095742433-1.webp",
+      "src": "../museu-digital/assets/efc51a6c94ae5995-img-u7532174009095742433-1.webp",
+      "format": "webp",
+      "bytes": 210282
+    },
+    {
+      "id": "museu-digital/assets/f07e92a7ca10ac3a-img-u7532174009095742433-2.webp",
+      "title": "u7532174009095742433 2",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/f07e92a7ca10ac3a-img-u7532174009095742433-2.webp",
+      "src": "../museu-digital/assets/f07e92a7ca10ac3a-img-u7532174009095742433-2.webp",
+      "format": "webp",
+      "bytes": 186319
+    },
+    {
+      "id": "museu-digital/assets/fe6e760e96fdfe5a-img-u7532173449733445874-8.webp",
+      "title": "u7532173449733445874 8",
+      "collection": "MUSEU DIGITAL",
+      "path": "museu-digital/assets/fe6e760e96fdfe5a-img-u7532173449733445874-8.webp",
+      "src": "../museu-digital/assets/fe6e760e96fdfe5a-img-u7532173449733445874-8.webp",
+      "format": "webp",
+      "bytes": 204766
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/alice#001.webp",
+      "title": "alice#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/alice#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/alice#001.webp",
+      "format": "webp",
+      "bytes": 274968
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/chat#001.webp",
+      "title": "chat#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/chat#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/chat#001.webp",
+      "format": "webp",
+      "bytes": 268478
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/cosmos#001.webp",
+      "title": "cosmos#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/cosmos#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/cosmos#001.webp",
+      "format": "webp",
+      "bytes": 426740
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/hera#001.webp",
+      "title": "hera#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/hera#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/hera#001.webp",
+      "format": "webp",
+      "bytes": 292006
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/mini#001.webp",
+      "title": "mini#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/mini#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/mini#001.webp",
+      "format": "webp",
+      "bytes": 270498
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/sensei#001.webp",
+      "title": "sensei#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/sensei#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/sensei#001.webp",
+      "format": "webp",
+      "bytes": 904782
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/svt#001.webp",
+      "title": "svt#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/svt#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/svt#001.webp",
+      "format": "webp",
+      "bytes": 362752
+    },
+    {
+      "id": "nft-collection/NFT-CRYPY-COLORS/union#001.webp",
+      "title": "union#001",
+      "collection": "NFT COLLECTION",
+      "path": "nft-collection/NFT-CRYPY-COLORS/union#001.webp",
+      "src": "../nft-collection/NFT-CRYPY-COLORS/union#001.webp",
+      "format": "webp",
+      "bytes": 315828
+    },
+    {
+      "id": "padrao/Meta_AI_galaxy_fixed_20261116_054840.png",
+      "title": "Meta AI galaxy fixed 20261116 054840",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_galaxy_fixed_20261116_054840.png",
+      "src": "../padrao/Meta_AI_galaxy_fixed_20261116_054840.png",
+      "format": "png",
+      "bytes": 319289
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Azul_20261116_054433.png",
+      "title": "Meta AI layer Azul 20261116 054433",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Azul_20261116_054433.png",
+      "src": "../padrao/Meta_AI_layer_Azul_20261116_054433.png",
+      "format": "png",
+      "bytes": 157933
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Ciano_Teal_20261116_054709.png",
+      "title": "Meta AI layer Ciano Teal 20261116 054709",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Ciano_Teal_20261116_054709.png",
+      "src": "../padrao/Meta_AI_layer_Ciano_Teal_20261116_054709.png",
+      "format": "png",
+      "bytes": 30470
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Laranja_Amarelo_20261116_054732.png",
+      "title": "Meta AI layer Laranja Amarelo 20261116 054732",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Laranja_Amarelo_20261116_054732.png",
+      "src": "../padrao/Meta_AI_layer_Laranja_Amarelo_20261116_054732.png",
+      "format": "png",
+      "bytes": 16911
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Magenta_Rosa_20261116_054609.png",
+      "title": "Meta AI layer Magenta Rosa 20261116 054609",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Magenta_Rosa_20261116_054609.png",
+      "src": "../padrao/Meta_AI_layer_Magenta_Rosa_20261116_054609.png",
+      "format": "png",
+      "bytes": 56504
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Roxo_Violeta_20261116_054539.png",
+      "title": "Meta AI layer Roxo Violeta 20261116 054539",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Roxo_Violeta_20261116_054539.png",
+      "src": "../padrao/Meta_AI_layer_Roxo_Violeta_20261116_054539.png",
+      "format": "png",
+      "bytes": 66970
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Verde_20261116_054642.png",
+      "title": "Meta AI layer Verde 20261116 054642",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Verde_20261116_054642.png",
+      "src": "../padrao/Meta_AI_layer_Verde_20261116_054642.png",
+      "format": "png",
+      "bytes": 33268
+    },
+    {
+      "id": "padrao/Meta_AI_layer_Vermelho_20261116_054506.png",
+      "title": "Meta AI layer Vermelho 20261116 054506",
+      "collection": "PADRÕES VISUAIS",
+      "path": "padrao/Meta_AI_layer_Vermelho_20261116_054506.png",
+      "src": "../padrao/Meta_AI_layer_Vermelho_20261116_054506.png",
+      "format": "png",
+      "bytes": 63939
+    }
+  ]
+}

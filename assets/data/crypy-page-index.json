@@ -1,10 +1,10 @@
 {
   "version": "3.1",
-  "generated_at": "2026-11-26T11:00:00-03:00",
+  "generated_at": "2026-11-27T13:00:00-03:00",
   "source_branch": "main",
   "source_html_total": 608,
   "total": 269,
-  "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
+  "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu. O destino do Museu Digital utiliza o acervo visual catalogado em museu-digital/acervo.json.",
   "pages": [
     {
       "path": "art-figure-marketplace/marketplace.html",
@@ -277,9 +277,9 @@
       "group": "crypy-news"
     },
     {
-      "path": "crypy-news/museu.html",
-      "label": "Museu",
-      "group": "crypy-news"
+      "path": "museu-digital/index.html",
+      "label": "Museu Digital",
+      "group": "museu-digital"
     },
     {
       "path": "CRYPY-SHOTS/01-feed-para-voce.html",
