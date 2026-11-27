@@ -70,7 +70,7 @@ footer{text-align:center;color:#668a73;font-size:10px;padding:14px}
  </aside>
  <section class="viewer">
   <div class="viewerbar"><div id="currentTitle">CRYPYKUT · Início</div><div class="actions"><a class="action" id="openNew" href="./comunidade.html" target="_blank" rel="noopener">Abrir em nova aba ↗</a></div></div>
-  <iframe id="contentFrame" src="./comunidade.html" title="Conteúdo do portal CRYPY Social" allow="fullscreen; autoplay; clipboard-read; clipboard-write"></iframe>
+  <iframe id="contentFrame" src="../../social-crypykut/comunidade.html" title="Conteúdo do portal CRYPY Social" allow="fullscreen; autoplay; clipboard-read; clipboard-write"></iframe>
  </section>
 </div>
 <div class="note">MODO REAL: este portal unifica a navegação e preserva os módulos existentes. Login real, feed entre usuários, mensagens globais, uploads na nuvem, multiplayer e sincronização dependem de backend e integrações próprias; o portal não os ativa automaticamente.</div>
@@ -80,7 +80,7 @@ footer{text-align:center;color:#668a73;font-size:10px;padding:14px}
 (function(){
  "use strict";
  const frame=document.getElementById("contentFrame"),groupsEl=document.getElementById("groups"),search=document.getElementById("search"),titleEl=document.getElementById("currentTitle"),openNew=document.getElementById("openNew"),countEl=document.getElementById("count");
- let entries=[],activeModule="crypykut",activeUrl="./comunidade.html";
+ let entries=[],activeModule="crypykut",activeUrl="../../social-crypykut/comunidade.html";
  const moduleLabels={crypykut:"CRYPYKUT",shots:"CRYPY-SHOTS",land:"CRYPY-LAND"};
  function choose(item,button){
   activeModule=item.module;activeUrl=item.url;frame.src=item.url;titleEl.textContent=moduleLabels[item.module]+" · "+item.title;openNew.href=item.url;
