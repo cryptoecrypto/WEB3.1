@@ -277,8 +277,27 @@
     }
     function render() {
       var query = search.value.trim().toLocaleLowerCase("pt-BR");
+      var keywordAliases = {
+        "CRYPY INFINYT":"universo infinito cosmos metaverso ecossistema visao portal",
+        "NFT-COLLECTION":"nft token tokens colecao colecoes colecionavel colecionaveis arte digital",
+        "ESQUADRÃO DAS CORES":"esquadrao cores integrantes inteligencias agentes nexus btc eth usdt baby alice dola mini chat lucy",
+        "CRYPY ACADEMY-WEB3.1":"academia curso cursos ensino educacao aprender estudo web3 tecnologia formacao",
+        "BIOGRAFIA":"biografia historia origem trajetoria sensei fundador memoria",
+        "CRYPY NEWS":"news noticias novidades editorial atualizacoes",
+        "MUSEU DIGITAL":"museu acervo arquivo memoria obras preservacao exposicao",
+        "ART-FIGURE / MARKETPLACE":"art figure arte figuras marketplace mercado galeria artista colecionavel",
+        "CRYPY GAMES-DESAFIO":"games game jogos desafios arena jogar personagens",
+        "CRYPY-SOCIAL":"social crypykut comunidade amigos recados mensagens fotos shots perfil",
+        "BABY I.A.":"baby ia inteligencia artificial chatbot agente conhecimento memoria sincronizacao",
+        "WHITE PAPER / CRYPY COIN":"white paper coin moeda cripto utilidade token governanca fundamentos",
+        "CONTATO":"contato suporte email fale comunicacao redes sociais"
+      };
       var matches = pages.filter(function(page){
-        return !query || (page.label+" "+page.path+" "+page.group).toLocaleLowerCase("pt-BR").includes(query);
+        if (!query) return true;
+        var category = categoryFor(page);
+        var aliases = category && keywordAliases[category.label] ? keywordAliases[category.label] : "";
+        var searchable = [page.label,page.path,page.group,aliases].join(" ").toLocaleLowerCase("pt-BR");
+        return searchable.includes(query);
       });
       count.textContent = "13 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
       list.replaceChildren();
@@ -306,13 +325,14 @@
           var indexes = [
             {file:"index.html",name:"PORTAL",desc:"Entrada principal"},
             {file:"index5.html",name:"MATRIX",desc:"Home Matrix"},
-            {file:"mapa-colmeia.html",name:"COLMEIA",desc:"Mapa de páginas"},
+            {file:"Index6.html",name:"GRÁFICO",desc:"Painel de mercado"},
             {file:"index7.html",name:"NOTÍCIAS",desc:"Atalho editorial"},
             {file:"index8.html",name:"INFINYT",desc:"Home Infinyt"},
-            {file:"index9.html",name:"CATÁLOGO",desc:"Catálogo de páginas"}
+            {file:"index9.html",name:"CATÁLOGO",desc:"Catálogo de páginas"},
+            {file:"mapa-colmeia.html",name:"MAPA COLMEIA",desc:"Mapa de páginas"}
           ];
           var indexWrap = node("div",{className:"crypy-nav-detail"});
-          indexWrap.appendChild(node("div",{className:"crypy-nav-group-title"},"6 ACESSOS VERIFICADOS · PORTAS DA COLMEIA"));
+          indexWrap.appendChild(node("div",{className:"crypy-nav-group-title"},"6 ÍNDICES + MAPA · PORTAS DA COLMEIA"));
           var indexGrid = node("div",{className:"crypy-nav-index-grid"});
           indexes.forEach(function(item){
             var card = node(item.empty?"div":"a",{className:"crypy-nav-index"+(item.empty?" is-empty":""),href:item.empty?"#":new URL(item.file,siteRoot).href});
@@ -342,8 +362,8 @@
         grid.appendChild(button);
       });
       var indexButton = node("button",{className:"crypy-nav-category",type:"button"});
-      indexButton.appendChild(node("span",{},"9 ÍNDICES DA COLMEIA"));
-      indexButton.appendChild(node("small",{},"9"));
+      indexButton.appendChild(node("span",{},"6 ÍNDICES + MAPA DA COLMEIA"));
+      indexButton.appendChild(node("small",{},"7"));
       indexButton.addEventListener("click",function(){selected="ÍNDICES DA COLMEIA";render();});
       grid.appendChild(indexButton);
       list.appendChild(grid);
