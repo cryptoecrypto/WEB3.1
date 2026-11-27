@@ -3,7 +3,7 @@
   "generated_at": "2026-11-26T11:00:00-03:00",
   "source_branch": "main",
   "source_html_total": 608,
-  "total": 268,
+  "total": 269,
   "policy": "Páginas HTML de navegação das áreas editoriais. HDs, backups, módulos internos e arquivos técnicos não são exibidos no menu.",
   "pages": [
     {
@@ -45,6 +45,11 @@
       "path": "biografia/historia.html",
       "label": "Historia",
       "group": "biografia"
+    },
+    {
+      "path": "blog.html",
+      "label": "Blog — Por trás dos bastidores",
+      "group": "crypy-news"
     },
     {
       "path": "contato/contato-oficial.html",
