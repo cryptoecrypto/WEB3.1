@@ -64,7 +64,6 @@
     {label:"MUSEU DIGITAL", groups:["museu-digital"]},
     {label:"ART-FIGURE / MARKETPLACE", groups:["art-figure-marketplace","marketing"]},
     {label:"CRYPY GAMES-DESAFIO", groups:["crypy-games-desafios"]},
-    {label:"CRYPY-SOCIAL", groups:["social-crypykut","crypy-shots"]},
     {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
     {label:"WHITE PAPER / CRYPY COIN", groups:["crypy-coin","white-paper"]},
     {label:"CONTATO", groups:["contato"]},
