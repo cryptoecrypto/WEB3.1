@@ -47,6 +47,11 @@
       "group": "biografia"
     },
     {
+      "path": "blog.html",
+      "label": "BLOG",
+      "group": "blog"
+    },
+    {
       "path": "contato/contato-oficial.html",
       "label": "Contato Oficial",
       "group": "contato"
