@@ -31,8 +31,8 @@ jobs:
           node --check dev/micro-clock.js
       - name: Testar núcleo BABY, permissões e pesquisa externa
         run: node --test crypy-server-bridge/test/ CRYPY-13-CHATBOOTS/tests/
-      - name: Aplicar sincronização global com proteção das HDs
-        run: node scripts/sincronizar-crypy-global.mjs --apply
+      - name: Simular sincronização global sem alterar arquivos
+        run: node scripts/sincronizar-crypy-global.mjs
       - name: Validar scripts inline do BABY
         run: node scripts/validar-baby-chat-inline.mjs
       - name: Validar índice, menu e integração BABY
