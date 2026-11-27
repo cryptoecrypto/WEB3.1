@@ -1,0 +1,149 @@
+{
+  "version": "1.0.0",
+  "status": "diretriz_editorial_e_tecnica_documentada",
+  "title": "CRYPY Design Stewardship — BABY e Esquadrão",
+  "purpose": "Organizar responsabilidades e critérios profissionais para a evolução visual diária da Colmeia, preservando integralmente informação, identidade e integridade dos arquivos.",
+  "operationalTruth": "Os nomes abaixo representam perfis de responsabilidade e regras de trabalho. Não significam que existam agentes autônomos independentes, treinamento de modelo, monitoramento em segundo plano ou edição automática de código.",
+  "designCycle": {
+    "timezone": "America/Sao_Paulo",
+    "changeAt": "00:00",
+    "cadence": "Uma composição visual determinística por data; não muda a cada recarga.",
+    "allowedChanges": [
+      "paleta de cores",
+      "acabamento visual",
+      "raio de cartões",
+      "espaçamento visual",
+      "efeitos decorativos discretos",
+      "composição de cartões sem reordenar conteúdo semântico"
+    ],
+    "forbiddenChanges": [
+      "textos e informações",
+      "links e destinos",
+      "dados e registros",
+      "ordem semântica do conteúdo",
+      "formulários e ações",
+      "nomes e caminhos de arquivos",
+      "páginas especiais protegidas",
+      "HD MATRIZ",
+      "configurações de segurança"
+    ]
+  },
+  "roles": [
+    {
+      "name": "BABY I.A.",
+      "role": "Coordenador editorial do ciclo visual",
+      "responsibilities": [
+        "aplicar a composição diária configurada",
+        "exibir os três quadros diários",
+        "apresentar checklist visual e estado da configuração",
+        "informar falhas sem declarar correções não realizadas"
+      ],
+      "limits": [
+        "não editar arquivos-fonte no navegador",
+        "não publicar nem mesclar alterações",
+        "não afirmar que está monitorando em segundo plano"
+      ]
+    },
+    {
+      "name": "NEXUS",
+      "role": "Coordenação técnica e governança",
+      "responsibilities": [
+        "organizar mudanças e dependências",
+        "revisar escopo e riscos",
+        "manter rastreabilidade de commits e testes",
+        "separar planejamento, implementação, teste e homologação"
+      ],
+      "limits": [
+        "não declarar testes ou sincronização sem evidência"
+      ]
+    },
+    {
+      "name": "ETH",
+      "role": "Arquitetura de interface e design system",
+      "responsibilities": [
+        "tokens CSS e componentes reutilizáveis",
+        "layout responsivo e arquitetura de navegação",
+        "consistência entre páginas",
+        "compatibilidade progressiva"
+      ]
+    },
+    {
+      "name": "DOLA",
+      "role": "Direção de arte e identidade visual",
+      "responsibilities": [
+        "paletas iridescentes e combinações cromáticas",
+        "hierarquia visual e composição",
+        "ilustração, ícones e linguagem gráfica",
+        "preservar símbolos oficiais CRYPY"
+      ]
+    },
+    {
+      "name": "ALICE",
+      "role": "Pesquisa e referências de UX",
+      "responsibilities": [
+        "pesquisa de padrões de interface",
+        "heurísticas de usabilidade",
+        "referências visuais e organização de conteúdo",
+        "recomendações de acessibilidade"
+      ]
+    },
+    {
+      "name": "MINI",
+      "role": "Qualidade e análise visual",
+      "responsibilities": [
+        "checklist de regressão visual",
+        "testes em larguras móveis e desktop",
+        "verificação de contraste, foco e legibilidade",
+        "relato de defeitos com evidências"
+      ]
+    },
+    {
+      "name": "BTC",
+      "role": "Preservação da memória e identidade",
+      "responsibilities": [
+        "proteger conteúdo histórico e imagens aprovadas",
+        "comparar alterações com referências",
+        "evitar perda de identidade e de contexto"
+      ]
+    },
+    {
+      "name": "USDT",
+      "role": "Equilíbrio, acessibilidade e desempenho",
+      "responsibilities": [
+        "equilibrar cores, brilho e densidade",
+        "evitar efeitos que prejudiquem leitura",
+        "observar peso de recursos e fluidez",
+        "priorizar legibilidade e estabilidade"
+      ]
+    },
+    {
+      "name": "CHAT",
+      "role": "Histórico, documentação e revisão",
+      "responsibilities": [
+        "registrar o que mudou por versão",
+        "manter notas de revisão e decisões",
+        "comparar versões e explicar alterações",
+        "não transformar rascunhos em fatos homologados"
+      ]
+    }
+  ],
+  "qualityGates": [
+    "Preservar integralmente textos, dados, URLs, IDs, formulários e comportamento funcional.",
+    "Alvo de contraste WCAG 2.2 AA: 4.5:1 para texto comum e 3:1 para texto grande e componentes gráficos relevantes.",
+    "Foco de teclado visível, navegação sem mouse e rótulos acessíveis.",
+    "Respeitar prefers-reduced-motion e evitar animações contínuas excessivas.",
+    "Testar 320 px, 360 px, 390 px, tablet e desktop.",
+    "Verificar que os quadros não cobrem botões, conteúdo ou controles de navegação.",
+    "Executar auditoria de links, âncoras, imagens e recursos locais.",
+    "Registrar commit, relatório, limitações e aprovação humana antes de publicar."
+  ],
+  "maintenanceProtocol": [
+    "BABY mostra a composição do dia e sinaliza problemas visuais observados pelo usuário.",
+    "ALICE pesquisa uma solução; DOLA propõe a direção visual; ETH define a implementação reutilizável.",
+    "MINI verifica responsividade e regressões; USDT avalia equilíbrio, contraste e desempenho.",
+    "BTC confirma preservação de identidade e conteúdo; CHAT registra o histórico.",
+    "NEXUS coordena revisão e apresenta evidências ao Sensei.",
+    "Somente após autorização e testes a mudança de código pode ser publicada."
+  ],
+  "protection": "CRYPY INFINYT, CRYPY NEWS / Gráfico Real, HD MATRIZ e server bridge permanecem protegidos contra alterações visuais ou estruturais não aprovadas."
+}
