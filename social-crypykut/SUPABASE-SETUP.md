@@ -26,3 +26,7 @@
 - Home pública: `/WEB3.1/social-crypykut/`
 - Área após login: `/WEB3.1/social-crypykut/rede.html`
 - Callback OAuth: usar a URL da Home/área indicada na configuração do Supabase e manter a rota `rede.html` na lista permitida.
+
+
+## Limite importante do GitHub Pages
+O GitHub Pages publica arquivos estáticos e não consegue proteger arquivos HTML individuais no servidor. Nesta primeira etapa, o login protege a entrada no portal, mas os endereços diretos dos módulos legados continuam publicamente acessíveis até que o conteúdo privado seja servido por backend/API com autorização. Não use esta versão para guardar dados pessoais ou conversas privadas reais. A interface antiga também contém módulos demonstrativos; eles ainda precisam ser ligados às tabelas e testados.
