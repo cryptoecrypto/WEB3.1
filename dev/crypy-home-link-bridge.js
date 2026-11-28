@@ -5,7 +5,7 @@
   window.__CRYPY_HOME_LINK_BRIDGE__ = true;
 
   var routes = {
-    "01": "CRYPY-INFINYT/crypy-infinity.html",
+    "01": "CRYPY-INFINYT/index.html",
     "02": "NFT-COLLECTION/NFT-CRYPY-CARDS/nft-crypy-cards.html",
     "03": "ESQUADRÃO-DAS-CORES/esquadrao.html",
     "04": "CRYPY-ACADEMY/academia.html",
