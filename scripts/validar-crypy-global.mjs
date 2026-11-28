@@ -1,3 +1,4 @@
+// Revalidação após os lotes de sincronização HTML.
 import fs from "node:fs";
 import path from "node:path";
 
