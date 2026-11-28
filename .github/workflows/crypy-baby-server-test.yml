@@ -3,7 +3,7 @@ name: CRYPY BABY Server Tests
 on:
   push:
     paths:
-      - "crypy-news/hd-matriz/crypy-server-bridge/**"
+      - "CRYPY-NEWS/hd-matriz/crypy-server-bridge/**"
       - ".github/workflows/crypy-baby-server-test.yml"
   pull_request:
     paths:
