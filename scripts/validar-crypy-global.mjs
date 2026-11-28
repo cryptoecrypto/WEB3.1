@@ -113,7 +113,22 @@ for (const page of topMenuPages) {
   if (!target.startsWith(root + path.sep)) errors.push("caminho fora do repositório no catálogo superior: " + normalized);
   else if (!fs.existsSync(target)) errors.push("página ausente no catálogo superior: " + normalized);
 }
-if (topMenuPages.length !== 459) errors.push("catálogo superior deve conter 459 HTMLs (encontrados: " + topMenuPages.length + ")");
+if (topMenuPages.length !== 291) errors.push("catálogo superior deve conter 291 HTMLs (encontrados: " + topMenuPages.length + ")");
+const contactPages = (manifest.pages || []).filter(page => String(page.group || "").toLowerCase() === "contato");
+if (contactPages.length !== 1 || String(contactPages[0].path || "").toLowerCase() !== "contato/contato-oficial.html") {
+  errors.push("O menu global deve exibir somente contato/contato-oficial.html na categoria CONTATO");
+}
+const hiddenTopMenuPage = page => {
+  const normalized = String(page.path || "").replace(/\\/g, "/").toLowerCase();
+  const parts = normalized.split("/");
+  const base = parts[parts.length - 1];
+  return parts.includes("momory-boost") || parts.includes("memory-boost") ||
+    ["chatboot-baby-ia.html", "hd-baby-ia.html", "hd-memory.html"].includes(base) ||
+    (parts[0] === "contato" && normalized !== "contato/contato-oficial.html");
+};
+if (topMenuPages.some(hiddenTopMenuPage)) errors.push("O catálogo superior ainda expõe páginas BABY/HD/Memory Boost ou subpáginas não oficiais de CONTATO");
+if ((app.match(/MEMORY-BOOST/g) || []).length) errors.push("MEMORY-BOOST ainda aparece como módulo no menu BABY I.A.");
+
 
 if (!nav.includes("crypy-global-runtime.js") || !nav.includes("crypy-dynamic-design.js")) {
   errors.push("menu global não carrega o runtime BABY e o design dinâmico");

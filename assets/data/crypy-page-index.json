@@ -57,11 +57,6 @@
       "group": "contato"
     },
     {
-      "path": "contato/crypykut.html",
-      "label": "Crypykut",
-      "group": "contato"
-    },
-    {
       "path": "crypy-academy/academia.html",
       "label": "Academia",
       "group": "crypy-academy"
