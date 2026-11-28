@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#050505;
+  --surface:#111111;
+  --surface2:#1a1a1a;
+  --line:#2b2b2b;
+  --text:#f5f5f5;
+  --muted:#b8b8b8;
+  --blue:#2f7bff;
+  --yellow:#ffd52e;
+  --green:#2fd47a;
+  --orange:#ff7a1a;
+  --safe-area-inset-top: var(--safe-area-inset-top, 0px);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#050505; --surface:#111111; --surface2:#1a1a1a; --line:#2b2b2b; --text:#f5f5f5; --muted:#b8b8b8; }
+}
+*{ box-sizing:border-box; }
+html{ background:var(--bg); }
+body{ margin:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button, input, select, textarea{ font:inherit; }
+button{ cursor:pointer; }
+.code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+.wrap{ overflow-wrap:anywhere; }
+.tab-btn{ transition:.18s ease; }
+.tab-btn:hover{ transform:translateY(-1px); }
+.flow-dot{ animation: pulseDot 1s ease-in-out infinite; }
+@keyframes pulseDot{ 0%,100%{ opacity:.35; transform:scale(.85);} 50%{ opacity:1; transform:scale(1.15);} }
+.fade-in{ animation: fadeIn .35s ease both; }
+@keyframes fadeIn{ from{ opacity:0; transform:translateY(4px);} to{ opacity:1; transform:none;} }
