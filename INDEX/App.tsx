@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Search, Folder, FolderOpen, ArrowLeft, Bitcoin, Coins, Hexagon, CalendarDays, BarChart3, Newspaper, LayoutDashboard, Phone, Sparkles, Bot, Landmark, Image as ImageIcon, Shield, Gamepad2, Map as MapIcon, Camera, Video, Cpu, Activity, Plug, Baby, TrendingUp, Flame, Crown, ChevronLeft, ChevronRight, Zap, Globe, Infinity as InfinityIcon, Palette, GraduationCap, BookOpen, Users, FileText, Store, Trophy, Heart } from "lucide-react";
-import photoDragoes from "container:///mnt/data/src/assets/1bb99cee1b02aea1-img-u7532246337599007717-2.jpg";
-import photoLucy from "container:///mnt/data/src/assets/9a46cb1707f05fd0-img-u7532246337599007717-1.jpg";
+import photoDragoes from "./assets/1bb99cee1b02aea1-img-u7532246337599007717-2.jpg";
+import photoLucy from "./assets/9a46cb1707f05fd0-img-u7532246337599007717-1.jpg";
 
 type Page = "menu" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "m01" | "m02" | "m03" | "m04" | "m05" | "m06" | "m07" | "m08" | "m09" | "m10" | "m11" | "m12" | "m13";
 const shellStyle: React.CSSProperties = { boxSizing: 'border-box', paddingTop: 'var(--safe-area-inset-top)' };
