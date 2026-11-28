@@ -25,7 +25,7 @@ for (const page of manifest.pages || []) {
     errors.push("entrada inválida no índice legado");
     continue;
   }
-  const normalized = page.path.replace(/\\\\/g, "/");
+  const normalized = page.path.replace(/\\/g, "/");
   if (normalized.startsWith("/") || normalized.split("/").includes("..")) {
     errors.push("caminho inseguro no índice legado: " + page.path);
     continue;
@@ -68,10 +68,10 @@ if (!nav.includes('if (pagePath === "crypy-coin/white-paper.html" || pagePath ==
   errors.push("White Paper não está roteado para sua categoria oficial");
 }
 
-// A HOME atual é uma aplicação React: validar a origem App.tsx, não
-// procurar marcadores TEMA/INDEX no index.html compilado/gerado.
-const menuFolderCount = (app.match(/\\{id:"m\\d{2}", num:"\\d{2}", title:/g) || []).length;
-const indexCardCount = (app.match(/\\{id:"\\d{2}", title:"INDEX /g) || []).length;
+// A HOME atual é uma aplicação React: validar App.tsx, não procurar
+// marcadores TEMA/INDEX no index.html compilado/gerado.
+const menuFolderCount = (app.match(/\{id:"m\d{2}", num:"\d{2}", title:/g) || []).length;
+const indexCardCount = (app.match(/\{id:"\d{2}", title:"INDEX /g) || []).length;
 if (menuFolderCount !== 13) errors.push("App.tsx deve declarar exatamente 13 pastas no menu principal (encontradas: " + menuFolderCount + ")");
 if (indexCardCount !== 10) errors.push("App.tsx deve declarar os 10 índices atuais (encontrados: " + indexCardCount + ")");
 if (!app.includes('script.src=new URL("assets/js/crypy-menu-superior-13-html.js",window.location.href).href;')) {
@@ -99,14 +99,14 @@ for (const page of topMenuPages) {
     errors.push("entrada inválida no catálogo superior");
     continue;
   }
-  const normalized = page.path.replace(/\\\\/g, "/");
+  const normalized = page.path.replace(/\\/g, "/");
   if (normalized.startsWith("/") || normalized.split("/").includes("..")) {
     errors.push("caminho inseguro no catálogo superior: " + page.path);
     continue;
   }
   if (topMenuSeen.has(normalized)) errors.push("página duplicada no catálogo superior: " + normalized);
   topMenuSeen.add(normalized);
-  if (/^(?:CRYPY-NEWS\\/hd-matriz|hd-oculto)(?:\\/|$)/i.test(normalized)) {
+  if (/^(?:CRYPY-NEWS\/hd-matriz|hd-oculto)(?:\/|$)/i.test(normalized)) {
     errors.push("HD MATRIZ/HD oculto não pode aparecer no menu público: " + normalized);
   }
   const target = path.resolve(root, normalized);
@@ -130,7 +130,7 @@ for (const file of serviceEntrypoints) {
 }
 
 if (errors.length) {
-  console.error(errors.join("\\n"));
+  console.error(errors.join("\n"));
   process.exit(1);
 }
 
