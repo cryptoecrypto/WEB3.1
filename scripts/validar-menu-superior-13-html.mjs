@@ -37,7 +37,20 @@ manifest.groups.forEach((group,index)=>{
     if(!fs.existsSync(path.resolve(root,normalized))) errors.push("HTML não encontrado: "+normalized);
   }
 });
-if(total!==459||manifest.total!==459) errors.push("Total esperado de 459 HTMLs; catálogo declara "+total+".");
+if(total!==291||manifest.total!==291) errors.push("Total esperado de 291 HTMLs; catálogo declara "+total+".");
+const contactGroup=manifest.groups.find(group=>group.id==="m13");
+if(!contactGroup||contactGroup.pages.length!==1||contactGroup.pages[0].path.toLowerCase()!=="contato/contato-oficial.html") errors.push("CONTATO deve exibir somente contato-oficial.html.");
+for(const group of manifest.groups){
+  for(const page of group.pages||[]){
+    const normalized=page.path.replace(/\\/g,"/").toLowerCase();
+    const parts=normalized.split("/");
+    const base=parts[parts.length-1];
+    const hidden=parts.includes("momory-boost")||parts.includes("memory-boost")||
+      ["chatboot-baby-ia.html","hd-baby-ia.html","hd-memory.html"].includes(base)||
+      (parts[0]==="contato"&&normalized!=="contato/contato-oficial.html");
+    if(hidden) errors.push("Página interna ou fora de CONTATO exposta no menu: "+page.path);
+  }
+}
 if(!menuScript.includes("crypy-menu-superior-13-html.json")) errors.push("Script não carrega o catálogo.");
 if(!menuScript.includes('textContent = String(index + 1).padStart(2, "0")')) errors.push("Script não apresenta as 13 categorias numeradas.");
 if(!menuScript.includes('button.textContent')||!menuScript.includes('"MENU"')) errors.push("Script não está ligado ao botão MENU superior.");
