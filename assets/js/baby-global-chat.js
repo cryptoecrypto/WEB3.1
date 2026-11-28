@@ -37,9 +37,12 @@
 
     var frame = document.createElement("iframe");
     frame.id = "crypy-baby-global-frame";
-    frame.title = "BABY I.A — ChatBoot CRYPY";
+    frame.title = "BABY I.A — ChatBoot Global CRYPY · 13 especialistas";
     frame.loading = "lazy";
-    frame.src = new URL("../../chatboot-baby-ia.html?embed=1", widgetScriptUrl || document.baseURI).href;
+    var chatUrl = new URL("../../chatboot-global.html", widgetScriptUrl || document.baseURI);
+    chatUrl.searchParams.set("embed", "1");
+    chatUrl.searchParams.set("source", location.pathname || "/");
+    frame.src = chatUrl.href;
     frame.referrerPolicy = "same-origin";
     panel.appendChild(frame);
 
