@@ -14,6 +14,11 @@ const protectedPaths = [
   /^crypy-news\/hd-matriz\//i,
   /^crypy-server-bridge\//i,
   /^crypy-13-chatboots\//i,
+  /^esquadrao-das-cores\/esquadrao-das-cores\.html$/i,
+  /^esquadrao-das-cores\/hq-collection\/esquadrao-das-cores\.html$/i,
+  /^nft-collection\/nft-crypy-colors\/nft-colors-deluxe\.html$/i,
+  /^nft-collection\/nft-crypy-colors\/nft-crypy-colors\.html$/i,
+  /^nft-collection\/nft-crypy-collection\/nft-colors-collection\.html$/i,
   /(^|\/)hd-oculto(\/|$)/i,
   /(^|\/)hd-matriz(\/|$)/i
 ];
