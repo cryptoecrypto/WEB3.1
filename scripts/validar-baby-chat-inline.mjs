@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import vm from "node:vm";
 
-const htmlPath = "chatboot-baby-ia.html";
+const htmlPath = "BABY-IA/chatboot-baby-ia.html";
 const html = fs.readFileSync(htmlPath, "utf8");
 const scripts = Array.from(html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi))
   .filter(match => {
