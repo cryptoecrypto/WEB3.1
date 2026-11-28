@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#030807"><title>DUNGEON-CRYPY WORLD — Cyberpunk RPG</title>
+<style>
+:root{--neon:#00ff88;--cyan:#56eaff;--gold:#ffc857;--panel:rgba(3,12,10,.84);--line:rgba(0,255,136,.55)}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030807;color:#eafff4;font-family:system-ui,Segoe UI,sans-serif}#renderCanvas{width:100%;height:100%;display:block;touch-action:none;outline:0}
+.hud{position:fixed;z-index:5;inset:12px 12px auto;display:flex;justify-content:space-between;gap:12px;pointer-events:none}.panel{background:var(--panel);border:1px solid var(--line);box-shadow:0 0 22px #00ff8822,inset 0 0 18px #00ff8810;border-radius:12px;padding:10px 13px;backdrop-filter:blur(8px)}.stats{width:min(310px,58vw)}.brand{font-weight:900;letter-spacing:.12em;color:var(--neon);text-shadow:0 0 15px #00ff88}.small{font-size:12px;color:#a9c9ba}.bar{height:9px;background:#10241b;border-radius:8px;overflow:hidden;margin:5px 0}.bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#00a85c,#00ff88)}#xpbar{background:linear-gradient(90deg,#168bff,#56eaff);width:0}.right{text-align:right}.right button,.action{pointer-events:auto;background:#06251a;color:var(--neon);border:1px solid var(--neon);border-radius:9px;padding:8px 11px;font-weight:800;cursor:pointer}
+#message{position:fixed;z-index:7;top:23%;left:50%;transform:translateX(-50%);text-align:center;color:var(--neon);font-size:clamp(18px,4vw,30px);font-weight:900;text-shadow:0 0 18px #00ff88;pointer-events:none;opacity:0;transition:opacity .25s}
+#intro{position:fixed;z-index:10;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at center,#102b20dd,#020605f5 72%);padding:18px;overflow:auto}#intro.hidden{display:none}.intro-card{width:min(760px,100%);padding:clamp(18px,4vw,34px);border:1px solid var(--neon);border-radius:18px;background:#04100df2;box-shadow:0 0 50px #00ff8830;text-align:center}.intro-card h1{margin:0;color:var(--neon);font-size:clamp(27px,6vw,48px);letter-spacing:.08em;text-shadow:0 0 20px #00ff88}.intro-card p{color:#c4ded1;line-height:1.55}.regions{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;margin:18px 0}.region{min-height:76px;background:#071a14;color:#eafff4;border:1px solid #28694e;border-radius:10px;padding:10px;cursor:pointer}.region.active{border:2px solid var(--neon);box-shadow:0 0 16px #00ff8844;color:var(--neon)}#start{background:var(--neon);color:#00190d;border:0;border-radius:10px;padding:13px 28px;font-weight:1000;font-size:16px;cursor:pointer}
+#touch{position:fixed;z-index:6;inset:auto 12px 16px;display:flex;justify-content:space-between;align-items:end;pointer-events:none}.pad{width:112px;height:112px;border:1px solid #00ff8877;border-radius:50%;background:#00ff8818;pointer-events:auto;touch-action:none;position:relative}.pad:after{content:"";position:absolute;width:44px;height:44px;border-radius:50%;background:#00ff8855;border:1px solid var(--neon);left:33px;top:33px}.actions{display:flex;gap:9px;pointer-events:auto}.actions button{width:66px;height:66px;border-radius:50%;background:#06251add;color:var(--neon);border:1px solid var(--neon);font-weight:900;touch-action:none}.actions button:first-child{width:78px;height:78px;background:#00ff8830}
+#footer{position:fixed;z-index:5;bottom:8px;left:50%;transform:translateX(-50%);font-size:10px;color:#8bb5a1;text-shadow:0 1px 3px #000;pointer-events:none;white-space:nowrap}
+@media(hover:hover) and (pointer:fine){#touch{opacity:.25}#touch:hover{opacity:1}}
+@media(max-width:600px){.hud{inset:8px 8px auto}.stats{width:58vw;padding:8px}.right{padding:8px}.small{font-size:10px}#footer{bottom:3px}}
+</style>
+</head>
+<body>
+<canvas id="renderCanvas" aria-label="Mundo 3D Dungeon Crypy"></canvas>
+<div class="hud">
+ <div class="panel stats"><div class="brand">DUNGEON-CRYPY WORLD</div><div id="zoneName" class="small">REINO DE CRYPY</div><div>VIDA <span id="hpText">100/100</span></div><div class="bar"><i id="hpbar"></i></div><div class="small">NÍVEL <b id="level">1</b> · XP <span id="xpText">0/100</span></div><div class="bar"><i id="xpbar"></i></div></div>
+ <div class="panel right"><div class="brand">CRYPY CORE</div><div class="small" id="engineStatus">Inicializando motor 3D…</div><button id="saveBtn">SALVAR</button></div>
+</div>
+<div id="message"></div>
+<div id="intro"><div class="intro-card"><h1>DUNGEON-CRYPY</h1><p>WORLD // CYBERPUNK FANTASY RPG<br>Explore regiões, enfrente sentinelas corrompidas e evolua no universo CRYPY.</p><div class="regions" id="regions">
+<button class="region active" data-region="0">01 · REINO DE CRYPY<br><small>Distrito inicial</small></button><button class="region" data-region="1">02 · FLORESTA ESMERALDA<br><small>Bioluminescência</small></button><button class="region" data-region="2">03 · MONTANHAS DO GELO<br><small>Fortaleza glacial</small></button><button class="region" data-region="3">04 · TERRAS VULCÂNICAS<br><small>Forjas de magma</small></button><button class="region" data-region="4">05 · ABISMO INFINITO<br><small>Ruínas suspensas</small></button></div><p class="small">PC: WASD / setas para mover · mouse para orbitar · Espaço para atacar · Shift para esquivar<br>Celular: joystick à esquerda · botões à direita</p><button id="start">ENTRAR NO MUNDO</button><p class="small">Protótipo V2 independente · progresso salvo localmente neste navegador.</p></div></div>
+<div id="touch"><div class="pad" id="pad" aria-label="Joystick virtual"></div><div class="actions"><button id="dodge">DASH</button><button id="attack">ATACAR</button></div></div>
+<div id="footer">BABYLON.JS · WEBGPU PRIORITÁRIO / WEBGL 2 FALLBACK · BUILD PROTÓTIPO</div>
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+<script>
+(()=>{'use strict';
+const canvas=document.getElementById('renderCanvas'),status=document.getElementById('engineStatus'),msg=document.getElementById('message');
+const names=['REINO DE CRYPY','FLORESTA ESMERALDA','MONTANHAS DO GELO','TERRAS VULCÂNICAS','ABISMO INFINITO'];
+const palettes=[['#00ff88','#183d2d'],['#6dff9b','#123d2b'],['#8be8ff','#19334b'],['#ff8b43','#4b2016'],['#b7a1ff','#211a42']];
+let selected=0,scene,engine,player,core,enemyMeshes=[],keys={},joy={x:0,y:0},hp=100,xp=0,level=1,attackCooldown=0,dashCooldown=0,gameStarted=false,worldTime=0;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function say(t){msg.textContent=t;msg.style.opacity=1;clearTimeout(say.timer);say.timer=setTimeout(()=>msg.style.opacity=0,1600)}
+function updateHud(){document.getElementById('hpText').textContent=Math.ceil(hp)+'/100';document.getElementById('hpbar').style.width=hp+'%';document.getElementById('level').textContent=level;document.getElementById('xpText').textContent=xp+'/'+(level*100);document.getElementById('xpbar').style.width=(xp/(level*100)*100)+'%';document.getElementById('zoneName').textContent=names[selected]}
+function mat(name,color,emissive=0){const m=new BABYLON.StandardMaterial(name,scene);m.diffuseColor=BABYLON.Color3.FromHexString(color);if(emissive)m.emissiveColor=BABYLON.Color3.FromHexString(color).scale(emissive);m.specularColor=new BABYLON.Color3(.25,.35,.3);return m}
+function buildWorld(region){
+ if(scene)scene.dispose();scene=new BABYLON.Scene(engine);scene.clearColor=new BABYLON.Color4(.008,.018,.016,1);scene.fogMode=BABYLON.Scene.FOGMODE_EXP2;scene.fogDensity=.012;scene.fogColor=BABYLON.Color3.FromHexString(palettes[region][1]);
+ const hemi=new BABYLON.HemisphericLight('ambient',new BABYLON.Vector3(0,1,0),scene);hemi.intensity=.72;
+ const sun=new BABYLON.DirectionalLight('key',new BABYLON.Vector3(-.5,-1,.35),scene);sun.position=new BABYLON.Vector3(15,28,-12);sun.intensity=1.25;
+ const ground=BABYLON.MeshBuilder.CreateGround('ground',{width:90,height:90,subdivisions:2},scene);ground.material=mat('terrain',palettes[region][1]);ground.receiveShadows=true;
+ const neon=mat('neon',palettes[region][0],.85),dark=mat('obsidian','#07110f'),stone=mat('alloy','#263b36'),glow=mat('portal','#00ff88',1.2);
+ for(let i=0;i<34;i++){let x=(Math.random()-.5)*78,z=(Math.random()-.5)*78;if(Math.abs(x)<7&&Math.abs(z)<7)continue;let h=2+Math.random()*8;
+  const b=BABYLON.MeshBuilder.CreateBox('spire'+i,{width:1.2+Math.random()*2,height:h,depth:1.2+Math.random()*2},scene);b.position.set(x,h/2,z);b.material=i%3?stone:dark;
+  if(i%2===0){const strip=BABYLON.MeshBuilder.CreateBox('lightstrip'+i,{width:.08,height:h*.8,depth:.08},scene);strip.position.set(x+.62,h/2,z);strip.material=neon}
+ }
+ for(let i=0;i<13;i++){const p=BABYLON.MeshBuilder.CreateSphere('crystal'+i,{diameter:.5+Math.random()*.8,segments:8},scene);p.position.set((Math.random()-.5)*70,1+Math.random()*4,(Math.random()-.5)*70);p.material=neon}
+ const portal=BABYLON.MeshBuilder.CreateTorus('portal',{diameter:5,thickness:.22,tessellation:48},scene);portal.position.set(0,3,17);portal.rotation.x=Math.PI/2;portal.material=glow;
+ const plinth=BABYLON.MeshBuilder.CreateCylinder('portalBase',{diameter:7,height:.45,tessellation:12},scene);plinth.position.set(0,.22,17);plinth.material=dark;
+ player=BABYLON.MeshBuilder.CreateCapsule('crypy-hero',{height:2.2,radius:.55},scene);player.position.set(0,1.2,0);player.material=mat('hero','#c9ffe3',.08);
+ const chest=BABYLON.MeshBuilder.CreateBox('core',{width:.58,height:.48,depth:.18},scene);chest.parent=player;chest.position.set(0,.05,-.48);chest.material=mat('heroCore','#00ff88',1.4);
+ const visor=BABYLON.MeshBuilder.CreateBox('visor',{width:.72,height:.16,depth:.12},scene);visor.parent=player;visor.position.set(0,.58,-.48);visor.material=mat('visor','#00ff88',1.8);
+ const camera=new BABYLON.ArcRotateCamera('camera',-Math.PI/2,1.12,12,player.position,scene);camera.attachControl(canvas,true);camera.lowerRadiusLimit=7;camera.upperRadiusLimit=18;camera.lowerBetaLimit=.55;camera.upperBetaLimit=1.45;camera.wheelPrecision=45;camera.panningSensibility=0;scene.activeCamera=camera;
+ enemyMeshes=[];for(let i=0;i<7;i++){const e=BABYLON.MeshBuilder.CreateCapsule('sentinela'+i,{height:2,radius:.58},scene);e.position.set((Math.random()-.5)*34,1,(Math.random()-.5)*34);if(Math.abs(e.position.x)<5&&Math.abs(e.position.z)<5)e.position.x+=9;e.material=mat('enemy'+i,region===3?'#ff623d':'#b33160',.55);e.metadata={hp:40,hit:0};enemyMeshes.push(e);const eye=BABYLON.MeshBuilder.CreateBox('eye'+i,{width:.5,height:.12,depth:.1},scene);eye.parent=e;eye.position.set(0,.35,-.5);eye.material=neon}
+ const pipeline=new BABYLON.DefaultRenderingPipeline('crypyPipeline',true,scene,[camera]);pipeline.bloomEnabled=true;pipeline.bloomWeight=.22;pipeline.bloomThreshold=.72;pipeline.bloomKernel=48;pipeline.fxaaEnabled=true;
+ const shadows=new BABYLON.ShadowGenerator(1024,sun);shadows.useBlurExponentialShadowMap=true;shadows.blurKernel=16;shadows.addShadowCaster(player);enemyMeshes.forEach(e=>shadows.addShadowCaster(e));
+ scene.onBeforeRenderObservable.add(()=>{worldTime+=engine.getDeltaTime()/1000;portal.rotation.z+=.004;portal.scaling.y=1+.05*Math.sin(worldTime*2);enemyMeshes.forEach(e=>{if(e.isDisposed())return;e.rotation.y+=.006;if(e.metadata.hit>0){e.metadata.hit-=engine.getDeltaTime()/1000;e.scaling.setAll(1.12)}else e.scaling.setAll(1)})});
+}
+function attack(){if(!gameStarted||attackCooldown>0)return;attackCooldown=.48;let target=null,best=4.3;for(const e of enemyMeshes){if(e.isDisposed())continue;const d=BABYLON.Vector3.Distance(player.position,e.position);if(d<best){best=d;target=e}}if(target){target.metadata.hp-=22;target.position.addInPlace(target.position.subtract(player.position).normalize().scale(1.3));target.metadata.hit=.18;if(target.metadata.hp<=0){target.dispose();xp+=35;say('SENTINELA ELIMINADA +35 XP');if(xp>=level*100){xp-=level*100;level++;say('NÍVEL '+level+' ALCANÇADO')}updateHud()}}else say('ATAQUE — NENHUM ALVO NO ALCANCE')}
+function dodge(){if(!gameStarted||dashCooldown>0)return;dashCooldown=1.1;const f=scene.activeCamera.getForwardRay().direction;player.position.addInPlace(new BABYLON.Vector3(f.x,0,f.z).normalize().scale(4));say('DASH')}
+function frame(){if(!scene||!gameStarted)return;const dt=Math.min(engine.getDeltaTime()/1000,.05);attackCooldown=Math.max(0,attackCooldown-dt);dashCooldown=Math.max(0,dashCooldown-dt);
+ let x=(keys['d']||keys['arrowright']?1:0)-(keys['a']||keys['arrowleft']?1:0)+joy.x,z=(keys['s']||keys['arrowdown']?1:0)-(keys['w']||keys['arrowup']?1:0)+joy.y;
+ const v=new BABYLON.Vector3(x,0,z);if(v.length()>.08){v.normalize();const cam=scene.activeCamera;const forward=cam.getForwardRay().direction;forward.y=0;forward.normalize();const right=BABYLON.Vector3.Cross(forward,BABYLON.Axis.Y).normalize();const move=right.scale(v.x).add(forward.scale(-v.z));player.position.addInPlace(move.scale(7*dt));player.position.x=clamp(player.position.x,-42,42);player.position.z=clamp(player.position.z,-42,42);player.rotation.y=Math.atan2(move.x,move.z)}
+ for(const e of enemyMeshes){if(e.isDisposed())continue;const delta=player.position.subtract(e.position);delta.y=0;const d=delta.length();if(d>2.1&&d<18){delta.normalize();e.position.addInPlace(delta.scale(1.25*dt))}else if(d<=2.1){hp=Math.max(0,hp-9*dt);if(hp===0){hp=100;player.position.set(0,1.2,0);say('REINICIALIZAÇÃO DO NÚCLEO — VIDA RESTAURADA')}updateHud()}}
+}
+async function boot(){
+ if(!window.BABYLON){status.textContent='Falha ao carregar Babylon.js';say('Verifique sua conexão para carregar o motor 3D');return}
+ try{if(navigator.gpu){try{engine=new BABYLON.WebGPUEngine(canvas,{antialias:true,adaptToDeviceRatio:true});await engine.initAsync();status.textContent='WebGPU ativo'}catch(e){engine=null}}
+ if(!engine){engine=new BABYLON.Engine(canvas,true,{preserveDrawingBuffer:false,stencil:true,adaptToDeviceRatio:true});status.textContent='WebGL 2 ativo (fallback)'}
+ engine.setHardwareScalingLevel(Math.max(1,window.devicePixelRatio||1)>2?1.5:1);buildWorld(selected);engine.runRenderLoop(()=>{if(scene){frame();scene.render()}});window.addEventListener('resize',()=>engine.resize());updateHud();
+ }catch(e){status.textContent='Erro ao iniciar 3D';console.error(e)}
+}
+document.querySelectorAll('.region').forEach(b=>b.addEventListener('click',()=>{selected=Number(b.dataset.region);document.querySelectorAll('.region').forEach(x=>x.classList.toggle('active',x===b));updateHud();if(engine){buildWorld(selected);say(names[selected])}}));
+document.getElementById('start').addEventListener('click',()=>{if(!engine){say('Aguarde o motor 3D carregar');return}gameStarted=true;document.getElementById('intro').classList.add('hidden');say('BEM-VINDO AO '+names[selected])});
+document.getElementById('attack').addEventListener('pointerdown',e=>{e.preventDefault();attack()});document.getElementById('dodge').addEventListener('pointerdown',e=>{e.preventDefault();dodge()});
+document.getElementById('saveBtn').addEventListener('click',()=>{try{localStorage.setItem('dungeonCrypyWorldV2',JSON.stringify({region:selected,hp,xp,level,at:new Date().toISOString()}));say('PROGRESSO V2 SALVO')}catch(e){say('NÃO FOI POSSÍVEL SALVAR') }});
+window.addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(e.code==='Space'){e.preventDefault();attack()}if(e.key==='Shift')dodge()});window.addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+const pad=document.getElementById('pad');let pointer=null;pad.addEventListener('pointerdown',e=>{pointer=e.pointerId;pad.setPointerCapture(pointer)});pad.addEventListener('pointermove',e=>{if(pointer!==e.pointerId)return;const r=pad.getBoundingClientRect(),dx=(e.clientX-(r.left+r.width/2))/(r.width*.36),dy=(e.clientY-(r.top+r.height/2))/(r.height*.36);joy.x=clamp(dx,-1,1);joy.y=clamp(dy,-1,1);pad.style.setProperty('--jx',(joy.x*22)+'px');pad.style.setProperty('--jy',(joy.y*22)+'px');pad.style.backgroundPosition='center'});const reset=()=>{pointer=null;joy={x:0,y:0}};pad.addEventListener('pointerup',reset);pad.addEventListener('pointercancel',reset);
+try{const saved=JSON.parse(localStorage.getItem('dungeonCrypyWorldV2')||'null');if(saved){selected=clamp(Number(saved.region)||0,0,4);hp=clamp(Number(saved.hp)||100,1,100);xp=Math.max(0,Number(saved.xp)||0);level=Math.max(1,Number(saved.level)||1)}}catch(e){}
+updateHud();boot();
+})();
+</script>
+</body></html>

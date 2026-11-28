@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050807">
+<meta name="description" content="Experiência CRYPYKUT Reels + Orkut integrada à área de Contato CRYPY.">
+<title>CRYPYKUT REELS + ORKUT · CONTATO CRYPY</title>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+*{box-sizing:border-box}body{margin:0;background:#020403;color:#eafff3;font-family:"Space Grotesk",Arial,sans-serif}
+.ck-contact-shell{max-width:1240px;width:calc(100% - 24px);margin:16px auto}
+.ck-contact-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border:1px solid #1d3a2a;border-radius:16px;background:#050807}
+.ck-back{color:#00ff88;text-decoration:none;font-size:12px;font-weight:900}
+.ck-mode{border:1px solid #9c762a;border-radius:10px;padding:12px 14px;background:#211b0a;color:#f8e9b8;font-size:12px;line-height:1.5;margin-top:12px}
+.ck-auth{display:flex;flex-wrap:wrap;align-items:center;gap:9px;border:1px solid #1d3a2a;border-radius:14px;padding:12px;background:#07110b;margin-top:12px}
+.ck-auth strong{font-size:12px;color:#eafff3}
+.ck-auth p{flex:1 1 280px;margin:0;color:#9db8a8;font-size:11px}
+.ck-auth button{border:1px solid #385b45;border-radius:99px;background:#111d15;color:#90a99a;padding:9px 13px;font-size:11px;font-weight:800;opacity:.65;cursor:not-allowed}
+.ck-load{max-width:1240px;width:calc(100% - 24px);margin:12px auto;color:#9db8a8;font-size:11px}
+#crypykut-root{min-height:70vh}
+@media(max-width:600px){.ck-contact-shell{width:calc(100% - 16px)}.ck-contact-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="ck-contact-shell">
+ <header class="ck-contact-head">
+  <div><div style="font-size:10px;letter-spacing:.18em;color:#00ff88;font-weight:900">ÁREA CONTATO · EXPERIÊNCIA EMBUTIDA</div><h1 style="margin:4px 0 0;font-size:19px;font-weight:900">CRYPYKUT · REELS + ORKUT</h1></div>
+  <a class="ck-back" href="./contato-oficial.html">← VOLTAR PARA CONTATOS</a>
+ </header>
+ <div class="ck-mode"><b>MODO DE DEMONSTRAÇÃO LOCAL.</b> O pacote original contém telas, textos e interações de protótipo, mas não inclui arquivos de vídeo reais nem o servidor `actions`. Publicações, comentários, scraps e depoimentos deste modo ficam somente neste navegador. Os números iniciais são demonstrativos, não audiência verificada.</div>
+ <section class="ck-auth" aria-label="Contas Google e Microsoft">
+  <strong>CONTAS</strong>
+  <p>Google e Microsoft: conexão real ainda pendente de cadastro OAuth, IDs de aplicação, URLs de retorno e backend seguro. Estes botões permanecem desativados; nenhuma conta foi simulada.</p>
+  <button type="button" disabled title="Aguardando configuração OAuth do Google">Continuar com Google</button>
+  <button type="button" disabled title="Aguardando configuração OAuth da Microsoft">Continuar com Microsoft</button>
+ </section>
+</div>
+<p id="ck-load-status" class="ck-load" role="status">Carregando experiência CRYPYKUT…</p>
+<div id="crypykut-root"></div>
+<script src="./crypykut-local-api.js"></script>
+<script>
+(async function(){
+ const status=document.getElementById("ck-load-status");
+ try {
+  if(!window.React || !window.ReactDOM || !window.ReactDOM.createRoot) throw new Error("React não carregou. Verifique a conexão com os serviços de biblioteca.");
+  if(typeof DecompressionStream!=="function") throw new Error("Este navegador não oferece suporte à descompressão do pacote. Atualize o navegador.");
+  const res=await fetch("./crypykut-runtime.js.gz",{cache:"no-store"});
+  if(!res.ok) throw new Error("Não foi possível carregar o módulo CRYPYKUT (HTTP "+res.status+").");
+  const stream=res.body.pipeThrough(new DecompressionStream("gzip"));
+  const source=await new Response(stream).text();
+  new Function(source)();
+  window.mountCrypykut(document.getElementById("crypykut-root"));
+  status.textContent="CRYPYKUT carregado. Ações de dados usam armazenamento local neste navegador.";
+ } catch(error) {
+  status.textContent="Falha ao abrir CRYPYKUT: "+(error && error.message ? error.message : "erro desconhecido")+".";
+  status.style.color="#ff8bb8";
+ }
+})();
+</script>
+<script defer src="../assets/js/crypy-global-nav.js"></script>
+</body>
+</html>

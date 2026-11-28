@@ -1,0 +1,112 @@
+<!-- CRYPY-LAND • MODELO BASE SALVO • 100% MODELO GATO 1WIN • SALVO EM 24/11/2026 • DAQUI PARTIMOS • NÃO APAGAR • Versão: BASE-V1 -->
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>CRYPY-LAND • 100% Modelo Gato 1WIN</title><style>*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}body{background:#FFF8E1;color:#222;overflow-x:hidden}.top{position:sticky;top:0;z-index:20;background:#000;color:#fff;padding:10px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:4px solid #FFD700}.logo{font-weight:900}.logo span{color:#FFD700}.badge{background:#222;border:1px solid #FFD700;padding:6px 10px;border-radius:999px;font-size:12px}.badge b{color:#FFD700}.btn{background:#FFD700;border:0;color:#000;font-weight:900;padding:10px 14px;border-radius:999px;cursor:pointer}.btn2{background:#fff;border:2px solid #000;padding:9px 13px;border-radius:999px;cursor:pointer;font-weight:800}.tabs{display:flex;gap:6px;overflow:auto;padding:10px;background:#FFD700}.tabs button{white-space:nowrap;background:#000;color:#fff;border:0;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}.tabs button.on{background:#fff;color:#000}.page{display:none;padding:14px;max-width:900px;margin:auto}.page.on{display:block}.cat-box{text-align:center;background:linear-gradient(180deg,#FFE082,#FFF8E1);border:3px solid #FFD700;border-radius:24px;padding:18px}.cat{font-size:150px;cursor:pointer;user-select:none;transition:transform .08s;display:inline-block;filter:drop-shadow(0 10px 20px rgba(0,0,0,.25))}.cat:active{transform:scale(.92) rotate(-3deg)}.energy{height:18px;background:#ddd;border-radius:999px;overflow:hidden;margin:10px auto;max-width:420px}.energy>div{height:100%;background:linear-gradient(90deg,#00C853,#FFD700);width:100%}.big{font-size:36px;font-weight:900}.small{color:#666}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}.card{background:#fff;border:2px solid #000;border-radius:16px;padding:12px;box-shadow:0 4px 0 #000}.card h3{font-size:16px}.card p{font-size:13px;color:#555;line-height:1.5}.price{font-weight:900;color:#B8860B;margin:8px 0}.city{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.lot{aspect-ratio:1;border-radius:14px;border:3px solid #000;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-size:12px;text-align:center;padding:4px;background:#fff}.lot.mine{border-color:#FFD700;background:#FFF8E1}.task{display:flex;justify-content:space-between;align-items:center;background:#fff;border:2px solid #000;border-radius:12px;padding:10px;margin:8px 0}.float{position:fixed;pointer-events:none;font-weight:900;color:#B8860B;font-size:24px;z-index:50;animation:up 0.8s forwards}@keyframes up{to{transform:translateY(-60px);opacity:0}}.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:60;padding:12px}.modal .box{background:#fff;border:3px solid #FFD700;border-radius:18px;padding:16px;max-width:460px;width:100%}</style></head><body>
+<header><div class="logo">CRYPYVERSE <span>CRYPY-LAND • GATO</span></div><div class="badge">🪙 <b id="saldoTopo">10.000 CCG</b></div><div class="badge">⚡ Energia: <b id="energiaTopo">1000/1000</b></div><div class="badge">🏙️ Cidade: <b id="cidadeTopo">Nv.1</b> • <b id="porHoraTopo">0 CCG/hora</b></div><button class="btn" onclick="salvar(true)">💾 SALVAR</button><button class="btn2" onclick="toggleOwner()" id="ownerBtn">👑 DONO: OFF</button></header>
+<div class="tabs"><button class="on" onclick="showTab('tap',this)">🐱 TOCAR NO GATO</button><button onclick="showTab('city',this)">🏙️ MINHA CIDADE</button><button onclick="showTab('up',this)">⬆️ MELHORIAS / CARTAS</button><button onclick="showTab('tasks',this)">🎯 TAREFAS</button><button onclick="showTab('bank',this)">🏦 BANCO</button><button onclick="showTab('rank',this)">🏆 RANKING</button></div>
+
+<div class="page on" id="tab-tap"><div class="cat-box"><div class="small">MODELO 1WIN • 100% • TOQUE NO GATO PARA GANHAR CCG</div><div class="big">🪙 <span id="saldoBig">10.000</span> CCG</div><div>💰 <span id="porTap">+10 CCG por toque</span> • ⏰ <span id="porHora">0 CCG/hora (passivo)</span> • 👥 <span id="moradores">0 moradores</span></div><div class="cat" id="cat" onclick="tap(event)">🐱</div><div><b>GATO CRYPY</b> • Mascote oficial • Toque nele!</div><div class="energy"><div id="energyBar"></div></div><div>⚡ Energia: <b id="energiaTxt">1000 / 1000</b> • Recarrega +5/segundo</div><p style="margin-top:10px;color:#666">Igual o game do gato da 1WIN: você toca, ganha, melhora, constrói a cidade e a cidade passa a ganhar sozinha.</p><div style="display:flex;gap:8px;justify-content:center;margin-top:12px"><button class="btn" onclick="claimDaily()">🎁 RECOMPENSA DIÁRIA +500 CCG</button><button class="btn2" onclick="boost()">⚡ BOOST x2 por 30s</button></div></div>
+<div style="margin-top:14px"><h3>🏙️ Sua cidade agora</h3><div class="city" id="miniCity"></div></div></div>
+
+<div class="page" id="tab-city"><h2>🏙️ MINHA CIDADE — Construa, melhore, atraia moradores</h2><p>Igual o modelo 1WIN: <b>melhore prédios e abra negócios para atrair moradores. Só assim você ganha CCG no automático.</b></p><div class="grid" id="cityGrid"></div><h3 style="margin-top:14px">🗺️ 100 Terrenos — Clique para comprar</h3><div class="city" id="lotsGrid"></div></div>
+
+<div class="page" id="tab-up"><h2>⬆️ MELHORIAS / CARTAS — Igual 1WIN Token</h2><p>Melhore as cartas para ganhar mais por toque e mais por hora. Sem melhorar, você fica travado.</p><div class="grid" id="upGrid"></div></div>
+
+<div class="page" id="tab-tasks"><h2>🎯 TAREFAS DIÁRIAS</h2><div id="tasksList"></div><button class="btn" onclick="alert('Convite copiado! Ganhe +1.000 CCG por amigo que entrar.')">👥 CONVIDAR AMIGO +1.000 CCG</button></div>
+
+<div class="page" id="tab-bank"><h2>🏦 BANCO CCG — Oficial</h2><div class="card"><b>Banco Central:</b> 1.000.000.000.000.000 CCG (1 quatrilhão)<br><b>Moeda oficial:</b> CCG = CRYPY-COIN-GAME<br><b>Seu banco:</b> <span id="bancoTxt">0 CCG</span> • Juros 2,5%/mês<br><b>Queimado:</b> <span id="queimaTxt">0 CCG</span> • Taxa venda 2% / construção 1%<br><br><input id="valorBanco" type="number" value="1000" style="width:100%;padding:10px;border:2px solid #000;border-radius:10px"><div style="display:flex;gap:8px;margin-top:8px"><button class="btn" onclick="depositar()">Depositar</button><button class="btn2" onclick="sacar()">Sacar</button></div><p style="margin-top:10px;font-size:13px;color:#555"><b>Dono:</b> Você é o DONO. Você só testa, não joga real. Use o MODO DONO no topo.</p></div></div>
+
+<div class="page" id="tab-rank"><h2>🏆 RANKING</h2><div id="rankList"></div></div>
+
+<div class="modal" id="modal"><div class="box"><h2 id="mTitle"></h2><p id="mText"></p><p id="mPrice"></p><div style="display:flex;gap:8px;margin-top:10px"><button class="btn" id="mBuy" style="flex:1">COMPRAR</button><button class="btn2" id="mBuild" style="flex:1">MELHORAR / CONSTRUIR</button></div><button class="btn2" onclick="fechar()" style="width:100%;margin-top:8px">Fechar</button></div></div>
+
+<script>
+let saldo=10000,banco=0,energia=1000,energiaMax=1000,porTap=10,porHora=0,moradores=0,mes=1,isOwnerTest=false,testSaldo=1000000,realSaldo=10000,realBanco=0,realMeus={};
+let upgrades=[
+ {n:"🐾 Pata do Gato",d:"Aumenta +5 CCG por toque",custo:500,nivel:0,efeito:"tap"},
+ {n:"💎 Coleira Dourada",d:"Aumenta +20 CCG por toque",custo:2500,nivel:0,efeito:"tap"},
+ {n:"🏠 Casinha",d:"+50 CCG/hora passivo",custo:800,nivel:0,efeito:"hora"},
+ {n:"🏪 Lojinha do Gato",d:"+200 CCG/hora + 10 moradores",custo:3000,nivel:0,efeito:"hora"},
+ {n:"🏢 Prédio CRYPY",d:"+800 CCG/hora + 50 moradores",custo:12000,nivel:0,efeito:"hora"},
+ {n:"🌃 Torre Cyberpunk",d:"+2.500 CCG/hora + 150 moradores",custo:35000,nivel:0,efeito:"hora"},
+ {n:"⚡ Energia Infinita",d:"+500 energia máxima",custo:5000,nivel:0,efeito:"energia"},
+ {n:"👑 Coroa do Gato",d:"Dobra tudo por 60s",custo:15000,nivel:0,efeito:"coroa"},
+];
+let districts=[{name:"Residencial",price:900,rent:65,emoji:"🏠",color:"#00AA44"},{name:"Centro",price:2500,rent:180,emoji:"🏢",color:"#8B5CF6"},{name:"Praia",price:4800,rent:320,emoji:"🏖️",color:"#FFB800"},{name:"Cyberpunk",price:7200,rent:520,emoji:"🌃",color:"#FF2D78"},{name:"Eternity",price:1200,rent:90,emoji:"♾️",color:"#FFD700"},{name:"Floresta",price:650,rent:45,emoji:"🌳",color:"#0088FF"},{name:"Deserto",price:1800,rent:130,emoji:"🏜️",color:"#FF8C00"},{name:"Ilha Cosmos",price:9500,rent:700,emoji:"🌌",color:"#A855F7"},{name:"Bairro SENSEI",price:1500,rent:110,emoji:"🧑‍🏫",color:"#00AA88"},{name:"Porto HERA",price:3400,rent:240,emoji:"⚓",color:"#FF6EC7"}];
+let lots=[]; for(let i=0;i<100;i++){let d=districts[i%10]; lots.push({id:i+1,dist:i%10,price:Math.round(d.price*(0.85+Math.random()*0.4)),owner:false,built:0});}
+let meus={}; let boostAtivo=false, boostFim=0;
+function fmt(n){return Math.round(n).toLocaleString('pt-BR')}
+function showTab(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));document.getElementById('tab-'+id).classList.add('on');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderAll();}
+function tap(e){
+ if(energia<=0){alert('⚡ Sem energia! Espere recarregar ou melhore a energia.');return}
+ energia--; let ganho=porTap*(boostAtivo?2:1); saldo+=ganho;
+ let f=document.createElement('div'); f.className='float'; f.textContent='+'+fmt(ganho)+' CCG'; f.style.left=e.clientX+'px'; f.style.top=e.clientY+'px'; document.body.appendChild(f); setTimeout(()=>f.remove(),800);
+ // gato mia
+ document.getElementById('cat').textContent=['🐱','😸','😻','😹'][Math.floor(Math.random()*4)];
+ setTimeout(()=>document.getElementById('cat').textContent='🐱',300);
+ renderAll();
+}
+function boost(){boostAtivo=true;boostFim=Date.now()+30000;alert('⚡ BOOST x2 ativado por 30 segundos! Toque muito!');}
+function claimDaily(){saldo+=500;alert('🎁 +500 CCG de recompensa diária!');renderAll();}
+function comprarUp(i){
+ let u=upgrades[i]; let custo=Math.round(u.custo*Math.pow(1.8,u.nivel));
+ if(saldo<custo){alert('Falta CCG! Você tem '+fmt(saldo)+' CCG. Toque mais no gato!');return}
+ saldo-=custo; u.nivel++;
+ if(u.efeito==='tap') porTap+= (i===0?5:20);
+ if(u.efeito==='hora'){ porHora+= (i===2?50:i===3?200:i===4?800:2500); moradores+= (i===3?10:i===4?50:i===5?150:0); }
+ if(u.efeito==='energia') energiaMax+=500;
+ if(u.efeito==='coroa'){boostAtivo=true;boostFim=Date.now()+60000;}
+ alert(`⬆️ ${u.n} melhorado para Nv.${u.nivel}!`); renderAll();
+}
+function openLot(i){
+ let l=lots[i],d=districts[l.dist];
+ document.getElementById('mTitle').textContent=`${d.emoji} CRYPY-LAND #${String(l.id).padStart(4,'0')} • ${d.name}`;
+ document.getElementById('mText').textContent=`Terreno • ${d.name} • Nv.${l.built} • Renda ${fmt(d.rent)}/hora por nível • ${l.owner?'SEU ✓':'À venda'}`;
+ document.getElementById('mPrice').textContent=`Preço: ${fmt(l.price)} CCG • Construir/Melhorar: 300 CCG`;
+ document.getElementById('mBuy').onclick=()=>{if(l.owner){alert('Já é seu!');return}if(saldo<l.price){alert('Falta CCG! Toque no gato para ganhar!');return}saldo-=l.price;l.owner=true;meus[i]=true;porHora+=d.rent;moradores+=5;alert(`✅ COMPROU! CRYPY-LAND #${l.id} • ${d.name}`);renderAll();fechar();};
+ document.getElementById('mBuild').onclick=()=>{if(!l.owner){alert('Compre primeiro!');return}if(saldo<300){alert('Falta CCG!');return}saldo-=300;l.built++;porHora+=d.rent;moradores+=10;alert(`🏠 CONSTRUÍDO Nv.${l.built} • +${fmt(d.rent)} CCG/hora • +10 moradores`);renderAll();fechar();};
+ document.getElementById('modal').style.display='flex';
+}
+function fechar(){document.getElementById('modal').style.display='none'}
+function depositar(){let v=parseInt(document.getElementById('valorBanco').value||0);if(v>0&&saldo>=v){saldo-=v;banco+=v;alert('Depositado '+fmt(v)+' CCG')}renderAll();}
+function sacar(){let v=parseInt(document.getElementById('valorBanco').value||0);if(v>0&&banco>=v){banco-=v;saldo+=v;alert('Sacado '+fmt(v)+' CCG')}renderAll();}
+function toggleOwner(){isOwnerTest=!isOwnerTest;if(isOwnerTest){realSaldo=saldo;realBanco=banco;realMeus={...meus};saldo=testSaldo;banco=0;meus={};document.getElementById('ownerBtn').textContent='👑 DONO: ON • Teste';alert('👑 MODO DONO ON — Você testa, não joga real. 1.000.000 CCG fictício.')}else{testSaldo=saldo;saldo=realSaldo;banco=realBanco;meus=realMeus;document.getElementById('ownerBtn').textContent='👑 DONO: OFF';alert('Voltou ao normal. Saldo real: '+fmt(saldo)+' CCG')}renderAll();}
+function renderAll(){
+ document.getElementById('saldoTopo').textContent=fmt(saldo)+' CCG';
+ document.getElementById('saldoBig').textContent=fmt(saldo);
+ document.getElementById('energiaTopo').textContent=fmt(energia)+'/'+fmt(energiaMax);
+ document.getElementById('energiaTxt').textContent=fmt(energia)+' / '+fmt(energiaMax);
+ document.getElementById('energyBar').style.width=(energia/energiaMax*100)+'%';
+ document.getElementById('porTap').textContent='+'+fmt(porTap*(boostAtivo?2:1))+' CCG por toque';
+ document.getElementById('porHora').textContent=fmt(porHora)+' CCG/hora (passivo)';
+ document.getElementById('porHoraTopo').textContent=fmt(porHora)+' CCG/hora';
+ document.getElementById('moradores').textContent=fmt(moradores)+' moradores';
+ document.getElementById('cidadeTopo').textContent='Nv.'+(1+Object.keys(meus).length);
+ document.getElementById('bancoTxt').textContent=fmt(banco)+' CCG';
+ document.getElementById('queimaTxt').textContent='0 CCG';
+ // upgrades
+ document.getElementById('upGrid').innerHTML=upgrades.map((u,i)=>{let custo=Math.round(u.custo*Math.pow(1.8,u.nivel));return `<div class="card"><h3>${u.n} • Nv.${u.nivel}</h3><p>${u.d}</p><div class="price">${fmt(custo)} CCG</div><button class="btn" onclick="comprarUp(${i})">⬆️ MELHORAR</button></div>`}).join('');
+ // city buildings = upgrades + lots owned
+ document.getElementById('cityGrid').innerHTML=districts.map((d,i)=>{let owned=lots.filter((l,idx)=>l.dist===i&&l.owner).length;return `<div class="card"><h3>${d.emoji} ${d.name}</h3><p>Você tem ${owned}/10 terrenos • Renda ${fmt(d.rent)}/hora por nível</p><div class="price">Base ${fmt(d.price)} CCG</div><button class="btn" onclick="document.querySelectorAll('.tabs button')[1].click();document.getElementById('lotsGrid').scrollIntoView()">Ver Terrenos</button></div>`}).join('');
+ // lots
+ document.getElementById('lotsGrid').innerHTML=lots.map((l,i)=>{let d=districts[l.dist];return `<div class="lot ${l.owner?'mine':''}" style="background:${l.owner?'#FFF8E1':d.color};color:${l.owner?'#000':'#fff'}" onclick="openLot(${i})">${d.emoji}<b>#${l.id}</b><small>${d.name}</small><small>${fmt(l.price)} CCG</small>${l.built?'<small>🏠 Nv.'+l.built+'</small>':''}${l.owner?'<small>SEU ✓</small>':''}</div>`}).join('');
+ // mini city
+ document.getElementById('miniCity').innerHTML=lots.slice(0,10).map((l,i)=>{let d=districts[l.dist];return `<div class="lot ${l.owner?'mine':''}" style="background:${l.owner?'#FFF8E1':d.color};color:${l.owner?'#000':'#fff'}" onclick="openLot(${i})">${d.emoji}<small>#${l.id}</small></div>`}).join('');
+ // tasks
+ let tasks=[['Toque 10x no gato','+100 CCG',()=>{saldo+=100;alert('+100 CCG!')}],['Compre 1 terreno','+500 CCG',()=>{if(Object.keys(meus).length>0){saldo+=500;alert('+500 CCG!')}else alert('Compre 1 terreno primeiro!')}],['Melhore 1 carta','+300 CCG',()=>{saldo+=300;alert('+300 CCG!')}],['Convide 1 amigo','+1.000 CCG',()=>{saldo+=1000;alert('+1.000 CCG!')}]];
+ document.getElementById('tasksList').innerHTML=tasks.map((t,i)=>`<div class="task"><span><b>${t[0]}</b><br><small>${t[1]}</small></span><button class="btn" onclick="tasksFn(${i})">Resgatar</button></div>`).join('');
+ window.tasksFn=(i)=>tasks[i][2]();
+ // rank
+ document.getElementById('rankList').innerHTML=`<div class="task"><span>🥇 <b>VOCÊ</b></span><span>${fmt(saldo)} CCG • ${Object.keys(meus).length} terrenos</span></div><div class="task"><span>🥈 SENSEI</span><span>999.999 CCG</span></div><div class="task"><span>🥉 HERA</span><span>888.888 CCG</span></div><div class="task"><span>4º COSMOS</span><span>777.777 CCG</span></div>`;
+}
+function salvar(mostrar=true){try{let d={saldo:isOwnerTest?realSaldo:saldo,banco:isOwnerTest?realBanco:banco,energia:energia,porTap:porTap,porHora:porHora,moradores:moradores,upgrades:upgrades,lots:lots.map(l=>({owner:l.owner,built:l.built,price:l.price})),meus:meus};localStorage.setItem('crypyland_gato_100',JSON.stringify(d));if(mostrar)alert('💾 SALVO! Saldo '+fmt(d.saldo)+' CCG • Terrenos '+Object.keys(d.meus).length+' • '+fmt(d.porHora)+' CCG/hora')}catch(e){}}
+function carregar(){try{let raw=localStorage.getItem('crypyland_gato_100');if(!raw)return false;let d=JSON.parse(raw);saldo=d.saldo;banco=d.banco;energia=d.energia||1000;porTap=d.porTap||10;porHora=d.porHora||0;moradores=d.moradores||0;if(d.upgrades)upgrades=d.upgrades;meus=d.meus||{};if(d.lots)d.lots.forEach((s,i)=>{if(lots[i]){lots[i].owner=s.owner;lots[i].built=s.built;lots[i].price=s.price}});realSaldo=saldo;realBanco=banco;realMeus={...meus};return true}catch(e){return false}}
+// loop passivo: energia + renda por segundo
+setInterval(()=>{
+ if(energia<energiaMax) energia=Math.min(energiaMax, energia+5);
+ if(Date.now()>boostFim) boostAtivo=false;
+ // renda passiva a cada segundo = porHora / 3600
+ if(porHora>0){ saldo+=porHora/3600; }
+ renderAll();
+},1000);
+setInterval(()=>{try{salvar(false)}catch(e){}},10000);
+let _c=carregar(); renderAll(); if(_c) setTimeout(()=>alert('💾 SAVE CARREGADO! Saldo '+fmt(saldo)+' CCG • '+fmt(porHora)+' CCG/hora'),800); else setTimeout(()=>alert('🐱 BEM-VINDO! 100% modelo gato!\\n\\n1. Toque no gato para ganhar CCG\\n2. Melhore as cartas\\n3. Compre terreno e construa\\n4. Cidade gera CCG sozinha!\\n\\nVocê começa com 10.000 CCG'),800);
+</script></body></html>

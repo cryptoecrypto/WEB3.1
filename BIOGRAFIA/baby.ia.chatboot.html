@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BABY I.A. • Chat Bot Matrix</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;color:#00ff41;font-family:'Courier New',monospace;overflow:hidden}
+#matrix{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;max-width:820px;margin:auto;padding:14px}
+header{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.85);border:1px solid #00ff41;border-radius:14px;padding:12px 14px;box-shadow:0 0 22px #00ff4177}
+.avatar{width:52px;height:52px;border-radius:50%;background:#00ff41;color:#000;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;box-shadow:0 0 18px #00ff41}
+h1{margin:0;font-size:20px;letter-spacing:1px;text-shadow:0 0 10px #00ff41}
+.status{font-size:12px;color:#8affa8}.dot{display:inline-block;width:8px;height:8px;background:#00ff41;border-radius:50%;box-shadow:0 0 8px #00ff41;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+#chat{flex:1;overflow-y:auto;margin:14px 0;background:rgba(0,0,0,.82);border:1px solid #00ff41;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 0 22px #00ff4133}
+.msg{max-width:82%;padding:11px 13px;border-radius:12px;line-height:1.5;font-size:14.5px;white-space:pre-wrap;word-break:break-word}
+.bot{background:#02120a;border:1px solid #00ff41;color:#c6ffc9;align-self:flex-start;box-shadow:0 0 12px #00ff4133}
+.user{background:#00ff41;color:#000;align-self:flex-end;font-weight:700}
+.time{font-size:10px;opacity:.6;display:block;margin-top:5px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.quick button{background:transparent;color:#00ff41;border:1px solid #00ff41;border-radius:999px;padding:8px 12px;cursor:pointer;font-family:inherit}
+.quick button:hover{background:#00ff41;color:#000}
+form{display:flex;gap:10px;background:rgba(0,0,0,.88);border:1px solid #00ff41;border-radius:999px;padding:8px 8px 8px 16px}
+input{flex:1;background:transparent;border:0;outline:none;color:#00ff41;font-family:inherit;font-size:15px}
+input::placeholder{color:#00ff4177}
+button.send{background:#00ff41;border:0;color:#000;font-weight:900;border-radius:999px;padding:12px 18px;cursor:pointer;box-shadow:0 0 14px #00ff41}
+.typing{opacity:.8;font-style:italic}
+</style></head><body>
+<canvas id="matrix"></canvas>
+<div class="wrap">
+<header><div class="avatar">🤖</div><div><h1>BABY I.A. • CHAT BOT</h1><div class="status"><span class="dot"></span> ONLINE • SISTEMA CRYPY • MATRIX ATIVA</div></div></header>
+<div id="chat"></div>
+<div class="quick">
+<button onclick="perguntar('Quem é você?')">Quem é você?</button>
+<button onclick="perguntar('O que é CRYPY?')">O que é CRYPY?</button>
+<button onclick="perguntar('Me mostra o portal')">Portal</button>
+<button onclick="perguntar('Me fala do INFINYT')">INFINYT</button>
+<button onclick="perguntar('White Paper')">White Paper</button>
+</div>
+<form onsubmit="enviar(event)"><input id="input" placeholder="Digite aqui... fale com o BABY I.A." autocomplete="off"><button class="send" type="submit">➤ ENVIAR</button></form>
+</div>
+<script>
+// MATRIX RAIN
+const c=document.getElementById('matrix'),ctx=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight} resize(); addEventListener('resize',resize);
+const chars='01CRYPYBABYIA<>#$%&*+=アイウエオカキクケコサシスセソ'; const font=16; let cols=Math.floor(innerWidth/font); let drops=Array(cols).fill(1);
+setInterval(()=>{ctx.fillStyle='rgba(0,0,0,0.08)';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#00ff41';ctx.font=font+'px monospace';for(let i=0;i<drops.length;i++){const t=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(t,i*font,drops[i]*font);if(drops[i]*font>c.height&&Math.random()>.975)drops[i]=0;drops[i]++}},33);
+
+// CHAT
+const chat=document.getElementById('chat');
+function hora(){return new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}
+function add(texto,quem){const d=document.createElement('div');d.className='msg '+quem;d.innerHTML=texto.replace(/\n/g,'<br>')+`<span class="time">${quem==='bot'?'BABY I.A. • ': 'VOCÊ • '}${hora()}</span>`;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;return d}
+function responder(pergunta){
+ const p=pergunta.toLowerCase();
+ let r='';
+ if(p.includes('quem')&&p.includes('você')||p.includes('quem e voce')||p.includes('quem é você')) r='🤖 Oi! Eu sou o BABY I.A. — o chat bot oficial do CRYPY.\n\nFui criado pra te guiar dentro do portal: INFINYT, ACADEMY, MUSEU, GAMES, CRYPYKUT e tudo mais.\n\nPode perguntar o que quiser!';
+ else if(p.includes('crypy')) r='💚 CRYPY é o nosso universo!\n\nINFINYT • ACADEMY WEB3.1 • MUSEU DIGITAL • ART-FIGURE • GAMES • CRYPYKUT • WHITE PAPER • CONTATO\n\nQual você quer abrir primeiro?';
+ else if(p.includes('portal')||p.includes('menu')||p.includes('link')) r='🔗 PORTAL CRYPY — 9 SEÇÕES:\n\n1. CRYPY INFINYT\n2. ACADEMY WEB3.1\n3. BIOGRAFIA\n4. MUSEU DIGITAL\n5. ART-FIGURE / MARKETPLACE\n6. GAMES - DESAFIO\n7. SOCIAL - CRYPYKUT\n8. WHITE PAPER\n9. CONTATO\n\nMe fala o número que eu te explico!';
+ else if(p.includes('infinyt')) r='♾️ CRYPY INFINYT é o mural infinito do universo CRYPY. Tudo conectado, sem fim, em loop!';
+ else if(p.includes('academy')||p.includes('web3')) r='🎓 CRYPY ACADEMY WEB3.1 é onde você aprende sobre Web3, NFT, universo CRYPY e o futuro!';
+ else if(p.includes('museu')) r='🏛️ MUSEU DIGITAL é o acervo oficial CRYPY — artes, exposições e história do projeto.';
+ else if(p.includes('market')||p.includes('art-figure')||p.includes('figure')) r='🛍️ ART-FIGURE / MARKETPLACE é onde ficam as figuras, colecionáveis e artes do CRYPY.';
+ else if(p.includes('game')||p.includes('desafio')) r='🎮 CRYPY GAMES - DESAFIO: jogue, complete desafios e ganhe recompensas no universo CRYPY!';
+ else if(p.includes('crypykut')||p.includes('social')) r='💬 SOCIAL - CRYPYKUT é a nossa rede social! Lá você encontra a comunidade CRYPY.';
+ else if(p.includes('white')||p.includes('paper')) r='📄 WHITE PAPER é o documento oficial do projeto CRYPY — visão, regras e futuro.';
+ else if(p.includes('contato')) r='📩 CONTATO: fala com a equipe CRYPY pelo portal. Quer que eu te leve pra página de contato?';
+ else if(p.includes('oi')||p.includes('olá')||p.includes('ola')||p.includes('e ai')) r='👋 Oi! Que bom te ver aqui no sistema CRYPY!\n\nEu sou o BABY I.A. — pode perguntar sobre o portal, INFINYT, ACADEMY, MUSEU, GAMES...';
+ else if(p.includes('obrigado')||p.includes('valeu')) r='💚 Por nada! Sempre que precisar, é só chamar. O sistema CRYPY está sempre online pra você!';
+ else r='🤖 Entendi: "'+pergunta+'"\n\nAinda estou aprendendo, mas já sei falar sobre:\nCRYPY • INFINYT • ACADEMY • MUSEU • GAMES • CRYPYKUT • WHITE PAPER • CONTATO\n\nTenta perguntar uma dessas!';
+ const t=add('BABY I.A. está digitando...','bot typing'); setTimeout(()=>{t.remove();add(r,'bot')},650);
+}
+function perguntar(txt){document.getElementById('input').value=txt;enviar(new Event('submit'))}
+function enviar(e){if(e)e.preventDefault();const inp=document.getElementById('input');const v=inp.value.trim();if(!v)return;add(v,'user');inp.value='';responder(v)}
+add('🤖 BABY I.A. ONLINE.\n\nFala! Eu sou o BABY I.A. do CRYPY.\nFundo preto, verde neon, sistema Matrix ativo. 💚\n\nPergunta o que você quiser sobre o portal!','bot');
+</script><script src="../assets/js/crypy-page-assistant.js" defer></script>
+</body></html><script>
+(() => {
+  const fusos = [
+    ['Brasília', 'America/Sao_Paulo'],
+    ['UTC', 'UTC'],
+    ['LONDRES', 'Europe/London'],
+    ['TÓQUIO', 'Asia/Tokyo']
+  ];
+
+  const hora = (fuso) => new Intl.DateTimeFormat('pt-BR', {
+    timeZone: fuso,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  }).format(new Date());
+
+  const painel = document.createElement('section');
+  painel.style.cssText =
+    'display:flex;justify-content:space-around;gap:8px;flex-wrap:wrap;' +
+    'padding:10px;border:1px solid #00ff41;border-radius:10px;color:#00ff41';
+
+  painel.innerHTML = fusos.map((f,i) =>
+    `<div>${f[0]} <b id="baby-time-${i}">--:--:--</b></div>`
+  ).join('');
+
+  document.querySelector('header').after(painel);
+
+  function atualizar() {
+    fusos.forEach((f,i) => {
+      document.getElementById('baby-time-' + i).textContent = hora(f[1]);
+    });
+  }
+
+  atualizar();
+  setInterval(atualizar, 1000);
+
+  const responderOriginal = window.responder;
+
+  window.responder = function(pergunta) {
+    if (/hora|horário|horario|relógio|relogio|que dia|data/i.test(pergunta)) {
+      const resultado = fusos.map(f => f[0] + ': ' + hora(f[1])).join('\n');
+      add('🕒 Consultei o relógio mundial:\n' + resultado, 'bot');
+      return;
+    }
+    return responderOriginal.call(this, pergunta);
+  };
+})();
+</script>

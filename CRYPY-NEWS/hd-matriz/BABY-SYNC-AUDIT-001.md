@@ -1,0 +1,208 @@
+# BABY I.A. — AUDITORIA DE SINCRONIZAÇÃO WEB3.1
+
+- **Identificador:** BABY-SYNC-AUDIT-001
+- **Versão:** 1.0
+- **Data da auditoria:** 2026-11-19
+- **Repositório:** cryptoecrypto/WEB3.1
+- **Branch:** main
+- **Escopo:** índice de páginas, navegação, chatbot, motor de memória, arquivos da HD MATRIZ e infraestrutura Railway.
+- **Estado:** auditoria parcial baseada em leitura de arquivos e metadados; testes de navegador e varredura HTTP de todos os 273 caminhos ainda pendentes.
+
+## 1. Alterações aplicadas
+
+1. Criado `assets/js/baby-knowledge-sync.js`: indexador local que lê os caminhos HTML registrados em `assets/data/crypy-page-index.json`, além de documentos selecionados da HD MATRIZ e scripts centrais.
+2. Atualizado `chatboot-baby-ia.html`: o chat consulta a base local indexada antes de usar respostas de fallback. Os trechos recuperados mostram o caminho de origem.
+3. Atualizado `mapa-colmeia.html`: o mapa passa a renderizar grupos e páginas dinamicamente a partir do índice central, em vez de manter uma lista fixa desatualizada.
+4. Nenhum arquivo original da HD MATRIZ `Memorias.json` ou `Manifest.json` foi alterado nesta operação.
+
+## 2. Inventário central encontrado
+
+- `assets/data/crypy-page-index.json` declara **273 caminhos únicos** em **19 grupos**.
+- O mapa HTML anterior declarava **168 páginas** em **19 áreas**.
+- Diferença entre os números declarados: **105 páginas**.
+- O mapa agora usa o índice central como fonte de navegação; a renderização no navegador ainda precisa ser testada.
+- A contagem de 273 é a quantidade declarada no índice, não uma confirmação HTTP de que todos os 273 caminhos respondem com sucesso.
+
+## 3. Achados técnicos
+
+### 3.1 Navegação e chatbot
+
+- `index.html` carrega `baby-global-chat.js`, `crypy-global-nav.js` e `crypy-page-assistant.js`.
+- `baby-global-chat.js` monta um iframe para `chatboot-baby-ia.html`; seu próprio comentário declara que o widget não concede acesso ao servidor, GitHub, Dropbox ou APIs externas.
+- A amostragem de páginas revelou inclusão inconsistente dos scripts compartilhados:
+  - `baby-ia.html`: menu global e assistente, sem inclusão direta do chatbot global.
+  - `baby-ia/auto-config.html`: menu global e assistente, sem inclusão direta do chatbot global.
+  - `baby-ia/sincronizacao/chatboot-baby-ia.html`: assistente presente, menu global e chatbot global ausentes.
+  - `crypy-coin/hd-memory.html`: os três scripts compartilhados não foram encontrados na amostra.
+- Não foi executada uma alteração em massa dos 273 HTMLs. O indexador central lê o conteúdo listado sem exigir a inserção de scripts em cada arquivo.
+
+### 3.2 Memória e aprendizagem
+
+- `baby-core.js` descreve explicitamente um motor de regras programadas, memória em `localStorage` e limite padrão de 500 registros; não é treinamento de rede neural.
+- `baby-bridge.js` declara operação offline no navegador.
+- `crypy-page-assistant.js` faz pesquisa local no texto visível da página; seu cabeçalho declara que não persiste memória nem acessa HDs.
+- `chatboot-baby-ia.html` usa a função local `raciocinar()` com respostas predefinidas; não foi encontrada integração direta com uma API de modelo generativo.
+- O novo `baby-knowledge-sync.js` implementa recuperação local tipo RAG: busca textual sobre conteúdo indexado no IndexedDB do navegador. Não treina um modelo, não envia conteúdo para nuvem e não sincroniza automaticamente entre dispositivos.
+- A indexação exige abrir o ChatBoot publicado e acionar **BABY · SINCRONIZAR BASE**. A execução e a contagem real de sucessos/erros ainda precisam ser observadas no navegador.
+
+### 3.3 HD MATRIZ
+
+Documentos incluídos na lista de ingestão:
+- `crypy-news/hd-matriz/ABECEDARIO-BINARIO-BABY-IA.txt`
+- `crypy-news/hd-matriz/CRYPY-RENDA-PASSIVA-001.md`
+- `crypy-news/hd-matriz/Memorias.json`
+- `crypy-news/hd-matriz/Manifest.json`
+
+Também foram incluídos na lista de ingestão os arquivos de motor e ponte `baby-core.js`, `baby-bridge.js` e `baby-server-bridge.js`, além dos scripts compartilhados centrais.
+
+### 3.4 Raiz e página inicial
+
+- `index.html` aponta o iframe principal para `./index.htm`.
+- A leitura do repositório retornou conteúdo vazio para `index.htm` (zero caracteres). Isso pode produzir uma área central em branco; precisa de confirmação no GitHub Pages e decisão do Sensei antes de trocar o destino.
+- Não foi alterado o destino do iframe, para evitar substituir uma página original sem confirmação de qual HTML é a HOME oficial atual.
+
+### 3.5 Índice de páginas
+
+- O índice central informa `generated_at: 2026-11-20`, posterior à data desta auditoria (2026-11-19). A data do índice deve ser corrigida pelo processo que o gera; não foi modificada manualmente.
+- O mapa dinâmico agora usa o índice como fonte única e gera os cartões a partir de `pages[]`.
+
+## 4. Infraestrutura Railway — CRYPY-BABY-Backend
+
+Leitura do projeto Railway encontrou:
+- Projeto: `CRYPY-BABY-Backend`.
+- Serviço: `baby-site-auth`.
+- Ambiente: `production`.
+- Domínio de serviço listado: `baby-site-auth-production.up.railway.app`.
+- Volume `baby-site-index`, 500 MB, montado em `/data`.
+- Variáveis nomeadas: `BABY_SITE_DATA_DIR`, `BABY_SITE_ORIGIN`, `BABY_SITE_URL`; valores não foram expostos nesta auditoria.
+- A implantação mais recente consultada estava **FAILED**: o build reportou que o diretório `/baby-site-auth` não existia no snapshot.
+- Uma implantação anterior aparece como **SUCCESS** e o ambiente reportou uma réplica online, mas há falha recente registrada e `hasIssues: true`.
+- Não foi confirmado endpoint HTTP funcional, autenticação, indexação no servidor nem conexão entre o chatbot e esse serviço.
+
+## 5. Segurança e limites
+
+- O indexador lê somente arquivos públicos do mesmo site e grava texto no IndexedDB local do navegador.
+- Não coleta seed phrases, chaves privadas, tokens de carteira ou credenciais.
+- Não conecta MetaMask, não assina transações e não movimenta fundos.
+- A base local do navegador não equivale a uma HD MATRIZ remota centralizada nem a backup em Dropbox.
+- Páginas não listadas no índice e pastas não representadas por caminhos de arquivo ainda não estão cobertas.
+- A varredura HTTP integral de 273 páginas ainda não foi executada nesta auditoria.
+
+## 6. Plano de homologação
+
+| Teste | Estado |
+|---|---|
+| Ler índice central e contar caminhos únicos | CONCLUÍDO — 273 declarados |
+| Identificar divergência entre mapa e índice | CONCLUÍDO — 168 vs. 273 |
+| Criar indexador local e recuperação textual | IMPLEMENTADO — teste de navegador pendente |
+| Conectar ChatBoot à recuperação local | IMPLEMENTADO — teste de navegador pendente |
+| Tornar mapa dinâmico a partir do índice | IMPLEMENTADO — teste de navegador pendente |
+| Confirmar HTTP 200 para todos os 273 caminhos | PENDENTE |
+| Confirmar IndexedDB com conteúdo da HD MATRIZ | PENDENTE |
+| Consultar termos do protocolo de renda passiva no BABY | PENDENTE |
+| Padronizar menu/chatbot em cada HTML | PENDENTE — requer inventário integral e atualização controlada |
+| Corrigir e validar backend Railway | PENDENTE |
+| Confirmar sincronização em mais de um dispositivo | PENDENTE |
+
+## 7. Critério de aprovação
+
+A sincronização só poderá ser declarada concluída quando:
+1. todos os caminhos do índice forem testados e os erros forem identificados;
+2. o contador do indexador mostrar quantidade indexada e erros reais;
+3. consultas de teste recuperarem trechos corretos dos HTMLs e dos documentos da HD MATRIZ;
+4. o mapa dinâmico abrir corretamente as páginas no desktop e no celular;
+5. a conexão com o backend, se usada, passar pelo teste autenticado e por leitura de dados;
+6. houver aprovação explícita do Sensei.
+
+**Conclusão:** a camada de índice e recuperação local foi implementada no repositório. Não se declara sincronização integral, aprendizagem neural, indexação já executada no navegador ou backend homologado. A etapa seguinte é testar a publicação e corrigir as inconsistências encontradas.
+
+**Fim — BABY-SYNC-AUDIT-001 v1.0**
+
+
+## 8. Aditivo de correção — 2026-11-20
+
+- A causa da implantação Railway FAILED foi confirmada nos logs: o Railpack não encontrou `/baby-site-auth` no snapshot do repositório.
+- A configuração do serviço `baby-site-auth` foi corrigida para apontar `rootDirectory: /crypy-server-bridge`, diretório que contém `package.json` e o comando `npm start` apontando para `src/server.js`. A leitura posterior da configuração confirmou o novo caminho.
+- A correção de configuração ainda **não foi implantada**: a réplica online continua sendo a implantação anterior `3cc9f0f5-9c68-4b16-8e40-9a8624cd89e4`; a falha histórica `241a7475-bca0-42dc-a0e7-80a94c2d213c` permanece no histórico. Não foi disparado novo deploy.
+- Bloqueio de segurança encontrado antes de implantar: o frontend `baby-server-bridge.js` exige Bearer token e espera `/api/status` autenticado; o candidato `crypy-server-bridge/src/server.js` não contém validação de Authorization nem leitura de `CRYPY_API_TOKEN`. Não é seguro colocar esse backend em produção até implementar e testar autenticação de todas as rotas `/api/*`, mantendo `/health` público, e configurar o segredo no Railway. Não foram expostos nem alterados valores de variáveis.
+- O estado da réplica no momento da verificação é **Online (1/1)**, mas o ambiente ainda reporta uma falha recente e `hasIssues: true`.
+- A sincronização local dos 273 caminhos ainda depende de execução no navegador. Nenhuma contagem de indexação foi inventada.
+
+**Estado após aditivo:** caminho de build corrigido na configuração Railway; deploy novo bloqueado por requisito de autenticação; sincronização real do IndexedDB e verificação HTTP dos 273 caminhos permanecem pendentes.
+
+
+## ADENDO — MENU DINÂMICO DOS 12 TEMAS (20/11/2026)
+
+### Inventário verificado na árvore GitHub
+- 275 documentos HTML/HTM na árvore do repositório.
+- 273 entradas no índice oficial `assets/data/crypy-page-index.json`.
+- 2 documentos HTML adicionais fora do índice: páginas públicas internas dos serviços em `public/index.html`; não devem ser expostas como conteúdo de navegação do visitante.
+- Todas as 273 entradas do índice apontam para arquivos existentes na árvore consultada; a única extensão não .html é `index.htm`, já registrada no índice.
+- O índice informa 19 grupos de origem.
+
+### Distribuição dos 273 registros nos 12 temas da Home
+| Tema | Grupos reunidos | Páginas |
+|---|---|---:|
+| CRYPY INFINYT | crypy-infinyt + marketing | 27 |
+| NFT-COLLECTION | nft-collection | 20 |
+| ESQUADRÃO DAS CORES | esquadrao-das-cores | 7 |
+| CRYPY ACADEMY-WEB3.1 | crypy-academy + web3.1 | 25 |
+| BIOGRAFIA | biografia | 13 |
+| MUSEU DIGITAL | crypy-news | 26 |
+| ART-FIGURE / MARKETPLACE | art-figure-marketplace | 13 |
+| CRYPY GAMES-DESAFIO | crypy-games-desafios | 11 |
+| SOCIAL-CRYPYKUT | social-crypykut | 13 |
+| BABY I.A. | RAIZ + baby-ia + memory-boost + padrao + pluguin + sincronizacao | 93 |
+| WHITE PAPER | crypy-coin | 13 |
+| CONTATO | contato | 12 |
+| **TOTAL** | **19 grupos de origem** | **273** |
+
+### Implementação
+- Home `index.html` substituída por menu com 12 temas e contagem dinâmica por tema.
+- A Home consulta o índice JSON publicado; não mantém listas manuais duplicadas.
+- Selecionar um tema abre a lista de todas as páginas daquele tema.
+- Selecionar uma página abre seu conteúdo no visualizador interno da Home (iframe), sem navegação para fora da Home.
+- Distribuição conferida: 273 atribuídas, 0 sem categoria, 0 caminhos indexados ausentes na árvore.
+- Commit: `444de3a551fc13937c4561a9ec62ad7d867e130e`.
+
+### Ressalvas / MODO REAL
+- A associação de `crypy-news` a MUSEU DIGITAL e `crypy-coin` a WHITE PAPER é uma classificação organizacional provisória baseada nos grupos existentes; não comprova que existam diretórios dedicados com esses nomes.
+- A contagem representa arquivos HTML/HTM indexados, não uma confirmação de que cada página renderiza corretamente.
+- A interação foi confirmada por leitura de volta do código e validação dos 12 botões, contagens e caminhos; teste visual ponta a ponta no navegador ainda pendente.
+- Nenhum HTML de conteúdo foi removido ou movido neste ajuste.
+
+
+## ADENDO — EXPANSÃO DO INDEXADOR BABY v1.1 (20/11/2026)
+
+### Alterações aplicadas no repositório
+- `assets/js/baby-knowledge-sync.js` atualizado para v1.1.
+- A ingestão usa os caminhos HTML/HTM do índice oficial (273 registros) e mais 10 documentos técnicos/código selecionados da HD MATRIZ e dos motores centrais: alvo configurado de 283 fontes únicas, sujeito à confirmação de disponibilidade HTTP na execução do navegador.
+- Removido o limite artificial de 30.000 caracteres por documento. O texto extraído é armazenado integralmente, junto de título, metadados, cabeçalhos, rótulos acessíveis e texto do corpo; scripts, estilos, iframes e elementos não textuais são excluídos.
+- Criada extração de palavras-chave frequentes por documento (até 80 termos) e ampliada a busca textual para até cinco referências, com pontuação por ocorrência e caminho.
+- A sincronização agora mantém lista de falhas por caminho, contagem de caracteres, total concluído, erros e estado `concluido_com_erros` quando algum arquivo falha. Não apresenta sucesso integral quando existem erros.
+- A Home `index.html` carrega o motor BABY no contexto principal, mantendo os 12 temas da navegação sem alteração.
+- `chatboot-baby-ia.html` consulta o motor de conhecimento local; como o próprio ChatBoot também carrega o indexador, a base usa o mesmo IndexedDB de origem do site.
+
+### Commits desta aplicação
+- Indexador v1.1: `7bfbc760599aca2bade4686f5a019e553ff3c8a3`
+- Home com motor BABY: `d2cd4935ff33d1fcd8a5f599868fac45d39fb40d`
+- ChatBoot conectado à busca ampliada: `21ce890c525c34147ff00bcc3f93a3577e329406`
+
+### Estado MODO REAL — não homologado
+- Implementação no GitHub confirmada por gravação dos três arquivos; a execução de sincronização ainda depende de abrir a Home/ChatBoot publicado e acionar `BABY · SINCRONIZAR BASE`.
+- A configuração abrange os 273 caminhos do índice oficial e 10 fontes adicionais. Isso **não prova** que o índice contém todos os arquivos de todas as pastas do repositório, nem que os 283 caminhos respondem HTTP com sucesso.
+- A extração integral refere-se ao texto retornado pelo servidor e ao texto/metadados do documento HTML. Conteúdo carregado em iframes, aplicações externas, imagens sem texto alternativo, arquivos binários, conteúdo atrás de autenticação e dados gerados dinamicamente não são automaticamente absorvidos.
+- As palavras-chave são termos extraídos estatisticamente do texto, não entendimento semântico, embeddings ou treinamento de rede neural.
+- O armazenamento permanece local no IndexedDB do navegador. Não foi conectada a base ao Dropbox ou ao backend Railway; não há sincronização automática entre dispositivos.
+- Os 12 temas da Home foram preservados. As sete gavetas internas não foram implantadas nesta etapa, pois ainda falta definir e validar a classificação de cada um dos 19 grupos nas sete categorias; não se inventou esse mapeamento.
+- Não foram alterados `Memorias.json`, `Manifest.json`, o núcleo `baby-core.js`, nem a estrutura original de pastas.
+
+### Testes ainda necessários para declarar cobertura integral
+1. Executar a sincronização publicada e registrar o resultado real (`done`, `total`, `indexedThisRun`, `errors`, `failures` e caracteres armazenados).
+2. Comparar o índice de 273 registros com a árvore completa do repositório, incluindo arquivos não HTML e diretórios omitidos.
+3. Verificar HTTP e texto extraível para cada fonte; corrigir caminhos quebrados, vazios ou bloqueados.
+4. Consultar termos raros e palavras-chave de páginas diferentes e conferir se os trechos retornados correspondem à fonte.
+5. Testar Home e ChatBoot em desktop e celular; verificar comportamento do IndexedDB e persistência após recarregar.
+6. Definir, com aprovação do Sensei, a taxonomia das sete gavetas antes de aplicar a segunda camada.
+
+**Conclusão:** o mecanismo de ingestão e busca foi ampliado e conectado à Home e ao ChatBoot no código do repositório. A sincronização ainda não foi executada no navegador e a cobertura integral do repositório não está comprovada. Estado: IMPLEMENTADO NO CÓDIGO / EXECUÇÃO E HOMOLOGAÇÃO PENDENTES.

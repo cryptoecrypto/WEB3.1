@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+#crypykut-app{--bg:#020403;--panel:#0b1510;--ink:#eafff3;--muted:#9db8a8;--green:#00ff88;--pink:#ff4da6;--blue:#2b6cff;--line:#1d3a2a;color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif}
+#crypykut-app *{box-sizing:border-box}
+#crypykut-app button,#crypykut-app input,#crypykut-app textarea,#crypykut-app select{font:inherit}
+#crypykut-app button{cursor:pointer}
+#crypykut-app button:disabled{opacity:.5;cursor:not-allowed}
+#crypykut-app .ck-wrap{width:min(1240px,calc(100% - 24px));margin:auto}
+#crypykut-app .ck-mono{font-family:"IBM Plex Mono",monospace}
+#crypykut-app .ck-muted{color:var(--muted)}
+#crypykut-app .ck-top{margin:15px auto 0;border:1px solid var(--line);border-radius:18px;background:#050807;overflow:hidden}
+#crypykut-app .ck-brand-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px}
+#crypykut-app .ck-brand{display:flex;align-items:center;gap:9px;min-width:0}
+#crypykut-app .ck-brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--green);color:#00180a;font-weight:1000}
+#crypykut-app .ck-brand-title{font-size:clamp(18px,4vw,25px);font-weight:1000;letter-spacing:.15em;line-height:1}
+#crypykut-app .ck-brand-title span{color:var(--green)}
+#crypykut-app .ck-brand-sub{margin-top:4px;font:9px "IBM Plex Mono",monospace;letter-spacing:.12em;color:var(--muted)}
+#crypykut-app .ck-online{display:flex;align-items:center;gap:7px;color:#c5d8cc;font:10px "IBM Plex Mono",monospace}
+#crypykut-app .ck-online i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+#crypykut-app .ck-main-tabs{display:flex;gap:9px;padding:0 13px 13px}
+#crypykut-app .ck-tab{flex:1;min-height:42px;border:1px solid var(--line);border-radius:99px;background:#0b1510;color:#eafff3;font-weight:900;font-size:12px;padding:9px 12px}
+#crypykut-app .ck-tab[aria-selected=true]{background:var(--green);color:#00180a;border-color:var(--green);box-shadow:0 0 20px #00ff8844}
+#crypykut-app .ck-status{margin:12px auto;padding:10px 13px;border:1px solid #a88226;border-radius:12px;background:#2b2209;color:#f7e8b7;font-size:11px;line-height:1.5}
+#crypykut-app .ck-status.ok{border-color:#00ff8866;background:#052417;color:#baffdc}
+#crypykut-app .ck-status.error{border-color:#ff4da6;background:#2b0719;color:#ffd4e7}
+#crypykut-app .ck-btn{border:1px solid var(--line);border-radius:99px;background:#0b1510;color:#ecfff4;padding:9px 14px;font-size:12px;font-weight:800}
+#crypykut-app .ck-btn.green{background:var(--green);border-color:var(--green);color:#00180a}
+#crypykut-app .ck-btn.pink{background:var(--pink);border-color:var(--pink);color:#fff}
+#crypykut-app .ck-btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+#crypykut-app .ck-btn:focus-visible,#crypykut-app button:focus-visible,#crypykut-app input:focus-visible,#crypykut-app textarea:focus-visible,#crypykut-app select:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#crypykut-app .ck-reels{padding:17px 0 50px}
+#crypykut-app .ck-phone{width:min(100%,430px);margin:auto;border:3px solid #1d3a2a;border-radius:34px;overflow:hidden;background:#000;box-shadow:0 26px 70px #00ff8819}
+#crypykut-app .ck-phone-status{display:flex;justify-content:space-between;padding:9px 18px 5px;background:#03130c;font-size:12px}
+#crypykut-app .ck-phone-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;background:#03130c}
+#crypykut-app .ck-logo-mini{font-size:17px;font-weight:1000;letter-spacing:-.04em}
+#crypykut-app .ck-logo-mini b{color:var(--green)}
+#crypykut-app .ck-ver{background:var(--green);color:#00180a;border-radius:5px;padding:2px 5px;font-size:8px;font-weight:1000}
+#crypykut-app .ck-phone-actions{display:flex;gap:3px}
+#crypykut-app .ck-icon{border:0;background:transparent;color:#fff;border-radius:50%;width:34px;height:34px;font-size:17px}
+#crypykut-app .ck-icon:hover{background:#ffffff18}
+#crypykut-app .ck-live{border:1px solid #ff2d5577;background:#ff2d551a;color:#ff718b;border-radius:99px;padding:5px 8px;font-size:10px;font-weight:900}
+#crypykut-app .ck-feed-tabs{display:flex;justify-content:center;gap:34px;background:#03130c;padding:7px 8px 3px}
+#crypykut-app .ck-feed-tabs button{border:0;border-bottom:3px solid transparent;background:none;color:#ffffff99;padding:5px 2px;font-weight:700}
+#crypykut-app .ck-feed-tabs button.active{color:#fff;border-color:var(--green)}
+#crypykut-app .ck-stage{position:relative;min-height:590px;overflow:hidden;background:radial-gradient(ellipse at 50% 20%,#0a4a2a 0%,#04281a 45%,#010a05 100%)}
+#crypykut-app .ck-stage:before{content:"";position:absolute;inset:0;opacity:.4;background-image:linear-gradient(#00ff8812 1px,transparent 1px),linear-gradient(90deg,#00ff8812 1px,transparent 1px);background-size:34px 34px}
+#crypykut-app .ck-halo{position:absolute;border-radius:50%;filter:blur(32px);pointer-events:none}
+#crypykut-app .ck-halo.one{width:180px;height:180px;left:-40px;top:20%;background:#00ff8830}
+#crypykut-app .ck-halo.two{width:180px;height:180px;right:-45px;top:36%;background:#ffd43b24}
+#crypykut-app .ck-stage-art{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden}
+#crypykut-app .ck-stage-art .ck-baby{width:180px;height:180px;border-radius:50%;position:relative;background:linear-gradient(#161616,#000);border:1px solid #2a4a35;box-shadow:0 20px 50px #000b}
+#crypykut-app .ck-stage-art .ck-baby:before{content:"";position:absolute;left:50%;top:46%;transform:translateX(-50%);width:138px;height:52px;border-radius:28px;border:1px solid #00ff88aa;background:linear-gradient(90deg,#00ff88,#7dffc4,#00ff88);box-shadow:0 0 28px #00ff88}
+#crypykut-app .ck-stage-art .ck-baby:after{content:"";position:absolute;left:30%;right:30%;top:56%;height:8px;background:radial-gradient(circle,#000 3px,transparent 4px) left center/20px 8px repeat-x}
+#crypykut-app .ck-stage-art .ck-coin{position:absolute;right:-20px;bottom:7px;width:75px;height:75px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#fff3a3,#ffd43b,#b8860b);border:3px solid #fff7c0;color:#6b4d00;box-shadow:0 0 28px #ffd43b;font-size:25px;font-weight:1000}
+#crypykut-app .ck-stage-art .ck-stage-word{position:absolute;bottom:22%;left:0;right:0;text-align:center;font-size:25px;font-weight:1000;text-shadow:0 3px 12px #000}
+#crypykut-app .ck-stage-art .ck-stage-word span{color:var(--green)}
+#crypykut-app .ck-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:2}
+#crypykut-app .ck-play{position:absolute;z-index:4;top:43%;left:50%;transform:translate(-50%,-50%);border:1px solid #ffffff80;border-radius:50%;width:58px;height:58px;background:#0008;color:#fff;font-size:23px;backdrop-filter:blur(8px)}
+#crypykut-app .ck-stage-title{position:absolute;z-index:5;left:14px;right:70px;bottom:172px;font-size:clamp(21px,6vw,28px);font-weight:1000;line-height:1.05;text-shadow:0 3px 10px #000;overflow-wrap:anywhere}
+#crypykut-app .ck-stage-title small{display:block;margin-bottom:7px;color:var(--green);font:9px "IBM Plex Mono",monospace;letter-spacing:.15em}
+#crypykut-app .ck-rail{position:absolute;z-index:6;right:8px;bottom:128px;display:grid;gap:7px;justify-items:center}
+#crypykut-app .ck-rail button{width:42px;height:42px;border-radius:50%;border:1px solid #ffffff55;background:#0008;color:#fff;font-size:18px}
+#crypykut-app .ck-rail small{font-size:9px;color:#fff;font-weight:800;margin-top:-6px}
+#crypykut-app .ck-bottom-overlay{position:absolute;z-index:5;inset:auto 0 0;padding:35px 12px 12px;background:linear-gradient(transparent,#000e 35%,#000)}
+#crypykut-app .ck-userline{display:flex;align-items:center;gap:8px;font-size:12px}
+#crypykut-app .ck-avatar{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2b6cff,#ff4da6);font-weight:900}
+#crypykut-app .ck-follow{border:0;background:var(--green);color:#00180a;border-radius:99px;padding:6px 11px;font-weight:900;font-size:10px}
+#crypykut-app .ck-bottom-overlay p{margin:6px 0 0;font-size:11px;line-height:1.4}
+#crypykut-app .ck-tags{color:#7dffc4;font-weight:800}
+#crypykut-app .ck-phone-nav{display:flex;justify-content:space-around;align-items:center;padding:9px 6px;background:#000;border-top:1px solid #ffffff18}
+#crypykut-app .ck-phone-nav button{border:0;background:none;color:#eee;display:grid;justify-items:center;gap:3px;font-size:10px}
+#crypykut-app .ck-phone-nav .ck-create-fab{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;background:var(--green);color:#00180a;font-size:28px}
+#crypykut-app .ck-filter-row{display:flex;gap:8px;overflow:auto;padding:12px 0;scrollbar-width:none}
+#crypykut-app .ck-filter-row::-webkit-scrollbar{display:none}
+#crypykut-app .ck-filter{flex:0 0 auto;border:1px solid #2a4a35;border-radius:99px;padding:8px 13px;background:transparent;color:#fff;font-size:11px;font-weight:800}
+#crypykut-app .ck-filter.active{background:#fff;color:#000;border-color:#fff}
+#crypykut-app .ck-two-col{width:min(860px,100%);margin:14px auto}
+#crypykut-app .ck-form,#crypykut-app .ck-panel{border:1px solid #00ff8855;border-radius:18px;background:#0b1510;padding:16px;margin:12px 0}
+#crypykut-app .ck-form h2,#crypykut-app .ck-panel h2{margin:0 0 5px;font-size:20px}
+#crypykut-app .ck-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#crypykut-app .ck-field{display:grid;gap:5px;margin:8px 0;font-size:12px;font-weight:800}
+#crypykut-app .ck-field.full{grid-column:1/-1}
+#crypykut-app .ck-field input,#crypykut-app .ck-field select,#crypykut-app .ck-field textarea,#crypykut-app .ck-input{width:100%;border:1px solid #1d3a2a;border-radius:11px;background:#0008;color:#fff;padding:11px 12px;outline:none}
+#crypykut-app .ck-field input:focus,#crypykut-app .ck-field select:focus,#crypykut-app .ck-field textarea:focus{border-color:var(--green)}
+#crypykut-app .ck-feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:20px auto;max-width:1100px}
+#crypykut-app .ck-card{overflow:hidden;border:1px solid var(--line);border-radius:21px;background:#0b1510}
+#crypykut-app .ck-card.active{border-color:var(--green);box-shadow:0 0 22px #00ff8833}
+#crypykut-app .ck-card-visual{min-height:360px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background:var(--grad)}
+#crypykut-app .ck-card-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#000d)}
+#crypykut-app .ck-card-top,#crypykut-app .ck-card-foot{position:relative;z-index:1}
+#crypykut-app .ck-card-play{align-self:center;position:absolute;z-index:2;top:43%;left:50%;transform:translate(-50%,-50%);border:1px solid #ffffff66;border-radius:50%;width:60px;height:60px;display:grid;place-items:center;background:#0008;color:white;font-size:22px}
+#crypykut-app .ck-card-visual video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#crypykut-app .ck-card-actions{display:flex;flex-wrap:wrap;gap:5px;padding:9px}
+#crypykut-app .ck-action{border:0;border-radius:99px;padding:8px 10px;background:#ffffff0c;color:#fff;font-size:11px;font-weight:800}
+#crypykut-app .ck-action.on{color:var(--pink);background:#ff4da61a}
+#crypykut-app .ck-comments{padding:10px;border-top:1px solid var(--line)}
+#crypykut-app .ck-comment-list{max-height:150px;overflow:auto;display:grid;gap:8px;font-size:11px;color:#d6e7dc}
+#crypykut-app .ck-comment-form{display:flex;gap:6px;margin-top:8px}
+#crypykut-app .ck-comment-form input{min-width:0;flex:1;border:1px solid var(--line);border-radius:99px;padding:8px 10px;background:#0008;color:#fff;font-size:11px}
+#crypykut-app .ck-modal-backdrop{position:fixed;inset:0;z-index:1000;background:#000b;display:grid;place-items:center;padding:14px}
+#crypykut-app .ck-modal{width:min(560px,100%);max-height:90vh;overflow:auto;border:1px solid var(--green);border-radius:20px;background:#07120c;padding:17px;box-shadow:0 20px 70px #000}
+#crypykut-app .ck-modal-head{display:flex;justify-content:space-between;gap:12px;align-items:center}
+#crypykut-app .ck-modal-head h2{margin:0;font-size:19px}
+#crypykut-app .ck-chat{position:fixed;right:14px;bottom:14px;z-index:80;width:min(360px,calc(100vw - 24px))}
+#crypykut-app .ck-chat-fab{display:flex;align-items:center;gap:10px;margin-left:auto;border:1px solid var(--green);border-radius:99px;background:var(--green);color:#00180a;padding:7px 14px 7px 7px;font-weight:900;box-shadow:0 10px 30px #00ff8855}
+#crypykut-app .ck-chat-fab b{display:grid;place-items:center;width:37px;height:37px;border-radius:50%;background:#000;color:var(--green)}
+#crypykut-app .ck-chat-box{overflow:hidden;border:1px solid var(--green);border-radius:20px;background:#07120c;box-shadow:0 20px 60px #000}
+#crypykut-app .ck-chat-head{display:flex;align-items:center;gap:9px;background:var(--green);color:#00180a;padding:10px}
+#crypykut-app .ck-chat-head b{flex:1}
+#crypykut-app .ck-chat-messages{height:280px;overflow:auto;padding:11px;display:grid;gap:8px;align-content:start}
+#crypykut-app .ck-chat-message{max-width:88%;padding:9px 11px;border-radius:15px;background:#ffffff14;font-size:12px;line-height:1.5}
+#crypykut-app .ck-chat-message.user{margin-left:auto;background:var(--green);color:#00180a}
+#crypykut-app .ck-chat-form{display:flex;gap:6px;padding:8px;border-top:1px solid #ffffff20}
+#crypykut-app .ck-chat-form input{min-width:0;flex:1;border:1px solid var(--line);border-radius:99px;background:#0008;color:#fff;padding:9px 12px}
+#crypykut-app .ck-orkut{padding:18px 0 55px;background:#eaf0fa;color:#222;font-family:Verdana,Geneva,Tahoma,sans-serif}
+#crypykut-app .ck-orkut-banner{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:14px 18px;border-radius:13px;background:linear-gradient(110deg,#173d87,#2b6cff,#ff4da6);color:#fff}
+#crypykut-app .ck-orkut-banner h2{font-size:22px;margin:0}
+#crypykut-app .ck-orkut-layout{display:grid;grid-template-columns:220px minmax(0,1fr) 230px;gap:14px;margin-top:14px;align-items:start}
+#crypykut-app .ck-orkut-card{background:white;border:1px solid #d9e6f7;border-radius:12px;overflow:hidden}
+#crypykut-app .ck-orkut-head{padding:9px 12px;color:#fff;font-size:13px;font-weight:bold;background:#2b6cff}
+#crypykut-app .ck-orkut-head.pink{background:#ff4da6}
+#crypykut-app .ck-orkut-body{padding:12px}
+#crypykut-app .ck-orkut-profile{text-align:center}
+#crypykut-app .ck-profile-avatar{width:116px;height:116px;display:grid;place-items:center;margin:0 auto 10px;border-radius:50%;border:4px solid white;background:linear-gradient(135deg,#2b6cff,#ff4da6);color:#fff;font-size:48px;font-weight:800}
+#crypykut-app .ck-or-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:12px 0;font-size:10px}
+#crypykut-app .ck-or-stats div{padding:8px 3px;border-radius:8px;background:#eef3ff}
+#crypykut-app .ck-or-stats b{display:block;font-size:17px}
+#crypykut-app .ck-or-friends{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;font-size:10px}
+#crypykut-app .ck-or-friend-avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;margin:auto;color:white;font-weight:bold}
+#crypykut-app .ck-or-scrap{display:flex;gap:10px;padding:11px 0;border-bottom:1px dashed #ddd;font-size:12px}
+#crypykut-app .ck-or-scrap-avatar{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:50%;background:#2b6cff;color:white;font-weight:bold}
+#crypykut-app .ck-or-community{border:1px solid #d9e6f7;border-radius:9px;padding:11px}
+#crypykut-app .ck-or-community button{margin-top:8px}
+#crypykut-app .ck-or-testimonial{padding:10px;border-radius:9px;background:#fff8e0;border:1px solid #ffeb9c;margin-bottom:8px;font-size:12px}
+#crypykut-app .ck-footer-note{width:min(1240px,calc(100% - 24px));margin:10px auto 24px;color:#8da798;font-size:10px;line-height:1.55}
+#crypykut-app [hidden]{display:none!important}
+@media(max-width:900px){#crypykut-app .ck-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#crypykut-app .ck-orkut-layout{grid-template-columns:190px minmax(0,1fr)}#crypykut-app .ck-orkut-layout>aside:last-child{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:620px){#crypykut-app .ck-wrap{width:calc(100% - 16px)}#crypykut-app .ck-online{display:none}#crypykut-app .ck-top{margin-top:8px}#crypykut-app .ck-main-tabs{gap:6px}#crypykut-app .ck-tab{font-size:10px;padding:8px}#crypykut-app .ck-phone{border-radius:0;border-left:0;border-right:0}#crypykut-app .ck-stage{min-height:580px}#crypykut-app .ck-feed-grid{grid-template-columns:1fr;max-width:430px}#crypykut-app .ck-card-visual{min-height:500px}#crypykut-app .ck-fields{grid-template-columns:1fr}#crypykut-app .ck-field.full{grid-column:auto}#crypykut-app .ck-orkut-layout{grid-template-columns:1fr}#crypykut-app .ck-orkut-layout>aside:last-child{grid-column:auto;grid-template-columns:1fr}#crypykut-app .ck-orkut-banner{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){#crypykut-app *,#crypykut-app *:before,#crypykut-app *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Authentication status and provider buttons */
+#crypykut-app .ck-auth{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px auto;padding:12px 14px;border:1px solid #1d3a2a;border-radius:14px;background:rgba(5,16,9,.96);color:#9db8a8;font-size:11px}
+#crypykut-app .ck-auth span{flex:1 1 240px}
+#crypykut-app .ck-auth button{min-height:38px}

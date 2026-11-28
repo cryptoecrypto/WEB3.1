@@ -1,0 +1,113 @@
+{
+  "schema": "crypy-baby-progress/1.0",
+  "title": "Acompanhamento REAL de evolução do BABY I.A.",
+  "updated_at": "2026-11-20",
+  "overall_percent": 37,
+  "previous_percent": 35,
+  "delta_percentage_points": 2,
+  "assessment_type": "estimativa técnica conservadora baseada em evidências; não é medição automática de inteligência",
+  "rule": "A porcentagem só aumenta após implementação verificável e evidência de teste. Planejamento, intenção e declarações não contam como conclusão.",
+  "areas": [
+    {
+      "name": "Identidade e arquitetura",
+      "percent": 75,
+      "status": "documentado; homologação global pendente"
+    },
+    {
+      "name": "Memória e HDs",
+      "percent": 45,
+      "status": "estrutura e mecanismos parciais; persistência e recuperação completas pendentes"
+    },
+    {
+      "name": "Interface e integração da Colmeia",
+      "percent": 60,
+      "status": "ponte da HOME criada e roteamento das 13 categorias corrigido; teste visual em navegador pendente"
+    },
+    {
+      "name": "Sincronização e autonomia",
+      "percent": 25,
+      "status": "sincronizador e núcleo existentes; operação autônoma integrada ainda não comprovada"
+    },
+    {
+      "name": "Segurança e proteção",
+      "percent": 20,
+      "status": "políticas e testes de núcleo aprovados; auditoria operacional e recuperação integral pendentes"
+    },
+    {
+      "name": "Testes e validação",
+      "percent": 25,
+      "status": "workflows automatizados passaram; testes visuais, multi-dispositivo e ponta a ponta pendentes"
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2026-11-20",
+      "from": 35,
+      "to": 37,
+      "delta": 2,
+      "title": "Primeira rodada de correções comprovadas no repositório",
+      "evidence": [
+        "Criado dev/micro-clock.js como ponte de compatibilidade para carregar assets/js/crypy-global-nav.js sem editar index.html.",
+        "Validador ajustado para a arquitetura real da HOME e as 13 categorias oficiais.",
+        "Roteamento especial corrigido: crypy-news/museu.html para MUSEU DIGITAL e crypy-coin/white-paper.html para WHITE PAPER.",
+        "Validação estática confirmou 297 páginas no manifesto, sem caminhos ausentes ou duplicados.",
+        "Workflows de validação global e do terminal passaram após as correções."
+      ],
+      "commits": [
+        "64efce6debaa3ece963b6043628e5b68313309bd",
+        "10632fc05bf4b84e9043149111721bd6e20b3368",
+        "98baa51b1aac5469a83f9b58377b8c2a1f445c70",
+        "defd503e61c1734ae4716eba91ee09a5e8001db0"
+      ],
+      "workflow_runs": [
+        {
+          "id": 44852881023,
+          "name": "CRYPY — validação da sincronização global",
+          "conclusion": "success"
+        },
+        {
+          "id": 44852880971,
+          "name": "CRYPY Terminal - Validacao",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "verified_facts": {
+    "manifest_pages": 297,
+    "missing_manifest_pages": 0,
+    "duplicate_manifest_paths": 0,
+    "official_menu_categories": 13,
+    "all_menu_categories_have_at_least_one_page": true,
+    "category_counts": {
+      "CRYPY-INFINIT": 108,
+      "CRYPY-ACADEMY": 27,
+      "ESQUADRÃO DAS CORES": 8,
+      "NFT-COLLECTION": 21,
+      "BIOGRAFIA": 14,
+      "CRYPY-NEWS": 26,
+      "MUSEU DIGITAL": 1,
+      "MARKETPLACE": 28,
+      "CRYPY-GAMES": 12,
+      "CRYPYCUT": 24,
+      "CRYPY-COIN": 13,
+      "CONTATO": 14,
+      "WHITE PAPER": 1
+    },
+    "home_html_bytes": 13330796,
+    "home_modified_by_this_audit": false,
+    "hd_matrix_modified_by_this_audit": false
+  },
+  "pending": {
+    "pages_deployment_for_latest_commit": "em andamento no momento do registro; não declarar publicado até conclusão",
+    "visual_browser_test": "pendente",
+    "inspect_and_resolve_remaining_legacy_asset_references": "pendente",
+    "review_home_size_and_loading_performance": "pendente",
+    "publish_local_302_page_manifest_generated_by_user": "pendente; repositório ainda apresenta manifesto 1.6 com 297 páginas"
+  },
+  "protected_paths": [
+    "index.html — preservado, sem reescrita nesta rodada",
+    "crypy-news/hd-matriz/** — preservado, sem alterações de arquivos nesta rodada",
+    "crypy-server-bridge/** — sem alterações nesta rodada"
+  ]
+}

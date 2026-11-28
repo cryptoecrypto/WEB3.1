@@ -1,0 +1,49 @@
+MANUAL INTERNO DO BABY
+Corrigir erros de HTML, JavaScript, TypeScript e configurações; recuperar caminhos quebrados e resolver conflitos sem destruir os arquivos originais.
+3. Organização inteligente
+Criar, mover e reorganizar pastas e arquivos, atualizar referências e verificar todos os caminhos afetados.
+4. Plugins
+Interpretar plugins descritos em TXT, integrá-los ao código HTML/JS e registrar quais estão instalados, pendentes ou testados.
+5. Conexões internas
+Interligar páginas, menus, memória, módulos e recursos sem abandonar a navegação do portal.
+6. Serviços externos autorizados
+Google, Wikipedia, Binance Square e e-mail. Incluindo integração para envio automático de e-mails, com autenticação segura e controles de autorização.
+7. Cache e manutenção
+Limpeza de cache administrado pela aplicação, atualização de recursos e recuperação de estado, sem prometer controle sobre o cache privado do navegador.
+código JavaScript
+const configuracao = carregarArquivo("Autoconfig.baby");
+
+interpretar(configuracao);
+HD MATRIZ
+↓
+identidade
+
+AUTOCONFIG.BABY
+↓
+instruções
+
+BABY CORE
+↓
+interpretação
+
+MEMÓRIA
+↓
+aprendizado
+
+DROPBOX/GITHUB
+↓
+persistência
+CRYPY AGENT
+│
+├── AUTO-CONFIG
+├── FILE READER
+├── MEMORY ENGINE
+├── PLUGIN MANAGER
+├── HTML / CODE REPAIR
+├── PATH & FOLDER MANAGER
+├── PAGE CONNECTION ENGINE
+├── RESTORE & BACKUP
+├── EXTERNAL SERVICES
+├── EMAIL ENGINE
+├── CACHE MANAGER
+└── TEST & INTEGRITY ENGINE
