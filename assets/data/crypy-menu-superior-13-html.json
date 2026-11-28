@@ -1,0 +1,2408 @@
+{
+  "version": 1,
+  "generatedFrom": "WEB3.1@main",
+  "generatedAt": "2026-11-28",
+  "total": 459,
+  "categoryCount": 13,
+  "groups": [
+    {
+      "id": "m01",
+      "name": "CRYPY INFINYT",
+      "folder": "CRYPY-INFINYT",
+      "count": 15,
+      "pages": [
+        {
+          "path": "CRYPY-INFINYT/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-INFINYT"
+        },
+        {
+          "path": "CRYPY-INFINYT/crypy-infinity.html",
+          "label": "Crypy Infinity",
+          "section": "CRYPY-INFINYT"
+        },
+        {
+          "path": "CRYPY-INFINYT/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-INFINYT"
+        },
+        {
+          "path": "CRYPY-INFINYT/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-INFINYT"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-INFINYT/portal.html",
+          "label": "Portal",
+          "section": "CRYPY-INFINYT"
+        },
+        {
+          "path": "CRYPY-INFINYT/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-INFINYT"
+        }
+      ]
+    },
+    {
+      "id": "m02",
+      "name": "NFT-COLLECTION",
+      "folder": "NFT-COLLECTION",
+      "count": 68,
+      "pages": [
+        {
+          "path": "NFT-COLLECTION/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/collection-crypy-nft.html",
+          "label": "Collection Crypy Nft",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/crypy-collection-crypypasta.html",
+          "label": "Crypy Collection Crypypasta",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/crypy-genesis.html",
+          "label": "Crypy Genesis",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/crypy-nft-edition.html",
+          "label": "Crypy Nft Edition",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/galeria.html",
+          "label": "Galeria",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "NFT-COLLECTION/nft-colection-edition.html",
+          "label": "Nft Colection Edition",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-CARDS/nft-crypy-cards.html",
+          "label": "Nft Crypy Cards",
+          "section": "NFT-CRYPY-CARDS"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/crypy-nft-edition.html",
+          "label": "Crypy Nft Edition",
+          "section": "NFT-CRYPY-COIN-GENESIS"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-01/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-01"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-02/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-02"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-03/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-03"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-04/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-04"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-05/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-05"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-06/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-06"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COIN-GENESIS/PAGINA-07/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COIN-GENESIS / PAGINA-07"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/nft-colors-collection.html",
+          "label": "Nft Colors Collection",
+          "section": "NFT-CRYPY-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-01/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-01"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-02/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-02"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-03/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-03"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-04/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-04"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-05/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-05"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-06/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-06"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLLECTION/PAGINA-07/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-COLLECTION / PAGINA-07"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLORS/nft-colors-deluxe.html",
+          "label": "Nft Colors Deluxe",
+          "section": "NFT-CRYPY-COLORS"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-COLORS/nft-crypy-colors.html",
+          "label": "Nft Crypy Colors",
+          "section": "NFT-CRYPY-COLORS"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-DARKNESS/nft-crypy-darkness.html",
+          "label": "Nft Crypy Darkness",
+          "section": "NFT-CRYPY-DARKNESS"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-01/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-01"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-02/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-02"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-03/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-03"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-04/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-04"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-05/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-05"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-06/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-06"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-CRYPY-GAME/PAGINA-07/index.html",
+          "label": "Index",
+          "section": "NFT-CRYPY-GAME / PAGINA-07"
+        },
+        {
+          "path": "NFT-COLLECTION/nft-darkness.html",
+          "label": "Nft Darkness",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-01/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-01"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-02/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-02"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-03/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-03"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-04/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-04"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-05/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-05"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-06/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-06"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-ESQUADRAO-DAS-CORES/PAGINA-07/index.html",
+          "label": "Index",
+          "section": "NFT-ESQUADRAO-DAS-CORES / PAGINA-07"
+        },
+        {
+          "path": "NFT-COLLECTION/nft-genesis.html",
+          "label": "Nft Genesis",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/nft-hub.html",
+          "label": "Nft Hub",
+          "section": "NFT-COLLECTION"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-01/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-01"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-02/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-02"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-03/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-03"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-04/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-04"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-05/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-05"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-06/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-06"
+        },
+        {
+          "path": "NFT-COLLECTION/NFT-SENSEI-WEB3.1/PAGINA-07/index.html",
+          "label": "Index",
+          "section": "NFT-SENSEI-WEB3.1 / PAGINA-07"
+        },
+        {
+          "path": "NFT-COLLECTION/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "NFT-COLLECTION"
+        }
+      ]
+    },
+    {
+      "id": "m03",
+      "name": "ESQUADRÃO DAS CORES",
+      "folder": "ESQUADRÃO-DAS-CORES",
+      "count": 12,
+      "pages": [
+        {
+          "path": "ESQUADRÃO-DAS-CORES/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/esquadrao-das-cores.html",
+          "label": "Esquadrao Das Cores",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/esquadrao.html",
+          "label": "Esquadrao",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/hd-babyia.html",
+          "label": "Hd Babyia",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/hq-collection/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "hq-collection"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/hq-collection/esquadrao-das-cores.html",
+          "label": "Esquadrao Das Cores",
+          "section": "hq-collection"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/hq-collection/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "hq-collection"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/hq-collection/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "hq-collection"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/index.html",
+          "label": "Index",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "ESQUADRÃO-DAS-CORES"
+        },
+        {
+          "path": "ESQUADRÃO-DAS-CORES/web-comeia.html",
+          "label": "Web Comeia",
+          "section": "ESQUADRÃO-DAS-CORES"
+        }
+      ]
+    },
+    {
+      "id": "m04",
+      "name": "CRYPY ACADEMY",
+      "folder": "CRYPY-ACADEMY",
+      "count": 18,
+      "pages": [
+        {
+          "path": "CRYPY-ACADEMY/academia.html",
+          "label": "Academia",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/colmeia-conhecimento.html",
+          "label": "Colmeia Conhecimento",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/cursos.html",
+          "label": "Cursos",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/mapa-cursos.html",
+          "label": "Mapa Cursos",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-ACADEMY/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-ACADEMY"
+        },
+        {
+          "path": "CRYPY-ACADEMY/trilhas-completas.html",
+          "label": "Trilhas Completas",
+          "section": "CRYPY-ACADEMY"
+        }
+      ]
+    },
+    {
+      "id": "m05",
+      "name": "BIOGRAFIA",
+      "folder": "BIOGRAFIA",
+      "count": 15,
+      "pages": [
+        {
+          "path": "BIOGRAFIA/baby.ia.chatboot.html",
+          "label": "Baby.Ia.Chatboot",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/biografia-esquadrao.html",
+          "label": "Biografia Esquadrao",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/biografia.html",
+          "label": "Biografia",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/historia.html",
+          "label": "Historia",
+          "section": "BIOGRAFIA"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "BIOGRAFIA/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "BIOGRAFIA"
+        }
+      ]
+    },
+    {
+      "id": "m06",
+      "name": "CRYPY NEWS",
+      "folder": "CRYPY-NEWS",
+      "count": 6,
+      "pages": [
+        {
+          "path": "CRYPY-NEWS/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-NEWS"
+        },
+        {
+          "path": "CRYPY-NEWS/crypy-news-market-painel/crypy-news-market-painel.html",
+          "label": "Crypy News Market Painel",
+          "section": "crypy-news-market-painel"
+        },
+        {
+          "path": "CRYPY-NEWS/hd-babyia.html",
+          "label": "Hd Babyia",
+          "section": "CRYPY-NEWS"
+        },
+        {
+          "path": "CRYPY-NEWS/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-NEWS"
+        },
+        {
+          "path": "CRYPY-NEWS/index.html",
+          "label": "Index",
+          "section": "CRYPY-NEWS"
+        },
+        {
+          "path": "CRYPY-NEWS/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-NEWS"
+        }
+      ]
+    },
+    {
+      "id": "m07",
+      "name": "MUSEU DIGITAL",
+      "folder": "MUSEU DIGITAL",
+      "count": 1,
+      "pages": [
+        {
+          "path": "CRYPY-NEWS/museu.html",
+          "label": "Museu",
+          "section": "CRYPY-NEWS"
+        }
+      ]
+    },
+    {
+      "id": "m08",
+      "name": "ART-FIGURE / MARKETPLACE",
+      "folder": "ART-FIGURE-MARKETPLACE",
+      "count": 16,
+      "pages": [
+        {
+          "path": "ART-FIGURE-MARKETPLACE/art-figure-esquadrao.html",
+          "label": "Art Figure Esquadrao",
+          "section": "ART-FIGURE-MARKETPLACE"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/art-figure.html",
+          "label": "Art Figure",
+          "section": "ART-FIGURE-MARKETPLACE"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "ART-FIGURE-MARKETPLACE"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "ART-FIGURE-MARKETPLACE"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "ART-FIGURE-MARKETPLACE"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/marketplace.html",
+          "label": "Marketplace",
+          "section": "ART-FIGURE-MARKETPLACE"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "ART-FIGURE-MARKETPLACE/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "ART-FIGURE-MARKETPLACE"
+        }
+      ]
+    },
+    {
+      "id": "m09",
+      "name": "CRYPY GAMES-ARCADE",
+      "folder": "CRYPY-GAMES-ARCADE",
+      "count": 83,
+      "pages": [
+        {
+          "path": "CRYPY-GAMES-ARCADE/arena.html",
+          "label": "Arena",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/batalha-esquadrao.html",
+          "label": "Batalha Esquadrao",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-DUNGEONS/batalha-esquadrao.html",
+          "label": "Batalha Esquadrao",
+          "section": "CRYPY-DUNGEONS"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-DUNGEONS/dungeon-crypy-v2.html",
+          "label": "Dungeon Crypy V2",
+          "section": "CRYPY-DUNGEONS"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-DUNGEONS/dungeon-crypy.html",
+          "label": "Dungeon Crypy",
+          "section": "CRYPY-DUNGEONS"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-DUNGEONS/Masmorra dos Três Pilares.html",
+          "label": "Masmorra Dos TrÊS Pilares",
+          "section": "CRYPY-DUNGEONS"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/crypy-games-desafios.html",
+          "label": "Crypy Games Desafios",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/baby-ia.html",
+          "label": "Baby Ia",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land-3d-vivo.html",
+          "label": "Crypy Land 3d Vivo",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land-cidade-viva.html",
+          "label": "Crypy Land Cidade Viva",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land.html",
+          "label": "Crypy Land",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-DEFENDER-GLOBAL.html",
+          "label": "CRYPY DEFENDER GLOBAL",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-FINAL.html",
+          "label": "CRYPY LAND 3D FINAL",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-3D-GAME.html",
+          "label": "CRYPY LAND 3D GAME",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-FINAL-SALVO.html",
+          "label": "CRYPY LAND FINAL SALVO",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO-CCG.html",
+          "label": "CRYPY LAND GAME NFT TERRENO CCG",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-GAME-NFT-TERRENO.html",
+          "label": "CRYPY LAND GAME NFT TERRENO",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-MODELO-BASE-SALVO.html",
+          "label": "CRYPY LAND MODELO BASE SALVO",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/CRYPY-LAND/CRYPY-LAND-REAL-100-TERRENOS.html",
+          "label": "CRYPY LAND REAL 100 TERRENOS",
+          "section": "CRYPY-LAND / CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/health.html",
+          "label": "Health",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/index.html",
+          "label": "Index",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/mapa-colmeia.html",
+          "label": "Mapa Colmeia",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/health.html",
+          "label": "Health",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/momory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-LAND / momory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/collection-crypy-nft.html",
+          "label": "Collection Crypy Nft",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/crypy-collection-crypypasta.html",
+          "label": "Crypy Collection Crypypasta",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/crypy-genesis.html",
+          "label": "Crypy Genesis",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/crypy-nft-edition.html",
+          "label": "Crypy Nft Edition",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/galeria.html",
+          "label": "Galeria",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/health.html",
+          "label": "Health",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-LAND / nft-collection / memory-boost"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/nft-colection-edition.html",
+          "label": "Nft Colection Edition",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/nft-darkness.html",
+          "label": "Nft Darkness",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/nft-genesis.html",
+          "label": "Nft Genesis",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/nft-collection/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-LAND / nft-collection"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/padrao/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND / padrao"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/padrao/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND / padrao"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/pluguin/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-LAND / pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/pluguin/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND / pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/pluguin/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND / pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/pluguin/pluguin.html",
+          "label": "Pluguin",
+          "section": "CRYPY-LAND / pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-LAND"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/sincronizacao/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-LAND / sincronizacao"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/sincronizacao/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-LAND / sincronizacao"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/sincronizacao/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-LAND / sincronizacao"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-LAND/sincronizacao/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-LAND / sincronizacao"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/CRYPY-MANPAC/crypy-pac-crypyman.html",
+          "label": "Crypy Pac Crypyman",
+          "section": "CRYPY-MANPAC"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/crypy-pac-crypyman.html",
+          "label": "Crypy Pac Crypyman",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/dungeon-crypy-v2.html",
+          "label": "Dungeon Crypy V2",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/dungeon-crypy.html",
+          "label": "Dungeon Crypy",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguin.html",
+          "label": "Pluguin",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguin/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguin/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguin/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguin/pluguin.html",
+          "label": "Pluguin",
+          "section": "pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguin/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "pluguin"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "CRYPY-GAMES-ARCADE"
+        },
+        {
+          "path": "CRYPY-GAMES-ARCADE/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-GAMES-ARCADE"
+        }
+      ]
+    },
+    {
+      "id": "m10",
+      "name": "CRYPY-SOCIAL",
+      "folder": "CRYPY-SOCIAL",
+      "count": 162,
+      "pages": [
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-01-depoimentos-recebidos.html",
+          "label": "Pagina 01 Depoimentos Recebidos",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-02-depoimentos-enviados.html",
+          "label": "Pagina 02 Depoimentos Enviados",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-03-escrever-depoimento.html",
+          "label": "Pagina 03 Escrever Depoimento",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-04-aprovar-depoimento.html",
+          "label": "Pagina 04 Aprovar Depoimento",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-05-depoimentos-em-destaque.html",
+          "label": "Pagina 05 Depoimentos Em Destaque",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-06-meus-fas.html",
+          "label": "Pagina 06 Meus Fas",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-07-meus-idolos.html",
+          "label": "Pagina 07 Meus Idolos",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-08-virar-fa.html",
+          "label": "Pagina 08 Virar Fa",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-09-avaliacoes.html",
+          "label": "Pagina 09 Avaliacoes",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-10-testemunhos-em-video.html",
+          "label": "Pagina 10 Testemunhos Em Video",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-11-depoimentos-de-aniversario.html",
+          "label": "Pagina 11 Depoimentos De Aniversario",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-12-depoimentos-arquivados.html",
+          "label": "Pagina 12 Depoimentos Arquivados",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-13-denunciar-depoimento.html",
+          "label": "Pagina 13 Denunciar Depoimento",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-14-selos-de-fa.html",
+          "label": "Pagina 14 Selos De Fa",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-15-ranking-de-fas.html",
+          "label": "Pagina 15 Ranking De Fas",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/07-DEPOIMENTOS-FAS/pagina-16-histórico-de-fas.html",
+          "label": "Pagina 16 HistÓRico De Fas",
+          "section": "07-DEPOIMENTOS-FAS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-01-configuracoes-da-conta.html",
+          "label": "Pagina 01 Configuracoes Da Conta",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-02-login-local.html",
+          "label": "Pagina 02 Login Local",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-03-login-com-google.html",
+          "label": "Pagina 03 Login Com Google",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-04-login-com-microsoft.html",
+          "label": "Pagina 04 Login Com Microsoft",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-05-senha-e-seguranca.html",
+          "label": "Pagina 05 Senha E Seguranca",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-06-e-mail-e-telefone.html",
+          "label": "Pagina 06 E Mail E Telefone",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-07-notificacoes-por-e-mail.html",
+          "label": "Pagina 07 Notificacoes Por E Mail",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-08-tema-claro-escuro.html",
+          "label": "Pagina 08 Tema Claro Escuro",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-09-idioma.html",
+          "label": "Pagina 09 Idioma",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-10-aplicativos.html",
+          "label": "Pagina 10 Aplicativos",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-11-jogos.html",
+          "label": "Pagina 11 Jogos",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-12-crypy-coins.html",
+          "label": "Pagina 12 Crypy Coins",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-13-minhas-nfts.html",
+          "label": "Pagina 13 Minhas Nfts",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-14-virar-nft.html",
+          "label": "Pagina 14 Virar Nft",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-15-carteira-crypy.html",
+          "label": "Pagina 15 Carteira Crypy",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/08-CONTA-APPS-NFT/pagina-16-sair-da-conta.html",
+          "label": "Pagina 16 Sair Da Conta",
+          "section": "08-CONTA-APPS-NFT"
+        },
+        {
+          "path": "CRYPY-SOCIAL/amigos.html",
+          "label": "Amigos",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/comunidade-editorial-preservada-2026-11-20.html",
+          "label": "Comunidade Editorial Preservada 2026 11 20",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/comunidade.html",
+          "label": "Comunidade",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/comunidades.html",
+          "label": "Comunidades",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/01-feed-para-voce.html",
+          "label": "01 Feed Para Voce",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/02-seguindo.html",
+          "label": "02 Seguindo",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/03-ao-vivo.html",
+          "label": "03 Ao Vivo",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/04-descobrir.html",
+          "label": "04 Descobrir",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/05-publicar.html",
+          "label": "05 Publicar",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/06-meu-perfil.html",
+          "label": "06 Meu Perfil",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/07-nft-shorts.html",
+          "label": "07 Nft Shorts",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/crypykut-crypy-shots/CRYPY-SHOTS/08-config-shots.html",
+          "label": "08 Config Shots",
+          "section": "crypykut-crypy-shots / CRYPY-SHOTS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-01-pagina-inicial.html",
+          "label": "Pagina 01 Pagina Inicial",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-02-atualizacoes-dos-amigos.html",
+          "label": "Pagina 02 Atualizacoes Dos Amigos",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-03-meu-scrapbook.html",
+          "label": "Pagina 03 Meu Scrapbook",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-04-atividades-recentes.html",
+          "label": "Pagina 04 Atividades Recentes",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-05-notificacoes.html",
+          "label": "Pagina 05 Notificacoes",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-06-mensagens-nao-lidas.html",
+          "label": "Pagina 06 Mensagens Nao Lidas",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-07-aniversarios-de-hoje.html",
+          "label": "Pagina 07 Aniversarios De Hoje",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-08-amigos-online-agora.html",
+          "label": "Pagina 08 Amigos Online Agora",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-09-sugestoes-de-amigos.html",
+          "label": "Pagina 09 Sugestoes De Amigos",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-10-pessoas-que-visitaram.html",
+          "label": "Pagina 10 Pessoas Que Visitaram",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-11-destaques-da-comunidade.html",
+          "label": "Pagina 11 Destaques Da Comunidade",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-12-enquetes-da-semana.html",
+          "label": "Pagina 12 Enquetes Da Semana",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-13-eventos-próximos.html",
+          "label": "Pagina 13 Eventos PrÓXimos",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-14-aplicativos-em-destaque.html",
+          "label": "Pagina 14 Aplicativos Em Destaque",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-15-novidades-crypy.html",
+          "label": "Pagina 15 Novidades Crypy",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/01-HOME/pagina-16-ajuda-rapida.html",
+          "label": "Pagina 16 Ajuda Rapida",
+          "section": "CRYPYKUT / 01-HOME"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-01-meu-perfil.html",
+          "label": "Pagina 01 Meu Perfil",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-02-editar-perfil.html",
+          "label": "Pagina 02 Editar Perfil",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-03-editar-foto.html",
+          "label": "Pagina 03 Editar Foto",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-04-sobre-mim.html",
+          "label": "Pagina 04 Sobre Mim",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-05-interesses.html",
+          "label": "Pagina 05 Interesses",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-06-musica-e-filmes.html",
+          "label": "Pagina 06 Musica E Filmes",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-07-livros-favoritos.html",
+          "label": "Pagina 07 Livros Favoritos",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-08-esportes.html",
+          "label": "Pagina 08 Esportes",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-09-profissao-e-escola.html",
+          "label": "Pagina 09 Profissao E Escola",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-10-onde-moro.html",
+          "label": "Pagina 10 Onde Moro",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-11-contato.html",
+          "label": "Pagina 11 Contato",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-12-privacidade-do-perfil.html",
+          "label": "Pagina 12 Privacidade Do Perfil",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-13-badges-e-selos.html",
+          "label": "Pagina 13 Badges E Selos",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-14-meu-album.html",
+          "label": "Pagina 14 Meu Album",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-15-meu-video.html",
+          "label": "Pagina 15 Meu Video",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/02-PERFIL/pagina-16-histórico.html",
+          "label": "Pagina 16 HistÓRico",
+          "section": "CRYPYKUT / 02-PERFIL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-01-meus-amigos.html",
+          "label": "Pagina 01 Meus Amigos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-02-buscar-amigos.html",
+          "label": "Pagina 02 Buscar Amigos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-03-convites-recebidos.html",
+          "label": "Pagina 03 Convites Recebidos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-04-convites-enviados.html",
+          "label": "Pagina 04 Convites Enviados",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-05-amigos-em-comum.html",
+          "label": "Pagina 05 Amigos Em Comum",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-06-melhores-amigos.html",
+          "label": "Pagina 06 Melhores Amigos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-07-fas.html",
+          "label": "Pagina 07 Fas",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-08-idolos.html",
+          "label": "Pagina 08 Idolos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-09-amigos-por-cidade.html",
+          "label": "Pagina 09 Amigos Por Cidade",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-10-amigos-por-escola.html",
+          "label": "Pagina 10 Amigos Por Escola",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-11-amigos-por-trabalho.html",
+          "label": "Pagina 11 Amigos Por Trabalho",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-12-bloqueados.html",
+          "label": "Pagina 12 Bloqueados",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-13-listas-de-amigos.html",
+          "label": "Pagina 13 Listas De Amigos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-14-importar-contatos.html",
+          "label": "Pagina 14 Importar Contatos",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-15-convidar-por-e-mail.html",
+          "label": "Pagina 15 Convidar Por E Mail",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/03-AMIGOS/pagina-16-sugerir-amigo.html",
+          "label": "Pagina 16 Sugerir Amigo",
+          "section": "CRYPYKUT / 03-AMIGOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-01-recados-recebidos.html",
+          "label": "Pagina 01 Recados Recebidos",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-02-recados-enviados.html",
+          "label": "Pagina 02 Recados Enviados",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-03-escrever-recado.html",
+          "label": "Pagina 03 Escrever Recado",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-04-recados-favoritos.html",
+          "label": "Pagina 04 Recados Favoritos",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-05-recados-com-foto.html",
+          "label": "Pagina 05 Recados Com Foto",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-06-recados-com-video.html",
+          "label": "Pagina 06 Recados Com Video",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-07-recados-de-aniversario.html",
+          "label": "Pagina 07 Recados De Aniversario",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-08-responder-recado.html",
+          "label": "Pagina 08 Responder Recado",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-09-excluir-recados.html",
+          "label": "Pagina 09 Excluir Recados",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-10-recados-arquivados.html",
+          "label": "Pagina 10 Recados Arquivados",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-11-recados-em-grupo.html",
+          "label": "Pagina 11 Recados Em Grupo",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-12-recados-da-comunidade.html",
+          "label": "Pagina 12 Recados Da Comunidade",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-13-notificar-por-e-mail.html",
+          "label": "Pagina 13 Notificar Por E Mail",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-14-rascunhos.html",
+          "label": "Pagina 14 Rascunhos",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-15-lixeira-de-recados.html",
+          "label": "Pagina 15 Lixeira De Recados",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/04-RECADOS/pagina-16-regras-de-recados.html",
+          "label": "Pagina 16 Regras De Recados",
+          "section": "CRYPYKUT / 04-RECADOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-01-minhas-comunidades.html",
+          "label": "Pagina 01 Minhas Comunidades",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-02-buscar-comunidades.html",
+          "label": "Pagina 02 Buscar Comunidades",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-03-criar-comunidade.html",
+          "label": "Pagina 03 Criar Comunidade",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-04-comunidade-esquadrao-das-cores.html",
+          "label": "Pagina 04 Comunidade Esquadrao Das Cores",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-05-comunidade-nft-crypy.html",
+          "label": "Pagina 05 Comunidade Nft Crypy",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-06-comunidade-sensei-web3.html",
+          "label": "Pagina 06 Comunidade Sensei Web3",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-07-comunidade-dola-ai.html",
+          "label": "Pagina 07 Comunidade Dola Ai",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-08-comunidade-crypy-games.html",
+          "label": "Pagina 08 Comunidade Crypy Games",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-09-comunidade-crypy-eternity.html",
+          "label": "Pagina 09 Comunidade Crypy Eternity",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-10-tópicos-da-comunidade.html",
+          "label": "Pagina 10 TÓPicos Da Comunidade",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-11-enquetes-da-comunidade.html",
+          "label": "Pagina 11 Enquetes Da Comunidade",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-12-membros-da-comunidade.html",
+          "label": "Pagina 12 Membros Da Comunidade",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-13-moderadores.html",
+          "label": "Pagina 13 Moderadores",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-14-denunciar-comunidade.html",
+          "label": "Pagina 14 Denunciar Comunidade",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-15-comunidades-populares.html",
+          "label": "Pagina 15 Comunidades Populares",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/05-COMUNIDADES/pagina-16-sair-de-comunidade.html",
+          "label": "Pagina 16 Sair De Comunidade",
+          "section": "CRYPYKUT / 05-COMUNIDADES"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-01-minhas-fotos.html",
+          "label": "Pagina 01 Minhas Fotos",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-02-albuns.html",
+          "label": "Pagina 02 Albuns",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-03-enviar-foto.html",
+          "label": "Pagina 03 Enviar Foto",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-04-fotos-marcadas.html",
+          "label": "Pagina 04 Fotos Marcadas",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-05-fotos-curtidas.html",
+          "label": "Pagina 05 Fotos Curtidas",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-06-fotos-comentadas.html",
+          "label": "Pagina 06 Fotos Comentadas",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-07-meus-videos.html",
+          "label": "Pagina 07 Meus Videos",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-08-enviar-video.html",
+          "label": "Pagina 08 Enviar Video",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-09-videos-curtidos.html",
+          "label": "Pagina 09 Videos Curtidos",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-10-videos-da-comunidade.html",
+          "label": "Pagina 10 Videos Da Comunidade",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-11-capa-do-perfil.html",
+          "label": "Pagina 11 Capa Do Perfil",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-12-fotos-de-capa.html",
+          "label": "Pagina 12 Fotos De Capa",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-13-privacidade-de-fotos.html",
+          "label": "Pagina 13 Privacidade De Fotos",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-14-denunciar-foto.html",
+          "label": "Pagina 14 Denunciar Foto",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-15-download-de-fotos.html",
+          "label": "Pagina 15 Download De Fotos",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/CRYPYKUT/06-FOTOS-VIDEOS/pagina-16-lixeira-de-fotos.html",
+          "label": "Pagina 16 Lixeira De Fotos",
+          "section": "CRYPYKUT / 06-FOTOS-VIDEOS"
+        },
+        {
+          "path": "CRYPY-SOCIAL/depoimentos.html",
+          "label": "Depoimentos",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/fotos.html",
+          "label": "Fotos",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/index.html",
+          "label": "Index",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/jogos.html",
+          "label": "Jogos",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-SOCIAL/mensagens.html",
+          "label": "Mensagens",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/perfil.html",
+          "label": "Perfil",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/reals.html",
+          "label": "Reals",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/recados.html",
+          "label": "Recados",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-SOCIAL"
+        },
+        {
+          "path": "CRYPY-SOCIAL/shots.html",
+          "label": "Shots",
+          "section": "CRYPY-SOCIAL"
+        }
+      ]
+    },
+    {
+      "id": "m11",
+      "name": "BABY I.A.",
+      "folder": "BABY-IA",
+      "count": 32,
+      "pages": [
+        {
+          "path": "BABY-IA/auto-config.html",
+          "label": "Auto Config",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/baby-agente-cons.html",
+          "label": "Baby Agente Cons",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/centro.html",
+          "label": "Centro",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/esquadrao-auto-config.html",
+          "label": "Esquadrao Auto Config",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/momory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/health.html",
+          "label": "Health",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/pluguin-tuto.html",
+          "label": "Pluguin Tuto",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/momory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "momory-boost"
+        },
+        {
+          "path": "BABY-IA/padrao/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "padrao"
+        },
+        {
+          "path": "BABY-IA/padrao/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "padrao"
+        },
+        {
+          "path": "BABY-IA/padrao/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "padrao"
+        },
+        {
+          "path": "BABY-IA/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "BABY-IA"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "sincronizacao"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "sincronizacao"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "sincronizacao"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/health.html",
+          "label": "Health",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "sincronizacao / momory-boost"
+        },
+        {
+          "path": "BABY-IA/sincronizacao/momory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "sincronizacao / momory-boost"
+        }
+      ]
+    },
+    {
+      "id": "m12",
+      "name": "WHITE PAPER / CRYPY COIN",
+      "folder": "CRYPY-COIN",
+      "count": 16,
+      "pages": [
+        {
+          "path": "CRYPY-COIN/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CRYPY-COIN"
+        },
+        {
+          "path": "CRYPY-COIN/Crypy-Coin.html",
+          "label": "Crypy Coin",
+          "section": "CRYPY-COIN"
+        },
+        {
+          "path": "CRYPY-COIN/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CRYPY-COIN"
+        },
+        {
+          "path": "CRYPY-COIN/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CRYPY-COIN"
+        },
+        {
+          "path": "CRYPY-COIN/index.html",
+          "label": "Index",
+          "section": "CRYPY-COIN"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/health.html",
+          "label": "Health",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/memory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "memory-boost"
+        },
+        {
+          "path": "CRYPY-COIN/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "CRYPY-COIN"
+        },
+        {
+          "path": "CRYPY-COIN/white-paper.html",
+          "label": "White Paper",
+          "section": "CRYPY-COIN"
+        }
+      ]
+    },
+    {
+      "id": "m13",
+      "name": "CONTATO",
+      "folder": "CONTATO",
+      "count": 15,
+      "pages": [
+        {
+          "path": "CONTATO/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "CONTATO"
+        },
+        {
+          "path": "CONTATO/contato-oficial.html",
+          "label": "Contato Oficial",
+          "section": "CONTATO"
+        },
+        {
+          "path": "CONTATO/crypykut.html",
+          "label": "Crypykut",
+          "section": "CONTATO"
+        },
+        {
+          "path": "CONTATO/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "CONTATO"
+        },
+        {
+          "path": "CONTATO/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "CONTATO"
+        },
+        {
+          "path": "CONTATO/index.html",
+          "label": "Index",
+          "section": "CONTATO"
+        },
+        {
+          "path": "CONTATO/momory-boost/baby-ia-agente.html",
+          "label": "Baby Ia Agente",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/baby-ia-conectado.html",
+          "label": "Baby Ia Conectado",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/chatboot-baby-ia.html",
+          "label": "Chatboot Baby Ia",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/hd-baby-ia.html",
+          "label": "Hd Baby Ia",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/hd-memory.html",
+          "label": "Hd Memory",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/health.html",
+          "label": "Health",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/pluguin.html",
+          "label": "Pluguin",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/pluguins-tuto.html",
+          "label": "Pluguins Tuto",
+          "section": "momory-boost"
+        },
+        {
+          "path": "CONTATO/momory-boost/relogio-mundial.html",
+          "label": "Relogio Mundial",
+          "section": "momory-boost"
+        }
+      ]
+    }
+  ]
+}

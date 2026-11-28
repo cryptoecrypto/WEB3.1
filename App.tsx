@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Search, Folder, FolderOpen, ArrowLeft, Bitcoin, Coins, Hexagon, CalendarDays, BarChart3, Newspaper, LayoutDashboard, Phone, Sparkles, Bot, Landmark, Image as ImageIcon, Shield, Gamepad2, Map as MapIcon, Camera, Video, Cpu, Activity, Plug, Baby, TrendingUp, Flame, Crown, ChevronLeft, ChevronRight, Zap, Globe, Infinity as InfinityIcon, Palette, GraduationCap, BookOpen, Users, FileText, Store, Trophy, Heart } from "lucide-react";
 import photoDragoes from "container:///mnt/data/src/assets/1bb99cee1b02aea1-img-u7532246337599007717-2.jpg";
 import photoLucy from "container:///mnt/data/src/assets/9a46cb1707f05fd0-img-u7532246337599007717-1.jpg";
@@ -66,6 +66,14 @@ function Back({setPage}:{setPage:(p:Page)=>void}){return <button className="btn-
 function PriceRow(){return <div className="grid gap-3">{prices.map(p=><div key={p.s} className="panel p-4 flex items-center justify-between gap-3"><div className="min-w-0"><p className="font-black text-lg" style={{overflowWrap:"anywhere"}}>{p.s} <span className="text-sm font-medium text-[var(--muted)]">· {p.n}</span></p><p className="text-sm text-[var(--muted)]">Leitura de referência da Colmeia</p></div><div className="text-right shrink-0"><p className="font-black gold">{p.p}</p><p className={p.v.startsWith("-")?"text-red-400":"green"}>{p.v}</p></div></div>)}</div>}
 
 export default function App(){
+  useEffect(()=>{
+    const script=document.createElement("script");
+    script.src=new URL("assets/js/crypy-menu-superior-13-html.js",window.location.href).href;
+    script.defer=true;
+    script.dataset.crypyTopMenu="13-html";
+    document.body.appendChild(script);
+    return ()=>script.remove();
+  },[]);
   const [page,setPage]=useState<Page>("menu");
   const [q,setQ]=useState("");
   const [sub,setSub]=useState<string|null>(null);

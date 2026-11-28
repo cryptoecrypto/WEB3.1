@@ -3,11 +3,11 @@ name: CRYPY BABY Server Tests
 on:
   push:
     paths:
-      - "crypy-news/hd-matriz/crypy-server-bridge/**"
+      - "CRYPY-NEWS/hd-matriz/crypy-server-bridge/**"
       - ".github/workflows/crypy-baby-server-test.yml"
   pull_request:
     paths:
-      - "crypy-news/hd-matriz/crypy-server-bridge/**"
+      - "CRYPY-NEWS/hd-matriz/crypy-server-bridge/**"
       - ".github/workflows/crypy-baby-server-test.yml"
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: crypy-news/hd-matriz/crypy-server-bridge
+        working-directory: CRYPY-NEWS/hd-matriz/crypy-server-bridge
     steps:
       - name: Checkout
         uses: actions/checkout@v4
