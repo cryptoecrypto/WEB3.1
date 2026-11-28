@@ -55,7 +55,7 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["CRYPY-INFINYT/crypy-infinity.html","NFT-COLLECTION/NFT-CRYPY-CARDS/nft-crypy-cards.html","ESQUADRÃO-DAS-CORES/esquadrao.html","CRYPY-ACADEMY/academia.html","BIOGRAFIA/historia.html","CRYPY-NEWS/index.html","CRYPY-NEWS/museu.html","ART-FIGURE-MARKETPLACE/marketplace.html","CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land.html","CRYPY-SHOTS/01-feed-para-voce.html","BABY-IA/centro.html","CRYPY-COIN/white-paper.html","CONTATO/contato-oficial.html"];
+  var officialMenuPaths = ["CRYPY-INFINYT/index.html","NFT-COLLECTION/NFT-CRYPY-CARDS/nft-crypy-cards.html","ESQUADRÃO-DAS-CORES/esquadrao.html","CRYPY-ACADEMY/academia.html","BIOGRAFIA/historia.html","CRYPY-NEWS/index.html","CRYPY-NEWS/museu.html","ART-FIGURE-MARKETPLACE/marketplace.html","CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land.html","CRYPY-SHOTS/01-feed-para-voce.html","BABY-IA/centro.html","CRYPY-COIN/white-paper.html","CONTATO/contato-oficial.html"];
   var categories = [
     {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
