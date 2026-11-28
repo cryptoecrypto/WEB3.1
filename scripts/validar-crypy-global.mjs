@@ -8,6 +8,8 @@ const manifest = JSON.parse(read("assets/data/crypy-page-index.json"));
 const assignments = JSON.parse(read("assets/data/crypy-menu-agent-assignments.json"));
 const catalog = JSON.parse(read("CRYPY-13-CHATBOOTS/config/agents.json"));
 const home = read("index.html");
+const homeBridge = read("dev/crypy-home-link-bridge.js");
+const appSource = read("App.tsx");
 const loader = read("dev/micro-clock.js");
 const nav = read("assets/js/crypy-global-nav.js");
 const runtime = read("assets/js/crypy-global-runtime.js");
@@ -96,8 +98,10 @@ if (new Set(assignments.agentIds || []).size !== 13) errors.push("agentIds cont�
 for (const id of assignments.agentIds || []) if (!catalogIds.has(id)) errors.push("agentId inválido no lote coletivo: "+id);
 if (assignmentIds.some(id=>!assignments.agentIds.includes(id)) || assignments.agentIds.some(id=>!assignmentIds.includes(id))) errors.push("agentIds e atribuições não correspondem");
 
-if (!home.includes("dev/micro-clock.js")) errors.push("HOME não carrega a ponte do menu global");
+if (!home.includes("dev/crypy-home-link-bridge.js")) errors.push("HOME não carrega a ponte dos 13 HTMLs reais");
 if (!home.includes("dev/baby-chat-widget.js")) errors.push("HOME não carrega a ponte do ChatBoot Global");
+if (!homeBridge.includes("Abrir pasta") || !homeBridge.includes("window.location.assign")) errors.push("ponte da HOME não intercepta os 13 cartões do menu");
+if (!appSource.includes("const menuRoutes") || !appSource.includes("window.location.assign")) errors.push("App.tsx não documenta o roteamento real dos 13 temas");
 if (!loader.includes("crypy-global-nav.js")) errors.push("ponte da HOME não carrega o menu global");
 if (!nav.includes("crypy-global-runtime.js")) errors.push("menu global não carrega o runtime");
 if (!runtime.includes("baby-global-chat.js")) errors.push("runtime não carrega o widget global BABY");
