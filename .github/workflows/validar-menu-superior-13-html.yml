@@ -1,0 +1,35 @@
+name: CRYPY — Menu Superior 13 Pastas
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "App.tsx"
+      - "index.html"
+      - "assets/data/crypy-menu-superior-13-html.json"
+      - "assets/js/crypy-menu-superior-13-html.js"
+      - "scripts/validar-menu-superior-13-html.mjs"
+      - ".github/workflows/validar-menu-superior-13-html.yml"
+  push:
+    branches: [feature/menu-superior-13-html-20261128]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-menu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/crypy-menu-superior-13-html.js
+          node --check scripts/validar-menu-superior-13-html.mjs
+      - name: Validate all menu HTML links
+        run: node scripts/validar-menu-superior-13-html.mjs
