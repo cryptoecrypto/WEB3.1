@@ -30,7 +30,9 @@ const categories = [
   {label:"WHITE PAPER / CRYPY COIN",group:"crypy-coin"},
   {label:"CONTATO",group:"contato"}
 ];
-const allowedAgentIds = new Set((catalog.agents || []).map(agent => agent.id));
+const catalogIds = new Set((catalog.agents || []).map(agent=>agent.id));
+const assignmentIds = (assignments.assignments || []).map(item=>item.agentId);
+const assignmentMenuIds = (assignments.assignments || []).map(item=>item.menuId);
 const expectedMenuIds = categories.map((_,i)=>"m"+String(i+1).padStart(2,"0"));
 
 if (!Array.isArray(manifest.pages)) errors.push("índice público não contém pages[]");
@@ -74,9 +76,6 @@ if (!nav.includes('count.textContent = "13 temas oficiais')) errors.push("contad
 if (!nav.includes('if (pagePath === "crypy-news/museu.html") return categories[6];')) errors.push("Museu Digital sem rota própria");
 if (!nav.includes('if (pagePath.indexOf("crypy-games-arcade/crypy-land/") === 0) return categories[8];')) errors.push("CRYPY-LAND não está dentro de Games-Arcade");
 
-const catalogIds = new Set((catalog.agents || []).map(agent=>agent.id));
-const assignmentIds = (assignments.assignments || []).map(item=>item.agentId);
-const assignmentMenuIds = (assignments.assignments || []).map(item=>item.menuId);
 if (new Set(assignmentIds).size !== 13) errors.push("um agente foi atribuído a mais de um tema");
 if (new Set(assignmentMenuIds).size !== 13) errors.push("menuId duplicado nas atribuições");
 for (let i=0;i<13;i++) {
