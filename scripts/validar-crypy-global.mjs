@@ -111,7 +111,7 @@ if (!chatScript.includes("baby-site-auth-production.up.railway.app") || !chatScr
   errors.push("ChatBoot Global não está ligado aos endpoints generativos BABY");
 }
 if (!chatScript.includes("CRYPY_API_TOKEN") || !chatScript.includes("sessionStorage")) errors.push("autenticação do ChatBoot não está documentada/limitada à sessão");
-if (chatScript.includes("CRYPY_DEFAULT_API_KEY") || /sk-[A-Za-z0-9]{20,}/.test(chatScript)) errors.push("uma chave de provedor não pode aparecer no frontend");
+if (/(?:sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{30,}|xox[baprs]-[A-Za-z0-9-]{20,})/.test(chatScript+chatPage)) errors.push("uma chave de provedor não pode aparecer no frontend");
 
 if (errors.length) {
   console.error(errors.join("\n"));
