@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRYPY — Home</title><style>
+*{box-sizing:border-box}body{margin:0;background:#03070a;color:#fff;font-family:Inter,system-ui,Arial;overflow-x:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid #0f2a1e}
+.logo{color:#00ff88;font-weight:900;letter-spacing:1px}.logo span{color:#fff}
+.hero{max-width:1180px;margin:18px auto;padding:0 14px}
+.banner{border:1px solid #1a3a2a;border-radius:18px;overflow:hidden;background:#07120d}
+.banner img{width:100%;display:block}
+.banner h1{text-align:center;margin:0;padding:14px;font-size:22px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.card{border-radius:22px;padding:20px;text-align:center;border:1px solid #333;background:radial-gradient(circle at 50% 0%,rgba(0,255,136,.25),transparent 60%),#0a0f14}
+.card b{font-size:28px}.card small{opacity:.7}
+.wrap{max-width:1180px;margin:22px auto;padding:0 14px}
+.kicker{color:#00ff88;letter-spacing:3px;font-size:12px;font-weight:800}
+h2{font-size:34px;margin:6px 0 14px}
+.clock{border:1px solid #1e3a2a;border-radius:14px;padding:14px 18px;display:inline-block;background:#050a08}
+.clock b{font-size:34px}
+.notice{background:#2a1e05;border:1px solid #6b4d00;color:#ffe08a;text-align:center;padding:12px;border-radius:12px;margin:16px 0;font-size:13px}
+/* NOVO GRAFICO */
+.chart{background:#050a08;border:1px solid #1a2e22;border-radius:18px;overflow:hidden}
+.chart-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 18px;border-bottom:1px solid #132a1e}
+.price{font-size:38px;color:#00ff88;font-weight:900}.muted{color:#9aa; font-size:13px}
+.pill{border:1px solid #222;background:#0d1510;color:#fff;padding:8px 12px;border-radius:999px;cursor:pointer}
+.pill.on{background:#00ff88;color:#000;font-weight:800}
+.grid{display:grid;grid-template-columns:220px 1fr 220px;gap:0}
+.panel{padding:14px;border-right:1px solid #132a1e}.panel:last-child{border-right:0;border-left:1px solid #132a1e}
+.row{display:flex;justify-content:space-between;padding:7px 0;font-size:13px;border-bottom:1px dashed #152a1e}
+.sell{color:#ff5a6a}.buy{color:#00e676}
+canvas{width:100%;height:360px;display:block;background:#071008;cursor:crosshair}
+.controls{display:flex;gap:8px;flex-wrap:wrap;padding:12px 14px;align-items:center}
+.coin{padding:12px;border:1px solid #1e3326;border-radius:12px;margin-bottom:10px;cursor:pointer}
+.coin.on{border-color:#00ff88;background:#0a1f14}
+.coin b{display:flex;justify-content:space-between}
+select,input[type=checkbox]{accent-color:#00ff88}
+label{font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 14px 14px}
+.stat{background:#0a130d;border:1px solid #16281c;border-radius:12px;padding:12px}.stat small{color:#9aa}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{border:0}.cards{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="top"><div class="logo">CRYPY <span>MARKET NEWS</span></div><div>HOME • AO VIVO • SINCRONIZADO</div></div>
+<div class="hero"><div class="banner"><h1>CRYPY: MARKET NEWS — ANÁLISE • MERCADO • INFORMAÇÃO EM TEMPO REAL</h1>
+<div class="cards"><div class="card"><b style="color:#ff9d00">BTC</b><br><small>Bitcoin</small><br><b>$74,862.23</b><br><small style="color:#ff5a6a">▼ -0.03% (24h)</small></div>
+<div class="card"><b style="color:#c07bff">ETH</b><br><small>Ethereum</small><br><b>$2,126.17</b><br><small style="color:#00e676">▲ +0.23% (24h)</small></div>
+<div class="card"><b style="color:#00e5c7">USDT</b><br><small>Tether</small><br><b>$0.9985</b><br><small style="color:#ff5a6a">▼ -0.06% (24h)</small></div></div></div></div>
+
+<div class="wrap"><div class="kicker">HOME • AO VIVO • SINCRONIZADO</div><h2>GRÁFICOS SINCRONIZADOS COM O RELÓGIO</h2>
+<div class="clock"><small style="color:#00ff88">● BRASÍLIA AO VIVO</small><br><b id="clock">00:00:00</b></div>
+<div class="notice">Simulação visual educacional. Não é cotação real. Não é recomendação financeira.</div>
+
+<!-- ✅ CAIXA ANTIGA REMOVIDA — NOVO GRÁFICO CONFIGURÁVEL NO LUGAR -->
+<section class="chart" id="novoGrafico">
+<div class="chart-head"><div><div class="muted"><b style="color:#fff">CRYPY NEWS</b> • GRÁFICO REAL • COMEIA • WEB3</div>
+<div><span id="pairLabel" style="font-size:13px">BTC/USDT • Preço ao vivo (ilustrativo)</span><br><span class="price" id="bigPrice">$60.115,77</span> <b id="var24" style="color:#00e676">↗ +3.87%</b></div>
+<div class="muted" style="margin-top:8px">MÁX <b style="color:#fff" id="maxV">60.410,12</b> &nbsp; MÍN <b style="color:#fff" id="minV">57.815,76</b> &nbsp; VOLUME <b style="color:#fff" id="volV">27.599,0 BTC</b></div></div>
+<div><span style="background:#d9ffe9;color:#064;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800">🛡 DADOS ILUSTRATIVOS • SEM CHAVE • SEM RISCO</span><br><button class="pill" style="margin-top:10px" onclick="gerar()">↻ Atualizar agora</button></div></div>
+
+<div class="controls">
+<b>Tipo:</b>
+<button class="pill on" data-type="candle" onclick="setType('candle',this)">Candles</button>
+<button class="pill" data-type="line" onclick="setType('line',this)">Linha</button>
+<button class="pill" data-type="bar" onclick="setType('bar',this)">Barras</button>
+<b style="margin-left:10px">Timeframe:</b>
+<button class="pill" onclick="setTF(15,this)">15m</button><button class="pill on" onclick="setTF(60,this)">1H</button><button class="pill" onclick="setTF(240,this)">4H</button><button class="pill" onclick="setTF(1440,this)">1D</button><button class="pill" onclick="setTF(10080,this)">1S</button>
+<label style="margin-left:10px"><input type="checkbox" id="ma7" checked onchange="draw()"> MA(7)</label>
+<label><input type="checkbox" id="ma25" checked onchange="draw()"> MA(25)</label>
+<label><input type="checkbox" id="ma99" onchange="draw()"> MA(99)</label>
+<label style="margin-left:10px">Cor alta <input type="color" id="cUp" value="#00e676" onchange="draw()"></label>
+<label>Cor baixa <input type="color" id="cDown" value="#ff4d6d" onchange="draw()"></label>
+<button class="pill" onclick="zoomIn()">+ Zoom</button><button class="pill" onclick="zoomOut()">− Zoom</button>
+<span class="muted">Arraste para mover • Scroll para zoom • Passe o mouse para crosshair</span>
+</div>
+
+<div class="grid">
+<div class="panel"><b>📖 Livro de ordens</b> <span class="muted">2s • ilustrativo</span><div id="book"></div><p class="muted" style="font-size:12px">Ordens calculadas a partir do preço exibido, para visualização. Não há execução em exchange.</p></div>
+<div style="padding:14px"><canvas id="cv" width="900" height="360"></canvas><div class="stats" style="padding:12px 0 0"><div class="stat"><small>MA(7)</small><br><b id="ma7v">—</b></div><div class="stat"><small>MA(25)</small><br><b id="ma25v">—</b></div><div class="stat"><small>MA(99)</small><br><b id="ma99v">—</b></div><div class="stat"><small>Volume</small><br><b id="vol2">—</b></div></div></div>
+<div class="panel"><b>🪙 Moedas</b><div id="coins"></div><div style="background:#0a1f14;border:1px solid #1e3a2a;border-radius:12px;padding:12px;font-size:13px"><b>↗ Como ler:</b> verde sobe, vermelho desce. Use o timeframe para mudar a agregação das velas.</div></div>
+</div></section>
+<p class="muted" style="text-align:center">Para trocar a moeda, clique na lista à direita. Para trocar o visual, use Tipo / Timeframe / MA / Cores acima — tudo sem recarregar a página.</p>
+</div>
+<script>
+let coins={BTC:{p:60115.77,v:3.87},ETH:{p:3084.47,v:-2.94},BNB:{p:533.76,v:-0.79},SOL:{p:176.32,v:7.12},USDT:{p:4.5906,v:-1.15}};
+let cur='BTC',type='candle',tf=60,data=[],zoom=1,offset=0;
+function fmt(n){return n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function gerar(){let base=coins[cur].p;data=[];let p=base*0.96;for(let i=0;i<120;i++){let o=p;let c=o+(Math.random()-0.48)*base*0.012;let h=Math.max(o,c)+Math.random()*base*0.004;let l=Math.min(o,c)-Math.random()*base*0.004;p=c;data.push({o,h,l,c,vol:Math.random()*900+200})}draw();renderCoins();renderBook()}
+function ma(n){let out=[];for(let i=0;i<data.length;i++){if(i<n-1){out.push(null);continue}let s=0;for(let j=i-n+1;j<=i;j++)s+=data[j].c;out.push(s/n)}return out}
+function setType(t,el){type=t;document.querySelectorAll('[data-type]').forEach(b=>b.classList.remove('on'));el.classList.add('on');draw()}
+function setTF(v,el){tf=v;document.querySelectorAll('.controls .pill').forEach(b=>{if(['15m','1H','4H','1D','1S'].includes(b.textContent))b.classList.remove('on')});el.classList.add('on');gerar()}
+function zoomIn(){zoom=Math.min(3,zoom+0.2);draw()} function zoomOut(){zoom=Math.max(0.5,zoom-0.2);draw()}
+function renderCoins(){document.getElementById('coins').innerHTML=Object.entries(coins).map(([k,v])=>`<div class="coin ${k==cur?'on':''}" onclick="cur='${k}';gerar();document.getElementById('pairLabel').textContent='${k}/USDT • Preço ao vivo (ilustrativo)';document.getElementById('bigPrice').textContent='$'+fmt(v.p)"><b>${k}/USDT <span>$${fmt(v.p)}</span></b><small>${k==cur?'Selecionada':'Clique para trocar'}</small> <small style="color:${v.v>=0?'#00e676':'#ff5a6a'};float:right">${v.v>=0?'+':''}${v.v.toFixed(2)}%</small></div>`).join('')}
+function renderBook(){let p=coins[cur].p;let h='';for(let i=7;i>=1;i--)h+=`<div class="row sell"><span>${fmt(p+i*55.2)}</span><span>${(0.12*i).toFixed(3)}</span><span>${fmt(p*0.12*i)}</span></div>`;h+=`<div style="text-align:center;color:#00ff88;font-weight:900;padding:10px">${fmt(p)}</div>`;for(let i=1;i<=7;i++)h+=`<div class="row buy"><span>${fmt(p-i*54.1)}</span><span>${(0.15*i).toFixed(3)}</span><span>${fmt(p*0.15*i)}</span></div>`;document.getElementById('book').innerHTML=h}
+function draw(){let cv=document.getElementById('cv'),ctx=cv.getContext('2d');ctx.clearRect(0,0,cv.width,cv.height);if(!data.length)return;let W=cv.width,H=300;let slice=data.slice(-Math.floor(70/zoom));let min=Math.min(...slice.map(d=>d.l)),max=Math.max(...slice.map(d=>d.h));let y=v=>H-((v-min)/(max-min||1))*(H-40)-10;let x=i=>40+i*( (cv.width-80)/slice.length);
+ctx.strokeDasharray='4 4';ctx.strokeStyle='#00e676';ctx.beginPath();ctx.moveTo(0,y(data[data.length-1].c));ctx.lineTo(cv.width,y(data[data.length-1].c));ctx.stroke();ctx.setLineDash([]);
+ctx.fillStyle='#00e676';ctx.fillRect(cv.width-70,y(data[data.length-1].c)-10,70,20);ctx.fillStyle='#000';ctx.fillText(fmt(data[data.length-1].c),cv.width-65,y(data[data.length-1].c)+4);
+slice.forEach((d,i)=>{let cx=x(i),bw=Math.max(4,(cv.width-80)/slice.length*0.6);let up=d.c>=d.o;ctx.fillStyle=up?document.getElementById('cUp').value:document.getElementById('cDown').value;if(type=='candle'){ctx.fillRect(cx-bw/2,y(Math.max(d.o,d.c)),bw,Math.max(2,Math.abs(y(d.o)-y(d.c))));ctx.fillRect(cx-1,y(d.h),2,y(d.l)-y(d.h))}else if(type=='bar'){ctx.fillRect(cx-1,y(d.h),2,y(d.l)-y(d.h));ctx.fillRect(cx-bw/2,y(d.o),bw/2,2);ctx.fillRect(cx,y(d.c),bw/2,2)}else{ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=2;ctx.beginPath();if(i>0)ctx.moveTo(x(i-1),y(slice[i-1].c));ctx.lineTo(cx,y(d.c));ctx.stroke()}ctx.fillStyle=up?'#00e67688':'#ff4d6d88';ctx.fillRect(cx-bw/2,H+10,bw,30*(d.vol/1100))});
+[[7,'ma7','#ffcc00'],[25,'ma25','#b07bff'],[99,'ma99','#00c2ff']].forEach(([n,id,col])=>{if(!document.getElementById(id).checked)return;let m=ma(n);ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();slice.forEach((d,i)=>{let gi=data.length-slice.length+i;if(m[gi]==null)return;let yy=y(m[gi]);if(i==0||m[gi-1]==null)ctx.moveTo(x(i),yy);else ctx.lineTo(x(i),yy)});ctx.stroke()});
+let m7=ma(7),m25=ma(25),m99=ma(99);document.getElementById('ma7v').textContent=fmt(m7[m7.length-1]||0);document.getElementById('ma25v').textContent=fmt(m25[m25.length-1]||0);document.getElementById('ma99v').textContent=m99[m99.length-1]?fmt(m99[m99.length-1]):'—';document.getElementById('vol2').textContent=fmt(data.reduce((a,b)=>a+b.vol,0));document.getElementById('maxV').textContent=fmt(max);document.getElementById('minV').textContent=fmt(min)}
+setInterval(()=>{document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR')},1000);gerar();
+</script></body></html>
