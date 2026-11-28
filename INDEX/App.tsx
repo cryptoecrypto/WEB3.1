@@ -17,13 +17,13 @@ const newMenu: {id:Page; num:string; title:string; desc:string; icon:React.React
   {id:"m08", num:"08", title:"ART-FIGURE / MARKETPLACE", desc:"V1–V12. V5 CRYPV, V6 CRYPP e V12 Guardião por último — V12 LEGION. Vitrine do marketplace.", icon:<Store size={22}/>},
   {id:"m09", num:"09", title:"CRYPY GAMES-ARCADE", desc:"CRYPY-LAND, 3D vivo, cidade viva, mapa-colmeia, DEFENDER-GLOBAL, GAME-NFT-TERRENO e arcade.", icon:<Gamepad2 size={22}/>},
   {id:"m10", num:"10", title:"CRYPY-SOCIAL", desc:"CRYPYKUT, fotos e vídeos, social e a lixeira-de-fotos da Colmeia.", icon:<Users size={22}/>},
-  {id:"m11", num:"11", title:"BABY I.A.", desc:"Baby-IA-agente, Baby-IA-conectado, auto-config, centro, esquadrão-auto-config, health, plugin e memory-boost.", icon:<Bot size={22}/>},
+  {id:"m11", num:"11", title:"BABY I.A.", desc:"Baby-IA-agente, Baby-IA-conectado, auto-config, centro, esquadrão-auto-config, health e plugin.", icon:<Bot size={22}/>},
   {id:"m12", num:"12", title:"WHITE PAPER / CRYPY COIN", desc:"White Paper e CRYPYCOIN sem cotação pública. Tokens BTC, ETH, USDT, BNB, ICP e SHIB com preços reais Binance.", icon:<FileText size={22}/>},
   {id:"m13", num:"13", title:"CONTATO", desc:"Contato oficial da Colmeia.", icon:<Phone size={22}/>},
 ];
 
 const folderCounts: Partial<Record<Page, number>> = {
-  m01: 6, m02: 6, m03: 5, m04: 6, m05: 3, m06: 5, m07: 10, m08: 12, m09: 6, m10: 3, m11: 8, m12: 9, m13: 1,
+  m01: 6, m02: 6, m03: 5, m04: 6, m05: 3, m06: 5, m07: 10, m08: 12, m09: 6, m10: 3, m11: 7, m12: 9, m13: 1,
 };
 
 const indexes: {id:Page; title:string; desc:string; icon:React.ReactNode}[] = [
@@ -103,7 +103,7 @@ export default function App(){
     {t:"ESQUADRÃO-AUTO-CONFIG", d:"O esquadrão inteiro se autoconfigura junto com a BABY."},
     {t:"BABY-IA — HEALTH", d:"Saúde do sistema, em tempo real: verde quando está tudo bem."},
     {t:"BABY-IA — PLUGIN", d:"Plugins ativos da BABY: cada um cuida de uma tarefa da Colmeia."},
-    {t:"MEMORY-BOOST", d:"O reforço de memória: a BABY lembra o que importa para o dia seguinte."},
+    
   ];
 
   return <div data-safe-area-inset-root style={shellStyle} className="overflow-x-clip min-h-screen bg-[var(--bg)]">
