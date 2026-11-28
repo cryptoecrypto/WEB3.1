@@ -31,8 +31,9 @@ jobs:
           node --check CRYPY-13-CHATBOOTS/baby-core/browser-adapter.js
           node --check CRYPY-13-CHATBOOTS/collaboration-bus.js
           node --check CRYPY-13-CHATBOOTS/world-clock.js
+          node --check CRYPY-13-CHATBOOTS/agent-time-sync.js
       - name: Executar testes dos 13 perfis
-        run: node --test CRYPY-13-CHATBOOTS/tests/colmeia.test.mjs
+        run: node --test CRYPY-13-CHATBOOTS/tests/*.test.mjs
       - name: Validar JSONs do catálogo e da memória
         run: |
           node -e "JSON.parse(require('fs').readFileSync('CRYPY-13-CHATBOOTS/config/agents.json','utf8'))"
