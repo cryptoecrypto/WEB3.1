@@ -52,9 +52,9 @@ function isProtected(file) {
   return file==="index.html"||protectedNames.has(base)||protectedPaths.some(pattern=>pattern.test(file));
 }
 function isSensitive(file) {
-  const base=path.posix.basename(file).toLowerCase();
-  return /(memoria|memory|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(base)
-    || /(^|\/)\.env(?:\.|$)/i.test(file);
+  const normalized=file.toLowerCase();
+  return /(memoria|memory|momory[-_]?boost|fila-sync|manifest|backup|vault|wallet|seed|secret|credential|token|private[-_]?key|auto[-_]?config|(^|[-_])config|(^|[-_])auth)/i.test(normalized)
+    || normalized.split("/").some(part=>part===".env" || part.startsWith(".env."));
 }
 function extension(file) {
   const ext=path.posix.extname(file).replace(/^\./,"").toLowerCase();
@@ -113,8 +113,8 @@ for(const file of files) {
   const absolute=path.join(root,file);
   const html=fs.readFileSync(absolute,"utf8");
   if(!/<(?:!doctype\s+html|html\b|body\b)/i.test(html)||html.includes("\u0000")){invalid++;continue;}
+  if(isProtected(file) || isSensitive(file)){preserved++;continue;}
   pages.push({path:file,label:label(file),group:file.includes("/")?file.split("/")[0]:"RAIZ"});
-  if(isProtected(file)){preserved++;continue;}
 
   const directory=path.posix.dirname(file);
   let source=path.posix.relative(directory==="."?"":directory,navAsset);
