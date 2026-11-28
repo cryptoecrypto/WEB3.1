@@ -56,7 +56,9 @@
     if (isBabyChat || new URLSearchParams(location.search).get("embed") === "1") return;
     if (document.querySelector('script[data-crypy-baby-chat="true"]')) return;
     var chat = document.createElement("script");
-    chat.src = new URL("assets/js/baby-global-chat.js", siteRoot).href;
+    var chatUrl = new URL("assets/js/baby-global-chat.js", siteRoot);
+    chatUrl.searchParams.set("v", "20261128-global-colmeia-1");
+    chat.src = chatUrl.href;
     chat.defer = true;
     chat.dataset.crypyBabyChat = "true";
     (document.head || document.documentElement).appendChild(chat);

@@ -80,7 +80,26 @@ export default function App(){
   const filtered = useMemo(()=>indexes.filter(x=>(x.title+" "+x.desc).toLowerCase().includes(q.toLowerCase())),[q]);
   const filteredNew = useMemo(()=>newMenu.filter(x=>(x.num+" "+x.title+" "+x.desc).toLowerCase().includes(q.toLowerCase())),[q]);
   const allSearch = useMemo(()=>{const all=[...newMenu.map(x=>({label:`${x.num} ${x.title}`,page:x.id as Page,desc:x.desc})),...indexes.map(x=>({label:x.title,page:x.id as Page,desc:x.desc})),...subpages.flatMap(g=>g.items.map(i=>({label:i.t,page:"10" as Page,desc:i.d}))),...figures.map(f=>({label:`ART FIGURE ${f.v} ${f.name}`,page:"m08" as Page,desc:f.detail}))];return all.filter(a=>(a.label+" "+a.desc).toLowerCase().includes(q.toLowerCase()))},[q]);
-  const go=(p:Page)=>{setPage(p);setSub(null);window.scrollTo({top:0,behavior:"smooth"})};
+  const menuRoutes: Partial<Record<Page,string>> = {
+    m01:"CRYPY-INFINYT/index.html",
+    m02:"NFT-COLLECTION/NFT-CRYPY-CARDS/nft-crypy-cards.html",
+    m03:"ESQUADRÃO-DAS-CORES/esquadrao.html",
+    m04:"CRYPY-ACADEMY/academia.html",
+    m05:"BIOGRAFIA/historia.html",
+    m06:"CRYPY-NEWS/index.html",
+    m07:"CRYPY-NEWS/museu.html",
+    m08:"ART-FIGURE-MARKETPLACE/marketplace.html",
+    m09:"CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land.html",
+    m10:"CRYPY-SHOTS/01-feed-para-voce.html",
+    m11:"BABY-IA/centro.html",
+    m12:"CRYPY-COIN/white-paper.html",
+    m13:"CONTATO/contato-oficial.html"
+  };
+  const go=(p:Page)=>{
+    const route=menuRoutes[p];
+    if(route){window.location.assign(new URL(route,window.location.href).href);return;}
+    setPage(p);setSub(null);window.scrollTo({top:0,behavior:"smooth"})
+  };
   const base=new Date(); const view=new Date(base.getFullYear(),base.getMonth()+monthOffset,1);
   const daysIn=new Date(view.getFullYear(),view.getMonth()+1,0).getDate(); const first=new Date(view.getFullYear(),view.getMonth(),1).getDay();
   const monthName=view.toLocaleDateString("pt-BR",{month:"long",year:"numeric"});

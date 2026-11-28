@@ -1,4 +1,4 @@
-/* CRYPY WEB3.1 — Menu único da Colmeia: 14 categorias oficiais. */
+/* CRYPY WEB3.1 — Menu único da Colmeia: 13 categorias oficiais. */
 (function () {
   "use strict";
   if (window.__CRYPY_GLOBAL_NAV__) return;
@@ -8,7 +8,9 @@
   var siteRoot = new URL("../../", scriptUrl);
   if (window.top === window.self && !document.querySelector('script[data-crypy-global-runtime="true"]')) {
     var runtime = document.createElement("script");
-    runtime.src = new URL("assets/js/crypy-global-runtime.js", siteRoot).href;
+    var runtimeUrl = new URL("assets/js/crypy-global-runtime.js", siteRoot);
+    runtimeUrl.searchParams.set("v", "20261128-global-colmeia-1");
+    runtime.src = runtimeUrl.href;
     runtime.defer = true;
     runtime.dataset.crypyGlobalRuntime = "true";
     (document.head || document.documentElement).appendChild(runtime);
@@ -53,23 +55,22 @@
     }
   }
   var manifestUrl = new URL("assets/data/crypy-page-index.json", siteRoot);
-  var officialMenuPaths = ["crypy-infinyt/portal.html","nft-collection/galeria.html","esquadrao-das-cores/esquadrao.html","crypy-academy/academia.html","biografia/historia.html","crypy-news/index.html","crypy-news/museu.html","art-figure-marketplace/marketplace.html","crypy-games-desafios/crypy-games-desafios.html","crypy-games-desafios/CRYPY-LAND/crypy-land.html","baby-ia/centro.html","crypy-coin/white-paper.html","contato/contato-oficial.html","blog.html"];
+  var officialMenuPaths = ["CRYPY-INFINYT/index.html","NFT-COLLECTION/NFT-CRYPY-CARDS/nft-crypy-cards.html","ESQUADRÃO-DAS-CORES/esquadrao.html","CRYPY-ACADEMY/academia.html","BIOGRAFIA/historia.html","CRYPY-NEWS/index.html","CRYPY-NEWS/museu.html","ART-FIGURE-MARKETPLACE/marketplace.html","CRYPY-GAMES-ARCADE/CRYPY-LAND/crypy-land.html","CRYPY-SHOTS/01-feed-para-voce.html","BABY-IA/centro.html","CRYPY-COIN/white-paper.html","CONTATO/contato-oficial.html"];
   var categories = [
     {label:"CRYPY INFINYT", groups:["crypy-infinyt"]},
     {label:"NFT-COLLECTION", groups:["nft-collection"]},
     {label:"ESQUADRÃO DAS CORES", groups:["esquadrao-das-cores"]},
-    {label:"CRYPY ACADEMY-WEB3.1", groups:["crypy-academy","web3.1"]},
+    {label:"CRYPY ACADEMY", groups:["crypy-academy"]},
     {label:"BIOGRAFIA", groups:["biografia"]},
     {label:"CRYPY NEWS", groups:["crypy-news"]},
     {label:"MUSEU DIGITAL", groups:["museu-digital"]},
-    {label:"ART-FIGURE / MARKETPLACE", groups:["art-figure-marketplace","marketing"]},
-    {label:"CRYPY GAMES-DESAFIO", groups:["crypy-games-desafios"]},
-    {label:"CRYPY-SOCIAL", groups:["social-crypykut","crypy-shots"]},
-    {label:"BABY I.A.", groups:["baby-ia","RAIZ","memory-boost","padrao","pluguin","sincronizacao"]},
-    {label:"WHITE PAPER / CRYPY COIN", groups:["crypy-coin","white-paper"]},
-    {label:"CONTATO", groups:["contato"]},
-    {label:"BLOG", groups:["blog"]}
-  ];;
+    {label:"ART-FIGURE / MARKETPLACE", groups:["art-figure-marketplace"]},
+    {label:"CRYPY GAMES-ARCADE", groups:["crypy-games-arcade"]},
+    {label:"CRYPY-SOCIAL", groups:["crypy-social"]},
+    {label:"BABY I.A.", groups:["baby-ia"]},
+    {label:"WHITE PAPER / CRYPY COIN", groups:["crypy-coin"]},
+    {label:"CONTATO", groups:["contato"]}
+  ];
 
   function node(tag, attrs, value) {
     var item = document.createElement(tag);
@@ -89,7 +90,7 @@
     // mas pertencem a categorias editoriais próprias do menu oficial.
     if (pagePath === "crypy-news/museu.html") return categories[6];
     if (pagePath === "crypy-coin/white-paper.html" || pagePath === "crypy-coin/crypy-coin.html") return categories[11];
-    if (pagePath.indexOf("crypy-games-desafios/crypy-land/") === 0) return categories[9];
+    if (pagePath.indexOf("crypy-games-arcade/crypy-land/") === 0) return categories[8];
 
     for (var i = 0; i < categories.length; i++) {
       if (categories[i].groups.indexOf(group) !== -1 || categories[i].groups.indexOf(pathGroup) !== -1) return categories[i];
@@ -281,7 +282,7 @@
       var matches = pages.filter(function(page){
         return !query || (page.label+" "+page.path+" "+page.group).toLocaleLowerCase("pt-BR").includes(query);
       });
-      count.textContent = "14 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
+      count.textContent = "13 temas oficiais · 9 índices · "+matches.length+" destinos nesta busca";
       list.replaceChildren();
       if (!matches.length) {
         list.appendChild(node("div",{className:"crypy-nav-empty"},"Nenhuma página encontrada. Tente outro termo."));

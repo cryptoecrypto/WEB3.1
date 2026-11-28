@@ -1,0 +1,64 @@
+name: CRYPY — Validação da Sincronização Global
+
+on:
+  push:
+    branches:
+      - feature/crypy-global-colmeia-20261128
+    paths:
+      - '.github/workflows/crypy-global-colmeia-sync.yml'
+      - 'scripts/sincronizar-crypy-global.mjs'
+      - 'scripts/validar-crypy-global.mjs'
+      - 'assets/js/crypy-global-nav.js'
+      - 'assets/js/crypy-global-runtime.js'
+      - 'assets/js/baby-global-chat.js'
+      - 'assets/js/crypy-global-agent-chat-page.js'
+      - 'assets/data/crypy-menu-agent-assignments.json'
+      - 'dev/**'
+      - 'App.tsx'
+      - 'chatboot-global.html'
+      - 'index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crypy-global-colmeia-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout da branch de integração
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validar sintaxe JavaScript
+        run: |
+          node --check scripts/sincronizar-crypy-global.mjs
+          node --check scripts/validar-crypy-global.mjs
+          node --check assets/js/crypy-global-nav.js
+          node --check assets/js/crypy-global-runtime.js
+          node --check assets/js/baby-global-chat.js
+          node --check assets/js/crypy-global-agent-chat-page.js
+          node --check dev/micro-clock.js
+          node --check dev/baby-chat-widget.js
+          node --check dev/crypy-home-link-bridge.js
+
+      - name: Simular e aplicar sincronização no ambiente isolado
+        run: node scripts/sincronizar-crypy-global.mjs --apply
+
+      - name: Validar 13 temas, 13 especialistas e ChatBoot
+        run: node scripts/validar-crypy-global.mjs
+
+      - name: Resumo da sincronização gerada
+        run: |
+          echo "Páginas HTML alteradas no ambiente de teste:"
+          git diff --name-only -- '*.html' | wc -l
+          git diff --stat

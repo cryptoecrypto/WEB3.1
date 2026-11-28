@@ -47,4 +47,5 @@ function passarMes(){mes++;let r=rendaTotal();saldo+=r;let juros=Math.round(banc
 function depositar(){let v=parseInt(document.getElementById('valorBanco').value||0);if(v>0&&saldo>=v){saldo-=v;banco+=v;alert('Depositado '+fmt(v)+' CRYPY COIN')}renderPage()}
 function sacar(){let v=parseInt(document.getElementById('valorBanco').value||0);if(v>0&&banco>=v){banco-=v;saldo+=v;alert('Sacado '+fmt(v)+' CRYPY COIN')}renderPage()}
 renderMenu();renderPage();
-</script></body></html>
+</script><script src="../../../assets/js/crypy-global-nav.js?v=20261128-global-colmeia-1" defer></script>
+</body></html>
