@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: crypy-news/hd-matriz/crypy-server
+        working-directory: CRYPY-NEWS/hd-matriz/crypy-server
     steps:
       - name: Checkout do repositorio
         uses: actions/checkout@v4
