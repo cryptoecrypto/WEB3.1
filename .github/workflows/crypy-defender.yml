@@ -1,0 +1,42 @@
+name: CRYPY-DEFENDER
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  defender:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install ClamAV
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clamav
+          sudo systemctl stop clamav-freshclam || true
+          sudo freshclam --stdout
+      - name: Unit tests
+        run: node --test crypy-defender/test/scanner.test.mjs
+      - name: Repository malware scan
+        run: node crypy-defender/scanner.mjs --root . --clamav --strict --report "$RUNNER_TEMP/crypy-defender-report.json"
+      - name: Upload scan report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypy-defender-report
+          path: \${{ runner.temp }}/crypy-defender-report.json
+          if-no-files-found: ignore
+          retention-days: 14

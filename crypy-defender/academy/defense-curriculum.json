@@ -1,0 +1,106 @@
+{
+  "id": "CRYPY-DEFENDER-ACADEMY",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "status": "curriculum-attached-training-and-runtime-verification-pending",
+  "purpose": "Currículo comum de defesa para os 13 perfis oficiais e a trilha especial BABY.",
+  "governance": {
+    "humanAuthority": "Sensei",
+    "technicalCoordinator": "NEXUS",
+    "researchAndKnowledge": "ALICE",
+    "rule": "Preservar as identidades e missões oficiais dos agentes; trilhas A01-A13 são áreas funcionais de aprendizagem, não renomeiam agentes."
+  },
+  "completionSemantics": {
+    "localProgress": "Registro de estudo no navegador; editável e não confiável como prova.",
+    "agentProfile": "Curriculum attached to profile; does not mean model fine-tuning or verified comprehension.",
+    "production": "Requires runtime integration, authenticated evidence, tests and human approval."
+  },
+  "commonRules": [
+    "Never trust client-provided identity, permissions, scores, balances, inventory, or game state.",
+    "Never execute arbitrary commands on a production host.",
+    "Use isolated sandboxes, least privilege, allowlists, timeouts and audit logs.",
+    "Never expose secrets in public pages, repositories, logs, or reports.",
+    "Verify provenance, signatures and cryptographic hashes of binaries and releases.",
+    "Validate uploads by MIME, file signature, size and malware scan before publication.",
+    "Validate game state, balances and rewards on the server.",
+    "Treat heuristic alerts as review signals, not proof of malware.",
+    "Do not delete, overwrite, restore or quarantine without explicit authorization and a reversible procedure.",
+    "Protect sensitive data on the server; do not promise to prevent copying of browser-delivered HTML.",
+    "Preserve HD-MATRIZ, backups and evidence; restore only after integrity validation.",
+    "Declare policy, implementation, test and homologation as separate states."
+  ],
+  "tracks": [
+    [
+      "A01",
+      "Comando e governança"
+    ],
+    [
+      "A02",
+      "Defesa e preservação"
+    ],
+    [
+      "A03",
+      "Construção"
+    ],
+    [
+      "A04",
+      "Cuidado com BABY"
+    ],
+    [
+      "A05",
+      "Arte e mídia"
+    ],
+    [
+      "A06",
+      "Contabilidade e economia"
+    ],
+    [
+      "A07",
+      "Social e comunidade"
+    ],
+    [
+      "A08",
+      "Vídeo e SHOTS"
+    ],
+    [
+      "A09",
+      "WEB3"
+    ],
+    [
+      "A10",
+      "Matriz e memória"
+    ],
+    [
+      "A11",
+      "Segurança"
+    ],
+    [
+      "A12",
+      "Comunicação"
+    ],
+    [
+      "A13",
+      "Aprendizagem"
+    ]
+  ],
+  "babyTrack": [
+    "Autorização",
+    "Integridade",
+    "Sandbox",
+    "Comunicação"
+  ],
+  "approvalRequired": [
+    "delete",
+    "overwrite",
+    "restore",
+    "quarantine",
+    "credential or TOTP changes",
+    "production deploy",
+    "privileged terminal command"
+  ],
+  "limitations": [
+    "This is a curriculum and profile configuration, not model fine-tuning.",
+    "Browser localStorage is mutable and is not evidence of agent training.",
+    "Runtime protection requires server-side integration and verification."
+  ]
+}

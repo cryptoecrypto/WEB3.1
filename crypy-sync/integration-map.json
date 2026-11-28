@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "integration": "CRYPY-GERAL",
+  "repository": "cryptoecrypto/WEB3.1",
+  "role": "public-client",
+  "authority": "WEB3.1",
+  "description": "Interface, páginas, cliente web e distribuição de conteúdo explicitamente público.",
+  "participatingRepositories": [
+    {
+      "repository": "cryptoecrypto/WEB3.1",
+      "role": "public-client"
+    },
+    {
+      "repository": "cryptoecrypto/HD-MATRIZ",
+      "role": "private-core"
+    },
+    {
+      "repository": "cryptoecrypto/SECURYTY-SUBC",
+      "role": "security-controls"
+    },
+    {
+      "repository": "cryptoecrypto/CRYPY-LAND",
+      "role": "virtual-world"
+    },
+    {
+      "repository": "cryptoecrypto/CRYPYKUT",
+      "role": "social-network"
+    },
+    {
+      "repository": "cryptoecrypto/crypy-logo",
+      "role": "visual-identity"
+    }
+  ],
+  "synchronization": {
+    "mode": "role-based-contract",
+    "direction": "explicit-allowlist-only",
+    "fullRepositoryMirroring": false,
+    "directPushToMain": false,
+    "promotion": "pull-request-only",
+    "conflictHandling": "stop-on-same-path-different-content; preserve-both; require-human-resolution",
+    "destructiveSync": false,
+    "overwriteExistingFiles": false,
+    "deleteSourceFiles": false,
+    "automaticMerge": false
+  },
+  "dataBoundaries": {
+    "neverReplicate": [
+      ".env*",
+      "**/*token*",
+      "**/*secret*",
+      "**/*credential*",
+      "**/sessions/**",
+      "**/Memorias.json",
+      "**/memory*.json",
+      "**/backup*",
+      "**/evidence/**",
+      "**/snapshots/**",
+      "**/.baby/**",
+      "**/private-key*",
+      "**/*seed*"
+    ],
+    "publicRepositoryRule": "Only explicitly approved public, sanitized artifacts may enter WEB3.1 or other public repositories.",
+    "privateCoreRule": "HD-MATRIZ remains the authority for private memory and backend data.",
+    "securityRule": "SECURYTY-SUBC distributes controls and tests, never production secrets or private user data."
+  },
+  "flows": [
+    "Recebe apenas contratos de API, schemas e artefatos aprovados para publicação.",
+    "Publica páginas e ativos destinados ao acesso público.",
+    "Consome APIs do HD-MATRIZ por interfaces autenticadas; nunca replica memória privada."
+  ],
+  "bootstrap": {
+    "createdAt": "2026-11-24",
+    "status": "proposal",
+    "automation": "not-enabled",
+    "note": "This contract records repository roles and safe synchronization boundaries. It does not claim that content synchronization or automated workflows are already active. Automation requires separately reviewed implementation and credentials."
+  }
+}
