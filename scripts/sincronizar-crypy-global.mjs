@@ -21,7 +21,7 @@ const serviceEntrypoints = new Set([
   "crypy-server-bridge/public/index.html",
   "crypy-news/hd-matriz/crypy-server-bridge/public/index.html"
 ]);
-const navAsset = "assets/js/crypy-global-nav.js";
+const navAsset = "assets/js/crypy-global-nav.js?v=20261128-global-colmeia-1";
 const indexPath = path.join(root,"assets","data","crypy-page-index.json");
 const fileIndexPath = path.join(root,"assets","data","crypy-file-index.json");
 const fileIndexRelative = "assets/data/crypy-file-index.json";
