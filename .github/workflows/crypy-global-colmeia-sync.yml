@@ -1,27 +1,38 @@
-name: CRYPY — Sincronização Global da Colmeia
+name: CRYPY — Validação da Sincronização Global
 
 on:
   push:
     branches:
       - feature/crypy-global-colmeia-20261128
+    paths:
+      - '.github/workflows/crypy-global-colmeia-sync.yml'
+      - 'scripts/sincronizar-crypy-global.mjs'
+      - 'scripts/validar-crypy-global.mjs'
+      - 'assets/js/crypy-global-nav.js'
+      - 'assets/js/crypy-global-runtime.js'
+      - 'assets/js/baby-global-chat.js'
+      - 'assets/js/crypy-global-agent-chat-page.js'
+      - 'assets/data/crypy-menu-agent-assignments.json'
+      - 'dev/**'
+      - 'App.tsx'
+      - 'chatboot-global.html'
+      - 'index.html'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: crypy-global-colmeia-sync
+  group: crypy-global-colmeia-validation
   cancel-in-progress: false
 
 jobs:
-  synchronize:
+  validate:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout da branch de integração
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Preparar Node.js
         uses: actions/setup-node@v4
@@ -38,21 +49,16 @@ jobs:
           node --check assets/js/crypy-global-agent-chat-page.js
           node --check dev/micro-clock.js
           node --check dev/baby-chat-widget.js
+          node --check dev/crypy-home-link-bridge.js
 
-      - name: Aplicar menu global nas páginas públicas e índices históricos
+      - name: Simular e aplicar sincronização no ambiente isolado
         run: node scripts/sincronizar-crypy-global.mjs --apply
 
-      - name: Validar 13 temas, 13 especialistas e backend
+      - name: Validar 13 temas, 13 especialistas e ChatBoot
         run: node scripts/validar-crypy-global.mjs
 
-      - name: Gravar sincronização na branch de integração
+      - name: Resumo da sincronização gerada
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "Nenhuma alteração de sincronização pendente."
-          else
-            git commit -m "chore: aplica menu global aos HTMLs públicos [skip ci]"
-            git push origin "HEAD:$GITHUB_REF_NAME"
-          fi
+          echo "Páginas HTML alteradas no ambiente de teste:"
+          git diff --name-only -- '*.html' | wc -l
+          git diff --stat
