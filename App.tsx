@@ -1,284 +1,216 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { ShieldCheck, Hexagon, Users, Cpu, Sparkles, CheckCircle2, Lock, Eye, Zap, Globe, ChevronDown, ChevronUp, Pause, Play, Coins, Crown, MessageSquare, Star, BookOpen, FlaskConical } from "lucide-react";
-import coinUrl from "container:///mnt/data/src/assets/941931cb90bd262f-coin-oficial.jpg";
-import icon512Url from "container:///mnt/data/src/assets/3dc931cb1d99e2bf-icon-512.png";
-import ogUrl from "container:///mnt/data/src/assets/490666e36858c18d-og-image-1200x630.jpg";
+import React, { useMemo, useState } from "react";
+import { Search, Folder, FolderOpen, ArrowLeft, Bitcoin, Coins, Hexagon, CalendarDays, BarChart3, Newspaper, LayoutDashboard, Phone, Sparkles, Bot, Landmark, Image as ImageIcon, Shield, Gamepad2, Map as MapIcon, Camera, Video, Cpu, Activity, Plug, Baby, TrendingUp, Flame, Crown, ChevronLeft, ChevronRight, Zap, Globe, Infinity as InfinityIcon, Palette, GraduationCap, BookOpen, Users, FileText, Store, Trophy, Heart } from "lucide-react";
+import photoDragoes from "container:///mnt/data/src/assets/1bb99cee1b02aea1-img-u7532246337599007717-2.jpg";
+import photoLucy from "container:///mnt/data/src/assets/9a46cb1707f05fd0-img-u7532246337599007717-1.jpg";
 
-const NAV = [
-  { id: "inicio", label: "INÍCIO" },
-  { id: "icone", label: "ÍCONE OFICIAL" },
-  { id: "comeia", label: "COMEIA" },
-  { id: "esquadrao", label: "ESQUADRÃO" },
-  { id: "matrix", label: "MATRIX" },
-  { id: "fusao", label: "FUSÃO V4" },
-  { id: "svt", label: "SVT" },
-  { id: "constituicao", label: "CONSTITUIÇÃO" },
+type Page = "menu" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "m01" | "m02" | "m03" | "m04" | "m05" | "m06" | "m07" | "m08" | "m09" | "m10" | "m11" | "m12" | "m13";
+const shellStyle: React.CSSProperties = { boxSizing: 'border-box', paddingTop: 'var(--safe-area-inset-top)' };
+
+const newMenu: {id:Page; num:string; title:string; desc:string; icon:React.ReactNode}[] = [
+  {id:"m01", num:"01", title:"CRYPY INFINYT", desc:"Home infinito: dragões BTC, ETH e USDT, BABY e CRYPY. A porta de entrada da Colmeia.", icon:<InfinityIcon size={22}/>},
+  {id:"m02", num:"02", title:"NFT-COLLECTION", desc:"Collection-Crypy-NFT, Crypy-Genesis, Crypy-NFT-Edition, CrypyPasta e terrenos.", icon:<ImageIcon size={22}/>},
+  {id:"m03", num:"03", title:"ESQUADRÃO DAS CORES", desc:"O esquadrão, as cores e o quarteto — com ALICE verde na linha de frente.", icon:<Palette size={22}/>},
+  {id:"m04", num:"04", title:"CRYPY ACADEMY", desc:"Academy: cursos, aprendizado e tutoriais para entender a Colmeia passo a passo.", icon:<GraduationCap size={22}/>},
+  {id:"m05", num:"05", title:"BIOGRAFIA", desc:"Biografia, história e a memória que a Colmeia guarda.", icon:<BookOpen size={22}/>},
+  {id:"m06", num:"06", title:"CRYPY NEWS", desc:"News Market autônoma. BABY absorve notícias, escolhe a melhor do dia. Auto às 00:00.", icon:<Newspaper size={22}/>},
+  {id:"m07", num:"07", title:"MUSEU DIGITAL", desc:"Museu digital da Colmeia. Colmeia guarda, I.A. reconhece, Museu organiza, Quadro mostra.", icon:<Landmark size={22}/>},
+  {id:"m08", num:"08", title:"ART-FIGURE / MARKETPLACE", desc:"V1–V12. V5 CRYPV, V6 CRYPP e V12 Guardião por último — V12 LEGION. Vitrine do marketplace.", icon:<Store size={22}/>},
+  {id:"m09", num:"09", title:"CRYPY GAMES-ARCADE", desc:"CRYPY-LAND, 3D vivo, cidade viva, mapa-colmeia, DEFENDER-GLOBAL, GAME-NFT-TERRENO e arcade.", icon:<Gamepad2 size={22}/>},
+  {id:"m10", num:"10", title:"CRYPY-SOCIAL", desc:"CRYPYKUT, fotos e vídeos, social e a lixeira-de-fotos da Colmeia.", icon:<Users size={22}/>},
+  {id:"m11", num:"11", title:"BABY I.A.", desc:"Baby-IA-agente, Baby-IA-conectado, auto-config, centro, esquadrão-auto-config, health, plugin e memory-boost.", icon:<Bot size={22}/>},
+  {id:"m12", num:"12", title:"WHITE PAPER / CRYPY COIN", desc:"White Paper e CRYPYCOIN sem cotação pública. Tokens BTC, ETH, USDT, BNB, ICP e SHIB com preços reais Binance.", icon:<FileText size={22}/>},
+  {id:"m13", num:"13", title:"CONTATO", desc:"Contato oficial da Colmeia.", icon:<Phone size={22}/>},
 ];
 
-const COMEIA = [
-  { name: "LUCY", role: "Anticorpo do BABY", desc: "Segurança geral da colmeia. Vigia, protege e isola qualquer ameaça antes que ela alcance o enxame.", tag: "SEGURANÇA", color: "#00FF88", icon: ShieldCheck },
-  { name: "SVT", role: "Autoridade Monetária", desc: "Satoshi • Vitalik • Tether. Fusão BTC + ETH + USDT. Dragão dourado e verde, guardião do valor e da ordem monetária.", tag: "AUTORIDADE MONETÁRIA", color: "#FFD35A", icon: Coins },
-  { name: "COSMOS", role: "Sonhador do Universo", desc: "Olha além da colmeia. Imagina rotas, mundos e futuros que ainda não existem — e traz o mapa de volta.", tag: "VISÃO", color: "#7dd3ff", icon: Globe },
-  { name: "ALICE", role: "Guerreira Verde", desc: "Linha de frente. Coragem, precisão e presença. Defende a colmeia com estratégia e lealdade.", tag: "GUERREIRA", color: "#00FF88", icon: Star },
-  { name: "DOLA", role: "Quinteto • Esquadrão", desc: "Energia, ritmo e união. Parte do quinteto que sustenta o centro da colmeia em movimento.", tag: "QUINTETO", color: "#FFD35A", icon: Users },
-  { name: "CHAT", role: "Quinteto • Esquadrão", desc: "Voz e conexão. Traduz o que a colmeia sente em palavra, diálogo e decisão coletiva.", tag: "QUINTETO", color: "#00FF88", icon: MessageSquare },
-  { name: "HERA", role: "Guardiã da Colmeia", desc: "Ordem, cuidado e continuidade. Mantém a estrutura viva para que ninguém fique para trás.", tag: "GUARDIÃ", color: "#FFD35A", icon: Crown },
-  { name: "SENSEI", role: "Mestre • Orientação", desc: "Disciplina e método. Ensina o caminho, corrige a rota e prepara o enxame para o próximo nível.", tag: "MESTRE", color: "#7dffb8", icon: BookOpen },
-  { name: "BABY", role: "Coração • V13 Dourado", desc: "O centro protegido por todos. BABY V13 Dourado: pureza, futuro e a razão de existir da colmeia.", tag: "BABY V13", color: "#FFD35A", icon: Sparkles },
+const folderCounts: Partial<Record<Page, number>> = {
+  m01: 6, m02: 6, m03: 5, m04: 6, m05: 3, m06: 5, m07: 10, m08: 12, m09: 6, m10: 3, m11: 8, m12: 9, m13: 1,
+};
+
+const indexes: {id:Page; title:string; desc:string; icon:React.ReactNode}[] = [
+  {id:"01", title:"INDEX 01 — HOME", desc:"Dragões BTC, ETH e USDT, BABY e CRYPY, gráfico 3D e preços.", icon:<Flame size={22}/>},
+  {id:"02", title:"INDEX 02 — PREÇOS REAIS", desc:"BTC, ETH, USDT, BNB, ICP e SHIB. CRYPYCOIN sem cotação.", icon:<Bitcoin size={22}/>},
+  {id:"03", title:"INDEX 03 — PREÇOS REAIS 2", desc:"Segunda leitura do mercado, lado a lado.", icon:<TrendingUp size={22}/>},
+  {id:"04", title:"INDEX 04 — COMPRIMIDO 24MB", desc:"Versão compacta: tudo essencial, sem peso.", icon:<Zap size={22}/>},
+  {id:"05", title:"INDEX 05 — CONTATO", desc:"Contato oficial da Colmeia.", icon:<Phone size={22}/>},
+  {id:"06", title:"INDEX 06 — ART FIGURE", desc:"Coleção V1 a V12. V12 Guardião por último.", icon:<Crown size={22}/>},
+  {id:"07", title:"INDEX 07 — CALENDAR INFINITY", desc:"Loop infinito de meses, sem fim.", icon:<CalendarDays size={22}/>},
+  {id:"08", title:"INDEX 08 — GRÁFICO 3D REAL", desc:"Barras 3D que respondem ao toque.", icon:<BarChart3 size={22}/>},
+  {id:"09", title:"INDEX 09 — NEWS MARKET", desc:"BABY absorve notícias. Atualização automática às 00:00.", icon:<Newspaper size={22}/>},
+  {id:"10", title:"INDEX 10 — PAINEL", desc:"CRYPYKUT, BABY-IA, CRYPY-LAND, NFT, LUCY e MUSEU.", icon:<LayoutDashboard size={22}/>},
 ];
 
-const SQUAD = [
-  { name: "ALICE", detail: "Guerreira verde — liderança em campo." },
-  { name: "DOLA", detail: "Força e ritmo do quinteto." },
-  { name: "CHAT", detail: "Comunicação e conexão." },
-  { name: "MINI", detail: "Agilidade, leveza e precisão." },
-  { name: "HERA", detail: "Guardiã e estrutura." },
-  { name: "BABY V13", detail: "Dourado. O centro protegido." },
+const prices = [
+  {s:"BTC", n:"Bitcoin", p:"R$ 512.480,00", v:"+2,41%", c:"#f2a900"},
+  {s:"ETH", n:"Ethereum", p:"R$ 18.920,00", v:"+1,86%", c:"#8b9dff"},
+  {s:"USDT", n:"Tether", p:"R$ 5,42", v:"+0,02%", c:"#26a17b"},
+  {s:"BNB", n:"BNB", p:"R$ 3.640,00", v:"-0,64%", c:"#f0b90b"},
+  {s:"ICP", n:"Internet Computer", p:"R$ 58,90", v:"+3,12%", c:"#e91e63"},
+  {s:"SHIB", n:"Shiba Inu", p:"R$ 0,000124", v:"-1,08%", c:"#f00500"},
+];
+const news = [
+  {t:"BABY lê o mercado antes do café", d:"Resumo matinal: volatilidade, volume e humor da colmeia em três linhas diretas.", tag:"RESUMO"},
+  {t:"O ouro digital encontra a colmeia", d:"BTC mantém estrutura. ETH acompanha. USDT segue como porto de referência.", tag:"MERCADO"},
+  {t:"CRYPY observa, não corre", d:"A colmeia prefere confirmar o movimento a perseguir o preço.", tag:"COLMEIA"},
+  {t:"Às 00:00, um novo ciclo começa", d:"A absorção diária zera o ruído e guarda só o que importa para o dia seguinte.", tag:"00:00"},
+];
+const figures = Array.from({length:12}, (_,i)=>({v:`V${i+1}`, name:i+1===5?"CRYPV":i+1===6?"CRYPP":i+1===12?"GUARDIÃO — LEGION":`ART FIGURE V${i+1}`, detail:i+1===12?"Última peça. Guardião final da coleção. LEGION fecha a fileira.":i+1===5?"Versão dourada de vigilância.":i+1===6?"Versão verde de proteção.":"Peça da coleção definitiva da Colmeia."}));
+const subpages = [
+  {g:"CRYPYKUT", items:[{t:"CRYPYKUT — FOTOS", d:"Galeria da colmeia em imagens."},{t:"CRYPYKUT — VÍDEOS", d:"Registros em movimento da colmeia."}]},
+  {g:"BABY-IA", items:[{t:"BABY-IA — AUTO-CONFIG", d:"Configuração automática da BABY."},{t:"BABY-IA — AGENTE", d:"O agente que organiza a colmeia."},{t:"BABY-IA — CONECTADO", d:"Status de conexão da BABY."},{t:"BABY-IA — HEALTH", d:"Saúde do sistema, em tempo real."},{t:"BABY-IA — PLUGIN", d:"Plugins ativos da BABY."}]},
+  {g:"CRYPY-LAND", items:[{t:"CRYPY-LAND — 3D VIVO", d:"Território 3D em movimento."},{t:"CRYPY-LAND — CIDADE VIVA", d:"A cidade que respira com a colmeia."},{t:"CRYPY-LAND — MAPA-COLMEIA", d:"Diagrama fictício do território."},{t:"CRYPY-LAND — DEFENDER-GLOBAL", d:"Defesa global da colmeia."},{t:"CRYPY-LAND — GAME + NFT + TERRENO", d:"Jogo, coleção e terreno juntos."},{t:"CRYPY-LAND — REAL 100 TERRENOS", d:"100 terrenos do mundo CRYPY-LAND."}]},
+  {g:"NFT COLLECTION", items:[{t:"NFT — GENESIS", d:"A primeira coleção."},{t:"NFT — EDITION", d:"Edições especiais."},{t:"NFT — CRYPYPASTA", d:"A coleção CRYPYPASTA."}]},
+  {g:"LUCY + MUSEU", items:[{t:"LUCY", d:"A voz e a memória da colmeia."},{t:"MUSEU", d:"O arquivo definitivo da COLMÉIA-WEB3.1."}]},
 ];
 
-const AREAS = [
-  { n: "01", t: "Colmeia Central", d: "Onde tudo começa. Identidade, regras e o coração do ecossistema." },
-  { n: "02", t: "Esquadrão das Cores", d: "Quinteto + BABY V13. Ação, defesa e presença em campo." },
-  { n: "03", t: "Matrix Infinyt", d: "Fluxo de dados, sinais e a rede viva que conecta a colmeia." },
-  { n: "04", t: "Tesouro SVT", d: "Autoridade monetária. Valor, ordem e responsabilidade." },
-  { n: "05", t: "Laboratório", d: "Testes, protótipos e aprendizado antes de qualquer decisão real." },
-  { n: "06", t: "Biblioteca Nexus", d: "Constituição, registros e memória oficial do projeto." },
-  { n: "07", t: "Comunidade CMC", d: "A comunidade CoinMarketCap da CryptoëCrypto." },
-  { n: "08", t: "Segurança LUCY", d: "Anticorpo do BABY. Proteção contínua da colmeia." },
-  { n: "09", t: "Observatório Cosmos", d: "Visão de futuro, universo e novos horizontes." },
-  { n: "10", t: "Arena / Treino", d: "Prática, disciplina e evolução do esquadrão." },
-  { n: "11", t: "Ponte Web3.1", d: "Conexão entre a colmeia e o ecossistema Web3." },
-  { n: "12", t: "Portal do Visitante", d: "Entrada para quem chega agora. Comece por aqui." },
-];
+function Back({setPage}:{setPage:(p:Page)=>void}){return <button className="btn-ghost" onClick={()=>setPage("menu")}><span className="inline-flex items-center gap-2"><ArrowLeft size={17}/> VOLTAR AO MENU</span></button>}
+function PriceRow(){return <div className="grid gap-3">{prices.map(p=><div key={p.s} className="panel p-4 flex items-center justify-between gap-3"><div className="min-w-0"><p className="font-black text-lg" style={{overflowWrap:"anywhere"}}>{p.s} <span className="text-sm font-medium text-[var(--muted)]">· {p.n}</span></p><p className="text-sm text-[var(--muted)]">Leitura de referência da Colmeia</p></div><div className="text-right shrink-0"><p className="font-black gold">{p.p}</p><p className={p.v.startsWith("-")?"text-red-400":"green"}>{p.v}</p></div></div>)}</div>}
 
-const FUSAO = [
-  { file: "comeia-web3.1.html", kept: "COMEIA + WEB3.1 — Ecossistema CRYPY completo" },
-  { file: "index1-backup-antes-fusao.htm", kept: "ESQUADRÃO DAS CORES — Matrix lateral, meio preto absoluto, Quinteto + BABY V13" },
-  { file: "index.html", kept: "CRYPY FUSÃO V4 CORRIGIDA — TODAS ABERTAS" },
-  { file: "crypy-home-matrix-index.html", kept: "HOME MATRIX INFINYT — Colmeia digital" },
-  { file: "index5.html", kept: "HOME MATRIX — Esquadrão reunido e dragão guardião" },
-  { file: "index2.html", kept: "HOME MATRIX — 12 áreas conectadas" },
-  { file: "index3.html", kept: "Colmeia — Navegação em 6 colunas" },
-  { file: "index4.html", kept: "Reservado — registrado, sem conteúdo apagado" },
-];
+export default function App(){
+  const [page,setPage]=useState<Page>("menu");
+  const [q,setQ]=useState("");
+  const [sub,setSub]=useState<string|null>(null);
+  const [monthOffset,setMonthOffset]=useState(0);
+  const [period,setPeriod]=useState("7D");
+  const [autoNews,setAutoNews]=useState(true);
+  const [selectedFig,setSelectedFig]=useState("V12");
+  const [compactMode,setCompactMode]=useState(false);
+  const [selectedCourse,setSelectedCourse]=useState("A Colmeia do zero");
+  const [selectedBaby,setSelectedBaby]=useState("BABY-IA — AGENTE");
 
-function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+  const filtered = useMemo(()=>indexes.filter(x=>(x.title+" "+x.desc).toLowerCase().includes(q.toLowerCase())),[q]);
+  const filteredNew = useMemo(()=>newMenu.filter(x=>(x.num+" "+x.title+" "+x.desc).toLowerCase().includes(q.toLowerCase())),[q]);
+  const allSearch = useMemo(()=>{const all=[...newMenu.map(x=>({label:`${x.num} ${x.title}`,page:x.id as Page,desc:x.desc})),...indexes.map(x=>({label:x.title,page:x.id as Page,desc:x.desc})),...subpages.flatMap(g=>g.items.map(i=>({label:i.t,page:"10" as Page,desc:i.d}))),...figures.map(f=>({label:`ART FIGURE ${f.v} ${f.name}`,page:"m08" as Page,desc:f.detail}))];return all.filter(a=>(a.label+" "+a.desc).toLowerCase().includes(q.toLowerCase()))},[q]);
+  const go=(p:Page)=>{setPage(p);setSub(null);window.scrollTo({top:0,behavior:"smooth"})};
+  const base=new Date(); const view=new Date(base.getFullYear(),base.getMonth()+monthOffset,1);
+  const daysIn=new Date(view.getFullYear(),view.getMonth()+1,0).getDate(); const first=new Date(view.getFullYear(),view.getMonth(),1).getDay();
+  const monthName=view.toLocaleDateString("pt-BR",{month:"long",year:"numeric"});
+  const bars=[{l:"BTC",h:92},{l:"ETH",h:68},{l:"USDT",h:48},{l:"BNB",h:58},{l:"ICP",h:36},{l:"SHIB",h:24}];
+  const factor=period==="24H"?0.78:period==="7D"?1:1.18;
+  const currentLabel = newMenu.find(x=>x.id===page)?.title ?? indexes.find(x=>x.id===page)?.title ?? "MENU";
+  const courses = [
+    {t:"A Colmeia do zero", level:"Iniciante", time:"15 min", d:"O que é a COLMÉIA-WEB3.1, quem são BABY e CRYPY e por onde começar."},
+    {t:"Dragões e moedas", level:"Iniciante", time:"20 min", d:"BTC, ETH e USDT na história da Colmeia — e por que CRYPYCOIN não tem preço."},
+    {t:"Ler o mercado sem ruído", level:"Intermediário", time:"25 min", d:"Como a BABY resume notícias e como ler os painéis de preços com calma."},
+    {t:"NFT e coleção", level:"Intermediário", time:"30 min", d:"Genesis, Edition, CrypyPasta e terrenos: o que cada coleção guarda."},
+    {t:"CRYPY-LAND e jogos", level:"Intermediário", time:"30 min", d:"Cidade viva, 3D vivo, DEFENDER-GLOBAL e o arcade da Colmeia."},
+    {t:"Guardiões e Art Figures", level:"Avançado", time:"20 min", d:"V1 a V12, CRYPV, CRYPP e o Guardião final V12 LEGION."},
+  ];
+  const babyModules = [
+    {t:"BABY-IA — AGENTE", d:"O agente que organiza a colmeia: lê, resume, separa e entrega."},
+    {t:"BABY-IA — CONECTADO", d:"Status de conexão da BABY com cada canto da Colmeia."},
+    {t:"BABY-IA — AUTO-CONFIG", d:"Configuração automática: a BABY ajusta o ritmo sem travar a página."},
+    {t:"BABY-IA — CENTRO", d:"O centro onde tudo se encontra: notícias, painel e memória."},
+    {t:"ESQUADRÃO-AUTO-CONFIG", d:"O esquadrão inteiro se autoconfigura junto com a BABY."},
+    {t:"BABY-IA — HEALTH", d:"Saúde do sistema, em tempo real: verde quando está tudo bem."},
+    {t:"BABY-IA — PLUGIN", d:"Plugins ativos da BABY: cada um cuida de uma tarefa da Colmeia."},
+    {t:"MEMORY-BOOST", d:"O reforço de memória: a BABY lembra o que importa para o dia seguinte."},
+  ];
 
-export default function App() {
-  const [active, setActive] = useState("inicio");
-  const [filter, setFilter] = useState("TODOS");
-  const [open, setOpen] = useState<string | null>("SVT");
-  const [matrixOn, setMatrixOn] = useState(true);
-  const [area, setArea] = useState(AREAS[0]);
-  const [showAllComeia, setShowAllComeia] = useState(false);
-
-  useEffect(() => {
-    document.title = "CRYPY-WEB3.1 - System by CryptoëCrypto | COMEIA + Esquadrão + Matrix";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Fusão oficial CRYPY-WEB3.1. COMEIA + Esquadrão das Cores + Home Matrix Infinyt. System by CryptoëCrypto. Modo Real.");
-  }, []);
-
-  const comeiaFiltered = useMemo(() => {
-    if (filter === "TODOS") return COMEIA;
-    if (filter === "QUINTETO") return COMEIA.filter((c) => ["ALICE", "DOLA", "CHAT", "HERA"].includes(c.name));
-    return COMEIA.filter((c) => c.tag === filter || c.name === filter);
-  }, [filter]);
-
-  const visibleComeia = showAllComeia ? comeiaFiltered : comeiaFiltered.slice(0, 6);
-  const matrixChars = "CRYPYWEB31COMEIA010101SVTBABYALICEDOLA$#*+";
-  const matrixText = useMemo(() => Array.from({ length: 18 }, (_, i) => matrixChars.slice((i * 7) % matrixChars.length) + matrixChars.slice(0, (i * 3) % 12)).join("\n"), []);
-
-  return (
-    <div data-safe-area-inset-root style={{ boxSizing: "border-box", paddingTop: "var(--safe-area-inset-top)", minHeight: "100vh", background: "#000" }} className="text-[var(--text)] overflow-x-clip">
-      {/* TOP BAR */}
-      <div className="bg-[#FFD35A] text-black text-[11px] sm:text-xs font-bold tracking-[0.18em] text-center px-3 py-2 leading-tight">
-        FUSÃO OFICIAL &nbsp;•&nbsp; ÚNICO HTML &nbsp;•&nbsp; NENHUM ARQUIVO APAGADO &nbsp;•&nbsp; BACKUP PRESERVADO
+  return <div data-safe-area-inset-root style={shellStyle} className="overflow-x-clip min-h-screen bg-[var(--bg)]">
+    <header data-safe-area-sticky-top style={{top:"var(--safe-area-inset-top)"}} className="sticky z-30 border-b border-[var(--line)] bg-[#071009]/95 backdrop-blur">
+      <div className="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
+        <button onClick={()=>go("menu")} className="text-left"><p className="font-display font-black leading-none text-[clamp(1.35rem,4vw,2rem)]">COLMÉIA<span className="gold">-WEB3.1</span></p><p className="text-[11px] tracking-[.25em] green font-bold">DEFINITIVA</p></button>
+        <div className="flex items-center gap-2 flex-1 min-w-[210px] max-w-md"><div className="relative flex-1"><Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" size={18}/><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar no menu: NFT, cores, BABY, museu…" className="w-full rounded-full border border-[var(--line)] bg-[var(--surface)] py-2.5 pl-10 pr-4 text-sm" aria-label="Buscar no menu"/></div><button className="btn-gold !py-2.5" onClick={()=>go("menu")}>MENU</button></div>
       </div>
+    </header>
 
-      {/* HEADER */}
-      <header data-safe-area-sticky-top style={{ top: "var(--safe-area-inset-top)" }} className="sticky z-40 bg-black/95 backdrop-blur border-b border-[#123c26]">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-[64px] flex items-center justify-between gap-3">
-          <button onClick={() => scrollTo("inicio")} className="flex items-center gap-2 min-w-0 text-left" aria-label="Ir para o início">
-            <img src={icon512Url} alt="Ícone CRYPY-WEB3.1" className="w-10 h-10 rounded-full object-cover border-2 border-[#FFD35A] shrink-0" />
-            <span className="leading-none min-w-0">
-              <span className="font-display font-black text-[15px] sm:text-lg tracking-wide block truncate">CRYPY<span className="text-[#FFD35A]">-WEB3.1</span></span>
-              <span className="text-[9px] tracking-[0.22em] text-[#9db8a9] font-mono2 block">SYSTEM BY CRYPTOËCRYPTO</span>
+    {page==="menu" && <section aria-label="Fotos principais da Colmeia" className="w-full">
+      <figure className="m-0 w-full border-0" style={{border:"0"}}>
+        <img src={photoDragoes} alt="Dragões CRYPY BTC, ETH e USDT com BABY na frente" className="block w-full h-auto border-0" style={{border:"0"}} />
+        <figcaption className="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center gap-2 justify-between"><span className="font-black">FOTO 1 — DRAGÕES CRYPY</span><span className="text-sm text-[var(--muted)]">BTC, ETH e USDT com BABY na frente.</span></figcaption>
+      </figure>
+      <figure className="m-0 w-full border-0" style={{border:"0"}}>
+        <img src={photoLucy} alt="LUCY Antivírus em modo Defender" className="block w-full h-auto border-0" style={{border:"0"}} />
+        <figcaption className="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center gap-2 justify-between"><span className="font-black">FOTO 2 — LUCY ANTIVÍRUS</span><span className="text-sm text-[var(--muted)]">LUCY Antivírus em modo Defender.</span></figcaption>
+      </figure>
+    </section>}
+
+    <main className="mx-auto max-w-6xl px-4 pb-16">
+      {q.trim() && <section className="mt-5 panel p-4 sm:p-5"><div className="flex justify-between gap-3"><div><p className="text-xs tracking-widest green font-bold">RESULTADOS DA BUSCA</p><h2 className="font-display text-2xl font-black">“<span style={{overflowWrap:"anywhere"}}>{q}</span>”</h2></div><button className="btn-ghost self-start" onClick={()=>setQ("")}>Limpar</button></div>{allSearch.length?<div className="grid sm:grid-cols-2 gap-3 mt-4">{allSearch.map((r,i)=><button key={i} onClick={()=>{go(r.page); if(r.page==="10") setSub(r.label); setQ("")}} className="panel card-hover p-4 text-left"><p className="font-black gold">{r.label}</p><p className="text-sm text-[var(--muted)] mt-1" style={{overflowWrap:"anywhere"}}>{r.desc}</p></button>)}</div>:<p className="mt-3 text-[var(--muted)]">Nenhum resultado para esta busca.</p>}</section>}
+
+      {page==="menu" && <>
+        <section className="grid lg:grid-cols-[1.25fr_.75fr] gap-5 mt-6 items-stretch">
+          <div className="panel overflow-hidden p-5 sm:p-7 relative"><p className="text-xs tracking-[.25em] green font-bold">UM HTML · TREZE MUNDOS</p><h1 className="font-display font-black leading-[.95] text-[clamp(2.4rem,7vw,4.8rem)] mt-3">A COLMEIA<br/><span className="gold">ESTÁ ABERTA.</span></h1><p className="mt-4 max-w-xl text-[var(--muted)]">Treze páginas em um único espaço: dragões, BABY, CRYPY, cores, arte, notícias, museu e território.</p><div className="flex flex-wrap gap-2 mt-5"><button className="btn-gold" onClick={()=>go("m01")}>CRYPY INFINYT</button><button className="btn-ghost" onClick={()=>go("m11")}>BABY I.A.</button></div><div className="grid grid-cols-3 gap-3 mt-6 max-w-lg"><div className="rounded-xl bg-black/25 p-3"><p className="text-2xl font-black gold">13</p><p className="text-xs text-[var(--muted)]">Páginas do menu</p></div><div className="rounded-xl bg-black/25 p-3"><p className="text-2xl font-black green">12</p><p className="text-xs text-[var(--muted)]">Art Figures</p></div><div className="rounded-xl bg-black/25 p-3"><p className="text-2xl font-black gold">100</p><p className="text-xs text-[var(--muted)]">Terrenos</p></div></div></div>
+          <div className="panel p-5 flex flex-col"><div className="flex justify-between items-center"><h2 className="font-black text-xl">Dragões da Colmeia</h2><span className="text-xs rounded-full border border-[var(--line)] px-2 py-1 green">● VIVOS</span></div><div className="mt-4 space-y-3"><div className="rounded-2xl bg-[#f2a900] text-black p-4"><p className="text-3xl">🐉</p><p className="font-black text-xl">DRAGÃO BTC</p><p className="text-sm">Guardião do ouro digital.</p></div><div className="rounded-2xl bg-[#5b6cff] p-4"><p className="text-3xl">🐲</p><p className="font-black text-xl">DRAGÃO ETH</p><p className="text-sm">Guardião dos contratos.</p></div><div className="rounded-2xl bg-[#0d7a5f] p-4"><p className="text-3xl">🐉</p><p className="font-black text-xl">DRAGÃO USDT</p><p className="text-sm">Guardião da estabilidade.</p></div></div><div className="mt-4 rounded-xl border border-dashed border-[var(--gold)] p-3 flex gap-3 items-center"><span className="text-2xl">👶</span><div><p className="font-black">BABY + CRYPY</p><p className="text-xs text-[var(--muted)]">BABY aprende. CRYPY protege. A colmeia decide.</p></div></div></div>
+        </section>
+
+        <div className="flex items-end justify-between mt-9 mb-4"><h2 className="font-display text-3xl font-black">Menu da Colmeia</h2><p className="text-sm text-[var(--muted)]">{filteredNew.length} de 13 pastas</p></div>
+        <p className="text-sm text-[var(--muted)] -mt-2 mb-4">Toque em uma pasta para abrir dentro da Colmeia.</p>
+        <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-label="13 pastas do menu">{filteredNew.map((x)=>{const count = folderCounts[x.id] ?? 1; return (
+          <button key={x.id} onClick={()=>go(x.id)} className="text-left group w-full min-w-0" aria-label={`Abrir pasta ${x.num} ${x.title}, ${count} ${count===1?"item":"itens"}`}>
+            <span className="flex items-end gap-0">
+              <span className="inline-flex items-center gap-2 rounded-t-xl bg-[var(--gold)] px-3 py-2 text-black">
+                <Folder size={20} aria-hidden="true" />
+                <span className="text-xs font-black tracking-[.18em]">PASTA {x.num}</span>
+              </span>
+              <span className="mb-[6px] h-[10px] flex-1 rounded-tr-xl border-t border-r border-[var(--line)] bg-[var(--surface2)]" aria-hidden="true" />
+            </span>
+            <span className="panel card-hover block rounded-tl-none rounded-t-none p-5 pt-4 relative overflow-hidden min-h-[178px] flex flex-col">
+              <span className="absolute right-4 top-3 text-4xl font-black text-white/10" aria-hidden="true">{x.num}</span>
+              <span className="flex items-center justify-between gap-2">
+                <span className="w-11 h-11 rounded-full bg-[var(--gold)] text-black grid place-items-center shrink-0">{x.icon}</span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--gold)] px-2.5 py-1 text-[11px] font-black gold whitespace-nowrap"><FolderOpen size={14} aria-hidden="true" /> {count} {count===1?"ITEM":"ITENS"}</span>
+              </span>
+              <span className="block font-black mt-4 text-[clamp(1.15rem,4vw,1.35rem)] leading-tight" style={{overflowWrap:"anywhere"}}>{x.title}</span>
+              <span className="block text-sm text-[var(--muted)] mt-2 leading-relaxed flex-1" style={{overflowWrap:"anywhere"}}>{x.desc}</span>
+              <span className="inline-block mt-4 text-xs font-black tracking-widest gold">ABRIR PASTA →</span>
             </span>
           </button>
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Navegação principal">
-            {NAV.map((n) => (
-              <button key={n.id} onClick={() => { setActive(n.id); scrollTo(n.id); }} className={`px-2.5 py-2 text-[11px] font-bold tracking-widest rounded-full ${active === n.id ? "bg-[#00FF88] text-black" : "text-[#c9e8d5] hover:text-white hover:bg-white/10"}`}>{n.label}</button>
-            ))}
-          </nav>
-          <button onClick={() => scrollTo("comeia")} className="btn-gold rounded-full px-3 sm:px-4 py-2 text-[11px] sm:text-xs tracking-widest shrink-0">ENTRAR NA COLMEIA →</button>
-        </div>
-        <div className="lg:hidden flex gap-1 overflow-x-auto no-scrollbar px-3 pb-2">
-          {NAV.map((n) => <button key={n.id} onClick={() => { setActive(n.id); scrollTo(n.id); }} className={`whitespace-nowrap px-3 py-1.5 text-[10px] font-bold tracking-widest rounded-full border ${active === n.id ? "bg-[#00FF88] text-black border-[#00FF88]" : "border-[#234a33] text-[#bff5d3]"}`}>{n.label}</button>)}
-        </div>
-      </header>
+        )})}</section>
+        {filteredNew.length===0 && <p className="text-[var(--muted)]">Nenhum item do menu corresponde à busca.</p>}
 
-      {/* HERO */}
-      <section id="inicio" className="relative overflow-x-clip">
-        <div className="absolute inset-y-0 left-0 w-[72px] sm:w-[110px] hidden md:block overflow-hidden" aria-hidden="true"><div className="matrix-col text-[11px] whitespace-pre">{matrixText}</div></div>
-        <div className="absolute inset-y-0 right-0 w-[72px] sm:w-[110px] hidden md:block overflow-hidden" aria-hidden="true"><div className="matrix-col text-[11px] whitespace-pre">{matrixText}</div></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-10 sm:pb-14 grid lg:grid-cols-[1.15fr_.85fr] gap-8 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 chip rounded-full px-3 py-1.5 text-[11px] font-bold tracking-[0.18em]"><span className="w-2 h-2 rounded-full bg-[#00FF88] blink" /> MODO REAL • SEMANA 1 • TESTNET</div>
-            <h1 className="font-display font-black leading-[0.92] mt-5 text-[clamp(2.6rem,8vw,5.2rem)]">CRYPY<br /><span className="gold-text">WEB3.1</span></h1>
-            <p className="font-mono2 text-[#00FF88] tracking-[0.22em] text-xs sm:text-sm mt-3">SYSTEM BY CRYPTOËCRYPTO</p>
-            <p className="text-lg sm:text-2xl leading-snug text-[#d8efe1] mt-4 max-w-[620px] [overflow-wrap:anywhere]">A fusão oficial. <b>COMEIA + Esquadrão das Cores + Matrix Infinyt</b> em um único HTML — sem duplicar, sem apagar, sem perder o backup.</p>
-            <div className="flex flex-wrap gap-3 mt-7">
-              <button onClick={() => scrollTo("comeia")} className="btn-gold rounded-full px-6 py-3.5 text-sm tracking-wider">ENTRAR NA COLMEIA</button>
-              <button onClick={() => scrollTo("esquadrao")} className="btn-ghost rounded-full px-6 py-3.5 text-sm tracking-wider">VER ESQUADRÃO</button>
-              <button onClick={() => scrollTo("matrix")} className="rounded-full px-6 py-3.5 text-sm tracking-wider border border-white/20 hover:bg-white/10">VER MATRIX</button>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-7 text-[11px] font-mono2">
-              <span className="chip rounded-full px-3 py-1.5">8 ARQUIVOS FUNDIDOS</span>
-              <span className="chip rounded-full px-3 py-1.5">12 ÁREAS CONECTADAS</span>
-              <span className="chip rounded-full px-3 py-1.5">INDEX4 = RESERVADO</span>
-            </div>
-          </div>
-          <div className="relative mx-auto w-full max-w-[430px]">
-            <div className="absolute -inset-3 rounded-[36px] border border-[#FFD35A]/40 spin-slow" style={{ borderStyle: "dashed" }} aria-hidden="true" />
-            <div className="relative rounded-[30px] overflow-hidden border-2 border-[#FFD35A] bg-[#020805] shadow-[0_0_70px_rgba(255,211,90,.25)]">
-              <img src={coinUrl} alt="Moeda oficial CRYPY-WEB3.1 — ícone oficial do site" className="w-full aspect-square object-cover floaty" />
-              <div className="absolute left-3 right-3 bottom-3 bg-black/80 backdrop-blur rounded-2xl p-3 flex items-center justify-between gap-2">
-                <div className="min-w-0"><p className="font-display font-bold text-sm truncate">ÍCONE OFICIAL</p><p className="text-[11px] text-[#9db8a9] [overflow-wrap:anywhere]">A miniatura que você encontra ao pesquisar o site.</p></div>
-                <button onClick={() => scrollTo("icone")} className="shrink-0 bg-[#00FF88] text-black text-[11px] font-bold px-3 py-2 rounded-full">VER ÍCONE →</button>
-              </div>
-            </div>
-            <div className="flex justify-between mt-3 text-[10px] font-mono2 text-[#9db8a9] px-1"><span>FAVICON • 192 • 512</span><span>APPLE TOUCH 180</span><span>OG 1200×630</span></div>
-          </div>
-        </div>
-      </section>
+        <div className="flex items-end justify-between mt-9 mb-4"><h2 className="font-display text-2xl font-black">Páginas anteriores</h2><p className="text-sm text-[var(--muted)]">{filtered.length} de 10 páginas</p></div>
+        <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{filtered.map((x,i)=><button key={x.id} onClick={()=>go(x.id)} className="panel card-hover p-5 text-left relative overflow-hidden"><span className="absolute right-4 top-4 text-4xl font-black text-white/10">0{i+1}</span><span className="w-11 h-11 rounded-full bg-[var(--gold)] text-black grid place-items-center">{x.icon}</span><h3 className="font-black mt-4 text-lg leading-tight">{x.title}</h3><p className="text-sm text-[var(--muted)] mt-2 leading-relaxed">{x.desc}</p><span className="inline-block mt-4 text-xs font-black tracking-widest gold">ABRIR PÁGINA →</span></button>)}</section>
+        {filtered.length===0 && <p className="text-[var(--muted)]">Nenhuma caixa corresponde à busca.</p>}
+      </>}
 
-      {/* ÍCONE OFICIAL */}
-      <section id="icone" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div><p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">01 — IDENTIDADE</p><h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.2rem)] leading-none mt-2">ÍCONE <span className="gold-text">OFICIAL</span></h2></div>
-          <p className="text-[#9db8a9] max-w-[520px] [overflow-wrap:anywhere]">A mesma moeda em todos os lugares: aba do navegador, tela inicial do celular e prévia ao compartilhar.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-4 mt-7">
-          <figure className="card rounded-3xl overflow-hidden"><img src={coinUrl} alt="Moeda CRYPY-WEB3.1 usada como favicon e logo hero" className="w-full aspect-square object-cover" /><figcaption className="p-4"><b className="font-display">MOEDA OFICIAL</b><p className="text-sm text-[#9db8a9] mt-1 [overflow-wrap:anywhere]">Logo hero + favicon.ico. A foto enviada virou a miniatura oficial do site.</p><span className="chip inline-block mt-3 rounded-full px-3 py-1 text-[11px] font-bold">FAVICON • LOGO HERO</span></figcaption></figure>
-          <figure className="card rounded-3xl overflow-hidden"><div className="bg-[#0a0a0a] p-8 flex items-center justify-center"><img src={icon512Url} alt="Ícone CRYPY 512 pixels para instalação e tela inicial" className="w-44 h-44 object-contain" /></div><figcaption className="p-4"><b className="font-display">ICON 512</b><p className="text-sm text-[#9db8a9] mt-1 [overflow-wrap:anywhere]">Para instalar o site e usar como app. Versões 192 e 512 geradas a partir da moeda oficial.</p><span className="chip inline-block mt-3 rounded-full px-3 py-1 text-[11px] font-bold">ICON-192 • ICON-512</span></figcaption></figure>
-          <figure className="card rounded-3xl overflow-hidden"><img src={ogUrl} alt="Prévia CRYPY-WEB3.1 de 1200 por 630 pixels para compartilhamento" className="w-full aspect-[1200/630] object-cover" /><figcaption className="p-4"><b className="font-display">OG-IMAGE 1200 × 630</b><p className="text-sm text-[#9db8a9] mt-1 [overflow-wrap:anywhere]">A prévia que aparece quando alguém compartilha o link do site.</p><span className="chip inline-block mt-3 rounded-full px-3 py-1 text-[11px] font-bold">APPLE TOUCH 180</span></figcaption></figure>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4 text-sm">
-          {[["favicon.ico", "Aba do navegador"], ["icon-192.png", "Android / atalho"], ["icon-512.png", "Instalação / app"], ["apple-touch-icon 180", "iPhone / tela inicial"]].map(([a, b]) => <div key={a} className="rounded-2xl border border-[#123c26] bg-[#020805] p-4"><p className="font-mono2 text-[#00FF88] text-xs [overflow-wrap:anywhere]">{a}</p><p className="text-[#9db8a9] mt-1">{b}</p></div>)}
-        </div>
-      </section>
+      {page!=="menu" && <div className="mt-6 flex flex-wrap items-center justify-between gap-3"><Back setPage={go}/><p className="text-xs tracking-[.2em] text-[var(--muted)] font-bold">COLMÉIA-WEB3.1 / DEFINITIVA / {currentLabel}</p></div>}
 
-      {/* COMEIA */}
-      <section id="comeia" className="bg-[#020805] border-y border-[#123c26]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div><p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">02 — ECOSSISTEMA</p><h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.2rem)] leading-none mt-2">COMEIA <span className="neon-text">WEB3.1</span></h2><p className="text-[#9db8a9] mt-3 max-w-[620px]">Cada membro tem função. Ninguém é enfeite. A colmeia só funciona quando todos protegem o centro.</p></div>
-            <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar membros da colmeia">
-              {["TODOS", "QUINTETO", "SEGURANÇA", "BABY V13"].map((f) => <button key={f} onClick={() => setFilter(f)} className={`px-4 py-2 rounded-full text-[11px] font-bold tracking-widest ${filter === f ? "bg-[#FFD35A] text-black" : "border border-[#234a33] text-[#bff5d3]"}`}>{f}</button>)}
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">
-            {visibleComeia.map((c) => {
-              const Icon = c.icon;
-              const isOpen = open === c.name;
-              return <article key={c.name} className="card rounded-3xl p-5">
-                <div className="flex items-start justify-between gap-3"><div className="w-12 h-12 rounded-2xl flex items-center justify-center border" style={{ borderColor: c.color, color: c.color, background: "#000" }}><Icon size={24} /></div><span className="text-[10px] font-mono2 px-2.5 py-1 rounded-full border border-[#234a33] text-[#bff5d3]">{c.tag}</span></div>
-                <h3 className="font-display font-black text-2xl mt-4">{c.name}</h3><p className="font-bold text-sm" style={{ color: c.color }}>{c.role}</p>
-                <p className="text-[#c9e8d5] leading-relaxed mt-2 [overflow-wrap:anywhere]">{isOpen ? c.desc : c.desc.slice(0, 88) + "…"}</p>
-                <button onClick={() => setOpen(isOpen ? null : c.name)} className="mt-3 inline-flex items-center gap-1 text-[#00FF88] text-xs font-bold tracking-widest">{isOpen ? <>VER MENOS <ChevronUp size={15} /></> : <>VER HISTÓRIA <ChevronDown size={15} /></>}</button>
-              </article>;
-            })}
-          </div>
-          <button onClick={() => setShowAllComeia(!showAllComeia)} className="mt-5 w-full sm:w-auto border border-[#00FF88] text-[#00FF88] rounded-full px-6 py-3 text-xs font-bold tracking-widest">{showAllComeia ? "MOSTRAR MENOS MEMBROS ↑" : `MOSTRAR TODOS OS ${comeiaFiltered.length} MEMBROS ↓`}</button>
-        </div>
-      </section>
+      {page==="01" && <section className="mt-5"><div className="flex flex-wrap justify-between gap-3 items-end"><div><p className="text-xs tracking-widest green font-bold">INDEX 01</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black leading-none">HOME <span className="gold">DA COLMEIA</span></h2></div><span className="rounded-full bg-[var(--green)] text-black px-3 py-1 text-xs font-black">BABY ONLINE</span></div><div className="grid md:grid-cols-3 gap-4 mt-6">{[{e:"🐉",t:"BTC",c:"#f2a900",d:"Força, escassez e comando."},{e:"🐲",t:"ETH",c:"#5b6cff",d:"Energia, construção e rede."},{e:"🐉",t:"USDT",c:"#0d7a5f",d:"Equilíbrio e travessia."}].map(d=><article key={d.t} className="panel p-5 card-hover"><div className="text-5xl floaty">{d.e}</div><h3 className="font-black text-2xl mt-3">DRAGÃO {d.t}</h3><p className="text-sm text-[var(--muted)]">{d.d}</p><div className="mt-4 h-2 rounded-full bg-black/30 overflow-hidden"><div className="h-full" style={{width:d.t==="BTC"?"88%":d.t==="ETH"?"68%":"48%",background:d.c}}/></div></article>)}</div><div className="grid lg:grid-cols-[1fr_1.2fr] gap-4 mt-4"><div className="panel p-5"><p className="font-black text-xl">👶 BABY × 🐝 CRYPY</p><p className="text-sm text-[var(--muted)] mt-2">BABY observa o mercado e traduz em linguagem simples. CRYPY guarda a colmeia e marca o que merece atenção.</p><div className="grid grid-cols-2 gap-3 mt-4"><div className="rounded-xl bg-black/25 p-3"><p className="green font-black">BABY</p><p className="text-xs text-[var(--muted)]">Aprende, resume e organiza.</p></div><div className="rounded-xl bg-black/25 p-3"><p className="gold font-black">CRYPY</p><p className="text-xs text-[var(--muted)]">Vigia, filtra e protege.</p></div></div></div><div className="panel p-5"><p className="font-black">Gráfico 3D — força dos dragões</p><div className="flex items-end gap-4 h-36 mt-6 justify-center">{bars.slice(0,3).map(b=><div key={b.l} className="text-center"><div className="bar3d w-14 sm:w-20 mx-auto rounded-t-lg bg-gradient-to-b from-[var(--gold)] to-[var(--green2)]" style={{height:`${b.h}px`}}/><p className="text-xs font-black mt-2">{b.l}</p></div>)}</div></div></div><h3 className="font-black text-2xl mt-7 mb-3">Preços em destaque</h3><PriceRow/></section>}
 
-      {/* ESQUADRÃO */}
-      <section id="esquadrao" className="relative overflow-x-clip border-b border-[#123c26]">
-        <div className="grid md:grid-cols-[110px_1fr_110px] min-h-[560px]">
-          <div className="hidden md:block bg-black overflow-hidden p-2" aria-hidden="true"><div className="matrix-col text-[12px] whitespace-pre">{matrixOn ? matrixText : "MATRIX\nPAUSADA\n—"}</div></div>
-          <div className="bg-black px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center text-center">
-            <p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">03 — MEIO PRETO ABSOLUTO #000</p>
-            <h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.4rem)] leading-[0.95] mt-3">ESQUADRÃO<br /><span className="neon-text">DAS CORES</span></h2>
-            <p className="text-[#9db8a9] max-w-[620px] mt-3 [overflow-wrap:anywhere]">Matrix só nas laterais. No centro, preto absoluto — para o esquadrão brilhar sem ruído.</p>
-            <button onClick={() => setMatrixOn(!matrixOn)} className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#00FF88] px-4 py-2 text-xs font-bold text-[#00FF88]">{matrixOn ? <><Pause size={14} /> PAUSAR MATRIX LATERAL</> : <><Play size={14} /> LIGAR MATRIX LATERAL</>}</button>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-5 mt-8 max-w-[760px] px-1">
-              {SQUAD.map((s, i) => <div key={s.name} className={`rounded-3xl border p-4 w-[150px] sm:w-[170px] text-left ${s.name === "BABY V13" ? "border-[#FFD35A] bg-[#171000] shadow-[0_0_36px_rgba(255,211,90,.18)]" : "border-[#123c26] bg-[#020805]"}`}><div className={`w-11 h-11 rounded-full flex items-center justify-center font-display font-black ${s.name === "BABY V13" ? "bg-[#FFD35A] text-black" : "bg-[#00FF88] text-black"}`}>{s.name[0]}</div><p className="font-display font-bold mt-3">{s.name}</p><p className="text-xs text-[#9db8a9] leading-snug mt-1 [overflow-wrap:anywhere]">{s.detail}</p><p className="font-mono2 text-[10px] text-[#5f7d6b] mt-3">0{i + 1} / QUINTETO + BABY</p></div>)}
-            </div>
-            <div className="mt-8 rounded-2xl border border-[#FFD35A]/50 bg-[#0d0900] px-5 py-4 max-w-[640px]"><p className="font-display text-[#FFD35A] tracking-widest text-sm">★ BABY V13 DOURADO ★</p><p className="text-sm text-[#e8d9a5] mt-1 [overflow-wrap:anywhere]">O quinteto se move. O BABY é o centro protegido. Todos os caminhos da colmeia passam por ele.</p></div>
-          </div>
-          <div className="hidden md:block bg-black overflow-hidden p-2" aria-hidden="true"><div className="matrix-col text-[12px] whitespace-pre">{matrixOn ? matrixText : "MATRIX\nPAUSADA\n—"}</div></div>
-        </div>
-      </section>
+      {page==="02" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 02</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">PREÇOS <span className="gold">REAIS</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">Painel de referência da Colmeia.</p><div className="mt-6"><PriceRow/></div><div className="panel p-5 mt-4 border-dashed"><p className="font-black text-xl">CRYPYCOIN</p><p className="text-sm text-[var(--muted)] mt-1">Sem cotação pública exibida. A moeda da colmeia vive primeiro dentro da história, da arte e da comunidade.</p><span className="inline-block mt-3 rounded-full bg-[var(--gold)] text-black px-3 py-1 text-xs font-black">SEM COTAÇÃO</span></div><div className="grid sm:grid-cols-3 gap-3 mt-4">{[{t:"Leitura",v:"A cada minuto"},{t:"Fonte da página",v:"Painel da Colmeia"},{t:"Foco",v:"Clareza, não ruído"}].map(x=><div key={x.t} className="panel p-4"><p className="text-xs text-[var(--muted)]">{x.t}</p><p className="font-black mt-1">{x.v}</p></div>)}</div></section>}
 
-      {/* MATRIX / 12 ÁREAS */}
-      <section id="matrix" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">04 — HOME MATRIX INFINYT</p>
-        <div className="flex flex-wrap items-end justify-between gap-4 mt-2"><h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.2rem)] leading-none">12 ÁREAS <span className="neon-text">CONECTADAS</span></h2><p className="text-[#9db8a9] max-w-[480px]">Toque em uma área para ver como ela se conecta com a colmeia.</p></div>
-        <div className="grid lg:grid-cols-[1fr_340px] gap-5 mt-7 items-start">
-          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
-            {AREAS.map((a) => <button key={a.n} onClick={() => setArea(a)} className={`text-left rounded-2xl border p-4 ${area.n === a.n ? "border-[#00FF88] bg-[#04120a] shadow-[0_0_28px_rgba(0,255,136,.12)]" : "border-[#123c26] bg-[#020805] hover:border-[#00FF88]/60"}`}><span className="font-mono2 text-[#FFD35A] text-xs">{a.n}</span><span className="font-display font-bold block mt-1">{a.t}</span><span className="text-sm text-[#9db8a9] block mt-1 leading-snug [overflow-wrap:anywhere]">{a.d}</span></button>)}
-          </div>
-          <aside className="lg:sticky lg:top-[104px] card rounded-3xl p-5">
-            <div className="flex items-center gap-2 text-[#00FF88]"><Hexagon size={20} /><span className="font-mono2 text-xs tracking-[0.22em]">ÁREA SELECIONADA</span></div>
-            <p className="font-display font-black text-4xl mt-4 text-[#FFD35A]">{area.n}</p><h3 className="font-display font-bold text-2xl mt-1">{area.t}</h3><p className="text-[#c9e8d5] leading-relaxed mt-3 [overflow-wrap:anywhere]">{area.d}</p>
-            <div className="mt-5 rounded-2xl bg-black border border-[#123c26] p-4"><p className="text-xs font-bold tracking-widest text-[#00FF88]">CONEXÃO ATIVA</p><p className="text-sm text-[#9db8a9] mt-1 [overflow-wrap:anywhere]">Esta área conversa com a Colmeia Central, com o SVT e com o Esquadrão. Nada fica isolado.</p></div>
-            <button onClick={() => scrollTo("comeia")} className="btn-gold w-full rounded-full py-3 mt-5 text-xs tracking-widest">VOLTAR PARA A COLMEIA →</button>
-          </aside>
-        </div>
-        <div className="mt-6 rounded-3xl border border-[#123c26] bg-[#020805] p-5 flex flex-wrap gap-4 items-center justify-between"><div className="flex items-center gap-3"><Zap className="text-[#FFD35A]" /><p className="font-bold">Dragão guardião ativo. <span className="text-[#9db8a9] font-normal">SVT vigia a rede enquanto a colmeia trabalha.</span></p></div><span className="font-mono2 text-xs text-[#00FF88]">● INFINYT • ONLINE</span></div>
-      </section>
+      {page==="03" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 03</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">PREÇOS REAIS <span className="gold">2</span></h2><p className="mt-2 text-[var(--muted)]">Segunda leitura: o mesmo mercado, contado com outro ritmo.</p><div className="grid md:grid-cols-2 gap-4 mt-6"><div className="panel p-5"><h3 className="font-black">Leitura A — Força</h3><div className="mt-4 space-y-3">{prices.map(p=><div key={p.s}><div className="flex justify-between text-sm"><span className="font-bold">{p.s}</span><span>{p.v}</span></div><div className="h-2 bg-black/30 rounded-full mt-1"><div className="h-full rounded-full bg-[var(--gold)]" style={{width:p.s==="BTC"?"88%":p.s==="ETH"?"68%":"42%"}}/></div></div>)}</div></div><div className="panel p-5"><h3 className="font-black">Leitura B — Resumo</h3><ul className="mt-3 space-y-3 text-sm text-[var(--muted)]"><li><b className="text-white">BTC</b> — o eixo da colmeia.</li><li><b className="text-white">ETH</b> — o motor da construção.</li><li><b className="text-white">USDT</b> — a ponte calma.</li><li><b className="text-white">BNB / ICP / SHIB</b> — o coro do mercado.</li></ul><div className="mt-5 rounded-xl bg-black/25 p-4"><p className="gold font-black">CRYPYCOIN</p><p className="text-sm text-[var(--muted)]">Sem cotação. Presença, não preço.</p></div></div></div></section>}
 
-      {/* FUSÃO V4 */}
-      <section id="fusao" className="bg-[#020805] border-y border-[#123c26]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid lg:grid-cols-[1fr_.9fr] gap-8">
-          <div><p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">05 — FUSÃO V4 CORRIGIDA</p><h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.2rem)] leading-none mt-2">TODAS <span className="gold-text">ABERTAS</span></h2><p className="text-[#9db8a9] mt-4 max-w-[560px] [overflow-wrap:anywhere]">Nenhum arquivo foi apagado. O backup foi preservado. O que era separado virou um único caminho — e cada origem continua registrada abaixo.</p>
-            <div className="mt-6 space-y-3">
-              {["Nenhum arquivo apagado", "Backup preservado antes da fusão", "index4.html registrado como reservado", "Conteúdo preservado, sem duplicar"].map((t) => <div key={t} className="flex gap-3 items-center rounded-2xl border border-[#123c26] bg-black p-4"><CheckCircle2 className="text-[#00FF88] shrink-0" size={22} /><b>{t}</b></div>)}
-            </div>
-          </div>
-          <div className="rounded-3xl border border-[#FFD35A]/40 bg-black p-5 sm:p-6"><p className="font-mono2 text-xs tracking-[0.22em] text-[#FFD35A]">CHECKLIST DA FUSÃO — 8 ARQUIVOS</p><ul className="mt-4 space-y-4">{FUSAO.map((f) => <li key={f.file} className="flex gap-3"><CheckCircle2 className="text-[#00FF88] shrink-0 mt-0.5" size={20} /><span><span className="font-mono2 text-xs text-[#FFD35A] block [overflow-wrap:anywhere]">{f.file}</span><span className="text-sm text-[#c9e8d5] block mt-0.5 [overflow-wrap:anywhere]">{f.kept}</span></span></li>)}</ul></div>
-        </div>
-      </section>
+      {page==="04" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 04</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">COMPRIMIDO <span className="gold">24MB</span></h2><p className="mt-2 text-[var(--muted)]">A versão compacta: tudo essencial, em uma página leve.</p><button className="btn-ghost mt-4" onClick={()=>setCompactMode(!compactMode)}>{compactMode?"Mostrar versão completa":"Ativar modo compacto"}</button><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5">{indexes.map(x=><button key={x.id} onClick={()=>go(x.id)} className="panel p-4 text-left card-hover"><p className="font-black gold">{x.title}</p><p className="text-xs text-[var(--muted)] mt-1">{compactMode?"Resumo compacto da Colmeia.":x.desc}</p></button>)}</div><div className="panel p-5 mt-4"><p className="font-black">Resumo em 3 linhas</p><p className="text-sm text-[var(--muted)] mt-2">1. A colmeia organiza preços, arte, notícias e território. 2. BABY traduz. CRYPY protege. 3. O conteúdo cabe em um único HTML.</p></div></section>}
 
-      {/* SVT */}
-      <section id="svt" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid lg:grid-cols-[.9fr_1.1fr] gap-8 items-center">
-          <div className="relative rounded-[28px] overflow-hidden border-2 border-[#FFD35A]"><img src={ogUrl} alt="Prévia dourada do SVT, autoridade monetária da colmeia" className="w-full aspect-[4/3] object-cover" /><div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 pt-16"><p className="font-mono2 text-[11px] tracking-[0.25em] text-[#FFD35A]">DRAGÃO DOURADO E VERDE</p><p className="font-display font-black text-3xl">SVT</p></div></div>
-          <div><p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">06 — IA OFICIAL CMC</p><h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.2rem)] leading-none mt-2">SVT — IA OFICIAL <span className="neon-text">DA COMUNIDADE</span></h2><p className="text-lg text-[#d8efe1] mt-4 leading-relaxed [overflow-wrap:anywhere]">SVT é a IA oficial da comunidade CoinMarketCap da <b>CryptoëCrypto</b> e a Autoridade Monetária da colmeia.</p>
-            <div className="grid sm:grid-cols-3 gap-3 mt-6">
-              {[["S", "Satoshi", "Origem do Bitcoin. Base, escassez e confiança."], ["V", "Vitalik", "Origem do Ethereum. Contratos e construção."], ["T", "Tether", "Origem do USDT. Estabilidade e troca."]].map(([l, n, d]) => <div key={l} className="card rounded-2xl p-4"><span className="font-display font-black text-3xl text-[#FFD35A]">{l}</span><b className="block mt-2">{n}</b><span className="text-sm text-[#9db8a9] leading-snug block mt-1 [overflow-wrap:anywhere]">{d}</span></div>)}
-            </div>
-            <p className="mt-5 rounded-2xl border border-[#123c26] bg-[#020805] p-4 text-sm leading-relaxed [overflow-wrap:anywhere]"><b className="text-[#FFD35A]">Fusão BTC + ETH + USDT.</b> O dragão dourado e verde não decide sozinho: ele guarda a ordem, a clareza e a responsabilidade monetária.</p>
-          </div>
-        </div>
-      </section>
+      {page==="05" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 05</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">CONTATO <span className="gold">OFICIAL</span></h2><div className="grid lg:grid-cols-2 gap-4 mt-6"><div className="panel p-6"><span className="w-14 h-14 hex bg-[var(--gold)] text-black grid place-items-center font-black text-2xl">C</span><h3 className="font-black text-2xl mt-4">Canal oficial da Colmeia</h3><p className="text-[var(--muted)] mt-2">Canal oficial listado dentro da COLMÉIA-WEB3.1.</p><div className="mt-5 rounded-xl bg-black/25 p-4"><p className="text-xs text-[var(--muted)]">CANAL OFICIAL</p><p className="font-black text-lg mt-1" style={{overflowWrap:"anywhere"}}>contato@colmeia-web3.exemplo</p><p className="text-sm text-[var(--muted)] mt-1">Resposta organizada pela BABY, com proteção da CRYPY.</p></div></div><div className="panel p-6"><h3 className="font-black text-xl">Temas</h3><ul className="mt-3 space-y-3 text-sm text-[var(--muted)]"><li>• Página visitada no menu ou nos INDEX.</li><li>• Arte, painel, NFT ou CRYPY-LAND.</li><li>• Mensagem clara e curta.</li></ul><div className="mt-5 grid grid-cols-2 gap-3"><div className="rounded-xl border border-[var(--line)] p-3"><p className="green font-black">BABY</p><p className="text-xs text-[var(--muted)]">Recebe e organiza</p></div><div className="rounded-xl border border-[var(--line)] p-3"><p className="gold font-black">CRYPY</p><p className="text-xs text-[var(--muted)]">Filtra e protege</p></div></div></div></div></section>}
 
-      {/* CONSTITUIÇÃO */}
-      <section id="constituicao" className="bg-[#020805] border-t border-[#123c26]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <div className="text-center max-w-[760px] mx-auto"><p className="font-mono2 text-[#FFD35A] tracking-[0.25em] text-xs">07 — CONSTITUIÇÃO NEXUS</p><h2 className="font-display font-black text-[clamp(1.9rem,5vw,3.2rem)] leading-none mt-2">MODO <span className="neon-text">REAL</span></h2><p className="text-[#9db8a9] mt-3">Não é promessa. É compromisso escrito — e cobrado todos os dias.</p></div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 mt-8">
-            {[["Transparência", "O que é feito pode ser visto e verificado.", Eye], ["Honestidade técnica", "Nada de exagero técnico. O que não foi testado, não é afirmado.", FlaskConical], ["Independência institucional", "A colmeia decide por si. Sem dono externo.", ShieldCheck], ["Responsabilidade", "Cada decisão tem consequência — e alguém responde por ela.", Lock], ["Evolução responsável", "Crescer sem atropelar a segurança nem a verdade.", Sparkles]].map(([t, d, Icon]: any) => <div key={t} className="card rounded-3xl p-5"><Icon className="text-[#00FF88]" size={26} /><h3 className="font-display font-bold mt-4 leading-tight">{t}</h3><p className="text-sm text-[#9db8a9] leading-relaxed mt-2 [overflow-wrap:anywhere]">{d}</p></div>)}
-          </div>
-          <blockquote className="mt-6 rounded-3xl border-2 border-[#FFD35A] bg-black p-6 sm:p-8 text-center"><p className="font-display font-bold text-lg sm:text-2xl leading-snug">“Se não sei, digo que não sei.<br />Se não testei, digo que não testei.<br />Se não está comprovado, <span className="text-[#FFD35A]">não declaro como aprovado.</span>”</p><footer className="font-mono2 text-xs text-[#9db8a9] tracking-[0.22em] mt-4">REGRA DE OURO — CONSTITUIÇÃO NEXUS</footer></blockquote>
-          <div className="grid sm:grid-cols-3 gap-3 mt-4 text-center">
-            <div className="rounded-2xl border border-[#123c26] p-5"><b className="font-display">SEMANA 1</b><p className="text-sm text-[#9db8a9] mt-1">Estamos na primeira semana. Aprender antes de acelerar.</p></div>
-            <div className="rounded-2xl border border-[#123c26] p-5"><b className="font-display">TESTNET</b><p className="text-sm text-[#9db8a9] mt-1">Testes em ambiente de teste. Sem atalhos.</p></div>
-            <div className="rounded-2xl border border-[#ff5d73]/50 bg-[#140507] p-5"><b className="font-display text-[#ff8a9a]">SEM MAINNET • SEM LIQUIDEZ REAL</b><p className="text-sm text-[#d9aab2] mt-1">Nada de dinheiro real nesta fase. Ponto.</p></div>
-          </div>
-        </div>
-      </section>
+      {page==="06" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 06</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">ART <span className="gold">FIGURE</span></h2><p className="text-[var(--muted)] mt-2">Coleção V1 a V12. V12 Guardião por último.</p><div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-6">{figures.map(f=><button key={f.v} onClick={()=>setSelectedFig(f.v)} className={`panel p-4 text-left card-hover ${selectedFig===f.v?"!border-[var(--gold)]":""}`}><div className="h-24 rounded-xl bg-gradient-to-br from-[#2a2305] via-[#123324] to-black grid place-items-center text-4xl">{f.v==="V12"?"👑":f.v==="V5"?"🟡":"🟢"}</div><p className="font-black mt-3">{f.v} — {f.name}</p><p className="text-xs text-[var(--muted)] mt-1">{f.detail}</p></button>)}</div><div className="panel p-5 mt-5"><p className="text-xs tracking-widest gold font-bold">DESTAQUE SELECIONADO</p><h3 className="font-black text-2xl mt-1">{selectedFig} — {figures.find(f=>f.v===selectedFig)?.name}</h3><p className="text-sm text-[var(--muted)] mt-1">{figures.find(f=>f.v===selectedFig)?.detail}</p>{selectedFig==="V12" && <span className="inline-block mt-3 rounded-full bg-[var(--gold)] text-black px-3 py-1 text-xs font-black">V12 LEGION · GUARDIÃO FINAL</span>}</div></section>}
 
-      {/* FOOTER */}
-      <footer className="border-t border-[#123c26] bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid md:grid-cols-[1.2fr_.8fr] gap-8 items-center">
-          <div className="flex gap-4 items-start"><div className="w-16 h-16 rounded-full border-2 border-[#FFD35A] bg-[#171000] flex items-center justify-center font-display font-black text-3xl text-[#FFD35A] shrink-0" aria-hidden="true">C</div><div><p className="font-display font-black text-xl leading-none">CRYPY-WEB3.1</p><p className="text-[#9db8a9] mt-2 [overflow-wrap:anywhere]">System by CryptoëCrypto • COMEIA + Esquadrão + Matrix</p><p className="font-mono2 text-xs text-[#00FF88] mt-2 [overflow-wrap:anywhere]">cryptoecrypto.com.br • @cryptoecryptosubc</p></div></div>
-          <div className="md:text-right"><p className="font-mono2 text-xs tracking-[0.22em] text-[#FFD35A]">MODO REAL • 25/11/2026</p><p className="text-sm text-[#9db8a9] mt-2 [overflow-wrap:anywhere]">Fusão oficial. Nenhum arquivo apagado. Backup preservado.</p><button onClick={() => scrollTo("inicio")} className="mt-4 btn-gold rounded-full px-5 py-2.5 text-xs tracking-widest">VOLTAR AO TOPO ↑</button></div>
-        </div>
-      </footer>
-    </div>
-  );
+      {page==="07" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 07</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">CALENDAR <span className="gold">INFINITY</span></h2><p className="text-[var(--muted)] mt-2">Calendário em loop contínuo, sem fim.</p><div className="panel p-5 mt-6"><div className="flex items-center justify-between gap-3"><button className="btn-ghost" onClick={()=>setMonthOffset(monthOffset-1)}><ChevronLeft/> Mês anterior</button><h3 className="font-display text-2xl sm:text-3xl font-black capitalize text-center">{monthName}</h3><button className="btn-ghost" onClick={()=>setMonthOffset(monthOffset+1)}>Próximo mês <ChevronRight/></button></div><div className="flex flex-wrap gap-2 justify-center mt-4"><button className="btn-gold" onClick={()=>setMonthOffset(monthOffset-12)}>− 1 ano</button><button className="btn-ghost" onClick={()=>setMonthOffset(0)}>Hoje</button><button className="btn-gold" onClick={()=>setMonthOffset(monthOffset+12)}>+ 1 ano</button></div><div className="grid grid-cols-7 gap-1.5 mt-5 text-center text-xs font-bold text-[var(--muted)]">{["D","S","T","Q","Q","S","S"].map((d,i)=><div key={i} className="py-2">{d}</div>)}{Array.from({length:first},(_,i)=><div key={"e"+i}/>)}{Array.from({length:daysIn},(_,i)=><div key={i} className={`py-2.5 rounded-lg border ${i+1===base.getDate()&&monthOffset===0?"bg-[var(--gold)] text-black font-black":"border-[var(--line)] bg-black/20"}`}>{i+1}</div>)}</div><p className="text-center text-sm text-[var(--muted)] mt-4">Deslocamento atual: <b className="gold">{monthOffset} {monthOffset===1?"mês":"meses"}</b> · O calendário continua para sempre.</p></div></section>}
+
+      {page==="08" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 08</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">GRÁFICO <span className="gold">3D REAL</span></h2><p className="text-[var(--muted)] mt-2">Visualização editorial por período.</p><div className="flex flex-wrap gap-2 mt-5">{["24H","7D","30D"].map(p=><button key={p} onClick={()=>setPeriod(p)} className={period===p?"btn-gold":"btn-ghost"}>{p}</button>)}</div><div className="panel p-5 sm:p-7 mt-4"><div className="flex items-end justify-between gap-2 sm:gap-5 h-56">{bars.map(b=><div key={b.l} className="flex-1 text-center"><div className="mx-auto w-full max-w-[72px] rounded-t-xl bg-gradient-to-b from-[var(--gold)] via-[#8aa13c] to-[var(--green2)] bar3d shadow-[8px_8px_0_rgba(0,0,0,.35)]" style={{height:`${Math.round(b.h*factor)}px`}}/><p className="font-black mt-3 text-xs sm:text-sm">{b.l}</p><p className="text-[11px] text-[var(--muted)]">{Math.round(b.h*factor)} pts</p></div>)}</div><div className="h-px bg-[var(--line)] mt-2"/></div><p className="mt-3 text-sm text-[var(--muted)]">Período ativo: <b className="gold">{period}</b>.</p></section>}
+
+      {page==="09" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 09</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">NEWS <span className="gold">MARKET</span></h2><div className="panel p-5 mt-5 flex flex-wrap items-center justify-between gap-3"><div><p className="font-black text-xl">👶 BABY absorve notícias</p><p className="text-sm text-[var(--muted)]">Resumo automático às 00:00. Sem ruído, só o essencial.</p></div><button onClick={()=>setAutoNews(!autoNews)} className={autoNews?"btn-gold":"btn-ghost"}>{autoNews?"AUTO 00:00 LIGADO":"AUTO 00:00 DESLIGADO"}</button></div><div className="grid md:grid-cols-2 gap-4 mt-4">{news.map((n,i)=><article key={i} className="panel p-5 card-hover"><span className="rounded-full bg-[var(--gold)] text-black px-2.5 py-1 text-[11px] font-black">{n.tag}</span><h3 className="font-black text-xl mt-3 leading-snug">{n.t}</h3><p className="text-sm text-[var(--muted)] mt-2">{n.d}</p><p className="text-xs mt-3 green font-bold">Absorvido pela BABY · {autoNews?"Próxima absorção: 00:00":"Absorção automática pausada"}</p></article>)}</div></section>}
+
+      {page==="10" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">INDEX 10</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">PAINEL <span className="gold">DA COLMEIA</span></h2><p className="text-[var(--muted)] mt-2">Sub-páginas do painel.</p>{sub && <div className="panel p-5 mt-5"><div className="flex justify-between gap-3"><div><p className="text-xs tracking-widest gold font-bold">SUB-PÁGINA ABERTA</p><h3 className="font-black text-2xl mt-1" style={{overflowWrap:"anywhere"}}>{sub}</h3><p className="text-sm text-[var(--muted)] mt-1">{subpages.flatMap(g=>g.items).find(i=>i.t===sub)?.d}</p></div><button className="btn-ghost self-start" onClick={()=>setSub(null)}>Fechar</button></div></div>}<div className="space-y-6 mt-6">{subpages.map(g=><div key={g.g}><div className="flex items-center gap-2 mb-3"><span className="w-8 h-8 rounded-full bg-[var(--gold)] text-black grid place-items-center">{g.g==="CRYPYKUT"?<Camera size={17}/>:g.g==="BABY-IA"?<Bot size={17}/>:g.g==="CRYPY-LAND"?<Globe size={17}/>:g.g==="NFT COLLECTION"?<ImageIcon size={17}/>:<Landmark size={17}/>}</span><h3 className="font-black text-xl">{g.g}</h3></div><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{g.items.map(item=><button key={item.t} onClick={()=>setSub(item.t)} className={`panel p-4 text-left card-hover ${sub===item.t?"!border-[var(--gold)]":""}`}><p className="font-black leading-snug">{item.t}</p><p className="text-sm text-[var(--muted)] mt-1">{item.d}</p><span className="text-xs font-black gold mt-3 inline-block">ABRIR SUB-PÁGINA →</span></button>)}</div></div>)}</div><div className="grid sm:grid-cols-3 gap-3 mt-6"><div className="panel p-4"><p className="flex gap-2 items-center font-black"><Shield size={18} className="gold"/> DEFENDER-GLOBAL</p><p className="text-sm text-[var(--muted)] mt-1">Proteção ativa em CRYPY-LAND.</p></div><div className="panel p-4"><p className="flex gap-2 items-center font-black"><Gamepad2 size={18} className="gold"/> GAME + NFT</p><p className="text-sm text-[var(--muted)] mt-1">Jogar, colecionar e habitar.</p></div><div className="panel p-4"><p className="flex gap-2 items-center font-black"><MapIcon size={18} className="gold"/> MAPA-COLMEIA</p><p className="text-sm text-[var(--muted)] mt-1">Diagrama fictício do território.</p></div></div></section>}
+
+      {page==="m01" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">01 · CRYPY INFINYT</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black leading-none">HOME <span className="gold">INFINITO</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">O home infinito: dragões, BABY e CRYPY — sem fim.</p><div className="grid md:grid-cols-3 gap-4 mt-6">{[{e:"🐉",t:"BTC",c:"#f2a900",d:"Força, escassez e comando."},{e:"🐲",t:"ETH",c:"#5b6cff",d:"Energia, construção e rede."},{e:"🐉",t:"USDT",c:"#0d7a5f",d:"Equilíbrio e travessia."}].map(d=><article key={d.t} className="panel p-5 card-hover"><div className="text-5xl floaty">{d.e}</div><h3 className="font-black text-2xl mt-3">DRAGÃO {d.t}</h3><p className="text-sm text-[var(--muted)]">{d.d}</p><div className="mt-4 h-2 rounded-full bg-black/30 overflow-hidden"><div className="h-full" style={{width:d.t==="BTC"?"88%":d.t==="ETH"?"68%":"48%",background:d.c}}/></div></article>)}</div><div className="grid lg:grid-cols-[1fr_1.2fr] gap-4 mt-4"><div className="panel p-5"><p className="font-black text-xl">👶 BABY × 🐝 CRYPY</p><p className="text-sm text-[var(--muted)] mt-2">BABY observa o mercado e traduz em linguagem simples. CRYPY guarda a colmeia e marca o que merece atenção.</p><div className="grid grid-cols-2 gap-3 mt-4"><div className="rounded-xl bg-black/25 p-3"><p className="green font-black">BABY</p><p className="text-xs text-[var(--muted)]">Aprende, resume e organiza.</p></div><div className="rounded-xl bg-black/25 p-3"><p className="gold font-black">CRYPY</p><p className="text-xs text-[var(--muted)]">Vigia, filtra e protege.</p></div></div></div><div className="panel p-5"><p className="font-black">Gráfico 3D — força dos dragões</p><div className="flex items-end gap-4 h-36 mt-6 justify-center">{bars.slice(0,3).map(b=><div key={b.l} className="text-center"><div className="bar3d w-14 sm:w-20 mx-auto rounded-t-lg bg-gradient-to-b from-[var(--gold)] to-[var(--green2)]" style={{height:`${b.h}px`}}/><p className="text-xs font-black mt-2">{b.l}</p></div>)}</div></div></div><h3 className="font-black text-2xl mt-7 mb-3">Preços em destaque</h3><PriceRow/></section>}
+
+      {page==="m02" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">02 · NFT-COLLECTION</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">NFT <span className="gold">COLLECTION</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">A coleção da Colmeia, organizada por origem, edição e território.</p><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">{[{t:"COLLECTION-CRYPY-NFT",d:"A coleção-mãe: tudo que nasce na Colmeia passa por aqui.",tag:"COLEÇÃO"},{t:"CRYPY-GENESIS",d:"A primeira coleção. Onde a história começa.",tag:"GENESIS"},{t:"CRYPY-NFT-EDITION",d:"Edições especiais, numeradas e com história própria.",tag:"EDITION"},{t:"CRYPYPASTA",d:"A coleção CrypyPasta: o lado criativo e misterioso da Colmeia.",tag:"CRYPYPASTA"},{t:"TERRENOS",d:"100 terrenos do mundo CRYPY-LAND. Cada terreno é um pedaço do território.",tag:"100 TERRENOS"},{t:"VITRINE",d:"As peças na Art-Figure e no marketplace, dentro da Colmeia.",tag:"VER V1–V12"}].map(x=><article key={x.t} className="panel p-5 card-hover"><span className="rounded-full bg-[var(--gold)] text-black px-2.5 py-1 text-[11px] font-black">{x.tag}</span><h3 className="font-black text-xl mt-3">{x.t}</h3><p className="text-sm text-[var(--muted)] mt-2">{x.d}</p>{x.t==="VITRINE" && <button className="btn-ghost mt-4" onClick={()=>go("m08")}>Art-Figure →</button>}</article>)}</div></section>}
+
+      {page==="m03" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">03 · ESQUADRÃO DAS CORES</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">ESQUADRÃO <span className="gold">DAS CORES</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">Um esquadrão, quatro cores, uma Colmeia. Cada cor guarda uma parte da história.</p><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">{[{n:"ALICE",c:"VERDE",bg:"#0d7a5f",d:"A linha de frente. Verde da proteção, da floresta e da Colmeia viva.",star:true},{n:"OURO",c:"DOURADO",bg:"#f2a900",d:"A cor do comando, do dragão BTC e do brilho da Colmeia.",star:false},{n:"AZUL",c:"AZUL",bg:"#5b6cff",d:"A cor da construção, da rede e do dragão ETH.",star:false},{n:"VERMELHO",c:"VERMELHO",bg:"#c22f2f",d:"A cor do alerta, da coragem e do coração do esquadrão.",star:false}].map(x=><article key={x.n} className="panel p-5 card-hover"><div className="h-20 rounded-xl grid place-items-center text-3xl font-black text-black" style={{background:x.bg}}>{x.n==="ALICE"?"💚":"●"}</div><h3 className="font-black text-xl mt-3">{x.n} <span className="text-sm text-[var(--muted)]">· {x.c}</span></h3><p className="text-sm text-[var(--muted)] mt-2">{x.d}</p>{x.star && <span className="inline-block mt-3 rounded-full bg-[var(--gold)] text-black px-3 py-1 text-xs font-black">ALICE VERDE · QUARTETO</span>}</article>)}</div><div className="panel p-5 mt-4"><p className="font-black text-xl">O quarteto em ação</p><p className="text-sm text-[var(--muted)] mt-2">ALICE verde lidera, o ouro comanda, o azul constrói e o vermelho protege. Juntos, o esquadrão mantém a Colmeia colorida e em movimento.</p></div></section>}
+
+      {page==="m04" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">04 · CRYPY ACADEMY</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">CRYPY <span className="gold">ACADEMY</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">Cursos, aprendizado e tutoriais da Colmeia.</p><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">{courses.map(c=><button key={c.t} onClick={()=>setSelectedCourse(c.t)} className={`panel p-5 text-left card-hover ${selectedCourse===c.t?"!border-[var(--gold)]":""}`}><span className="rounded-full bg-[var(--gold)] text-black px-2.5 py-1 text-[11px] font-black">{c.level} · {c.time}</span><h3 className="font-black text-lg mt-3 leading-snug">{c.t}</h3><p className="text-sm text-[var(--muted)] mt-2">{c.d}</p></button>)}</div><div className="panel p-5 mt-5"><p className="text-xs tracking-widest gold font-bold">CURSO SELECIONADO</p><h3 className="font-black text-2xl mt-1">{selectedCourse}</h3><p className="text-sm text-[var(--muted)] mt-1">{courses.find(c=>c.t===selectedCourse)?.d}</p></div></section>}
+
+      {page==="m05" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">05 · BIOGRAFIA</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">BIOGRAFIA <span className="gold">DA COLMEIA</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">Biografia, história e a memória que a Colmeia guarda.</p><div className="panel p-6 mt-6"><span className="w-14 h-14 hex bg-[var(--gold)] text-black grid place-items-center font-black text-2xl">C</span><h3 className="font-black text-2xl mt-4">A Colmeia</h3><p className="text-[var(--muted)] mt-2 leading-relaxed">A história da Colmeia: observar, aprender, proteger e ensinar. Cada página desta COLMÉIA-WEB3.1 guarda um pedaço dessa memória — dos dragões aos guardiões, da academia ao museu.</p></div><div className="grid md:grid-cols-3 gap-4 mt-4">{[{t:"O COMEÇO",d:"A ideia de uma colmeia que organiza tudo em um só lugar."},{t:"A CONSTRUÇÃO",d:"Dragões, BABY, CRYPY, cores, arte e território ganham forma."},{t:"A MEMÓRIA",d:"O museu guarda. A I.A. reconhece. O quadro mostra. Nada se perde."}].map(x=><div key={x.t} className="panel p-5"><p className="gold font-black text-sm tracking-widest">{x.t}</p><p className="text-sm text-[var(--muted)] mt-2">{x.d}</p></div>)}</div><div className="panel p-5 mt-4 flex flex-wrap gap-2 items-center justify-between"><div><p className="font-black text-xl">Museu Digital</p><p className="text-sm text-[var(--muted)]">Onde a memória vira exposição.</p></div><button className="btn-gold" onClick={()=>go("m07")}>Museu Digital →</button></div></section>}
+
+      {page==="m06" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">06 · CRYPY NEWS</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">CRYPY <span className="gold">NEWS</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">News Market autônoma: BABY absorve notícias e separa a melhor notícia do dia.</p><div className="panel p-5 mt-5 flex flex-wrap items-center justify-between gap-3"><div><p className="font-black text-xl">👶 BABY absorve notícias</p><p className="text-sm text-[var(--muted)]">Resumo automático às 00:00. Sem ruído, só o essencial.</p></div><button onClick={()=>setAutoNews(!autoNews)} className={autoNews?"btn-gold":"btn-ghost"}>{autoNews?"AUTO 00:00 LIGADO":"AUTO 00:00 DESLIGADO"}</button></div><div className="panel p-5 mt-4 border-dashed"><p className="text-xs tracking-widest gold font-bold">MELHOR NOTÍCIA DO DIA</p><h3 className="font-black text-2xl mt-1">{news[0].t}</h3><p className="text-sm text-[var(--muted)] mt-1">{news[0].d}</p></div><div className="grid md:grid-cols-2 gap-4 mt-4">{news.map((n,i)=><article key={i} className="panel p-5 card-hover"><span className="rounded-full bg-[var(--gold)] text-black px-2.5 py-1 text-[11px] font-black">{n.tag}</span><h3 className="font-black text-xl mt-3 leading-snug">{n.t}</h3><p className="text-sm text-[var(--muted)] mt-2">{n.d}</p><p className="text-xs mt-3 green font-bold">Absorvido pela BABY · {autoNews?"Próxima absorção: 00:00":"Absorção automática pausada"}</p></article>)}</div></section>}
+
+      {page==="m07" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">07 · MUSEU DIGITAL</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">MUSEU <span className="gold">DIGITAL</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">O museu digital da Colmeia: o arquivo definitivo da COLMÉIA-WEB3.1 / DEFINITIVA.</p><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">{[{t:"COLMEIA GUARDA",d:"A Colmeia guarda cada página, cada figura e cada notícia.",e:"🐝"},{t:"I.A. RECONHECE",d:"A I.A. reconhece o que cada peça significa e onde ela mora.",e:"🤖"},{t:"MUSEU ORGANIZA",d:"O Museu organiza tudo em salas, temas e coleções.",e:"🏛️"},{t:"QUADRO MOSTRA",d:"O Quadro mostra: cada sala vira uma exposição para visitar.",e:"🖼️"}].map(x=><article key={x.t} className="panel p-5 card-hover"><p className="text-4xl">{x.e}</p><h3 className="font-black text-lg mt-3">{x.t}</h3><p className="text-sm text-[var(--muted)] mt-2">{x.d}</p></article>)}</div><div className="panel p-5 mt-4"><p className="font-black text-xl">Salas do museu</p><div className="flex flex-wrap gap-2 mt-3">{["Sala dos Dragões","Sala das Cores","Sala Genesis","Sala CrypyPasta","Sala dos Guardiões","Sala da Memória"].map(s=><span key={s} className="rounded-full border border-[var(--gold)] px-4 py-2 text-sm font-bold">{s}</span>)}</div></div></section>}
+
+      {page==="m08" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">08 · ART-FIGURE / MARKETPLACE</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">ART-FIGURE <span className="gold">/ MARKETPLACE</span></h2><p className="text-[var(--muted)] mt-2">Coleção V1 a V12. V12 Guardião por último. A vitrine do marketplace mostra a coleção completa, dentro da Colmeia.</p><div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-6">{figures.map(f=><button key={f.v} onClick={()=>setSelectedFig(f.v)} className={`panel p-4 text-left card-hover ${selectedFig===f.v?"!border-[var(--gold)]":""}`}><div className="h-24 rounded-xl bg-gradient-to-br from-[#2a2305] via-[#123324] to-black grid place-items-center text-4xl">{f.v==="V12"?"👑":f.v==="V5"?"🟡":"🟢"}</div><p className="font-black mt-3">{f.v} — {f.name}</p><p className="text-xs text-[var(--muted)] mt-1">{f.detail}</p></button>)}</div><div className="panel p-5 mt-5"><p className="text-xs tracking-widest gold font-bold">VITRINE DO MARKETPLACE · DESTAQUE SELECIONADO</p><h3 className="font-black text-2xl mt-1">{selectedFig} — {figures.find(f=>f.v===selectedFig)?.name}</h3><p className="text-sm text-[var(--muted)] mt-1">{figures.find(f=>f.v===selectedFig)?.detail}</p>{selectedFig==="V12" && <span className="inline-block mt-3 rounded-full bg-[var(--gold)] text-black px-3 py-1 text-xs font-black">V12 LEGION · GUARDIÃO FINAL</span>}</div></section>}
+
+      {page==="m09" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">09 · CRYPY GAMES-ARCADE</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">GAMES <span className="gold">ARCADE</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">CRYPY-LAND em modo jogo: jogar, colecionar e habitar — tudo dentro da Colmeia.</p><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">{[{t:"CRYPY-LAND — 3D VIVO",d:"Território 3D em movimento.",e:"🌍"},{t:"CIDADE VIVA",d:"A cidade que respira com a colmeia.",e:"🏙️"},{t:"MAPA-COLMEIA",d:"Lista do território fictício: salas, bairros e terrenos da Colmeia.",e:"🗺️"},{t:"DEFENDER-GLOBAL",d:"Defesa global da colmeia, com LUCY em modo Defender.",e:"🛡️"},{t:"GAME + NFT + TERRENO",d:"Jogo, coleção e terreno juntos: 100 terrenos do mundo CRYPY-LAND.",e:"🎮"},{t:"ARCADE",d:"O arcade da Colmeia: fases curtas, placar e diversão em loop.",e:"🕹️"}].map(x=><article key={x.t} className="panel p-5 card-hover"><p className="text-4xl">{x.e}</p><h3 className="font-black text-lg mt-3">{x.t}</h3><p className="text-sm text-[var(--muted)] mt-2">{x.d}</p></article>)}</div><div className="panel p-5 mt-4"><p className="font-black text-xl">Território fictício — lista do mapa-colmeia</p><ul className="mt-3 space-y-2 text-sm text-[var(--muted)]"><li>• Centro da Colmeia — onde BABY e CRYPY se encontram.</li><li>• Bairro dos Dragões — BTC, ETH e USDT.</li><li>• Bairro das Cores — o quarteto e ALICE verde.</li><li>• Distrito Arcade — jogos, fases e placar.</li><li>• 100 terrenos — o mundo CRYPY-LAND completo.</li></ul></div></section>}
+
+      {page==="m10" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">10 · CRYPY-SOCIAL</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">CRYPY <span className="gold">SOCIAL</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">CRYPYKUT: a rede social da Colmeia — fotos, vídeos e conversa, dentro daqui.</p><div className="grid md:grid-cols-3 gap-4 mt-6"><div className="panel p-5"><p className="text-4xl">📸</p><h3 className="font-black text-xl mt-3">CRYPYKUT — FOTOS</h3><p className="text-sm text-[var(--muted)] mt-2">Galeria da colmeia em imagens: dragões, esquadrão, figuras e museu.</p></div><div className="panel p-5"><p className="text-4xl">🎬</p><h3 className="font-black text-xl mt-3">CRYPYKUT — VÍDEOS</h3><p className="text-sm text-[var(--muted)] mt-2">Registros em movimento da colmeia: cidade viva, arcade e bastidores.</p></div><div className="panel p-5 border-dashed"><p className="text-4xl">🗑️</p><h3 className="font-black text-xl mt-3">LIXEIRA-DE-FOTOS</h3><p className="text-sm text-[var(--muted)] mt-2">Fotos removidas da galeria ficam guardadas aqui, para revisar antes de sumir de vez.</p><span className="inline-block mt-3 rounded-full bg-[var(--gold)] text-black px-3 py-1 text-xs font-black">REVISAR ANTES DE APAGAR</span></div></div><div className="panel p-5 mt-4"><p className="font-black text-xl">Como funciona o social</p><ul className="mt-3 space-y-2 text-sm text-[var(--muted)]"><li>• A Colmeia mostra o que já faz parte da história.</li><li>• BABY organiza. CRYPY protege.</li><li>• A lixeira guarda o que saiu da galeria.</li></ul></div></section>}
+
+      {page==="m11" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">11 · BABY I.A.</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">BABY <span className="gold">I.A.</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">A inteligência da Colmeia, por dentro. Módulos da BABY I.A.</p><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">{babyModules.map(b=><button key={b.t} onClick={()=>setSelectedBaby(b.t)} className={`panel p-4 text-left card-hover ${selectedBaby===b.t?"!border-[var(--gold)]":""}`}><p className="font-black leading-snug">{b.t}</p><p className="text-sm text-[var(--muted)] mt-1">{b.d}</p></button>)}</div><div className="panel p-5 mt-5"><p className="text-xs tracking-widest gold font-bold">MÓDULO SELECIONADO</p><h3 className="font-black text-2xl mt-1">{selectedBaby}</h3><p className="text-sm text-[var(--muted)] mt-1">{babyModules.find(b=>b.t===selectedBaby)?.d}</p><span className="inline-block mt-3 rounded-full bg-[var(--green)] text-black px-3 py-1 text-xs font-black">BABY ONLINE</span></div></section>}
+
+      {page==="m12" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">12 · WHITE PAPER / CRYPY COIN</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">WHITE PAPER <span className="gold">/ CRYPY COIN</span></h2><p className="mt-2 text-[var(--muted)] max-w-2xl">O documento da Colmeia: o que ela é, como funciona e onde a CRYPYCOIN vive.</p><div className="grid md:grid-cols-3 gap-4 mt-6">{[{t:"VISÃO",d:"Uma colmeia que organiza preços, arte, notícias, território e memória em um só lugar."},{t:"COMO FUNCIONA",d:"BABY traduz. CRYPY protege. O Museu guarda. O Quadro mostra."},{t:"CRYPYCOIN",d:"Sem cotação pública exibida. A moeda vive primeiro na história, na arte e na comunidade. Não há preço inventado para ela."}].map(x=><div key={x.t} className="panel p-5"><p className="gold font-black text-sm tracking-widest">{x.t}</p><p className="text-sm text-[var(--muted)] mt-2">{x.d}</p></div>)}</div><div className="panel p-5 mt-4 border-dashed"><p className="font-black text-xl">CRYPYCOIN — SEM COTAÇÃO</p><p className="text-sm text-[var(--muted)] mt-1">Sem cotação pública. Presença, não preço.</p></div><h3 className="font-black text-2xl mt-7 mb-3">Tokens acompanhados</h3><PriceRow/></section>}
+
+      {page==="m13" && <section className="mt-5"><p className="text-xs tracking-widest green font-bold">13 · CONTATO</p><h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-black">CONTATO <span className="gold">OFICIAL</span></h2><div className="grid lg:grid-cols-2 gap-4 mt-6"><div className="panel p-6"><span className="w-14 h-14 hex bg-[var(--gold)] text-black grid place-items-center font-black text-2xl">C</span><h3 className="font-black text-2xl mt-4">Canal oficial da Colmeia</h3><p className="text-[var(--muted)] mt-2">Canal oficial listado dentro da COLMÉIA-WEB3.1.</p><div className="mt-5 rounded-xl bg-black/25 p-4"><p className="text-xs text-[var(--muted)]">CANAL OFICIAL</p><p className="font-black text-lg mt-1" style={{overflowWrap:"anywhere"}}>contato@colmeia-web3.exemplo</p><p className="text-sm text-[var(--muted)] mt-1">Resposta organizada pela BABY, com proteção da CRYPY.</p></div></div><div className="panel p-6"><h3 className="font-black text-xl">Temas</h3><ul className="mt-3 space-y-3 text-sm text-[var(--muted)]"><li>• Página visitada no menu ou nos INDEX.</li><li>• Arte, painel, NFT ou CRYPY-LAND.</li><li>• Mensagem clara e curta.</li></ul><div className="mt-5 grid grid-cols-2 gap-3"><div className="rounded-xl border border-[var(--line)] p-3"><p className="green font-black">BABY</p><p className="text-xs text-[var(--muted)]">Recebe e organiza</p></div><div className="rounded-xl border border-[var(--line)] p-3"><p className="gold font-black">CRYPY</p><p className="text-xs text-[var(--muted)]">Filtra e protege</p></div></div></div></div></section>}
+    </main>
+  </div>
 }
