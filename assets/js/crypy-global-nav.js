@@ -1,4 +1,4 @@
-/* CRYPY WEB3.1 — Menu único da Colmeia: 14 categorias oficiais. */
+/* CRYPY WEB3.1 — Menu único da Colmeia: 13 categorias oficiais. */
 (function () {
   "use strict";
   if (window.__CRYPY_GLOBAL_NAV__) return;
@@ -8,7 +8,9 @@
   var siteRoot = new URL("../../", scriptUrl);
   if (window.top === window.self && !document.querySelector('script[data-crypy-global-runtime="true"]')) {
     var runtime = document.createElement("script");
-    runtime.src = new URL("assets/js/crypy-global-runtime.js", siteRoot).href;
+    var runtimeUrl = new URL("assets/js/crypy-global-runtime.js", siteRoot);
+    runtimeUrl.searchParams.set("v", "20261128-global-colmeia-1");
+    runtime.src = runtimeUrl.href;
     runtime.defer = true;
     runtime.dataset.crypyGlobalRuntime = "true";
     (document.head || document.documentElement).appendChild(runtime);
