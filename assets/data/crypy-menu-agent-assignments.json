@@ -14,7 +14,7 @@
       "agentId": "baby",
       "agentName": "BABY",
       "role": "núcleo e orquestrador",
-      "entrypoint": "CRYPY-INFINYT/crypy-infinity.html",
+      "entrypoint": "CRYPY-INFINYT/index.html",
       "exactPaths": [],
       "pathPrefixes": [
         "/crypy-infinyt/"
