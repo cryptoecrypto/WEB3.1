@@ -94,6 +94,10 @@ function menuGroupFor(file) {
   };
   return map[first] || null;
 }
+function isLegacyIndex(file) {
+  const normalized=normalize(file);
+  return normalized.startsWith("index/") || /^index(?:[2-9]|10)\.html$/.test(normalized);
+}
 function extension(file) {
   const ext=path.posix.extname(file).replace(/^\./,"").toLowerCase();
   return ext||"[sem-extensão]";
@@ -152,8 +156,9 @@ for(const file of files) {
   const html=fs.readFileSync(absolute,"utf8");
   if(!/<(?:!doctype\s+html|html\b|body\b)/i.test(html)||html.includes("\u0000")){invalid++;continue;}
   const group=menuGroupFor(file);
-  if(!group){preserved++;continue;}
-  pages.push({path:file,label:label(file),group});
+  const legacyIndex=!group && isLegacyIndex(file) && !isProtected(file) && !isSensitive(file);
+  if(!group && !legacyIndex){preserved++;continue;}
+  if(group) pages.push({path:file,label:label(file),group});
   const directory=path.posix.dirname(file);
   let source=path.posix.relative(directory==="."?"":directory,navAsset);
   if(!source.startsWith("."))source="./"+source;
