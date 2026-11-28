@@ -7,7 +7,7 @@ const applyChanges = process.argv.includes("--apply");
 const branch = process.env.GITHUB_REF_NAME || process.env.GITHUB_REF?.split("/").pop() || "main";
 const skip = new Set([".git","node_modules",".baby",".tmp",".cache",".venv","__pycache__","dist","build","coverage","out","target",".next",".vite"]);
 const protectedNames = new Set([
-  "index.htm","chatboot-global.html","chatboot-baby-ia.html",
+  "index.htm","crypy-infinity.html","chatboot-global.html","chatboot-baby-ia.html",
   "hd-baby-ia.html","hd-babyia.html","hd-memory.html","hd-baby-ia-completo-tudo.html"
 ]);
 const protectedPaths = [
